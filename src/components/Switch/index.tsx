@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Switch as ChakraSwitch, FormLabel } from '@chakra-ui/react'
+import { Switch as ChakraSwitch, FormLabel, useTheme } from '@chakra-ui/react'
 import { SwitchProps } from './types'
 import {
   SwitchContainer,
@@ -8,7 +8,6 @@ import {
   SwitchIconContainer,
   SwitchIconHover,
 } from './styled'
-import { wriColors } from '../../lib/theme'
 
 const Switch = ({
   id,
@@ -18,14 +17,12 @@ const Switch = ({
   onChange,
   isDisabled = false,
   isLabelOnRight = false,
-  neutral300 = wriColors['neutral-300'],
-  neutral500 = wriColors['neutral-500'],
-  primary200 = wriColors['primary-200'],
-  primary500 = wriColors['primary-500'],
-  primary700 = wriColors['primary-700'],
 }: SwitchProps) => {
   const [isLocalChecked, setIsLocalChecked] = useState(isChecked)
   const [isFocused, setIsFocused] = useState(false)
+  const theme = useTheme()
+
+  const { neutral, primary } = theme?.colors?.wri || {}
 
   useEffect(() => {
     setIsLocalChecked(isChecked)
@@ -41,12 +38,12 @@ const Switch = ({
   }
 
   const getBackgroundColor = () => {
-    let backgroundColor = neutral500
+    let backgroundColor = neutral?.[500]
     if (isLocalChecked) {
-      backgroundColor = primary500
+      backgroundColor = primary?.[500]
     }
 
-    return isDisabled ? neutral300 : backgroundColor
+    return isDisabled ? neutral?.[300] : backgroundColor
   }
 
   return (
@@ -55,7 +52,7 @@ const Switch = ({
       isFocused={isFocused}
       isDisabled={isDisabled}
       backgroundColor={getBackgroundColor()}
-      primary200={primary200}
+      checkedAndDisabledColor={primary?.[200]}
     >
       {!isLabelOnRight ? (
         <FormLabel htmlFor={id} mb='0'>
@@ -66,7 +63,7 @@ const Switch = ({
         {!isDisabled ? <SwitchIconHover className='switch-icon-hover' /> : null}
         {isLocalChecked && !isDisabled ? (
           <SwitchIconContainer>
-            <SwitchIcon onClick={handleOnIconClick} color={primary700} />
+            <SwitchIcon onClick={handleOnIconClick} color={primary?.[700]} />
           </SwitchIconContainer>
         ) : null}
         <ChakraSwitch

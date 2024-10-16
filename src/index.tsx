@@ -4,11 +4,12 @@ import { ChakraProvider } from '@chakra-ui/react'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { theme } from './lib/theme'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <App />
     </ChakraProvider>
   </React.StrictMode>,
@@ -18,3 +19,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()
+
+export * from './components'

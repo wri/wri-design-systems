@@ -14,8 +14,8 @@ export const SwitchContainer = styled.div<SwitchContainerProps>`
   }
 
   .chakra-switch__thumb {
-    background-color: ${({ isChecked, isDisabled, primary200 }) =>
-      isChecked && isDisabled ? primary200 : 'white'};
+    background-color: ${({ isChecked, isDisabled, checkedAndDisabledColor }) =>
+      isChecked && isDisabled ? checkedAndDisabledColor : 'white'};
     height: 16px;
     width: 16px;
     position: relative;
@@ -65,7 +65,7 @@ export const SwitchIconContainer = styled.div`
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: white;
+  background-color: transparent;
   position: absolute;
   top: 4px;
   left: 21px;

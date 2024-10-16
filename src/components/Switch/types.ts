@@ -6,11 +6,6 @@ export interface SwitchProps {
   isChecked?: boolean
   isDisabled?: boolean
   isLabelOnRight?: boolean
-  neutral300?: string
-  neutral500?: string
-  primary200?: string
-  primary500?: string
-  primary700?: string
 }
 
 export interface SwitchContainerProps {
@@ -18,5 +13,5 @@ export interface SwitchContainerProps {
   isFocused: boolean
   isDisabled: boolean
   backgroundColor: string
-  primary200: string
+  checkedAndDisabledColor: string
 }
