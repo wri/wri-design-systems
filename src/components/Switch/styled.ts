@@ -11,11 +11,12 @@ export const SwitchContainer = styled.div<SwitchContainerProps>`
     height: 20px;
     width: 36px;
     opacity: 1 !important;
+    box-shadow: none;
   }
 
   .chakra-switch__thumb {
-    background-color: ${({ isChecked, isDisabled, checkedAndDisabledColor }) =>
-      isChecked && isDisabled ? checkedAndDisabledColor : 'white'};
+    background-color: ${({ checkedAndDisabledColor }) =>
+      checkedAndDisabledColor};
     height: 16px;
     width: 16px;
     position: relative;

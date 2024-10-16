@@ -1,10 +1,10 @@
 import type { Preview } from '@storybook/react'
-import { theme } from '../src/lib/theme'
+import { wriTheme } from '../src/lib/theme'
 
 const preview: Preview = {
   parameters: {
     chakra: {
-      theme,
+      theme: wriTheme,
     },
     controls: {
       matchers: {

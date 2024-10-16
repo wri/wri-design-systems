@@ -1,11 +1,11 @@
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
-import external from 'rollup-plugin-peer-deps-external';
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
+import typescript from '@rollup/plugin-typescript'
+import external from 'rollup-plugin-peer-deps-external'
 import terser from '@rollup/plugin-terser'
-import dts from 'rollup-plugin-dts';
-import postcss from 'rollup-plugin-postcss';
-import packageJson from './package.json' assert { type: 'json' };
+import dts from 'rollup-plugin-dts'
+import postcss from 'rollup-plugin-postcss'
+import packageJson from './package.json' assert { type: 'json' }
 
 export default [
   {
@@ -27,11 +27,14 @@ export default [
       // resolve(),
       resolve({ extensions: ['.ts', '.tsx'] }),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json', exclude: ['**/*.test.tsx', '**/*.test.ts', '**/*.stories.ts'] }),
+      typescript({
+        tsconfig: './tsconfig.json',
+        exclude: ['**/*.test.tsx', '**/*.test.ts', '**/*.stories.ts'],
+      }),
       postcss({ extensions: ['.css'], inject: true, extract: false }),
       terser(),
     ],
-    external: ["react", "react-dom"],
+    external: ['react', 'react-dom'],
   },
   {
     input: 'src/index.tsx',
@@ -39,4 +42,4 @@ export default [
     plugins: [dts()],
     external: [/\.css$/],
   },
-];
+]

@@ -1,7 +1,7 @@
 export interface SwitchProps {
   id: string
   ariaLabel: string
-  onChange: (value: boolean) => void
+  onChange?: (value: boolean) => void
   label?: string
   isChecked?: boolean
   isDisabled?: boolean

@@ -3,7 +3,7 @@ name: Build and Publish WRI Design Systems to GitHub Pages
 on:
   push:
     branches:
-      - "main"
+      - 'main'
 
 permissions:
   contents: read

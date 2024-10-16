@@ -8,6 +8,7 @@ import {
   SwitchIconContainer,
   SwitchIconHover,
 } from './styled'
+import { getThemedColor } from '../../lib/theme'
 
 const Switch = ({
   id,
@@ -22,15 +23,16 @@ const Switch = ({
   const [isFocused, setIsFocused] = useState(false)
   const theme = useTheme()
 
-  const { neutral, primary } = theme?.colors?.wri || {}
-
   useEffect(() => {
     setIsLocalChecked(isChecked)
   }, [isChecked])
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.checked)
     setIsLocalChecked(e.target.checked)
+
+    if (onChange) {
+      onChange(e.target.checked)
+    }
   }
 
   const handleOnIconClick = () => {
@@ -38,12 +40,14 @@ const Switch = ({
   }
 
   const getBackgroundColor = () => {
-    let backgroundColor = neutral?.[500]
+    let backgroundColor = getThemedColor(theme.colors, 'neutral', 500)
     if (isLocalChecked) {
-      backgroundColor = primary?.[500]
+      backgroundColor = getThemedColor(theme.colors, 'primary', 500)
     }
 
-    return isDisabled ? neutral?.[300] : backgroundColor
+    return isDisabled
+      ? getThemedColor(theme.colors, 'neutral', 300)
+      : backgroundColor
   }
 
   return (
@@ -52,7 +56,11 @@ const Switch = ({
       isFocused={isFocused}
       isDisabled={isDisabled}
       backgroundColor={getBackgroundColor()}
-      checkedAndDisabledColor={primary?.[200]}
+      checkedAndDisabledColor={
+        isChecked && isDisabled
+          ? getThemedColor(theme.colors, 'primary', 200)
+          : getThemedColor(theme.colors, 'neutral', 100)
+      }
     >
       {!isLabelOnRight ? (
         <FormLabel htmlFor={id} mb='0'>
@@ -63,7 +71,10 @@ const Switch = ({
         {!isDisabled ? <SwitchIconHover className='switch-icon-hover' /> : null}
         {isLocalChecked && !isDisabled ? (
           <SwitchIconContainer>
-            <SwitchIcon onClick={handleOnIconClick} color={primary?.[700]} />
+            <SwitchIcon
+              onClick={handleOnIconClick}
+              color={getThemedColor(theme.colors, 'primary', 700)}
+            />
           </SwitchIconContainer>
         ) : null}
         <ChakraSwitch
