@@ -14,6 +14,7 @@ const Switch = ({
   id,
   label,
   ariaLabel,
+  name,
   isChecked = false,
   onChange,
   isDisabled = false,
@@ -80,6 +81,7 @@ const Switch = ({
         <ChakraSwitch
           id={id}
           aria-label={label || ariaLabel}
+          name={name}
           isChecked={isLocalChecked}
           onChange={handleOnChange}
           isDisabled={isDisabled}

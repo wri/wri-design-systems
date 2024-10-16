@@ -1,7 +1,8 @@
 export interface ButtonProps {
+  id: string
   ariaLabel: string
-  id?: string
   label?: string
+  name?: string
   isLoading?: boolean
   variant?: 'primary' | 'secondary' | 'borderless' | 'outline'
   size?: 'default' | 'small'

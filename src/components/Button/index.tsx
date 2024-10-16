@@ -7,9 +7,10 @@ import {
 } from './styled'
 
 const Button = ({
-  ariaLabel,
   id,
   label,
+  ariaLabel,
+  name,
   isLoading,
   variant = 'primary',
   size = 'default',
@@ -29,8 +30,9 @@ const Button = ({
 
   return (
     <StyledButton
-      aria-label={label || ariaLabel}
       id={id}
+      aria-label={label || ariaLabel}
+      name={name}
       isLoading={isLoading}
       size={size}
       isDisabled={isDisabled}
