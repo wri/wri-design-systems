@@ -1,4 +1,4 @@
-import { SwitchProps as ChakraSwitchProps } from "@chakra-ui/react"
+import { SwitchProps as ChakraSwitchProps } from '@chakra-ui/react'
 
 export type SwitchProps = ChakraSwitchProps & {
   id: string

@@ -48,15 +48,16 @@ export const DefaultTab = styled(Button)<{
   ${({ isOnLeft, theme }) =>
     isOnLeft
       ? `border-right: 1px solid ${getThemedColor(theme.colors, 'neutral', 300)};`
-      : ''
-  };
+      : ''};
 
   &:hover {
-    background-color: ${({ theme }) => getThemedColor(theme.colors, 'neutral', 100)};
+    background-color: ${({ theme }) =>
+      getThemedColor(theme.colors, 'neutral', 100)};
   }
 
   &:focus {
-    background-color: ${({ theme }) => getThemedColor(theme.colors, 'neutral', 100)};
+    background-color: ${({ theme }) =>
+      getThemedColor(theme.colors, 'neutral', 100)};
   }
 `
 
