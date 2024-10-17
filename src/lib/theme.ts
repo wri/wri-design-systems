@@ -22,7 +22,7 @@ export const wriTheme = extendTheme({
         900: '#332300',
       },
       secondary: {
-        500: '',
+        500: '#3855A3',
       },
     },
   },

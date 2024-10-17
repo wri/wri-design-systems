@@ -1,13 +1,8 @@
-export interface ButtonProps {
-  id: string
-  ariaLabel: string
+import { ButtonProps as ChakraButtonProps } from "@chakra-ui/react"
+
+export type ButtonProps = ChakraButtonProps & {
   label?: string
-  name?: string
   isLoading?: boolean
   variant?: 'primary' | 'secondary' | 'borderless' | 'outline'
   size?: 'default' | 'small'
-  isDisabled?: boolean
-  onClick?: () => void
-  leftIcon?: React.ReactElement
-  rightIcon?: React.ReactElement
 }

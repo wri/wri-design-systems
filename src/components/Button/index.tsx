@@ -7,17 +7,11 @@ import {
 } from './styled'
 
 const Button = ({
-  id,
   label,
-  ariaLabel,
-  name,
   isLoading,
   variant = 'primary',
   size = 'default',
-  isDisabled,
-  onClick,
-  leftIcon,
-  rightIcon,
+  ...rest
 }: ButtonProps) => {
   let StyledButton = PrimaryButton
   if (variant === 'secondary') {
@@ -30,15 +24,10 @@ const Button = ({
 
   return (
     <StyledButton
-      id={id}
-      aria-label={label || ariaLabel}
-      name={name}
+      aria-label={label || rest['aria-label']}
       isLoading={isLoading}
       size={size}
-      isDisabled={isDisabled}
-      onClick={onClick}
-      leftIcon={leftIcon}
-      rightIcon={rightIcon}
+      {...rest}
     >
       {label}
     </StyledButton>

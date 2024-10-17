@@ -3,7 +3,7 @@ import { Button } from '@chakra-ui/react'
 import { getThemedColor, ThemeProps } from '../../lib/theme'
 
 export const BaseButton = styled(Button)`
-  width: ${({ size }) => (size === 'small' ? '120px' : '227px')};
+  min-width: ${({ size }) => (size === 'small' ? '120px' : '227px')};
   height: ${({ size }) => (size === 'small' ? '24px' : '40px')};
   font-size: ${({ size }) => (size === 'small' ? '12px' : '16px')};
   line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};

@@ -13,12 +13,11 @@ import { getThemedColor } from '../../lib/theme'
 const Switch = ({
   id,
   label,
-  ariaLabel,
-  name,
   isChecked = false,
   onChange,
   isDisabled = false,
   isLabelOnRight = false,
+  ...rest
 }: SwitchProps) => {
   const [isLocalChecked, setIsLocalChecked] = useState(isChecked)
   const [isFocused, setIsFocused] = useState(false)
@@ -80,13 +79,13 @@ const Switch = ({
         ) : null}
         <ChakraSwitch
           id={id}
-          aria-label={label || ariaLabel}
-          name={name}
+          aria-label={label || rest['aria-label']}
           isChecked={isLocalChecked}
           onChange={handleOnChange}
           isDisabled={isDisabled}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          {...rest}
         />
       </SwitchContent>
       {isLabelOnRight ? (

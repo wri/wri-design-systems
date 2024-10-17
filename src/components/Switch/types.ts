@@ -1,15 +1,14 @@
-export interface SwitchProps {
+import { SwitchProps as ChakraSwitchProps } from "@chakra-ui/react"
+
+export type SwitchProps = ChakraSwitchProps & {
   id: string
-  ariaLabel: string
   label?: string
-  name?: string
   onChange?: (value: boolean) => void
-  isChecked?: boolean
   isDisabled?: boolean
   isLabelOnRight?: boolean
 }
 
-export interface SwitchContainerProps {
+export type SwitchContainerProps = {
   isChecked: boolean
   isFocused: boolean
   isDisabled: boolean
