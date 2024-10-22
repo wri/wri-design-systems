@@ -9,6 +9,7 @@ export const wriTheme = extendTheme({
         300: '#E7E6E6',
         400: '#C9C9C9',
         500: '#9B9B9B',
+        600: '#686767',
         700: '#4F4E4E',
         800: '#1A1919',
       },
@@ -37,6 +38,7 @@ export type ThemeProps = Theme & {
         300: string
         400: string
         500: string
+        600: string
         700: string
         800: string
       }
