@@ -75,6 +75,16 @@ export const SwitchIconContainer = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  transform: translateX(-18px);
+  transition-property: transform;
+  transition-duration: 200ms;
+
+  &.move-me {
+    transform: translateX(0px);
+    transition-property: transform;
+    transition-duration: 100ms;
+  }
 `
 
 export const SwitchIcon = styled(CheckIcon)`

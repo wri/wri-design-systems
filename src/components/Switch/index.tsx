@@ -69,14 +69,16 @@ const Switch = ({
       ) : null}
       <SwitchContent>
         {!isDisabled ? <SwitchIconHover className='switch-icon-hover' /> : null}
-        {isLocalChecked && !isDisabled ? (
-          <SwitchIconContainer>
+        <SwitchIconContainer
+          className={isLocalChecked && !isDisabled ? 'move-me' : ''}
+        >
+          {isLocalChecked && !isDisabled ? (
             <SwitchIcon
               onClick={handleOnIconClick}
               color={getThemedColor(theme.colors, 'primary', 700)}
             />
-          </SwitchIconContainer>
-        ) : null}
+          ) : null}
+        </SwitchIconContainer>
         <ChakraSwitch
           id={id}
           aria-label={label || rest['aria-label']}
