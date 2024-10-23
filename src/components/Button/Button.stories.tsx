@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { SettingsIcon } from '@chakra-ui/icons'
 import Button from '.'
 
 const meta = {
@@ -40,5 +41,29 @@ export const Outline: Story = {
   args: {
     label: 'Outline',
     variant: 'outline',
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    label: 'Primary',
+    variant: 'primary',
+    isDisabled: true,
+  },
+}
+
+export const WithLeftIcon: Story = {
+  args: {
+    label: 'Outline',
+    variant: 'primary',
+    leftIcon: <SettingsIcon />,
+  },
+}
+
+export const WithRightIcon: Story = {
+  args: {
+    label: 'Outline',
+    variant: 'primary',
+    rightIcon: <SettingsIcon />,
   },
 }

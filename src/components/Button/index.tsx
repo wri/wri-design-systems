@@ -11,6 +11,7 @@ const Button = ({
   isLoading,
   variant = 'primary',
   size = 'default',
+  isDisabled,
   ...rest
 }: ButtonProps) => {
   let StyledButton = PrimaryButton
@@ -27,6 +28,7 @@ const Button = ({
       aria-label={label || rest['aria-label']}
       isLoading={isLoading}
       size={size}
+      isDisabled={isDisabled}
       {...rest}
     >
       {label}

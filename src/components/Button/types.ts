@@ -5,4 +5,5 @@ export type ButtonProps = Omit<ChakraButtonProps, 'colorScheme'> & {
   isLoading?: boolean
   variant?: 'primary' | 'secondary' | 'borderless' | 'outline'
   size?: 'default' | 'small'
+  isDisabled?: boolean
 }

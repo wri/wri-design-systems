@@ -3,14 +3,18 @@ import { Button } from '@chakra-ui/react'
 import { getThemedColor, ThemeProps } from '../../lib/theme'
 
 export const BaseButton = styled(Button)`
-  min-width: ${({ size }) => (size === 'small' ? '120px' : '227px')};
+  width: ${({ size }) => (size === 'small' ? '120px' : '227px')};
   height: ${({ size }) => (size === 'small' ? '24px' : '40px')};
   font-size: ${({ size }) => (size === 'small' ? '12px' : '16px')};
   line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};
   font-weight: 700;
-  padding: 4px 12px;
+  padding: ${({ size }) => (size === 'small' ? '4px 12px' : '6px 12px')};
   border-radius: 4px;
   box-shadow: 0px 1px 2px 0px #0000000d;
+
+  &:focus-visible {
+    box-shadow: none;
+  }
 `
 
 export const PrimaryButton = styled(BaseButton)`
@@ -46,7 +50,7 @@ export const PrimaryButton = styled(BaseButton)`
       }
 
       &:focus {
-        outline-color: ${getThemedColor(theme.colors, 'primary', 500)};
+        outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
         background-color: ${getThemedColor(theme.colors, 'primary', 500)};
         border: 2px solid ${getThemedColor(theme.colors, 'primary', 500)};
       }
@@ -87,7 +91,7 @@ export const SecondaryButton = styled(BaseButton)`
       }
 
       &:focus {
-        outline-color: ${getThemedColor(theme.colors, 'neutral', 700)};
+        outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
       }
     `
   }};
@@ -128,7 +132,7 @@ export const BorderlessButton = styled(BaseButton)`
       }
 
       &:focus {
-        outline-color: ${getThemedColor(theme.colors, 'neutral', 700)};
+        outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
       }
     `
   }};
@@ -166,7 +170,7 @@ export const OutlineButton = styled(BaseButton)`
       }
 
       &:focus {
-        outline-color: ${getThemedColor(theme.colors, 'primary', 800)};
+        outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
         background-color: ${getThemedColor(theme.colors, 'primary', 100)};
       }
     `

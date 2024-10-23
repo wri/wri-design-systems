@@ -59,6 +59,10 @@ export const DefaultTab = styled(Button)<{
     background-color: ${({ theme }) =>
       getThemedColor(theme.colors, 'neutral', 100)};
   }
+
+  &:focus-visible {
+    box-shadow: none;
+  }
 `
 
 export const NavigationRailTab = styled(DefaultTab)<{
