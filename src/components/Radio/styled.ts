@@ -20,9 +20,8 @@ export const StyledRadio = styled(Radio)<{
       ${({ theme }) => getThemedColor(theme.colors, 'primary', 500)}40;
   }
 
-  &:focus,
   &:focus-visible,
-  &[data-focus] {
+  &[data-focus-visible] {
     outline: 2px solid
       ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
     outline-offset: 2px;

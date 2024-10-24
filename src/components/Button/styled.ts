@@ -49,7 +49,7 @@ export const PrimaryButton = styled(BaseButton)`
         box-shadow: 0px 4px 6px -1px #0000001A;
       }
 
-      &:focus {
+      &:focus-visible {
         outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
         background-color: ${getThemedColor(theme.colors, 'primary', 500)};
         border: 2px solid ${getThemedColor(theme.colors, 'primary', 500)};
@@ -90,7 +90,7 @@ export const SecondaryButton = styled(BaseButton)`
         box-shadow: 0px 4px 6px -1px #0000001A;
       }
 
-      &:focus {
+      &:focus-visible {
         outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
       }
     `
@@ -131,7 +131,7 @@ export const BorderlessButton = styled(BaseButton)`
         box-shadow: 0px 4px 6px -1px #0000001A;
       }
 
-      &:focus {
+      &:focus-visible {
         outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
       }
     `
@@ -169,7 +169,7 @@ export const OutlineButton = styled(BaseButton)`
         border: 1px solid ${getThemedColor(theme.colors, 'primary', 900)} !important;
       }
 
-      &:focus {
+      &:focus-visible {
         outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
         background-color: ${getThemedColor(theme.colors, 'primary', 100)};
       }

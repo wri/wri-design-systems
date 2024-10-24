@@ -7,7 +7,7 @@ export type NavigationRailTabProps = {
 } & ButtonProps
 
 export type NavigationRailProps = {
-  tabs?: NavigationRailTabProps[]
+  tabs: NavigationRailTabProps[]
   isOnLeft?: boolean
   defaultActiveTabId?: string
   onTabClick?: (tabId: string) => void
