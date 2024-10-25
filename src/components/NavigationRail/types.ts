@@ -1,10 +1,13 @@
-import { ButtonProps } from '@chakra-ui/react'
+import { ButtonProps as ChakraButtonProps } from '@chakra-ui/react'
 
-export type NavigationRailTabProps = {
+export type NavigationRailTabProps = Omit<
+  ChakraButtonProps,
+  'size' | 'variant' | 'colorScheme'
+> & {
   id: string
   label: string
   icon?: React.ReactElement | React.ReactNode
-} & ButtonProps
+}
 
 export type NavigationRailProps = {
   tabs: NavigationRailTabProps[]

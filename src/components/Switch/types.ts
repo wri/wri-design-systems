@@ -1,6 +1,9 @@
 import { SwitchProps as ChakraSwitchProps } from '@chakra-ui/react'
 
-export type SwitchProps = Omit<ChakraSwitchProps, 'colorScheme'> & {
+export type SwitchProps = Omit<
+  ChakraSwitchProps,
+  'size' | 'variant' | 'colorScheme'
+> & {
   id: string
   label?: string
   onChange?: (value: boolean) => void

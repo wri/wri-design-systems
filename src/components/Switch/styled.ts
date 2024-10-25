@@ -75,12 +75,13 @@ export const SwitchIconContainer = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
+  z-index: -1;
   transform: translateX(-18px);
   transition-property: transform;
   transition-duration: 200ms;
 
   &.move-me {
+    z-index: 1;
     transform: translateX(0px);
     transition-property: transform;
     transition-duration: 100ms;
