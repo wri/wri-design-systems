@@ -24,6 +24,8 @@ export const wriTheme = extendTheme({
       },
       secondary: {
         500: '#3855A3',
+        600: '#263A71',
+        700: '#1F2F5C',
       },
     },
   },
