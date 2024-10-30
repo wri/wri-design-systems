@@ -7,9 +7,15 @@ const meta = {
   title: 'Navigation Rail',
   component: NavigationRail,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: 600,
+      },
+    },
   },
-  // tags: ['autodocs'],
+  tags: ['autodocs'],
   args: { onTabClick: fn() },
 } satisfies Meta<typeof NavigationRail>
 
@@ -24,5 +30,17 @@ export const NavigationRailActive: Story = {
       { id: 'label-3', label: 'Label 3', icon: <AddIcon /> },
     ],
     defaultActiveTabId: 'label-1',
+  },
+}
+
+export const NavigationRailActiveLeft: Story = {
+  args: {
+    tabs: [
+      { id: 'label-1', label: 'Label 1', icon: <PlusSquareIcon /> },
+      { id: 'label-2', label: 'Label 2', icon: <SettingsIcon /> },
+      { id: 'label-3', label: 'Label 3', icon: <AddIcon /> },
+    ],
+    defaultActiveTabId: 'label-1',
+    isOnLeft: true,
   },
 }

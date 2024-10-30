@@ -8,7 +8,9 @@ const TabBar = ({
   defaultActiveTabId,
   onTabClick,
 }: TabBarProps) => {
-  const [selectedTab, setSelectedTab] = useState(defaultActiveTabId)
+  const [selectedTab, setSelectedTab] = useState(
+    defaultActiveTabId || tabs?.[0]?.id,
+  )
 
   const handleOnTabClick = (id: string) => {
     setSelectedTab(id)
