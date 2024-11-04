@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Switch as ChakraSwitch, FormLabel, useTheme } from '@chakra-ui/react'
 import { SwitchProps } from './types'
 import {
+  SwitchAndLabelContainer,
   SwitchContainer,
   SwitchContent,
   SwitchIcon,
@@ -51,51 +52,55 @@ const Switch = ({
   }
 
   return (
-    <SwitchContainer
-      isChecked={isLocalChecked}
-      isFocused={isFocused}
-      isDisabled={isDisabled}
-      backgroundColor={getBackgroundColor()}
-      checkedAndDisabledColor={
-        isChecked && isDisabled
-          ? getThemedColor(theme.colors, 'primary', 200)
-          : getThemedColor(theme.colors, 'neutral', 100)
-      }
-    >
+    <SwitchAndLabelContainer>
       {!isLabelOnRight ? (
         <FormLabel htmlFor={id} mb='0'>
           {label}
         </FormLabel>
       ) : null}
-      <SwitchContent>
-        {!isDisabled ? <SwitchIconHover className='switch-icon-hover' /> : null}
-        <SwitchIconContainer
-          className={isLocalChecked && !isDisabled ? 'move-me' : ''}
-        >
-          {isLocalChecked && !isDisabled ? (
-            <SwitchIcon
-              onClick={handleOnIconClick}
-              color={getThemedColor(theme.colors, 'primary', 700)}
-            />
+      <SwitchContainer
+        isChecked={isLocalChecked}
+        isFocused={isFocused}
+        isDisabled={isDisabled}
+        backgroundColor={getBackgroundColor()}
+        checkedAndDisabledColor={
+          isChecked && isDisabled
+            ? getThemedColor(theme.colors, 'primary', 200)
+            : getThemedColor(theme.colors, 'neutral', 100)
+        }
+      >
+        <SwitchContent>
+          {!isDisabled ? (
+            <SwitchIconHover className='switch-icon-hover' />
           ) : null}
-        </SwitchIconContainer>
-        <ChakraSwitch
-          id={id}
-          aria-label={label || rest['aria-label']}
-          isChecked={isLocalChecked}
-          onChange={handleOnChange}
-          isDisabled={isDisabled}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          {...rest}
-        />
-      </SwitchContent>
+          <SwitchIconContainer
+            className={isLocalChecked && !isDisabled ? 'move-me' : ''}
+          >
+            {isLocalChecked && !isDisabled ? (
+              <SwitchIcon
+                onClick={handleOnIconClick}
+                color={getThemedColor(theme.colors, 'primary', 700)}
+              />
+            ) : null}
+          </SwitchIconContainer>
+          <ChakraSwitch
+            id={id}
+            aria-label={label || rest['aria-label']}
+            isChecked={isLocalChecked}
+            onChange={handleOnChange}
+            isDisabled={isDisabled}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            {...rest}
+          />
+        </SwitchContent>
+      </SwitchContainer>
       {isLabelOnRight ? (
         <FormLabel htmlFor={id} mb='0' ml={label ? '5' : '0'}>
           {label}
         </FormLabel>
       ) : null}
-    </SwitchContainer>
+    </SwitchAndLabelContainer>
   )
 }
 

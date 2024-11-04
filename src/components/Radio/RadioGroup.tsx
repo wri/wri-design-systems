@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import { RadioGroup as ChakraRadioGroup, Stack } from '@chakra-ui/react'
 import { RadioGroupProps } from './types'
-import { StyledRadio } from './styled'
 
 const RadioGroup = ({
-  radios,
-  isColumn,
+  children,
+  isRow = false,
   defaultValue,
   onChange,
   ...rest
@@ -22,12 +21,8 @@ const RadioGroup = ({
 
   return (
     <ChakraRadioGroup onChange={handleOnChange} value={selectedValue} {...rest}>
-      <Stack spacing={isColumn ? 2 : 5} direction={isColumn ? 'column' : 'row'}>
-        {radios.map((radio) => (
-          <StyledRadio isChecked={selectedValue === radio.value} {...radio}>
-            {radio.label}
-          </StyledRadio>
-        ))}
+      <Stack spacing={isRow ? 5 : 2} direction={isRow ? 'row' : 'column'}>
+        {children}
       </Stack>
     </ChakraRadioGroup>
   )

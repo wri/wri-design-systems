@@ -5,19 +5,19 @@ import {
 
 export type RadioProps = Omit<
   ChakraRadioProps,
-  'size' | 'variant' | 'colorScheme' | 'name'
+  'size' | 'variant' | 'colorScheme' | 'name' | 'defaultChecked'
 > & {
   label: string
-  defaultChecked?: boolean
   value: string
+  isChecked?: boolean
+  isDisabled?: boolean
 }
 
 export type RadioGroupProps = Omit<
   ChakraRadioGroupProps,
-  'children' | 'size' | 'variant' | 'colorScheme'
+  'size' | 'variant' | 'colorScheme'
 > & {
   name: string
-  radios: RadioProps[]
   defaultValue?: string
-  isColumn?: boolean
+  isRow?: boolean
 }

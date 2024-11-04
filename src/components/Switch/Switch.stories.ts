@@ -3,7 +3,7 @@ import { fn } from '@storybook/test'
 import Switch from '.'
 
 const meta = {
-  title: 'Switch',
+  title: 'Controls/Switch',
   component: Switch,
   parameters: {
     layout: 'centered',

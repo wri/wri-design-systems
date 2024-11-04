@@ -28,37 +28,31 @@ export const StyledRadio = styled(Radio)<{
     box-shadow: none;
   }
 
-  ${({ theme, isChecked, isDisabled }) => {
-    if (isChecked && isDisabled) {
-      return `
-        border: 1px solid ${getThemedColor(theme.colors, 'neutral', 400)} !important;
-        background: ${getThemedColor(theme.colors, 'neutral', 100)} !important;
-        color: ${getThemedColor(theme.colors, 'neutral', 400)} !important;
+  &[data-checked] {
+    border: 1px solid
+      ${({ theme, isDisabled }) =>
+        isDisabled
+          ? getThemedColor(theme.colors, 'neutral', 400)
+          : getThemedColor(theme.colors, 'primary', 700)} !important;
+    background: ${({ theme }) =>
+      getThemedColor(theme.colors, 'neutral', 100)} !important;
+    color: ${({ theme, isDisabled }) =>
+      isDisabled
+        ? getThemedColor(theme.colors, 'neutral', 400)
+        : getThemedColor(theme.colors, 'primary', 700)} !important;
 
-        &:hover {
-          outline: none;
-        }
-      `
+    &::before {
+      width: 10px !important;
+      height: 10px !important;
     }
+  }
 
-    if (isChecked) {
-      return `
-        border: 1px solid ${getThemedColor(theme.colors, 'primary', 700)} !important;
-        background: ${getThemedColor(theme.colors, 'neutral', 100)} !important;
-        color: ${getThemedColor(theme.colors, 'primary', 700)} !important;
-
-        &::before {
-          width: 10px !important;
-          height: 10px !important;
-        }
-      `
-    }
-
+  ${({ theme, isDisabled }) => {
     if (isDisabled) {
       return `
         border: 1px solid ${getThemedColor(theme.colors, 'neutral', 400)} !important;
         background: ${getThemedColor(theme.colors, 'neutral', 100)} !important;
-
+  
         &:hover {
           outline: none;
         }

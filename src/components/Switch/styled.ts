@@ -2,10 +2,13 @@ import styled from '@emotion/styled'
 import { CheckIcon } from '@chakra-ui/icons'
 import { SwitchContainerProps } from './types'
 
-export const SwitchContainer = styled.div<SwitchContainerProps>`
+export const SwitchAndLabelContainer = styled.div`
   display: flex;
   align-items: center;
+`
 
+export const SwitchContainer = styled.div<SwitchContainerProps>`
+  width: 41px;
   .chakra-switch__track {
     background-color: ${({ backgroundColor }) => backgroundColor};
     height: 20px;
