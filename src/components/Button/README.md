@@ -1,7 +1,9 @@
 # Button
+
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/button--docs)
 
 ## Import
+
 ```
 import { Button } from 'wri-design-systems'
 ```
@@ -16,6 +18,7 @@ import { Button } from 'wri-design-systems'
 ```
 
 ## Props
+
 ```
 type ButtonProps = Omit<
   ChakraButtonProps,
@@ -29,10 +32,10 @@ type ButtonProps = Omit<
 }
 ```
 
-
 ## Button Variants
 
 ### Primary
+
 ```
 <Button
   label='Primary'
@@ -41,6 +44,7 @@ type ButtonProps = Omit<
 ```
 
 ### Secondary
+
 ```
 <Button
   label='Secondary'
@@ -49,6 +53,7 @@ type ButtonProps = Omit<
 ```
 
 ### Borderless
+
 ```
 <Button
   label='Borderless'
@@ -57,6 +62,7 @@ type ButtonProps = Omit<
 ```
 
 ### Outline
+
 ```
 <Button
   label='Outline'
@@ -67,6 +73,7 @@ type ButtonProps = Omit<
 ## Button Sizes
 
 ### Default
+
 ```
 <Button
   label="Primary"
@@ -76,6 +83,7 @@ type ButtonProps = Omit<
 ```
 
 ### Small
+
 ```
 <Button
   label="Primary"
@@ -87,6 +95,7 @@ type ButtonProps = Omit<
 ## Button with Icon
 
 ### Left Icon
+
 ```
 <Button
   label="Outline"
@@ -96,6 +105,7 @@ type ButtonProps = Omit<
 ```
 
 ### Right Icon
+
 ```
 <Button
   label="Outline"
@@ -107,6 +117,7 @@ type ButtonProps = Omit<
 ## Other Props
 
 ### Disabled
+
 ```
 <Button
   label="Primary"
@@ -116,6 +127,7 @@ type ButtonProps = Omit<
 ```
 
 ### Loading state
+
 ```
 <Button
   label="Primary"

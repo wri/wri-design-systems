@@ -13,17 +13,16 @@ import { getThemedColor } from '../../../lib/theme'
 import ActiveTag from '../../Tag/ActiveTag'
 import LayerItem from '../LayerItem'
 
-const LayerGroup = ({
-  label,
-  caption,
-  layerItems,
-}: LayerGroupProps) => {
-  const [activeItems, setActiveItems] = useState<{ key?: string, value?: boolean }>({})
+const LayerGroup = ({ label, caption, layerItems }: LayerGroupProps) => {
+  const [activeItems, setActiveItems] = useState<{
+    key?: string
+    value?: boolean
+  }>({})
   const theme = useTheme()
 
   useEffect(() => {
     let newActiveItems = { ...activeItems }
-    layerItems.forEach(item => {
+    layerItems.forEach((item) => {
       newActiveItems = {
         ...newActiveItems,
         [item.name]: item.isDefaultSelected,
@@ -33,7 +32,10 @@ const LayerGroup = ({
     setActiveItems(newActiveItems)
   }, [])
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>, onChange: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined) => {
+  const handleOnChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    onChange: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined,
+  ) => {
     const newActiveItems = {
       ...activeItems,
       [e.target.name]: e.target.checked,
@@ -46,8 +48,9 @@ const LayerGroup = ({
     }
   }
 
-  const getActiveCount = Object.values(activeItems)
-    .filter(item => item === true).length
+  const getActiveCount = Object.values(activeItems).filter(
+    (item) => item === true,
+  ).length
 
   return (
     <div style={{ width: '300px' }}>
@@ -57,10 +60,7 @@ const LayerGroup = ({
             style={{ alignItems: 'flex-start' }}
             _hover={{ backgroundColor: 'transparent' }}
           >
-            <LayerGroupTitle
-              as='span'
-              flex='1'
-            >
+            <LayerGroupTitle as='span' flex='1'>
               {label}
               <ActiveTag count={getActiveCount} />
             </LayerGroupTitle>
@@ -71,12 +71,10 @@ const LayerGroup = ({
             />
           </AccordionButton>
         </h2>
-        <LayerGroupCaption>
-          {caption}
-        </LayerGroupCaption>
+        <LayerGroupCaption>{caption}</LayerGroupCaption>
         <AccordionPanel pb={0}>
           <RadioGroup name={label}>
-            {layerItems.map(layerItem => (
+            {layerItems.map((layerItem) => (
               <LayerItem
                 {...layerItem}
                 onChange={(e) => handleOnChange(e, layerItem.onChange)}

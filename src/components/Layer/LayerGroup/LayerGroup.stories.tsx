@@ -54,7 +54,7 @@ export const LayerGroupOpen: Story = {
           ]}
         />
       </>
-    )
+    ),
   },
 }
 
@@ -100,6 +100,6 @@ export const LayerGroupWithRadios: Story = {
           ]}
         />
       </>
-    )
+    ),
   },
 }

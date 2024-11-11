@@ -11,36 +11,46 @@ export const StyledSwitch = styled(Switch)<{
   theme?: ThemeProps
 }>`
   .chakra-switch__track {
-    background-color: ${({ theme }) => getThemedColor(theme.colors, 'neutral', 500)};
-    border: 1px solid ${({ theme }) => getThemedColor(theme.colors, 'neutral', 600)};
+    background-color: ${({ theme }) =>
+      getThemedColor(theme.colors, 'neutral', 500)};
+    border: 1px solid
+      ${({ theme }) => getThemedColor(theme.colors, 'neutral', 600)};
     padding: 3px 4px;
 
     &:focus-visible,
     &[data-focus-visible] {
       box-shadow: none;
       outline: none;
-      outline: 2px solid ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
+      outline: 2px solid
+        ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
       outline-offset: 2px;
     }
 
     &[data-checked] {
-      background-color: ${({ theme }) => getThemedColor(theme.colors, 'primary', 500)};
-      border: 1px solid ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
+      background-color: ${({ theme }) =>
+        getThemedColor(theme.colors, 'primary', 500)};
+      border: 1px solid
+        ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
     }
 
     &[data-disabled] {
-      background-color: ${({ theme }) => getThemedColor(theme.colors, 'neutral', 300)};
-      border: 1px solid ${({ theme }) => getThemedColor(theme.colors, 'neutral', 300)};
+      background-color: ${({ theme }) =>
+        getThemedColor(theme.colors, 'neutral', 300)};
+      border: 1px solid
+        ${({ theme }) => getThemedColor(theme.colors, 'neutral', 300)};
     }
   }
 
   .chakra-switch__thumb {
-    &:hover, &[data-hover] {
-      outline: 8px solid ${({ theme }) => getThemedColor(theme.colors, 'primary', 500)}20;
+    &:hover,
+    &[data-hover] {
+      outline: 8px solid
+        ${({ theme }) => getThemedColor(theme.colors, 'primary', 500)}20;
     }
 
     &[data-active] {
-      outline: 8px solid ${({ theme }) => getThemedColor(theme.colors, 'primary', 500)}40;
+      outline: 8px solid
+        ${({ theme }) => getThemedColor(theme.colors, 'primary', 500)}40;
     }
 
     &[data-checked] {
@@ -50,8 +60,9 @@ export const StyledSwitch = styled(Switch)<{
         top: 7.5px;
         height: 4px;
         width: 1px;
-        background-color: ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
-        content: "";
+        background-color: ${({ theme }) =>
+          getThemedColor(theme.colors, 'primary', 700)};
+        content: '';
         transform: translateX(10px) rotate(-45deg);
         transform-origin: left bottom;
       }
@@ -62,8 +73,9 @@ export const StyledSwitch = styled(Switch)<{
         bottom: 5px;
         height: 1px;
         width: 7px;
-        background-color: ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
-        content: "";
+        background-color: ${({ theme }) =>
+          getThemedColor(theme.colors, 'primary', 700)};
+        content: '';
         transform: translateX(10px) rotate(-45deg);
         transform-origin: left bottom;
       }
@@ -74,11 +86,13 @@ export const StyledSwitch = styled(Switch)<{
 
       &[data-checked] {
         &::before {
-          background-color: ${({ theme }) => getThemedColor(theme.colors, 'neutral', 500)};
+          background-color: ${({ theme }) =>
+            getThemedColor(theme.colors, 'neutral', 500)};
         }
 
         &::after {
-          background-color: ${({ theme }) => getThemedColor(theme.colors, 'neutral', 500)};
+          background-color: ${({ theme }) =>
+            getThemedColor(theme.colors, 'neutral', 500)};
         }
       }
     }

@@ -37,13 +37,16 @@ const LayerItem = ({
             name={name}
             isDisabled={isDisabled}
             defaultChecked={isDefaultSelected}
-            onChange={onChange ? (e) => onChange(e) : () => { }}
+            onChange={onChange ? (e) => onChange(e) : () => {}}
           />
         </SwitchContainer>
       ) : (
         <div>
-          <Radio label={label} value={name} isDisabled={isDisabled}
-            onChange={onChange ? (e) => onChange(e) : () => { }}
+          <Radio
+            label={label}
+            value={name}
+            isDisabled={isDisabled}
+            onChange={onChange ? (e) => onChange(e) : () => {}}
           />
           <LayerCaption style={{ marginLeft: '28px' }}>{caption}</LayerCaption>
         </div>

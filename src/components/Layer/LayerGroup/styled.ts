@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { Box } from '@chakra-ui/react'
 import { getThemedColor, ThemeProps } from '../../../lib/theme'
 
-export const LayerGroupTitle = styled(Box) <{
+export const LayerGroupTitle = styled(Box)<{
   theme?: ThemeProps
 }>`
   font-size: 16px;
@@ -16,7 +16,7 @@ export const LayerGroupTitle = styled(Box) <{
   gap: 10px;
 `
 
-export const LayerGroupCaption = styled(Box) <{
+export const LayerGroupCaption = styled(Box)<{
   theme?: ThemeProps
 }>`
   font-size: 12px;
