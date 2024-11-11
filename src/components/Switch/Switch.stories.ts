@@ -18,14 +18,14 @@ type Story = StoryObj<typeof meta>
 export const On: Story = {
   args: {
     name: 'switch-on',
-    isChecked: true,
+    defaultChecked: true,
   },
 }
 
 export const DisabledOn: Story = {
   args: {
     name: 'switch-disabled-on',
-    isChecked: true,
+    defaultChecked: true,
     isDisabled: true,
   },
 }

@@ -7,6 +7,7 @@ export type SwitchProps = Omit<
   name: string
   label?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  defaultChecked?: boolean
   isDisabled?: boolean
   isLabelOnRight?: boolean
 }

@@ -6,7 +6,7 @@ import {
   useTheme,
   RadioGroup,
 } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { LayerGroupProps } from './types'
 import { LayerGroupCaption, LayerGroupTitle } from './styled'
 import { getThemedColor } from '../../../lib/theme'
@@ -20,6 +20,18 @@ const LayerGroup = ({
 }: LayerGroupProps) => {
   const [activeItems, setActiveItems] = useState<{ key?: string, value?: boolean }>({})
   const theme = useTheme()
+
+  useEffect(() => {
+    let newActiveItems = { ...activeItems }
+    layerItems.forEach(item => {
+      newActiveItems = {
+        ...newActiveItems,
+        [item.name]: item.isDefaultSelected,
+      }
+    })
+
+    setActiveItems(newActiveItems)
+  }, [])
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>, onChange: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined) => {
     const newActiveItems = {

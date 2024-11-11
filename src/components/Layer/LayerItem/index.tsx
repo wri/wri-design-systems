@@ -20,7 +20,7 @@ const LayerItem = ({
   variant = 'switch',
   isDisabled,
   onInfoClick,
-  isDefaultSelected,
+  isDefaultSelected = false,
   onChange,
 }: LayerItemProps) => {
   const isSwitch = variant === 'switch'
@@ -36,7 +36,7 @@ const LayerItem = ({
           <Switch
             name={name}
             isDisabled={isDisabled}
-            isChecked={isDefaultSelected}
+            defaultChecked={isDefaultSelected}
             onChange={onChange ? (e) => onChange(e) : () => { }}
           />
         </SwitchContainer>
