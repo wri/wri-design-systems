@@ -26,6 +26,14 @@ export const StyledRadio = styled(Radio)<{
       ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
     outline-offset: 2px;
     box-shadow: none;
+
+    &[data-checked] {
+      border: 2px solid
+        ${({ theme, isDisabled }) =>
+          isDisabled
+            ? getThemedColor(theme.colors, 'neutral', 400)
+            : getThemedColor(theme.colors, 'primary', 700)} !important;
+    }
   }
 
   &[data-checked] {

@@ -15,7 +15,7 @@ import { Button } from 'wri-design-systems'
 />
 ```
 
-### Props
+## Props
 ```
 type ButtonProps = Omit<
   ChakraButtonProps,
