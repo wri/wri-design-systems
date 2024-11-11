@@ -1,41 +1,90 @@
-# Project Title
-Simple overview of use/purpose.
-## Description
-An in-depth paragraph about your project and overview of use.
-## Getting Started
-### Dependencies
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-### Installing
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-### Executing program
-* How to run the program
-* Step-by-step bullets
+# wri-design-systems
+WRI UI Library
+
+## Requirements
+Node: `20.16.0`
+
+React: `18.3.1`
+
+## Installation
 ```
-code blocks for commands
+yarn add wri-design-systems
 ```
-## Help
-Any advise for common problems or issues.
+or
 ```
-command to run if program contains helper info
+npm i wri-design-systems
 ```
-## Authors
-Contributors names and contact info
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-## Version History
-* 0.2
-* Various bug fixes and optimizations
-* See [commit change]() or See [release history]()
-* 0.1
-* Initial Release
-## License
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-## Acknowledgments
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+
+## Other dependecies
+```
+yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
+```
+or
+```
+npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+```
+
+
+## Usage
+### Create the Project Theme
+With this custom theme you can change the color scheme according to your Project Theme
+
+```
+import { extendTheme } from '@chakra-ui/react'
+
+export const projectTheme = extendTheme({
+  colors: {
+    wri: {
+      neutral: {
+        300: '#ff5252',
+        500: '#ff0000',
+      },
+      primary: {
+        200: '#93ff93',
+        500: '#d80a5d',
+        600: '#16b816',
+        700: '#006100',
+      },
+      secondary: {
+        ...
+      },
+      success: {
+        ...
+      },
+    },
+  },
+})
+```
+
+### Wrap ChakraProvider at the root of your app
+```
+import * as React from 'react'
+import { projectTheme } from './lib/theme'
+
+// 1. import `ChakraProvider` component
+import { ChakraProvider } from '@chakra-ui/react'
+
+function App() {
+  // 2. Wrap ChakraProvider at the root of your app
+  return (
+    <ChakraProvider theme={projectTheme}>
+      <TheRestOfYourApplication />
+    </ChakraProvider>
+  )
+}
+```
+
+## Components
+### General
+* [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Button)
+* [NavigationRail](https://github.com/wri/wri-design-systems/tree/main/src/components/NavigationRail)
+* [TabBar](https://github.com/wri/wri-design-systems/tree/main/src/components/TabBar)
+
+### Controls
+* [Checkbox](https://github.com/wri/wri-design-systems/tree/main/src/components/Checkbox)
+* [Radio](https://github.com/wri/wri-design-systems/tree/main/src/components/Radio)
+* [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Switch)
+
+### Layers
+* [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/LayerGroup)
+* [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/LayerItem)

@@ -4,16 +4,21 @@ import { getThemedColor, ThemeProps } from '../../lib/theme'
 
 export const BaseButton = styled(Button)`
   width: ${({ size }) => (size === 'small' ? '120px' : '227px')};
-  height: ${({ size }) => (size === 'small' ? '24px' : '40px')};
+  height: ${({ size }) => (size === 'small' ? '28px' : '40px')};
   font-size: ${({ size }) => (size === 'small' ? '12px' : '16px')};
   line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};
   font-weight: 700;
-  padding: ${({ size }) => (size === 'small' ? '4px 12px' : '6px 12px')};
+  padding: ${({ size }) => (size === 'small' ? '4px 8px' : '6px 16px')};
   border-radius: 4px;
   box-shadow: 0px 1px 2px 0px #0000000d;
 
   &:focus-visible {
     box-shadow: none;
+  }
+
+  svg {
+    width: ${({ size }) => (size === 'small' ? '10px' : '16px')};
+    height: ${({ size }) => (size === 'small' ? '10px' : '16px')};
   }
 `
 

@@ -60,11 +60,9 @@ export type ThemeProps = Theme & {
       secondary: {
         500: string
       },
-      controls: {
-        success: {
-          100: string
-          500: string
-        },
+      success: {
+        100: string
+        500: string
       },
     }
   }

@@ -1,3 +1,4 @@
+import { Spinner } from '@chakra-ui/react'
 import { ButtonProps } from './types'
 import {
   BorderlessButton,
@@ -12,6 +13,8 @@ const Button = ({
   variant = 'primary',
   size = 'default',
   isDisabled,
+  leftIcon,
+  rightIcon,
   ...rest
 }: ButtonProps) => {
   let StyledButton = PrimaryButton
@@ -23,15 +26,32 @@ const Button = ({
     StyledButton = OutlineButton
   }
 
+  const getAriaLabel = () => {
+    let newLabel = rest['aria-label']
+    if (label) {
+      newLabel = label
+    }
+
+    if (isLoading) {
+      newLabel = 'Loading'
+    }
+
+    return newLabel
+  }
+
   return (
     <StyledButton
-      aria-label={label || rest['aria-label']}
-      isLoading={isLoading}
+      aria-label={getAriaLabel()}
       size={size}
-      isDisabled={isDisabled}
+      isDisabled={isDisabled || isLoading}
+      aria-disabled={isDisabled || isLoading}
+      leftIcon={!isLoading ? leftIcon : undefined}
+      rightIcon={!isLoading ? rightIcon : undefined}
       {...rest}
     >
+      {!rightIcon && isLoading ? <Spinner size='sm' marginRight='2' /> : null}
       {label}
+      {!!rightIcon && isLoading ? <Spinner size='sm' marginLeft='2' /> : null}
     </StyledButton>
   )
 }
