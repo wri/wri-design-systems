@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { getThemedColor, ThemeProps } from '../../lib/theme'
+import { getThemedColor, ThemeProps } from '../../../lib/theme'
 
 export const LayerItemContainer = styled.div<{
   isDisabled?: boolean

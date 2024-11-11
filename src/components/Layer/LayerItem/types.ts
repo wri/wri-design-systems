@@ -1,5 +1,5 @@
 export type LayerItemProps = {
-  id: string
+  name: string
   label: string
   caption?: string
   showInfoButton?: boolean
@@ -8,4 +8,5 @@ export type LayerItemProps = {
   isDisabled?: boolean
   onInfoClick?: () => void
   isDefaultSelected?: boolean
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }

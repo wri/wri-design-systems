@@ -4,9 +4,9 @@ export type SwitchProps = Omit<
   ChakraSwitchProps,
   'size' | 'variant' | 'colorScheme'
 > & {
-  id: string
+  name: string
   label?: string
-  onChange?: (value: boolean) => void
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   isDisabled?: boolean
   isLabelOnRight?: boolean
 }

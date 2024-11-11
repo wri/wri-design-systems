@@ -1,7 +1,7 @@
 import { InfoIcon } from '@chakra-ui/icons'
-import Button from '../Button'
-import Switch from '../Switch'
-import Radio from '../Radio'
+import Button from '../../Button'
+import Switch from '../../Switch'
+import Radio from '../../Radio'
 import { LayerItemProps } from './types'
 import {
   LayerCaption,
@@ -12,7 +12,7 @@ import {
 } from './styled'
 
 const LayerItem = ({
-  id,
+  name,
   label,
   caption,
   showInfoButton = true,
@@ -21,6 +21,7 @@ const LayerItem = ({
   isDisabled,
   onInfoClick,
   isDefaultSelected,
+  onChange,
 }: LayerItemProps) => {
   const isSwitch = variant === 'switch'
 
@@ -33,14 +34,17 @@ const LayerItem = ({
             <LayerCaption>{caption}</LayerCaption>
           </SwitchContent>
           <Switch
-            id={id}
+            name={name}
             isDisabled={isDisabled}
             isChecked={isDefaultSelected}
+            onChange={onChange ? (e) => onChange(e) : () => { }}
           />
         </SwitchContainer>
       ) : (
         <div>
-          <Radio label={label} value={id} isDisabled={isDisabled} />
+          <Radio label={label} value={name} isDisabled={isDisabled}
+            onChange={onChange ? (e) => onChange(e) : () => { }}
+          />
           <LayerCaption style={{ marginLeft: '28px' }}>{caption}</LayerCaption>
         </div>
       )}

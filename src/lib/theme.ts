@@ -27,6 +27,10 @@ export const wriTheme = extendTheme({
         600: '#263A71',
         700: '#1F2F5C',
       },
+      success: {
+        100: '#F3FFF2',
+        500: '#086600',
+      },
     },
   },
 })
@@ -55,14 +59,20 @@ export type ThemeProps = Theme & {
       }
       secondary: {
         500: string
-      }
+      },
+      controls: {
+        success: {
+          100: string
+          500: string
+        },
+      },
     }
   }
 }
 
 export const getThemedColor = (
   colors: { wri: { [key: string]: { [key: number]: string } } },
-  variant: 'neutral' | 'primary' | 'secondary',
+  variant: 'neutral' | 'primary' | 'secondary' | 'success',
   number: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
 ): string =>
   colors?.wri?.[variant]?.[number] || wriTheme?.colors?.wri?.[variant]?.[number]

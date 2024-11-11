@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>
 
 export const Switch: Story = {
   args: {
-    id: 'switch-layer',
+    name: 'switch-layer',
     label: 'Layer name',
     caption: 'Caption',
   },
@@ -23,7 +23,7 @@ export const Switch: Story = {
 
 export const Radio: Story = {
   args: {
-    id: 'radio-layer',
+    name: 'radio-layer',
     label: 'Layer name',
     caption: 'Caption',
     variant: 'radio',
@@ -32,7 +32,7 @@ export const Radio: Story = {
 
 export const Disabled: Story = {
   args: {
-    id: 'switch-layer-1',
+    name: 'switch-layer-1',
     label: 'Layer name',
     caption: 'Caption',
     isDisabled: true,
@@ -41,7 +41,7 @@ export const Disabled: Story = {
 
 export const RadioDisabeld: Story = {
   args: {
-    id: 'radio-layer',
+    name: 'radio-layer',
     label: 'Layer name',
     caption: 'Caption',
     variant: 'radio',
@@ -51,7 +51,7 @@ export const RadioDisabeld: Story = {
 
 export const NoInfoButton: Story = {
   args: {
-    id: 'switch-layer-2',
+    name: 'switch-layer-2',
     label: 'Layer name',
     caption: 'Caption',
     showInfoButton: false,
@@ -60,7 +60,7 @@ export const NoInfoButton: Story = {
 
 export const CustomInfoButtonLabel: Story = {
   args: {
-    id: 'switch-layer-3',
+    name: 'switch-layer-3',
     label: 'Layer name',
     caption: 'Caption',
     infoButtonLabel: 'Another Label',

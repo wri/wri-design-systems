@@ -12,7 +12,7 @@ import {
 import { getThemedColor } from '../../lib/theme'
 
 const Switch = ({
-  id,
+  name,
   label,
   isChecked = false,
   onChange,
@@ -32,7 +32,7 @@ const Switch = ({
     setIsLocalChecked(e.target.checked)
 
     if (onChange) {
-      onChange(e.target.checked)
+      onChange(e)
     }
   }
 
@@ -54,7 +54,7 @@ const Switch = ({
   return (
     <SwitchAndLabelContainer>
       {!isLabelOnRight ? (
-        <FormLabel htmlFor={id} mb='0'>
+        <FormLabel htmlFor={name} mb='0'>
           {label}
         </FormLabel>
       ) : null}
@@ -84,7 +84,8 @@ const Switch = ({
             ) : null}
           </SwitchIconContainer>
           <ChakraSwitch
-            id={id}
+            id={name}
+            name={name}
             aria-label={label || rest['aria-label']}
             isChecked={isLocalChecked}
             onChange={handleOnChange}
@@ -96,7 +97,7 @@ const Switch = ({
         </SwitchContent>
       </SwitchContainer>
       {isLabelOnRight ? (
-        <FormLabel htmlFor={id} mb='0' ml={label ? '5' : '0'}>
+        <FormLabel htmlFor={name} mb='0' ml={label ? '5' : '0'}>
           {label}
         </FormLabel>
       ) : null}
