@@ -100,6 +100,6 @@ function App() {
 
 ### Layers
 
-- [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/LayerItem)
-- [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/LayerGroup)
-- [LayerPanel](https://github.com/wri/wri-design-systems/tree/main/src/components/LayerPanel)
+- [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerItem)
+- [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
+- [LayerPanel](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerPanel)

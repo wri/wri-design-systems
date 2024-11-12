@@ -4,7 +4,7 @@
 
 ## Usage
 
-LayerItem is used as part of [LayerGroups](https://github.com/wri/wri-design-systems/tree/main/src/components/LayerGroup)
+LayerItem is used as part of [LayerGroups](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
 
 ## Props
 
