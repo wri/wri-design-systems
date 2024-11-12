@@ -1,5 +1,10 @@
 import TabBar from '../../TabBar'
-import { LayerPanelDescription, LayerPanelContainer, LayerPanelHeader, LayerPanelTitle } from './styled'
+import {
+  LayerPanelDescription,
+  LayerPanelContainer,
+  LayerPanelHeader,
+  LayerPanelTitle,
+} from './styled'
 import { LayerPanelProps } from './types'
 
 const LayerPanel = ({

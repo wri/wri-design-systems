@@ -38,7 +38,7 @@ npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 
 With this custom theme you can change the color scheme according to your Project Theme
 
-```
+```js
 import { extendTheme } from '@chakra-ui/react'
 
 export const projectTheme = extendTheme({
@@ -67,7 +67,7 @@ export const projectTheme = extendTheme({
 
 ### Wrap ChakraProvider at the root of your app
 
-```
+```js
 import * as React from 'react'
 import { projectTheme } from './lib/theme'
 
@@ -100,5 +100,6 @@ function App() {
 
 ### Layers
 
-- [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/LayerGroup)
 - [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/LayerItem)
+- [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/LayerGroup)
+- [LayerPanel](https://github.com/wri/wri-design-systems/tree/main/src/components/LayerPanel)

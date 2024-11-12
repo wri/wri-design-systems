@@ -17,33 +17,21 @@ type Story = StoryObj<typeof meta>
 export const PanelTab: Story = {
   args: {
     variant: 'panel',
-    tabs: [
-      { label: 'One' },
-      { label: 'Two' },
-      { label: 'Three' },
-    ],
+    tabs: [{ label: 'One' }, { label: 'Two' }, { label: 'Three' }],
   },
 }
 
 export const ViewTab: Story = {
   args: {
     variant: 'view',
-    tabs: [
-      { label: 'One' },
-      { label: 'Two' },
-      { label: 'Three' },
-    ],
+    tabs: [{ label: 'One' }, { label: 'Two' }, { label: 'Three' }],
   },
 }
 
 export const PanelTabWithDefaultActive: Story = {
   args: {
     variant: 'panel',
-    tabs: [
-      { label: 'One' },
-      { label: 'Two' },
-      { label: 'Three' },
-    ],
+    tabs: [{ label: 'One' }, { label: 'Two' }, { label: 'Three' }],
     defaultActiveTabLabel: 'Three',
   },
 }

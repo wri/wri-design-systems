@@ -4,13 +4,13 @@
 
 ## Import
 
-```
+```js
 import { Button } from 'wri-design-systems'
 ```
 
 ## Usage
 
-```
+```html
 <Button
   label='Save and Download'
   variant='primary'
@@ -19,7 +19,7 @@ import { Button } from 'wri-design-systems'
 
 ## Props
 
-```
+```js
 type ButtonProps = Omit<
   ChakraButtonProps,
   'size' | 'variant' | 'colorScheme'
@@ -36,7 +36,7 @@ type ButtonProps = Omit<
 
 ### Primary
 
-```
+```html
 <Button
   label='Primary'
   variant='primary'
@@ -45,7 +45,7 @@ type ButtonProps = Omit<
 
 ### Secondary
 
-```
+```html
 <Button
   label='Secondary'
   variant='secondary'
@@ -54,7 +54,7 @@ type ButtonProps = Omit<
 
 ### Borderless
 
-```
+```html
 <Button
   label='Borderless'
   variant='borderless'
@@ -63,7 +63,7 @@ type ButtonProps = Omit<
 
 ### Outline
 
-```
+```html
 <Button
   label='Outline'
   variant='outline'
@@ -74,7 +74,7 @@ type ButtonProps = Omit<
 
 ### Default
 
-```
+```html
 <Button
   label="Primary"
   size="default"
@@ -84,7 +84,7 @@ type ButtonProps = Omit<
 
 ### Small
 
-```
+```html
 <Button
   label="Primary"
   size="small"
@@ -96,7 +96,7 @@ type ButtonProps = Omit<
 
 ### Left Icon
 
-```
+```html
 <Button
   label="Outline"
   leftIcon={<SettingsIcon />}
@@ -106,7 +106,7 @@ type ButtonProps = Omit<
 
 ### Right Icon
 
-```
+```html
 <Button
   label="Outline"
   rightIcon={<SettingsIcon />}
@@ -118,7 +118,7 @@ type ButtonProps = Omit<
 
 ### Disabled
 
-```
+```html
 <Button
   label="Primary"
   variant="primary"
@@ -128,7 +128,7 @@ type ButtonProps = Omit<
 
 ### Loading state
 
-```
+```html
 <Button
   label="Primary"
   variant="primary"

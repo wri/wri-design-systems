@@ -15,7 +15,9 @@ import RadioGroup from '../../Radio/RadioGroup'
 import { LayerItemProps } from '../LayerItem/types'
 
 const getDefaultValue = (layerItems: LayerItemProps[]) => {
-  const defaultSelected = layerItems.find(item => item.variant === 'radio' && item.isDefaultSelected)
+  const defaultSelected = layerItems.find(
+    (item) => item.variant === 'radio' && item.isDefaultSelected,
+  )
   return defaultSelected?.name
 }
 
@@ -33,7 +35,8 @@ const LayerGroup = ({ label, caption, layerItems }: LayerGroupProps) => {
       if (item.isDefaultSelected) {
         newActiveItems = {
           ...newActiveItems,
-          [item.variant === 'radio' ? label : item.name]: item.isDefaultSelected,
+          [item.variant === 'radio' ? label : item.name]:
+            item.isDefaultSelected,
         }
       }
     })
@@ -66,7 +69,11 @@ const LayerGroup = ({ label, caption, layerItems }: LayerGroupProps) => {
       <AccordionItem>
         <h2>
           <AccordionButton
-            style={{ alignItems: 'flex-start', paddingTop: '16px', paddingBottom: 0 }}
+            style={{
+              alignItems: 'flex-start',
+              paddingTop: '16px',
+              paddingBottom: 0,
+            }}
             _hover={{ backgroundColor: 'transparent' }}
           >
             <LayerGroupTitle as='span' flex='1'>
