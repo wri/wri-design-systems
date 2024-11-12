@@ -4,7 +4,6 @@ import {
   AccordionPanel,
   AccordionIcon,
   useTheme,
-  RadioGroup,
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { LayerGroupProps } from './types'
@@ -12,20 +11,30 @@ import { LayerGroupCaption, LayerGroupTitle } from './styled'
 import { getThemedColor } from '../../../lib/theme'
 import ActiveTag from '../../Tag/ActiveTag'
 import LayerItem from '../LayerItem'
+import RadioGroup from '../../Radio/RadioGroup'
+import { LayerItemProps } from '../LayerItem/types'
+
+const getDefaultValue = (layerItems: LayerItemProps[]) => {
+  const defaultSelected = layerItems.find(item => item.variant === 'radio' && item.isDefaultSelected)
+  return defaultSelected?.name
+}
 
 const LayerGroup = ({ label, caption, layerItems }: LayerGroupProps) => {
   const [activeItems, setActiveItems] = useState<{
     key?: string
     value?: boolean
   }>({})
+  const [defaultValue] = useState(getDefaultValue(layerItems))
   const theme = useTheme()
 
   useEffect(() => {
     let newActiveItems = { ...activeItems }
     layerItems.forEach((item) => {
-      newActiveItems = {
-        ...newActiveItems,
-        [item.name]: item.isDefaultSelected,
+      if (item.isDefaultSelected) {
+        newActiveItems = {
+          ...newActiveItems,
+          [item.variant === 'radio' ? label : item.name]: item.isDefaultSelected,
+        }
       }
     })
 
@@ -57,7 +66,7 @@ const LayerGroup = ({ label, caption, layerItems }: LayerGroupProps) => {
       <AccordionItem>
         <h2>
           <AccordionButton
-            style={{ alignItems: 'flex-start' }}
+            style={{ alignItems: 'flex-start', paddingTop: '16px', paddingBottom: 0 }}
             _hover={{ backgroundColor: 'transparent' }}
           >
             <LayerGroupTitle as='span' flex='1'>
@@ -73,9 +82,10 @@ const LayerGroup = ({ label, caption, layerItems }: LayerGroupProps) => {
         </h2>
         <LayerGroupCaption>{caption}</LayerGroupCaption>
         <AccordionPanel pb={0}>
-          <RadioGroup name={label}>
+          <RadioGroup name={label} defaultValue={defaultValue}>
             {layerItems.map((layerItem) => (
               <LayerItem
+                key={layerItem.label}
                 {...layerItem}
                 onChange={(e) => handleOnChange(e, layerItem.onChange)}
               />

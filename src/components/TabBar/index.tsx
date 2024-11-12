@@ -5,18 +5,18 @@ import { TabBarProps } from './types'
 const TabBar = ({
   variant = 'panel',
   tabs,
-  defaultActiveTabId,
+  defaultActiveTabLabel,
   onTabClick,
 }: TabBarProps) => {
   const [selectedTab, setSelectedTab] = useState(
-    defaultActiveTabId || tabs?.[0]?.id,
+    defaultActiveTabLabel || tabs?.[0]?.label,
   )
 
-  const handleOnTabClick = (id: string) => {
-    setSelectedTab(id)
+  const handleOnTabClick = (label: string) => {
+    setSelectedTab(label)
 
     if (onTabClick) {
-      onTabClick(id)
+      onTabClick(label)
     }
   }
 
@@ -26,8 +26,8 @@ const TabBar = ({
         <TabBarItem
           key={tab.label}
           variant={variant}
-          isSelected={selectedTab === tab.id}
-          onClick={() => handleOnTabClick(tab.id)}
+          isSelected={selectedTab === tab.label}
+          onClick={() => handleOnTabClick(tab.label)}
           aria-label={tab['aria-label'] || tab.label}
           {...tab}
         >

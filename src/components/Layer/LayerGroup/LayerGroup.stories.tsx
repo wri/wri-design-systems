@@ -17,8 +17,7 @@ type Story = StoryObj<typeof meta>
 export const LayerGroupOpen: Story = {
   args: {
     defaultIndex: [0],
-    allowMultiple: true,
-    allowToggle: true,
+    allowMultipleOpen: true,
     children: (
       <>
         <LayerGroup
@@ -27,12 +26,12 @@ export const LayerGroupOpen: Story = {
           layerItems={[
             {
               name: 'layer-1-item-1',
-              label: 'Layer name 1',
+              label: 'Layer 1 name 1',
               caption: 'Caption',
             },
             {
               name: 'layer-1-item-2',
-              label: 'Layer name 2',
+              label: 'Layer 1 name 2',
               caption: 'Caption',
             },
           ]}
@@ -43,12 +42,12 @@ export const LayerGroupOpen: Story = {
           layerItems={[
             {
               name: 'layer-2-item-1',
-              label: 'Layer name 1',
+              label: 'Layer 2 name 1',
               caption: 'Caption',
             },
             {
               name: 'layer-2-item-2',
-              label: 'Layer name 2',
+              label: 'Layer 2 name 2',
               caption: 'Caption',
             },
           ]}
@@ -61,41 +60,87 @@ export const LayerGroupOpen: Story = {
 export const LayerGroupWithRadios: Story = {
   args: {
     defaultIndex: [0],
-    allowMultiple: true,
-    allowToggle: true,
+    allowMultipleOpen: true,
     children: (
       <>
         <LayerGroup
-          label='Title 1'
-          caption='Caption 1'
+          label='Title 3'
+          caption='Caption 3'
           layerItems={[
             {
-              name: 'layer-1-item-11',
-              label: 'Layer name 1',
+              name: 'layer-3-item-1',
+              label: 'Layer 3 name 1',
               caption: 'Caption',
             },
             {
-              name: 'layer-1-item-12',
-              label: 'Layer name 2',
+              name: 'layer-3-item-2',
+              label: 'Layer 3 name 2',
               caption: 'Caption',
             },
           ]}
         />
         <LayerGroup
-          label='Title 2'
-          caption='Caption 2'
+          label='Title 4'
+          caption='Caption 4'
           layerItems={[
             {
-              name: 'layer-2-item-21',
-              label: 'Layer name 1',
+              name: 'layer-4-item-1',
+              label: 'Layer 4 name 1',
               caption: 'Caption',
               variant: 'radio',
             },
             {
-              name: 'layer-2-item-22',
-              label: 'Layer name 2',
+              name: 'layer-4-item-2',
+              label: 'Layer 4 name 2',
               caption: 'Caption',
               variant: 'radio',
+            },
+          ]}
+        />
+      </>
+    ),
+  },
+}
+
+export const LayerGroupDefaultSelected: Story = {
+  args: {
+    defaultIndex: [0],
+    allowMultipleOpen: true,
+    children: (
+      <>
+        <LayerGroup
+          label='Title 5'
+          caption='Caption 5'
+          layerItems={[
+            {
+              name: 'layer-5-item-1',
+              label: 'Layer 5 name 1',
+              caption: 'Caption',
+            },
+            {
+              name: 'layer-5-item-2',
+              label: 'Layer 5 name 2',
+              caption: 'Caption',
+              isDefaultSelected: true,
+            },
+          ]}
+        />
+        <LayerGroup
+          label='Title 6'
+          caption='Caption 6'
+          layerItems={[
+            {
+              name: 'layer-6-item-1',
+              label: 'Layer 6 name 1',
+              caption: 'Caption',
+              variant: 'radio',
+            },
+            {
+              name: 'layer-6-item-2',
+              label: 'Layer 6 name 2',
+              caption: 'Caption',
+              variant: 'radio',
+              isDefaultSelected: true,
             },
           ]}
         />

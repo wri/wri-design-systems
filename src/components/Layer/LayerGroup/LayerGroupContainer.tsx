@@ -3,15 +3,13 @@ import { LayerGroupContainerProps } from './types'
 
 const LayerGroupContainer = ({
   children,
-  allowMultiple = true,
-  allowToggle = true,
+  allowMultipleOpen = true,
   defaultIndex = [0],
   ...rest
 }: LayerGroupContainerProps) => (
   <div style={{ width: '300px' }}>
     <Accordion
-      allowMultiple={allowMultiple}
-      allowToggle={allowToggle}
+      allowMultiple={allowMultipleOpen}
       defaultIndex={defaultIndex}
       {...rest}
     >

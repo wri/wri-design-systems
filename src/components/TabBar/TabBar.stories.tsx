@@ -18,9 +18,9 @@ export const PanelTab: Story = {
   args: {
     variant: 'panel',
     tabs: [
-      { id: 'one', label: 'One' },
-      { id: 'two', label: 'Two' },
-      { id: 'three', label: 'Three' },
+      { label: 'One' },
+      { label: 'Two' },
+      { label: 'Three' },
     ],
   },
 }
@@ -29,9 +29,9 @@ export const ViewTab: Story = {
   args: {
     variant: 'view',
     tabs: [
-      { id: 'one', label: 'One' },
-      { id: 'two', label: 'Two' },
-      { id: 'three', label: 'Three' },
+      { label: 'One' },
+      { label: 'Two' },
+      { label: 'Three' },
     ],
   },
 }
@@ -40,11 +40,11 @@ export const PanelTabWithDefaultActive: Story = {
   args: {
     variant: 'panel',
     tabs: [
-      { id: 'one', label: 'One' },
-      { id: 'two', label: 'Two' },
-      { id: 'three', label: 'Three' },
+      { label: 'One' },
+      { label: 'Two' },
+      { label: 'Three' },
     ],
-    defaultActiveTabId: 'three',
+    defaultActiveTabLabel: 'Three',
   },
 }
 
@@ -52,9 +52,9 @@ export const PanelTabDisabled: Story = {
   args: {
     variant: 'panel',
     tabs: [
-      { id: 'one', label: 'One' },
-      { id: 'two', label: 'Two', isDisabled: true },
-      { id: 'three', label: 'Three' },
+      { label: 'One' },
+      { label: 'Two', isDisabled: true },
+      { label: 'Three' },
     ],
   },
 }
@@ -63,9 +63,9 @@ export const PanelTabWitIcons: Story = {
   args: {
     variant: 'panel',
     tabs: [
-      { id: 'one', label: 'Label' },
-      { id: 'two', label: 'Label' },
-      { id: 'three', label: 'Label', leftIcon: <SettingsIcon /> },
+      { label: 'Label' },
+      { label: 'Label' },
+      { label: 'Label', leftIcon: <SettingsIcon /> },
     ],
   },
 }
