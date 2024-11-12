@@ -19,7 +19,7 @@ import { Button } from 'wri-design-systems'
 
 ## Props
 
-```js
+```ts
 type ButtonProps = Omit<
   ChakraButtonProps,
   'size' | 'variant' | 'colorScheme'

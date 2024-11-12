@@ -20,7 +20,7 @@ import { Checkbox } from 'wri-design-systems'
 
 ## Props
 
-```js
+```ts
 type CheckboxProps = Omit<
   ChakraCheckboxProps,
   | 'size'
