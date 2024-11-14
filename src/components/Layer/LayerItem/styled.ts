@@ -21,16 +21,16 @@ export const SwitchContent = styled.div`
   flex-direction: column;
 `
 export const LayerName = styled.p<{ theme?: ThemeProps }>`
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 24px;
   text-align: left;
   color: ${({ theme }) => getThemedColor(theme.colors, 'neutral', 800)};
 `
 export const LayerCaption = styled.p<{ theme?: ThemeProps }>`
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 16px;
+  line-height: 20px;
   text-align: left;
   color: ${({ theme }) => getThemedColor(theme.colors, 'neutral', 600)};
 `

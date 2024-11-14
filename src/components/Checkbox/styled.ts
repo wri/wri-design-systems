@@ -12,7 +12,7 @@ export const StyledCheckbox = styled(Checkbox)<{
       ${({ theme }) => getThemedColor(theme.colors, 'neutral', 600)};
 
     svg path {
-      fill: ${({ theme }) => getThemedColor(theme.colors, 'neutral', 100)};
+      fill: transparent;
     }
 
     &:hover,

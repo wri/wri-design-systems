@@ -3,12 +3,12 @@ import { Button } from '@chakra-ui/react'
 import { getThemedColor, ThemeProps } from '../../lib/theme'
 
 export const BaseButton = styled(Button)`
-  width: ${({ size }) => (size === 'small' ? '120px' : '227px')};
+  width: auto;
   height: ${({ size }) => (size === 'small' ? '28px' : '40px')};
   font-size: ${({ size }) => (size === 'small' ? '12px' : '16px')};
   line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};
   font-weight: 700;
-  padding: ${({ size }) => (size === 'small' ? '4px 8px' : '6px 16px')};
+  padding: ${({ size }) => (size === 'small' ? '6px 8px' : '8px 16px')};
   border-radius: 4px;
   box-shadow: 0px 1px 2px 0px #0000000d;
 
@@ -104,11 +104,9 @@ export const SecondaryButton = styled(BaseButton)`
 
 export const BorderlessButton = styled(BaseButton)`
   ${(props) => {
-    const { theme, size } = props as { theme: ThemeProps; size: string }
+    const { theme } = props as { theme: ThemeProps; size: string }
     if (props.isDisabled) {
       return `
-        width: auto;
-        height: ${size === 'small' ? '24px' : '36px'};
         background-color: transparent;
         color: ${getThemedColor(theme.colors, 'neutral', 500)};
 
@@ -119,8 +117,6 @@ export const BorderlessButton = styled(BaseButton)`
     }
 
     return `
-      width: auto;
-      height: ${size === 'small' ? '24px' : '36px'};
       background-color: transparent;
       border: none;
       color: ${getThemedColor(theme.colors, 'neutral', 800)};

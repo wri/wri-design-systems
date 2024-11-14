@@ -30,10 +30,11 @@ const LayerItem = ({
       {isSwitch ? (
         <SwitchContainer>
           <SwitchContent>
-            <LayerName>{label}</LayerName>
-            <LayerCaption>{caption}</LayerCaption>
+            <LayerName aria-label={label}>{label}</LayerName>
+            <LayerCaption aria-label={caption}>{caption}</LayerCaption>
           </SwitchContent>
           <Switch
+            aria-label={label}
             name={name}
             isDisabled={isDisabled}
             defaultChecked={isDefaultSelected}
@@ -41,7 +42,7 @@ const LayerItem = ({
           />
         </SwitchContainer>
       ) : (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Radio
             label={label}
             value={name}

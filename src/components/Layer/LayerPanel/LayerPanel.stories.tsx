@@ -20,7 +20,8 @@ type Story = StoryObj<typeof meta>
 export const LayerGroupOpen: Story = {
   args: {
     title: 'Title and more',
-    description: 'Lorem ipsum dolor sit amet consectetur. Ac lectus massa auctor ac purus aliquam enim nibh accumsan. Nunc neque suspendisse.',
+    description:
+      'Lorem ipsum dolor sit amet consectetur. Ac lectus massa auctor ac purus aliquam enim nibh accumsan. Nunc neque suspendisse.',
     tabBarVariant: 'panel',
     buttonTabs: [
       { label: 'Label 1' },
@@ -39,21 +40,20 @@ export const LayerGroupOpen: Story = {
     const [tabSelected, setTabSelected] = useState('Label 1')
 
     return (
-      <LayerPanel {...args}
-        onTabClick={setTabSelected}
-      >
+      <LayerPanel {...args} onTabClick={setTabSelected}>
         {tabSelected === 'Label 1' ? <LayerGroupDemo1 /> : null}
         {tabSelected === 'Label 2' ? <LayerGroupDemo2 /> : null}
         {tabSelected === 'Label 3' ? <LayerGroupDemo3 /> : null}
       </LayerPanel>
     )
-  }
+  },
 }
 
 export const LayerGroupNoTabs: Story = {
   args: {
     title: 'Title and more',
-    description: 'Lorem ipsum dolor sit amet consectetur. Ac lectus massa auctor ac purus aliquam enim nibh accumsan. Nunc neque suspendisse.',
+    description:
+      'Lorem ipsum dolor sit amet consectetur. Ac lectus massa auctor ac purus aliquam enim nibh accumsan. Nunc neque suspendisse.',
     tabBarVariant: 'panel',
     children: <LayerGroupDemo3 />,
   },
