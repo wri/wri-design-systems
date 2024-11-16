@@ -1,4 +1,7 @@
-import { Spinner } from '@chakra-ui/react'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+
+import { Box, Spinner } from '@chakra-ui/react'
 import { ButtonProps } from './types'
 import {
   BorderlessButton,
@@ -9,7 +12,7 @@ import {
 
 const Button = ({
   label,
-  isLoading,
+  loading,
   variant = 'primary',
   size = 'default',
   isDisabled,
@@ -32,7 +35,7 @@ const Button = ({
       newLabel = label
     }
 
-    if (isLoading) {
+    if (loading) {
       newLabel = 'Loading'
     }
 
@@ -43,15 +46,19 @@ const Button = ({
     <StyledButton
       aria-label={getAriaLabel()}
       size={size}
-      isDisabled={isDisabled || isLoading}
-      aria-disabled={isDisabled || isLoading}
-      leftIcon={!isLoading ? leftIcon : undefined}
-      rightIcon={!isLoading ? rightIcon : undefined}
+      isDisabled={isDisabled || loading}
+      aria-disabled={isDisabled || loading}
       {...rest}
     >
-      {!rightIcon && isLoading ? <Spinner size='sm' marginRight='2' /> : null}
+      {leftIcon && !loading ? (
+        <Box marginRight={label ? 2 : 0}>{leftIcon}</Box>
+      ) : null}
+      {!rightIcon && loading ? <Spinner size='sm' marginRight={label ? 2 : 0} /> : null}
       {label}
-      {!!rightIcon && isLoading ? <Spinner size='sm' marginLeft='2' /> : null}
+      {rightIcon && !loading ? (
+        <Box marginLeft={2}>{rightIcon}</Box>
+      ) : null}
+      {!!rightIcon && loading ? <Spinner size='sm' marginLeft={label ? 2 : 0} /> : null}
     </StyledButton>
   )
 }

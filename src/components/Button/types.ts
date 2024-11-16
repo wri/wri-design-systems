@@ -1,12 +1,15 @@
 import { ButtonProps as ChakraButtonProps } from '@chakra-ui/react'
+import React from 'react'
 
 export type ButtonProps = Omit<
   ChakraButtonProps,
-  'size' | 'variant' | 'colorScheme'
+  'size' | 'variant' | 'colorPalette' | 'children'
 > & {
   label?: string
-  isLoading?: boolean
-  variant: 'primary' | 'secondary' | 'borderless' | 'outline'
+  loading?: boolean
+  variant?: 'primary' | 'secondary' | 'borderless' | 'outline'
   size?: 'default' | 'small'
   isDisabled?: boolean
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
 }
