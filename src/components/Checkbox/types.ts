@@ -1,7 +1,7 @@
-import { CheckboxProps as ChakraCheckboxProps } from '@chakra-ui/react'
+import { Checkbox as ChakraCheckbox } from '@chakra-ui/react'
 
 export type CheckboxProps = Omit<
-  ChakraCheckboxProps,
+  ChakraCheckbox.RootProps,
   | 'size'
   | 'variant'
   | 'colorScheme'
@@ -9,13 +9,13 @@ export type CheckboxProps = Omit<
   | 'iconColor'
   | 'iconSize'
   | 'spacing'
+  | 'invalid'
 > & {
-  label?: string
-  name: string
-  value: string
+  name?: string
+  value?: string
   defaultChecked?: boolean
-  isChecked?: boolean
-  isDisabled?: boolean
-  isIndeterminate?: boolean
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  checked?: boolean
+  disabled?: boolean
+  indeterminate?: boolean
+  onCheckedChange?: ({ checked }: { checked: boolean }) => void
 }

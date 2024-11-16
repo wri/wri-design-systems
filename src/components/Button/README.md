@@ -22,13 +22,15 @@ import { Button } from 'wri-design-systems'
 ```ts
 type ButtonProps = Omit<
   ChakraButtonProps,
-  'size' | 'variant' | 'colorScheme'
+  'size' | 'variant' | 'colorPalette' | 'children'
 > & {
   label?: string
-  isLoading?: boolean
-  variant: 'primary' | 'secondary' | 'borderless' | 'outline'
+  loading?: boolean
+  variant?: 'primary' | 'secondary' | 'borderless' | 'outline'
   size?: 'default' | 'small'
-  isDisabled?: boolean
+  disabled?: boolean
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
 }
 ```
 
@@ -122,7 +124,7 @@ type ButtonProps = Omit<
 <Button
   label="Primary"
   variant="primary"
-  isDisabled
+  disabled
 />
 ```
 
@@ -132,6 +134,6 @@ type ButtonProps = Omit<
 <Button
   label="Primary"
   variant="primary"
-  isLoading
+  loading
 />
 ```

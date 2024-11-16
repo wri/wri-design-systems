@@ -1,5 +1,9 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React, { useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
+import { Stack } from '@chakra-ui/react'
 import Checkbox from '.'
 
 const meta = {
@@ -17,7 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const SingleCheckbox: Story = {
   args: {
-    label: 'Checkbox',
+    children: 'Checkbox',
     name: 'Checkbox',
     value: '1',
   },
@@ -25,7 +29,7 @@ export const SingleCheckbox: Story = {
 
 export const DefaultChecked: Story = {
   args: {
-    label: 'Checkbox',
+    children: 'Checkbox',
     name: 'Checkbox',
     value: '1',
     defaultChecked: true,
@@ -34,21 +38,60 @@ export const DefaultChecked: Story = {
 
 export const Disabled: Story = {
   args: {
-    label: 'Checkbox',
+    children: 'Checkbox',
     name: 'Checkbox',
     value: '1',
     defaultChecked: true,
-    isDisabled: true,
+    disabled: true,
   },
 }
 
 export const Indeterminate: Story = {
-  args: {
-    label: 'Checkbox',
-    name: 'Checkbox',
-    value: '1',
-    defaultChecked: true,
-    isChecked: true,
-    isIndeterminate: true,
+  render: function Render() {
+    const initialValues = [
+      { label: "Monday", checked: false, value: "monday" },
+      { label: "Tuesday", checked: false, value: "tuesday" },
+      { label: "Wednesday", checked: false, value: "wednesday" },
+      { label: "Thursday", checked: false, value: "thursday" },
+    ]
+
+    const [values, setValues] = useState(initialValues)
+
+    const allChecked = values.every((value) => value.checked)
+    const indeterminate = values.some((value) => value.checked) && !allChecked
+
+    const items = values.map((item, index) => (
+      <Checkbox
+        ms="6"
+        key={item.value}
+        checked={item.checked}
+        onCheckedChange={(e) => {
+          setValues((current) => {
+            const newValues = [...current]
+            newValues[index] = { ...newValues[index], checked: !!e.checked }
+            return newValues
+          })
+        }}
+      >
+        {item.label}
+      </Checkbox>
+    ))
+
+    return (
+      <Stack align="flex-start">
+        <Checkbox
+          checked={allChecked}
+          indeterminate={indeterminate}
+          onCheckedChange={(e) => {
+            setValues((current) =>
+              current.map((value) => ({ ...value, checked: !!e.checked })),
+            )
+          }}
+        >
+          Weekdays
+        </Checkbox>
+        {items}
+      </Stack>
+    )
   },
 }
