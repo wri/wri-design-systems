@@ -24,8 +24,8 @@ export const BaseButton = styled(Button) <ButtonProps>`
 `
 
 export const PrimaryButton = styled(BaseButton)`
-  ${({ isDisabled }) => {
-    if (isDisabled) {
+  ${({ disabled }) => {
+    if (disabled) {
       return `
         background-color: ${getThemedColor('neutral', 300)};
         border: 1px solid ${getThemedColor('neutral', 400)};
@@ -68,8 +68,8 @@ export const PrimaryButton = styled(BaseButton)`
 `
 
 export const SecondaryButton = styled(BaseButton)`
-  ${({ isDisabled }) => {
-    if (isDisabled) {
+  ${({ disabled }) => {
+    if (disabled) {
       return `
         background-color: ${getThemedColor('neutral', 200)};
         border: 1px solid ${getThemedColor('neutral', 300)};
@@ -110,8 +110,8 @@ export const SecondaryButton = styled(BaseButton)`
 `
 
 export const BorderlessButton = styled(BaseButton)`
-    ${({ isDisabled }) => {
-    if (isDisabled) {
+    ${({ disabled }) => {
+    if (disabled) {
       return `
         background-color: transparent;
         color: ${getThemedColor('neutral', 500)};
@@ -147,8 +147,8 @@ export const BorderlessButton = styled(BaseButton)`
 `
 
 export const OutlineButton = styled(BaseButton)`
-  ${({ isDisabled }) => {
-    if (isDisabled) {
+  ${({ disabled }) => {
+    if (disabled) {
       return `
         background-color: ${getThemedColor('neutral', 200)};
         border: 1px solid ${getThemedColor('neutral', 300)};

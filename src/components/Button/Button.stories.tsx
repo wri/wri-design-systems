@@ -52,7 +52,7 @@ export const Disabled: Story = {
   args: {
     label: 'Primary',
     variant: 'primary',
-    isDisabled: true,
+    disabled: true,
   },
 }
 

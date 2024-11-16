@@ -9,7 +9,7 @@ export type ButtonProps = Omit<
   loading?: boolean
   variant?: 'primary' | 'secondary' | 'borderless' | 'outline'
   size?: 'default' | 'small'
-  isDisabled?: boolean
+  disabled?: boolean
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
 }

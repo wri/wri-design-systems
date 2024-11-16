@@ -15,7 +15,7 @@ const Button = ({
   loading,
   variant = 'primary',
   size = 'default',
-  isDisabled,
+  disabled,
   leftIcon,
   rightIcon,
   ...rest
@@ -46,8 +46,8 @@ const Button = ({
     <StyledButton
       aria-label={getAriaLabel()}
       size={size}
-      isDisabled={isDisabled || loading}
-      aria-disabled={isDisabled || loading}
+      disabled={disabled || loading}
+      aria-disabled={disabled || loading}
       {...rest}
     >
       {leftIcon && !loading ? (
