@@ -4,7 +4,7 @@ export type CheckboxProps = Omit<
   ChakraCheckbox.RootProps,
   | 'size'
   | 'variant'
-  | 'colorScheme'
+  | 'colorPalette'
   | 'icon'
   | 'iconColor'
   | 'iconSize'

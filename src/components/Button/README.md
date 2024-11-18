@@ -2,6 +2,8 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/button--docs)
 
+[ButtonDemo](https://github.com/wri/wri-design-systems/blob/chakra-v3/src/components/Button/ButtonDemo.tsx)
+
 ## Import
 
 ```js

@@ -30,10 +30,7 @@ const Button = ({
   }
 
   const getAriaLabel = () => {
-    let newLabel = rest['aria-label']
-    if (label) {
-      newLabel = label
-    }
+    let newLabel = rest['aria-label'] || label
 
     if (loading) {
       newLabel = 'Loading'

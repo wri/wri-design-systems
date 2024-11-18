@@ -1,21 +1,12 @@
-import { SwitchProps as ChakraSwitchProps } from '@chakra-ui/react'
+import { Switch as ChakraSwitch } from '@chakra-ui/react'
 
 export type SwitchProps = Omit<
-  ChakraSwitchProps,
-  'size' | 'variant' | 'colorScheme'
+  ChakraSwitch.RootProps,
+  'size' | 'variant' | 'colorPalette' | 'invalid'
 > & {
   name: string
-  label?: string
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onCheckedChange?: ({ checked }: { checked: boolean }) => void
   defaultChecked?: boolean
-  isDisabled?: boolean
-  isLabelOnRight?: boolean
-}
-
-export type SwitchContainerProps = {
-  isChecked: boolean
-  isFocused: boolean
-  isDisabled: boolean
-  backgroundColor: string
-  checkedAndDisabledColor: string
+  disabled?: boolean
+  isLabelOnLeft?: boolean
 }

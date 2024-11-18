@@ -1,46 +1,48 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
-import { FormLabel } from '@chakra-ui/react'
+
+import { Switch as ChakraSwitch } from '@chakra-ui/react'
 import { SwitchProps } from './types'
 import { StyledSwitch, SwitchAndLabelContainer } from './styled'
+import { CheckIcon } from '../icons'
 
 const Switch = ({
   name,
-  label,
   defaultChecked = false,
-  onChange,
-  isDisabled = false,
-  isLabelOnRight = false,
+  onCheckedChange,
+  disabled = false,
+  isLabelOnLeft = false,
+  children,
   ...rest
-}: SwitchProps) => {
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (onChange) {
-      onChange(e)
-    }
-  }
-
-  return (
-    <SwitchAndLabelContainer>
-      {!isLabelOnRight && label ? (
-        <FormLabel htmlFor={name} mb='0'>
-          {label}
-        </FormLabel>
+}: SwitchProps) => (
+  <SwitchAndLabelContainer>
+    <StyledSwitch
+      id={name}
+      name={name}
+      aria-label={rest['aria-label'] || name}
+      defaultChecked={defaultChecked}
+      onCheckedChange={onCheckedChange}
+      disabled={disabled}
+      {...rest}
+    >
+      {isLabelOnLeft && children != null ? (
+        <ChakraSwitch.Label>{children}</ChakraSwitch.Label>
       ) : null}
-      <StyledSwitch
-        id={name}
-        name={name}
-        aria-label={label || rest['aria-label']}
-        defaultChecked={defaultChecked}
-        onChange={handleOnChange}
-        isDisabled={isDisabled}
-        {...rest}
-      />
-      {isLabelOnRight && label ? (
-        <FormLabel htmlFor={name} mb='0' ml={label ? '5' : '0'} mr={0}>
-          {label}
-        </FormLabel>
+      <ChakraSwitch.HiddenInput />
+      <div className='chakra-switch__control-container'>
+        <ChakraSwitch.Control>
+          <ChakraSwitch.Thumb>
+            <ChakraSwitch.ThumbIndicator display='flex'>
+              <CheckIcon />
+            </ChakraSwitch.ThumbIndicator>
+          </ChakraSwitch.Thumb>
+        </ChakraSwitch.Control>
+      </div>
+      {!isLabelOnLeft && children != null ? (
+        <ChakraSwitch.Label>{children}</ChakraSwitch.Label>
       ) : null}
-    </SwitchAndLabelContainer>
-  )
-}
+    </StyledSwitch>
+  </SwitchAndLabelContainer>
+)
 
 export default Switch

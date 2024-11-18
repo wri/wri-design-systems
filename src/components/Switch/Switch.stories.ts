@@ -26,13 +26,28 @@ export const DisabledOn: Story = {
   args: {
     name: 'switch-disabled-on',
     defaultChecked: true,
-    isDisabled: true,
+    disabled: true,
   },
 }
 
 export const DisabledOff: Story = {
   args: {
     name: 'switch-disabled-off',
-    isDisabled: true,
+    disabled: true,
+  },
+}
+
+export const WithLabel: Story = {
+  args: {
+    name: 'with-label',
+    children: 'With Label'
+  },
+}
+
+export const WithLabelLeft: Story = {
+  args: {
+    name: 'with-left-label',
+    children: 'With Left Label',
+    isLabelOnLeft: true,
   },
 }
