@@ -6,13 +6,13 @@ import { RadioProps } from './types'
 import { StyledRadio } from './styled'
 
 const Radio = ({ children, value, disabled, ...rest }: RadioProps) => (
-  <ChakraRadioGroup.Item value={value} disabled={disabled} {...rest}>
+  <StyledRadio value={value} disabled={disabled} {...rest}>
     <ChakraRadioGroup.ItemHiddenInput />
-    <StyledRadio />
+    <ChakraRadioGroup.ItemIndicator className='radio-item-indicator' />
     {children && (
       <ChakraRadioGroup.ItemText>{children}</ChakraRadioGroup.ItemText>
     )}
-  </ChakraRadioGroup.Item>
+  </StyledRadio>
 )
 
 export default Radio

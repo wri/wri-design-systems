@@ -11,7 +11,7 @@ const RadioDemo = () => (
       <Radio value='2'>Two</Radio>
       <Radio value='3'>Three</Radio>
     </RadioGroup>
-    <RadioGroup name='radio-group-2' defaultValue='2' isRow>
+    <RadioGroup name='radio-group-2' defaultValue='5' isRow>
       <Radio value='4'>Four</Radio>
       <Radio value='5' disabled>
         Five
