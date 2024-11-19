@@ -2,7 +2,7 @@ import { Switch } from '..'
 
 const SwitchDemo = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-    <Switch name='switch' defaultChecked>
+    <Switch name='switch' defaultChecked onChange={console.log}>
       defaultChecked
     </Switch>
     <Switch name='switch 2' isLabelOnLeft>

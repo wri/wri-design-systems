@@ -23,10 +23,15 @@ import { Switch } from 'wri-design-systems'
 ```ts
 type SwitchProps = Omit<
   ChakraSwitch.RootProps,
-  'size' | 'variant' | 'colorPalette' | 'invalid'
+  | 'size'
+  | 'variant'
+  | 'colorPalette'
+  | 'invalid'
+  | 'onCheckedChange'
+  | 'onChange'
 > & {
   name: string
-  onCheckedChange?: ({ checked }: { checked: boolean }) => void
+  onChange?: (name: string, checked: boolean) => void
   defaultChecked?: boolean
   disabled?: boolean
   isLabelOnLeft?: boolean

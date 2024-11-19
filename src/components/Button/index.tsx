@@ -48,13 +48,19 @@ const Button = ({
       {...rest}
     >
       {leftIcon && !loading ? (
-        <Box marginRight={label ? 2 : 0}>{leftIcon}</Box>
+        <Box marginRight={label ? 2 : 0} display='flex' alignItems='center'>
+          {leftIcon}
+        </Box>
       ) : null}
       {!rightIcon && loading ? (
         <Spinner size='sm' marginRight={label ? 2 : 0} />
       ) : null}
       {label}
-      {rightIcon && !loading ? <Box marginLeft={2}>{rightIcon}</Box> : null}
+      {rightIcon && !loading ? (
+        <Box marginLeft={2} display='flex' alignItems='center'>
+          {rightIcon}
+        </Box>
+      ) : null}
       {!!rightIcon && loading ? (
         <Spinner size='sm' marginLeft={label ? 2 : 0} />
       ) : null}

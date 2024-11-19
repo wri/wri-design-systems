@@ -1,4 +1,6 @@
-import { InfoIcon } from '@chakra-ui/icons'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React, { useState } from 'react'
+
 import Button from '../../Button'
 import Switch from '../../Switch'
 import Radio from '../../Radio'
@@ -10,6 +12,7 @@ import {
   LayerName,
   LayerItemContainer,
 } from './styled'
+import { InfoIcon } from '../../icons'
 
 const LayerItem = ({
   name,
@@ -18,7 +21,7 @@ const LayerItem = ({
   showInfoButton = true,
   infoButtonLabel = 'About data',
   variant = 'switch',
-  isDisabled,
+  disabled,
   onInfoClick,
   isDefaultSelected = false,
   onChange,
@@ -36,19 +39,21 @@ const LayerItem = ({
           <Switch
             aria-label={label}
             name={name}
-            isDisabled={isDisabled}
+            disabled={disabled}
             defaultChecked={isDefaultSelected}
-            onChange={onChange ? (e) => onChange(e) : () => {}}
+            onChange={onChange}
           />
         </SwitchContainer>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Radio
-            label={label}
             value={name}
-            isDisabled={isDisabled}
-            onChange={onChange ? (e) => onChange(e) : () => {}}
-          />
+            disabled={disabled}
+            fontSize='16px'
+            color='neutral.800'
+          >
+            {label}
+          </Radio>
           <LayerCaption style={{ marginLeft: '28px' }}>{caption}</LayerCaption>
         </div>
       )}
@@ -65,7 +70,7 @@ const LayerItem = ({
             rightIcon={<InfoIcon />}
             size='small'
             onClick={onInfoClick}
-            isDisabled={isDisabled}
+            disabled={disabled}
           />
         </div>
       ) : null}

@@ -9,40 +9,48 @@ import { CheckIcon } from '../icons'
 const Switch = ({
   name,
   defaultChecked = false,
-  onCheckedChange,
+  onChange,
   disabled = false,
   isLabelOnLeft = false,
   children,
   ...rest
-}: SwitchProps) => (
-  <SwitchAndLabelContainer>
-    <StyledSwitch
-      id={name}
-      name={name}
-      aria-label={rest['aria-label'] || name}
-      defaultChecked={defaultChecked}
-      onCheckedChange={onCheckedChange}
-      disabled={disabled}
-      {...rest}
-    >
-      {isLabelOnLeft && children != null ? (
-        <ChakraSwitch.Label>{children}</ChakraSwitch.Label>
-      ) : null}
-      <ChakraSwitch.HiddenInput />
-      <div className='chakra-switch__control-container'>
-        <ChakraSwitch.Control>
-          <ChakraSwitch.Thumb>
-            <ChakraSwitch.ThumbIndicator display='flex'>
-              <CheckIcon />
-            </ChakraSwitch.ThumbIndicator>
-          </ChakraSwitch.Thumb>
-        </ChakraSwitch.Control>
-      </div>
-      {!isLabelOnLeft && children != null ? (
-        <ChakraSwitch.Label>{children}</ChakraSwitch.Label>
-      ) : null}
-    </StyledSwitch>
-  </SwitchAndLabelContainer>
-)
+}: SwitchProps) => {
+  const handleOnCheckedChange = ({ checked }: { checked: boolean }) => {
+    if (onChange) {
+      onChange(name, checked)
+    }
+  }
+
+  return (
+    <SwitchAndLabelContainer>
+      <StyledSwitch
+        id={name}
+        name={name}
+        aria-label={rest['aria-label'] || name}
+        defaultChecked={defaultChecked}
+        onCheckedChange={handleOnCheckedChange}
+        disabled={disabled}
+        {...rest}
+      >
+        {isLabelOnLeft && children != null ? (
+          <ChakraSwitch.Label>{children}</ChakraSwitch.Label>
+        ) : null}
+        <ChakraSwitch.HiddenInput />
+        <div className='chakra-switch__control-container'>
+          <ChakraSwitch.Control>
+            <ChakraSwitch.Thumb>
+              <ChakraSwitch.ThumbIndicator display='flex'>
+                <CheckIcon />
+              </ChakraSwitch.ThumbIndicator>
+            </ChakraSwitch.Thumb>
+          </ChakraSwitch.Control>
+        </div>
+        {!isLabelOnLeft && children != null ? (
+          <ChakraSwitch.Label>{children}</ChakraSwitch.Label>
+        ) : null}
+      </StyledSwitch>
+    </SwitchAndLabelContainer>
+  )
+}
 
 export default Switch

@@ -2,6 +2,8 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/layers-layeritem--docs)
 
+[LayerItemDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Layer/LayerItem/LayerItemDemo.tsx)
+
 ## Usage
 
 LayerItem is used as part of [LayerGroups](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
@@ -16,9 +18,9 @@ type LayerItemProps = {
   showInfoButton?: boolean
   infoButtonLabel?: string
   variant?: 'switch' | 'radio'
-  isDisabled?: boolean
+  disabled?: boolean
   onInfoClick?: () => void
   isDefaultSelected?: boolean
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (name: string, checked: boolean) => void
 }
 ```

@@ -1,5 +1,9 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React, { useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
 import LayerItem from '.'
+import RadioGroup from '../../Radio/RadioGroup'
 
 const meta = {
   title: 'Layers/LayerItem',
@@ -28,6 +32,11 @@ export const Radio: Story = {
     caption: 'Caption',
     variant: 'radio',
   },
+  render: (args) => (
+    <RadioGroup name='radio-group'>
+      <LayerItem {...args} />
+    </RadioGroup>
+  ),
 }
 
 export const Disabled: Story = {
@@ -35,7 +44,7 @@ export const Disabled: Story = {
     name: 'switch-layer-1',
     label: 'Layer name',
     caption: 'Caption',
-    isDisabled: true,
+    disabled: true,
   },
 }
 
@@ -45,8 +54,13 @@ export const RadioDisabeld: Story = {
     label: 'Layer name',
     caption: 'Caption',
     variant: 'radio',
-    isDisabled: true,
+    disabled: true,
   },
+  render: (args) => (
+    <RadioGroup name='radio-group-'>
+      <LayerItem {...args} />
+    </RadioGroup>
+  ),
 }
 
 export const NoInfoButton: Story = {
