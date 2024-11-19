@@ -1,72 +1,61 @@
 import styled from '@emotion/styled'
-import { Radio } from '@chakra-ui/react'
-import { getThemedColor, ThemeProps } from '../../lib/theme'
+import { RadioGroup as ChakraRadioGroup } from '@chakra-ui/react'
+import { getThemedColor } from '../../lib/theme'
 
-export const StyledRadio = styled(Radio)<{
-  theme?: ThemeProps
-}>`
+export const StyledRadio = styled(ChakraRadioGroup.ItemIndicator)`
   width: 20px;
   height: 20px;
-  border: 1px solid
-    ${({ theme }) => getThemedColor(theme.colors, 'neutral', 600)};
+  border: 1px solid ${getThemedColor('neutral', 600)};
+
+  .dot {
+    width: 10px !important;
+    height: 10px !important;
+    scale: 1 !important;
+  }
 
   &:hover {
     outline: 4px solid
-      ${({ theme }) => getThemedColor(theme.colors, 'primary', 500)}20;
+      color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
   }
 
   &:active {
     outline: 4px solid
-      ${({ theme }) => getThemedColor(theme.colors, 'primary', 500)}40;
+      color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
   }
 
   &:focus-visible,
   &[data-focus-visible] {
-    outline: 2px solid
-      ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
+    outline: 2px solid ${getThemedColor('primary', 700)};
     outline-offset: 2px;
     box-shadow: none;
 
     &[data-checked] {
-      border: 2px solid
-        ${({ theme, isDisabled }) =>
-          isDisabled
-            ? getThemedColor(theme.colors, 'neutral', 400)
-            : getThemedColor(theme.colors, 'primary', 700)} !important;
+      border: 2px solid ${getThemedColor('primary', 700)};
+
+      &[data-disabled] {
+        border: 2px solid ${getThemedColor('neutral', 400)};
+      }
     }
   }
 
   &[data-checked] {
-    border: 1px solid
-      ${({ theme, isDisabled }) =>
-        isDisabled
-          ? getThemedColor(theme.colors, 'neutral', 400)
-          : getThemedColor(theme.colors, 'primary', 700)} !important;
-    background: ${({ theme }) =>
-      getThemedColor(theme.colors, 'neutral', 100)} !important;
-    color: ${({ theme, isDisabled }) =>
-      isDisabled
-        ? getThemedColor(theme.colors, 'neutral', 400)
-        : getThemedColor(theme.colors, 'primary', 700)} !important;
+    border: 1px solid ${getThemedColor('primary', 700)};
+    background-color: ${getThemedColor('neutral', 100)} !important;
+    color: ${getThemedColor('primary', 700)};
 
-    &::before {
-      width: 10px !important;
-      height: 10px !important;
+    &[data-disabled] {
+      border: 1px solid ${getThemedColor('neutral', 400)};
+      color: ${getThemedColor('neutral', 400)};
     }
   }
 
-  ${({ theme, isDisabled }) => {
-    if (isDisabled) {
-      return `
-        border: 1px solid ${getThemedColor(theme.colors, 'neutral', 400)} !important;
-        background: ${getThemedColor(theme.colors, 'neutral', 100)} !important;
-  
-        &:hover {
-          outline: none;
-        }
-      `
-    }
+  &[data-disabled] {
+    border: 1px solid ${getThemedColor('neutral', 400)} !important;
+    background-color: ${getThemedColor('neutral', 100)} !important;
 
-    return ''
-  }}
+    &:hover,
+    &:active {
+      outline: none;
+    }
+  }
 `

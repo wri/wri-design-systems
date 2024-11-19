@@ -3,7 +3,7 @@ import { Button } from '@chakra-ui/react'
 import { getThemedColor } from '../../lib/theme'
 import { ButtonProps } from './types'
 
-export const BaseButton = styled(Button) <ButtonProps>`
+export const BaseButton = styled(Button)<ButtonProps>`
   width: auto;
   height: ${({ size }) => (size === 'small' ? '28px' : '40px')};
   font-size: ${({ size }) => (size === 'small' ? '12px' : '16px')};
@@ -110,7 +110,7 @@ export const SecondaryButton = styled(BaseButton)`
 `
 
 export const BorderlessButton = styled(BaseButton)`
-    ${({ disabled }) => {
+  ${({ disabled }) => {
     if (disabled) {
       return `
         background-color: transparent;

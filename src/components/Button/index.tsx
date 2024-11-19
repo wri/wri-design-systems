@@ -50,12 +50,14 @@ const Button = ({
       {leftIcon && !loading ? (
         <Box marginRight={label ? 2 : 0}>{leftIcon}</Box>
       ) : null}
-      {!rightIcon && loading ? <Spinner size='sm' marginRight={label ? 2 : 0} /> : null}
-      {label}
-      {rightIcon && !loading ? (
-        <Box marginLeft={2}>{rightIcon}</Box>
+      {!rightIcon && loading ? (
+        <Spinner size='sm' marginRight={label ? 2 : 0} />
       ) : null}
-      {!!rightIcon && loading ? <Spinner size='sm' marginLeft={label ? 2 : 0} /> : null}
+      {label}
+      {rightIcon && !loading ? <Box marginLeft={2}>{rightIcon}</Box> : null}
+      {!!rightIcon && loading ? (
+        <Spinner size='sm' marginLeft={label ? 2 : 0} />
+      ) : null}
     </StyledButton>
   )
 }

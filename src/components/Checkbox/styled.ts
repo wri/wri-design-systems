@@ -18,12 +18,14 @@ export const StyledCheckbox = styled(Checkbox.Root)`
 
     &:hover,
     &[data-hover] {
-      outline: 4px solid color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
+      outline: 4px solid
+        color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
     }
 
     &:active,
     &[data-active] {
-      outline: 4px solid color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
+      outline: 4px solid
+        color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
     }
 
     &:focus-visible,
@@ -33,8 +35,8 @@ export const StyledCheckbox = styled(Checkbox.Root)`
       outline-offset: 2px;
     }
 
-    &[data-state="checked"],
-    &[data-state="indeterminate"] {
+    &[data-state='checked'],
+    &[data-state='indeterminate'] {
       border: 1px solid ${getThemedColor('primary', 700)};
       background-color: ${getThemedColor('primary', 500)} !important;
 
@@ -55,8 +57,8 @@ export const StyledCheckbox = styled(Checkbox.Root)`
         outline: none;
       }
 
-      &[data-state="checked"],
-      &[data-state="indeterminate"] {
+      &[data-state='checked'],
+      &[data-state='indeterminate'] {
         border: none !important;
         background-color: ${getThemedColor('neutral', 300)} !important;
 

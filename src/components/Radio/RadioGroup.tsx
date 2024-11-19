@@ -1,30 +1,43 @@
-import { useState } from 'react'
-import { RadioGroup as ChakraRadioGroup, Stack } from '@chakra-ui/react'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React, { useState } from 'react'
+import {
+  RadioGroup as ChakraRadioGroup,
+  RadioGroupValueChangeDetails,
+  HStack,
+} from '@chakra-ui/react'
 import { RadioGroupProps } from './types'
 
 const RadioGroup = ({
   children,
   isRow = false,
   defaultValue,
-  onChange,
+  onValueChange,
   ...rest
 }: RadioGroupProps) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
 
-  const handleOnChange = (newValue: string) => {
-    setSelectedValue(newValue)
+  const handleOnChange = (details: RadioGroupValueChangeDetails) => {
+    setSelectedValue(details.value)
 
-    if (onChange) {
-      onChange(newValue)
+    if (onValueChange) {
+      onValueChange(details.value)
     }
   }
 
   return (
-    <ChakraRadioGroup onChange={handleOnChange} value={selectedValue} {...rest}>
-      <Stack spacing={isRow ? 5 : 2} direction={isRow ? 'row' : 'column'}>
+    <ChakraRadioGroup.Root
+      onValueChange={handleOnChange}
+      value={selectedValue}
+      {...rest}
+    >
+      <HStack
+        gap={isRow ? 5 : 2}
+        flexDirection={isRow ? 'row' : 'column'}
+        alignItems='flex-start'
+      >
         {children}
-      </Stack>
-    </ChakraRadioGroup>
+      </HStack>
+    </ChakraRadioGroup.Root>
   )
 }
 

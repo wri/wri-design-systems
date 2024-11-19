@@ -1,23 +1,19 @@
-import {
-  RadioProps as ChakraRadioProps,
-  RadioGroupProps as ChakraRadioGroupProps,
-} from '@chakra-ui/react'
+import { RadioGroup as ChakraRadioGroup } from '@chakra-ui/react'
 
 export type RadioProps = Omit<
-  ChakraRadioProps,
-  'size' | 'variant' | 'colorScheme' | 'name' | 'defaultChecked'
+  ChakraRadioGroup.ItemProps,
+  'size' | 'variant' | 'colorPalette' | 'name' | 'defaultChecked'
 > & {
-  label: string
   value: string
-  isChecked?: boolean
-  isDisabled?: boolean
+  disabled?: boolean
 }
 
 export type RadioGroupProps = Omit<
-  ChakraRadioGroupProps,
-  'size' | 'variant' | 'colorScheme'
+  ChakraRadioGroup.ItemProps,
+  'size' | 'variant' | 'colorPalette' | 'value'
 > & {
   name: string
   defaultValue?: string
   isRow?: boolean
+  onValueChange?: (value: string) => void
 }

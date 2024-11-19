@@ -18,7 +18,7 @@ export const StyledSwitch = styled(Switch.Root)`
     background-color: ${getThemedColor('neutral', 600)};
   }
 
-  &[data-state="checked"] .chakra-switch__control-container {
+  &[data-state='checked'] .chakra-switch__control-container {
     background-color: ${getThemedColor('primary', 700)};
   }
 
@@ -41,7 +41,7 @@ export const StyledSwitch = styled(Switch.Root)`
       outline-offset: 3px;
     }
 
-    &[data-state="checked"] {
+    &[data-state='checked'] {
       background-color: ${getThemedColor('primary', 500)};
     }
 
@@ -61,17 +61,19 @@ export const StyledSwitch = styled(Switch.Root)`
 
     &:hover,
     &[data-hover] {
-      outline: 9px solid color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
+      outline: 9px solid
+        color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
     }
 
     &[data-active] {
-      outline: 9px solid color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
+      outline: 9px solid
+        color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
     }
 
     &[data-disabled] {
       outline: none;
 
-      &[data-state="checked"] {
+      &[data-state='checked'] {
         svg {
           path {
             fill: ${getThemedColor('neutral', 500)};

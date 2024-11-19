@@ -49,10 +49,10 @@ export const Disabled: Story = {
 export const Indeterminate: Story = {
   render: function Render() {
     const initialValues = [
-      { label: "Monday", checked: false, value: "monday" },
-      { label: "Tuesday", checked: false, value: "tuesday" },
-      { label: "Wednesday", checked: false, value: "wednesday" },
-      { label: "Thursday", checked: false, value: "thursday" },
+      { label: 'Monday', checked: false, value: 'monday' },
+      { label: 'Tuesday', checked: false, value: 'tuesday' },
+      { label: 'Wednesday', checked: false, value: 'wednesday' },
+      { label: 'Thursday', checked: false, value: 'thursday' },
     ]
 
     const [values, setValues] = useState(initialValues)
@@ -62,7 +62,7 @@ export const Indeterminate: Story = {
 
     const items = values.map((item, index) => (
       <Checkbox
-        ms="6"
+        ms='6'
         key={item.value}
         checked={item.checked}
         onCheckedChange={(e) => {
@@ -78,7 +78,7 @@ export const Indeterminate: Story = {
     ))
 
     return (
-      <Stack align="flex-start">
+      <Stack align='flex-start'>
         <Checkbox
           checked={allChecked}
           indeterminate={indeterminate}

@@ -4,7 +4,7 @@ import React from 'react'
 import { Icon, IconProps } from '@chakra-ui/react'
 
 export const HideSidebarIcon = (props: IconProps) => (
-  <Icon  {...props}>
+  <Icon {...props}>
     <svg viewBox='0 0 16 17'>
       <g clipPath='url(#clip0_1216_84)'>
         <path

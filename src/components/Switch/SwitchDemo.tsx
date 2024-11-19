@@ -8,9 +8,7 @@ const SwitchDemo = () => (
     <Switch name='switch 2' isLabelOnLeft>
       isLabelOnLeft
     </Switch>
-    <Switch name='switch 3'>
-      Normal Label Positon
-    </Switch>
+    <Switch name='switch 3'>Normal Label Positon</Switch>
     <Switch name='switch 4' disabled>
       disabled
     </Switch>

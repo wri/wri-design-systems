@@ -32,7 +32,7 @@ const Checkbox = ({
       {indeterminate ? <CheckIndeterminateIcon /> : <CheckIcon />}
     </ChakraCheckbox.Control>
     <ChakraCheckbox.Label>{children}</ChakraCheckbox.Label>
-  </StyledCheckbox >
+  </StyledCheckbox>
 )
 
 export default Checkbox

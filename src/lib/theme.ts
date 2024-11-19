@@ -50,4 +50,6 @@ export const system = createSystem(defaultConfig, {
 export const getThemedColor = (
   variant: 'neutral' | 'primary' | 'secondary' | 'success',
   index: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
-): string => system.tokens.getVar(`colors.${variant}.${index}`) || wriTheme?.[variant]?.[index]?.value
+): string =>
+  system.tokens.getVar(`colors.${variant}.${index}`) ||
+  wriTheme?.[variant]?.[index]?.value

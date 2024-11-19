@@ -40,7 +40,7 @@ export const DisabledOff: Story = {
 export const WithLabel: Story = {
   args: {
     name: 'with-label',
-    children: 'With Label'
+    children: 'With Label',
   },
 }
 
