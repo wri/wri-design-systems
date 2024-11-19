@@ -1,8 +1,7 @@
 import styled from '@emotion/styled'
-import { getThemedColor, ThemeProps } from '../../../lib/theme'
+import { getThemedColor } from '../../../lib/theme'
 
 export const ActiveTagContainer = styled.div<{
-  theme?: ThemeProps
   count: number
 }>`
   min-width: 56px;
@@ -12,16 +11,16 @@ export const ActiveTagContainer = styled.div<{
   align-items: center;
   padding: 4px;
   border-radius: 4px;
-  background-color: ${({ theme, count }) =>
+  background-color: ${({ count }) =>
     count > 0
-      ? getThemedColor(theme.colors, 'success', 100)
-      : getThemedColor(theme.colors, 'neutral', 300)};
+      ? getThemedColor('success', 100)
+      : getThemedColor('neutral', 300)};
 
   font-size: 10px;
   line-height: 16px;
   font-weight: 700;
-  color: ${({ theme, count }) =>
+  color: ${({ count }) =>
     count > 0
-      ? getThemedColor(theme.colors, 'success', 500)
-      : getThemedColor(theme.colors, 'neutral', 600)};
+      ? getThemedColor('success', 500)
+      : getThemedColor('neutral', 600)};
 `

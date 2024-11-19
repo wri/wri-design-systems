@@ -25,19 +25,20 @@ import { RadioGroup, Radio } from 'wri-design-systems'
 ```ts
 type RadioGroupProps = Omit<
   ChakraRadioGroup.ItemProps,
-  'size' | 'variant' | 'colorPalette' | 'value'
+  'size' | 'variant' | 'colorPalette' | 'value' | 'onChange'
 > & {
   name: string
   defaultValue?: string
   isRow?: boolean
-  onValueChange?: (value: string) => void
+  onChange?: (name: string, selectedValue: string) => void
+  customGap?: string
 }
 ```
 
 ```ts
 type RadioProps = Omit<
   ChakraRadioGroup.ItemProps,
-  'size' | 'variant' | 'colorPalette' | 'name' | 'defaultChecked'
+  'size' | 'variant' | 'colorPalette' | 'name' | 'defaultChecked' | 'onChange'
 > & {
   value: string
   disabled?: boolean

@@ -3,8 +3,7 @@ import { getThemedColor } from '../../../lib/theme'
 
 export const LayerItemContainer = styled.div`
   width: 268px;
-  padding-bottom: 16px;
-  margin-bottom: 16px;
+  padding: 16px 0;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
 `
 export const SwitchContainer = styled.div`

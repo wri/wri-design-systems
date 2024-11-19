@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import Radio from '.'
@@ -20,7 +21,7 @@ type Story = StoryObj<typeof meta>
 export const SingleRadio: Story = {
   args: {
     name: 'single-radio',
-    onValueChange: (selectedValue: string) => console.log(selectedValue),
+    onChange: (name, selectedValue) => console.log(name, selectedValue),
   },
   render: (args) => (
     <RadioGroup {...args}>

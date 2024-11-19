@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { RadioGroup, Radio } from '..'
 
 const RadioDemo = () => (
@@ -5,7 +7,7 @@ const RadioDemo = () => (
     <RadioGroup
       name='radio-group-1'
       defaultValue='1'
-      onValueChange={(selectedValue) => console.log(selectedValue)}
+      onChange={(name, selectedValue) => console.log(name, selectedValue)}
     >
       <Radio value='1'>One</Radio>
       <Radio value='2'>Two</Radio>

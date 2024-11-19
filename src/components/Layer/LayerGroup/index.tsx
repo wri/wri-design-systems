@@ -1,18 +1,14 @@
-import {
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  useTheme,
-} from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React, { useEffect, useState } from 'react'
+
+import { Accordion, Box } from '@chakra-ui/react'
 import { LayerGroupProps } from './types'
 import { LayerGroupCaption, LayerGroupTitle } from './styled'
-import { getThemedColor } from '../../../lib/theme'
 import ActiveTag from '../../Tag/ActiveTag'
 import LayerItem from '../LayerItem'
 import RadioGroup from '../../Radio/RadioGroup'
 import { LayerItemProps } from '../LayerItem/types'
+import { ChevronDownIcon } from '../../icons'
 
 const getDefaultValue = (layerItems: LayerItemProps[]) => {
   const defaultSelected = layerItems.find(
@@ -21,13 +17,12 @@ const getDefaultValue = (layerItems: LayerItemProps[]) => {
   return defaultSelected?.name
 }
 
-const LayerGroup = ({ label, caption, layerItems }: LayerGroupProps) => {
+const LayerGroup = ({ label, caption, value, layerItems }: LayerGroupProps) => {
   const [activeItems, setActiveItems] = useState<{
     key?: string
-    value?: boolean
+    active?: boolean
   }>({})
   const [defaultValue] = useState(getDefaultValue(layerItems))
-  const theme = useTheme()
 
   useEffect(() => {
     let newActiveItems = { ...activeItems }
@@ -45,18 +40,19 @@ const LayerGroup = ({ label, caption, layerItems }: LayerGroupProps) => {
   }, [])
 
   const handleOnChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    onChange: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined,
+    name: string,
+    checked: boolean,
+    onChange?: (name: string, checked: boolean) => void,
   ) => {
     const newActiveItems = {
       ...activeItems,
-      [e.target.name]: e.target.checked,
+      [name]: checked,
     }
 
     setActiveItems(newActiveItems)
 
     if (onChange) {
-      onChange(e)
+      onChange(name, checked)
     }
   }
 
@@ -65,42 +61,45 @@ const LayerGroup = ({ label, caption, layerItems }: LayerGroupProps) => {
   ).length
 
   return (
-    <div style={{ width: '300px' }}>
-      <AccordionItem>
-        <h2>
-          <AccordionButton
-            style={{
-              alignItems: 'flex-start',
-              paddingTop: '16px',
-              paddingBottom: 0,
-            }}
-            _hover={{ backgroundColor: 'transparent' }}
-          >
-            <LayerGroupTitle as='span' flex='1'>
-              {label}
-              <ActiveTag count={getActiveCount} />
-            </LayerGroupTitle>
-            <AccordionIcon
-              width='30px'
-              height='30px'
-              color={getThemedColor(theme.colors, 'neutral', 700)}
+    <Accordion.Item value={value} width='300px'>
+      <Accordion.ItemTrigger padding='16px' alignItems='flex-start'>
+        <Box
+          width='full'
+          display='flex'
+          flexDirection='column'
+          alignItems='flex-start'
+        >
+          <LayerGroupTitle>
+            {label}
+            <ActiveTag count={getActiveCount} />
+          </LayerGroupTitle>
+          <LayerGroupCaption>{caption}</LayerGroupCaption>
+        </Box>
+        <Accordion.ItemIndicator display='flex'>
+          <ChevronDownIcon color='neutral.700' height='16px' width='16px' />
+        </Accordion.ItemIndicator>
+      </Accordion.ItemTrigger>
+      <Accordion.ItemContent paddingLeft='16px' paddingRight='16px'>
+        <RadioGroup
+          name={label}
+          defaultValue={defaultValue}
+          customGap='0px'
+          onChange={(name: string, selectedValue: string) =>
+            handleOnChange(name, !!selectedValue, layerItems[0].onChange)
+          }
+        >
+          {layerItems.map((layerItem) => (
+            <LayerItem
+              key={layerItem.label}
+              {...layerItem}
+              onChange={(name: string, checked: boolean) =>
+                handleOnChange(name, checked, layerItem.onChange)
+              }
             />
-          </AccordionButton>
-        </h2>
-        <LayerGroupCaption>{caption}</LayerGroupCaption>
-        <AccordionPanel pb={0}>
-          <RadioGroup name={label} defaultValue={defaultValue}>
-            {layerItems.map((layerItem) => (
-              <LayerItem
-                key={layerItem.label}
-                {...layerItem}
-                onChange={(e) => handleOnChange(e, layerItem.onChange)}
-              />
-            ))}
-          </RadioGroup>
-        </AccordionPanel>
-      </AccordionItem>
-    </div>
+          ))}
+        </RadioGroup>
+      </Accordion.ItemContent>
+    </Accordion.Item>
   )
 }
 

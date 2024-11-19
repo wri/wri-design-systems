@@ -2,7 +2,7 @@ import { RadioGroup as ChakraRadioGroup } from '@chakra-ui/react'
 
 export type RadioProps = Omit<
   ChakraRadioGroup.ItemProps,
-  'size' | 'variant' | 'colorPalette' | 'name' | 'defaultChecked'
+  'size' | 'variant' | 'colorPalette' | 'name' | 'defaultChecked' | 'onChange'
 > & {
   value: string
   disabled?: boolean
@@ -10,10 +10,11 @@ export type RadioProps = Omit<
 
 export type RadioGroupProps = Omit<
   ChakraRadioGroup.ItemProps,
-  'size' | 'variant' | 'colorPalette' | 'value'
+  'size' | 'variant' | 'colorPalette' | 'value' | 'onChange'
 > & {
   name: string
   defaultValue?: string
   isRow?: boolean
-  onValueChange?: (value: string) => void
+  onChange?: (name: string, selectedValue: string) => void
+  customGap?: string
 }

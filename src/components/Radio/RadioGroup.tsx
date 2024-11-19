@@ -11,8 +11,10 @@ import { RadioGroupProps } from './types'
 const RadioGroup = ({
   children,
   isRow = false,
+  name,
   defaultValue,
-  onValueChange,
+  onChange,
+  customGap,
   ...rest
 }: RadioGroupProps) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
@@ -20,10 +22,13 @@ const RadioGroup = ({
   const handleOnChange = (details: RadioGroupValueChangeDetails) => {
     setSelectedValue(details.value)
 
-    if (onValueChange) {
-      onValueChange(details.value)
+    if (onChange) {
+      onChange(name, details.value)
     }
   }
+
+  let gap = isRow ? '20px' : '8px'
+  gap = customGap || gap
 
   return (
     <ChakraRadioGroup.Root
@@ -32,7 +37,7 @@ const RadioGroup = ({
       {...rest}
     >
       <HStack
-        gap={isRow ? 5 : 2}
+        gap={gap}
         flexDirection={isRow ? 'row' : 'column'}
         alignItems='flex-start'
       >
