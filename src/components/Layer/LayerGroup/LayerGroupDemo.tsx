@@ -1,5 +1,4 @@
-import LayerGroupContainer from './LayerGroupContainer'
-import LayerGroup from '.'
+import { LayerGroupContainer, LayerGroup } from '../..'
 
 const LayerGroupDemo = () => (
   <LayerGroupContainer defaultValue={['1']}>

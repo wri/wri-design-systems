@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
+import { Box } from '@chakra-ui/react'
 import Button from '../../Button'
 import Switch from '../../Switch'
 import Radio from '../../Radio'
@@ -50,7 +51,7 @@ const LayerItem = ({
             value={name}
             disabled={disabled}
             fontSize='16px'
-            color='neutral.800'
+            color='var(--chakra-colors-neutral-800)'
           >
             {label}
           </Radio>
@@ -58,11 +59,11 @@ const LayerItem = ({
         </div>
       )}
       {showInfoButton ? (
-        <div
-          style={{
-            marginTop: '8px',
-            marginLeft: !isSwitch ? '28px' : 0,
-          }}
+        <Box
+          display='flex'
+          justifyContent='flex-start'
+          marginTop='8px'
+          marginLeft={!isSwitch ? '28px' : 0}
         >
           <Button
             variant='secondary'
@@ -72,7 +73,7 @@ const LayerItem = ({
             onClick={onInfoClick}
             disabled={disabled}
           />
-        </div>
+        </Box>
       ) : null}
     </LayerItemContainer>
   )

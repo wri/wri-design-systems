@@ -76,7 +76,11 @@ const LayerGroup = ({ label, caption, value, layerItems }: LayerGroupProps) => {
           <LayerGroupCaption>{caption}</LayerGroupCaption>
         </Box>
         <Accordion.ItemIndicator display='flex'>
-          <ChevronDownIcon color='neutral.700' height='16px' width='16px' />
+          <ChevronDownIcon
+            color='var(--chakra-colors-neutral-700)'
+            height='16px'
+            width='16px'
+          />
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
       <Accordion.ItemContent paddingLeft='16px' paddingRight='16px'>

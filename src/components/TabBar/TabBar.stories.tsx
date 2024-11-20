@@ -1,6 +1,9 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
-import { SettingsIcon } from '@chakra-ui/icons'
 import TabBar from '.'
+import { CheckIcon } from '../icons'
 
 const meta = {
   title: 'TabBar',
@@ -17,22 +20,34 @@ type Story = StoryObj<typeof meta>
 export const PanelTab: Story = {
   args: {
     variant: 'panel',
-    tabs: [{ label: 'One' }, { label: 'Two' }, { label: 'Three' }],
+    tabs: [
+      { label: 'One', value: 'one' },
+      { label: 'Two', value: 'two' },
+      { label: 'Three', value: 'three' },
+    ],
   },
 }
 
 export const ViewTab: Story = {
   args: {
     variant: 'view',
-    tabs: [{ label: 'One' }, { label: 'Two' }, { label: 'Three' }],
+    tabs: [
+      { label: 'One', value: 'one' },
+      { label: 'Two', value: 'two' },
+      { label: 'Three', value: 'three' },
+    ],
   },
 }
 
 export const PanelTabWithDefaultActive: Story = {
   args: {
     variant: 'panel',
-    tabs: [{ label: 'One' }, { label: 'Two' }, { label: 'Three' }],
-    defaultActiveTabLabel: 'Three',
+    tabs: [
+      { label: 'One', value: 'one' },
+      { label: 'Two', value: 'two' },
+      { label: 'Three', value: 'three' },
+    ],
+    defaultValue: 'two',
   },
 }
 
@@ -40,9 +55,9 @@ export const PanelTabDisabled: Story = {
   args: {
     variant: 'panel',
     tabs: [
-      { label: 'One' },
-      { label: 'Two', isDisabled: true },
-      { label: 'Three' },
+      { label: 'One', value: 'one' },
+      { label: 'Two', value: 'two' },
+      { label: 'Three', value: 'three', disabled: true },
     ],
   },
 }
@@ -51,9 +66,9 @@ export const PanelTabWitIcons: Story = {
   args: {
     variant: 'panel',
     tabs: [
-      { label: 'Label' },
-      { label: 'Label' },
-      { label: 'Label', leftIcon: <SettingsIcon /> },
+      { label: 'One', value: 'one', icon: <CheckIcon /> },
+      { label: 'Two', value: 'two' },
+      { label: 'Three', value: 'three' },
     ],
   },
 }
