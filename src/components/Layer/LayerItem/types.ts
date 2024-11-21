@@ -5,8 +5,8 @@ export type LayerItemProps = {
   showInfoButton?: boolean
   infoButtonLabel?: string
   variant?: 'switch' | 'radio'
-  isDisabled?: boolean
+  disabled?: boolean
   onInfoClick?: () => void
   isDefaultSelected?: boolean
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (name: string, checked: boolean, selectedValue?: string) => void
 }

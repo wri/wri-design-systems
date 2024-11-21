@@ -1,9 +1,11 @@
-import { useState } from 'react'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React, { useState } from 'react'
+
+import { Box, Tabs } from '@chakra-ui/react'
 import {
   NavigationRailContainer,
   NavigationRailTab,
   NavigationRailTabIcon,
-  NavigationRailTabLabel,
   NavigationRailToggle,
 } from './styled'
 import { NavigationRailProps } from './types'
@@ -11,56 +13,65 @@ import { HideSidebarIcon, ShowSidebarIcon } from '../icons'
 
 const NavigationRail = ({
   tabs = [],
-  isOnLeft = false,
-  defaultActiveTabId,
+  defaultValue,
   onTabClick,
+  children,
 }: NavigationRailProps) => {
-  const [selectedTab, setSelectedTab] = useState(defaultActiveTabId)
   const [hideSidebar, setHideSidebar] = useState(false)
 
-  const handleOnTabClick = (id: string) => {
-    setSelectedTab(id)
-
+  const handleOnTabClick = (selectedValue: string) => {
     if (onTabClick) {
-      onTabClick(id)
+      onTabClick(selectedValue)
     }
   }
 
   return (
-    <NavigationRailContainer isOnLeft={isOnLeft}>
-      <div>
-        {tabs.map((tab) => (
-          <NavigationRailTab
-            key={tab.id}
-            isSelected={selectedTab === tab.id}
-            isOnLeft={isOnLeft}
-            onClick={() => handleOnTabClick(tab.id)}
-            aria-label={tab['aria-label'] || tab.label}
-            {...tab}
-          >
-            {tab.icon ? (
-              <NavigationRailTabIcon>{tab.icon}</NavigationRailTabIcon>
-            ) : null}
-            <NavigationRailTabLabel isSelected={selectedTab === tab.id}>
-              {tab.label}
-            </NavigationRailTabLabel>
-          </NavigationRailTab>
-        ))}
-      </div>
+    <>
+      <NavigationRailContainer>
+        <Tabs.Root
+          defaultValue={defaultValue || tabs?.[0]?.value}
+          orientation='vertical'
+          width='full'
+          onFocusChange={({ focusedValue }) => handleOnTabClick(focusedValue)}
+        >
+          <Tabs.List alignItems='center' border='none'>
+            {tabs.map((tab) => (
+              <NavigationRailTab
+                key={tab.label}
+                aria-label={tab['aria-label'] || tab.label}
+                {...tab}
+              >
+                <Box
+                  display='flex'
+                  alignItems='center'
+                  flexDirection='column'
+                  gap='5px'
+                  className='tab-label'
+                >
+                  {tab.icon ? (
+                    <NavigationRailTabIcon>{tab.icon}</NavigationRailTabIcon>
+                  ) : null}
+                  <p>{tab.label}</p>
+                </Box>
+              </NavigationRailTab>
+            ))}
+          </Tabs.List>
+        </Tabs.Root>
 
-      <NavigationRailToggle
-        isOnLeft={isOnLeft}
-        onClick={() => setHideSidebar(!hideSidebar)}
-      >
-        <NavigationRailTabIcon>
-          {hideSidebar ? <ShowSidebarIcon /> : <HideSidebarIcon />}
-        </NavigationRailTabIcon>
-        <NavigationRailTabLabel>
-          <p>{hideSidebar ? 'Show' : 'Hide'}</p>
-          <p>Sidebar</p>
-        </NavigationRailTabLabel>
-      </NavigationRailToggle>
-    </NavigationRailContainer>
+        {children ? (
+          <NavigationRailToggle onClick={() => setHideSidebar(!hideSidebar)}>
+            <NavigationRailTabIcon>
+              {hideSidebar ? <ShowSidebarIcon /> : <HideSidebarIcon />}
+            </NavigationRailTabIcon>
+            <div className='tab-label'>
+              <p>{hideSidebar ? 'Show' : 'Hide'}</p>
+              <p>Sidebar</p>
+            </div>
+          </NavigationRailToggle>
+        ) : null}
+      </NavigationRailContainer>
+      {children ? <div>aaa</div> : null}
+    </>
   )
 }
 

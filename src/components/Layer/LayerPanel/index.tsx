@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+
 import TabBar from '../../TabBar'
 import {
   LayerPanelDescription,
@@ -12,7 +15,7 @@ const LayerPanel = ({
   description,
   tabBarVariant = 'panel',
   buttonTabs,
-  defaultActiveTabLabel,
+  defaultValue,
   onTabClick,
   children,
 }: LayerPanelProps) => (
@@ -24,7 +27,7 @@ const LayerPanel = ({
     {buttonTabs && buttonTabs.length > 0 ? (
       <TabBar
         variant={tabBarVariant}
-        defaultActiveTabLabel={defaultActiveTabLabel}
+        defaultValue={defaultValue}
         tabs={buttonTabs}
         onTabClick={onTabClick}
       />

@@ -1,39 +1,46 @@
-import { useState } from 'react'
-import { TabBarContainer, TabBarItem } from './styled'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+
+import { Box, Tabs } from '@chakra-ui/react'
+import { TabBarContainer, TabBarItemPanel, TabBarItemView } from './styled'
 import { TabBarProps } from './types'
 
 const TabBar = ({
   variant = 'panel',
+  defaultValue,
   tabs,
-  defaultActiveTabLabel,
   onTabClick,
 }: TabBarProps) => {
-  const [selectedTab, setSelectedTab] = useState(
-    defaultActiveTabLabel || tabs?.[0]?.label,
-  )
-
-  const handleOnTabClick = (label: string) => {
-    setSelectedTab(label)
-
+  const handleOnTabClick = (tabValue: string) => {
     if (onTabClick) {
-      onTabClick(label)
+      onTabClick(tabValue)
     }
   }
 
+  const TabBarItem = variant === 'view' ? TabBarItemView : TabBarItemPanel
+
   return (
     <TabBarContainer variant={variant}>
-      {tabs.map((tab) => (
-        <TabBarItem
-          key={tab.label}
-          variant={variant}
-          isSelected={selectedTab === tab.label}
-          onClick={() => handleOnTabClick(tab.label)}
-          aria-label={tab['aria-label'] || tab.label}
-          {...tab}
-        >
-          {tab.label}
-        </TabBarItem>
-      ))}
+      <Tabs.Root
+        width='full'
+        defaultValue={defaultValue || tabs?.[0]?.value}
+        onFocusChange={({ focusedValue }) => handleOnTabClick(focusedValue)}
+      >
+        <Tabs.List alignItems='center' border='none'>
+          {tabs.map((tab) => (
+            <TabBarItem
+              key={tab.label}
+              aria-label={tab['aria-label'] || tab.label}
+              {...tab}
+            >
+              <Box display='flex' alignItems='center' gap='5px'>
+                {tab.icon}
+                {tab.label}
+              </Box>
+            </TabBarItem>
+          ))}
+        </Tabs.List>
+      </Tabs.Root>
     </TabBarContainer>
   )
 }

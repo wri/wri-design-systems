@@ -1,21 +1,20 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+
 import { Accordion } from '@chakra-ui/react'
 import { LayerGroupContainerProps } from './types'
+import { StyledLayerGroupContainer } from './styled'
 
 const LayerGroupContainer = ({
   children,
-  allowMultipleOpen = true,
-  defaultIndex = [0],
+  defaultValue,
   ...rest
 }: LayerGroupContainerProps) => (
-  <div style={{ width: '300px' }}>
-    <Accordion
-      allowMultiple={allowMultipleOpen}
-      defaultIndex={defaultIndex}
-      {...rest}
-    >
+  <StyledLayerGroupContainer style={{ width: '300px' }}>
+    <Accordion.Root defaultValue={defaultValue} multiple {...rest}>
       {children}
-    </Accordion>
-  </div>
+    </Accordion.Root>
+  </StyledLayerGroupContainer>
 )
 
 export default LayerGroupContainer

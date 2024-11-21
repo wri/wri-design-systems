@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
 import { Button } from '@chakra-ui/react'
-import { getThemedColor, ThemeProps } from '../../lib/theme'
+import { getThemedColor } from '../../lib/theme'
+import { ButtonProps } from './types'
 
-export const BaseButton = styled(Button)`
+export const BaseButton = styled(Button)<ButtonProps>`
   width: auto;
   height: ${({ size }) => (size === 'small' ? '28px' : '40px')};
   font-size: ${({ size }) => (size === 'small' ? '12px' : '16px')};
@@ -23,92 +24,97 @@ export const BaseButton = styled(Button)`
 `
 
 export const PrimaryButton = styled(BaseButton)`
-  ${(props) => {
-    const theme = props.theme as ThemeProps
-    if (props.isDisabled) {
+  ${({ disabled }) => {
+    if (disabled) {
       return `
-        background-color: ${getThemedColor(theme.colors, 'neutral', 300)};
-        border: 1px solid ${getThemedColor(theme.colors, 'neutral', 400)};
-        color: ${getThemedColor(theme.colors, 'neutral', 500)};
+        background-color: ${getThemedColor('neutral', 300)};
+        border: 1px solid ${getThemedColor('neutral', 400)};
+        color: ${getThemedColor('neutral', 500)};
 
         &:hover {
-          background-color: ${getThemedColor(theme.colors, 'neutral', 300)} !important;
+          background-color: ${getThemedColor('neutral', 300)} !important;
         }
       `
     }
 
     return `
-      background-color: ${getThemedColor(theme.colors, 'primary', 500)};
-      border: 1px solid ${getThemedColor(theme.colors, 'primary', 600)};
-      color: ${getThemedColor(theme.colors, 'primary', 900)};
+      background-color: ${getThemedColor('primary', 500)};
+      border: 1px solid ${getThemedColor('primary', 600)};
+      color: ${getThemedColor('primary', 900)};
+      box-shadow: 0px 1px 2px 0px #0000000D;
 
       &:hover {
-        background-color: ${getThemedColor(theme.colors, 'primary', 500)};
+        background-color: ${getThemedColor('primary', 500)};
+        box-shadow: 0px 2px 4px -2px #0000001A;
         box-shadow: 0px 4px 6px -1px #0000001A;
       }
 
       &:active {
         outline: none;
-        background-color: ${getThemedColor(theme.colors, 'primary', 600)} !important;
-        border: 1px solid ${getThemedColor(theme.colors, 'primary', 700)} !important;
+        background-color: ${getThemedColor('primary', 600)} !important;
+        border: 1px solid ${getThemedColor('primary', 700)} !important;
+        box-shadow: 0px 2px 4px -2px #0000001A;
         box-shadow: 0px 4px 6px -1px #0000001A;
       }
 
       &:focus-visible {
-        outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
-        background-color: ${getThemedColor(theme.colors, 'primary', 500)};
-        border: 2px solid ${getThemedColor(theme.colors, 'primary', 500)};
+        outline-color: ${getThemedColor('primary', 700)};
+        background-color: ${getThemedColor('primary', 500)};
+        border: 2px solid ${getThemedColor('primary', 500)};
+        box-shadow: 0px 1px 2px 0px #0000000D;
       }
     `
   }};
 `
 
 export const SecondaryButton = styled(BaseButton)`
-  ${(props) => {
-    const theme = props.theme as ThemeProps
-    if (props.isDisabled) {
+  ${({ disabled }) => {
+    if (disabled) {
       return `
-        background-color: ${getThemedColor(theme.colors, 'neutral', 200)};
-        border: 1px solid ${getThemedColor(theme.colors, 'neutral', 300)};
-        color: ${getThemedColor(theme.colors, 'neutral', 500)};
+        background-color: ${getThemedColor('neutral', 200)};
+        border: 1px solid ${getThemedColor('neutral', 300)};
+        color: ${getThemedColor('neutral', 500)};
 
         &:hover {
-          background-color: ${getThemedColor(theme.colors, 'neutral', 200)} !important;
+          background-color: ${getThemedColor('neutral', 200)} !important;
         }
       `
     }
 
     return `
-      background-color: ${getThemedColor(theme.colors, 'neutral', 100)};
-      border: 1px solid ${getThemedColor(theme.colors, 'neutral', 300)};
-      color: ${getThemedColor(theme.colors, 'neutral', 700)};
+      background-color: ${getThemedColor('neutral', 100)};
+      border: 1px solid ${getThemedColor('neutral', 300)};
+      color: ${getThemedColor('neutral', 700)};
+      box-shadow: 0px 1px 2px 0px #0000000D;
 
       &:hover {
-        background-color: ${getThemedColor(theme.colors, 'neutral', 100)};
+        background-color: ${getThemedColor('neutral', 100)};
+        box-shadow: 0px 2px 4px -2px #0000001A;
         box-shadow: 0px 4px 6px -1px #0000001A;
       }
 
       &:active {
         outline: none;
-        background-color: ${getThemedColor(theme.colors, 'neutral', 200)} !important;
-        border: 1px solid ${getThemedColor(theme.colors, 'neutral', 300)} !important;
+        background-color: ${getThemedColor('neutral', 200)} !important;
+        border: 1px solid ${getThemedColor('neutral', 300)} !important;
+        box-shadow: 0px 2px 4px -2px #0000001A;
         box-shadow: 0px 4px 6px -1px #0000001A;
       }
 
       &:focus-visible {
-        outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
+        outline-color: ${getThemedColor('primary', 700)};
+        box-shadow: 0px 1px 2px 0px #0000000D;
       }
     `
   }};
 `
 
 export const BorderlessButton = styled(BaseButton)`
-  ${(props) => {
-    const { theme } = props as { theme: ThemeProps; size: string }
-    if (props.isDisabled) {
+  ${({ disabled }) => {
+    if (disabled) {
       return `
         background-color: transparent;
-        color: ${getThemedColor(theme.colors, 'neutral', 500)};
+        color: ${getThemedColor('neutral', 500)};
 
         &:hover {
           background-color: transparent !important;
@@ -119,60 +125,61 @@ export const BorderlessButton = styled(BaseButton)`
     return `
       background-color: transparent;
       border: none;
-      color: ${getThemedColor(theme.colors, 'neutral', 800)};
+      color: ${getThemedColor('neutral', 800)};
       box-shadow: none;
 
       &:hover {
-        background-color: ${getThemedColor(theme.colors, 'neutral', 300)};
+        background-color: color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
       }
 
       &:active {
         outline: none;
-        background-color: ${getThemedColor(theme.colors, 'neutral', 400)};
+        background-color: color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
         box-shadow: 0px 4px 6px -1px #0000001A;
       }
 
       &:focus-visible {
-        outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
+        outline-color: ${getThemedColor('primary', 700)};
+        box-shadow: 0px 1px 2px 0px #0000000D;
       }
     `
   }};
 `
 
 export const OutlineButton = styled(BaseButton)`
-  ${(props) => {
-    const theme = props.theme as ThemeProps
-    if (props.isDisabled) {
+  ${({ disabled }) => {
+    if (disabled) {
       return `
-        background-color: ${getThemedColor(theme.colors, 'neutral', 200)};
-        border: 1px solid ${getThemedColor(theme.colors, 'neutral', 300)};
-        color: ${getThemedColor(theme.colors, 'neutral', 500)};
+        background-color: ${getThemedColor('neutral', 200)};
+        border: 1px solid ${getThemedColor('neutral', 300)};
+        color: ${getThemedColor('neutral', 500)};
 
         &:hover {
-          background-color: ${getThemedColor(theme.colors, 'neutral', 200)} !important;
+          background-color: ${getThemedColor('neutral', 200)} !important;
         }
       `
     }
 
     return `
       background-color: transparent;
-      border: 1px solid ${getThemedColor(theme.colors, 'primary', 800)};
-      color: ${getThemedColor(theme.colors, 'primary', 800)};
+      border: 1px solid ${getThemedColor('primary', 800)};
+      color: ${getThemedColor('primary', 800)};
 
       &:hover {
-        background-color: ${getThemedColor(theme.colors, 'primary', 100)};
-        color: ${getThemedColor(theme.colors, 'primary', 900)};
+        background-color: ${getThemedColor('primary', 100)};
+        color: ${getThemedColor('primary', 900)};
       }
 
       &:active {
         outline: none;
-        background-color: ${getThemedColor(theme.colors, 'primary', 200)} !important;
-        border: 1px solid ${getThemedColor(theme.colors, 'primary', 900)} !important;
+        background-color: ${getThemedColor('primary', 200)} !important;
+        border: 1px solid ${getThemedColor('primary', 900)} !important;
+        color: ${getThemedColor('primary', 900)};
       }
 
       &:focus-visible {
-        outline-color: ${getThemedColor(theme.colors, 'primary', 700)};
-        background-color: ${getThemedColor(theme.colors, 'primary', 100)};
+        outline-color: ${getThemedColor('primary', 800)};
+        background-color: ${getThemedColor('primary', 100)};
       }
     `
   }};

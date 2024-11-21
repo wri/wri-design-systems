@@ -23,13 +23,13 @@ npm i wri-design-systems
 ## Other dependecies
 
 ```
-yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
+yarn add @chakra-ui/react @emotion/react @emotion/styled
 ```
 
 or
 
 ```
-npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+npm i @chakra-ui/react @emotion/react @emotion/styled
 ```
 
 ## Usage
@@ -39,26 +39,28 @@ npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 With this custom theme you can change the color scheme according to your Project Theme
 
 ```js
-import { extendTheme } from '@chakra-ui/react'
+import { createSystem, defaultConfig } from '@chakra-ui/react'
 
-export const projectTheme = extendTheme({
-  colors: {
-    wri: {
-      neutral: {
-        300: '#ff5252',
-        500: '#ff0000',
-      },
-      primary: {
-        200: '#93ff93',
-        500: '#d80a5d',
-        600: '#16b816',
-        700: '#006100',
-      },
-      secondary: {
-        ...
-      },
-      success: {
-        ...
+export const system = createSystem(defaultConfig, {
+  theme: {
+    tokens: {
+      colors: {
+        neutral: {
+          300: { value: '#ff5252' },
+          500: { value: '#ff0000' },
+        },
+        primary: {
+          200: { value: '#93ff93' },
+          500: { value: '#d80a5d' },
+          600: { value: '#16b816' },
+          700: { value: '#006100' },
+        },
+        secondary: {
+          ...
+        },
+        success: {
+          ...
+        },
       },
     },
   },
@@ -68,16 +70,17 @@ export const projectTheme = extendTheme({
 ### Wrap ChakraProvider at the root of your app
 
 ```js
-import * as React from 'react'
-import { projectTheme } from './lib/theme'
-
-// 1. import `ChakraProvider` component
-import { ChakraProvider } from '@chakra-ui/react'
+import React from 'react'
+import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
+import { system } from './lib/theme'
 
 function App() {
-  // 2. Wrap ChakraProvider at the root of your app
   return (
-    <ChakraProvider theme={projectTheme}>
+    {/* if you want to use the default WRI Theme colors */}
+    {/* <ChakraProvider value={defaultSystem}> */}
+
+    {/* if you want to use your custom system Theme colors */}
+    <ChakraProvider value={system}>
       <TheRestOfYourApplication />
     </ChakraProvider>
   )

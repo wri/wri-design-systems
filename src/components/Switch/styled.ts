@@ -1,98 +1,83 @@
 import styled from '@emotion/styled'
 import { Switch } from '@chakra-ui/react'
-import { getThemedColor, ThemeProps } from '../../lib/theme'
+import { getThemedColor } from '../../lib/theme'
 
 export const SwitchAndLabelContainer = styled.div`
   display: flex;
   align-items: center;
 `
 
-export const StyledSwitch = styled(Switch)<{
-  theme?: ThemeProps
-}>`
-  .chakra-switch__track {
-    background-color: ${({ theme }) =>
-      getThemedColor(theme.colors, 'neutral', 500)};
-    border: 1px solid
-      ${({ theme }) => getThemedColor(theme.colors, 'neutral', 600)};
-    padding: 3px 4px;
+export const StyledSwitch = styled(Switch.Root)`
+  .chakra-switch__control-container {
+    width: 42px;
+    height: 26px;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${getThemedColor('neutral', 600)};
+  }
+
+  &[data-state='checked'] .chakra-switch__control-container {
+    background-color: ${getThemedColor('primary', 700)};
+  }
+
+  &[data-disabled] .chakra-switch__control-container {
+    background-color: transparent;
+  }
+
+  .chakra-switch__control {
+    height: 24px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    background-color: ${getThemedColor('neutral', 500)};
 
     &:focus-visible,
     &[data-focus-visible] {
       box-shadow: none;
       outline: none;
-      outline: 2px solid
-        ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
-      outline-offset: 2px;
+      outline: 2px solid ${getThemedColor('primary', 700)};
+      outline-offset: 3px;
     }
 
-    &[data-checked] {
-      background-color: ${({ theme }) =>
-        getThemedColor(theme.colors, 'primary', 500)};
-      border: 1px solid
-        ${({ theme }) => getThemedColor(theme.colors, 'primary', 700)};
+    &[data-state='checked'] {
+      background-color: ${getThemedColor('primary', 500)};
     }
 
     &[data-disabled] {
-      background-color: ${({ theme }) =>
-        getThemedColor(theme.colors, 'neutral', 300)};
-      border: 1px solid
-        ${({ theme }) => getThemedColor(theme.colors, 'neutral', 300)};
+      background-color: ${getThemedColor('neutral', 300)};
     }
   }
 
   .chakra-switch__thumb {
+    svg {
+      width: 12px;
+
+      path {
+        fill: ${getThemedColor('primary', 700)};
+      }
+    }
+
     &:hover,
     &[data-hover] {
-      outline: 8px solid
-        ${({ theme }) => getThemedColor(theme.colors, 'primary', 500)}20;
+      outline: 9px solid
+        color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
     }
 
     &[data-active] {
-      outline: 8px solid
-        ${({ theme }) => getThemedColor(theme.colors, 'primary', 500)}40;
-    }
-
-    &[data-checked] {
-      &::before {
-        position: absolute;
-        left: -3.5px;
-        top: 7.5px;
-        height: 4px;
-        width: 1px;
-        background-color: ${({ theme }) =>
-          getThemedColor(theme.colors, 'primary', 700)};
-        content: '';
-        transform: translateX(10px) rotate(-45deg);
-        transform-origin: left bottom;
-      }
-
-      &::after {
-        position: absolute;
-        left: -3px;
-        bottom: 5px;
-        height: 1px;
-        width: 7px;
-        background-color: ${({ theme }) =>
-          getThemedColor(theme.colors, 'primary', 700)};
-        content: '';
-        transform: translateX(10px) rotate(-45deg);
-        transform-origin: left bottom;
-      }
+      outline: 9px solid
+        color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
     }
 
     &[data-disabled] {
       outline: none;
 
-      &[data-checked] {
-        &::before {
-          background-color: ${({ theme }) =>
-            getThemedColor(theme.colors, 'neutral', 500)};
-        }
-
-        &::after {
-          background-color: ${({ theme }) =>
-            getThemedColor(theme.colors, 'neutral', 500)};
+      &[data-state='checked'] {
+        svg {
+          path {
+            fill: ${getThemedColor('neutral', 500)};
+          }
         }
       }
     }

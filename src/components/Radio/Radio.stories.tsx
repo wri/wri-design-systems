@@ -1,40 +1,61 @@
+/* eslint-disable no-console */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
 import Radio from '.'
+import RadioGroup from './RadioGroup'
 
 const meta = {
-  title: 'Controls/Radio Button/Radio',
-  component: Radio,
+  title: 'Controls/Radio',
+  component: RadioGroup,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  args: { onChange: fn() },
-} satisfies Meta<typeof Radio>
+} satisfies Meta<typeof RadioGroup>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const SingleRadio: Story = {
   args: {
-    label: 'Single Radio',
-    value: '1',
+    name: 'single-radio',
+    onChange: (name, selectedValue) => console.log(name, selectedValue),
   },
+  render: (args) => (
+    <RadioGroup {...args}>
+      <Radio value='1'>One</Radio>
+    </RadioGroup>
+  ),
 }
 
 export const DefaultChecked: Story = {
   args: {
-    label: 'Single Radio',
-    value: '1',
-    isChecked: true,
+    name: 'default-checked',
+    defaultValue: '2',
   },
+  render: (args) => (
+    <RadioGroup {...args}>
+      <Radio value='1'>One</Radio>
+      <Radio value='2'>Two</Radio>
+      <Radio value='3'>Three</Radio>
+    </RadioGroup>
+  ),
 }
 
 export const Disabled: Story = {
   args: {
-    label: 'Single Radio',
-    value: '1',
-    isDisabled: true,
-    isChecked: true,
+    name: 'default-checked',
+    defaultValue: '2',
   },
+  render: (args) => (
+    <RadioGroup {...args}>
+      <Radio value='1'>One</Radio>
+      <Radio value='2' disabled>
+        Two
+      </Radio>
+      <Radio value='3'>Three</Radio>
+    </RadioGroup>
+  ),
 }

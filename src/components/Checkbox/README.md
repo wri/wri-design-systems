@@ -2,6 +2,8 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/controls-checkbox--docs)
 
+[CheckboxDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Checkbox/CheckboxDemo.tsx)
+
 ## Import
 
 ```js
@@ -12,17 +14,18 @@ import { Checkbox } from 'wri-design-systems'
 
 ```html
 <Checkbox
-  label='Checkbox'
   name='Checkbox'
   value='1'
-/>
+>
+  Checkbox
+</Checkbox>
 ```
 
 ## Props
 
 ```ts
 type CheckboxProps = Omit<
-  ChakraCheckboxProps,
+  ChakraCheckbox.RootProps,
   | 'size'
   | 'variant'
   | 'colorScheme'
@@ -31,69 +34,71 @@ type CheckboxProps = Omit<
   | 'iconSize'
   | 'spacing'
 > & {
-  label?: string
-  name: string
-  value: string
+  name?: string
+  value?: string
   defaultChecked?: boolean
-  isChecked?: boolean
-  isDisabled?: boolean
-  isIndeterminate?: boolean
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  checked?: boolean
+  disabled?: boolean
+  indeterminate?: boolean
+  onCheckedChange?: ({ checked }: { checked: boolean }) => void
 }
 ```
 
 ## Default Checked
 
 ```html
-<Checkbox
-  label='Checkbox'
-  name='Checkbox'
-  value='1'
-  defaultChecked
-/>
+<Checkbox name='Checkbox' value='1' defaultChecked>
+  Checkbox
+</Checkbox>
 ```
 
 ## Disabled
 
 ```html
-<Checkbox
-  label='Checkbox'
-  name='Checkbox'
-  value='1'
-  isDisabled
-/>
-```
-
-## Invalid
-
-```html
-<Checkbox
-  label='Checkbox'
-  name='Checkbox'
-  value='1'
-  isInvalid
-/>
+<Checkbox name='Checkbox' value='1' disabled>
+  Checkbox
+</Checkbox>
 ```
 
 ## Indeterminate
 
-You will need to add some logic to validate all checked status and set or not an indeterminate state to the parent Checkbox
+You will need to add some logic to validate all checked status and set or not an indeterminate state to the parent Checkbox. Check more in `CheckboxDemo.tsx`
 
 ```js
-const [checkedItems, setCheckedItems] = React.useState([false, false])
+const [values, setValues] = useState(initialValues)
 
-const allChecked = checkedItems.every(Boolean)
-const isIndeterminate = checkedItems.some(Boolean) && !allChecked
+const allChecked = values.every((value) => value.checked)
+const indeterminate = values.some((value) => value.checked) && !allChecked
 
 ....
 ```
 
 ```html
 <Checkbox
-  label='Checkbox'
-  name='Checkbox'
-  value='1'
-  isChecked={allChecked}
-  isIndeterminate={isIndeterminate}
-/>
+  ms="6"
+  checked={checked}
+  onCheckedChange={(e) => {
+    setValues((current) => {
+      const newValues = [...current]
+      newValues[index] = { ...newValues[index], checked: !!e.checked }
+      return newValues
+    })
+  }}
+>
+  Item Checkbox
+</Checkbox>
+```
+
+```html
+<Checkbox
+  checked={allChecked}
+  indeterminate={indeterminate}
+  onCheckedChange={(e) => {
+    setValues((current) =>
+      current.map((value) => ({ ...value, checked: !!e.checked })),
+    )
+  }}
+>
+  Main Checkbox
+</Checkbox>
 ```

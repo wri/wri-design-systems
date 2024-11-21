@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
 import LayerGroupContainer from './LayerGroupContainer'
 import LayerGroup from '.'
@@ -16,13 +19,13 @@ type Story = StoryObj<typeof meta>
 
 export const LayerGroupOpen: Story = {
   args: {
-    defaultIndex: [0],
-    allowMultipleOpen: true,
+    defaultValue: ['1'],
     children: (
       <>
         <LayerGroup
           label='Title 1'
           caption='Caption 1'
+          value='1'
           layerItems={[
             {
               name: 'layer-1-item-1',
@@ -39,6 +42,7 @@ export const LayerGroupOpen: Story = {
         <LayerGroup
           label='Title 2'
           caption='Caption 2'
+          value='2'
           layerItems={[
             {
               name: 'layer-2-item-1',
@@ -59,13 +63,13 @@ export const LayerGroupOpen: Story = {
 
 export const LayerGroupWithRadios: Story = {
   args: {
-    defaultIndex: [0],
-    allowMultipleOpen: true,
+    defaultValue: ['3'],
     children: (
       <>
         <LayerGroup
           label='Title 3'
           caption='Caption 3'
+          value='3'
           layerItems={[
             {
               name: 'layer-3-item-1',
@@ -82,6 +86,7 @@ export const LayerGroupWithRadios: Story = {
         <LayerGroup
           label='Title 4'
           caption='Caption 4'
+          value='4'
           layerItems={[
             {
               name: 'layer-4-item-1',
@@ -104,13 +109,13 @@ export const LayerGroupWithRadios: Story = {
 
 export const LayerGroupDefaultSelected: Story = {
   args: {
-    defaultIndex: [0],
-    allowMultipleOpen: true,
+    defaultValue: ['6'],
     children: (
       <>
         <LayerGroup
           label='Title 5'
           caption='Caption 5'
+          value='5'
           layerItems={[
             {
               name: 'layer-5-item-1',
@@ -128,6 +133,7 @@ export const LayerGroupDefaultSelected: Story = {
         <LayerGroup
           label='Title 6'
           caption='Caption 6'
+          value='6'
           layerItems={[
             {
               name: 'layer-6-item-1',

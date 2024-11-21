@@ -1,13 +1,21 @@
-import { AccordionProps } from '@chakra-ui/react'
+import { Accordion } from '@chakra-ui/react'
 import { LayerItemProps } from '../LayerItem/types'
 
-export type LayerGroupContainerProps = Omit<AccordionProps, 'onChange'> & {
-  allowMultipleOpen?: boolean
-  defaultIndex?: number[]
+export type LayerGroupContainerProps = Omit<
+  Accordion.RootProps,
+  'onChange' | 'colorPalette' | 'variant' | 'size' | 'multiple' | 'collapsible'
+> & {
+  defaultValue?: string[]
 }
 
 export type LayerGroupProps = {
   label: string
   caption: string
+  value: string
   layerItems: LayerItemProps[]
+  onChangeForRadioVariant?: (
+    name: string,
+    checked: boolean,
+    selectedValue?: string,
+  ) => void
 }

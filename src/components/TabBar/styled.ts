@@ -1,185 +1,161 @@
 import styled from '@emotion/styled'
-import { Button } from '@chakra-ui/react'
-import { getThemedColor, ThemeProps } from '../../lib/theme'
+import { Tabs } from '@chakra-ui/react'
+import { getThemedColor } from '../../lib/theme'
 
 export const TabBarContainer = styled.div<{
   variant: string
-  theme?: ThemeProps
 }>`
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 40px;
 
-  ${({ variant, theme }) =>
+  ${({ variant }) =>
     variant === 'view' &&
     `
-    border: 1px solid ${getThemedColor(theme.colors, 'neutral', 400)};
-    background-color: ${getThemedColor(theme.colors, 'neutral', 200)};
+    border: 1px solid ${getThemedColor('neutral', 400)};
+    background-color: ${getThemedColor('neutral', 200)};
     border-radius: 2px;
     padding: 4px;
   `}
 `
 
-export const DefaultTab = styled(Button)<{
-  variant: string
-  theme?: ThemeProps
-}>`
+export const DefaultTab = styled(Tabs.Trigger)`
   width: 100%;
   height: 40px;
-  ${({ variant }) =>
-    variant === 'view' &&
-    `
-    height: 32px;
-  `}
   padding: 8px 16px;
-  border-radius: initial;
+  border-radius: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2px;
   font-size: 16px;
-  font-weight: 700;
   line-height: 24px;
+  font-weight: 400;
 
   &:focus-visible {
     box-shadow: none;
   }
 `
 
-export const TabBarItem = styled(DefaultTab)<{
-  theme?: ThemeProps
-  variant: string
-  isSelected: boolean
-  isDisabled?: boolean
-}>`
-  ${({ variant, isSelected, isDisabled, theme }) => {
-    if (variant === 'panel') {
-      if (isSelected) {
-        return `
-          background-color: ${getThemedColor(theme.colors, 'secondary', 600)};
-          box-shadow: 0px 1px 2px 0px #0000000D;
-          color: ${getThemedColor(theme.colors, 'neutral', 100)};
+export const TabBarItemPanel = styled(DefaultTab)`
+  background-color: ${getThemedColor('neutral', 200)};
+  color: ${getThemedColor('neutral', 600)};
 
-          &:hover {
-            background-color: ${getThemedColor(theme.colors, 'secondary', 700)};
-            box-shadow: 0px 2px 4px -2px #0000001A;
-            box-shadow: 0px 4px 6px -1px #0000001A;
-          }
+  &:hover {
+    background-color: ${getThemedColor('neutral', 100)};
+  }
 
-          &:active {
-            background-color: ${getThemedColor(theme.colors, 'secondary', 700)};
-            box-shadow: 0px 2px 4px -2px #0000001A;
-            box-shadow: 0px 4px 6px -1px #0000001A;
-          }
+  &:active {
+    background-color: ${getThemedColor('neutral', 300)};
+  }
 
-          &:focus-visible {
-            outline-color: ${getThemedColor(theme.colors, 'secondary', 700)};
-            background-color: ${getThemedColor(theme.colors, 'secondary', 700)};
-          }
-        `
-      }
+  &:focus-visible {
+    background-color: ${getThemedColor('neutral', 300)};
+    outline-color: ${getThemedColor('primary', 700)};
+    outline-offset: 2px;
+  }
 
-      if (isDisabled) {
-        return `
-          background-color: ${getThemedColor(theme.colors, 'neutral', 200)};
-          color: ${getThemedColor(theme.colors, 'neutral', 500)};
+  &[data-selected] {
+    background-color: ${getThemedColor('neutral', 100)};
+    color: ${getThemedColor('neutral', 800)};
 
-          &:hover {
-            background-color: ${getThemedColor(theme.colors, 'neutral', 200)} !important;
-            color: ${getThemedColor(theme.colors, 'neutral', 500)} !important;
-          }
-        `
-      }
-
-      return `
-        background-color: ${getThemedColor(theme.colors, 'neutral', 200)};
-        color: ${getThemedColor(theme.colors, 'neutral', 800)};
-
-        &:hover {
-          background-color: ${getThemedColor(theme.colors, 'neutral', 300)};
-          box-shadow: 0px 1px 2px 0px #0000000D;
-        }
-
-        &:active {
-          background-color: ${getThemedColor(theme.colors, 'neutral', 300)};
-          box-shadow: 0px 2px 4px -2px #0000001A;
-          box-shadow: 0px 4px 6px -1px #0000001A;
-        }
-
-        &:focus-visible {
-          background-color: ${getThemedColor(theme.colors, 'neutral', 300)};
-          outline-color: ${getThemedColor(theme.colors, 'secondary', 700)};
-        }
-      `
+    &:hover {
+      background-color: ${getThemedColor('neutral', 200)};
     }
 
-    if (variant === 'view') {
-      if (isSelected) {
-        return `
-          background-color: ${getThemedColor(theme.colors, 'neutral', 100)};
-          border: 1px solid ${getThemedColor(theme.colors, 'neutral', 300)};
-          box-shadow: 0px 1px 2px 0px #0000000D;
-          color: ${getThemedColor(theme.colors, 'neutral', 800)};
-          font-weight: 400;
-
-          &:hover {
-            background-color: ${getThemedColor(theme.colors, 'neutral', 200)};
-            box-shadow: 0px 2px 4px -2px #0000001A;
-            box-shadow: 0px 4px 6px -1px #0000001A;
-          }
-
-          &:active {
-            box-shadow: 0px 2px 4px -2px #0000001A;
-            box-shadow: 0px 4px 6px -1px #0000001A;
-          }
-
-          &:focus-visible {
-            outline-color: ${getThemedColor(theme.colors, 'neutral', 700)};
-            outline-style: auto;
-            outline-offset: 4px;
-          }
-        `
-      }
-
-      if (isDisabled) {
-        return `
-          background-color: ${getThemedColor(theme.colors, 'neutral', 200)};
-          color: ${getThemedColor(theme.colors, 'neutral', 500)};
-          font-weight: 400;
-
-          &:hover {
-            background-color: ${getThemedColor(theme.colors, 'neutral', 200)} !important;
-            color: ${getThemedColor(theme.colors, 'neutral', 500)} !important;
-          }
-        `
-      }
-
-      return `
-        background-color: ${getThemedColor(theme.colors, 'neutral', 200)};
-        color: ${getThemedColor(theme.colors, 'neutral', 800)};
-        font-weight: 400;
-
-        &:hover {
-          background-color: ${getThemedColor(theme.colors, 'neutral', 300)};
-          box-shadow: 0px 1px 2px 0px #0000000D;
-        }
-
-        &:active {
-          background-color: ${getThemedColor(theme.colors, 'neutral', 300)};
-          box-shadow: 0px 2px 4px -2px #0000001A;
-          box-shadow: 0px 4px 6px -1px #0000001A;
-        }
-
-        &:focus-visible {
-          outline-color: ${getThemedColor(theme.colors, 'neutral', 700)};
-          outline-style: auto;
-          outline-offset: 4px;
-        }
-      `
+    &:active {
+      background-color: ${getThemedColor('neutral', 300)};
     }
 
-    return ''
-  }};
+    &:focus-visible {
+      background-color: ${getThemedColor('neutral', 100)};
+      outline-color: ${getThemedColor('primary', 700)};
+      outline-offset: 2px;
+    }
+
+    &::before {
+      content: none;
+    }
+  }
+
+  &[data-disabled] {
+    background-color: ${getThemedColor('neutral', 200)};
+    color: ${getThemedColor('neutral', 400)};
+
+    &[data-selected] {
+      background-color: ${getThemedColor('neutral', 100)};
+      color: ${getThemedColor('neutral', 400)};
+      opacity: 1;
+    }
+  }
+`
+
+export const TabBarItemView = styled(DefaultTab)`
+  height: 32px;
+  border-radius: 2px;
+  background-color: ${getThemedColor('neutral', 200)};
+  color: ${getThemedColor('neutral', 600)};
+
+  &:hover {
+    background-color: ${getThemedColor('neutral', 300)};
+    box-shadow: 0px 1px 2px 0px #0000000d;
+  }
+
+  &:active {
+    background-color: ${getThemedColor('neutral', 300)};
+    box-shadow: 0px 2px 4px -2px #0000001a;
+    box-shadow: 0px 4px 6px -1px #0000001a;
+  }
+
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+    outline-offset: 2px;
+  }
+
+  &[data-selected] {
+    background-color: ${getThemedColor('neutral', 100)};
+    border: 1px solid ${getThemedColor('neutral', 300)};
+    box-shadow: 0px 1px 2px 0px #0000000d;
+    color: ${getThemedColor('neutral', 800)};
+
+    &:hover {
+      background-color: ${getThemedColor('neutral', 200)};
+      border: 1px solid ${getThemedColor('neutral', 300)};
+      box-shadow: 0px 2px 4px -2px #0000001a;
+      box-shadow: 0px 4px 6px -1px #0000001a;
+    }
+
+    &:active {
+      background-color: ${getThemedColor('neutral', 300)};
+      border: 1px solid ${getThemedColor('neutral', 300)};
+      box-shadow: 0px 2px 4px -2px #0000001a;
+      box-shadow: 0px 4px 6px -1px #0000001a;
+    }
+
+    &:focus-visible {
+      outline-color: ${getThemedColor('primary', 700)};
+      outline-offset: 2px;
+    }
+
+    &::before {
+      content: none;
+    }
+  }
+
+  &[data-disabled] {
+    background-color: ${getThemedColor('neutral', 200)};
+    color: ${getThemedColor('neutral', 400)};
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    &[data-selected] {
+      background-color: ${getThemedColor('neutral', 100)};
+      color: ${getThemedColor('neutral', 400)};
+      opacity: 1;
+    }
+  }
 `
