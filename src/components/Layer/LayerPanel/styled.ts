@@ -16,6 +16,7 @@ export const LayerPanelTitle = styled.p`
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
+  text-align: left;
 `
 
 export const LayerPanelDescription = styled.p`
@@ -23,4 +24,5 @@ export const LayerPanelDescription = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
+  text-align: left;
 `
