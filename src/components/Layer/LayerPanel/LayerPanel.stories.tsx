@@ -3,7 +3,11 @@ import React, { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import LayerPanel from '.'
-import { LayerGroupDemo, LayerGroupDemo2, LayerGroupDemo3 } from '../LayerGroup/LayerGroupDemo'
+import {
+  LayerGroupDemo,
+  LayerGroupDemo2,
+  LayerGroupDemo3,
+} from '../LayerGroup/LayerGroupDemo'
 
 const meta = {
   title: 'Layers/LayerPanel',

@@ -1,17 +1,18 @@
-import { ButtonProps as ChakraButtonProps } from '@chakra-ui/react'
+import { Tabs as ChakraTabs } from '@chakra-ui/react'
 
 export type NavigationRailTabProps = Omit<
-  ChakraButtonProps,
-  'size' | 'variant' | 'colorScheme'
+  ChakraTabs.TriggerProps,
+  'asChild'
 > & {
-  id: string
   label: string
-  icon?: React.ReactElement | React.ReactNode
+  value: string
+  icon?: React.ReactNode
+  disabled?: boolean
 }
 
 export type NavigationRailProps = {
   tabs: NavigationRailTabProps[]
-  isOnLeft?: boolean
-  defaultActiveTabId?: string
-  onTabClick?: (tabId: string) => void
+  defaultValue?: string
+  onTabClick?: (selectedValue: string) => void
+  children?: React.ReactNode
 }

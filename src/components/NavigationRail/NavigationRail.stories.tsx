@@ -1,7 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
-import { AddIcon, PlusSquareIcon, SettingsIcon } from '@chakra-ui/icons'
 import { fn } from '@storybook/test'
 import NavigationRail from '.'
+import { CheckIcon } from '../icons'
 
 const meta = {
   title: 'Navigation Rail',
@@ -25,22 +28,68 @@ type Story = StoryObj<typeof meta>
 export const NavigationRailActive: Story = {
   args: {
     tabs: [
-      { id: 'label-1', label: 'Label 1', icon: <PlusSquareIcon /> },
-      { id: 'label-2', label: 'Label 2', icon: <SettingsIcon /> },
-      { id: 'label-3', label: 'Label 3', icon: <AddIcon /> },
+      {
+        label: 'Label 1',
+        value: 'label-1',
+        icon: <CheckIcon />,
+      },
+      {
+        label: 'Label 2',
+        value: 'label-2',
+        icon: <CheckIcon />,
+      },
+      {
+        label: 'Label 3',
+        value: 'label-3',
+        icon: <CheckIcon />,
+      },
     ],
-    defaultActiveTabId: 'label-1',
+    defaultValue: 'label-1',
   },
 }
 
-export const NavigationRailActiveLeft: Story = {
+export const NavigationRailDefaultSelected: Story = {
   args: {
     tabs: [
-      { id: 'label-1', label: 'Label 1', icon: <PlusSquareIcon /> },
-      { id: 'label-2', label: 'Label 2', icon: <SettingsIcon /> },
-      { id: 'label-3', label: 'Label 3', icon: <AddIcon /> },
+      {
+        label: 'Label 1',
+        value: 'label-1',
+        icon: <CheckIcon />,
+      },
+      {
+        label: 'Label 2',
+        value: 'label-2',
+        icon: <CheckIcon />,
+      },
+      {
+        label: 'Label 3',
+        value: 'label-3',
+        icon: <CheckIcon />,
+      },
     ],
-    defaultActiveTabId: 'label-1',
-    isOnLeft: true,
+    defaultValue: 'label-2',
+  },
+}
+
+export const NavigationRailOpenClose: Story = {
+  args: {
+    tabs: [
+      {
+        label: 'Label 1',
+        value: 'label-1',
+        icon: <CheckIcon />,
+      },
+      {
+        label: 'Label 2',
+        value: 'label-2',
+        icon: <CheckIcon />,
+      },
+      {
+        label: 'Label 3',
+        value: 'label-3',
+        icon: <CheckIcon />,
+      },
+    ],
+    children: <div>children</div>
   },
 }

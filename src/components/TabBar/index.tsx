@@ -21,12 +21,15 @@ const TabBar = ({
 
   return (
     <TabBarContainer variant={variant}>
-      <Tabs.Root width='full' defaultValue={defaultValue || tabs?.[0]?.value}>
+      <Tabs.Root
+        width='full'
+        defaultValue={defaultValue || tabs?.[0]?.value}
+        onFocusChange={({ focusedValue }) => handleOnTabClick(focusedValue)}
+      >
         <Tabs.List alignItems='center' border='none'>
           {tabs.map((tab) => (
             <TabBarItem
               key={tab.label}
-              onClick={() => handleOnTabClick(tab.value)}
               aria-label={tab['aria-label'] || tab.label}
               {...tab}
             >
