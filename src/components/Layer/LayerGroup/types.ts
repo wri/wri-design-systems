@@ -13,4 +13,9 @@ export type LayerGroupProps = {
   caption: string
   value: string
   layerItems: LayerItemProps[]
+  onChangeForRadioVariant?: (
+    name: string,
+    checked: boolean,
+    selectedValue?: string,
+  ) => void
 }

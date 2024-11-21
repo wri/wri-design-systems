@@ -5,7 +5,7 @@ export type LayerPanelProps = {
   description: string
   tabBarVariant?: 'panel' | 'view'
   buttonTabs?: TabBarItemProps[]
-  defaultActiveTabLabel?: string
+  defaultValue?: string
   onTabClick?: (tabLabel: string) => void
   children: React.ReactNode
 }

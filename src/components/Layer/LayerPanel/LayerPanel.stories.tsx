@@ -1,9 +1,9 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React, { useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
-import { useState } from 'react'
 import LayerPanel from '.'
-import LayerGroupDemo1 from '../../../Demo/Layers/LayerGroupDemo1'
-import LayerGroupDemo2 from '../../../Demo/Layers/LayerGroupDemo2'
-import LayerGroupDemo3 from '../../../Demo/Layers/LayerGroupDemo3'
+import { LayerGroupDemo, LayerGroupDemo2, LayerGroupDemo3 } from '../LayerGroup/LayerGroupDemo'
 
 const meta = {
   title: 'Layers/LayerPanel',
@@ -24,11 +24,11 @@ export const LayerGroupOpen: Story = {
       'Lorem ipsum dolor sit amet consectetur. Ac lectus massa auctor ac purus aliquam enim nibh accumsan. Nunc neque suspendisse.',
     tabBarVariant: 'panel',
     buttonTabs: [
-      { label: 'Label 1' },
-      { label: 'Label 2' },
-      { label: 'Label 3' },
+      { label: 'Label 1', value: 'label-1' },
+      { label: 'Label 2', value: 'label-2' },
+      { label: 'Label 3', value: 'label-3' },
     ],
-    defaultActiveTabLabel: 'Label 1',
+    defaultValue: 'label-1',
     children: (
       <>
         {/* */}
@@ -37,13 +37,13 @@ export const LayerGroupOpen: Story = {
     ),
   },
   render: function Render(args) {
-    const [tabSelected, setTabSelected] = useState('Label 1')
+    const [tabSelected, setTabSelected] = useState('label-1')
 
     return (
       <LayerPanel {...args} onTabClick={setTabSelected}>
-        {tabSelected === 'Label 1' ? <LayerGroupDemo1 /> : null}
-        {tabSelected === 'Label 2' ? <LayerGroupDemo2 /> : null}
-        {tabSelected === 'Label 3' ? <LayerGroupDemo3 /> : null}
+        {tabSelected === 'label-1' ? <LayerGroupDemo /> : null}
+        {tabSelected === 'label-2' ? <LayerGroupDemo2 /> : null}
+        {tabSelected === 'label-3' ? <LayerGroupDemo3 /> : null}
       </LayerPanel>
     )
   },

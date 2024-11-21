@@ -17,7 +17,13 @@ const getDefaultValue = (layerItems: LayerItemProps[]) => {
   return defaultSelected?.name
 }
 
-const LayerGroup = ({ label, caption, value, layerItems }: LayerGroupProps) => {
+const LayerGroup = ({
+  label,
+  caption,
+  value,
+  layerItems,
+  onChangeForRadioVariant,
+}: LayerGroupProps) => {
   const [activeItems, setActiveItems] = useState<{
     key?: string
     active?: boolean
@@ -42,7 +48,8 @@ const LayerGroup = ({ label, caption, value, layerItems }: LayerGroupProps) => {
   const handleOnChange = (
     name: string,
     checked: boolean,
-    onChange?: (name: string, checked: boolean) => void,
+    onChange?: (name: string, checked: boolean, selectedValue?: string) => void,
+    selectedValue?: string,
   ) => {
     const newActiveItems = {
       ...activeItems,
@@ -52,7 +59,7 @@ const LayerGroup = ({ label, caption, value, layerItems }: LayerGroupProps) => {
     setActiveItems(newActiveItems)
 
     if (onChange) {
-      onChange(name, checked)
+      onChange(name, checked, selectedValue)
     }
   }
 
@@ -89,7 +96,12 @@ const LayerGroup = ({ label, caption, value, layerItems }: LayerGroupProps) => {
           defaultValue={defaultValue}
           customGap='0px'
           onChange={(name: string, selectedValue: string) =>
-            handleOnChange(name, !!selectedValue, layerItems[0].onChange)
+            handleOnChange(
+              name,
+              !!selectedValue,
+              onChangeForRadioVariant,
+              selectedValue,
+            )
           }
         >
           {layerItems.map((layerItem) => (

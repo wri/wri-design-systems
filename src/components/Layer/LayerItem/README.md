@@ -21,6 +21,6 @@ type LayerItemProps = {
   disabled?: boolean
   onInfoClick?: () => void
   isDefaultSelected?: boolean
-  onChange?: (name: string, checked: boolean) => void
+  onChange?: (name: string, checked: boolean, selectedValue?: string) => void
 }
 ```
