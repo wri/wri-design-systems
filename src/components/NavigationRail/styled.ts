@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
-import { Tabs, Button } from '@chakra-ui/react'
+import { Tabs, Collapsible } from '@chakra-ui/react'
 import { getThemedColor } from '../../lib/theme'
 
 export const NavigationRailContainer = styled.div`
   width: 64px;
-  height: 100%;
+  height: 100vh;
   z-index: 100;
   position: fixed;
   top: 0;
@@ -123,7 +123,7 @@ export const NavigationRailTabIcon = styled.div`
   }
 `
 
-export const NavigationRailToggle = styled(Button)`
+export const NavigationRailTrigger = styled(Collapsible.Trigger)`
   width: 64px;
   height: 64px;
   background-color: ${getThemedColor('neutral', 200)};
@@ -161,4 +161,16 @@ export const NavigationRailToggle = styled(Button)`
     text-align: center;
     color: ${getThemedColor('neutral', 600)};
   }
+`
+
+export const NavigationRailChildrenContainer = styled.div`
+  width: 300px;
+  height: 100vh;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 64px;
+  box-shadow: 2px 0px 2px 0px #0000000d;
+  background-color: ${getThemedColor('neutral', 100)};
+  overflow: scroll;
 `

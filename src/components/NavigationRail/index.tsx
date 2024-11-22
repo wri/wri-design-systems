@@ -1,12 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState } from 'react'
 
-import { Box, Tabs } from '@chakra-ui/react'
+import { Box, Collapsible, Tabs } from '@chakra-ui/react'
 import {
+  NavigationRailChildrenContainer,
   NavigationRailContainer,
   NavigationRailTab,
   NavigationRailTabIcon,
-  NavigationRailToggle,
+  NavigationRailTrigger,
 } from './styled'
 import { NavigationRailProps } from './types'
 import { HideSidebarIcon, ShowSidebarIcon } from '../icons'
@@ -16,12 +17,21 @@ const NavigationRail = ({
   defaultValue,
   onTabClick,
   children,
+  onOpenChange,
 }: NavigationRailProps) => {
   const [hideSidebar, setHideSidebar] = useState(false)
 
   const handleOnTabClick = (selectedValue: string) => {
     if (onTabClick) {
       onTabClick(selectedValue)
+    }
+  }
+
+  const handleOnOpenChange = ({ open }: { open: boolean }) => {
+    setHideSidebar(open)
+
+    if (onOpenChange) {
+      onOpenChange(!open)
     }
   }
 
@@ -59,18 +69,28 @@ const NavigationRail = ({
         </Tabs.Root>
 
         {children ? (
-          <NavigationRailToggle onClick={() => setHideSidebar(!hideSidebar)}>
-            <NavigationRailTabIcon>
-              {hideSidebar ? <ShowSidebarIcon /> : <HideSidebarIcon />}
-            </NavigationRailTabIcon>
-            <div className='tab-label'>
-              <p>{hideSidebar ? 'Show' : 'Hide'}</p>
-              <p>Sidebar</p>
-            </div>
-          </NavigationRailToggle>
+          <Collapsible.Root onOpenChange={handleOnOpenChange}>
+            <NavigationRailTrigger>
+              <NavigationRailTabIcon>
+                {hideSidebar ? <ShowSidebarIcon /> : <HideSidebarIcon />}
+              </NavigationRailTabIcon>
+              <div className='tab-label'>
+                <p>{hideSidebar ? 'Show' : 'Hide'}</p>
+                <p>Sidebar</p>
+              </div>
+            </NavigationRailTrigger>
+          </Collapsible.Root>
         ) : null}
       </NavigationRailContainer>
-      {children ? <div>aaa</div> : null}
+      {children ? (
+        <Collapsible.Root defaultOpen open={!hideSidebar}>
+          <Collapsible.Content>
+            <NavigationRailChildrenContainer>
+              {children}
+            </NavigationRailChildrenContainer>
+          </Collapsible.Content>
+        </Collapsible.Root>
+      ) : null}
     </>
   )
 }

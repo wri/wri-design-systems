@@ -15,4 +15,5 @@ export type NavigationRailProps = {
   defaultValue?: string
   onTabClick?: (selectedValue: string) => void
   children?: React.ReactNode
+  onOpenChange?: (open: boolean) => void
 }

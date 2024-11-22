@@ -90,6 +90,6 @@ export const NavigationRailOpenClose: Story = {
         icon: <CheckIcon />,
       },
     ],
-    children: <div>children</div>
+    children: <div>children</div>,
   },
 }
