@@ -172,5 +172,6 @@ export const NavigationRailChildrenContainer = styled.div`
   left: 64px;
   box-shadow: 2px 0px 2px 0px #0000000d;
   background-color: ${getThemedColor('neutral', 100)};
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 `
