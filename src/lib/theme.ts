@@ -1,7 +1,13 @@
 import { createSystem, defaultConfig } from '@chakra-ui/react'
 
 export type ThemeProps = {
-  [variant in 'neutral' | 'primary' | 'secondary' | 'success']: {
+  [variant in
+    | 'neutral'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error']: {
     [index: number]: {
       value: string
     }
@@ -35,7 +41,18 @@ export const wriTheme: ThemeProps = {
   },
   success: {
     100: { value: '#F3FFF2' },
+    200: { value: '#D3EED1' },
     500: { value: '#086600' },
+  },
+  warning: {
+    100: { value: '#FEF7E5' },
+    200: { value: '#E3CC8F' },
+    500: { value: '#804600' },
+  },
+  error: {
+    100: { value: '#FFF3F4' },
+    200: { value: '#EDA1A9' },
+    500: { value: '#A80011' },
   },
 }
 
@@ -48,7 +65,13 @@ export const system = createSystem(defaultConfig, {
 })
 
 export const getThemedColor = (
-  variant: 'neutral' | 'primary' | 'secondary' | 'success',
+  variant:
+    | 'neutral'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error',
   index: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
 ): string =>
   system.tokens.getVar(`colors.${variant}.${index}`) ||

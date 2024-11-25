@@ -9,9 +9,9 @@ const Radio = ({ children, value, disabled, ...rest }: RadioProps) => (
   <StyledRadio value={value} disabled={disabled} {...rest}>
     <ChakraRadioGroup.ItemHiddenInput />
     <ChakraRadioGroup.ItemIndicator className='radio-item-indicator' />
-    {children && (
+    {children ? (
       <ChakraRadioGroup.ItemText>{children}</ChakraRadioGroup.ItemText>
-    )}
+    ) : null}
   </StyledRadio>
 )
 

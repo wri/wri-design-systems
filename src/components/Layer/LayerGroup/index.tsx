@@ -4,11 +4,11 @@ import React, { useEffect, useState } from 'react'
 import { Accordion, Box } from '@chakra-ui/react'
 import { LayerGroupProps } from './types'
 import { LayerGroupCaption, LayerGroupTitle } from './styled'
-import ActiveTag from '../../Tag/ActiveTag'
 import LayerItem from '../LayerItem'
 import RadioGroup from '../../Radio/RadioGroup'
 import { LayerItemProps } from '../LayerItem/types'
 import { ChevronDownIcon } from '../../icons'
+import Tag from '../../Tag'
 
 const getDefaultValue = (layerItems: LayerItemProps[]) => {
   const defaultSelected = layerItems.find(
@@ -78,7 +78,11 @@ const LayerGroup = ({
         >
           <LayerGroupTitle>
             {label}
-            <ActiveTag count={getActiveCount} />
+            <Tag
+              label={`${getActiveCount} Active`}
+              size='small'
+              variant={getActiveCount > 0 ? 'success' : 'info-grey'}
+            />
           </LayerGroupTitle>
           <LayerGroupCaption>{caption}</LayerGroupCaption>
         </Box>
