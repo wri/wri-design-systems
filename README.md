@@ -91,9 +91,11 @@ function App() {
 
 ### General
 
+- [Banner](https://github.com/wri/wri-design-systems/tree/main/src/components/Banner)
 - [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Button)
 - [NavigationRail](https://github.com/wri/wri-design-systems/tree/main/src/components/NavigationRail)
 - [TabBar](https://github.com/wri/wri-design-systems/tree/main/src/components/TabBar)
+- [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Tag)
 
 ### Controls
 
@@ -106,3 +108,4 @@ function App() {
 - [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerItem)
 - [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
 - [LayerPanel](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerPanel)
+- [LayerSidebar](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerSidebar)
