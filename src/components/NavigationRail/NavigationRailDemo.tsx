@@ -1,4 +1,4 @@
-import NavigationRail from '.'
+import { NavigationRail } from '..'
 import { CheckIcon } from '../icons'
 
 const NavigationRailDemo = () => (

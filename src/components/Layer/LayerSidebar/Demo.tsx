@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { CheckIcon } from '../../icons'
-import NavigationRail from '../../NavigationRail'
+import { NavigationRail } from '../..'
 import LayerPanelDemo from '../LayerPanel/LayerPanelDemo'
 
 const defaultTabValue = 'label-1'

@@ -1,4 +1,4 @@
-import Banner from '.'
+import { Banner } from '..'
 
 const BannerDemo = () => (
   <>

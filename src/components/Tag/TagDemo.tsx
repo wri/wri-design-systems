@@ -1,4 +1,4 @@
-import Tag from '.'
+import { Tag } from '..'
 import { InfoIcon } from '../icons'
 
 const TagDemo = () => (
