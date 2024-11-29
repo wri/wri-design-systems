@@ -11,3 +11,5 @@ export { default as LayerGroupContainer } from './Layer/LayerGroup/LayerGroupCon
 export { default as LayerPanel } from './Layer/LayerPanel'
 export { default as Tag } from './Tag'
 export { default as Banner } from './Banner'
+export { default as Input } from './Input'
+export { default as Textarea } from './Textarea'

@@ -24,6 +24,7 @@ export const wriTheme: ThemeProps = {
     600: { value: '#686767' },
     700: { value: '#4F4E4E' },
     800: { value: '#1A1919' },
+    900: { value: '#000000' },
   },
   primary: {
     100: { value: '#FFFBF2' },
