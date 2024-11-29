@@ -12,6 +12,13 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [
+    (Story: any) => (
+      <RadioGroup name='radio-group'>
+        <Story />
+      </RadioGroup>
+    ),
+  ],
 } satisfies Meta<typeof LayerItem>
 
 export default meta
@@ -32,11 +39,6 @@ export const Radio: Story = {
     caption: 'Caption',
     variant: 'radio',
   },
-  render: (args) => (
-    <RadioGroup name='radio-group'>
-      <LayerItem {...args} />
-    </RadioGroup>
-  ),
 }
 
 export const Disabled: Story = {
@@ -56,11 +58,6 @@ export const RadioDisabeld: Story = {
     variant: 'radio',
     disabled: true,
   },
-  render: (args) => (
-    <RadioGroup name='radio-group-'>
-      <LayerItem {...args} />
-    </RadioGroup>
-  ),
 }
 
 export const NoInfoButton: Story = {
