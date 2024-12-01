@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import Button from '../Button'
+import Button from '../Buttons/Button'
 import { InfoIcon } from '../icons'
 import {
   InfoWhiteBanner,

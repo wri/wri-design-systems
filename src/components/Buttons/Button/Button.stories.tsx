@@ -4,10 +4,10 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import Button from '.'
-import { CheckIcon } from '../icons'
+import { CheckIcon } from '../../icons'
 
 const meta = {
-  title: 'Button',
+  title: 'Buttons/Button',
   component: Button,
   parameters: {
     layout: 'centered',

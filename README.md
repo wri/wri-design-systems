@@ -92,7 +92,6 @@ function App() {
 ### General
 
 - [Banner](https://github.com/wri/wri-design-systems/tree/main/src/components/Banner)
-- [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Button)
 - [NavigationRail](https://github.com/wri/wri-design-systems/tree/main/src/components/NavigationRail)
 - [TabBar](https://github.com/wri/wri-design-systems/tree/main/src/components/TabBar)
 - [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Tag)
@@ -114,3 +113,8 @@ function App() {
 
 - [Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Input)
 - [Textarea](https://github.com/wri/wri-design-systems/tree/main/src/components/Textarea)
+
+### Buttons
+
+- [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/Button)
+- [CloseButton](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/CloseButton)
