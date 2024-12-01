@@ -7,12 +7,11 @@ import { CloseIcon } from '../../icons'
 
 const CloseButton = ({ disabled, ...rest }: CloseButtonProps) => (
   <StyledCloseButton
+    icon={<CloseIcon />}
     aria-label={rest['aria-label'] || 'Close'}
     disabled={disabled}
     {...rest}
-  >
-    <CloseIcon />
-  </StyledCloseButton>
+  />
 )
 
 export default CloseButton

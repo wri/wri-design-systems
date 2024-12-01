@@ -118,3 +118,4 @@ function App() {
 
 - [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/Button)
 - [CloseButton](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/CloseButton)
+- [IconButton](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/IconButton)

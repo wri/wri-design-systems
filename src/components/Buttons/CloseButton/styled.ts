@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
-import { Button } from '@chakra-ui/react'
 import { getThemedColor } from '../../../lib/theme'
+import IconButton from '../IconButton'
 
-export const StyledCloseButton = styled(Button)`
+export const StyledCloseButton = styled(IconButton)`
   width: 20px !important;
   padding: 0 !important;
   min-width: 20px !important;
@@ -20,6 +20,7 @@ export const StyledCloseButton = styled(Button)`
   }
 
   &:hover {
+    background-color: ${getThemedColor('neutral', 300)};
     box-shadow: 0px 1px 2px -1px #0000001a;
     box-shadow: 0px 1px 3px 0px #0000001a;
   }

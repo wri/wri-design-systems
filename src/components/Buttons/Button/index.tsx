@@ -57,7 +57,7 @@ const Button = ({
       ) : null}
       {label}
       {rightIcon && !loading ? (
-        <Box marginLeft={2} display='flex' alignItems='center'>
+        <Box marginLeft={label ? 2 : 0} display='flex' alignItems='center'>
           {rightIcon}
         </Box>
       ) : null}
