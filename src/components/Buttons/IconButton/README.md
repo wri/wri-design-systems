@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/buttons-icon-button--docs)
 
-[IconButton](https://github.com/wri/wri-design-systems/blob/main/src/components/Buttons/IconButton/IconButtonDemo.tsx)
+[IconButtonDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Buttons/IconButton/IconButtonDemo.tsx)
 
 ## Import
 

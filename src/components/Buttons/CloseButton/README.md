@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/buttons-close-button--docs)
 
-[CloseButton](https://github.com/wri/wri-design-systems/blob/main/src/components/Buttons/CloseButton/CloseButtonDemo.tsx)
+[CloseButtonDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Buttons/CloseButton/CloseButtonDemo.tsx)
 
 ## Import
 
