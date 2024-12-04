@@ -101,6 +101,16 @@ type SliderProps = Omit<
 />
 ```
 
+## Centred
+
+```html
+<Slider
+  min={0}
+  max={100}
+  defaultValue={[50]}
+  isCentred
+/>
+
 ## Disabled
 
 ```html

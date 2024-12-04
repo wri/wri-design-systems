@@ -93,8 +93,15 @@ function App() {
 
 - [Banner](https://github.com/wri/wri-design-systems/tree/main/src/components/Banner)
 - [NavigationRail](https://github.com/wri/wri-design-systems/tree/main/src/components/NavigationRail)
+- [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Slider)
 - [TabBar](https://github.com/wri/wri-design-systems/tree/main/src/components/TabBar)
 - [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Tag)
+
+### Buttons
+
+- [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/Button)
+- [CloseButton](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/CloseButton)
+- [IconButton](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/IconButton)
 
 ### Controls
 
@@ -102,20 +109,14 @@ function App() {
 - [Radio](https://github.com/wri/wri-design-systems/tree/main/src/components/Radio)
 - [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Switch)
 
+### Inputs
+
+- [Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Input)
+- [Textarea](https://github.com/wri/wri-design-systems/tree/main/src/components/Textarea)
+
 ### Layers
 
 - [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerItem)
 - [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
 - [LayerPanel](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerPanel)
 - [LayerSidebar](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerSidebar)
-
-### Inputs
-
-- [Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Input)
-- [Textarea](https://github.com/wri/wri-design-systems/tree/main/src/components/Textarea)
-
-### Buttons
-
-- [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/Button)
-- [CloseButton](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/CloseButton)
-- [IconButton](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/IconButton)
