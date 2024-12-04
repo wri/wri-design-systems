@@ -25,7 +25,14 @@ import { Slider } from 'wri-design-systems'
 ```ts
 type SliderProps = Omit<
   ChakraSliderRootProps,
-  'size' | 'variant' | 'colorPalette' | 'thumbAlignment' | 'thumbSize' | 'label' | 'defaultChecked'
+  | 'size'
+  | 'variant'
+  | 'colorPalette'
+  | 'thumbAlignment'
+  | 'thumbSize'
+  | 'label'
+  | 'defaultChecked'
+  | 'origin'
 > & {
   min?: number
   max?: number
@@ -37,6 +44,7 @@ type SliderProps = Omit<
   width?: string
   onValueChange?: (details: ValueChangeDetails) => void
   onValueChangeEnd?: (details: ValueChangeDetails) => void
+  isCentred?: boolean
 }
 ```
 

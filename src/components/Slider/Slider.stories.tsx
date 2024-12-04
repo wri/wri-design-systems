@@ -67,6 +67,16 @@ export const Range: Story = {
   },
 }
 
+export const Centred: Story = {
+  args: {
+    width: '250px',
+    min: 0,
+    max: 100,
+    defaultValue: [50],
+    isCentred: true,
+  },
+}
+
 export const Disabled: Story = {
   args: {
     width: '250px',

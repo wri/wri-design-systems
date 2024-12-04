@@ -2,6 +2,7 @@ import { SliderRootProps as ChakraSliderRootProps } from '@chakra-ui/react'
 
 export type SliderMarksProps = {
   marks?: Array<number | { value: number; label: React.ReactNode }>
+  isCentred?: boolean
 }
 
 type ValueChangeDetails = {
@@ -10,7 +11,14 @@ type ValueChangeDetails = {
 
 export type SliderProps = Omit<
   ChakraSliderRootProps,
-  'size' | 'variant' | 'colorPalette' | 'thumbAlignment' | 'thumbSize' | 'label' | 'defaultChecked'
+  | 'size'
+  | 'variant'
+  | 'colorPalette'
+  | 'thumbAlignment'
+  | 'thumbSize'
+  | 'label'
+  | 'defaultChecked'
+  | 'origin'
 > & {
   min?: number
   max?: number
@@ -22,4 +30,5 @@ export type SliderProps = Omit<
   width?: string
   onValueChange?: (details: ValueChangeDetails) => void
   onValueChangeEnd?: (details: ValueChangeDetails) => void
+  isCentred?: boolean
 }

@@ -1,17 +1,15 @@
 import { Slider } from '..'
 
 const SliderDemo = () => (
-  <div style={{
-    width: '280px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px',
-  }}>
-    <Slider
-      min={0}
-      max={100}
-      defaultValue={[50]}
-    />
+  <div
+    style={{
+      width: '280px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '20px',
+    }}
+  >
+    <Slider min={0} max={100} defaultValue={[50]} />
     <Slider
       min={0}
       max={100}
@@ -37,14 +35,9 @@ const SliderDemo = () => (
       ]}
       step={25}
     />
-    <Slider
-      value={[20, 80]}
-    />
-    <Slider
-      value={[70]}
-      marks={[0, 25, 50, 75, 100]}
-      disabled
-    />
+    <Slider value={[20, 80]} />
+    <Slider min={-100} max={100} defaultValue={[0]} isCentred />
+    <Slider value={[70]} marks={[0, 25, 50, 75, 100]} disabled />
   </div>
 )
 

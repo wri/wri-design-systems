@@ -4,7 +4,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import IconButton from '.'
-import { CheckIcon, MenuDotsIcon } from '../../icons'
+import { ChevronDownIcon, MenuDotsIcon } from '../../icons'
 
 const meta = {
   title: 'Buttons/Icon Button',
@@ -27,7 +27,7 @@ export const Default: Story = {
 
 export const Disabled: Story = {
   args: {
-    icon: <CheckIcon />,
+    icon: <ChevronDownIcon />,
     disabled: true,
   },
 }
