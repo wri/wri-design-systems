@@ -37,7 +37,11 @@ const Banner = ({
   }
 
   return (
-    <StyledBanner isButtonRight={isButtonRight} size={size}>
+    <StyledBanner
+      isButtonRight={isButtonRight}
+      size={size}
+      aria-roledescription='Note'
+    >
       <div>
         <BannerHeader>
           {icon}

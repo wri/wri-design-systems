@@ -11,7 +11,8 @@ export const DefaultBanner = styled.div<{
   padding: ${({ size }) =>
     size === 'small' ? '8px 8px 12px 8px' : '8px 12px 12px 12px'};
   display: flex;
-  align-items: flex-start;
+  align-items: ${({ isButtonRight }) =>
+    isButtonRight ? 'center' : 'flex-start'};
   justify-content: ${({ isButtonRight }) =>
     isButtonRight ? 'space-between' : 'flex-start'};
   flex-direction: ${({ isButtonRight }) => (isButtonRight ? 'row' : 'column')};
@@ -24,8 +25,12 @@ export const DefaultBanner = styled.div<{
 
 export const BannerHeader = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
+
+  svg {
+    margin-top: 6px;
+  }
 `
 
 export const BannerTitle = styled.p<{ size: string }>`
