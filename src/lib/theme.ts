@@ -43,6 +43,7 @@ export const wriTheme: ThemeProps = {
   success: {
     100: { value: '#F3FFF2' },
     200: { value: '#D3EED1' },
+    300: { value: '#C7E9C0' },
     500: { value: '#086600' },
   },
   warning: {
