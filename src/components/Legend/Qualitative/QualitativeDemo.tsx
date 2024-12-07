@@ -17,6 +17,7 @@ const QualitativeLegendDemo = () => (
       type='line'
       label='Attribute'
       color='#238B45'
+      onActionClick={() => console.log('click')}
       showActionButton
     />
     <QualitativeLegend
