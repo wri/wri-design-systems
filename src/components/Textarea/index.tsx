@@ -32,7 +32,7 @@ const Textarea = ({
 
   useEffect(() => {
     const { length } = defaultValue
-    if (minLength && length < minLength) {
+    if (minLength && length < minLength && length > 0) {
       setMinLengthError(length < minLength)
       setMaxLengthError(false)
       setHelperText(`Enter at least ${minLength - length} characters`)
