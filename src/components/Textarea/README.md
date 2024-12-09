@@ -32,7 +32,6 @@ type TextareaProps = Omit<
   label: string
   caption?: string
   placeholder?: string
-  helperText?: string
   errorMessage?: string
   required?: boolean
   disabled?: boolean

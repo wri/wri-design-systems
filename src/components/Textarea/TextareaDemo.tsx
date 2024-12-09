@@ -7,7 +7,8 @@ const TextareaDemo = () => (
       caption='Caption'
       placeholder='placeholder'
       defaultValue='Default Value'
-      helperText='You have 200 characters remaining'
+      minLength={5}
+      maxLength={200}
       required
     />
     <Textarea

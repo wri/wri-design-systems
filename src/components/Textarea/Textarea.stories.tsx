@@ -16,17 +16,16 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const RequiredtTextarea: Story = {
+export const RequiredTextarea: Story = {
   args: {
     label: 'Required Textarea',
     caption: 'caption',
     placeholder: 'placeholder',
-    helperText: 'You have 200 characters remaining',
     required: true,
   },
 }
 
-export const OptionaltTextarea: Story = {
+export const OptionalTextarea: Story = {
   args: {
     label: 'Optional Textarea',
     caption: 'caption',
@@ -54,12 +53,32 @@ export const DefaultValue: Story = {
   },
 }
 
-export const WithError: Story = {
+export const ErrorMessage: Story = {
   args: {
     label: 'Label',
     caption: 'caption',
     placeholder: 'placeholder',
     errorMessage: 'Error Message',
+    required: true,
+  },
+}
+
+export const MaxLength: Story = {
+  args: {
+    label: 'Label',
+    caption: 'caption',
+    placeholder: 'placeholder',
+    maxLength: 200,
+    required: true,
+  },
+}
+
+export const MinLength: Story = {
+  args: {
+    label: 'Label',
+    caption: 'caption',
+    placeholder: 'placeholder',
+    minLength: 5,
     required: true,
   },
 }

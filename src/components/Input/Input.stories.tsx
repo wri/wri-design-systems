@@ -16,7 +16,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const RequiredtInput: Story = {
+export const RequiredInput: Story = {
   args: {
     label: 'Required Input',
     caption: 'caption',
@@ -25,7 +25,7 @@ export const RequiredtInput: Story = {
   },
 }
 
-export const OptionaltInput: Story = {
+export const OptionalInput: Story = {
   args: {
     label: 'Optional Input',
     caption: 'caption',
