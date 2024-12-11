@@ -120,3 +120,7 @@ function App() {
 - [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
 - [LayerPanel](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerPanel)
 - [LayerSidebar](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerSidebar)
+
+### Legend
+- [LayerParameters](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LayerParameters)
+- [Qualitative](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/Qualitative)

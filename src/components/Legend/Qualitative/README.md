@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/legend-qualitative--docs)
 
-[QualitativeLegendDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Legend/QualitativeLegendDemo.tsx)
+[QualitativeLegendDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Legend/Qualitative/QualitativeDemo.tsx)
 
 ## Import
 
