@@ -10,7 +10,11 @@ export const TextareaContainer = styled.div<{ size: 'small' | 'default' }>`
   gap: ${({ size }) => (size === 'small' ? '12px' : '16px')};
   margin-bottom: 20px;
 `
-const getHeight = (size: 'small' | 'default', hasHelperText: boolean, hasErrorMessage: boolean) => {
+const getHeight = (
+  size: 'small' | 'default',
+  hasHelperText: boolean,
+  hasErrorMessage: boolean,
+) => {
   const isSmall = size === 'small'
   if (hasHelperText && hasErrorMessage) {
     return isSmall ? '192px' : '208px'
@@ -34,11 +38,12 @@ export const ErrorBar = styled.div<{
 }>`
   width: 3px;
   height: 100%;
-  min-height: ${({ size, hasHelperText, hasErrorMessage }) => getHeight(size, hasHelperText, hasErrorMessage)};
+  min-height: ${({ size, hasHelperText, hasErrorMessage }) =>
+    getHeight(size, hasHelperText, hasErrorMessage)};
   background-color: ${getThemedColor('error', 500)};
 `
 
-export const StyledFieldLabel = styled(Field.Label) <{
+export const StyledFieldLabel = styled(Field.Label)<{
   size: 'small' | 'default'
   disabled?: boolean
 }>`
@@ -50,11 +55,11 @@ export const StyledFieldLabel = styled(Field.Label) <{
 
   .chakra-field__requiredIndicator {
     color: ${({ disabled }) =>
-    disabled ? getThemedColor('neutral', 600) : getThemedColor('error', 500)};
+      disabled ? getThemedColor('neutral', 600) : getThemedColor('error', 500)};
   }
 `
 
-export const StyledFieldCaption = styled(Field.HelperText) <{
+export const StyledFieldCaption = styled(Field.HelperText)<{
   size: 'small' | 'default'
   disabled?: boolean
 }>`
@@ -72,17 +77,15 @@ export const StyledFieldHelperText = styled(Field.HelperText)`
   margin-top: 8px;
 `
 
-export const StyledFieldErrorMessage = styled(Field.ErrorText) <{
-  size: 'small' | 'default'
-}>`
+export const StyledFieldErrorMessage = styled(Field.ErrorText)`
   color: ${getThemedColor('error', 500)};
-  font-size: ${({ size }) => (size === 'small' ? '12px' : '14px')};
+  font-size: 14px;
   font-weight: 700;
-  line-height: ${({ size }) => (size === 'small' ? '16px' : '20px')};
+  line-height: 20px;
   margin-top: 2px;
 `
 
-export const StyledTextarea = styled(Textarea) <{ size: 'small' | 'default' }>`
+export const StyledTextarea = styled(Textarea)<{ size: 'small' | 'default' }>`
   height: 104px;
   width: 100%;
   border-radius: 4px;

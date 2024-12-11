@@ -55,7 +55,11 @@ const Textarea = ({
     } else if (minLength) {
       setMinLengthError(length < minLength)
       setMaxLengthError(false)
-      setHelperText(length < minLength ? `Enter at least ${minLength - length} characters` : '')
+      setHelperText(
+        length < minLength
+          ? `Enter at least ${minLength - length} characters`
+          : '',
+      )
     } else if (maxLength) {
       setMaxLengthError(length > maxLength)
       setMinLengthError(false)
@@ -70,9 +74,17 @@ const Textarea = ({
   return (
     <TextareaContainer size={size}>
       {errorMessage || minLengthError || maxLengthError ? (
-        <ErrorBar size={size} hasHelperText={!!helperText} hasErrorMessage={!!errorMessage} />
+        <ErrorBar
+          size={size}
+          hasHelperText={!!helperText}
+          hasErrorMessage={!!errorMessage}
+        />
       ) : null}
-      <Field.Root required={required} invalid={!!errorMessage || minLengthError || maxLengthError} gap='0'>
+      <Field.Root
+        required={required}
+        invalid={!!errorMessage || minLengthError || maxLengthError}
+        gap='0'
+      >
         {label ? (
           <StyledFieldLabel size={size} disabled={disabled} aria-label={label}>
             <Field.RequiredIndicator aria-label='required' />
@@ -90,9 +102,7 @@ const Textarea = ({
           </StyledFieldCaption>
         ) : null}
         {errorMessage ? (
-          <StyledFieldErrorMessage size={size}>
-            {errorMessage}
-          </StyledFieldErrorMessage>
+          <StyledFieldErrorMessage>{errorMessage}</StyledFieldErrorMessage>
         ) : null}
         <StyledTextarea
           placeholder={placeholder}
@@ -105,14 +115,18 @@ const Textarea = ({
           }}
           {...rest}
         />
-        {minLengthError ? (
-          <StyledFieldErrorMessage size={size} style={{ marginTop: '8px' }}>
-            Enter at least {minLength} characters
+        {minLengthError && minLength ? (
+          <StyledFieldErrorMessage
+            style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
+          >
+            You need {minLength - value.length} more characters
           </StyledFieldErrorMessage>
         ) : null}
-        {maxLengthError ? (
-          <StyledFieldErrorMessage size={size} style={{ marginTop: '8px' }}>
-            You&apos;ve reached the character limit
+        {maxLengthError && maxLength ? (
+          <StyledFieldErrorMessage
+            style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
+          >
+            You have {value.length - maxLength} characters too many
           </StyledFieldErrorMessage>
         ) : null}
         {helperText && !maxLengthError && !minLengthError ? (
