@@ -20,8 +20,10 @@ const NavigationRail = ({
   onOpenChange,
 }: NavigationRailProps) => {
   const [hideSidebar, setHideSidebar] = useState(false)
+  const [seletedTab, setSeletedTab] = useState(defaultValue || tabs?.[0]?.value)
 
   const handleOnTabClick = (selectedValue: string) => {
+    setSeletedTab(selectedValue)
     if (onTabClick) {
       onTabClick(selectedValue)
     }
@@ -40,11 +42,16 @@ const NavigationRail = ({
       <NavigationRailContainer>
         <Tabs.Root
           defaultValue={defaultValue || tabs?.[0]?.value}
-          orientation='vertical'
+          orientation='horizontal'
           width='full'
           onFocusChange={({ focusedValue }) => handleOnTabClick(focusedValue)}
+          role='tablist'
         >
-          <Tabs.List alignItems='center' border='none'>
+          <Tabs.List
+            alignItems='center'
+            border='none'
+            style={{ flexDirection: 'column' }}
+          >
             {tabs.map((tab) => (
               <NavigationRailTab
                 key={tab.label}
@@ -85,7 +92,10 @@ const NavigationRail = ({
       {children ? (
         <Collapsible.Root defaultOpen open={!hideSidebar}>
           <Collapsible.Content>
-            <NavigationRailChildrenContainer>
+            <NavigationRailChildrenContainer
+              role='tabpanel'
+              aria-labelledby={seletedTab}
+            >
               {children}
             </NavigationRailChildrenContainer>
           </Collapsible.Content>

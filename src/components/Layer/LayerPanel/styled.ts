@@ -6,12 +6,12 @@ export const LayerPanelContainer = styled.div`
   background-color: ${getThemedColor('neutral', 100)};
 `
 
-export const LayerPanelHeader = styled.div`
+export const LayerPanelHeader = styled.aside`
   padding: 16px 16px 20px 16px;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
 `
 
-export const LayerPanelTitle = styled.p`
+export const LayerPanelTitle = styled.h2`
   color: ${getThemedColor('neutral', 700)};
   font-weight: 700;
   font-size: 20px;

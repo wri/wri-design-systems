@@ -38,11 +38,12 @@ const LayerItem = ({
             <LayerCaption aria-label={caption}>{caption}</LayerCaption>
           </SwitchContent>
           <Switch
-            aria-label={label}
+            aria-label={`${label}, ${caption}`}
             name={name}
             disabled={disabled}
             defaultChecked={isDefaultSelected}
             onChange={onChange}
+            role='switch'
           />
         </SwitchContainer>
       ) : (

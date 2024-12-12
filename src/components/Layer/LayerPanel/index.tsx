@@ -20,9 +20,11 @@ const LayerPanel = ({
   children,
 }: LayerPanelProps) => (
   <LayerPanelContainer>
-    <LayerPanelHeader>
-      <LayerPanelTitle>{title}</LayerPanelTitle>
-      <LayerPanelDescription>{description}</LayerPanelDescription>
+    <LayerPanelHeader role='complementary'>
+      <LayerPanelTitle aria-label={title}>{title}</LayerPanelTitle>
+      <LayerPanelDescription aria-label={description}>
+        {description}
+      </LayerPanelDescription>
     </LayerPanelHeader>
     {buttonTabs && buttonTabs.length > 0 ? (
       <TabBar
