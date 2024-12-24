@@ -1,8 +1,8 @@
 # QualitativeLegend
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/legend-qualitative--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/legend-qualitative-legend--docs)
 
-[QualitativeLegendDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Legend/Qualitative/QualitativeDemo.tsx)
+[QualitativeLegendDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Legend/QualitativeLegend/QualitativeLegendDemo.tsx)
 
 ## Import
 
