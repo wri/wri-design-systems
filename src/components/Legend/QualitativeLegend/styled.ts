@@ -38,7 +38,7 @@ export const QualitativeLegendContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 `
 
 export const QualitativeLegendLabelContainer = styled.div`

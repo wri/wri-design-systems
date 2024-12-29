@@ -11,9 +11,13 @@ import {
   LayerParametersTrigger,
 } from './styled'
 
-const LayerParameters = ({ label, children }: LayerParametersProps) => (
+const LayerParameters = ({
+  label,
+  children,
+  openedByDefault,
+}: LayerParametersProps) => (
   <div>
-    <Accordion.Root defaultValue={[label]} multiple>
+    <Accordion.Root defaultValue={openedByDefault ? [label] : []} multiple>
       <LayerParametersItem value={label}>
         <LayerParametersTrigger>
           <Box

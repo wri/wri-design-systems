@@ -6,7 +6,7 @@ export const DefaultBanner = styled.div<{
   size: string
 }>`
   width: 100%;
-  min-width: ${({ size }) => (size === 'small' ? '238px' : '366px')};
+  min-width: ${({ size }) => (size === 'small' ? '234px' : '366px')};
   border-radius: 4px;
   padding: ${({ size }) =>
     size === 'small' ? '8px 8px 12px 8px' : '8px 12px 12px 12px'};
@@ -17,6 +17,7 @@ export const DefaultBanner = styled.div<{
     isButtonRight ? 'space-between' : 'flex-start'};
   flex-direction: ${({ isButtonRight }) => (isButtonRight ? 'row' : 'column')};
   gap: 8px;
+  margin-bottom: 16px;
 
   button {
     margin-left: ${({ isButtonRight }) => (isButtonRight ? 0 : '24px')};

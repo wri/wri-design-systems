@@ -35,7 +35,7 @@ const Input = ({
   }
 
   return (
-    <InputContainer size={size}>
+    <InputContainer size={size} className='input-container'>
       {errorMessage ? <ErrorBar size={size} /> : null}
       <Field.Root required={required} invalid={!!errorMessage} gap='0'>
         {label ? (

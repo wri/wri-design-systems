@@ -8,7 +8,7 @@ export const TextareaContainer = styled.div<{ size: 'small' | 'default' }>`
   justify-content: flex-start;
   align-items: flex-start;
   gap: ${({ size }) => (size === 'small' ? '12px' : '16px')};
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 `
 const getHeight = (
   size: 'small' | 'default',

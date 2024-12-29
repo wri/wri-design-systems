@@ -5,7 +5,7 @@ export const ScaleLegendContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 `
 
 export const ScaleLegendGradientBar = styled.div<{ colors: string[] }>`

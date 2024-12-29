@@ -3,7 +3,7 @@ import { Accordion } from '@chakra-ui/react'
 import { getThemedColor } from '../../../lib/theme'
 
 export const LayerParametersItem = styled(Accordion.Item)`
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   border: 1px solid ${getThemedColor('neutral', 300)};
   border-radius: 4px;
   box-shadow: 0px 1px 2px 0px #0000000d;
