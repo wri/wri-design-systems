@@ -38,5 +38,6 @@ export const OpacityControlInputContainer = styled.div`
     padding: 0 12px;
     height: 30px;
     margin-top: 18px;
+    width: 100%;
   }
 `

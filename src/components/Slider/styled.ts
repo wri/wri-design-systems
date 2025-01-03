@@ -4,7 +4,6 @@ import { getThemedColor } from '../../lib/theme'
 
 export const ChakraSliderRoot = styled(Slider.Root)`
   height: 60px;
-  width: 100%;
   padding: 40px 12px;
 `
 

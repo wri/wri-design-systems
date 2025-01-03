@@ -124,5 +124,7 @@ function App() {
 ### Legend
 
 - [LayerParameters](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LayerParameters)
+- [LegendItem](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendItem)
+- [LegendPanel](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendPanel)
 - [QualitativeLegend](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/QualitativeLegend)
 - [ScaleLegend](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/ScaleLegend)
