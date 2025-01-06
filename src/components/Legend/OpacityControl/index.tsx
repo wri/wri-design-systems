@@ -4,13 +4,13 @@ import React, { useState } from 'react'
 import { Popover as ChakraPopover } from '@chakra-ui/react'
 import Button from '../../Buttons/Button'
 import { InfoIcon } from '../../icons'
-import Input from '../../Input'
+import TextInput from '../../TextInput'
 import Slider from '../../Slider'
 import { OpacityControlProps } from './types'
 import {
   OpacityControlBody,
   OpacityControlContainer,
-  OpacityControlInputContainer,
+  OpacityControlTextInputContainer,
   OpacityControlLabel,
 } from './styled'
 
@@ -57,14 +57,14 @@ const OpacityControl = ({
         <OpacityControlContainer>
           <OpacityControlBody>
             <OpacityControlLabel>Opacity</OpacityControlLabel>
-            <OpacityControlInputContainer>
-              <Input
+            <OpacityControlTextInputContainer>
+              <TextInput
                 aria-label='Opacity'
                 min='0'
                 max='100'
                 value={`${opacity}%`}
                 onChange={handleOpacityChanged}
-                className='opacity-control-input'
+                className='opacity-control-text-input'
               />
               <Slider
                 min={0}
@@ -72,7 +72,7 @@ const OpacityControl = ({
                 value={[opacity]}
                 onValueChangeEnd={opacityChangeHandler}
               />
-            </OpacityControlInputContainer>
+            </OpacityControlTextInputContainer>
           </OpacityControlBody>
         </OpacityControlContainer>
       </ChakraPopover.Positioner>

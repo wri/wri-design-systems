@@ -13,11 +13,7 @@ import { Slider } from 'wri-design-systems'
 ## Usage
 
 ```html
-<Slider
-  min={0}
-  max={100}
-  defaultValue={[50]}
-/>
+<Slider min="{0}" max="{100}" defaultValue="{[50]}" />
 ```
 
 ## Props
@@ -51,11 +47,7 @@ type SliderProps = Omit<
 ## Continuous
 
 ```html
-<Slider
-  min={0}
-  max={100}
-  defaultValue={[50]}
-/>
+<Slider min="{0}" max="{100}" defaultValue="{[50]}" />
 ```
 
 ## Discrete
@@ -96,28 +88,14 @@ type SliderProps = Omit<
 ## Range
 
 ```html
-<Slider
-  value={[20, 80]}
-/>
+<Slider value="{[20," 80]} />
 ```
 
 ## Centred
 
-```html
-<Slider
-  min={0}
-  max={100}
-  defaultValue={[50]}
-  isCentred
-/>
+````html
+<Slider min="{0}" max="{100}" defaultValue="{[50]}" isCentred />
 
-## Disabled
-
-```html
-<Slider
-  min={0}
-  max={100}
-  defaultValue={[50]}
-  disabled
-/>
-```
+## Disabled ```html
+<Slider min="{0}" max="{100}" defaultValue="{[50]}" disabled />
+````

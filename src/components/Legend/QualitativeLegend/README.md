@@ -14,13 +14,15 @@ import { QualitativeLegend } from 'wri-design-systems'
 
 ```html
 <QualitativeLegend
-  type='raster'
-  label='Attribute'
-  caption='Caption'
-  color='#238B45'
-  onActionClick={() => console.log('click')}
-  showActionButton
-/>
+  type="raster"
+  label="Attribute"
+  caption="Caption"
+  color="#238B45"
+  onActionClick="{()"
+  =""
+>
+  console.log('click')} showActionButton /></QualitativeLegend
+>
 ```
 
 ## Props
@@ -41,26 +43,30 @@ type QualitativeLegendProps = {
 
 ```html
 <QualitativeLegend
-  type='raster'
-  label='Attribute'
-  caption='Caption'
-  color='#238B45'
-  onActionClick={() => console.log('click')}
-  showActionButton
-/>
+  type="raster"
+  label="Attribute"
+  caption="Caption"
+  color="#238B45"
+  onActionClick="{()"
+  =""
+>
+  console.log('click')} showActionButton /></QualitativeLegend
+>
 ```
 
 ## Line
 
 ```html
 <QualitativeLegend
-  type='line'
-  label='Attribute'
-  caption='Caption'
-  color='#238B45'
-  onActionClick={() => console.log('click')}
-  showActionButton
-/>
+  type="line"
+  label="Attribute"
+  caption="Caption"
+  color="#238B45"
+  onActionClick="{()"
+  =""
+>
+  console.log('click')} showActionButton /></QualitativeLegend
+>
 ```
 
 ## Point

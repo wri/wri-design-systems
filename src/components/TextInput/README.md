@@ -1,32 +1,26 @@
-# Textarea
+# TextInput
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/inputs-textarea--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/inputs-text-input--docs)
 
-[TextareaDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Textarea/TextareaDemo.tsx)
+[TextInputDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/TextInput/TextInputDemo.tsx)
 
 ## Import
 
 ```js
-import { Textarea } from 'wri-design-systems'
+import { TextInput } from 'wri-design-systems'
 ```
 
 ## Usage
 
 ```html
-<textarea
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
-  helperText="You have 200 characters remaining"
-  required
-/>
+<TextInput label="Label" caption="Caption" placeholder="placeholder" required />
 ```
 
 ## Props
 
 ```ts
-type TextareaProps = Omit<
-  ChakraTextareaProps,
+type TextInputProps = Omit<
+  ChakraInputProps,
   'size' | 'variant' | 'colorPalette' | 'defaultChecked'
 > & {
   label: string
@@ -44,51 +38,53 @@ type TextareaProps = Omit<
 ## Optional
 
 ```html
-<textarea
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
-  helperText="You have 200 characters remaining"
-/>
+<TextInput label="Label" caption="Caption" placeholder="placeholder" />
 ```
 
 ## Small Input
 
 ```html
-<textarea
+<TextInput
   label="Label"
   caption="Caption"
   placeholder="placeholder"
-  helperText="You have 200 characters remaining"
   size="small"
+  required
 />
 ```
 
 ## Default Value
 
 ```html
-<textarea
+<TextInput
   label="Label"
   caption="Caption"
   placeholder="placeholder"
   defaultValue="Default Value"
+  required
 />
 ```
 
 ## With Error
 
 ```html
-<textarea
+<TextInput
   label="Label"
   caption="Caption"
   placeholder="placeholder"
-  helperText="You have 200 characters remaining"
   errorMessage="Error Message"
+  required
 />
 ```
 
 ## Disabled
 
 ```html
-<textarea label="Label" caption="Caption" placeholder="placeholder" disabled />
+<TextInput
+  label="Label"
+  caption="Caption"
+  placeholder="placeholder"
+  required
+  disabled
+/>
 ```

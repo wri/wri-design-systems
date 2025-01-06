@@ -1,6 +1,6 @@
-import { Banner } from '..'
+import { InlineMessage } from '..'
 
-const BannerDemo = () => (
+const InlineMessageDemo = () => (
   <>
     <div
       style={{
@@ -17,13 +17,13 @@ const BannerDemo = () => (
           gap: '10px',
         }}
       >
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='info-white'
           actionLabel='Label'
         />
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='info-white'
@@ -39,14 +39,14 @@ const BannerDemo = () => (
           gap: '10px',
         }}
       >
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='info-white'
           actionLabel='Label'
           size='small'
         />
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='info-white'
@@ -72,13 +72,13 @@ const BannerDemo = () => (
           gap: '10px',
         }}
       >
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='info-grey'
           actionLabel='Label'
         />
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='info-grey'
@@ -94,14 +94,14 @@ const BannerDemo = () => (
           gap: '10px',
         }}
       >
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='info-grey'
           actionLabel='Label'
           size='small'
         />
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='info-grey'
@@ -127,13 +127,13 @@ const BannerDemo = () => (
           gap: '10px',
         }}
       >
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='success'
           actionLabel='Label'
         />
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='success'
@@ -149,72 +149,17 @@ const BannerDemo = () => (
           gap: '10px',
         }}
       >
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='success'
           actionLabel='Label'
           size='small'
         />
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='success'
-          actionLabel='Label'
-          isButtonRight
-          size='small'
-        />
-      </div>
-    </div>
-
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-          gap: '10px',
-        }}
-      >
-        <Banner
-          label='Label'
-          caption='caption'
-          variant='warning'
-          actionLabel='Label'
-        />
-        <Banner
-          label='Label'
-          caption='caption'
-          variant='warning'
-          actionLabel='Label'
-          isButtonRight
-        />
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-          gap: '10px',
-        }}
-      >
-        <Banner
-          label='Label'
-          caption='caption'
-          variant='warning'
-          actionLabel='Label'
-          size='small'
-        />
-        <Banner
-          label='Label'
-          caption='caption'
-          variant='warning'
           actionLabel='Label'
           isButtonRight
           size='small'
@@ -237,13 +182,68 @@ const BannerDemo = () => (
           gap: '10px',
         }}
       >
-        <Banner
+        <InlineMessage
+          label='Label'
+          caption='caption'
+          variant='warning'
+          actionLabel='Label'
+        />
+        <InlineMessage
+          label='Label'
+          caption='caption'
+          variant='warning'
+          actionLabel='Label'
+          isButtonRight
+        />
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+          gap: '10px',
+        }}
+      >
+        <InlineMessage
+          label='Label'
+          caption='caption'
+          variant='warning'
+          actionLabel='Label'
+          size='small'
+        />
+        <InlineMessage
+          label='Label'
+          caption='caption'
+          variant='warning'
+          actionLabel='Label'
+          isButtonRight
+          size='small'
+        />
+      </div>
+    </div>
+
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+          gap: '10px',
+        }}
+      >
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='error'
           actionLabel='Label'
         />
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='error'
@@ -259,14 +259,14 @@ const BannerDemo = () => (
           gap: '10px',
         }}
       >
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='error'
           actionLabel='Label'
           size='small'
         />
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='error'
@@ -279,4 +279,4 @@ const BannerDemo = () => (
   </>
 )
 
-export default BannerDemo
+export default InlineMessageDemo

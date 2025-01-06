@@ -3,7 +3,7 @@ import React from 'react'
 
 /* eslint-disable no-console */
 import {
-  Banner,
+  InlineMessage,
   LayerParameters,
   LegendItem,
   QualitativeLegend,
@@ -40,7 +40,7 @@ export const LegendItemDemo = () => (
         caption='Caption'
         color='#238B45'
       />
-      <Banner
+      <InlineMessage
         label='Label'
         caption='caption'
         variant='info-white'
@@ -86,7 +86,7 @@ export const LegendItemDemo2 = () => (
         caption='Caption'
         color='#238B45'
       />
-      <Banner
+      <InlineMessage
         label='Label'
         caption='caption'
         variant='info-white'
@@ -131,7 +131,7 @@ export const LegendItemDemo3 = () => (
         caption='Caption'
         color='#238B45'
       />
-      <Banner
+      <InlineMessage
         label='Label'
         caption='caption'
         variant='info-white'

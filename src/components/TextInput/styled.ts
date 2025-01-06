@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { Input, Field } from '@chakra-ui/react'
 import { getThemedColor } from '../../lib/theme'
 
-export const InputContainer = styled.div<{ size: 'small' | 'default' }>`
+export const TextInputContainer = styled.div<{ size: 'small' | 'default' }>`
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -54,7 +54,7 @@ export const StyledFieldErrorMessage = styled(Field.ErrorText)<{
   margin-top: 2px;
 `
 
-export const StyledInput = styled(Input)<{ size: 'small' | 'default' }>`
+export const StyledTextInput = styled(Input)<{ size: 'small' | 'default' }>`
   height: ${({ size }) => (size === 'small' ? '28px' : '40px')};
   width: 100%;
   border-radius: 4px;

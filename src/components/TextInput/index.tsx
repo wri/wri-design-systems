@@ -4,15 +4,15 @@ import React, { useState } from 'react'
 import { Field } from '@chakra-ui/react'
 import {
   ErrorBar,
-  InputContainer,
+  TextInputContainer,
   StyledFieldCaption,
   StyledFieldErrorMessage,
   StyledFieldLabel,
-  StyledInput,
+  StyledTextInput,
 } from './styled'
-import { InputProps } from './types'
+import { TextInputProps } from './types'
 
-const Input = ({
+const TextInput = ({
   label,
   caption,
   placeholder,
@@ -23,7 +23,7 @@ const Input = ({
   defaultValue = '',
   onChange,
   ...rest
-}: InputProps) => {
+}: TextInputProps) => {
   const [value, setValue] = useState(defaultValue)
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +35,7 @@ const Input = ({
   }
 
   return (
-    <InputContainer size={size} className='input-container'>
+    <TextInputContainer size={size} className='text-input-container'>
       {errorMessage ? <ErrorBar size={size} /> : null}
       <Field.Root required={required} invalid={!!errorMessage} gap='0'>
         {label ? (
@@ -59,7 +59,7 @@ const Input = ({
             {errorMessage}
           </StyledFieldErrorMessage>
         ) : null}
-        <StyledInput
+        <StyledTextInput
           placeholder={placeholder}
           disabled={disabled}
           size={size}
@@ -71,8 +71,8 @@ const Input = ({
           {...rest}
         />
       </Field.Root>
-    </InputContainer>
+    </TextInputContainer>
   )
 }
 
-export default Input
+export default TextInput

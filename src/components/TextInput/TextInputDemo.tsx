@@ -1,28 +1,28 @@
-import { Input } from '..'
+import { TextInput } from '..'
 
-const InputDemo = () => (
+const TextInputDemo = () => (
   <div>
-    <Input
+    <TextInput
       label='Label'
       caption='Caption'
       placeholder='placeholder'
       defaultValue='Default Value'
       required
     />
-    <Input
+    <TextInput
       label='Label'
       caption='Caption'
       placeholder='placeholder'
       size='small'
     />
-    <Input
+    <TextInput
       label='Label'
       caption='Caption'
       placeholder='placeholder'
       errorMessage='Error Message'
       required
     />
-    <Input
+    <TextInput
       label='Label'
       caption='Caption'
       placeholder='placeholder'
@@ -32,4 +32,4 @@ const InputDemo = () => (
   </div>
 )
 
-export default InputDemo
+export default TextInputDemo

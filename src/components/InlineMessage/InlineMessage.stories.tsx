@@ -3,17 +3,17 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
-import Banner from '.'
+import InlineMessage from '.'
 
 const meta = {
-  title: 'Banner',
-  component: Banner,
+  title: 'Inline Message',
+  component: InlineMessage,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   args: { onActionClick: fn() },
-} satisfies Meta<typeof Banner>
+} satisfies Meta<typeof InlineMessage>
 
 export default meta
 type Story = StoryObj<typeof meta>

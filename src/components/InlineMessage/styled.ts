@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { getThemedColor } from '../../lib/theme'
 
-export const DefaultBanner = styled.div<{
+export const DefaultInlineMessage = styled.div<{
   isButtonRight?: boolean
   size: string
 }>`
@@ -24,7 +24,7 @@ export const DefaultBanner = styled.div<{
   }
 `
 
-export const BannerHeader = styled.div`
+export const InlineMessageHeader = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 8px;
@@ -34,14 +34,14 @@ export const BannerHeader = styled.div`
   }
 `
 
-export const BannerTitle = styled.p<{ size: string }>`
+export const InlineMessageTitle = styled.p<{ size: string }>`
   color: ${getThemedColor('neutral', 800)};
   font-size: ${({ size }) => (size === 'small' ? '14px' : '18px')};
   line-height: ${({ size }) => (size === 'small' ? '20px' : '28px')};
   font-weight: 400;
 `
 
-export const BannerCaption = styled.p<{ size: string }>`
+export const InlineMessageCaption = styled.p<{ size: string }>`
   color: ${getThemedColor('neutral', 700)};
   font-size: ${({ size }) => (size === 'small' ? '12px' : '16px')};
   line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};
@@ -49,19 +49,19 @@ export const BannerCaption = styled.p<{ size: string }>`
   margin-left: 24px;
 `
 
-export const InfoWhiteBanner = styled(DefaultBanner)`
+export const InfoWhiteInlineMessage = styled(DefaultInlineMessage)`
   background-color: ${getThemedColor('neutral', 100)};
   border: 1px solid ${getThemedColor('neutral', 300)};
   color: ${getThemedColor('neutral', 700)};
 `
 
-export const InfoGreyBanner = styled(DefaultBanner)`
+export const InfoGreyInlineMessage = styled(DefaultInlineMessage)`
   background-color: ${getThemedColor('neutral', 200)};
   border: 1px solid ${getThemedColor('neutral', 300)};
   color: ${getThemedColor('neutral', 700)};
 `
 
-export const SuccessBanner = styled(DefaultBanner)`
+export const SuccessInlineMessage = styled(DefaultInlineMessage)`
   background-color: ${getThemedColor('success', 100)};
   border: 1px solid ${getThemedColor('success', 500)};
   color: ${getThemedColor('success', 500)};
@@ -71,7 +71,7 @@ export const SuccessBanner = styled(DefaultBanner)`
   }
 `
 
-export const WarningBanner = styled(DefaultBanner)`
+export const WarningInlineMessage = styled(DefaultInlineMessage)`
   background-color: ${getThemedColor('warning', 100)};
   border: 1px solid ${getThemedColor('warning', 500)};
   color: ${getThemedColor('warning', 500)};
@@ -81,7 +81,7 @@ export const WarningBanner = styled(DefaultBanner)`
   }
 `
 
-export const ErrorBanner = styled(DefaultBanner)`
+export const ErrorInlineMessage = styled(DefaultInlineMessage)`
   background-color: ${getThemedColor('error', 100)};
   border: 1px solid ${getThemedColor('error', 500)};
   color: ${getThemedColor('error', 500)};

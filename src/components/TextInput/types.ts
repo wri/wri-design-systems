@@ -1,6 +1,6 @@
 import { InputProps as ChakraInputProps } from '@chakra-ui/react'
 
-export type InputProps = Omit<
+export type TextInputProps = Omit<
   ChakraInputProps,
   'size' | 'variant' | 'colorPalette' | 'defaultChecked'
 > & {

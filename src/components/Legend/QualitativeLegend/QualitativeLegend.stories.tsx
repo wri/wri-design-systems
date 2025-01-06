@@ -7,7 +7,7 @@ import QualitativeLegend from '.'
 import { InfoIcon } from '../../icons'
 
 const meta = {
-  title: 'Legend/Qualitative Legend',
+  title: 'Legend/Qualitative Attributes',
   component: QualitativeLegend,
   parameters: {
     layout: 'centered',

@@ -2,17 +2,21 @@
 import React from 'react'
 
 import { LegendPanel } from '../..'
-import { LegendItemDemo, LegendItemDemo2, LegendItemDemo3 } from '../LegendItem/LegendItemDemo'
+import {
+  LegendItemDemo,
+  LegendItemDemo2,
+  LegendItemDemo3,
+} from '../LegendItem/LegendItemDemo'
 
 const LegendPanelDemo = () => (
   <LegendPanel
-    legendContent={(
+    legendContent={
       <>
         <LegendItemDemo />
         <LegendItemDemo2 />
         <LegendItemDemo3 />
       </>
-    )}
+    }
     analysisContent={<div />}
   />
 )

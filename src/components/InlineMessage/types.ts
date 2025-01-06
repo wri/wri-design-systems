@@ -1,4 +1,4 @@
-export type BannerProps = {
+export type InlineMessageProps = {
   label: string
   caption?: string
   variant: 'info-white' | 'info-grey' | 'success' | 'warning' | 'error'

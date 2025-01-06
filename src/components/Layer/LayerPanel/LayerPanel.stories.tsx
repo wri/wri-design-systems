@@ -10,7 +10,7 @@ import {
 } from '../LayerGroup/LayerGroupDemo'
 
 const meta = {
-  title: 'Layers/LayerPanel',
+  title: 'Layers/Layer Panel',
   component: LayerPanel,
   parameters: {
     layout: 'centered',

@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import LegendItemStory from '.'
 import ScaleLegend from '../ScaleLegend'
 import QualitativeLegend from '../QualitativeLegend'
-import Banner from '../../Banner'
+import InlineMessage from '../../InlineMessage'
 import LayerParameters from '../LayerParameters'
 
 const meta = {
@@ -61,7 +61,7 @@ export const LegendItem: Story = {
           caption='Caption'
           color='#238B45'
         />
-        <Banner
+        <InlineMessage
           label='Label'
           caption='caption'
           variant='info-white'

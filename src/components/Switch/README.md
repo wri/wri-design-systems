@@ -13,9 +13,7 @@ import { Switch } from 'wri-design-systems'
 ## Usage
 
 ```html
-<Switch name='switch'>
-  Switch
-</Switch>
+<Switch name="switch"> Switch </Switch>
 ```
 
 ## Props
@@ -41,21 +39,15 @@ type SwitchProps = Omit<
 ## Default Checked
 
 ```html
-<Switch name='switch' defaultChecked>
-  Switch
-</Switch>
+<Switch name="switch" defaultChecked> Switch </Switch>
 ```
 
 ## Disabled
 
 ```html
-<Switch name='switch 1' disabled>
-  Switch
-</Switch>
+<Switch name="switch 1" disabled> Switch </Switch>
 ```
 
 ```html
-<Switch name='switch 2' disabled checked>
-  Switch
-</Switch>
+<Switch name="switch 2" disabled checked> Switch </Switch>
 ```

@@ -7,7 +7,7 @@ import Radio from '.'
 import RadioGroup from './RadioGroup'
 
 const meta = {
-  title: 'Controls/Radio',
+  title: 'Controls/Radio Button',
   component: RadioGroup,
   parameters: {
     layout: 'centered',

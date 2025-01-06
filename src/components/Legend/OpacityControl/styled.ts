@@ -20,12 +20,12 @@ export const OpacityControlLabel = styled.p`
   color: ${getThemedColor('neutral', 900)};
 `
 
-export const OpacityControlInputContainer = styled.div`
+export const OpacityControlTextInputContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
 
-  .input-container {
+  .text-input-container {
     width: 70px;
     margin: 0px;
 

@@ -4,18 +4,18 @@ import React from 'react'
 import Button from '../Buttons/Button'
 import { InfoIcon } from '../icons'
 import {
-  InfoWhiteBanner,
-  ErrorBanner,
-  InfoGreyBanner,
-  SuccessBanner,
-  WarningBanner,
-  BannerTitle,
-  BannerCaption,
-  BannerHeader,
+  InfoWhiteInlineMessage,
+  ErrorInlineMessage,
+  InfoGreyInlineMessage,
+  SuccessInlineMessage,
+  WarningInlineMessage,
+  InlineMessageTitle,
+  InlineMessageCaption,
+  InlineMessageHeader,
 } from './styled'
-import { BannerProps } from './types'
+import { InlineMessageProps } from './types'
 
-const Banner = ({
+const InlineMessage = ({
   label,
   caption,
   variant,
@@ -24,30 +24,30 @@ const Banner = ({
   onActionClick,
   actionLabel,
   isButtonRight,
-}: BannerProps) => {
-  let StyledBanner = InfoWhiteBanner
+}: InlineMessageProps) => {
+  let StyledInlineMessage = InfoWhiteInlineMessage
   if (variant === 'info-grey') {
-    StyledBanner = InfoGreyBanner
+    StyledInlineMessage = InfoGreyInlineMessage
   } else if (variant === 'success') {
-    StyledBanner = SuccessBanner
+    StyledInlineMessage = SuccessInlineMessage
   } else if (variant === 'warning') {
-    StyledBanner = WarningBanner
+    StyledInlineMessage = WarningInlineMessage
   } else if (variant === 'error') {
-    StyledBanner = ErrorBanner
+    StyledInlineMessage = ErrorInlineMessage
   }
 
   return (
-    <StyledBanner
+    <StyledInlineMessage
       isButtonRight={isButtonRight}
       size={size}
       aria-roledescription='Note'
     >
       <div>
-        <BannerHeader>
+        <InlineMessageHeader>
           {icon}
-          <BannerTitle size={size}>{label}</BannerTitle>
-        </BannerHeader>
-        <BannerCaption size={size}>{caption}</BannerCaption>
+          <InlineMessageTitle size={size}>{label}</InlineMessageTitle>
+        </InlineMessageHeader>
+        <InlineMessageCaption size={size}>{caption}</InlineMessageCaption>
       </div>
       {actionLabel ? (
         <Button
@@ -61,8 +61,8 @@ const Banner = ({
           onClick={onActionClick}
         />
       ) : null}
-    </StyledBanner>
+    </StyledInlineMessage>
   )
 }
 
-export default Banner
+export default InlineMessage

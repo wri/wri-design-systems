@@ -6,7 +6,7 @@ import LayerGroupContainer from './LayerGroupContainer'
 import LayerGroup from '.'
 
 const meta = {
-  title: 'Layers/LayerGroup',
+  title: 'Layers/Layer Group',
   component: LayerGroupContainer,
   parameters: {
     layout: 'centered',

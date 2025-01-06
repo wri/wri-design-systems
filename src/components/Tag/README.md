@@ -41,66 +41,43 @@ type TagProps = Omit<
 ## Info White
 
 ```html
-<Tag
-  label='Label'
-  variant='info-white'
-/>
+<Tag label="Label" variant="info-white" />
 ```
 
 ## Info Grey
 
 ```html
-<Tag
-  label='Label'
-  variant='info-grey'
-/>
+<Tag label="Label" variant="info-grey" />
 ```
 
 ## Success
 
 ```html
-<Tag
-  label='Label'
-  variant='success'
-/>
+<Tag label="Label" variant="success" />
 ```
 
 ## Warning
 
 ```html
-<Tag
-  label='Label'
-  variant='warning'
-/>
+<Tag label="Label" variant="warning" />
 ```
 
 ## Error
 
 ```html
-<Tag
-  label='Label'
-  variant='error'
-/>
+<Tag label="Label" variant="error" />
 ```
 
 ## Small Size
 
 ```html
-<Tag
-  label='Label'
-  size='small'
-  variant='info-grey'
-/>
+<Tag label="Label" size="small" variant="info-grey" />
 ```
 
 ## Large Size
 
 ```html
-<Tag
-  label='Label'
-  size='large'
-  variant='info-grey'
-/>
+<Tag label="Label" size="large" variant="info-grey" />
 ```
 
 ## With Icon

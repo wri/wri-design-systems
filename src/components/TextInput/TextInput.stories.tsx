@@ -2,16 +2,16 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import Input from '.'
+import TextInput from '.'
 
 const meta = {
-  title: 'Inputs/Input',
-  component: Input,
+  title: 'Inputs/Text Input',
+  component: TextInput,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Input>
+} satisfies Meta<typeof TextInput>
 
 export default meta
 type Story = StoryObj<typeof meta>

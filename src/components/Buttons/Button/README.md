@@ -13,10 +13,7 @@ import { Button } from 'wri-design-systems'
 ## Usage
 
 ```html
-<Button
-  label='Save and Download'
-  variant='primary'
-/>
+<button label="Save and Download" variant="primary" />
 ```
 
 ## Props
@@ -41,37 +38,25 @@ type ButtonProps = Omit<
 ### Primary
 
 ```html
-<Button
-  label='Primary'
-  variant='primary'
-/>
+<button label="Primary" variant="primary" />
 ```
 
 ### Secondary
 
 ```html
-<Button
-  label='Secondary'
-  variant='secondary'
-/>
+<button label="Secondary" variant="secondary" />
 ```
 
 ### Borderless
 
 ```html
-<Button
-  label='Borderless'
-  variant='borderless'
-/>
+<button label="Borderless" variant="borderless" />
 ```
 
 ### Outline
 
 ```html
-<Button
-  label='Outline'
-  variant='outline'
-/>
+<button label="Outline" variant="outline" />
 ```
 
 ## Button Sizes
@@ -79,21 +64,13 @@ type ButtonProps = Omit<
 ### Default
 
 ```html
-<Button
-  label="Primary"
-  size="default"
-  variant="primary"
-/>
+<button label="Primary" size="default" variant="primary" />
 ```
 
 ### Small
 
 ```html
-<Button
-  label="Primary"
-  size="small"
-  variant="primary"
-/>
+<button label="Primary" size="small" variant="primary" />
 ```
 
 ## Button with Icon
@@ -123,19 +100,11 @@ type ButtonProps = Omit<
 ### Disabled
 
 ```html
-<Button
-  label="Primary"
-  variant="primary"
-  disabled
-/>
+<button label="Primary" variant="primary" disabled />
 ```
 
 ### Loading state
 
 ```html
-<Button
-  label="Primary"
-  variant="primary"
-  loading
-/>
+<button label="Primary" variant="primary" loading />
 ```

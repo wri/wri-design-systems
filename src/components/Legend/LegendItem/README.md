@@ -9,7 +9,7 @@
 ```js
 import {
   LegendItem,
-  Banner,
+  InlineMessage,
   LayerParameters,
   LegendItem,
   QualitativeLegend,
@@ -48,7 +48,7 @@ import {
     caption='Caption'
     color='#238B45'
   />
-  <Banner
+  <InlineMessage
     label='Label'
     caption='caption'
     variant='info-white'

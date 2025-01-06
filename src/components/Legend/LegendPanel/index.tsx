@@ -8,13 +8,19 @@ import TabBar from '../../TabBar'
 
 const defaultTabValue = 'legend-tab'
 
-const LegendPanel = ({ legendContent, analysisContent, onTabClick }: LegendPanelProps) => {
+const LegendPanel = ({
+  legendContent,
+  analysisContent,
+  onTabClick,
+}: LegendPanelProps) => {
   const [selectedTabValue, setSelectedTabValue] = useState(defaultTabValue)
-  const [legentItems] = useState(Children.map(legendContent, (child, index) => ({
-    id: index,
-    child,
-    sequence: index,
-  })) || [])
+  const [legentItems] = useState(
+    Children.map(legendContent, (child, index) => ({
+      id: index,
+      child,
+      sequence: index,
+    })) || [],
+  )
 
   const handleOnTabClick = (tabValue: string) => {
     setSelectedTabValue(tabValue)

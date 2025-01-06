@@ -4,7 +4,11 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import LegendPanelStory from '.'
-import { LegendItemDemo, LegendItemDemo2, LegendItemDemo3 } from '../LegendItem/LegendItemDemo'
+import {
+  LegendItemDemo,
+  LegendItemDemo2,
+  LegendItemDemo3,
+} from '../LegendItem/LegendItemDemo'
 
 const meta = {
   title: 'Legend/Legend Panel',

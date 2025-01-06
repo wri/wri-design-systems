@@ -6,7 +6,7 @@ import NavigationRail from '../../NavigationRail'
 import LayerPanelDemo from '../LayerPanel/LayerPanelDemo'
 
 const meta = {
-  title: 'Layers/LayerSidebar',
+  title: 'Layers/Layer Sidebar',
   component: NavigationRail,
   parameters: {
     layout: 'fullscreen',

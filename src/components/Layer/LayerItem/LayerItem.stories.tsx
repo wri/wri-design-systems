@@ -6,7 +6,7 @@ import LayerItem from '.'
 import RadioGroup from '../../Radio/RadioGroup'
 
 const meta = {
-  title: 'Layers/LayerItem',
+  title: 'Layers/Layer Item',
   component: LayerItem,
   parameters: {
     layout: 'centered',

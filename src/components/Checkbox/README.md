@@ -13,12 +13,7 @@ import { Checkbox } from 'wri-design-systems'
 ## Usage
 
 ```html
-<Checkbox
-  name='Checkbox'
-  value='1'
->
-  Checkbox
-</Checkbox>
+<Checkbox name="Checkbox" value="1"> Checkbox </Checkbox>
 ```
 
 ## Props
@@ -47,17 +42,13 @@ type CheckboxProps = Omit<
 ## Default Checked
 
 ```html
-<Checkbox name='Checkbox' value='1' defaultChecked>
-  Checkbox
-</Checkbox>
+<Checkbox name="Checkbox" value="1" defaultChecked> Checkbox </Checkbox>
 ```
 
 ## Disabled
 
 ```html
-<Checkbox name='Checkbox' value='1' disabled>
-  Checkbox
-</Checkbox>
+<Checkbox name="Checkbox" value="1" disabled> Checkbox </Checkbox>
 ```
 
 ## Indeterminate
@@ -74,31 +65,21 @@ const indeterminate = values.some((value) => value.checked) && !allChecked
 ```
 
 ```html
-<Checkbox
-  ms="6"
-  checked={checked}
-  onCheckedChange={(e) => {
-    setValues((current) => {
-      const newValues = [...current]
-      newValues[index] = { ...newValues[index], checked: !!e.checked }
-      return newValues
-    })
-  }}
->
-  Item Checkbox
+<Checkbox ms="6" checked="{checked}" onCheckedChange="{(e)" ="">
+  { setValues((current) => { const newValues = [...current] newValues[index] = {
+  ...newValues[index], checked: !!e.checked } return newValues }) }} > Item
+  Checkbox
 </Checkbox>
 ```
 
 ```html
 <Checkbox
-  checked={allChecked}
-  indeterminate={indeterminate}
-  onCheckedChange={(e) => {
-    setValues((current) =>
-      current.map((value) => ({ ...value, checked: !!e.checked })),
-    )
-  }}
+  checked="{allChecked}"
+  indeterminate="{indeterminate}"
+  onCheckedChange="{(e)"
+  =""
 >
-  Main Checkbox
+  { setValues((current) => current.map((value) => ({ ...value, checked:
+  !!e.checked })), ) }} > Main Checkbox
 </Checkbox>
 ```

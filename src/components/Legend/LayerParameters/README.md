@@ -13,7 +13,7 @@ import { LayerParameters } from 'wri-design-systems'
 ## Usage
 
 ```html
-<LayerParameters label='Adjust layer parameters'>
+<LayerParameters label="Adjust layer parameters">
   <div>Component Placeholder</div>
   <div>Component Placeholder</div>
   <div>Component Placeholder</div>
