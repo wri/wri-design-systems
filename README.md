@@ -91,40 +91,40 @@ function App() {
 
 ### General
 
-- [NavigationRail](https://github.com/wri/wri-design-systems/tree/main/src/components/NavigationRail)
+- [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/InlineMessage)
+- [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/NavigationRail)
 - [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Slider)
-- [TabBar](https://github.com/wri/wri-design-systems/tree/main/src/components/TabBar)
+- [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/TabBar)
 - [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Tag)
-- [InlineMessage](https://github.com/wri/wri-design-systems/tree/main/src/components/InlineMessage)
 
 ### Buttons
 
 - [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/Button)
-- [CloseButton](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/CloseButton)
-- [IconButton](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/IconButton)
+- [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/CloseButton)
+- [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/IconButton)
 
 ### Controls
 
 - [Checkbox](https://github.com/wri/wri-design-systems/tree/main/src/components/Checkbox)
-- [Radio](https://github.com/wri/wri-design-systems/tree/main/src/components/Radio)
+- [Radio Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Radio)
 - [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Switch)
 
 ### Inputs
 
-- [TextInput](https://github.com/wri/wri-design-systems/tree/main/src/components/TextInput)
-- [Textarea](https://github.com/wri/wri-design-systems/tree/main/src/components/Textarea)
+- [Text Input](https://github.com/wri/wri-design-systems/tree/main/src/components/TextInput)
+- [Text Area](https://github.com/wri/wri-design-systems/tree/main/src/components/Textarea)
 
 ### Layers
 
-- [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerItem)
-- [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
-- [LayerPanel](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerPanel)
-- [LayerSidebar](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerSidebar)
+- [Layer Group](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
+- [Layer Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerItem)
+- [Layer Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerPanel)
+- [Layer Sidebar](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerSidebar)
 
 ### Legend
 
-- [LayerParameters](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LayerParameters)
-- [LegendItem](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendItem)
-- [LegendPanel](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendPanel)
-- [QualitativeLegend](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/QualitativeLegend)
-- [ScaleLegend](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/ScaleLegend)
+- [Layer Parameters](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LayerParameters)
+- [Legend Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendItem)
+- [Legend Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendPanel)
+- [Qualitative Attributes](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/QualitativeLegend)
+- [Scale Legend](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/ScaleLegend)
