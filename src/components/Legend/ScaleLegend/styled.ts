@@ -8,15 +8,13 @@ export const ScaleLegendContainer = styled.div`
   margin-bottom: 16px;
 `
 
-export const ScaleLegendGradientBar = styled.div<{ colors: string[] }>`
+export const ScaleLegendGradientBar = styled.div<{ gradient: string }>`
   height: 20px;
   width: 100%;
   margin-bottom: 8px;
   border: 1px solid ${getThemedColor('neutral', 300)};
   border-radius: 4px;
-  ${({ colors }) =>
-    colors.length > 0 &&
-    `background: linear-gradient(90deg, ${colors[0]} 0%, ${colors[1]} 100%);`}
+  ${({ gradient }) => gradient ? `background: ${gradient};` : ''}
 `
 
 export const ScaleLegendBar = styled.div`

@@ -11,6 +11,15 @@ import {
 } from './styled'
 import { ScaleLegendProps } from './types'
 
+const generateGradient = (colors: string[]) => {
+  const percentages = colors.map((_, index) => {
+    const percentage = (index / (colors.length - 1)) * 100
+    return `${percentage}%`
+  })
+
+  return `linear-gradient(to right, ${colors.map((color, index) => `${color} ${percentages[index]}`).join(', ')})`
+}
+
 const ScaleLegend = ({
   colors,
   values,
@@ -19,12 +28,12 @@ const ScaleLegend = ({
 }: ScaleLegendProps) => (
   <ScaleLegendContainer>
     {isGradient ? (
-      <ScaleLegendGradientBar colors={colors} />
+      <ScaleLegendGradientBar gradient={generateGradient(colors)} />
     ) : (
       <ScaleLegendBar>
-        {colors?.map((color) => (
+        {colors?.map((color, idx) => (
           <div
-            key={color}
+            key={`${color}-${values?.[idx]}`}
             style={{ backgroundColor: color, width: '100%', height: '100%' }}
           />
         ))}
