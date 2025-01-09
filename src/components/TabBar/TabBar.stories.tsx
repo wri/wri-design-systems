@@ -62,7 +62,7 @@ export const PanelTabDisabled: Story = {
   },
 }
 
-export const PanelTabWitIcons: Story = {
+export const PanelTabWithIcons: Story = {
   args: {
     variant: 'panel',
     tabs: [

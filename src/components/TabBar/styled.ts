@@ -15,13 +15,13 @@ export const TabBarContainer = styled.div<{
     `
     border: 1px solid ${getThemedColor('neutral', 400)};
     background-color: ${getThemedColor('neutral', 200)};
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 4px;
   `}
 `
 
 export const DefaultTab = styled(Tabs.Trigger)`
-  width: 100%;
+  width: 99%;
   height: 40px;
   padding: 8px 16px;
   border-radius: 0px;
@@ -89,6 +89,12 @@ export const TabBarItemPanel = styled(DefaultTab)`
       opacity: 1;
     }
   }
+`
+
+export const TabBarItemViewDivider = styled.div`
+  width: 4px;
+  height: 24px;
+  background-color: ${getThemedColor('neutral', 400)};
 `
 
 export const TabBarItemView = styled(DefaultTab)`
