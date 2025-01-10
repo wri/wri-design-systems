@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { Textarea } from 'wri-design-systems'
+import { Textarea } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

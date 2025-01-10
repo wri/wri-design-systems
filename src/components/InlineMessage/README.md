@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { InlineMessage } from 'wri-design-systems'
+import { InlineMessage } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

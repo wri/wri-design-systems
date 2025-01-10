@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { LayerPanel } from 'wri-design-systems'
+import { LayerPanel } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { LayerGroupContainer, LayerGroup } from 'wri-design-systems'
+import { LayerGroupContainer, LayerGroup } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

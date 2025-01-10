@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { NavigationRail } from 'wri-design-systems'
+import { NavigationRail } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

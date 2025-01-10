@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { QualitativeLegend } from 'wri-design-systems'
+import { QualitativeLegend } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

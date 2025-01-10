@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { IconButton } from 'wri-design-systems'
+import { IconButton } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

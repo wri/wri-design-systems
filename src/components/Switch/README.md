@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { Switch } from 'wri-design-systems'
+import { Switch } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

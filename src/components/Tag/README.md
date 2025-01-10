@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { Tag } from 'wri-design-systems'
+import { Tag } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

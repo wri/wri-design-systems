@@ -14,7 +14,7 @@ import {
   LegendItem,
   QualitativeLegend,
   ScaleLegend,
-} from 'wri-design-systems'
+} from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

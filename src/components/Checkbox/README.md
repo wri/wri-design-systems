@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { Checkbox } from 'wri-design-systems'
+import { Checkbox } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

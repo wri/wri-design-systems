@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { LayerParameters } from 'wri-design-systems'
+import { LayerParameters } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

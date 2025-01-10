@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { ScaleLegend } from 'wri-design-systems'
+import { ScaleLegend } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

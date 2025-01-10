@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { RadioGroup, Radio } from 'wri-design-systems'
+import { RadioGroup, Radio } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

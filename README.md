@@ -1,4 +1,4 @@
-# wri-design-systems
+# @worldresources/wri-design-systems
 
 WRI UI Library
 
@@ -11,13 +11,13 @@ React: `18.3.1`
 ## Installation
 
 ```
-yarn add wri-design-systems
+yarn add @worldresources/wri-design-systems
 ```
 
 or
 
 ```
-npm i wri-design-systems
+npm i @worldresources/wri-design-systems
 ```
 
 ## Other dependecies

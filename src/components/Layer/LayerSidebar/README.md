@@ -9,7 +9,7 @@ Check [NavigationRail](https://github.com/wri/wri-design-systems/tree/main/src/c
 ## Import
 
 ```js
-import { NavigationRail } from 'wri-design-systems'
+import { NavigationRail } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

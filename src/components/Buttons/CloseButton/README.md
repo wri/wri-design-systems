@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { CloseButton } from 'wri-design-systems'
+import { CloseButton } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

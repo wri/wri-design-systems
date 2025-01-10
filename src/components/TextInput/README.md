@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { TextInput } from 'wri-design-systems'
+import { TextInput } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

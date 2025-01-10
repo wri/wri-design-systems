@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { TabBar } from 'wri-design-systems'
+import { TabBar } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

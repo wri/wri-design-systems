@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { Slider } from 'wri-design-systems'
+import { Slider } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage

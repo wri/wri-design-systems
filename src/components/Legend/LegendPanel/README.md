@@ -7,7 +7,7 @@
 ## Import
 
 ```js
-import { LegendPanel } from 'wri-design-systems'
+import { LegendPanel } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
