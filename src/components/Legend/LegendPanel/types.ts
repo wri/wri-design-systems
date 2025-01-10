@@ -1,7 +1,7 @@
 import React from 'react'
 
 export type LegendPanelProps = {
-  legendContent: React.ReactNode
+  legendContent: React.ReactElement[]
   analysisContent: React.ReactNode
   onTabClick?: (tabValue: string) => void
 }

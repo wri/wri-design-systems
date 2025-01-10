@@ -24,13 +24,11 @@ type Story = StoryObj<typeof meta>
 
 export const LegendPanel: Story = {
   args: {
-    legendContent: (
-      <>
-        <LegendItemDemo />
-        <LegendItemDemo2 />
-        <LegendItemDemo3 />
-      </>
-    ),
+    legendContent: [
+      <LegendItemDemo />,
+      <LegendItemDemo2 />,
+      <LegendItemDemo3 />,
+    ],
     analysisContent: <div />,
   },
 }

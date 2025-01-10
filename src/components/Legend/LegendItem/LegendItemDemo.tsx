@@ -10,14 +10,22 @@ import {
   ScaleLegend,
 } from '../..'
 
-export const LegendItemDemo = () => (
+export const LegendItemDemo = ({
+  onDrag = () => {},
+  onUpClick = () => {},
+  onDownClick = () => {},
+}: {
+  onDrag?: VoidFunction
+  onUpClick?: VoidFunction
+  onDownClick?: VoidFunction
+}) => (
   <div style={{ width: '290px' }}>
     <LegendItem
       layerName='Layer Name'
       dataUnit='Data Unit'
-      onDrag={() => console.log('drag')}
-      onUpClick={() => console.log('up')}
-      onDownClick={() => console.log('down')}
+      onDrag={onDrag}
+      onUpClick={onUpClick}
+      onDownClick={onDownClick}
       onRemoveClick={() => console.log('remove')}
       onInfoClick={() => console.log('info')}
       onOpacityChanged={(value) => console.log('opacity changed', value)}
@@ -56,14 +64,22 @@ export const LegendItemDemo = () => (
   </div>
 )
 
-export const LegendItemDemo2 = () => (
+export const LegendItemDemo2 = ({
+  onDrag = () => {},
+  onUpClick = () => {},
+  onDownClick = () => {},
+}: {
+  onDrag?: VoidFunction
+  onUpClick?: VoidFunction
+  onDownClick?: VoidFunction
+}) => (
   <div style={{ width: '290px' }}>
     <LegendItem
       layerName='Layer Name 2'
       dataUnit='Data Unit'
-      onDrag={() => console.log('drag')}
-      onUpClick={() => console.log('up')}
-      onDownClick={() => console.log('down')}
+      onDrag={onDrag}
+      onUpClick={onUpClick}
+      onDownClick={onDownClick}
       onRemoveClick={() => console.log('remove')}
       onInfoClick={() => console.log('info')}
       onOpacityChanged={(value) => console.log('opacity changed', value)}
@@ -101,14 +117,22 @@ export const LegendItemDemo2 = () => (
     </LegendItem>
   </div>
 )
-export const LegendItemDemo3 = () => (
+export const LegendItemDemo3 = ({
+  onDrag = () => {},
+  onUpClick = () => {},
+  onDownClick = () => {},
+}: {
+  onDrag?: VoidFunction
+  onUpClick?: VoidFunction
+  onDownClick?: VoidFunction
+}) => (
   <div style={{ width: '290px' }}>
     <LegendItem
       layerName='Layer Name 3'
       dataUnit='Data Unit'
-      onDrag={() => console.log('drag')}
-      onUpClick={() => console.log('up')}
-      onDownClick={() => console.log('down')}
+      onDrag={onDrag}
+      onUpClick={onUpClick}
+      onDownClick={onDownClick}
       onRemoveClick={() => console.log('remove')}
       onInfoClick={() => console.log('info')}
       onOpacityChanged={(value) => console.log('opacity changed', value)}

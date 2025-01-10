@@ -32,12 +32,12 @@ const LegendItem = ({
         icon={<DotsIcon />}
         aria-label='Drag and drop'
         onClick={onDrag}
+        style={{ display: 'none', marginBottom: '12px' }}
       />
       <div
         style={{
           display: 'flex',
           flexDirection: 'column',
-          marginTop: '12px',
           gap: '12px',
         }}
       >

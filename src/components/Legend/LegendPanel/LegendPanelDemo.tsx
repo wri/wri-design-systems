@@ -10,13 +10,11 @@ import {
 
 const LegendPanelDemo = () => (
   <LegendPanel
-    legendContent={
-      <>
-        <LegendItemDemo />
-        <LegendItemDemo2 />
-        <LegendItemDemo3 />
-      </>
-    }
+    legendContent={[
+      <LegendItemDemo />,
+      <LegendItemDemo2 />,
+      <LegendItemDemo3 />,
+    ]}
     analysisContent={<div />}
   />
 )
