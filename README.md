@@ -128,3 +128,23 @@ function App() {
 - [Legend Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendPanel)
 - [Qualitative Attributes](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/QualitativeLegend)
 - [Scale Legend](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/ScaleLegend)
+
+## Building the lib
+
+```
+yarn lint-fix
+```
+
+```
+yarn rollup-build
+```
+
+## Publish new version
+
+```
+npm login
+```
+
+```
+npm publish
+```
