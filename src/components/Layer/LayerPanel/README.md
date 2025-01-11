@@ -1,6 +1,6 @@
 # Layer Panel
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/layers-layerpanel--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-layers-layer-panel--docs)
 
 [LayerPanelDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Layer/LayerPanel/LayerPanelDemo.tsx)
 

@@ -1,6 +1,6 @@
 # Layer Group
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/layers-layergroup--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-layers-layer-group--docs)
 
 [LayerGroupDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Layer/LayerGroup/LayerGroupDemo.tsx)
 

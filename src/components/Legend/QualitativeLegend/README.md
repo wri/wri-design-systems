@@ -1,6 +1,6 @@
 # QualitativeLegend
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/legend-qualitative-legend--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-legends-qualitative-attributes--docs)
 
 [QualitativeLegendDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Legend/QualitativeLegend/QualitativeLegendDemo.tsx)
 

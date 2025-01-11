@@ -1,6 +1,6 @@
 # TabBar
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/tabbar--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/navigation-tab-bar--docs)
 
 [TabBarDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/TabBar/TabBarDemo.tsx)
 

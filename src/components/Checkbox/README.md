@@ -1,6 +1,6 @@
 # Checkbox
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/controls-checkbox--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-controls-checkbox--docs)
 
 [CheckboxDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Checkbox/CheckboxDemo.tsx)
 

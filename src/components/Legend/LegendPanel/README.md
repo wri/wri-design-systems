@@ -1,6 +1,6 @@
 # LegendPanel
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/legend-legend-panel--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-legends-legend-panel--docs)
 
 [LegendPanelDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Legend/LegendPanel/LegendPanelDemo.tsx)
 

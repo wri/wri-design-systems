@@ -1,6 +1,6 @@
 # Switch
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/controls-switch--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-controls-switch--docs)
 
 [SwitchDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Switch/SwitchDemo.tsx)
 

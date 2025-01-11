@@ -1,6 +1,6 @@
 # IconButton
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/buttons-icon-button--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-buttons-icon-button--docs)
 
 [IconButtonDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Buttons/IconButton/IconButtonDemo.tsx)
 

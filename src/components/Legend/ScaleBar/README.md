@@ -1,6 +1,6 @@
 # ScaleBar
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/legend-scale-bar--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-legends-scale-bar--docs)
 
 [ScaleBarDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Legend/ScaleBar/ScaleBarDemo.tsx)
 

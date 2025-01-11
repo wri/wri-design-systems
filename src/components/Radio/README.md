@@ -1,6 +1,6 @@
 # Radio
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/controls-radio--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-controls-radio-button--docs)
 
 [RadioDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Radio/RadioDemo.tsx)
 

@@ -1,6 +1,6 @@
 # InlineMessage
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/inlinemessage--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/status-inline-message--docs)
 
 [InlineMessageDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/InlineMessage/InlineMessageDemo.tsx)
 
