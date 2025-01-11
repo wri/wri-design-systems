@@ -2,14 +2,14 @@
 import React from 'react'
 
 import {
-  ScaleLegendGradientBar,
-  ScaleLegendContainer,
-  ScaleLegendLabelContainer,
-  ScaleLegendSubLabels,
-  ScaleLegendValue,
-  ScaleLegendBar,
+  ScaleBarGradientBar,
+  ScaleBarContainer,
+  ScaleBarLabelContainer,
+  ScaleBarSubLabels,
+  ScaleBarValue,
+  ScaleBarBar,
 } from './styled'
-import { ScaleLegendProps } from './types'
+import { ScaleBarProps } from './types'
 
 const generateGradient = (colors: string[]) => {
   const percentages = colors.map((_, index) => {
@@ -20,26 +20,26 @@ const generateGradient = (colors: string[]) => {
   return `linear-gradient(to right, ${colors.map((color, index) => `${color} ${percentages[index]}`).join(', ')})`
 }
 
-const ScaleLegend = ({
+const ScaleBar = ({
   colors,
   values,
   subLabels,
   isGradient,
-}: ScaleLegendProps) => (
-  <ScaleLegendContainer>
+}: ScaleBarProps) => (
+  <ScaleBarContainer>
     {isGradient ? (
-      <ScaleLegendGradientBar gradient={generateGradient(colors)} />
+      <ScaleBarGradientBar gradient={generateGradient(colors)} />
     ) : (
-      <ScaleLegendBar>
+      <ScaleBarBar>
         {colors?.map((color, idx) => (
           <div
             key={`${color}-${values?.[idx]}`}
             style={{ backgroundColor: color, width: '100%', height: '100%' }}
           />
         ))}
-      </ScaleLegendBar>
+      </ScaleBarBar>
     )}
-    <ScaleLegendLabelContainer>
+    <ScaleBarLabelContainer>
       {values?.map((value) => (
         <div
           style={{
@@ -48,12 +48,12 @@ const ScaleLegend = ({
             justifyContent: 'center',
           }}
         >
-          <ScaleLegendValue key={value}>{value}</ScaleLegendValue>
+          <ScaleBarValue key={value}>{value}</ScaleBarValue>
         </div>
       ))}
-    </ScaleLegendLabelContainer>
+    </ScaleBarLabelContainer>
     {subLabels && subLabels.length ? (
-      <ScaleLegendLabelContainer>
+      <ScaleBarLabelContainer>
         {subLabels.map((subLabel) => (
           <div
             style={{
@@ -62,14 +62,14 @@ const ScaleLegend = ({
               justifyContent: 'center',
             }}
           >
-            <ScaleLegendSubLabels key={subLabel} style={{ width: '100%' }}>
+            <ScaleBarSubLabels key={subLabel} style={{ width: '100%' }}>
               {subLabel}
-            </ScaleLegendSubLabels>
+            </ScaleBarSubLabels>
           </div>
         ))}
-      </ScaleLegendLabelContainer>
+      </ScaleBarLabelContainer>
     ) : null}
-  </ScaleLegendContainer>
+  </ScaleBarContainer>
 )
 
-export default ScaleLegend
+export default ScaleBar

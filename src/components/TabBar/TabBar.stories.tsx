@@ -6,7 +6,7 @@ import TabBar from '.'
 import { CheckIcon } from '../icons'
 
 const meta = {
-  title: 'Tab Bar',
+  title: 'Navigation/Tab Bar',
   component: TabBar,
   parameters: {
     layout: 'centered',

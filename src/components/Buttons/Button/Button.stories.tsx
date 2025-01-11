@@ -7,7 +7,7 @@ import Button from '.'
 import { CheckIcon } from '../../icons'
 
 const meta = {
-  title: 'Buttons/Button',
+  title: 'Forms/Buttons/Button',
   component: Button,
   parameters: {
     layout: 'centered',

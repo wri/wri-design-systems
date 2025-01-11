@@ -7,7 +7,7 @@ import NavigationRail from '.'
 import { CheckIcon } from '../icons'
 
 const meta = {
-  title: 'Navigation Rail',
+  title: 'Navigation/Navigation Rail',
   component: NavigationRail,
   parameters: {
     layout: 'fullscreen',

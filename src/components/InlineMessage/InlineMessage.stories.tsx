@@ -6,7 +6,7 @@ import { fn } from '@storybook/test'
 import InlineMessage from '.'
 
 const meta = {
-  title: 'Inline Message',
+  title: 'Status/Inline Message',
   component: InlineMessage,
   parameters: {
     layout: 'centered',

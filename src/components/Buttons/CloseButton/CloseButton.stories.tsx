@@ -6,7 +6,7 @@ import { fn } from '@storybook/test'
 import CloseButton from '.'
 
 const meta = {
-  title: 'Buttons/Close Button',
+  title: 'Forms/Buttons/Close Button',
   component: CloseButton,
   parameters: {
     layout: 'centered',

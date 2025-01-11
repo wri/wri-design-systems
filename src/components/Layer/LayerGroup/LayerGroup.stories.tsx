@@ -6,7 +6,7 @@ import LayerGroupContainer from './LayerGroupContainer'
 import LayerGroup from '.'
 
 const meta = {
-  title: 'Layers/Layer Group',
+  title: 'Geospatial/Layers/Layer Group',
   component: LayerGroupContainer,
   parameters: {
     layout: 'centered',

@@ -7,7 +7,7 @@ import { Stack } from '@chakra-ui/react'
 import Checkbox from '.'
 
 const meta = {
-  title: 'Controls/Checkbox',
+  title: 'Forms/Controls/Checkbox',
   component: Checkbox,
   parameters: {
     layout: 'centered',

@@ -15,7 +15,7 @@ import IconButtonDemo from './components/Buttons/IconButton/IconButtonDemo'
 import SliderDemo from './components/Slider/SliderDemo'
 import QualitativeDemo from './components/Legend/QualitativeLegend/QualitativeLegendDemo'
 import LayerParametersDemo from './components/Legend/LayerParameters/LayerParametersDemo'
-import ScaleLegendDemo from './components/Legend/ScaleLegend/ScaleLegendDemo'
+import ScaleBarDemo from './components/Legend/ScaleBar/ScaleBarDemo'
 import { LegendItemDemo } from './components/Legend/LegendItem/LegendItemDemo'
 import LegendPanelDemo from './components/Legend/LegendPanel/LegendPanelDemo'
 
@@ -33,7 +33,7 @@ const App = () => (
       >
         <LegendPanelDemo />
         <LegendItemDemo />
-        <ScaleLegendDemo />
+        <ScaleBarDemo />
         <LayerParametersDemo />
         <QualitativeDemo />
         <SliderDemo />

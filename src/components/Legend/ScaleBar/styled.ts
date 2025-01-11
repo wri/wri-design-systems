@@ -1,14 +1,14 @@
 import styled from '@emotion/styled'
 import { getThemedColor } from '../../../lib/theme'
 
-export const ScaleLegendContainer = styled.div`
+export const ScaleBarContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
 `
 
-export const ScaleLegendGradientBar = styled.div<{ gradient: string }>`
+export const ScaleBarGradientBar = styled.div<{ gradient: string }>`
   height: 20px;
   width: 100%;
   margin-bottom: 8px;
@@ -17,7 +17,7 @@ export const ScaleLegendGradientBar = styled.div<{ gradient: string }>`
   ${({ gradient }) => (gradient ? `background: ${gradient};` : '')}
 `
 
-export const ScaleLegendBar = styled.div`
+export const ScaleBarBar = styled.div`
   height: 20px;
   width: 100%;
   margin-bottom: 8px;
@@ -37,13 +37,13 @@ export const ScaleLegendBar = styled.div`
   }
 `
 
-export const ScaleLegendLabelContainer = styled.div`
+export const ScaleBarLabelContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 `
 
-export const ScaleLegendValue = styled.p`
+export const ScaleBarValue = styled.p`
   width: 100%;
   font-size: 12px;
   line-height: 16px;
@@ -52,7 +52,7 @@ export const ScaleLegendValue = styled.p`
   text-align: center;
 `
 
-export const ScaleLegendSubLabels = styled.p`
+export const ScaleBarSubLabels = styled.p`
   font-size: 12px;
   line-height: 16px;
   font-weight: 400;

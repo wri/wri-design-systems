@@ -11,7 +11,7 @@ import {
 } from '../LegendItem/LegendItemDemo'
 
 const meta = {
-  title: 'Legend/Legend Panel',
+  title: 'Geospatial/Legends/Legend Panel',
   component: LegendPanelStory,
   parameters: {
     layout: 'centered',

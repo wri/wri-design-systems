@@ -2,11 +2,11 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import ScaleLegend from '.'
+import ScaleBar from '.'
 
 const meta = {
-  title: 'Legend/Scale Legend',
-  component: ScaleLegend,
+  title: 'Geospatial/Legends/Scale Bar',
+  component: ScaleBar,
   parameters: {
     layout: 'centered',
   },
@@ -18,7 +18,7 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof ScaleLegend>
+} satisfies Meta<typeof ScaleBar>
 
 export default meta
 type Story = StoryObj<typeof meta>

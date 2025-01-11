@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import LayerParametersStory from '.'
 
 const meta = {
-  title: 'Legend/Layer Parameters',
+  title: 'Geospatial/Legends/Layer Parameters',
   component: LayerParametersStory,
   parameters: {
     layout: 'centered',

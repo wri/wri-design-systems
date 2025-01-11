@@ -7,7 +7,7 @@ import Tag from '.'
 import { InfoIcon } from '../icons'
 
 const meta = {
-  title: 'Tag',
+  title: 'Forms/Tag',
   component: Tag,
   parameters: {
     layout: 'centered',

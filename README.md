@@ -89,45 +89,55 @@ function App() {
 
 ## Components
 
-### General
-
-- [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/InlineMessage)
-- [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/NavigationRail)
-- [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Slider)
-- [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/TabBar)
-- [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Tag)
+## Forms
 
 ### Buttons
 
 - [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/Button)
-- [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/CloseButton)
 - [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/IconButton)
+- [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/CloseButton)
 
 ### Controls
 
-- [Checkbox](https://github.com/wri/wri-design-systems/tree/main/src/components/Checkbox)
-- [Radio Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Radio)
 - [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Switch)
+- [Radio Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Radio)
+- [Checkbox](https://github.com/wri/wri-design-systems/tree/main/src/components/Checkbox)
+- [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Slider)
+
+### Tags
+- [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Tag)
 
 ### Inputs
 
 - [Text Input](https://github.com/wri/wri-design-systems/tree/main/src/components/TextInput)
 - [Text Area](https://github.com/wri/wri-design-systems/tree/main/src/components/Textarea)
 
+## Navigation
+
+- [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/TabBar)
+- [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/NavigationRail)
+
+## Status
+
+- [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/InlineMessage)
+
+## Geospatial
+
 ### Layers
 
-- [Layer Group](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
 - [Layer Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerItem)
+- [Layer Group](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
 - [Layer Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerPanel)
 - [Layer Sidebar](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerSidebar)
 
-### Legend
+### Legends
 
+- [Qualitative Attributes](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/QualitativeLegend)
+- [Scale Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/ScaleBar)
 - [Layer Parameters](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LayerParameters)
 - [Legend Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendItem)
 - [Legend Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendPanel)
-- [Qualitative Attributes](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/QualitativeLegend)
-- [Scale Legend](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/ScaleLegend)
+
 
 ## Building the lib
 

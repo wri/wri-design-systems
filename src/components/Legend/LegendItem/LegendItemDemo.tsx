@@ -7,7 +7,7 @@ import {
   LayerParameters,
   LegendItem,
   QualitativeLegend,
-  ScaleLegend,
+  ScaleBar,
 } from '../..'
 
 export const LegendItemDemo = ({
@@ -30,7 +30,7 @@ export const LegendItemDemo = ({
       onInfoClick={() => console.log('info')}
       onOpacityChanged={(value) => console.log('opacity changed', value)}
     >
-      <ScaleLegend
+      <ScaleBar
         colors={['#EDF8FB', '#B2E2E2', '#66C2A4', '#2CA25F', '#006D2C']}
         values={['0%', '25%', '50%', '75%', '100%']}
       />
@@ -84,7 +84,7 @@ export const LegendItemDemo2 = ({
       onInfoClick={() => console.log('info')}
       onOpacityChanged={(value) => console.log('opacity changed', value)}
     >
-      <ScaleLegend
+      <ScaleBar
         colors={['#EDF8FB', '#B2E2E2', '#66C2A4', '#2CA25F', '#006D2C']}
         values={['0%', '25%', '50%', '75%', '100%']}
       />
@@ -137,7 +137,7 @@ export const LegendItemDemo3 = ({
       onInfoClick={() => console.log('info')}
       onOpacityChanged={(value) => console.log('opacity changed', value)}
     >
-      <ScaleLegend
+      <ScaleBar
         colors={['#EDF8FB', '#B2E2E2', '#66C2A4', '#2CA25F', '#006D2C']}
         values={['0%', '25%', '50%', '75%', '100%']}
       />

@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Slider from '.'
 
 const meta = {
-  title: 'Slider',
+  title: 'Forms/Controls/Slider',
   component: Slider,
   parameters: {
     layout: 'centered',

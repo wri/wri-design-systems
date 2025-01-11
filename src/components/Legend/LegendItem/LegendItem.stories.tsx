@@ -4,13 +4,13 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import LegendItemStory from '.'
-import ScaleLegend from '../ScaleLegend'
+import ScaleBar from '../ScaleBar'
 import QualitativeLegend from '../QualitativeLegend'
 import InlineMessage from '../../InlineMessage'
 import LayerParameters from '../LayerParameters'
 
 const meta = {
-  title: 'Legend/Legend Item',
+  title: 'Geospatial/Legends/Legend Item',
   component: LegendItemStory,
   parameters: {
     layout: 'centered',
@@ -43,7 +43,7 @@ export const LegendItem: Story = {
   render: function Render(args) {
     return (
       <LegendItemStory {...args}>
-        <ScaleLegend
+        <ScaleBar
           colors={['#EDF8FB', '#B2E2E2', '#66C2A4', '#2CA25F', '#006D2C']}
           values={['0%', '25%', '50%', '75%', '100%']}
         />
