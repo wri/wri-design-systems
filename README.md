@@ -105,6 +105,7 @@ function App() {
 - [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Slider)
 
 ### Tags
+
 - [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Tag)
 
 ### Inputs
@@ -137,7 +138,6 @@ function App() {
 - [Layer Parameters](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LayerParameters)
 - [Legend Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendItem)
 - [Legend Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendPanel)
-
 
 ## Building the lib
 

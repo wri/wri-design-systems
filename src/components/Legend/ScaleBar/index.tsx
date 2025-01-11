@@ -20,12 +20,7 @@ const generateGradient = (colors: string[]) => {
   return `linear-gradient(to right, ${colors.map((color, index) => `${color} ${percentages[index]}`).join(', ')})`
 }
 
-const ScaleBar = ({
-  colors,
-  values,
-  subLabels,
-  isGradient,
-}: ScaleBarProps) => (
+const ScaleBar = ({ colors, values, subLabels, isGradient }: ScaleBarProps) => (
   <ScaleBarContainer>
     {isGradient ? (
       <ScaleBarGradientBar gradient={generateGradient(colors)} />
