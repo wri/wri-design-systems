@@ -13,4 +13,6 @@ export type TextareaProps = Omit<
   size?: 'small' | 'default'
   defaultValue?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  minLength?: number
+  maxLength?: number
 }

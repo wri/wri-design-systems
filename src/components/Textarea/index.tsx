@@ -26,20 +26,20 @@ const Textarea = ({
   ...rest
 }: TextareaProps) => {
   const [value, setValue] = useState(defaultValue)
-  const [minLengthError, setMinLengthError] = useState(false)
-  const [maxLengthError, setMaxLengthError] = useState(false)
+  const [showMinLengthError, setShowMinLengthError] = useState(false)
+  const [showMaxLengthError, setShowMaxLengthError] = useState(false)
   const [helperText, setHelperText] = useState('')
 
   useEffect(() => {
     const { length } = defaultValue
     if (minLength && length < minLength && length > 0) {
-      setMinLengthError(length < minLength)
-      setMaxLengthError(false)
+      setShowMinLengthError(length < minLength)
+      setShowMaxLengthError(false)
       setHelperText(`Enter at least ${minLength - length} characters`)
     }
     if (maxLength && length > maxLength) {
-      setMinLengthError(false)
-      setMaxLengthError(length > maxLength)
+      setShowMinLengthError(false)
+      setShowMaxLengthError(length > maxLength)
       setHelperText(`You have ${maxLength - length} characters remaining`)
     }
   }, [])
@@ -49,20 +49,20 @@ const Textarea = ({
 
     const { length } = e.target.value
     if (minLength && maxLength) {
-      setMinLengthError(length < minLength)
-      setMaxLengthError(length > maxLength)
+      setShowMinLengthError(length < minLength)
+      setShowMaxLengthError(length > maxLength)
       setHelperText(`You have ${maxLength - length} characters remaining`)
     } else if (minLength) {
-      setMinLengthError(length < minLength)
-      setMaxLengthError(false)
+      setShowMinLengthError(length < minLength)
+      setShowMaxLengthError(false)
       setHelperText(
         length < minLength
           ? `Enter at least ${minLength - length} characters`
           : '',
       )
     } else if (maxLength) {
-      setMaxLengthError(length > maxLength)
-      setMinLengthError(false)
+      setShowMaxLengthError(length > maxLength)
+      setShowMinLengthError(false)
       setHelperText(`You have ${maxLength - length} characters remaining`)
     }
 
@@ -73,7 +73,7 @@ const Textarea = ({
 
   return (
     <TextareaContainer size={size}>
-      {errorMessage || minLengthError || maxLengthError ? (
+      {errorMessage || showMinLengthError || showMaxLengthError ? (
         <ErrorBar
           size={size}
           hasHelperText={!!helperText}
@@ -82,7 +82,7 @@ const Textarea = ({
       ) : null}
       <Field.Root
         required={required}
-        invalid={!!errorMessage || minLengthError || maxLengthError}
+        invalid={!!errorMessage || showMinLengthError || showMaxLengthError}
         gap='0'
       >
         {label ? (
@@ -115,21 +115,21 @@ const Textarea = ({
           }}
           {...rest}
         />
-        {minLengthError && minLength ? (
+        {showMinLengthError && minLength ? (
           <StyledFieldErrorMessage
             style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
           >
             You need {minLength - value.length} more characters
           </StyledFieldErrorMessage>
         ) : null}
-        {maxLengthError && maxLength ? (
+        {showMaxLengthError && maxLength ? (
           <StyledFieldErrorMessage
             style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
           >
             You have {value.length - maxLength} characters too many
           </StyledFieldErrorMessage>
         ) : null}
-        {helperText && !maxLengthError && !minLengthError ? (
+        {helperText && !showMaxLengthError && !showMinLengthError ? (
           <StyledFieldHelperText aria-label={helperText}>
             {helperText}
           </StyledFieldHelperText>

@@ -20,6 +20,7 @@ export type SliderProps = Omit<
   | 'defaultChecked'
   | 'origin'
 > & {
+  width?: string
   min?: number
   max?: number
   defaultValue?: number[]
@@ -27,7 +28,6 @@ export type SliderProps = Omit<
   marks?: Array<number | { value: number; label: React.ReactNode }>
   step?: number
   disabled?: boolean
-  width?: string
   onValueChange?: (details: ValueChangeDetails) => void
   onValueChangeEnd?: (details: ValueChangeDetails) => void
   isCentred?: boolean
