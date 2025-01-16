@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Checkbox } from '@chakra-ui/react'
-import { getThemedColor } from '../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const StyledCheckbox = styled(Checkbox.Root)`
   .chakra-checkbox__control {

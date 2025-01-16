@@ -4,7 +4,7 @@ import React from 'react'
 import { Checkbox as ChakraCheckbox } from '@chakra-ui/react'
 import { StyledCheckbox } from './styled'
 import { CheckboxProps } from './types'
-import { CheckIcon, CheckIndeterminateIcon } from '../icons'
+import { CheckIcon, CheckIndeterminateIcon } from '../../../icons'
 
 const Checkbox = ({
   name,
