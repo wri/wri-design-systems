@@ -117,7 +117,7 @@ function App() {
 ## Navigation
 
 - [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/TabBar)
-- [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/NavigationRail)
+- [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
 
 ## Status
 

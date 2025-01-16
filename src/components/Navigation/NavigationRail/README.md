@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/navigation-navigation-rail--docs)
 
-[NavigationRailDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/NavigationRail/NavigationRailDemo.tsx)
+[NavigationRailDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Navigation/NavigationRail/NavigationRailDemo.tsx)
 
 ## Import
 

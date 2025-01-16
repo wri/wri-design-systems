@@ -1,5 +1,5 @@
-import { NavigationRail } from '..'
-import { CheckIcon } from '../icons'
+import { NavigationRail } from '../..'
+import { CheckIcon } from '../../icons'
 
 const NavigationRailDemo = () => (
   <NavigationRail

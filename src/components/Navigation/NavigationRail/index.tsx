@@ -10,7 +10,7 @@ import {
   NavigationRailTrigger,
 } from './styled'
 import { NavigationRailProps } from './types'
-import { HideSidebarIcon, ShowSidebarIcon } from '../icons'
+import { HideSidebarIcon, ShowSidebarIcon } from '../../icons'
 
 const NavigationRail = ({
   tabs = [],

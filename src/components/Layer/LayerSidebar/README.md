@@ -4,7 +4,7 @@
 
 [LayerSidebarDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Layer/LayerSidebar/Demo.tsx)
 
-Check [NavigationRail](https://github.com/wri/wri-design-systems/tree/main/src/components/NavigationRail) props for more.
+Check [NavigationRail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail) props for more.
 
 ## Import
 

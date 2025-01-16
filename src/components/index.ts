@@ -1,6 +1,6 @@
 export { default as Switch } from './Forms/Controls/Switch'
 export { default as Button } from './Forms/Buttons/Button'
-export { default as NavigationRail } from './NavigationRail'
+export { default as NavigationRail } from './Navigation/NavigationRail'
 export { default as Radio } from './Forms/Controls/Radio'
 export { default as RadioGroup } from './Forms/Controls/Radio/RadioGroup'
 export { default as TabBar } from './TabBar'
