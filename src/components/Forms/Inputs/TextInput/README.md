@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-inputs-text-input--docs)
 
-[TextInputDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/TextInput/TextInputDemo.tsx)
+[TextInputDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Inputs/TextInput/TextInputDemo.tsx)
 
 ## Import
 

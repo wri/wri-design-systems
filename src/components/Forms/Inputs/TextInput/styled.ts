@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Input, Field } from '@chakra-ui/react'
-import { getThemedColor } from '../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const TextInputContainer = styled.div<{ size: 'small' | 'default' }>`
   width: 100%;

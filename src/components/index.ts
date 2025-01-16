@@ -11,7 +11,7 @@ export { default as LayerGroupContainer } from './Layer/LayerGroup/LayerGroupCon
 export { default as LayerPanel } from './Layer/LayerPanel'
 export { default as Tag } from './Forms/Tag'
 export { default as InlineMessage } from './InlineMessage'
-export { default as TextInput } from './TextInput'
+export { default as TextInput } from './Forms/Inputs/TextInput'
 export { default as Textarea } from './Textarea'
 export { default as CloseButton } from './Forms/Buttons/CloseButton'
 export { default as IconButton } from './Forms/Buttons/IconButton'
