@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-inputs-select--docs)
 
-[SelectDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Inputs/SelectDemo.tsx)
+[SelectDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Inputs/Select/SelectDemo.tsx)
 
 ## Import
 
