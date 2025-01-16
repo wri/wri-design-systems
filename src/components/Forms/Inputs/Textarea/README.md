@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-inputs-text-area--docs)
 
-[TextareaDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Textarea/TextareaDemo.tsx)
+[TextareaDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Inputs/Textarea/TextareaDemo.tsx)
 
 ## Import
 

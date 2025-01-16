@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Textarea, Field } from '@chakra-ui/react'
-import { getThemedColor } from '../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const TextareaContainer = styled.div<{ size: 'small' | 'default' }>`
   width: 100%;

@@ -1,4 +1,4 @@
-import { Textarea } from '..'
+import { Textarea } from '../../..'
 
 const TextareaDemo = () => (
   <div>
