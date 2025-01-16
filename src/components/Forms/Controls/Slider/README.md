@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-controls-slider--docs)
 
-[SliderDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Slider/SliderDemo.tsx)
+[SliderDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Controls/Slider/SliderDemo.tsx)
 
 ## Import
 

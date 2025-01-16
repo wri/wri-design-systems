@@ -5,7 +5,7 @@ import { Popover as ChakraPopover } from '@chakra-ui/react'
 import Button from '../../Forms/Buttons/Button'
 import { InfoIcon } from '../../icons'
 import TextInput from '../../TextInput'
-import Slider from '../../Slider'
+import Slider from '../../Forms/Controls/Slider'
 import { OpacityControlProps } from './types'
 import {
   OpacityControlBody,

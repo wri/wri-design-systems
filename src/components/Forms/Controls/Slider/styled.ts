@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Slider } from '@chakra-ui/react'
-import { getThemedColor } from '../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const ChakraSliderRoot = styled(Slider.Root)`
   height: 60px;

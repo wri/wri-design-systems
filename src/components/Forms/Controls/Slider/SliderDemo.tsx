@@ -1,4 +1,4 @@
-import { Slider } from '..'
+import { Slider } from '../../..'
 
 const SliderDemo = () => (
   <div
