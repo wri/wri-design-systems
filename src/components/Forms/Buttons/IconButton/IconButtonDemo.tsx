@@ -1,5 +1,5 @@
-import { IconButton } from '../..'
-import { CheckIcon, InfoIcon, MenuDotsIcon } from '../../icons'
+import { IconButton } from '../../..'
+import { CheckIcon, InfoIcon, MenuDotsIcon } from '../../../icons'
 
 const IconButtonDemo = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Button } from '@chakra-ui/react'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const StyledIconButton = styled(Button)`
   width: 20px !important;

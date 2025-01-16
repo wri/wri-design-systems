@@ -3,7 +3,7 @@ import React from 'react'
 
 import { StyledCloseButton } from './styled'
 import { CloseButtonProps } from './types'
-import { CloseIcon } from '../../icons'
+import { CloseIcon } from '../../../icons'
 
 const CloseButton = ({ disabled, ...rest }: CloseButtonProps) => (
   <StyledCloseButton

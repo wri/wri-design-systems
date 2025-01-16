@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Button } from '@chakra-ui/react'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 import { ButtonProps } from './types'
 
 export const BaseButton = styled(Button)<ButtonProps>`

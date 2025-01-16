@@ -1,0 +1,74 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react'
+
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
+import { DraggableItemProps } from './types'
+
+type Props = {
+  item: DraggableItemProps
+  removeItem: (id: number) => void
+  forceDragging?: boolean
+}
+
+const DraggableItem = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  item,
+  removeItem,
+  forceDragging = false,
+}: Props) => {
+  const {
+    attributes,
+    isDragging,
+    listeners,
+    setNodeRef,
+    setActivatorNodeRef,
+    transform,
+    transition,
+  } = useSortable({
+    id: item.sequence,
+  })
+
+  const parentStyles = {
+    transform: CSS.Transform.toString(transform),
+    transition: transition || undefined,
+    opacity: isDragging ? '0.4' : '1',
+    lineHeight: '4',
+  }
+
+  const draggableStyles = {
+    cursor: isDragging || forceDragging ? 'grabbing' : 'grab',
+  }
+
+  return (
+    <div style={parentStyles} ref={setNodeRef}>
+      <div
+        ref={setActivatorNodeRef}
+        className='flex-grow p-2'
+        style={draggableStyles}
+        {...attributes}
+        {...listeners}
+      >
+        {item.child}
+      </div>
+
+      <p>{item.sequence}</p>
+
+      <div
+        ref={setActivatorNodeRef}
+        className='flex-grow p-2'
+        style={draggableStyles}
+        {...attributes}
+        {...listeners}
+      >
+        <p>{item.id}</p>
+      </div>
+
+      <button type='button' onClick={() => removeItem(item.id)}>
+        X
+      </button>
+    </div>
+  )
+}
+
+export default DraggableItem

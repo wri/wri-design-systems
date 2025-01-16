@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-buttons-button--docs)
 
-[ButtonDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Buttons/Button/ButtonDemo.tsx)
+[ButtonDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Buttons/Button/ButtonDemo.tsx)
 
 ## Import
 

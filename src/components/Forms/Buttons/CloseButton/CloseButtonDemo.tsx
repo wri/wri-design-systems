@@ -1,4 +1,4 @@
-import { CloseButton } from '../..'
+import { CloseButton } from '../../..'
 
 const CloseButtonDemo = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>

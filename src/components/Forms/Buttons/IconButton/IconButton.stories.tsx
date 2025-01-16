@@ -4,7 +4,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import IconButton from '.'
-import { ChevronDownIcon, MenuDotsIcon } from '../../icons'
+import { ChevronDownIcon, MenuDotsIcon } from '../../../icons'
 
 const meta = {
   title: 'Forms/Buttons/Icon Button',

@@ -1,4 +1,4 @@
-import { Button } from '../..'
+import { Button } from '../../..'
 
 const ButtonDemo = () => (
   <div

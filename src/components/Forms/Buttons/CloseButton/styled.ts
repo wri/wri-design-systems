@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 import IconButton from '../IconButton'
 
 export const StyledCloseButton = styled(IconButton)`

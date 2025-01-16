@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 import { Popover as ChakraPopover } from '@chakra-ui/react'
-import Button from '../../Buttons/Button'
+import Button from '../../Forms/Buttons/Button'
 import { InfoIcon } from '../../icons'
 import TextInput from '../../TextInput'
 import Slider from '../../Slider'

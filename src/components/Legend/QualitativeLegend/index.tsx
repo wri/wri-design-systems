@@ -13,7 +13,7 @@ import {
   RasterIndicator,
 } from './styled'
 import { HideIcon, ShowIcon } from '../../icons'
-import Button from '../../Buttons/Button'
+import Button from '../../Forms/Buttons/Button'
 
 const QualitativeLegend = ({
   type,

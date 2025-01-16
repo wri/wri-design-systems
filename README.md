@@ -93,9 +93,9 @@ function App() {
 
 ### Buttons
 
-- [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/Button)
-- [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/IconButton)
-- [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Buttons/CloseButton)
+- [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/Button)
+- [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/IconButton)
+- [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/CloseButton)
 
 ### Controls
 
