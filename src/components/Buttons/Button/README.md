@@ -13,7 +13,7 @@ import { Button } from '@worldresources/wri-design-systems'
 ## Usage
 
 ```html
-<button label="Save and Download" variant="primary" />
+<Button label="Save and Download" variant="primary" />
 ```
 
 ## Props
@@ -38,25 +38,25 @@ type ButtonProps = Omit<
 ### Primary
 
 ```html
-<button label="Primary" variant="primary" />
+<Button label="Primary" variant="primary" />
 ```
 
 ### Secondary
 
 ```html
-<button label="Secondary" variant="secondary" />
+<Button label="Secondary" variant="secondary" />
 ```
 
 ### Borderless
 
 ```html
-<button label="Borderless" variant="borderless" />
+<Button label="Borderless" variant="borderless" />
 ```
 
 ### Outline
 
 ```html
-<button label="Outline" variant="outline" />
+<Button label="Outline" variant="outline" />
 ```
 
 ## Button Sizes
@@ -64,13 +64,13 @@ type ButtonProps = Omit<
 ### Default
 
 ```html
-<button label="Primary" size="default" variant="primary" />
+<Button label="Primary" size="default" variant="primary" />
 ```
 
 ### Small
 
 ```html
-<button label="Primary" size="small" variant="primary" />
+<Button label="Primary" size="small" variant="primary" />
 ```
 
 ## Button with Icon
@@ -100,11 +100,11 @@ type ButtonProps = Omit<
 ### Disabled
 
 ```html
-<button label="Primary" variant="primary" disabled />
+<Button label="Primary" variant="primary" disabled />
 ```
 
 ### Loading state
 
 ```html
-<button label="Primary" variant="primary" loading />
+<Button label="Primary" variant="primary" loading />
 ```

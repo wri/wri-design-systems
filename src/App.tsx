@@ -18,6 +18,7 @@ import LayerParametersDemo from './components/Legend/LayerParameters/LayerParame
 import ScaleBarDemo from './components/Legend/ScaleBar/ScaleBarDemo'
 import { LegendItemDemo } from './components/Legend/LegendItem/LegendItemDemo'
 import LegendPanelDemo from './components/Legend/LegendPanel/LegendPanelDemo'
+import SelectDemo from './components/Forms/Inputs/Select/SelectDemo'
 
 const App = () => (
   <div className='App'>
@@ -31,6 +32,7 @@ const App = () => (
           gap: 25,
         }}
       >
+        <SelectDemo />
         <LegendPanelDemo />
         <LegendItemDemo />
         <ScaleBarDemo />
