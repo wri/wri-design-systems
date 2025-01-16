@@ -3,7 +3,7 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import TabBar from '.'
-import { CheckIcon } from '../icons'
+import { CheckIcon } from '../../icons'
 
 const meta = {
   title: 'Navigation/Tab Bar',

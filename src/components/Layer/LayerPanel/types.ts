@@ -1,4 +1,4 @@
-import { TabBarItemProps } from '../../TabBar/types'
+import { TabBarItemProps } from '../../Navigation/TabBar/types'
 
 export type LayerPanelProps = {
   title: string

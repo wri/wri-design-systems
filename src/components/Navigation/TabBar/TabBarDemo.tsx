@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-import { TabBar } from '..'
-import { CheckIcon } from '../icons'
+import { TabBar } from '../..'
+import { CheckIcon } from '../../icons'
 
 const TabBarDemo = () => (
   <div style={{ width: '300px' }}>

@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import TabBar from '../../TabBar'
+import TabBar from '../../Navigation/TabBar'
 import {
   LayerPanelDescription,
   LayerPanelContainer,

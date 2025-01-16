@@ -4,7 +4,7 @@ import React, { Children, cloneElement, ReactElement, useState } from 'react'
 import { LegendPanelProps } from './types'
 import { LegendPanelContainer } from './styled'
 import { AnalysisIcon, LegendIcon } from '../../icons'
-import TabBar from '../../TabBar'
+import TabBar from '../../Navigation/TabBar'
 
 const defaultTabValue = 'legend-tab'
 

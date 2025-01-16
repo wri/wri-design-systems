@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Tabs } from '@chakra-ui/react'
-import { getThemedColor } from '../../lib/theme'
+import { getThemedColor } from '../../../lib/theme'
 
 export const TabBarContainer = styled.div<{
   variant: string
