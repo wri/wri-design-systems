@@ -3,13 +3,9 @@ import { Select as ChakraSelect, Portal } from '@chakra-ui/react'
 import * as React from 'react'
 import { ChevronDownIcon } from '../../../icons'
 
-interface SelectTriggerProps extends ChakraSelect.ControlProps {
-  clearable?: boolean
-}
-
 export const SelectTrigger = React.forwardRef<
   HTMLButtonElement,
-  SelectTriggerProps
+  ChakraSelect.ControlProps
 >((props, ref) => {
   const { children, ...rest } = props
   return (
@@ -24,18 +20,13 @@ export const SelectTrigger = React.forwardRef<
   )
 })
 
-interface SelectContentProps extends ChakraSelect.ContentProps {
-  portalled?: boolean
-  portalRef?: React.RefObject<HTMLElement>
-}
-
 export const SelectContent = React.forwardRef<
   HTMLDivElement,
-  SelectContentProps
+  ChakraSelect.ContentProps
 >((props, ref) => {
-  const { portalled = true, portalRef, ...rest } = props
+  const { ...rest } = props
   return (
-    <Portal disabled={!portalled} container={portalRef}>
+    <Portal>
       <ChakraSelect.Positioner>
         <ChakraSelect.Content {...rest} ref={ref} />
       </ChakraSelect.Positioner>
