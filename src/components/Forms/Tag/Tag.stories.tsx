@@ -4,7 +4,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import Tag from '.'
-import { InfoIcon } from '../icons'
+import { InfoIcon } from '../../icons'
 
 const meta = {
   title: 'Forms/Tag',

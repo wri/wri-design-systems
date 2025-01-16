@@ -8,7 +8,7 @@ import LayerItem from '../LayerItem'
 import RadioGroup from '../../Forms/Controls/Radio/RadioGroup'
 import { LayerItemProps } from '../LayerItem/types'
 import { ChevronDownIcon } from '../../icons'
-import Tag from '../../Tag'
+import Tag from '../../Forms/Tag'
 
 const getDefaultValue = (layerItems: LayerItemProps[]) => {
   const defaultSelected = layerItems.find(

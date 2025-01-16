@@ -1,6 +1,6 @@
 import { Tag as ChakraTag } from '@chakra-ui/react'
 import styled from '@emotion/styled'
-import { getThemedColor } from '../../lib/theme'
+import { getThemedColor } from '../../../lib/theme'
 
 export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
   max-width: 100%;

@@ -106,7 +106,7 @@ function App() {
 
 ### Tags
 
-- [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Tag)
+- [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Tag)
 
 ### Inputs
 
