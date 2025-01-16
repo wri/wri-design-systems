@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import { RadioGroup, Radio } from '..'
+import { RadioGroup, Radio } from '../../..'
 
 const RadioDemo = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

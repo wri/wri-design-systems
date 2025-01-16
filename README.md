@@ -99,8 +99,8 @@ function App() {
 
 ### Controls
 
-- [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Switch)
-- [Radio Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Radio)
+- [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Switch)
+- [Radio Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Radio)
 - [Checkbox](https://github.com/wri/wri-design-systems/tree/main/src/components/Checkbox)
 - [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Slider)
 

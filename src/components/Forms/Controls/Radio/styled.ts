@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { RadioGroup as ChakraRadioGroup } from '@chakra-ui/react'
-import { getThemedColor } from '../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const StyledRadio = styled(ChakraRadioGroup.Item)`
   .radio-item-indicator {

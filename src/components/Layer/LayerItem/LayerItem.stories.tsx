@@ -3,7 +3,7 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import LayerItem from '.'
-import RadioGroup from '../../Radio/RadioGroup'
+import RadioGroup from '../../Forms/Controls/Radio/RadioGroup'
 
 const meta = {
   title: 'Geospatial/Layers/Layer Item',

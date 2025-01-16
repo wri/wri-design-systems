@@ -2,7 +2,7 @@
 
 import SwitchDemo from './components/Forms/Controls/Switch/SwitchDemo'
 import ButtonDemo from './components/Forms/Buttons/Button/ButtonDemo'
-import RadioDemo from './components/Radio/RadioDemo'
+import RadioDemo from './components/Forms/Controls/Radio/RadioDemo'
 import TabBarDemo from './components/TabBar/TabBarDemo'
 import CheckboxDemo from './components/Checkbox/CheckboxDemo'
 import LayerSidebar from './components/Layer/LayerSidebar/Demo'

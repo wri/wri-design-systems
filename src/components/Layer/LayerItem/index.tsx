@@ -4,7 +4,7 @@ import React from 'react'
 import { Box } from '@chakra-ui/react'
 import Button from '../../Forms/Buttons/Button'
 import Switch from '../../Forms/Controls/Switch'
-import Radio from '../../Radio'
+import Radio from '../../Forms/Controls/Radio'
 import { LayerItemProps } from './types'
 import {
   LayerCaption,
