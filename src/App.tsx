@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import SwitchDemo from './components/Switch/SwitchDemo'
+import SwitchDemo from './components/Forms/Controls/Switch/SwitchDemo'
 import ButtonDemo from './components/Forms/Buttons/Button/ButtonDemo'
 import RadioDemo from './components/Radio/RadioDemo'
 import TabBarDemo from './components/TabBar/TabBarDemo'

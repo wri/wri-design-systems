@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import { Switch } from '..'
+import { Switch } from '../../..'
 
 const SwitchDemo = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

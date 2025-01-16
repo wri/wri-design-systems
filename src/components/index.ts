@@ -1,4 +1,4 @@
-export { default as Switch } from './Switch'
+export { default as Switch } from './Forms/Controls/Switch'
 export { default as Button } from './Forms/Buttons/Button'
 export { default as NavigationRail } from './NavigationRail'
 export { default as Radio } from './Radio'

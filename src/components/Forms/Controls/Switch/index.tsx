@@ -4,7 +4,7 @@ import React from 'react'
 import { Switch as ChakraSwitch } from '@chakra-ui/react'
 import { SwitchProps } from './types'
 import { StyledSwitch, SwitchAndLabelContainer } from './styled'
-import { CheckIcon } from '../icons'
+import { CheckIcon } from '../../../icons'
 
 const Switch = ({
   name,

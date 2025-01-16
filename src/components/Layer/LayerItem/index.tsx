@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Box } from '@chakra-ui/react'
 import Button from '../../Forms/Buttons/Button'
-import Switch from '../../Switch'
+import Switch from '../../Forms/Controls/Switch'
 import Radio from '../../Radio'
 import { LayerItemProps } from './types'
 import {
