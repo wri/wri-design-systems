@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import Button from '../Forms/Buttons/Button'
-import { InfoIcon } from '../icons'
+import Button from '../../Forms/Buttons/Button'
+import { InfoIcon } from '../../icons'
 import {
   InfoWhiteInlineMessage,
   ErrorInlineMessage,

@@ -121,7 +121,7 @@ function App() {
 
 ## Status
 
-- [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/InlineMessage)
+- [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/InlineMessage)
 
 ## Geospatial
 

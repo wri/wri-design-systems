@@ -1,4 +1,4 @@
-// Forms //
+// -- Forms -- //
 
 // Buttons
 export { default as Button } from './Forms/Buttons/Button'
@@ -20,14 +20,14 @@ export { default as TextInput } from './Forms/Inputs/TextInput'
 export { default as Textarea } from './Forms/Inputs/Textarea'
 export { default as Select } from './Forms/Inputs/Select'
 
-// Navigation //
+// -- Navigation -- //
 export { default as TabBar } from './Navigation/TabBar'
 export { default as NavigationRail } from './Navigation/NavigationRail'
 
-// Status //
-export { default as InlineMessage } from './InlineMessage'
+// -- Status -- //
+export { default as InlineMessage } from './Status/InlineMessage'
 
-// Geospatial //
+// -- Geospatial -- //
 
 // Layers
 export { default as LayerItem } from './Layer/LayerItem'

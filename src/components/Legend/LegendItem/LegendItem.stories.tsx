@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import LegendItemStory from '.'
 import ScaleBar from '../ScaleBar'
 import QualitativeLegend from '../QualitativeLegend'
-import InlineMessage from '../../InlineMessage'
+import InlineMessage from '../../Status/InlineMessage'
 import LayerParameters from '../LayerParameters'
 
 const meta = {

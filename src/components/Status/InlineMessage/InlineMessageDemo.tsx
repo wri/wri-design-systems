@@ -1,4 +1,4 @@
-import { InlineMessage } from '..'
+import { InlineMessage } from '../..'
 
 const InlineMessageDemo = () => (
   <>
