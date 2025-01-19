@@ -6,13 +6,13 @@
 
 ## Import
 
-```js
+```tsx
 import { Select } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
+```tsx
 <Select
   label='Label'
   caption='Caption'
@@ -77,7 +77,7 @@ type SelectProps = Omit<
 
 ## Default Select
 
-```html
+```tsx
 <Select
   label='Label'
   caption='Caption'
@@ -106,7 +106,7 @@ type SelectProps = Omit<
 
 ## Multi Select
 
-```html
+```tsx
 <Select
   label='Label'
   caption='Caption'
@@ -136,7 +136,7 @@ type SelectProps = Omit<
 
 ## Small Select
 
-```html
+```tsx
 <Select
   label='Label'
   caption='Caption'
@@ -165,7 +165,7 @@ type SelectProps = Omit<
 
 ## Error Message
 
-```html
+```tsx
 <Select
   label='Label'
   caption='Caption'

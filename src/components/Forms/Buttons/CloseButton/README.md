@@ -6,13 +6,13 @@
 
 ## Import
 
-```js
+```tsx
 import { CloseButton } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
+```tsx
 <CloseButton />
 ```
 
@@ -29,12 +29,12 @@ type CloseButtonProps = Omit<
 
 ## Default
 
-```html
+```tsx
 <CloseButton />
 ```
 
 ## Disabled
 
-```html
+```tsx
 <CloseButton disabled />
 ```

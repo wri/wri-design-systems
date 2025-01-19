@@ -6,14 +6,14 @@
 
 ## Import
 
-```js
+```tsx
 import { Slider } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
-<Slider min="{0}" max="{100}" defaultValue="{[50]}" />
+```tsx
+<Slider min={0} max={100} defaultValue={[50]} />
 ```
 
 ## Props
@@ -46,13 +46,13 @@ type SliderProps = Omit<
 
 ## Continuous
 
-```html
-<Slider min="{0}" max="{100}" defaultValue="{[50]}" />
+```tsx
+<Slider min={0} max={100} defaultValue={[50]} />
 ```
 
 ## Discrete
 
-```html
+```tsx
 <Slider
   min={0}
   max={100}
@@ -69,7 +69,7 @@ type SliderProps = Omit<
 
 ## Discrete With Steps
 
-```html
+```tsx
 <Slider
   min={0}
   max={100}
@@ -87,15 +87,18 @@ type SliderProps = Omit<
 
 ## Range
 
-```html
-<Slider value="{[20," 80]} />
+```tsx
+<Slider value={[20, 80]} />
 ```
 
 ## Centred
 
-````html
-<Slider min="{0}" max="{100}" defaultValue="{[50]}" isCentred />
+```tsx
+<Slider min={-100} max={100} defaultValue={[0]} isCentred />
+```
 
-## Disabled ```html
-<Slider min="{0}" max="{100}" defaultValue="{[50]}" disabled />
-````
+## Disabled
+
+```tsx
+<Slider min={0} max={100} defaultValue={[50]} disabled />
+```

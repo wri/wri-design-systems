@@ -6,14 +6,14 @@
 
 ## Import
 
-```js
+```tsx
 import { LayerParameters } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
-<LayerParameters label="Adjust layer parameters">
+```tsx
+<LayerParameters label='Adjust layer parameters'>
   <div>Component Placeholder</div>
   <div>Component Placeholder</div>
   <div>Component Placeholder</div>

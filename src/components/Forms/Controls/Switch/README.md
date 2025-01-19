@@ -6,14 +6,14 @@
 
 ## Import
 
-```js
+```tsx
 import { Switch } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
-<Switch name="switch"> Switch </Switch>
+```tsx
+<Switch name='switch'> Switch </Switch>
 ```
 
 ## Props
@@ -38,16 +38,22 @@ type SwitchProps = Omit<
 
 ## Default Checked
 
-```html
-<Switch name="switch" defaultChecked> Switch </Switch>
+```tsx
+<Switch name='switch' defaultChecked>
+  Switch
+</Switch>
 ```
 
 ## Disabled
 
-```html
-<Switch name="switch 1" disabled> Switch </Switch>
+```tsx
+<Switch name='switch 1' disabled>
+  Switch
+</Switch>
 ```
 
-```html
-<Switch name="switch 2" disabled checked> Switch </Switch>
+```tsx
+<Switch name='switch 2' disabled checked>
+  Switch
+</Switch>
 ```

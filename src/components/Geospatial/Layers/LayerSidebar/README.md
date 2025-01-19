@@ -8,7 +8,7 @@ Check [NavigationRail](https://github.com/wri/wri-design-systems/tree/main/src/c
 
 ## Import
 
-```js
+```tsx
 import { NavigationRail } from '@worldresources/wri-design-systems'
 ```
 
@@ -28,7 +28,7 @@ import { NavigationRail } from '@worldresources/wri-design-systems'
 }
 ```
 
-```js
+```tsx
 import LayerPanelDemo from '..'
 import LayerPanelDemo2 from '..'
 import LayerPanelDemo3 from '..'
@@ -55,7 +55,7 @@ const handleOnOpenChange = (open: boolean) => {
 }
 ```
 
-```html
+```tsx
 <NavigationRail
   defaultValue={defaultTabValue}
   onTabClick={handleOnTabClick}

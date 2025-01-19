@@ -6,17 +6,14 @@
 
 ## Import
 
-```js
+```tsx
 import { IconButton } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
-<IconButton
-  icon={<MenuDotsIcon />}
-  aria-label='Menu'
-/>
+```tsx
+<IconButton icon={<MenuDotsIcon />} aria-label='Menu' />
 ```
 
 ## Props
@@ -33,19 +30,12 @@ type IconButtonProps = Omit<
 
 ## Default
 
-```html
-<IconButton
-  icon={<MenuDotsIcon />}
-  aria-label='Menu'
-/>
+```tsx
+<IconButton icon={<MenuDotsIcon />} aria-label='Menu' />
 ```
 
 ## Disabled
 
-```html
-<IconButton
-  icon={<InfoIcon />}
-  aria-label='Info'
-  disabled
-/>
+```tsx
+<IconButton icon={<InfoIcon />} aria-label='Info' disabled />
 ```

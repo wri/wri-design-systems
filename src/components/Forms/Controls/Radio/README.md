@@ -6,15 +6,15 @@
 
 ## Import
 
-```js
+```tsx
 import { RadioGroup, Radio } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
-<RadioGroup name="radio-group-1">
-  <Radio value="1"> One </Radio>
+```tsx
+<RadioGroup name='radio-group-1'>
+  <Radio value='1'>One</Radio>
 </RadioGroup>
 ```
 
@@ -45,30 +45,32 @@ type RadioProps = Omit<
 
 ## Default Checked
 
-```html
-<RadioGroup name="radio-group" defaultValue="2">
-  <Radio value="1"> One </Radio>
-  <Radio value="2"> Two </Radio>
-  <Radio value="3"> Three </Radio>
+```tsx
+<RadioGroup name='radio-group' defaultValue='2'>
+  <Radio value='1'>One</Radio>
+  <Radio value='2'>Two</Radio>
+  <Radio value='3'>Three</Radio>
 </RadioGroup>
 ```
 
 ## Disabled
 
-```html
-<RadioGroup name="radio-group" defaultValue="2">
-  <Radio value="1"> One </Radio>
-  <Radio value="2" disabled> Two </Radio>
-  <Radio value="3"> Three </Radio>
+```tsx
+<RadioGroup name='radio-group' defaultValue='2'>
+  <Radio value='1'>One</Radio>
+  <Radio value='2' disabled>
+    Two
+  </Radio>
+  <Radio value='3'>Three</Radio>
 </RadioGroup>
 ```
 
 ## Radio Groups Row
 
-```html
-<RadioGroup name="radio-group" isRow>
-  <Radio value="1"> One </Radio>
-  <Radio value="2"> Two </Radio>
-  <Radio value="3"> Three </Radio>
+```tsx
+<RadioGroup name='radio-group' isRow>
+  <Radio value='1'>One</Radio>
+  <Radio value='2'>Two</Radio>
+  <Radio value='3'>Three</Radio>
 </RadioGroup>
 ```

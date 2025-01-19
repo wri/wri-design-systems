@@ -6,14 +6,14 @@
 
 ## Import
 
-```js
+```tsx
 import { TextInput } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
-<TextInput label="Label" caption="Caption" placeholder="placeholder" required />
+```tsx
+<TextInput label='Label' caption='Caption' placeholder='placeholder' required />
 ```
 
 ## Props
@@ -37,53 +37,53 @@ type TextInputProps = Omit<
 
 ## Optional
 
-```html
-<TextInput label="Label" caption="Caption" placeholder="placeholder" />
+```tsx
+<TextInput label='Label' caption='Caption' placeholder='placeholder' />
 ```
 
 ## Small Input
 
-```html
+```tsx
 <TextInput
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
-  size="small"
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  size='small'
   required
 />
 ```
 
 ## Default Value
 
-```html
+```tsx
 <TextInput
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
-  defaultValue="Default Value"
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  defaultValue='Default Value'
   required
 />
 ```
 
 ## With Error
 
-```html
+```tsx
 <TextInput
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
-  errorMessage="Error Message"
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  errorMessage='Error Message'
   required
 />
 ```
 
 ## Disabled
 
-```html
+```tsx
 <TextInput
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
   required
   disabled
 />

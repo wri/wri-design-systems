@@ -6,18 +6,18 @@
 
 ## Import
 
-```js
+```tsx
 import { InlineMessage } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
+```tsx
 <InlineMessage
-  label="Label"
-  caption="caption"
-  variant="info-white"
-  actionLabel="Label"
+  label='Label'
+  caption='caption'
+  variant='info-white'
+  actionLabel='Label'
 />
 ```
 
@@ -38,92 +38,92 @@ type InlineMessageProps = {
 
 ## Info White
 
-```html
+```tsx
 <InlineMessage
-  label="Label"
-  caption="caption"
-  variant="info-white"
-  actionLabel="Label"
+  label='Label'
+  caption='caption'
+  variant='info-white'
+  actionLabel='Label'
 />
 ```
 
 ## Info Grey
 
-```html
+```tsx
 <InlineMessage
-  label="Label"
-  caption="caption"
-  variant="info-grey"
-  actionLabel="Label"
+  label='Label'
+  caption='caption'
+  variant='info-grey'
+  actionLabel='Label'
 />
 ```
 
 ## Success
 
-```html
+```tsx
 <InlineMessage
-  label="Label"
-  caption="caption"
-  variant="success"
-  actionLabel="Label"
+  label='Label'
+  caption='caption'
+  variant='success'
+  actionLabel='Label'
 />
 ```
 
 ## Warning
 
-```html
+```tsx
 <InlineMessage
-  label="Label"
-  caption="caption"
-  variant="warning"
-  actionLabel="Label"
+  label='Label'
+  caption='caption'
+  variant='warning'
+  actionLabel='Label'
 />
 ```
 
 ## Error
 
-```html
+```tsx
 <InlineMessage
-  label="Label"
-  caption="caption"
-  variant="error"
-  actionLabel="Label"
+  label='Label'
+  caption='caption'
+  variant='error'
+  actionLabel='Label'
 />
 ```
 
 ## Button Right
 
-```html
+```tsx
 <InlineMessage
-  label="Label"
-  caption="caption"
-  variant="info-white"
-  actionLabel="Label"
+  label='Label'
+  caption='caption'
+  variant='info-white'
+  actionLabel='Label'
   isButtonRight
 />
 ```
 
 ## Small
 
-```html
+```tsx
 <InlineMessage
-  label="Label"
-  caption="caption"
-  variant="info-white"
-  actionLabel="Label"
-  size="small"
+  label='Label'
+  caption='caption'
+  variant='info-white'
+  actionLabel='Label'
+  size='small'
 />
 ```
 
 ## Small Button Right
 
-```html
+```tsx
 <InlineMessage
-  label="Label"
-  caption="caption"
-  variant="info-white"
-  actionLabel="Label"
+  label='Label'
+  caption='caption'
+  variant='info-white'
+  actionLabel='Label'
   isButtonRight
-  size="small"
+  size='small'
 />
 ```

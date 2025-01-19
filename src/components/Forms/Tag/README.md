@@ -6,19 +6,14 @@
 
 ## Import
 
-```js
+```tsx
 import { Tag } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
-<Tag
-  label='Default'
-  variant='info-white'
-  icon={<InfoIcon />}
-  closable
-/>
+```tsx
+<Tag label='Default' variant='info-white' icon={<InfoIcon />} closable />
 ```
 
 ## Props
@@ -40,75 +35,60 @@ type TagProps = Omit<
 
 ## Info White
 
-```html
-<Tag label="Label" variant="info-white" />
+```tsx
+<Tag label='Label' variant='info-white' />
 ```
 
 ## Info Grey
 
-```html
-<Tag label="Label" variant="info-grey" />
+```tsx
+<Tag label='Label' variant='info-grey' />
 ```
 
 ## Success
 
-```html
-<Tag label="Label" variant="success" />
+```tsx
+<Tag label='Label' variant='success' />
 ```
 
 ## Warning
 
-```html
-<Tag label="Label" variant="warning" />
+```tsx
+<Tag label='Label' variant='warning' />
 ```
 
 ## Error
 
-```html
-<Tag label="Label" variant="error" />
+```tsx
+<Tag label='Label' variant='error' />
 ```
 
 ## Small Size
 
-```html
-<Tag label="Label" size="small" variant="info-grey" />
+```tsx
+<Tag label='Label' size='small' variant='info-grey' />
 ```
 
 ## Large Size
 
-```html
-<Tag label="Label" size="large" variant="info-grey" />
+```tsx
+<Tag label='Label' size='large' variant='info-grey' />
 ```
 
 ## With Icon
 
-```html
-<Tag
-  label='Label'
-  variant='info-grey'
-  icon={<InfoIcon />}
-/>
+```tsx
+<Tag label='Label' variant='info-grey' icon={<InfoIcon />} />
 ```
 
 ## Closable
 
-```html
-<Tag
-  label='Label'
-  variant='info-grey'
-  icon={<InfoIcon />}
-  closable
-/>
+```tsx
+<Tag label='Label' variant='info-grey' icon={<InfoIcon />} closable />
 ```
 
 ## Closable
 
-```html
-<Tag
-  label='Label'
-  variant='info-grey'
-  icon={<InfoIcon />}
-  closable
-  disabled
-/>
+```tsx
+<Tag label='Label' variant='info-grey' icon={<InfoIcon />} closable disabled />
 ```

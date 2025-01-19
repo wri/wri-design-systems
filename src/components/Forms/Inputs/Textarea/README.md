@@ -6,18 +6,18 @@
 
 ## Import
 
-```js
+```tsx
 import { Textarea } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
-<textarea
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
-  helperText="You have 200 characters remaining"
+```tsx
+<Textarea
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  helperText='You have 200 characters remaining'
   required
 />
 ```
@@ -38,57 +38,81 @@ type TextareaProps = Omit<
   size?: 'small' | 'default'
   defaultValue?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  minLength?: number
+  maxLength?: number
 }
 ```
 
 ## Optional
 
-```html
-<textarea
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
-  helperText="You have 200 characters remaining"
+```tsx
+<Textarea
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  helperText='You have 200 characters remaining'
 />
 ```
 
 ## Small Input
 
-```html
-<textarea
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
-  helperText="You have 200 characters remaining"
-  size="small"
+```tsx
+<Textarea
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  helperText='You have 200 characters remaining'
+  size='small'
 />
 ```
 
 ## Default Value
 
-```html
-<textarea
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
-  defaultValue="Default Value"
+```tsx
+<Textarea
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  defaultValue='Default Value'
 />
 ```
 
 ## With Error
 
-```html
-<textarea
-  label="Label"
-  caption="Caption"
-  placeholder="placeholder"
-  helperText="You have 200 characters remaining"
-  errorMessage="Error Message"
+```tsx
+<Textarea
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  helperText='You have 200 characters remaining'
+  errorMessage='Error Message'
+/>
+```
+
+## Max Length
+
+```tsx
+<Textarea
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  maxLength={200}
+/>
+```
+
+## Min Length
+
+```tsx
+<Textarea
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  minLength={5}
 />
 ```
 
 ## Disabled
 
-```html
-<textarea label="Label" caption="Caption" placeholder="placeholder" disabled />
+```tsx
+<Textarea label='Label' caption='Caption' placeholder='placeholder' disabled />
 ```

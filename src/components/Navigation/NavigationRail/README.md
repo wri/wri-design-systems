@@ -6,29 +6,29 @@
 
 ## Import
 
-```js
+```tsx
 import { NavigationRail } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
-  <NavigationRail
-    tabs={[
-      {
-        label: 'Label 1',
-        value: 'label-1',
-      },
-      {
-        label: 'Label 2',
-        value: 'label-2',
-      },
-      {
-        label: 'Label 3',
-        value: 'label-3',
-      },
-    ]}
-  />
+```tsx
+<NavigationRail
+  tabs={[
+    {
+      label: 'Label 1',
+      value: 'label-1',
+    },
+    {
+      label: 'Label 2',
+      value: 'label-2',
+    },
+    {
+      label: 'Label 3',
+      value: 'label-3',
+    },
+  ]}
+/>
 ```
 
 ## Props
@@ -45,72 +45,72 @@ type NavigationRailProps = {
 
 ## Default Tab Selected
 
-```html
-  <NavigationRail
-    defaultValue='label-2'
-    tabs={[
-      {
-        label: 'Label 1',
-        value: 'label-1',
-      },
-      {
-        label: 'Label 2',
-        value: 'label-2',
-      },
-      {
-        label: 'Label 3',
-        value: 'label-3',
-      },
-    ]}
-  />
+```tsx
+<NavigationRail
+  defaultValue='label-2'
+  tabs={[
+    {
+      label: 'Label 1',
+      value: 'label-1',
+    },
+    {
+      label: 'Label 2',
+      value: 'label-2',
+    },
+    {
+      label: 'Label 3',
+      value: 'label-3',
+    },
+  ]}
+/>
 ```
 
 ## With Icons
 
-```html
-  <NavigationRail
-    tabs={[
-      {
-        label: 'Label 1',
-        value: 'label-1',
-        icon: <CheckIcon />,
-      },
-      {
-        label: 'Label 2',
-        value: 'label-2',
-        icon: <CheckIcon />,
-      },
-      {
-        label: 'Label 3',
-        value: 'label-3',
-        icon: <CheckIcon />,
-      },
-    ]}
-  />
+```tsx
+<NavigationRail
+  tabs={[
+    {
+      label: 'Label 1',
+      value: 'label-1',
+      icon: <CheckIcon />,
+    },
+    {
+      label: 'Label 2',
+      value: 'label-2',
+      icon: <CheckIcon />,
+    },
+    {
+      label: 'Label 3',
+      value: 'label-3',
+      icon: <CheckIcon />,
+    },
+  ]}
+/>
 ```
 
 ## With Open/Close Action
 
-```html
-  <NavigationRail
-    tabs={[
-      {
-        label: 'Label 1',
-        value: 'label-1',
-        icon: <CheckIcon />,
-      },
-      {
-        label: 'Label 2',
-        value: 'label-2',
-        icon: <CheckIcon />,
-      },
-      {
-        label: 'Label 3',
-        value: 'label-3',
-        icon: <CheckIcon />,
-      },
-    ]}
-  >
-    <div>Children</div>
-  </NavigationRail>
+```tsx
+<NavigationRail
+  tabs={[
+    {
+      label: 'Label 1',
+      value: 'label-1',
+      icon: <CheckIcon />,
+    },
+    {
+      label: 'Label 2',
+      value: 'label-2',
+      icon: <CheckIcon />,
+    },
+    {
+      label: 'Label 3',
+      value: 'label-3',
+      icon: <CheckIcon />,
+    },
+  ]}
+>
+  <div>Children</div>
+</NavigationRail>
 ```

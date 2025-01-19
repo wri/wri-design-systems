@@ -6,7 +6,7 @@
 
 ## Import
 
-```js
+```tsx
 import {
   LayerGroupContainer,
   LayerGroup,
@@ -17,7 +17,7 @@ import {
 
 Add as many LayerGroups as you need, read the [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerItem) documentation to know more about the props you can use
 
-```html
+```tsx
 <LayerGroupContainer defaultValue={['1']}>
   <LayerGroup
     label='Title 1'
@@ -67,7 +67,7 @@ type LayerGroupProps = {
 
 ## Default index open
 
-```html
+```tsx
 <LayerGroupContainer defaultValue={['1']}>
   <LayerGroup
     label='Title 1_1'
@@ -92,7 +92,7 @@ type LayerGroupProps = {
 
 ## Switch and Radio variants
 
-```html
+```tsx
 <LayerGroupContainer>
   <LayerGroup
     label='Title 1_1'

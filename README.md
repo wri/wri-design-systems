@@ -38,7 +38,7 @@ npm i @chakra-ui/react @emotion/react @emotion/styled
 
 With this custom theme you can change the color scheme according to your Project Theme
 
-```js
+```tsx
 import { createSystem, defaultConfig } from '@chakra-ui/react'
 
 export const system = createSystem(defaultConfig, {
@@ -69,7 +69,7 @@ export const system = createSystem(defaultConfig, {
 
 ### Wrap ChakraProvider at the root of your app
 
-```js
+```tsx
 import React from 'react'
 import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
 import { system } from './lib/theme'

@@ -6,21 +6,21 @@
 
 ## Import
 
-```js
+```tsx
 import { LegendPanel } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
+```tsx
 <LegendPanel
-  legendContent={(
+  legendContent={
     <>
       <LegendItemDemo />
       <LegendItemDemo2 />
       <LegendItemDemo3 />
     </>
-  )}
+  }
   analysisContent={<div />}
 />
 ```

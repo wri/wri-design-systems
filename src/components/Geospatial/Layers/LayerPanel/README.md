@@ -6,7 +6,7 @@
 
 ## Import
 
-```js
+```tsx
 import { LayerPanel } from '@worldresources/wri-design-systems'
 ```
 
@@ -14,14 +14,14 @@ import { LayerPanel } from '@worldresources/wri-design-systems'
 
 Check [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerGroup) from more
 
-```js
+```tsx
 // import a LayerGroup for each tab
 import LayerGroup1 from './LayerGroup1'
 import LayerGroup2 from './LayerGroup2'
 import LayerGroup3 from './LayerGroup3'
 ```
 
-```js
+```tsx
 const defaultTabValue = 'label-1'
 ...
 
@@ -29,7 +29,7 @@ const defaultTabValue = 'label-1'
 const [tabSelected, setTabSelected] = useState(defaultTabValue)
 ```
 
-```html
+```tsx
 <LayerPanel
   title='Title and more'
   description='Lorem ipsum dolor'

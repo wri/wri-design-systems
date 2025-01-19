@@ -6,13 +6,13 @@
 
 ## Import
 
-```js
+```tsx
 import { TabBar } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
+```tsx
 <TabBar
   variant='panel'
   tabs={[
@@ -36,7 +36,7 @@ type TabBarProps = {
 
 ## View Variant
 
-```html
+```tsx
 <TabBar
   variant='view'
   tabs={[
@@ -49,7 +49,7 @@ type TabBarProps = {
 
 ## Default Tab Active
 
-```html
+```tsx
 <TabBar
   variant='panel'
   defaultValue='two'
@@ -63,7 +63,7 @@ type TabBarProps = {
 
 ## Disabled
 
-```html
+```tsx
 <TabBar
   variant='panel'
   tabs={[
@@ -76,7 +76,7 @@ type TabBarProps = {
 
 ## With Icons
 
-```html
+```tsx
 <TabBar
   variant='panel'
   tabs={[

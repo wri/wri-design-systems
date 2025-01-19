@@ -6,18 +6,18 @@
 
 ## Import
 
-```js
+```tsx
 import { QualitativeAttribute } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
+```tsx
 <QualitativeAttribute
-  type="raster"
-  label="Attribute"
-  caption="Caption"
-  color="#238B45"
+  type='raster'
+  label='Attribute'
+  caption='Caption'
+  color='#238B45'
   onActionClick={() => console.log('click')}
   showActionButton
 />
@@ -39,12 +39,12 @@ type QualitativeAttributeProps = {
 
 ## Raster
 
-```html
+```tsx
 <QualitativeAttribute
-  type="raster"
-  label="Attribute"
-  caption="Caption"
-  color="#238B45"
+  type='raster'
+  label='Attribute'
+  caption='Caption'
+  color='#238B45'
   onActionClick={() => console.log('click')}
   showActionButton
 />
@@ -52,12 +52,12 @@ type QualitativeAttributeProps = {
 
 ## Line
 
-```html
+```tsx
 <QualitativeAttribute
-  type="line"
-  label="Attribute"
-  caption="Caption"
-  color="#238B45"
+  type='line'
+  label='Attribute'
+  caption='Caption'
+  color='#238B45'
   onActionClick={() => console.log('click')}
   showActionButton
 />
@@ -65,12 +65,12 @@ type QualitativeAttributeProps = {
 
 ## Point
 
-```html
+```tsx
 <QualitativeAttribute
-  type="point"
-  label="Attribute"
-  caption="Caption"
-  color="#238B45"
+  type='point'
+  label='Attribute'
+  caption='Caption'
+  color='#238B45'
   pointIcon={<InfoIcon />}
   onActionClick={() => console.log('click')}
   showActionButton

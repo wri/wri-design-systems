@@ -6,14 +6,16 @@
 
 ## Import
 
-```js
+```tsx
 import { Checkbox } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
-```html
-<Checkbox name="Checkbox" value="1"> Checkbox </Checkbox>
+```tsx
+<Checkbox name='Checkbox' value='1'>
+  Checkbox
+</Checkbox>
 ```
 
 ## Props
@@ -41,45 +43,60 @@ type CheckboxProps = Omit<
 
 ## Default Checked
 
-```html
-<Checkbox name="Checkbox" value="1" defaultChecked> Checkbox </Checkbox>
+```tsx
+<Checkbox name='Checkbox' value='1' defaultChecked>
+  Checkbox
+</Checkbox>
 ```
 
 ## Disabled
 
-```html
-<Checkbox name="Checkbox" value="1" disabled> Checkbox </Checkbox>
+```tsx
+<Checkbox name='Checkbox' value='1' disabled>
+  Checkbox
+</Checkbox>
 ```
 
 ## Indeterminate
 
 You will need to add some logic to validate all checked status and set or not an indeterminate state to the parent Checkbox. Check more in `CheckboxDemo.tsx`
 
-```js
+```tsx
 const [values, setValues] = useState(initialValues)
 
 const allChecked = values.every((value) => value.checked)
 const indeterminate = values.some((value) => value.checked) && !allChecked
 
 ....
+
 ```
 
-```html
-<Checkbox ms="6" checked="{checked}" onCheckedChange="{(e)" ="">
-  { setValues((current) => { const newValues = [...current] newValues[index] = {
-  ...newValues[index], checked: !!e.checked } return newValues }) }} > Item
-  Checkbox
+```tsx
+<Checkbox
+  ms='6'
+  checked={checked}
+  onCheckedChange={(e) => {
+    setValues((current) => {
+      const newValues = [...current]
+      newValues[index] = { ...newValues[index], checked: !!e.checked }
+      return newValues
+    })
+  }}
+>
+  Item Checkbox
 </Checkbox>
 ```
 
-```html
+```tsx
 <Checkbox
-  checked="{allChecked}"
-  indeterminate="{indeterminate}"
-  onCheckedChange="{(e)"
-  =""
+  checked={allChecked}
+  indeterminate={indeterminate}
+  onCheckedChange={(e) => {
+    setValues((current) =>
+      current.map((value) => ({ ...value, checked: !!e.checked })),
+    )
+  }}
 >
-  { setValues((current) => current.map((value) => ({ ...value, checked:
-  !!e.checked })), ) }} > Main Checkbox
+  Main Checkbox
 </Checkbox>
 ```

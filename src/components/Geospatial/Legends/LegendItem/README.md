@@ -6,7 +6,7 @@
 
 ## Import
 
-```js
+```tsx
 import {
   LegendItem,
   InlineMessage,
@@ -19,7 +19,7 @@ import {
 
 ## Usage
 
-```html
+```tsx
 <LegendItem
   layerName='Layer Name'
   dataUnit='Data Unit'
