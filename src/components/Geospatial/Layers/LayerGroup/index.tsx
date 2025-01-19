@@ -5,10 +5,10 @@ import { Accordion, Box } from '@chakra-ui/react'
 import { LayerGroupProps } from './types'
 import { LayerGroupCaption, LayerGroupTitle } from './styled'
 import LayerItem from '../LayerItem'
-import RadioGroup from '../../Forms/Controls/Radio/RadioGroup'
+import RadioGroup from '../../../Forms/Controls/Radio/RadioGroup'
 import { LayerItemProps } from '../LayerItem/types'
-import { ChevronDownIcon } from '../../icons'
-import Tag from '../../Forms/Tag'
+import { ChevronDownIcon } from '../../../icons'
+import Tag from '../../../Forms/Tag'
 
 const getDefaultValue = (layerItems: LayerItemProps[]) => {
   const defaultSelected = layerItems.find(

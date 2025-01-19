@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const StyledLayerGroupContainer = styled.div`
   background-color: ${getThemedColor('neutral', 100)};

@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import { LayerGroupContainer, LayerGroup } from '../..'
+import { LayerGroupContainer, LayerGroup } from '../../..'
 
 export const LayerGroupDemo = () => (
   <LayerGroupContainer defaultValue={['1']}>

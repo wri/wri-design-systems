@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-layers-layer-group--docs)
 
-[LayerGroupDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Layer/LayerGroup/LayerGroupDemo.tsx)
+[LayerGroupDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/Layers/LayerGroup/LayerGroupDemo.tsx)
 
 ## Import
 
@@ -15,7 +15,7 @@ import {
 
 ## Usage
 
-Add as many LayerGroups as you need, read the [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerItem) documentation to know more about the props you can use
+Add as many LayerGroups as you need, read the [LayerItem](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerItem) documentation to know more about the props you can use
 
 ```html
 <LayerGroupContainer defaultValue={['1']}>
