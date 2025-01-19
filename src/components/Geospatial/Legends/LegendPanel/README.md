@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-legends-legend-panel--docs)
 
-[LegendPanelDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Legend/LegendPanel/LegendPanelDemo.tsx)
+[LegendPanelDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/Legends/LegendPanel/LegendPanelDemo.tsx)
 
 ## Import
 

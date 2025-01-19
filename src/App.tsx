@@ -17,7 +17,7 @@ import QualitativeDemo from './components/Legend/QualitativeLegend/QualitativeLe
 import LayerParametersDemo from './components/Geospatial/Legends/LayerParameters/LayerParametersDemo'
 import ScaleBarDemo from './components/Geospatial/Legends/ScaleBar/ScaleBarDemo'
 import { LegendItemDemo } from './components/Geospatial/Legends/LegendItem/LegendItemDemo'
-import LegendPanelDemo from './components/Legend/LegendPanel/LegendPanelDemo'
+import LegendPanelDemo from './components/Geospatial/Legends/LegendPanel/LegendPanelDemo'
 import SelectDemo from './components/Forms/Inputs/Select/SelectDemo'
 
 const App = () => (
