@@ -94,40 +94,31 @@ function App() {
 ### Buttons
 
 - [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/Button)
-- [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/IconButton)
 - [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/CloseButton)
+- [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/IconButton)
 
 ### Controls
 
-- [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Switch)
-- [Radio Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Radio)
 - [Checkbox](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Checkbox)
+- [Radio Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Radio)
 - [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Slider)
+- [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Switch)
+
+### Inputs
+
+- [Select](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Select)
+- [Text Area](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Textarea)
+- [Text Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/TextInput)
 
 ### Tags
 
 - [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Tag)
 
-### Inputs
-
-- [Text Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/TextInput)
-- [Text Area](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Textarea)
-- [Select](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Select)
-
-## Navigation
-
-- [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
-- [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
-
-## Status
-
-- [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/InlineMessage)
-
 ## Geospatial
 
 ### Layers
 
-- [Layer Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerItem)
+- [Layer Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerItem)
 - [Layer Group](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
 - [Layer Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerPanel)
 - [Layer Sidebar](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerSidebar)
@@ -139,6 +130,16 @@ function App() {
 - [Layer Parameters](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LayerParameters)
 - [Legend Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendItem)
 - [Legend Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Legend/LegendPanel)
+
+## Navigation
+
+- [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
+- [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
+
+## Status
+
+- [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/InlineMessage)
+
 
 ## Building the lib
 

@@ -2,9 +2,9 @@
 import React from 'react'
 
 import { Box } from '@chakra-ui/react'
-import Button from '../../Forms/Buttons/Button'
-import Switch from '../../Forms/Controls/Switch'
-import Radio from '../../Forms/Controls/Radio'
+import Button from '../../../Forms/Buttons/Button'
+import Switch from '../../../Forms/Controls/Switch'
+import Radio from '../../../Forms/Controls/Radio'
 import { LayerItemProps } from './types'
 import {
   LayerCaption,
@@ -13,7 +13,7 @@ import {
   LayerName,
   LayerItemContainer,
 } from './styled'
-import { InfoIcon } from '../../icons'
+import { InfoIcon } from '../../../icons'
 
 const LayerItem = ({
   name,

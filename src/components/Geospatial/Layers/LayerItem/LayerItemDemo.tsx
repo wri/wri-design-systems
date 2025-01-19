@@ -1,4 +1,4 @@
-import { LayerItem, RadioGroup } from '../..'
+import { LayerItem, RadioGroup } from '../../..'
 
 const LayerItemDemo = () => (
   <div>

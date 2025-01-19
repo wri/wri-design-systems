@@ -2,11 +2,11 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-layers-layer-item--docs)
 
-[LayerItemDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Layer/LayerItem/LayerItemDemo.tsx)
+[LayerItemDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/Layers/LayerItem/LayerItemDemo.tsx)
 
 ## Usage
 
-LayerItem is used as part of [LayerGroups](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup)
+LayerItem is used as part of [LayerGroups](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerGroup)
 
 ## Props
 
