@@ -1,4 +1,4 @@
-import { ScaleBar } from '../..'
+import { ScaleBar } from '../../..'
 
 const ScaleBarDemo = () => (
   <div style={{ width: '238px' }}>
