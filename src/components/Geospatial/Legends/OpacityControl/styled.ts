@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Popover as ChakraPopover } from '@chakra-ui/react'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const OpacityControlContainer = styled(ChakraPopover.Content)`
   width: 234px;

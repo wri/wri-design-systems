@@ -14,10 +14,10 @@ import { QualitativeAttribute } from '@worldresources/wri-design-systems'
 
 ```html
 <QualitativeAttribute
-  type='raster'
-  label='Attribute'
-  caption='Caption'
-  color='#238B45'
+  type="raster"
+  label="Attribute"
+  caption="Caption"
+  color="#238B45"
   onActionClick={() => console.log('click')}
   showActionButton
 />
@@ -67,10 +67,10 @@ type QualitativeAttributeProps = {
 
 ```html
 <QualitativeAttribute
-  type='point'
-  label='Attribute'
-  caption='Caption'
-  color='#238B45'
+  type="point"
+  label="Attribute"
+  caption="Caption"
+  color="#238B45"
   pointIcon={<InfoIcon />}
   onActionClick={() => console.log('click')}
   showActionButton

@@ -2,10 +2,10 @@
 import React, { useState } from 'react'
 
 import { Popover as ChakraPopover } from '@chakra-ui/react'
-import Button from '../../Forms/Buttons/Button'
-import { InfoIcon } from '../../icons'
-import TextInput from '../../Forms/Inputs/TextInput'
-import Slider from '../../Forms/Controls/Slider'
+import Button from '../../../Forms/Buttons/Button'
+import { InfoIcon } from '../../../icons'
+import TextInput from '../../../Forms/Inputs/TextInput'
+import Slider from '../../../Forms/Controls/Slider'
 import { OpacityControlProps } from './types'
 import {
   OpacityControlBody,
