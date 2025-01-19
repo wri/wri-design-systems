@@ -30,9 +30,9 @@ export { default as LayerPanel } from './Geospatial/Layers/LayerPanel'
 
 // Legends
 export { default as LayerParameters } from './Geospatial/Legends/LayerParameters'
+export { default as LegendItem } from './Geospatial/Legends/LegendItem'
 export { default as QualitativeLegend } from './Legend/QualitativeLegend'
 export { default as ScaleBar } from './Legend/ScaleBar'
-export { default as LegendItem } from './Legend/LegendItem'
 export { default as LegendPanel } from './Legend/LegendPanel'
 
 // -- Navigation -- //

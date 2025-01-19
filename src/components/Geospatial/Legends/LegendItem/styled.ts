@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const LegendItemContainer = styled.div`
   padding: 12px;

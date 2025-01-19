@@ -8,7 +8,7 @@ import {
   LegendItem,
   QualitativeLegend,
   ScaleBar,
-} from '../..'
+} from '../../..'
 
 export const LegendItemDemo = ({
   onDrag = () => {},

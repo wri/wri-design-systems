@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-legends-legend-item--docs)
 
-[LegendItemDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Legend/LegendItem/LegendItemDemo.tsx)
+[LegendItemDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/Legends/LegendItem/LegendItemDemo.tsx)
 
 ## Import
 

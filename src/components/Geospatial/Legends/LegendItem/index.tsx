@@ -10,9 +10,9 @@ import {
   LegendItemLayerName,
   LegendItemButtonsContainer,
 } from './styled'
-import Button from '../../Forms/Buttons/Button'
-import { ChevronDownIcon, CloseIcon, DotsIcon, InfoIcon } from '../../icons'
-import IconButton from '../../Forms/Buttons/IconButton'
+import Button from '../../../Forms/Buttons/Button'
+import { ChevronDownIcon, CloseIcon, DotsIcon, InfoIcon } from '../../../icons'
+import IconButton from '../../../Forms/Buttons/IconButton'
 import OpacityControl from '../OpacityControl'
 
 const LegendItem = ({
