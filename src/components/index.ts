@@ -31,9 +31,9 @@ export { default as LayerPanel } from './Geospatial/Layers/LayerPanel'
 // Legends
 export { default as LayerParameters } from './Geospatial/Legends/LayerParameters'
 export { default as LegendItem } from './Geospatial/Legends/LegendItem'
-export { default as QualitativeLegend } from './Legend/QualitativeLegend'
-export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 export { default as LegendPanel } from './Geospatial/Legends/LegendPanel'
+export { default as QualitativeLegend } from './Geospatial/Legends/QualitativeLegend'
+export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 
 // -- Navigation -- //
 export { default as NavigationRail } from './Navigation/NavigationRail'

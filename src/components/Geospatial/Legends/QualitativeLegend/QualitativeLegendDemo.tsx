@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-import { QualitativeLegend } from '../..'
-import { InfoIcon } from '../../icons'
+import { QualitativeLegend } from '../../..'
+import { InfoIcon } from '../../../icons'
 
 const QualitativeLegendDemo = () => (
   <div style={{ width: '238px' }}>

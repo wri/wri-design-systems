@@ -12,8 +12,8 @@ import {
   QualitativeLegendLabelContainer,
   RasterIndicator,
 } from './styled'
-import { HideIcon, ShowIcon } from '../../icons'
-import Button from '../../Forms/Buttons/Button'
+import { HideIcon, ShowIcon } from '../../../icons'
+import Button from '../../../Forms/Buttons/Button'
 
 const QualitativeLegend = ({
   type,
