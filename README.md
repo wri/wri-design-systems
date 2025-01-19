@@ -120,7 +120,7 @@ function App() {
 
 - [Layer Group](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerGroup)
 - [Layer Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerItem)
-- [Layer Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerPanel)
+- [Layer Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerPanel)
 - [Layer Sidebar](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerSidebar)
 
 ### Legends
