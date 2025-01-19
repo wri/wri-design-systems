@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-layers-layer-panel--docs)
 
-[LayerPanelDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Layer/LayerPanel/LayerPanelDemo.tsx)
+[LayerPanelDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/Layers/LayerPanel/LayerPanelDemo.tsx)
 
 ## Import
 
@@ -12,7 +12,7 @@ import { LayerPanel } from '@worldresources/wri-design-systems'
 
 ## Usage
 
-Check [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/Layer/LayerGroup) from more
+Check [LayerGroup](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerGroup) from more
 
 ```js
 // import a LayerGroup for each tab
