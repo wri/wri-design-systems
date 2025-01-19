@@ -20,10 +20,12 @@ export type SelectProps = Omit<
   label: string
   caption?: string
   placeholder: string
+  defaultValue?: string[]
   items: SelectItemProps[]
   size?: 'default' | 'small'
   required?: boolean
   disabled?: boolean
   onChange?: (value: string[]) => void
   errorMessage?: string
+  multiple?: boolean
 }

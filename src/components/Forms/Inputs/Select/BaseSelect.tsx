@@ -42,7 +42,7 @@ export const SelectItem = React.forwardRef<
   return (
     <ChakraSelect.Item key={item.value} item={item} {...rest} ref={ref}>
       {children}
-      <ChakraSelect.ItemIndicator />
+      {/* <ChakraSelect.ItemIndicator /> */}
     </ChakraSelect.Item>
   )
 })
@@ -64,20 +64,8 @@ export const SelectValueText = React.forwardRef<
           const items = select.selectedItems
           if (items.length === 0) return props.placeholder
           if (children) return children(items)
-          // if (items.length === 1) {
-          //   // const item = items[0] as SelectItemProps
-          //   // return (
-          //   //   <div>
-          //   //     {item.icon ? <div>{item.icon}</div> : null}
-          //   //     <div>
-          //   //       <div>{item.label}</div>
-          //   //       {item.caption ? <div>{item.caption}</div> : null}
-          //   //     </div>
-          //   //   </div>
-          //   // )
-
-          //   // return select.collection.stringifyItem(items[0])
-          // }
+          if (items.length === 1)
+            return select.collection.stringifyItem(items[0])
           return `${items.length} selected`
         }}
       </ChakraSelect.Context>

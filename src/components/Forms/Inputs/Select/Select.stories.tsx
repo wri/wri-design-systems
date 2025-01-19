@@ -49,6 +49,34 @@ export const Select: Story = {
   },
 }
 
+export const MultiSelect: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Please select',
+    defaultValue: ['value-2', 'value-3'],
+    items: [
+      {
+        label: 'Label 1',
+        caption: 'Caption 1',
+        value: 'value-1',
+      },
+      {
+        label: 'Label 2',
+        caption: 'Caption 2',
+        value: 'value-2',
+      },
+      {
+        label: 'Label 3',
+        caption: 'Caption 3',
+        value: 'value-3',
+      },
+    ],
+    required: true,
+    multiple: true,
+  },
+}
+
 export const DefaultValue: Story = {
   args: {
     label: 'Label',

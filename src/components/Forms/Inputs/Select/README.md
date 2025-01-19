@@ -64,12 +64,14 @@ type SelectProps = Omit<
   label: string
   caption?: string
   placeholder: string
+  defaultValue?: string[]
   items: SelectItemProps[]
   size?: 'default' | 'small'
   required?: boolean
   disabled?: boolean
   onChange?: (value: string[]) => void
   errorMessage?: string
+  multiple?: boolean
 }
 ```
 
@@ -99,6 +101,36 @@ type SelectProps = Omit<
     },
   ]}
   required
+/>
+```
+
+## Multi Select
+
+```html
+<Select
+  label='Label'
+  caption='Caption'
+  placeholder='Please select'
+  defaultValue={['value-2', 'value-3']}
+  items={[
+    {
+      label: 'Label 1',
+      caption: 'Caption 1',
+      value: 'value-1',
+    },
+    {
+      label: 'Label 2',
+      caption: 'Caption 2',
+      value: 'value-2',
+    },
+    {
+      label: 'Label 3',
+      caption: 'Caption 3',
+      value: 'value-3',
+    },
+  ]}
+  required
+  multiple
 />
 ```
 

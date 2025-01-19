@@ -21,6 +21,8 @@ import {
   SelectErrorBar,
 } from './styled'
 import { SelectItemProps, SelectProps } from './types'
+import Tag from '../../Tag'
+import Checkbox from '../../Controls/Checkbox'
 
 const getCollectionItems = (items: SelectItemProps[]) =>
   createListCollection({ items })
@@ -53,6 +55,33 @@ const SelectValueItem = ({
   </SelectValueText>
 )
 
+const SelectMultipleValueItem = ({
+  placeholder,
+  removeItem,
+  disabled,
+}: {
+  placeholder: string
+  removeItem: (value: string) => void
+  disabled?: boolean
+}) => (
+  <SelectValueText placeholder={placeholder}>
+    {(items: SelectItemProps[]) =>
+      items.map((item) => (
+        <HStack flexDirection='row' alignItems='flex-start'>
+          <Tag
+            key={item.value}
+            label={item.label}
+            variant='info-grey'
+            disabled={disabled}
+            onClose={() => removeItem(item.value)}
+            closable
+          />
+        </HStack>
+      ))
+    }
+  </SelectValueText>
+)
+
 const Select = ({
   label,
   caption,
@@ -63,34 +92,43 @@ const Select = ({
   disabled,
   onChange,
   errorMessage,
+  multiple,
   ...rest
 }: SelectProps) => {
-  const [selectedItem, setSelectedItem] = useState<string[]>(
+  const [selectedItems, setSelectedItems] = useState<string[]>(
     rest.defaultValue || [],
   )
   const selectItems = getCollectionItems(items)
 
-  const onChangeHandler = (details: SelectValueChangeDetails) => {
-    setSelectedItem(details.value)
+  const onChangeHandler = (value: string[]) => {
+    setSelectedItems(value)
 
     if (onChange) {
-      onChange(details.value)
+      onChange(value)
     }
+  }
+
+  const onItemRemove = (value: string) => {
+    const newItems = selectedItems.filter((item) => item !== value)
+    onChangeHandler(newItems)
   }
 
   return (
     <SelectContainer size={size}>
       {errorMessage ? (
-        <SelectErrorBar size={size} isFilled={selectedItem.length > 0} />
+        <SelectErrorBar size={size} isFilled={selectedItems.length > 0} />
       ) : null}
       <SelectRoot
         collection={selectItems}
         disabled={disabled}
         required={required}
+        multiple={multiple}
         aria-label={rest['aria-label'] || label}
-        value={selectedItem}
+        value={selectedItems}
+        onValueChange={(details: SelectValueChangeDetails) =>
+          onChangeHandler(details.value)
+        }
         {...rest}
-        onValueChange={onChangeHandler}
       >
         <StyledSelectLabel size={size}>
           {required && <span>*</span>}
@@ -106,14 +144,23 @@ const Select = ({
         )}
         <StyledSelectTrigger
           size={size}
-          isFilled={selectedItem.length > 0}
+          isFilled={selectedItems.length > 0}
           hasErrorMessage={!!errorMessage}
+          multiple={multiple}
         >
-          <SelectValueItem
-            placeholder={placeholder}
-            size={size}
-            disabled={disabled}
-          />
+          {multiple ? (
+            <SelectMultipleValueItem
+              placeholder={placeholder}
+              disabled={disabled}
+              removeItem={onItemRemove}
+            />
+          ) : (
+            <SelectValueItem
+              placeholder={placeholder}
+              size={size}
+              disabled={disabled}
+            />
+          )}
         </StyledSelectTrigger>
         <StyledSelectContent>
           {selectItems.items.map((item) => (
@@ -124,6 +171,13 @@ const Select = ({
                   {item.caption}
                 </SelectItemCaption>
               </Box>
+              {multiple ? (
+                <Checkbox
+                  checked={selectedItems.some(
+                    (selectItem) => selectItem === item.value,
+                  )}
+                />
+              ) : null}
             </StyledSelectItem>
           ))}
         </StyledSelectContent>

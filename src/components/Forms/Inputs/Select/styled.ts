@@ -76,6 +76,7 @@ export const StyledSelectTrigger = styled(SelectTrigger)<{
   size: string
   isFilled: boolean
   hasErrorMessage: boolean
+  multiple?: boolean
 }>`
   .chakra-select__trigger {
     min-height: ${({ size }) => (size === 'small' ? '32px' : '40px')};
@@ -90,6 +91,15 @@ export const StyledSelectTrigger = styled(SelectTrigger)<{
       font-size: ${({ size }) => (size === 'small' ? '14px' : '16px')};
       line-height: ${({ size }) => (size === 'small' ? '20px' : '24px')};
       color: ${getThemedColor('neutral', 700)};
+
+      ${({ multiple }) =>
+        multiple
+          ? `
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      `
+          : ''}
     }
 
     &[data-state='open'] {
@@ -137,6 +147,7 @@ export const StyledSelectContent = styled(SelectContent)`
 `
 
 export const StyledSelectItem = styled(SelectItem)`
+  align-items: flex-start;
   &[data-highlighted] {
     background-color: ${getThemedColor('neutral', 200)};
   }
