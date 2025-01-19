@@ -32,7 +32,7 @@ export const PointIndicator = styled.div<{ color: string }>`
   }
 `
 
-export const QualitativeLegendContainer = styled.div`
+export const QualitativeAttributeContainer = styled.div`
   min-height: 36px;
   width: 100%;
   display: flex;
@@ -41,26 +41,26 @@ export const QualitativeLegendContainer = styled.div`
   margin-bottom: 16px;
 `
 
-export const QualitativeLegendLabelContainer = styled.div`
+export const QualitativeAttributeLabelContainer = styled.div`
   display: flex;
   gap: 8px;
 `
 
-export const QualitativeLegendLabel = styled.p`
+export const QualitativeAttributeLabel = styled.p`
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
   color: ${getThemedColor('neutral', 800)};
 `
 
-export const QualitativeLegendCaption = styled.p`
+export const QualitativeAttributeCaption = styled.p`
   font-size: 12px;
   line-height: 16px;
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
 `
 
-export const QualitativeLegendActionContainer = styled.div`
+export const QualitativeAttributeActionContainer = styled.div`
   button {
     height: 25px;
     font-size: 12px;

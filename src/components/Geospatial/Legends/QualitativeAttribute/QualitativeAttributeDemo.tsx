@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 
-import { QualitativeLegend } from '../../..'
+import { QualitativeAttribute } from '../../..'
 import { InfoIcon } from '../../../icons'
 
-const QualitativeLegendDemo = () => (
+const QualitativeAttributeDemo = () => (
   <div style={{ width: '238px' }}>
-    <QualitativeLegend
+    <QualitativeAttribute
       type='raster'
       label='Attribute'
       caption='Caption'
@@ -13,14 +13,14 @@ const QualitativeLegendDemo = () => (
       onActionClick={() => console.log('click')}
       showActionButton
     />
-    <QualitativeLegend
+    <QualitativeAttribute
       type='line'
       label='Attribute'
       color='#238B45'
       onActionClick={() => console.log('click')}
       showActionButton
     />
-    <QualitativeLegend
+    <QualitativeAttribute
       type='point'
       label='Attribute'
       color='#F3FFF2'
@@ -29,4 +29,4 @@ const QualitativeLegendDemo = () => (
   </div>
 )
 
-export default QualitativeLegendDemo
+export default QualitativeAttributeDemo

@@ -1,4 +1,4 @@
-export type QualitativeLegendProps = {
+export type QualitativeAttributeProps = {
   type: 'raster' | 'line' | 'point'
   label: string
   caption?: string

@@ -12,7 +12,7 @@ import {
   InlineMessage,
   LayerParameters,
   LegendItem,
-  QualitativeLegend,
+  QualitativeAttribute,
   ScaleBar,
 } from '@worldresources/wri-design-systems'
 ```
@@ -34,7 +34,7 @@ import {
     colors={['#EDF8FB', '#B2E2E2', '#66C2A4', '#2CA25F', '#006D2C']}
     values={['0%', '25%', '50%', '75%', '100%']}
   />
-  <QualitativeLegend
+  <QualitativeAttribute
     type='raster'
     label='Attribute'
     caption='Caption'
@@ -42,7 +42,7 @@ import {
     onActionClick={() => console.log('click')}
     showActionButton
   />
-  <QualitativeLegend
+  <QualitativeAttribute
     type='raster'
     label='Attribute'
     caption='Caption'

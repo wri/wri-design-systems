@@ -5,7 +5,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import LegendItemStory from '.'
 import ScaleBar from '../ScaleBar'
-import QualitativeLegend from '../QualitativeLegend'
+import QualitativeAttribute from '../QualitativeAttribute'
 import InlineMessage from '../../../Status/InlineMessage'
 import LayerParameters from '../LayerParameters'
 
@@ -47,7 +47,7 @@ export const LegendItem: Story = {
           colors={['#EDF8FB', '#B2E2E2', '#66C2A4', '#2CA25F', '#006D2C']}
           values={['0%', '25%', '50%', '75%', '100%']}
         />
-        <QualitativeLegend
+        <QualitativeAttribute
           type='raster'
           label='Attribute'
           caption='Caption'
@@ -55,7 +55,7 @@ export const LegendItem: Story = {
           onActionClick={() => console.log('click')}
           showActionButton
         />
-        <QualitativeLegend
+        <QualitativeAttribute
           type='raster'
           label='Attribute'
           caption='Caption'

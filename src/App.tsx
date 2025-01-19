@@ -13,7 +13,7 @@ import TextareaDemo from './components/Forms/Inputs/Textarea/TextareaDemo'
 import CloseButtonDemo from './components/Forms/Buttons/CloseButton/CloseButtonDemo'
 import IconButtonDemo from './components/Forms/Buttons/IconButton/IconButtonDemo'
 import SliderDemo from './components/Forms/Controls/Slider/SliderDemo'
-import QualitativeDemo from './components/Geospatial/Legends/QualitativeLegend/QualitativeLegendDemo'
+import QualitativeAttributeDemo from './components/Geospatial/Legends/QualitativeAttribute/QualitativeAttributeDemo'
 import LayerParametersDemo from './components/Geospatial/Legends/LayerParameters/LayerParametersDemo'
 import ScaleBarDemo from './components/Geospatial/Legends/ScaleBar/ScaleBarDemo'
 import { LegendItemDemo } from './components/Geospatial/Legends/LegendItem/LegendItemDemo'
@@ -37,7 +37,7 @@ const App = () => (
         <LegendItemDemo />
         <ScaleBarDemo />
         <LayerParametersDemo />
-        <QualitativeDemo />
+        <QualitativeAttributeDemo />
         <SliderDemo />
         <IconButtonDemo />
         <CloseButtonDemo />

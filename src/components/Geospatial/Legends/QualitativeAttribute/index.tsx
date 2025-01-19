@@ -1,21 +1,21 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import { QualitativeLegendProps } from './types'
+import { QualitativeAttributeProps } from './types'
 import {
   LineIndicator,
   PointIndicator,
-  QualitativeLegendActionContainer,
-  QualitativeLegendCaption,
-  QualitativeLegendContainer,
-  QualitativeLegendLabel,
-  QualitativeLegendLabelContainer,
+  QualitativeAttributeActionContainer,
+  QualitativeAttributeCaption,
+  QualitativeAttributeContainer,
+  QualitativeAttributeLabel,
+  QualitativeAttributeLabelContainer,
   RasterIndicator,
 } from './styled'
 import { HideIcon, ShowIcon } from '../../../icons'
 import Button from '../../../Forms/Buttons/Button'
 
-const QualitativeLegend = ({
+const QualitativeAttribute = ({
   type,
   label,
   caption,
@@ -23,7 +23,7 @@ const QualitativeLegend = ({
   onActionClick,
   showActionButton,
   pointIcon,
-}: QualitativeLegendProps) => {
+}: QualitativeAttributeProps) => {
   const [isShown, setIsShown] = React.useState(true)
 
   const isRaster = type === 'raster'
@@ -39,8 +39,8 @@ const QualitativeLegend = ({
   }
 
   return (
-    <QualitativeLegendContainer>
-      <QualitativeLegendLabelContainer>
+    <QualitativeAttributeContainer>
+      <QualitativeAttributeLabelContainer>
         <div>
           {isRaster && <RasterIndicator color={color} />}
           {isLine && <LineIndicator color={color} />}
@@ -49,16 +49,16 @@ const QualitativeLegend = ({
           )}
         </div>
         <div>
-          <QualitativeLegendLabel aria-label={label}>
+          <QualitativeAttributeLabel aria-label={label}>
             {label}
-          </QualitativeLegendLabel>
-          <QualitativeLegendCaption aria-label={caption}>
+          </QualitativeAttributeLabel>
+          <QualitativeAttributeCaption aria-label={caption}>
             {caption}
-          </QualitativeLegendCaption>
+          </QualitativeAttributeCaption>
         </div>
-      </QualitativeLegendLabelContainer>
+      </QualitativeAttributeLabelContainer>
       {onActionClick && showActionButton ? (
-        <QualitativeLegendActionContainer>
+        <QualitativeAttributeActionContainer>
           <Button
             variant='borderless'
             label={isShown ? 'Hide' : 'Show'}
@@ -66,10 +66,10 @@ const QualitativeLegend = ({
             aria-label='Show or Hide action'
             onClick={handleOnClick}
           />
-        </QualitativeLegendActionContainer>
+        </QualitativeAttributeActionContainer>
       ) : null}
-    </QualitativeLegendContainer>
+    </QualitativeAttributeContainer>
   )
 }
 
-export default QualitativeLegend
+export default QualitativeAttribute

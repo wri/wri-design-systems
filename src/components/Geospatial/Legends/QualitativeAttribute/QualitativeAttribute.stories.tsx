@@ -3,12 +3,12 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
-import QualitativeLegend from '.'
+import QualitativeAttribute from '.'
 import { InfoIcon } from '../../../icons'
 
 const meta = {
   title: 'Geospatial/Legends/Qualitative Attributes',
-  component: QualitativeLegend,
+  component: QualitativeAttribute,
   parameters: {
     layout: 'centered',
   },
@@ -21,7 +21,7 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof QualitativeLegend>
+} satisfies Meta<typeof QualitativeAttribute>
 
 export default meta
 type Story = StoryObj<typeof meta>
