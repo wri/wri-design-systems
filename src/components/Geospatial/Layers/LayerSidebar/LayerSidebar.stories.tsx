@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import NavigationRail from '../../Navigation/NavigationRail'
+import NavigationRail from '../../../Navigation/NavigationRail'
 import LayerPanelDemo from '../LayerPanel/LayerPanelDemo'
 
 const meta = {

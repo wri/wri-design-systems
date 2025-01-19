@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-layers-layer-sidebar--docs)
 
-[LayerSidebarDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Layer/LayerSidebar/Demo.tsx)
+[LayerSidebarDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/Layers/LayerSidebar/Demo.tsx)
 
 Check [NavigationRail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail) props for more.
 
