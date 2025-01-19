@@ -3,7 +3,7 @@ import React, { Children } from 'react'
 
 import { Accordion, Box } from '@chakra-ui/react'
 import { LayerParametersProps } from './types'
-import { ChevronDownIcon } from '../../icons'
+import { ChevronDownIcon } from '../../../icons'
 import {
   LayerParametersItem,
   LayerParametersItemContent,

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Accordion } from '@chakra-ui/react'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const LayerParametersItem = styled(Accordion.Item)`
   margin-bottom: 16px;

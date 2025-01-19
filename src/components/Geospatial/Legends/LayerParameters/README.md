@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-legends-layer-parameters--docs)
 
-[LayerParametersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Legend/LayerParameters/LayerParametersDemo.tsx)
+[LayerParametersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/Legends/LayerParameters/LayerParametersDemo.tsx)
 
 ## Import
 

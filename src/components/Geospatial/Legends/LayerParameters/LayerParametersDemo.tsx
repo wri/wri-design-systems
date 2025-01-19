@@ -1,4 +1,4 @@
-import { LayerParameters } from '../..'
+import { LayerParameters } from '../../..'
 
 const LayerParametersDemo = () => (
   <div style={{ width: '238px' }}>

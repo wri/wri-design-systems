@@ -14,7 +14,7 @@ import CloseButtonDemo from './components/Forms/Buttons/CloseButton/CloseButtonD
 import IconButtonDemo from './components/Forms/Buttons/IconButton/IconButtonDemo'
 import SliderDemo from './components/Forms/Controls/Slider/SliderDemo'
 import QualitativeDemo from './components/Legend/QualitativeLegend/QualitativeLegendDemo'
-import LayerParametersDemo from './components/Legend/LayerParameters/LayerParametersDemo'
+import LayerParametersDemo from './components/Geospatial/Legends/LayerParameters/LayerParametersDemo'
 import ScaleBarDemo from './components/Legend/ScaleBar/ScaleBarDemo'
 import { LegendItemDemo } from './components/Legend/LegendItem/LegendItemDemo'
 import LegendPanelDemo from './components/Legend/LegendPanel/LegendPanelDemo'
