@@ -60,7 +60,6 @@ export const PrimaryButton = styled(BaseButton)`
       &:focus-visible {
         outline-color: ${getThemedColor('primary', 700)};
         background-color: ${getThemedColor('primary', 500)};
-        border: 2px solid ${getThemedColor('primary', 500)};
         box-shadow: 0px 1px 2px 0px #0000000D;
       }
     `

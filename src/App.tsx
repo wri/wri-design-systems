@@ -19,6 +19,7 @@ import ScaleBarDemo from './components/Geospatial/Legends/ScaleBar/ScaleBarDemo'
 import { LegendItemDemo } from './components/Geospatial/Legends/LegendItem/LegendItemDemo'
 import LegendPanelDemo from './components/Geospatial/Legends/LegendPanel/LegendPanelDemo'
 import SelectDemo from './components/Forms/Inputs/Select/SelectDemo'
+import MultiActionButtonDemo from './components/Forms/Buttons/MultiActionButton/MultiActionButtonDemo'
 
 const App = () => (
   <div className='App'>
@@ -32,6 +33,7 @@ const App = () => (
           gap: 25,
         }}
       >
+        <MultiActionButtonDemo />
         <SelectDemo />
         <LegendPanelDemo />
         <LegendItemDemo />

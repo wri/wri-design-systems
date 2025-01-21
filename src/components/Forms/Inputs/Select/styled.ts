@@ -150,6 +150,7 @@ export const StyledSelectItem = styled(SelectItem)`
   align-items: flex-start;
   &[data-highlighted] {
     background-color: ${getThemedColor('neutral', 200)};
+    cursor: pointer;
   }
 `
 
