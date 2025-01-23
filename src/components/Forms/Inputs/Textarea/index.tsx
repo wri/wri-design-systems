@@ -74,16 +74,13 @@ const Textarea = ({
   return (
     <TextareaContainer size={size}>
       {errorMessage || showMinLengthError || showMaxLengthError ? (
-        <ErrorBar
-          size={size}
-          hasHelperText={!!helperText}
-          hasErrorMessage={!!errorMessage}
-        />
+        <ErrorBar />
       ) : null}
       <Field.Root
         required={required}
         invalid={!!errorMessage || showMinLengthError || showMaxLengthError}
         gap='0'
+        style={{ marginLeft: errorMessage ? '19px' : '0px' }}
       >
         {label ? (
           <StyledFieldLabel size={size} disabled={disabled} aria-label={label}>

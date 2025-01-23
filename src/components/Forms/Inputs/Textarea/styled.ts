@@ -3,6 +3,8 @@ import { Textarea, Field } from '@chakra-ui/react'
 import { getThemedColor } from '../../../../lib/theme'
 
 export const TextareaContainer = styled.div<{ size: 'small' | 'default' }>`
+  position: relative;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -10,37 +12,13 @@ export const TextareaContainer = styled.div<{ size: 'small' | 'default' }>`
   gap: ${({ size }) => (size === 'small' ? '12px' : '16px')};
   margin-bottom: 16px;
 `
-const getHeight = (
-  size: 'small' | 'default',
-  hasHelperText: boolean,
-  hasErrorMessage: boolean,
-) => {
-  const isSmall = size === 'small'
-  if (hasHelperText && hasErrorMessage) {
-    return isSmall ? '192px' : '208px'
-  }
-
-  if (hasHelperText) {
-    return isSmall ? '174px' : '186px'
-  }
-
-  if (hasErrorMessage) {
-    return isSmall ? '168px' : '180px'
-  }
-
-  return isSmall ? '169px' : '180px'
-}
-
-export const ErrorBar = styled.div<{
-  size: 'small' | 'default'
-  hasHelperText: boolean
-  hasErrorMessage: boolean
-}>`
+export const ErrorBar = styled.div`
   width: 3px;
   height: 100%;
-  min-height: ${({ size, hasHelperText, hasErrorMessage }) =>
-    getHeight(size, hasHelperText, hasErrorMessage)};
   background-color: ${getThemedColor('error', 500)};
+  position: absolute;
+  top: 0;
+  left: 0;
 `
 
 export const StyledFieldLabel = styled(Field.Label)<{

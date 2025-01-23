@@ -36,8 +36,13 @@ const TextInput = ({
 
   return (
     <TextInputContainer size={size} className='text-input-container'>
-      {errorMessage ? <ErrorBar size={size} /> : null}
-      <Field.Root required={required} invalid={!!errorMessage} gap='0'>
+      {errorMessage ? <ErrorBar /> : null}
+      <Field.Root
+        required={required}
+        invalid={!!errorMessage}
+        gap='0'
+        style={{ marginLeft: errorMessage ? '19px' : '0px' }}
+      >
         {label ? (
           <StyledFieldLabel size={size} disabled={disabled} aria-label={label}>
             <Field.RequiredIndicator aria-label='required' />

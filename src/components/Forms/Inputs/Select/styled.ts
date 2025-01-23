@@ -8,6 +8,8 @@ import {
 } from './BaseSelect'
 
 export const SelectContainer = styled.div<{ size: string }>`
+  position: relative;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -16,18 +18,13 @@ export const SelectContainer = styled.div<{ size: string }>`
   margin-bottom: 16px;
 `
 
-const getErrorBarHeight = (size: string, isFilled: boolean) => {
-  if (isFilled) {
-    return size === 'small' ? '132px' : '152px'
-  }
-
-  return size === 'small' ? '104px' : '122px'
-}
-export const SelectErrorBar = styled.div<{ size: string; isFilled: boolean }>`
+export const SelectErrorBar = styled.div`
   width: 3px;
   height: 100%;
-  height: ${({ size, isFilled }) => getErrorBarHeight(size, isFilled)};
   background-color: ${getThemedColor('error', 500)};
+  position: absolute;
+  top: 0;
+  left: 0;
 `
 
 export const StyledSelectLabel = styled(SelectLabel)<{ size: string }>`

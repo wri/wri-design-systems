@@ -115,9 +115,7 @@ const Select = ({
 
   return (
     <SelectContainer size={size}>
-      {errorMessage ? (
-        <SelectErrorBar size={size} isFilled={selectedItems.length > 0} />
-      ) : null}
+      {errorMessage ? <SelectErrorBar /> : null}
       <SelectRoot
         collection={selectItems}
         disabled={disabled}
@@ -128,6 +126,7 @@ const Select = ({
         onValueChange={(details: SelectValueChangeDetails) =>
           onChangeHandler(details.value)
         }
+        style={{ marginLeft: errorMessage ? '19px' : '0px' }}
         {...rest}
       >
         <StyledSelectLabel size={size}>

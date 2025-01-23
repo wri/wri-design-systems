@@ -3,6 +3,8 @@ import { Input, Field } from '@chakra-ui/react'
 import { getThemedColor } from '../../../../lib/theme'
 
 export const TextInputContainer = styled.div<{ size: 'small' | 'default' }>`
+  position: relative;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -11,11 +13,13 @@ export const TextInputContainer = styled.div<{ size: 'small' | 'default' }>`
   margin-bottom: 20px;
 `
 
-export const ErrorBar = styled.div<{ size: 'small' | 'default' }>`
+export const ErrorBar = styled.div`
   width: 3px;
   height: 100%;
-  min-height: ${({ size }) => (size === 'small' ? '92px' : '116px')};
   background-color: ${getThemedColor('error', 500)};
+  position: absolute;
+  top: 0;
+  left: 0;
 `
 
 export const StyledFieldLabel = styled(Field.Label)<{

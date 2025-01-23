@@ -1,7 +1,7 @@
 import { Textarea } from '../../..'
 
 const TextareaDemo = () => (
-  <div>
+  <div style={{ width: '290px' }}>
     <Textarea
       label='Label'
       caption='Caption'

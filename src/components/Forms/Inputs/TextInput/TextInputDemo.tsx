@@ -1,7 +1,7 @@
 import { TextInput } from '../../..'
 
 const TextInputDemo = () => (
-  <div>
+  <div style={{ width: '290px' }}>
     <TextInput
       label='Label'
       caption='Caption'
