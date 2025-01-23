@@ -107,6 +107,7 @@ function App() {
 
 ### Inputs
 
+- [CheckboxList](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/CheckboxList)
 - [Select](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Select)
 - [Text Area](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Textarea)
 - [Text Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/TextInput)

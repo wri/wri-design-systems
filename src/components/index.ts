@@ -14,6 +14,7 @@ export { default as Slider } from './Forms/Controls/Slider'
 export { default as Switch } from './Forms/Controls/Switch'
 
 // Inputs
+export { default as CheckboxList } from './Forms/Inputs/CheckboxList'
 export { default as Select } from './Forms/Inputs/Select'
 export { default as Textarea } from './Forms/Inputs/Textarea'
 export { default as TextInput } from './Forms/Inputs/TextInput'
