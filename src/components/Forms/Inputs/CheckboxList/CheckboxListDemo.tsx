@@ -12,6 +12,7 @@ const CheckboxListDemo = () => (
     <CheckboxList
       label='Label'
       caption='Caption'
+      defaultValue='checkbox-2'
       checkboxes={[
         {
           children: 'Checkbox 1',
@@ -29,12 +30,13 @@ const CheckboxListDemo = () => (
           value: 'checkbox-3',
         },
       ]}
-      defaultValue='checkbox-2'
       required
     />
     <CheckboxList
       label='Label'
       caption='Caption'
+      defaultValue='checkbox-2'
+      errorMessage='Error Message'
       checkboxes={[
         {
           children: 'Checkbox 1',
@@ -52,8 +54,6 @@ const CheckboxListDemo = () => (
           value: 'checkbox-3',
         },
       ]}
-      defaultValue='checkbox-2'
-      errorMessage='Error Message'
       required
     />
     <CheckboxList

@@ -27,7 +27,7 @@ type RadioGroupProps = Omit<
 > & {
   name: string
   defaultValue?: string
-  isRow?: boolean
+  horizontal?: boolean
   onChange?: (name: string, selectedValue: string) => void
   customGap?: string
 }
@@ -68,7 +68,7 @@ type RadioProps = Omit<
 ## Radio Groups Row
 
 ```tsx
-<RadioGroup name='radio-group' isRow>
+<RadioGroup name='radio-group' horizontal>
   <Radio value='1'>One</Radio>
   <Radio value='2'>Two</Radio>
   <Radio value='3'>Three</Radio>

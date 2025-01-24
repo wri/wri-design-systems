@@ -10,7 +10,7 @@ import { RadioGroupProps } from './types'
 
 const RadioGroup = ({
   children,
-  isRow = false,
+  horizontal = false,
   name,
   defaultValue,
   onChange,
@@ -27,7 +27,7 @@ const RadioGroup = ({
     }
   }
 
-  let gap = isRow ? '20px' : '8px'
+  let gap = horizontal ? '20px' : '8px'
   gap = customGap || gap
 
   return (
@@ -38,8 +38,9 @@ const RadioGroup = ({
     >
       <HStack
         gap={gap}
-        flexDirection={isRow ? 'row' : 'column'}
+        flexDirection={horizontal ? 'row' : 'column'}
         alignItems='flex-start'
+        flexWrap='wrap'
       >
         {children}
       </HStack>

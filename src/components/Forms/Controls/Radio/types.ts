@@ -14,7 +14,7 @@ export type RadioGroupProps = Omit<
 > & {
   name: string
   defaultValue?: string
-  isRow?: boolean
+  horizontal?: boolean
   onChange?: (name: string, selectedValue: string) => void
   customGap?: string
 }

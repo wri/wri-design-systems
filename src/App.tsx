@@ -21,6 +21,7 @@ import LegendPanelDemo from './components/Geospatial/Legends/LegendPanel/LegendP
 import SelectDemo from './components/Forms/Inputs/Select/SelectDemo'
 import MultiActionButtonDemo from './components/Forms/Buttons/MultiActionButton/MultiActionButtonDemo'
 import CheckboxListDemo from './components/Forms/Inputs/CheckboxList/CheckboxListDemo'
+import RadioListDemo from './components/Forms/Inputs/RadioList/RadioListDemo'
 
 const App = () => (
   <div className='App'>
@@ -34,6 +35,7 @@ const App = () => (
           gap: 25,
         }}
       >
+        <RadioListDemo />
         <CheckboxListDemo />
         <MultiActionButtonDemo />
         <SelectDemo />

@@ -47,6 +47,7 @@ export const WithDefaultValue: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
+    defaultValue: 'checkbox-2',
     checkboxes: [
       {
         children: 'Checkbox 1',
@@ -64,7 +65,6 @@ export const WithDefaultValue: Story = {
         value: 'checkbox-3',
       },
     ],
-    defaultValue: 'checkbox-2',
     required: true,
   },
 }
@@ -73,6 +73,7 @@ export const Horizontal: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
+    defaultValue: 'checkbox-2',
     checkboxes: [
       {
         children: 'Checkbox 1',
@@ -90,7 +91,6 @@ export const Horizontal: Story = {
         value: 'checkbox-3',
       },
     ],
-    defaultValue: 'checkbox-2',
     required: true,
     horizontal: true,
   },
@@ -100,6 +100,8 @@ export const WithErrorMessage: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
+    defaultValue: 'checkbox-2',
+    errorMessage: 'Error Message',
     checkboxes: [
       {
         children: 'Checkbox 1',
@@ -117,8 +119,6 @@ export const WithErrorMessage: Story = {
         value: 'checkbox-3',
       },
     ],
-    defaultValue: 'checkbox-2',
-    errorMessage: 'Error Message',
     required: true,
   },
 }

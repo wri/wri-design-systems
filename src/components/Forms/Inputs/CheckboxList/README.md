@@ -58,6 +58,7 @@ type CheckboxListProps = {
 <CheckboxList
   label='Label'
   caption='Caption'
+  defaultValue='checkbox-2'
   checkboxes={[
     {
       children: 'Checkbox 1',
@@ -75,7 +76,6 @@ type CheckboxListProps = {
       value: 'checkbox-3',
     },
   ]}
-  defaultValue='checkbox-2'
   required
 />
 ```
@@ -114,6 +114,7 @@ type CheckboxListProps = {
 <CheckboxList
   label='Label'
   caption='Caption'
+  errorMessage='Error Message'
   checkboxes={[
     {
       children: 'Checkbox 1',
@@ -131,7 +132,6 @@ type CheckboxListProps = {
       value: 'checkbox-3',
     },
   ]}
-  errorMessage='Error Message'
   required
 />
 ```
