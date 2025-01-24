@@ -43,9 +43,10 @@ const RadioList = ({
           onChange={onCheckedChange}
           horizontal={horizontal}
         >
-          {radios.map((radio) => <Radio key={radio.value} {...radio} />)}
+          {radios.map((radio) => (
+            <Radio key={radio.value} {...radio} />
+          ))}
         </RadioGroup>
-
       </RadioListContentList>
     </RadioListContent>
   </RadioListContainer>
