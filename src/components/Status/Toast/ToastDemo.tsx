@@ -4,7 +4,7 @@ const ToastDemo = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
     <div style={{ display: 'flex', gap: '16px' }}>
       <Button
-        label='Info - Top Start'
+        label='Info - Top Left'
         variant='primary'
         onClick={() =>
           showToast({
@@ -22,7 +22,7 @@ const ToastDemo = () => (
         }
       />
       <Button
-        label='Success - Top End'
+        label='Success - Top Right'
         variant='primary'
         onClick={() =>
           showToast({
@@ -41,7 +41,7 @@ const ToastDemo = () => (
     </div>
     <div style={{ display: 'flex', gap: '16px' }}>
       <Button
-        label='Warning - Bottom Start'
+        label='Warning - Bottom Left'
         variant='primary'
         onClick={() =>
           showToast({
@@ -53,7 +53,7 @@ const ToastDemo = () => (
         }
       />
       <Button
-        label='Error - Bottom End'
+        label='Error - Bottom Right'
         variant='primary'
         onClick={() =>
           showToast({
@@ -67,7 +67,7 @@ const ToastDemo = () => (
     </div>
     <div style={{ display: 'flex', gap: '16px' }}>
       <Button
-        label='Loading - Bottom End'
+        label='Loading - Bottom Right'
         variant='primary'
         onClick={() =>
           showToast({

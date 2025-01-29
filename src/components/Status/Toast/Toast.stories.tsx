@@ -226,7 +226,7 @@ export const WithAction: Story = {
   ],
 }
 
-export const TopStart: Story = {
+export const TopLeft: Story = {
   decorators: [
     () => (
       <Button
@@ -245,7 +245,7 @@ export const TopStart: Story = {
   ],
 }
 
-export const TopEnd: Story = {
+export const TopRight: Story = {
   decorators: [
     () => (
       <Button
@@ -264,7 +264,7 @@ export const TopEnd: Story = {
   ],
 }
 
-export const BottomStart: Story = {
+export const BottomLeft: Story = {
   decorators: [
     () => (
       <Button
@@ -283,7 +283,7 @@ export const BottomStart: Story = {
   ],
 }
 
-export const BottomEnd: Story = {
+export const BottomRight: Story = {
   decorators: [
     () => (
       <Button
