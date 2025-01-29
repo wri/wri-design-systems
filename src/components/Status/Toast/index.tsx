@@ -117,9 +117,13 @@ const Toast = () =>
                 )
               ) : null}
               <Stack gap='1' flex='1' maxWidth='100%'>
-                <ChakraToastTitle>{toast.title}</ChakraToastTitle>
+                <ChakraToastTitle aria-label={`${toast.title}`}>
+                  {toast.title}
+                </ChakraToastTitle>
                 {toast.description ? (
-                  <ChakraToastCaption>{toast.description}</ChakraToastCaption>
+                  <ChakraToastCaption aria-label={`${toast.description}`}>
+                    {toast.description}
+                  </ChakraToastCaption>
                 ) : null}
               </Stack>
             </Stack>
@@ -142,6 +146,7 @@ const Toast = () =>
                 {toast.meta?.closable ? (
                   <ChakraToastCloseTrigger
                     label={toast.meta.closableLabel}
+                    aria-label={toast.meta?.closableLabel || 'Dismiss'}
                     leftIcon={<CloseIcon height='10px!' width='10px!' />}
                     size='small'
                     variant='secondary'
