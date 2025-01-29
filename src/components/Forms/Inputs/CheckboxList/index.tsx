@@ -40,16 +40,20 @@ const CheckboxList = ({
   }
 
   return (
-    <CheckboxListContainer>
+    <CheckboxListContainer aria-roledescription='group' aria-labelledby={label}>
       {errorMessage ? <CheckboxListErrorBar /> : null}
       <CheckboxListContent hasErrorMessage={!!errorMessage}>
-        <CheckboxListLabel>
-          {required && <span>*</span>}
+        <CheckboxListLabel aria-label={label}>
+          {required && <span aria-label='required'>*</span>}
           {label}
         </CheckboxListLabel>
-        <CheckboxListCaption>{caption}</CheckboxListCaption>
+        <CheckboxListCaption aria-label={caption}>
+          {caption}
+        </CheckboxListCaption>
         {errorMessage ? (
-          <CheckboxListErrorMessage>{errorMessage}</CheckboxListErrorMessage>
+          <CheckboxListErrorMessage aria-label={errorMessage}>
+            {errorMessage}
+          </CheckboxListErrorMessage>
         ) : null}
         <CheckboxListContentList horizontal={horizontal}>
           {checkboxes.map((checkbox) => (

@@ -25,16 +25,18 @@ const RadioList = ({
   horizontal,
   required,
 }: RadioListProps) => (
-  <RadioListContainer>
+  <RadioListContainer aria-roledescription='group' aria-labelledby={label}>
     {errorMessage ? <RadioListErrorBar /> : null}
     <RadioListContent hasErrorMessage={!!errorMessage}>
-      <RadioListLabel>
-        {required && <span>*</span>}
+      <RadioListLabel aria-label={label}>
+        {required && <span aria-label='required'>*</span>}
         {label}
       </RadioListLabel>
-      <RadioListCaption>{caption}</RadioListCaption>
+      <RadioListCaption aria-label={caption}>{caption}</RadioListCaption>
       {errorMessage ? (
-        <RadioListErrorMessage>{errorMessage}</RadioListErrorMessage>
+        <RadioListErrorMessage aria-label={errorMessage}>
+          {errorMessage}
+        </RadioListErrorMessage>
       ) : null}
       <RadioListContentList>
         <RadioGroup
