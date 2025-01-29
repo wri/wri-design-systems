@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+import React from 'react'
 
 import { RadioListProps } from './types'
 import Radio from '../../Controls/Radio'

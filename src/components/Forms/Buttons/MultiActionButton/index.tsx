@@ -36,7 +36,7 @@ const MultiActionButton = ({
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Group attached>
+    <Group attached aria-disabled={rest.disabled}>
       <Button
         label={mainActionLabel}
         variant={variant}

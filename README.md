@@ -142,6 +142,7 @@ function App() {
 ## Status
 
 - [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/InlineMessage)
+- [Toast](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Toast)
 
 ## Building the lib
 

@@ -44,3 +44,4 @@ export { default as TabBar } from './Navigation/TabBar'
 
 // -- Status -- //
 export { default as InlineMessage } from './Status/InlineMessage'
+export { default as Toast, showToast } from './Status/Toast'
