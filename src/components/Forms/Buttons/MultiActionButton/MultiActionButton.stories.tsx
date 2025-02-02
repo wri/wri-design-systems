@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
+/* eslint-disable no-console */
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import MultiActionButton from '.'

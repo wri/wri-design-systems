@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Button, showToast } from '../..'
 
 const ToastDemo = () => (

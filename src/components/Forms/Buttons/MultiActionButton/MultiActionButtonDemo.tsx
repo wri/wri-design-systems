@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { MultiActionButton } from '../../..'
 
 const MultiActionButtonDemo = () => (
