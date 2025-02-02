@@ -17,7 +17,9 @@ const SliderThumbs = (props: { value?: number[] }) => {
     <For each={value}>
       {(_, index) => (
         <StyledSliderThumb key={index} index={index}>
-          <StyledSliderThumbLabel>{_}</StyledSliderThumbLabel>
+          <StyledSliderThumbLabel className='slider-value-preview'>
+            {_}
+          </StyledSliderThumbLabel>
           <ChakraSlider.HiddenInput />
         </StyledSliderThumb>
       )}

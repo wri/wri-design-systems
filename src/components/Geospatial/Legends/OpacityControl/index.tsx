@@ -67,7 +67,11 @@ const OpacityControl = ({
                   className='opacity-control-text-input'
                   onClick={(e: any) => e.target.select()}
                 />
-                <p style={{ position: 'absolute', top: '18.5px', right: '5px' }}>%</p>
+                <p
+                  style={{ position: 'absolute', top: '18.5px', right: '5px' }}
+                >
+                  %
+                </p>
               </div>
               <Slider
                 min={0}

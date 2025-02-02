@@ -18,6 +18,10 @@ export const StyledSliderThumb = styled(Slider.Thumb)`
   &[data-hover] {
     outline: 4px solid
       color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
+
+    .slider-value-preview {
+      display: flex;
+    }
   }
 
   &[data-dragging] {
