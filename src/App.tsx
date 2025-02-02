@@ -25,6 +25,7 @@ import RadioListDemo from './components/Forms/Inputs/RadioList/RadioListDemo'
 import ToastDemo from './components/Status/Toast/ToastDemo'
 import { Toast } from './components'
 import SliderInputDemo from './components/Forms/Inputs/SliderInput/SliderInputDemo'
+import OptionCardDemo from './components/Forms/Controls/OptionCard/OptionCardDemo'
 
 const App = () => (
   <div className='App'>
@@ -38,6 +39,7 @@ const App = () => (
           gap: 25,
         }}
       >
+        <OptionCardDemo />
         <SliderInputDemo />
         <ToastDemo />
         <RadioListDemo />

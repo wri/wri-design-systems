@@ -101,6 +101,7 @@ function App() {
 ### Controls
 
 - [Checkbox](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Checkbox)
+- [OptionCard](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/OptionCard)
 - [Radio Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Radio)
 - [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Slider)
 - [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Switch)
