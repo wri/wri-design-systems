@@ -108,6 +108,7 @@ const SliderInput = ({
             type='number'
             onChange={(e) => handleInputChanged(e, 0)}
             className='opacity-control-text-input'
+            onClick={(e: any) => e.target.select()}
           />
         )}
         <Slider
@@ -124,6 +125,7 @@ const SliderInput = ({
             type='number'
             onChange={(e) => handleInputChanged(e, 1)}
             className='opacity-control-text-input'
+            onClick={(e: any) => e.target.select()}
           />
         ) : null}
       </SliderInputContent>

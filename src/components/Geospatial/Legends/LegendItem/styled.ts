@@ -28,7 +28,7 @@ export const LegendItemHeaderContainer = styled.div`
   margin-bottom: 16px;
 `
 
-export const LegendItemLayerName = styled.p`
+export const LegendItemLayerName = styled.h3`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;

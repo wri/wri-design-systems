@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState } from 'react'
 
 import { Popover as ChakraPopover } from '@chakra-ui/react'
@@ -58,14 +57,18 @@ const OpacityControl = ({
           <OpacityControlBody>
             <OpacityControlLabel>Opacity</OpacityControlLabel>
             <OpacityControlTextInputContainer>
-              <TextInput
-                aria-label='Opacity'
-                min='0'
-                max='100'
-                value={`${opacity}%`}
-                onChange={handleOpacityChanged}
-                className='opacity-control-text-input'
-              />
+              <div style={{ position: 'relative' }}>
+                <TextInput
+                  aria-label='Opacity'
+                  min='0'
+                  max='100'
+                  value={opacity}
+                  onChange={handleOpacityChanged}
+                  className='opacity-control-text-input'
+                  onClick={(e: any) => e.target.select()}
+                />
+                <p style={{ position: 'absolute', top: '18.5px', right: '5px' }}>%</p>
+              </div>
               <Slider
                 min={0}
                 max={100}
