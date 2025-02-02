@@ -36,9 +36,14 @@ const SliderDemo = () => (
       ]}
       step={25}
     />
-    <Slider width='280px' value={[20, 80]} />
+    <Slider width='280px' defaultValue={[20, 80]} />
     <Slider width='280px' min={-100} max={100} defaultValue={[0]} isCentred />
-    <Slider width='280px' value={[70]} marks={[0, 25, 50, 75, 100]} disabled />
+    <Slider
+      width='280px'
+      defaultValue={[70]}
+      marks={[0, 25, 50, 75, 100]}
+      disabled
+    />
   </div>
 )
 

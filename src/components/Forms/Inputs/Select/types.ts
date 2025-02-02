@@ -17,7 +17,7 @@ export type SelectProps = Omit<
   | 'defaultChecked'
   | 'invalid'
 > & {
-  label: string
+  label?: string
   caption?: string
   placeholder: string
   defaultValue?: string[]

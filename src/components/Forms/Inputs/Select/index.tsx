@@ -114,7 +114,7 @@ const Select = ({
   }
 
   return (
-    <SelectContainer size={size}>
+    <SelectContainer size={size} style={rest.style}>
       {errorMessage ? <SelectErrorBar /> : null}
       <SelectRoot
         collection={selectItems}
@@ -133,11 +133,11 @@ const Select = ({
           {required && <span>*</span>}
           {label}
         </StyledSelectLabel>
-        {caption && (
+        {caption ? (
           <StyledSelectCaption size={size} disabled={disabled}>
             {caption}
           </StyledSelectCaption>
-        )}
+        ) : null}
         {errorMessage && (
           <SelectErrorMessage size={size}>{errorMessage}</SelectErrorMessage>
         )}

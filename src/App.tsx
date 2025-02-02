@@ -24,6 +24,7 @@ import CheckboxListDemo from './components/Forms/Inputs/CheckboxList/CheckboxLis
 import RadioListDemo from './components/Forms/Inputs/RadioList/RadioListDemo'
 import ToastDemo from './components/Status/Toast/ToastDemo'
 import { Toast } from './components'
+import SliderInputDemo from './components/Forms/Inputs/SliderInput/SliderInputDemo'
 
 const App = () => (
   <div className='App'>
@@ -37,6 +38,7 @@ const App = () => (
           gap: 25,
         }}
       >
+        <SliderInputDemo />
         <ToastDemo />
         <RadioListDemo />
         <CheckboxListDemo />

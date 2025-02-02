@@ -26,11 +26,12 @@ export const OpacityControlTextInputContainer = styled.div`
   gap: 12px;
 
   .text-input-container {
-    width: 70px;
+    width: 48px;
     margin: 0px;
 
     .chakra-input {
       padding: 4px;
+      width: 48px;
     }
   }
 
