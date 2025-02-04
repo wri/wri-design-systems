@@ -35,12 +35,7 @@ const TagDemo = () => (
       />
     </div>
     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-      <Tag
-        label='Small'
-        size='small'
-        variant='info-grey'
-        icon={<InfoIcon />}
-      />
+      <Tag label='Small' size='small' variant='info-grey' icon={<InfoIcon />} />
       <Tag label='Default' variant='info-grey' icon={<InfoIcon />} closable />
       <Tag
         label='Large'
@@ -59,12 +54,7 @@ const TagDemo = () => (
       />
     </div>
     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-      <Tag
-        label='Small'
-        size='small'
-        variant='success'
-        icon={<InfoIcon />}
-      />
+      <Tag label='Small' size='small' variant='success' icon={<InfoIcon />} />
       <Tag label='Default' variant='success' icon={<InfoIcon />} closable />
       <Tag
         label='Large'
@@ -83,18 +73,8 @@ const TagDemo = () => (
       />
     </div>
     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-      <Tag
-        label='Small'
-        size='small'
-        variant='warning'
-        icon={<InfoIcon />}
-      />
-      <Tag
-        label='Default'
-        variant='warning'
-        icon={<InfoIcon />}
-        closable
-      />
+      <Tag label='Small' size='small' variant='warning' icon={<InfoIcon />} />
+      <Tag label='Default' variant='warning' icon={<InfoIcon />} closable />
       <Tag
         label='Large'
         size='large'
@@ -112,18 +92,8 @@ const TagDemo = () => (
       />
     </div>
     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-      <Tag
-        label='Small'
-        size='small'
-        variant='error'
-        icon={<InfoIcon />}
-      />
-      <Tag
-        label='Default'
-        variant='error'
-        icon={<InfoIcon />}
-        closable
-      />
+      <Tag label='Small' size='small' variant='error' icon={<InfoIcon />} />
+      <Tag label='Default' variant='error' icon={<InfoIcon />} closable />
       <Tag
         label='Large'
         size='large'

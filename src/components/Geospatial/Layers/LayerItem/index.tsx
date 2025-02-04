@@ -41,10 +41,7 @@ const LayerItem = ({
             >
               {label}
             </LayerName>
-            <LayerCaption
-              aria-label={caption}
-              disabled={disabled}
-            >
+            <LayerCaption aria-label={caption} disabled={disabled}>
               {caption}
             </LayerCaption>
           </SwitchContent>
