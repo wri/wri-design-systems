@@ -15,17 +15,17 @@ export const SwitchContent = styled.div`
   display: flex;
   flex-direction: column;
 `
-export const LayerName = styled.p`
+export const LayerName = styled.p<{ disabled?: boolean }>`
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-  color: ${getThemedColor('neutral', 800)};
+  color: ${({ disabled }) => getThemedColor('neutral', disabled ? 500 : 800)};
 `
-export const LayerCaption = styled.p`
+export const LayerCaption = styled.p<{ disabled?: boolean }>`
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   text-align: left;
-  color: ${getThemedColor('neutral', 600)};
+  color: ${({ disabled }) => getThemedColor('neutral', disabled ? 500 : 600)};
 `

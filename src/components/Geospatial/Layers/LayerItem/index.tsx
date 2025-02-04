@@ -34,8 +34,19 @@ const LayerItem = ({
       {isSwitch ? (
         <SwitchContainer>
           <SwitchContent>
-            <LayerName aria-label={label}>{label}</LayerName>
-            <LayerCaption aria-label={caption}>{caption}</LayerCaption>
+            <LayerName
+              aria-label={label}
+              aria-disabled={disabled}
+              disabled={disabled}
+            >
+              {label}
+            </LayerName>
+            <LayerCaption
+              aria-label={caption}
+              disabled={disabled}
+            >
+              {caption}
+            </LayerCaption>
           </SwitchContent>
           <Switch
             aria-label={`${label}, ${caption}`}
