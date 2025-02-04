@@ -5,7 +5,7 @@ const TextareaDemo = () => (
     <Textarea
       label='Label'
       caption='Caption'
-      placeholder='placeholder'
+      placeholder='Placeholder'
       defaultValue='Default Value'
       minLength={5}
       maxLength={200}
@@ -14,20 +14,20 @@ const TextareaDemo = () => (
     <Textarea
       label='Label'
       caption='Caption'
-      placeholder='placeholder'
+      placeholder='Placeholder'
       size='small'
     />
     <Textarea
       label='Label'
       caption='Caption'
-      placeholder='placeholder'
+      placeholder='Placeholder'
       errorMessage='Error Message'
       required
     />
     <Textarea
       label='Label'
       caption='Caption'
-      placeholder='placeholder'
+      placeholder='Placeholder'
       required
       disabled
     />

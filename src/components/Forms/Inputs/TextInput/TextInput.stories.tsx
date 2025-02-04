@@ -18,26 +18,26 @@ type Story = StoryObj<typeof meta>
 
 export const RequiredInput: Story = {
   args: {
-    label: 'Required Input',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     required: true,
   },
 }
 
 export const OptionalInput: Story = {
   args: {
-    label: 'Optional Input',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
   },
 }
 
 export const SmallInput: Story = {
   args: {
-    label: 'Small Input',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     size: 'small',
     required: true,
   },
@@ -46,8 +46,8 @@ export const SmallInput: Story = {
 export const DefaultValue: Story = {
   args: {
     label: 'Label',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     defaultValue: 'Default Value',
     required: true,
   },
@@ -56,8 +56,8 @@ export const DefaultValue: Story = {
 export const WithError: Story = {
   args: {
     label: 'Label',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     errorMessage: 'Error Message',
     required: true,
   },
@@ -66,8 +66,8 @@ export const WithError: Story = {
 export const Disabled: Story = {
   args: {
     label: 'Label',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     required: true,
     disabled: true,
   },

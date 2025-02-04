@@ -32,6 +32,10 @@ export const StyledFieldLabel = styled(Field.Label)<{
   line-height: ${({ size }) => (size === 'small' ? '20px' : '24px')};
   margin-bottom: 2px;
 
+  span {
+    color: ${({ disabled }) => getThemedColor('neutral', disabled ? 600 : 700)};
+  }
+
   .chakra-field__requiredIndicator {
     color: ${({ disabled }) =>
       disabled ? getThemedColor('neutral', 600) : getThemedColor('error', 500)};

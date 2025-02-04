@@ -18,26 +18,26 @@ type Story = StoryObj<typeof meta>
 
 export const RequiredTextarea: Story = {
   args: {
-    label: 'Required Textarea',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     required: true,
   },
 }
 
 export const OptionalTextarea: Story = {
   args: {
-    label: 'Optional Textarea',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
   },
 }
 
 export const SmallTextarea: Story = {
   args: {
-    label: 'Small Textarea',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     size: 'small',
     required: true,
   },
@@ -46,8 +46,8 @@ export const SmallTextarea: Story = {
 export const DefaultValue: Story = {
   args: {
     label: 'Label',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     defaultValue: 'Default Value',
     required: true,
   },
@@ -56,8 +56,8 @@ export const DefaultValue: Story = {
 export const ErrorMessage: Story = {
   args: {
     label: 'Label',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     errorMessage: 'Error Message',
     required: true,
   },
@@ -66,8 +66,8 @@ export const ErrorMessage: Story = {
 export const MaxLength: Story = {
   args: {
     label: 'Label',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     maxLength: 200,
     required: true,
   },
@@ -76,8 +76,8 @@ export const MaxLength: Story = {
 export const MinLength: Story = {
   args: {
     label: 'Label',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     minLength: 5,
     required: true,
   },
@@ -86,8 +86,8 @@ export const MinLength: Story = {
 export const Disabled: Story = {
   args: {
     label: 'Label',
-    caption: 'caption',
-    placeholder: 'placeholder',
+    caption: 'Caption',
+    placeholder: 'Placeholder',
     required: true,
     disabled: true,
   },

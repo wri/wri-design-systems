@@ -36,11 +36,15 @@ const Textarea = ({
       setShowMinLengthError(length < minLength)
       setShowMaxLengthError(false)
       setHelperText(`Enter at least ${minLength - length} characters`)
+    } else if (minLength && length === 0) {
+      setHelperText(`Min ${minLength} characters`)
     }
-    if (maxLength && length > maxLength) {
+    if (maxLength && length > 0) {
       setShowMinLengthError(false)
       setShowMaxLengthError(length > maxLength)
       setHelperText(`You have ${maxLength - length} characters remaining`)
+    } else if (maxLength && length === 0) {
+      setHelperText(`Max ${maxLength} characters`)
     }
   }, [])
 
@@ -71,22 +75,24 @@ const Textarea = ({
     }
   }
 
+  const hasError = !!errorMessage || showMinLengthError || showMaxLengthError
+
   return (
     <TextareaContainer size={size}>
-      {errorMessage || showMinLengthError || showMaxLengthError ? (
+      {hasError ? (
         <ErrorBar />
       ) : null}
       <Field.Root
         required={required}
-        invalid={!!errorMessage || showMinLengthError || showMaxLengthError}
+        invalid={hasError}
         gap='0'
-        style={{ marginLeft: errorMessage ? '19px' : '0px' }}
+        style={{ marginLeft: hasError ? '19px' : '0px' }}
       >
         {label ? (
           <StyledFieldLabel size={size} disabled={disabled} aria-label={label}>
             <Field.RequiredIndicator aria-label='required' />
             {label}
-            {!required ? ' (optional)' : ''}
+            {!required ? <span>{' (Optional)'}</span> : ''}
           </StyledFieldLabel>
         ) : null}
         {caption ? (
@@ -99,7 +105,7 @@ const Textarea = ({
           </StyledFieldCaption>
         ) : null}
         {errorMessage ? (
-          <StyledFieldErrorMessage>{errorMessage}</StyledFieldErrorMessage>
+          <StyledFieldErrorMessage aria-label={errorMessage}>{errorMessage}</StyledFieldErrorMessage>
         ) : null}
         <StyledTextarea
           placeholder={placeholder}
@@ -115,6 +121,7 @@ const Textarea = ({
         {showMinLengthError && minLength ? (
           <StyledFieldErrorMessage
             style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
+            aria-live='polite'
           >
             You need {minLength - value.length} more characters
           </StyledFieldErrorMessage>
@@ -122,6 +129,7 @@ const Textarea = ({
         {showMaxLengthError && maxLength ? (
           <StyledFieldErrorMessage
             style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
+            aria-live='polite'
           >
             You have {value.length - maxLength} characters too many
           </StyledFieldErrorMessage>

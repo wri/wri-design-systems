@@ -47,7 +47,7 @@ const TextInput = ({
           <StyledFieldLabel size={size} disabled={disabled} aria-label={label}>
             <Field.RequiredIndicator aria-label='required' />
             {label}
-            {!required ? ' (optional)' : ''}
+            {!required ? <span>{' (Optional)'}</span> : ''}
           </StyledFieldLabel>
         ) : null}
         {caption ? (
@@ -60,7 +60,7 @@ const TextInput = ({
           </StyledFieldCaption>
         ) : null}
         {errorMessage ? (
-          <StyledFieldErrorMessage size={size}>
+          <StyledFieldErrorMessage size={size} aria-label={errorMessage}>
             {errorMessage}
           </StyledFieldErrorMessage>
         ) : null}
