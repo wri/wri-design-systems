@@ -16,7 +16,6 @@ const TagDemo = () => (
         size='small'
         variant='info-white'
         icon={<InfoIcon />}
-        closable
       />
       <Tag label='Default' variant='info-white' icon={<InfoIcon />} closable />
       <Tag
@@ -41,7 +40,6 @@ const TagDemo = () => (
         size='small'
         variant='info-grey'
         icon={<InfoIcon />}
-        closable
       />
       <Tag label='Default' variant='info-grey' icon={<InfoIcon />} closable />
       <Tag
@@ -66,7 +64,6 @@ const TagDemo = () => (
         size='small'
         variant='success'
         icon={<InfoIcon />}
-        closable
       />
       <Tag label='Default' variant='success' icon={<InfoIcon />} closable />
       <Tag
@@ -91,11 +88,9 @@ const TagDemo = () => (
         size='small'
         variant='warning'
         icon={<InfoIcon />}
-        closable
       />
       <Tag
         label='Default'
-        size='small'
         variant='warning'
         icon={<InfoIcon />}
         closable
@@ -107,10 +102,9 @@ const TagDemo = () => (
         icon={<InfoIcon />}
         closable
       />
-      <Tag label='Label' size='small' variant='warning' />
+      <Tag label='Label' variant='warning' />
       <Tag
         label='Disabled'
-        size='small'
         variant='warning'
         icon={<InfoIcon />}
         closable
@@ -123,11 +117,9 @@ const TagDemo = () => (
         size='small'
         variant='error'
         icon={<InfoIcon />}
-        closable
       />
       <Tag
         label='Default'
-        size='small'
         variant='error'
         icon={<InfoIcon />}
         closable
@@ -139,10 +131,9 @@ const TagDemo = () => (
         icon={<InfoIcon />}
         closable
       />
-      <Tag label='Label' size='small' variant='error' />
+      <Tag label='Label' variant='error' />
       <Tag
         label='Disabled'
-        size='small'
         variant='error'
         icon={<InfoIcon />}
         closable

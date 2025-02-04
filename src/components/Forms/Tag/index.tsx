@@ -9,6 +9,7 @@ import {
   SuccessTag,
   WarningTag,
 } from './styled'
+import { CloseIcon } from '../../icons'
 
 const Tag = ({
   label,
@@ -39,12 +40,14 @@ const Tag = ({
         </ChakraTag.StartElement>
       ) : null}
       <ChakraTag.Label aria-label={label}>{label}</ChakraTag.Label>
-      {closable && !disabled ? (
+      {closable && !disabled && size !== 'small' ? (
         <ChakraTag.EndElement>
           <ChakraTag.CloseTrigger
             onClick={onClose}
             aria-label={`${label} tag close button`}
-          />
+          >
+            <CloseIcon />
+          </ChakraTag.CloseTrigger>
         </ChakraTag.EndElement>
       ) : null}
     </StyledTag>

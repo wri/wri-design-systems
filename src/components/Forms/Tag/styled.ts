@@ -7,7 +7,6 @@ export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
   padding: 4px 8px;
   border-radius: 4px;
   font-weight: 700;
@@ -21,11 +20,15 @@ export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
   svg {
     width: 10px;
     height: 10px;
+    margin-right: 4px;
   }
 
-  button svg {
-    width: 14px;
-    height: 14px;
+  button {
+    margin-left: 8px;
+
+    svg {
+      margin-right: 0px;
+    }
   }
 
   ${({ size }) =>
@@ -39,11 +42,15 @@ export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
     svg {
       width: 8px;
       height: 8px;
+      margin-right: 4px;
     }
 
-    button svg {
-      width: 12px;
-      height: 12px;
+    button {
+      margin-left: 6px;
+
+      svg {
+        margin-right: 0px;
+      }
     }
   `
       : ''}
@@ -58,11 +65,15 @@ export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
     svg {
       width: 12px;
       height: 12px;
+      margin-right: 6px;
     }
 
-    button svg {
-      width: 16px;
-      height: 16px;
+    button {
+      margin-left: 12px;
+
+      svg {
+        margin-right: 0px;
+      }
     }
   `
       : ''}
