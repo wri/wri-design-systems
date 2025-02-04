@@ -38,6 +38,10 @@ export const StyledSliderThumb = styled(Slider.Thumb)`
     box-shadow: none;
     outline: 2px solid ${getThemedColor('primary', 700)};
     outline-offset: 2px;
+
+    .slider-value-preview {
+      display: flex;
+    }
   }
 
   &[data-disabled] {
