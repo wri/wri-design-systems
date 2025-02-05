@@ -8,12 +8,12 @@ const SliderDemo = () => (
       gap: '20px',
     }}
   >
-    <Slider width='280px' min={0} max={100} defaultValue={[50]} />
+    <Slider width='280px' min={0} max={100} value={[50]} />
     <Slider
       width='280px'
       min={0}
       max={100}
-      defaultValue={[50]}
+      value={[50]}
       marks={[
         { value: 0, label: 0 },
         { value: 25, label: 25 },
@@ -26,7 +26,7 @@ const SliderDemo = () => (
       width='280px'
       min={0}
       max={100}
-      defaultValue={[50]}
+      value={[50]}
       marks={[
         { value: 0, label: 0 },
         { value: 25, label: 25 },
@@ -36,14 +36,9 @@ const SliderDemo = () => (
       ]}
       step={25}
     />
-    <Slider width='280px' defaultValue={[20, 80]} />
-    <Slider width='280px' min={-100} max={100} defaultValue={[0]} isCentred />
-    <Slider
-      width='280px'
-      defaultValue={[70]}
-      marks={[0, 25, 50, 75, 100]}
-      disabled
-    />
+    <Slider width='280px' value={[20, 80]} />
+    <Slider width='280px' min={-100} max={100} value={[0]} isCentred />
+    <Slider width='280px' value={[70]} marks={[0, 25, 50, 75, 100]} disabled />
   </div>
 )
 

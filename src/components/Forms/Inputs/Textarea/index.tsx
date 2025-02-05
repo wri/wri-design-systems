@@ -79,9 +79,7 @@ const Textarea = ({
 
   return (
     <TextareaContainer size={size}>
-      {hasError ? (
-        <ErrorBar />
-      ) : null}
+      {hasError ? <ErrorBar /> : null}
       <Field.Root
         required={required}
         invalid={hasError}
@@ -105,7 +103,9 @@ const Textarea = ({
           </StyledFieldCaption>
         ) : null}
         {errorMessage ? (
-          <StyledFieldErrorMessage aria-label={errorMessage}>{errorMessage}</StyledFieldErrorMessage>
+          <StyledFieldErrorMessage aria-label={errorMessage}>
+            {errorMessage}
+          </StyledFieldErrorMessage>
         ) : null}
         <StyledTextarea
           placeholder={placeholder}

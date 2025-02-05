@@ -19,11 +19,11 @@ export type SliderProps = Omit<
   | 'label'
   | 'defaultChecked'
   | 'origin'
+  | 'defaultValue'
 > & {
   width?: string
   min?: number
   max?: number
-  defaultValue?: number[]
   value?: number[]
   marks?: Array<number | { value: number; label: React.ReactNode }>
   step?: number

@@ -21,7 +21,7 @@ export const Continuous: Story = {
     width: '250px',
     min: 0,
     max: 100,
-    defaultValue: [50],
+    value: [50],
   },
 }
 
@@ -30,7 +30,7 @@ export const Discrete: Story = {
     width: '250px',
     min: 0,
     max: 100,
-    defaultValue: [50],
+    value: [50],
     marks: [
       { value: 0, label: 0 },
       { value: 25, label: 25 },
@@ -46,7 +46,7 @@ export const DiscreteWithSteps: Story = {
     width: '250px',
     min: 0,
     max: 100,
-    defaultValue: [50],
+    value: [50],
     marks: [
       { value: 0, label: 0 },
       { value: 25, label: 25 },
@@ -63,7 +63,7 @@ export const Range: Story = {
     width: '250px',
     min: 0,
     max: 100,
-    defaultValue: [20, 80],
+    value: [20, 80],
   },
 }
 
@@ -72,7 +72,7 @@ export const Centred: Story = {
     width: '250px',
     min: 0,
     max: 100,
-    defaultValue: [50],
+    value: [50],
     isCentred: true,
   },
 }
@@ -82,7 +82,7 @@ export const Disabled: Story = {
     width: '250px',
     min: 0,
     max: 100,
-    defaultValue: [50],
+    value: [50],
     disabled: true,
   },
 }

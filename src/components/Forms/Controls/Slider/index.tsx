@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Slider as ChakraSlider, For } from '@chakra-ui/react'
 import { SliderMarksProps, SliderProps } from './types'
@@ -58,7 +58,11 @@ const SliderMarks = React.forwardRef<HTMLDivElement, SliderMarksProps>(
 
 const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   const { marks: marksProp, onValueChange, isCentred, ...rest } = props
-  const [value, setValue] = useState(props.defaultValue || props.value || [0])
+  const [value, setValue] = useState(rest.value || [0])
+
+  useEffect(() => {
+    setValue(rest.value || [0])
+  }, [rest.value])
 
   let marks = marksProp?.map((mark) => {
     if (typeof mark === 'number') return { value: mark, label: undefined }
@@ -66,8 +70,8 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   })
 
   if (isCentred) {
-    const min = props.min || 0
-    const max = props.max || 100
+    const min = rest.min || 0
+    const max = rest.max || 100
 
     marks = [min, (min + max) / 2, max].map((mark) => ({
       value: mark,
