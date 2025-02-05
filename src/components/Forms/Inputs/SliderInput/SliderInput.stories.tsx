@@ -31,7 +31,7 @@ export const Continuous: Story = {
     sliderItem: {
       min: 0,
       max: 100,
-      defaultValue: [30],
+      value: [30],
     },
     onChange: (value) => console.log('Continuous', value),
     required: true,
@@ -46,7 +46,7 @@ export const Small: Story = {
     sliderItem: {
       min: 0,
       max: 100,
-      defaultValue: [60],
+      value: [60],
     },
     onChange: (value) => console.log('Small', value),
     required: true,
@@ -60,7 +60,7 @@ export const Discrete: Story = {
     sliderItem: {
       min: 0,
       max: 100,
-      defaultValue: [75],
+      value: [75],
       marks: [
         { value: 0, label: 0 },
         { value: 25, label: 25 },
@@ -82,7 +82,7 @@ export const Range: Story = {
     sliderItem: {
       min: 0,
       max: 100,
-      defaultValue: [20, 80],
+      value: [20, 80],
     },
     onChange: (value) => console.log('Range', value),
     required: true,
@@ -96,7 +96,7 @@ export const Centered: Story = {
     sliderItem: {
       min: -100,
       max: 100,
-      defaultValue: [0],
+      value: [0],
       isCentred: true,
     },
     onChange: (value) => console.log('Centered', value),

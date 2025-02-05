@@ -20,7 +20,7 @@ const SliderInput = ({
   required,
   onChange,
 }: SliderInputProps) => {
-  const [value, setValue] = useState(sliderItem.defaultValue || [])
+  const [value, setValue] = useState(sliderItem.value || [])
 
   const handleSliderChanged = (props: { value: number[] }) => {
     setValue(props.value)
@@ -31,6 +31,28 @@ const SliderInput = ({
   }
 
   const handleInputChanged = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    inputIndex: number,
+  ) => {
+    const inputValue = e.target.value
+
+    const newValue = [...value]
+    let newInputValue = inputValue ? parseInt(inputValue, 10) : inputValue
+
+    const min = sliderItem.min || 0
+    const max = sliderItem.max || 100
+
+    newInputValue = Number.isNaN(newInputValue)
+      ? min
+      : (newInputValue as number)
+    newInputValue = newInputValue < min ? min : newInputValue
+    newInputValue = newInputValue > max ? max : newInputValue
+
+    newValue[inputIndex] = newInputValue
+    setValue(newValue)
+  }
+
+  const handleInputBlur = (
     e: React.ChangeEvent<HTMLInputElement>,
     inputIndex: number,
   ) => {
@@ -79,12 +101,14 @@ const SliderInput = ({
 
   return (
     <SliderInputContainer>
-      <SliderInputLabel size={size}>
+      <SliderInputLabel size={size} aria-label={label}>
         {required && <span>*</span>}
         {label}
       </SliderInputLabel>
       {caption ? (
-        <SliderInputCaption size={size}>{caption}</SliderInputCaption>
+        <SliderInputCaption size={size} aria-label={caption}>
+          {caption}
+        </SliderInputCaption>
       ) : null}
 
       <SliderInputContent>
@@ -107,6 +131,7 @@ const SliderInput = ({
             value={value?.[0]}
             type='number'
             onChange={(e) => handleInputChanged(e, 0)}
+            onBlur={(e) => handleInputBlur(e, 0)}
             className='opacity-control-text-input'
             onClick={(e: any) => e.target.select()}
           />
@@ -124,6 +149,7 @@ const SliderInput = ({
             value={value?.[1]}
             type='number'
             onChange={(e) => handleInputChanged(e, 1)}
+            onBlur={(e) => handleInputBlur(e, 1)}
             className='opacity-control-text-input'
             onClick={(e: any) => e.target.select()}
           />
