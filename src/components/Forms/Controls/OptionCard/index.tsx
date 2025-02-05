@@ -35,6 +35,7 @@ const OptionCard = ({
             variant={variant}
             disabled={disabled}
             aria-label={label}
+            aria-disabled={disabled}
           >
             {label}
           </OptionCardHeaderLabel>
@@ -42,6 +43,7 @@ const OptionCard = ({
             variant={variant}
             disabled={disabled}
             aria-label={caption}
+            aria-disabled={disabled}
           >
             {caption}
           </OptionCardHeaderCaption>
