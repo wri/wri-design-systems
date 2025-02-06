@@ -26,6 +26,7 @@ import ToastDemo from './components/Status/Toast/ToastDemo'
 import { Toast } from './components'
 import SliderInputDemo from './components/Forms/Inputs/SliderInput/SliderInputDemo'
 import OptionCardDemo from './components/Forms/Controls/OptionCard/OptionCardDemo'
+import FooterDemo from './components/Navigation/Footer/FooterDemo'
 
 const App = () => (
   <div className='App'>
@@ -67,6 +68,7 @@ const App = () => (
 
       <LayerSidebar />
     </div>
+    <FooterDemo />
     <Toast />
   </div>
 )

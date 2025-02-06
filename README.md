@@ -138,6 +138,7 @@ function App() {
 
 ## Navigation
 
+- [Footer](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Footer)
 - [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
 - [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
 
