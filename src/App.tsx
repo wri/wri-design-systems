@@ -28,6 +28,7 @@ import SliderInputDemo from './components/Forms/Inputs/SliderInput/SliderInputDe
 import OptionCardDemo from './components/Forms/Controls/OptionCard/OptionCardDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
 import PasswordDemo from './components/Forms/Inputs/Password/PasswordDemo'
+import BadgeDemo from './components/Status/Badge/BadgeDemo'
 
 const App = () => (
   <div className='App'>
@@ -41,6 +42,7 @@ const App = () => (
           gap: 25,
         }}
       >
+        <BadgeDemo />
         <PasswordDemo />
         <OptionCardDemo />
         <SliderInputDemo />

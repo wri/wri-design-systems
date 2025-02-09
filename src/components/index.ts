@@ -50,5 +50,6 @@ export { default as NavigationRail } from './Navigation/NavigationRail'
 export { default as TabBar } from './Navigation/TabBar'
 
 // -- Status -- //
+export { default as Badge } from './Status/Badge'
 export { default as InlineMessage } from './Status/InlineMessage'
 export { default as Toast, showToast } from './Status/Toast'

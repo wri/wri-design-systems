@@ -145,6 +145,7 @@ function App() {
 
 ## Status
 
+- [Badge](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Badge)
 - [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/InlineMessage)
 - [Toast](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Toast)
 
