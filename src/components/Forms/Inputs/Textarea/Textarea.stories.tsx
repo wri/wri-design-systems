@@ -20,7 +20,6 @@ export const RequiredTextarea: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Placeholder',
     required: true,
   },
 }
@@ -29,7 +28,6 @@ export const OptionalTextarea: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Placeholder',
   },
 }
 
@@ -37,7 +35,6 @@ export const SmallTextarea: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Placeholder',
     size: 'small',
     required: true,
   },
@@ -47,7 +44,6 @@ export const DefaultValue: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Placeholder',
     defaultValue: 'Default Value',
     required: true,
   },
@@ -57,7 +53,6 @@ export const ErrorMessage: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Placeholder',
     errorMessage: 'Error Message',
     required: true,
   },
@@ -67,7 +62,6 @@ export const MaxLength: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Placeholder',
     maxLength: 200,
     required: true,
   },
@@ -77,7 +71,6 @@ export const MinLength: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Placeholder',
     minLength: 5,
     required: true,
   },
@@ -87,7 +80,6 @@ export const Disabled: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Placeholder',
     required: true,
     disabled: true,
   },
