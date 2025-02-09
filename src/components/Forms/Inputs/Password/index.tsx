@@ -82,11 +82,11 @@ const Password = ({
 
   return (
     <StyledPassword>
-      <PasswordLabel>
+      <PasswordLabel aria-label={label}>
         {required ? <span>*</span> : null}
         {label}
       </PasswordLabel>
-      <PasswordCaption>{caption}</PasswordCaption>
+      <PasswordCaption aria-label={caption}>{caption}</PasswordCaption>
       <PasswordContainer>
         <TextInput
           type={show ? 'text' : 'password'}

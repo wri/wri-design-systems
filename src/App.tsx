@@ -27,7 +27,7 @@ import { Toast } from './components'
 import SliderInputDemo from './components/Forms/Inputs/SliderInput/SliderInputDemo'
 import OptionCardDemo from './components/Forms/Controls/OptionCard/OptionCardDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
-import PasswordInputDemo from './components/Forms/Inputs/Password/PasswordDemo'
+import PasswordDemo from './components/Forms/Inputs/Password/PasswordDemo'
 
 const App = () => (
   <div className='App'>
@@ -41,7 +41,7 @@ const App = () => (
           gap: 25,
         }}
       >
-        <PasswordInputDemo />
+        <PasswordDemo />
         <OptionCardDemo />
         <SliderInputDemo />
         <ToastDemo />
