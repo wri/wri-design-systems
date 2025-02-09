@@ -109,6 +109,7 @@ function App() {
 ### Inputs
 
 - [Checkbox List](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/CheckboxList)
+- [Password](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Password)
 - [Radio List](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/RadioList)
 - [Select](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Select)
 - [SliderInput](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/SliderInput)
