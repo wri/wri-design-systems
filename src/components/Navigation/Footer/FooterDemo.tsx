@@ -1,11 +1,7 @@
 import { Footer } from '../..'
 
 const FooterDemo = () => (
-  <Footer
-    maxWidth={1440}
-    filled
-    fixed
-  >
+  <Footer maxWidth={1440} filled fixed>
     <a
       href='https://www.wri.org/about/privacy-policy'
       target='_blank'

@@ -40,7 +40,7 @@ export const Footer: Story = {
           Terms of service
         </a>
       </>
-    )
+    ),
   },
 }
 
@@ -64,7 +64,7 @@ export const Filled: Story = {
           Terms of service
         </a>
       </>
-    )
+    ),
   },
 }
 
@@ -89,7 +89,7 @@ export const Fixed: Story = {
           Terms of service
         </a>
       </>
-    )
+    ),
   },
 }
 
@@ -115,6 +115,6 @@ export const MaxWidth: Story = {
           Terms of service
         </a>
       </>
-    )
+    ),
   },
 }

@@ -102,7 +102,7 @@ const SliderInput = ({
   return (
     <SliderInputContainer>
       <SliderInputLabel size={size} aria-label={label}>
-        {required && <span>*</span>}
+        {required ? <span>*</span> : null}
         {label}
       </SliderInputLabel>
       {caption ? (

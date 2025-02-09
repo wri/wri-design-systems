@@ -2,7 +2,12 @@
 import React from 'react'
 
 import { FooterProps } from './types'
-import { FooterContainer, FooterContent, FooterLabel, StyledFooter } from './styled'
+import {
+  FooterContainer,
+  FooterContent,
+  FooterLabel,
+  StyledFooter,
+} from './styled'
 import { WriIcon } from '../../icons'
 
 const Footer = ({

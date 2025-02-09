@@ -1,14 +1,19 @@
 import styled from '@emotion/styled'
 import { getThemedColor } from '../../../lib/theme'
 
-export const StyledFooter = styled.footer<{ fixed?: boolean, filled?: boolean }>`
+export const StyledFooter = styled.footer<{
+  fixed?: boolean
+  filled?: boolean
+}>`
   min-height: 56px;
   width: 100vw;
   position: ${({ fixed }) => (fixed ? 'fixed' : 'absolute')};
   bottom: 0;
   left: 0;
-  background-color: ${({ filled }) => filled ? getThemedColor('neutral', 200) : 'transparent'};
-  background-color: ${({ filled }) => getThemedColor('neutral', filled ? 200 : 100)};
+  background-color: ${({ filled }) =>
+    filled ? getThemedColor('neutral', 200) : 'transparent'};
+  background-color: ${({ filled }) =>
+    getThemedColor('neutral', filled ? 200 : 100)};
   border-top: 1px solid ${getThemedColor('neutral', 400)};
   z-index: 101;
 `
@@ -16,7 +21,7 @@ export const StyledFooter = styled.footer<{ fixed?: boolean, filled?: boolean }>
 export const FooterContainer = styled.div<{ maxWidth?: number }>`
   height: 100%;
   width: 100%;
-  max-width: ${({ maxWidth }) => maxWidth ? `${maxWidth}px` : '100%'};
+  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : '100%')};
   display: flex;
   align-items: center;
   justify-content: space-between;

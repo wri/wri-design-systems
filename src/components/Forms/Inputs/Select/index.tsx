@@ -130,7 +130,7 @@ const Select = ({
         {...rest}
       >
         <StyledSelectLabel size={size}>
-          {required && <span>*</span>}
+          {required ? <span>*</span> : null}
           {label}
         </StyledSelectLabel>
         {caption ? (
