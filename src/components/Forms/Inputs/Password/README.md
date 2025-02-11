@@ -58,12 +58,7 @@ type PasswordProps = {
 ## Custom Min Characters
 
 ```tsx
-<Password
-  label='Label'
-  caption='Caption'
-  minLength={10}
-  required
-/>
+<Password label='Label' caption='Caption' minLength={10} required />
 ```
 
 ## No Uppercase Validation
@@ -121,10 +116,5 @@ type PasswordProps = {
 ## No Validations
 
 ```tsx
-<Password
-  label='Label'
-  caption='Caption'
-  hideValidations
-  required
-/>
+<Password label='Label' caption='Caption' hideValidations required />
 ```

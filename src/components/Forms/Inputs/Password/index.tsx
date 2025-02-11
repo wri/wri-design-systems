@@ -70,7 +70,7 @@ const Password = ({
     if (value.length >= minLength && strengthCount >= 4) {
       newPasswordStatus.strength = 'Strong'
     }
-    if (value.length >= (minLength + 2) && strengthCount >= 5) {
+    if (value.length >= minLength + 2 && strengthCount >= 5) {
       newPasswordStatus.strength = 'Very Strong'
     }
 
