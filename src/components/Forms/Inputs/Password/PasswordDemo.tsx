@@ -11,6 +11,12 @@ const PasswordDemo = () => (
   >
     <Password label='Label' caption='Caption' required />
     <Password
+      label='Label - minLength 10'
+      caption='Caption'
+      minLength={10}
+      required
+    />
+    <Password
       label='Label - uppercase'
       caption='Caption'
       disabledRules={{
@@ -51,6 +57,12 @@ const PasswordDemo = () => (
         numbers: true,
         specialCharacters: true,
       }}
+      required
+    />
+    <Password
+      label='Label - No validations'
+      caption='Caption'
+      hideValidations
       required
     />
   </div>

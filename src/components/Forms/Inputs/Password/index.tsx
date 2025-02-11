@@ -22,6 +22,8 @@ const Password = ({
   required,
   disabledRules,
   onChange,
+  minLength = 8,
+  hideValidations,
 }: PasswordProps) => {
   const [show, setShow] = useState(false)
   const [password, setPassword] = useState('')
@@ -39,8 +41,8 @@ const Password = ({
 
     let strengthCount = 0
     let isValid = false
-    newPasswordStatus.length = value.length >= 8
-    strengthCount += value.length >= 8 ? 1 : 0
+    newPasswordStatus.length = value.length >= minLength
+    strengthCount += value.length >= minLength ? 1 : 0
 
     isValid = /[A-Z]/.test(value)
     strengthCount += isValid ? 1 : 0
@@ -54,7 +56,7 @@ const Password = ({
     strengthCount += isValid ? 1 : 0
     newPasswordStatus.numbers = isValid
 
-    isValid = /[@$!%*?&]/.test(value)
+    isValid = /[-'/`~!¡#*$@_%+=.,^&(){}[\]|;:“‘"<>?\\]/.test(value)
     strengthCount += isValid ? 1 : 0
     newPasswordStatus.specialCharacters = isValid
 
@@ -65,10 +67,10 @@ const Password = ({
     if (value.length >= 6 && strengthCount >= 3) {
       newPasswordStatus.strength = 'Medium'
     }
-    if (value.length >= 8 && strengthCount >= 4) {
+    if (value.length >= minLength && strengthCount >= 4) {
       newPasswordStatus.strength = 'Strong'
     }
-    if (value.length >= 10 && strengthCount >= 5) {
+    if (value.length >= (minLength + 2) && strengthCount >= 5) {
       newPasswordStatus.strength = 'Very Strong'
     }
 
@@ -100,7 +102,7 @@ const Password = ({
           onClick={() => setShow(!show)}
         />
       </PasswordContainer>
-      {password ? (
+      {password && !hideValidations ? (
         <PasswordStrengthContainer>
           <PasswordStrengthLabel strength={passwordStatus.strength}>
             Password Strength: <span>{passwordStatus.strength}</span>
@@ -124,7 +126,7 @@ const Password = ({
                 />
               )}
             </div>
-            <p>Use a minimum of 8 characters</p>
+            <p>Use a minimum of {minLength} characters</p>
           </PasswordStrengthItem>
           {!disabledRules?.uppercase ? (
             <PasswordStrengthItem isValid={passwordStatus.uppercase}>

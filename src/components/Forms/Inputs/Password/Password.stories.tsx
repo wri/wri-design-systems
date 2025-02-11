@@ -33,7 +33,7 @@ export const Password: Story = {
   },
 }
 
-export const Just8Charactes: Story = {
+export const RulesDisabled: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
@@ -43,6 +43,24 @@ export const Just8Charactes: Story = {
       numbers: true,
       specialCharacters: true,
     },
+    required: true,
+  },
+}
+
+export const CustomMinCharacters: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    minLength: 10,
+    required: true,
+  },
+}
+
+export const NoValidations: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    hideValidations: true,
     required: true,
   },
 }

@@ -23,4 +23,6 @@ export type PasswordProps = {
     numbers?: boolean
     specialCharacters?: boolean
   }
+  minLength?: number
+  hideValidations?: boolean
 }

@@ -44,6 +44,8 @@ type PasswordProps = {
     numbers?: boolean
     specialCharacters?: boolean
   }
+  minLength?: number
+  hideValidations?: boolean
 }
 ```
 
@@ -51,6 +53,17 @@ type PasswordProps = {
 
 ```tsx
 <Password label='Label' caption='Caption' required />
+```
+
+## Custom Min Characters
+
+```tsx
+<Password
+  label='Label'
+  caption='Caption'
+  minLength={10}
+  required
+/>
 ```
 
 ## No Uppercase Validation
@@ -105,18 +118,13 @@ type PasswordProps = {
 />
 ```
 
-## Just 8 Charactes Validation
+## No Validations
 
 ```tsx
 <Password
   label='Label'
   caption='Caption'
-  disabledRules={{
-    uppercase: true,
-    lowercase: true,
-    numbers: true,
-    specialCharacters: true,
-  }}
+  hideValidations
   required
 />
 ```
