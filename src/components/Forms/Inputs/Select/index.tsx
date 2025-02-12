@@ -114,7 +114,11 @@ const Select = ({
   }
 
   return (
-    <SelectContainer size={size} style={rest.style}>
+    <SelectContainer
+      size={size}
+      style={rest.style}
+      className='select-input-container'
+    >
       {errorMessage ? <SelectErrorBar /> : null}
       <SelectRoot
         collection={selectItems}
@@ -129,10 +133,12 @@ const Select = ({
         style={{ marginLeft: errorMessage ? '19px' : '0px' }}
         {...rest}
       >
-        <StyledSelectLabel size={size}>
-          {required ? <span>*</span> : null}
-          {label}
-        </StyledSelectLabel>
+        {label ? (
+          <StyledSelectLabel size={size}>
+            {required ? <span>*</span> : null}
+            {label}
+          </StyledSelectLabel>
+        ) : null}
         {caption ? (
           <StyledSelectCaption size={size} disabled={disabled}>
             {caption}

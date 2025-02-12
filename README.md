@@ -101,7 +101,7 @@ function App() {
 ### Controls
 
 - [Checkbox](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Checkbox)
-- [OptionCard](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/OptionCard)
+- [Option Card](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/OptionCard)
 - [Radio Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Radio)
 - [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Slider)
 - [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Switch)
@@ -109,10 +109,11 @@ function App() {
 ### Inputs
 
 - [Checkbox List](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/CheckboxList)
+- [Input With Units](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/InputWithUnits)
 - [Password](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Password)
 - [Radio List](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/RadioList)
 - [Select](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Select)
-- [SliderInput](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/SliderInput)
+- [Slider Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/SliderInput)
 - [Text Area](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Textarea)
 - [Text Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/TextInput)
 
