@@ -46,6 +46,7 @@ export { default as QualitativeAttribute } from './Geospatial/Legends/Qualitativ
 export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 
 // -- Navigation -- //
+export { default as Breadcrumb } from './Navigation/Breadcrumb'
 export { default as Footer } from './Navigation/Footer'
 export { default as NavigationRail } from './Navigation/NavigationRail'
 export { default as TabBar } from './Navigation/TabBar'
