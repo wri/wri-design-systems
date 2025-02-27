@@ -58,7 +58,7 @@ export const wriTheme: ThemeProps = {
   },
 }
 
-export const system = createSystem(defaultConfig, {
+export const designSystemStyles = createSystem(defaultConfig, {
   theme: {
     tokens: {
       colors: wriTheme,
@@ -76,5 +76,5 @@ export const getThemedColor = (
     | 'error',
   index: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
 ): string =>
-  system.tokens.getVar(`colors.${variant}.${index}`) ||
+  designSystemStyles.tokens.getVar(`colors.${variant}.${index}`) ||
   wriTheme?.[variant]?.[index]?.value

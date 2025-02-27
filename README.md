@@ -4,7 +4,7 @@ WRI UI Library
 
 ## Requirements
 
-Node: `20.16.0`
+Node: `22.14.0`
 
 React: `18.3.1`
 
@@ -23,13 +23,13 @@ npm i @worldresources/wri-design-systems
 ## Other dependecies
 
 ```
-yarn add @chakra-ui/react @emotion/react @emotion/styled
+yarn add @chakra-ui/react@^3.1.2 @emotion/react@^11.13.3
 ```
 
 or
 
 ```
-npm i @chakra-ui/react @emotion/react @emotion/styled
+npm i @chakra-ui/react@^3.1.2 @emotion/react@^11.13.3
 ```
 
 ## Usage
@@ -71,13 +71,14 @@ export const system = createSystem(defaultConfig, {
 
 ```tsx
 import React from 'react'
-import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
+import { designSystemStyles } from "@worldresources/wri-design-systems";
 import { system } from './lib/theme'
 
 function App() {
   return (
     {/* if you want to use the default WRI Theme colors */}
-    {/* <ChakraProvider value={defaultSystem}> */}
+    {/* <ChakraProvider value={designSystemStyles}> */}
 
     {/* if you want to use your custom system Theme colors */}
     <ChakraProvider value={system}>
@@ -158,7 +159,7 @@ yarn lint-fix
 ```
 
 ```
-yarn rollup-build
+yarn build
 ```
 
 ## Publish new version

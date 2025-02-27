@@ -5,12 +5,12 @@ import './index.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import { system } from './lib/theme'
+import { designSystemStyles } from './lib/theme'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <ChakraProvider value={system}>
+    <ChakraProvider value={designSystemStyles}>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<App />}>
