@@ -12,7 +12,7 @@ export { default as IconButton } from './Forms/Buttons/IconButton'
 export { default as MultiActionButton } from './Forms/Buttons/MultiActionButton'
 
 // // Controls
-// export { default as Checkbox } from './Forms/Controls/Checkbox'
+export { default as Checkbox } from './Forms/Controls/Checkbox'
 // export { default as OptionCard } from './Forms/Controls/OptionCard'
 // export { default as OptionCardGroup } from './Forms/Controls/OptionCard/OptionCardGroup'
 // export { default as Radio } from './Forms/Controls/Radio'

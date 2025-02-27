@@ -1,8 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
 
 import { Checkbox as ChakraCheckbox } from '@chakra-ui/react'
-import { StyledCheckbox } from './styled'
+import { checkboxStyles } from './styled'
 import { CheckboxProps } from './types'
 import { CheckIcon, CheckIndeterminateIcon } from '../../../icons'
 
@@ -17,7 +16,8 @@ const Checkbox = ({
   children,
   ...rest
 }: CheckboxProps) => (
-  <StyledCheckbox
+  <ChakraCheckbox.Root
+    css={checkboxStyles}
     name={name}
     value={value}
     checked={indeterminate ? 'indeterminate' : checked}
@@ -33,7 +33,7 @@ const Checkbox = ({
       {indeterminate ? <CheckIndeterminateIcon /> : <CheckIcon />}
     </ChakraCheckbox.Control>
     <ChakraCheckbox.Label>{children}</ChakraCheckbox.Label>
-  </StyledCheckbox>
+  </ChakraCheckbox.Root>
 )
 
 export default Checkbox
