@@ -1,9 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
 
 import { Switch as ChakraSwitch } from '@chakra-ui/react'
 import { SwitchProps } from './types'
-import { StyledSwitch, SwitchAndLabelContainer } from './styled'
+import { rootSwitchStyles } from './styled'
 import { CheckIcon } from '../../../icons'
 
 const Switch = ({
@@ -22,8 +21,9 @@ const Switch = ({
   }
 
   return (
-    <SwitchAndLabelContainer>
-      <StyledSwitch
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <ChakraSwitch.Root
+        css={rootSwitchStyles}
         id={name}
         name={name}
         aria-label={rest['aria-label'] || name}
@@ -48,8 +48,8 @@ const Switch = ({
         {!isLabelOnLeft && children != null ? (
           <ChakraSwitch.Label>{children}</ChakraSwitch.Label>
         ) : null}
-      </StyledSwitch>
-    </SwitchAndLabelContainer>
+      </ChakraSwitch.Root>
+    </div>
   )
 }
 
