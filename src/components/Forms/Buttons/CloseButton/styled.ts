@@ -1,8 +1,7 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react';
 import { getThemedColor } from '../../../../lib/theme'
-import IconButton from '../IconButton'
 
-export const StyledCloseButton = styled(IconButton)`
+export const closeButtonStyles = css`
   width: 20px !important;
   padding: 0 !important;
   min-width: 20px !important;
