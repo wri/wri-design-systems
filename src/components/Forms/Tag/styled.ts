@@ -1,12 +1,13 @@
-import { Tag as ChakraTag } from '@chakra-ui/react'
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
+import { TagProps } from './types'
 
-export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
+export const baseTagStyles = (size: TagProps['size']) => css`
   max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0;
   padding: 4px 8px;
   border-radius: 4px;
   font-weight: 700;
@@ -17,10 +18,20 @@ export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
   font-size: 12px;
   line-height: 16px;
 
+  .chakra-tag__startElement {
+    width: 14px;
+    height: 10px;
+  }
+
   svg {
     width: 10px;
     height: 10px;
     margin-right: 4px;
+  }
+
+  .chakra-tag__endElement {
+    width: 18px;
+    height: 10px;
   }
 
   button {
@@ -31,13 +42,17 @@ export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
     }
   }
 
-  ${({ size }) =>
-    size === 'small'
-      ? `
+  ${size === 'small'
+    ? `
     height: 16px;
     border: none !important;
     font-size: 10px;
     line-height: 12px;
+
+    .chakra-tag__startElement {
+      width: 12px;
+      height: 8px;
+    }
 
     svg {
       width: 8px;
@@ -53,19 +68,28 @@ export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
       }
     }
   `
-      : ''}
+    : ''}
 
-  ${({ size }) =>
-    size === 'large'
-      ? `
+  ${size === 'large'
+    ? `
     height: 32px;
     font-size: 16px;
     line-height: 24px;
+
+    .chakra-tag__startElement {
+      width: 18px;
+      height: 12px;
+    }
 
     svg {
       width: 12px;
       height: 12px;
       margin-right: 6px;
+    }
+
+    .chakra-tag__endElement {
+      width: 22px;
+      height: 12px;
     }
 
     button {
@@ -76,7 +100,12 @@ export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
       }
     }
   `
-      : ''}
+    : ''}
+
+  .chakra-tag__startElement,
+  .chakra-tag__endElement {
+    margin: 0;
+  }
 
   .chakra-tag__startElement,
   .chakra-tag__endElement,
@@ -87,6 +116,7 @@ export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
 
     &:focus-visible {
       --focus-ring-color: ${getThemedColor('primary', 700)};
+      outline-offset: 2px;
     }
   }
 
@@ -101,29 +131,29 @@ export const DefaultTag = styled(ChakraTag.Root)<{ size: string }>`
   }
 `
 
-export const InfoWhiteTag = styled(DefaultTag)`
+export const infoWhiteTagStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
   border: 1px solid ${getThemedColor('neutral', 300)};
 `
 
-export const InfoGreyTag = styled(DefaultTag)`
+export const infoGreyTagStyles = css`
   background-color: ${getThemedColor('neutral', 200)};
   border: 1px solid ${getThemedColor('neutral', 400)};
 `
 
-export const SuccessTag = styled(DefaultTag)`
+export const successTagStyles = css`
   background-color: ${getThemedColor('success', 100)};
   border: 1px solid ${getThemedColor('success', 200)};
   color: ${getThemedColor('success', 500)};
 `
 
-export const WarningTag = styled(DefaultTag)`
+export const warningTagStyles = css`
   background-color: ${getThemedColor('warning', 100)};
   border: 1px solid ${getThemedColor('warning', 200)};
   color: ${getThemedColor('warning', 500)};
 `
 
-export const ErrorTag = styled(DefaultTag)`
+export const errorTagStyles = css`
   background-color: ${getThemedColor('error', 100)};
   border: 1px solid ${getThemedColor('error', 200)};
   color: ${getThemedColor('error', 500)};

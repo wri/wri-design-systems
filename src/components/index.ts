@@ -31,7 +31,7 @@ export { default as Switch } from './Forms/Controls/Switch'
 // export { default as TextInput } from './Forms/Inputs/TextInput'
 
 // // Tags
-// export { default as Tag } from './Forms/Tag'
+export { default as Tag } from './Forms/Tag'
 
 // // -- Geospatial -- //
 
