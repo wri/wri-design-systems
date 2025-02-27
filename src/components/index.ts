@@ -18,7 +18,7 @@ export { default as Checkbox } from './Forms/Controls/Checkbox'
 // export { default as Radio } from './Forms/Controls/Radio'
 // export { default as RadioGroup } from './Forms/Controls/Radio/RadioGroup'
 // export { default as Slider } from './Forms/Controls/Slider'
-// export { default as Switch } from './Forms/Controls/Switch'
+export { default as Switch } from './Forms/Controls/Switch'
 
 // // Inputs
 // export { default as CheckboxList } from './Forms/Inputs/CheckboxList'

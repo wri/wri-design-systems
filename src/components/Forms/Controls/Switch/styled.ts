@@ -1,13 +1,7 @@
-import styled from '@emotion/styled'
-import { Switch } from '@chakra-ui/react'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const SwitchAndLabelContainer = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-export const StyledSwitch = styled(Switch.Root)`
+export const rootSwitchStyles = css`
   .chakra-switch__control-container {
     width: 42px;
     height: 26px;
