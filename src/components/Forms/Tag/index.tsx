@@ -1,13 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+
 import { Tag as ChakraTag } from '@chakra-ui/react'
 import { TagProps } from './types'
 import {
-  ErrorTag,
-  InfoGreyTag,
-  InfoWhiteTag,
-  SuccessTag,
-  WarningTag,
+  baseTagStyles,
+  infoWhiteTagStyles,
+  infoGreyTagStyles,
+  successTagStyles,
+  warningTagStyles,
+  errorTagStyles,
 } from './styled'
 import { CloseIcon } from '../../icons'
 
@@ -21,19 +22,23 @@ const Tag = ({
   closable,
   ...rest
 }: TagProps) => {
-  let StyledTag = InfoWhiteTag
+  let variantTagStyles = infoWhiteTagStyles
   if (variant === 'info-grey') {
-    StyledTag = InfoGreyTag
+    variantTagStyles = infoGreyTagStyles
   } else if (variant === 'success') {
-    StyledTag = SuccessTag
+    variantTagStyles = successTagStyles
   } else if (variant === 'warning') {
-    StyledTag = WarningTag
+    variantTagStyles = warningTagStyles
   } else if (variant === 'error') {
-    StyledTag = ErrorTag
+    variantTagStyles = errorTagStyles
   }
 
   return (
-    <StyledTag size={size} data-disabled={disabled} {...rest}>
+    <ChakraTag.Root
+      css={[baseTagStyles(size), variantTagStyles]}
+      data-disabled={disabled}
+      {...rest}
+    >
       {icon ? (
         <ChakraTag.StartElement aria-label={`${label} tag icon`}>
           {icon}
@@ -50,7 +55,7 @@ const Tag = ({
           </ChakraTag.CloseTrigger>
         </ChakraTag.EndElement>
       ) : null}
-    </StyledTag>
+    </ChakraTag.Root>
   )
 }
 
