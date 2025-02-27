@@ -1,8 +1,7 @@
-import styled from '@emotion/styled'
-import { Checkbox } from '@chakra-ui/react'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const StyledCheckbox = styled(Checkbox.Root)`
+export const checkboxStyles = css`
   .chakra-checkbox__control {
     width: 20px;
     height: 20px;
