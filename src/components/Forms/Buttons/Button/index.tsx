@@ -1,13 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
 
-import { Box, Spinner } from '@chakra-ui/react'
+import { Box, Spinner, Button as ChakraButton } from '@chakra-ui/react'
 import { ButtonProps } from './types'
 import {
-  BorderlessButton,
-  OutlineButton,
-  PrimaryButton,
-  SecondaryButton,
+  baseButtonStyles,
+  primaryButtonStyles,
+  secondaryButtonStyles,
+  borderlessButtonStyles,
+  outlineButtonStyles,
 } from './styled'
 
 const Button = ({
@@ -20,13 +20,13 @@ const Button = ({
   rightIcon,
   ...rest
 }: ButtonProps) => {
-  let StyledButton = PrimaryButton
+  let variantButtonStyles = primaryButtonStyles
   if (variant === 'secondary') {
-    StyledButton = SecondaryButton
+    variantButtonStyles = secondaryButtonStyles
   } else if (variant === 'borderless') {
-    StyledButton = BorderlessButton
+    variantButtonStyles = borderlessButtonStyles
   } else if (variant === 'outline') {
-    StyledButton = OutlineButton
+    variantButtonStyles = outlineButtonStyles
   }
 
   const getAriaLabel = () => {
@@ -40,9 +40,9 @@ const Button = ({
   }
 
   return (
-    <StyledButton
+    <ChakraButton
       aria-label={getAriaLabel()}
-      size={size}
+      css={[baseButtonStyles(size), variantButtonStyles(disabled)]}
       disabled={disabled || loading}
       aria-disabled={disabled || loading}
       {...rest}
@@ -64,7 +64,7 @@ const Button = ({
       {!!rightIcon && loading ? (
         <Spinner size='sm' marginLeft={label ? 2 : 0} />
       ) : null}
-    </StyledButton>
+    </ChakraButton>
   )
 }
 
