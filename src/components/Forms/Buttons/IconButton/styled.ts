@@ -1,8 +1,8 @@
-import styled from '@emotion/styled'
-import { Button } from '@chakra-ui/react'
+import { css } from '@emotion/react';
+
 import { getThemedColor } from '../../../../lib/theme'
 
-export const StyledIconButton = styled(Button)`
+export const iconButtonStyles = css`
   width: 20px !important;
   padding: 0 !important;
   min-width: 20px !important;

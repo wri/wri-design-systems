@@ -1,17 +1,19 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
 
-import { StyledIconButton } from './styled'
+import { Button as ChakraButton } from '@chakra-ui/react'
+
+import { iconButtonStyles } from './styled'
 import { IconButtonProps } from './types'
 
 const IconButton = ({ icon, disabled, ...rest }: IconButtonProps) => (
-  <StyledIconButton
+  <ChakraButton
+    css={iconButtonStyles}
     aria-label={rest['aria-label']}
     disabled={disabled}
     {...rest}
   >
     {icon}
-  </StyledIconButton>
+  </ChakraButton>
 )
 
 export default IconButton
