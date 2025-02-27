@@ -33,12 +33,7 @@ export default [
       postcss({ extensions: ['.css'], inject: true, extract: false }),
       terser(),
     ],
-    external: [
-      'react',
-      'react-dom',
-      '@chakra-ui/react',
-      '@emotion/react',
-    ],
+    external: ['react', 'react-dom', '@chakra-ui/react', '@emotion/react'],
   },
   {
     input: 'src/components/index.ts',
