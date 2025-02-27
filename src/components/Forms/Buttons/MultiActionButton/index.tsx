@@ -1,11 +1,12 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+/** @jsxImportSource @emotion/react */
+
 import React, { useState } from 'react'
 
 import { Group, Menu as ChakraMenu, Portal } from '@chakra-ui/react'
 import { MultiActionButtonProps } from './types'
 import Button from '../Button'
 import { ChevronDownIcon } from '../../../icons'
-import { StyledMenuContent, StyledMenuItem, StyledMenuTrigger } from './styled'
+import { menuContentStyles, menuTriggerStyles, menuItemStyles } from './styled'
 
 interface MenuContentProps extends ChakraMenu.ContentProps {
   portalled?: boolean
@@ -18,7 +19,7 @@ const MenuContent = React.forwardRef<HTMLDivElement, MenuContentProps>(
     return (
       <Portal disabled={!portalled} container={portalRef}>
         <ChakraMenu.Positioner>
-          <StyledMenuContent ref={ref} {...rest} />
+          <ChakraMenu.Content css={menuContentStyles} ref={ref} {...rest} />
         </ChakraMenu.Positioner>
       </Portal>
     )
@@ -31,41 +32,46 @@ const MultiActionButton = ({
   mainActionLabel,
   mainActionOnClick = () => {},
   otherActions = [],
-  ...rest
+  disabled,
 }: MultiActionButtonProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Group attached aria-disabled={rest.disabled}>
+    <Group attached aria-disabled={disabled}>
       <Button
         label={mainActionLabel}
         variant={variant}
         size={size}
         onClick={mainActionOnClick}
-        {...rest}
+        disabled={disabled}
       />
       <ChakraMenu.Root
         onOpenChange={({ open }) => setIsOpen(open)}
         positioning={{ placement: 'bottom-end' }}
       >
-        <StyledMenuTrigger asChild data-group-item data-last variant={variant}>
+        <ChakraMenu.Trigger
+          css={menuTriggerStyles(variant)}
+          data-group-item
+          data-last
+          asChild
+        >
           <Button
             variant={variant}
             size={size}
             leftIcon={<ChevronDownIcon rotate={isOpen ? '180' : '0'} />}
-            disabled={rest.disabled}
+            disabled={disabled}
           />
-        </StyledMenuTrigger>
+        </ChakraMenu.Trigger>
         <MenuContent>
           {otherActions.map(({ label, value, onClick }) => (
-            <StyledMenuItem
+            <ChakraMenu.Item
+              css={menuItemStyles(size)}
               key={value}
               onClick={onClick}
               value={value}
-              size={size}
             >
               {label}
-            </StyledMenuItem>
+            </ChakraMenu.Item>
           ))}
         </MenuContent>
       </ChakraMenu.Root>
