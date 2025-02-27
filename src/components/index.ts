@@ -9,7 +9,7 @@ export {
 
 // Buttons
 export { default as Button } from './Forms/Buttons/Button'
-// export { default as CloseButton } from './Forms/Buttons/CloseButton'
+export { default as CloseButton } from './Forms/Buttons/CloseButton'
 export { default as IconButton } from './Forms/Buttons/IconButton'
 // export { default as MultiActionButton } from './Forms/Buttons/MultiActionButton'
 

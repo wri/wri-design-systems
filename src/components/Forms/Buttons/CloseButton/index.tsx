@@ -1,12 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
 
-import { StyledCloseButton } from './styled'
+import { closeButtonStyles } from './styled'
 import { CloseButtonProps } from './types'
 import { CloseIcon } from '../../../icons'
+import { IconButton } from '../../..'
 
 const CloseButton = ({ disabled, ...rest }: CloseButtonProps) => (
-  <StyledCloseButton
+  <IconButton
+    css={closeButtonStyles}
     icon={<CloseIcon />}
     aria-label={rest['aria-label'] || 'Close'}
     disabled={disabled}
