@@ -2,7 +2,7 @@ import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import type { Preview } from '@storybook/react'
-import { system } from '../src/lib/theme'
+import { designSystemStyles } from '../src/lib/theme'
 
 const preview: Preview = {
   parameters: {
@@ -15,7 +15,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story: any) => (
-      <ChakraProvider value={system}>
+      <ChakraProvider value={designSystemStyles}>
         <MemoryRouter>
           <Story />
         </MemoryRouter>

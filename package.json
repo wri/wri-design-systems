@@ -1,25 +1,24 @@
 {
   "name": "@worldresources/wri-design-systems",
-  "version": "2.0.0",
+  "version": "2.0.88",
   "description": "WRI UI Library",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf dist && rollup -c",
+    "build-dev": "rm -rf dist && rollup -c --watch",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "eslint src/**/*.ts src/**/*.tsx",
     "prettier": "prettier --write --loglevel warn .",
-    "lint-fix": "yarn lint --fix && yarn prettier",
-    "rollup-dev": "rollup -c --watch",
-    "rollup-build": "rollup -c"
+    "lint-fix": "yarn lint --fix && yarn prettier"
   },
   "eslintConfig": {
     "extends": [
@@ -45,9 +44,8 @@
     "@chakra-ui/storybook-addon": "^5.2.5",
     "@chromatic-com/storybook": "^1.9.0",
     "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "@rollup/plugin-commonjs": "^28.0.0",
-    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.0",
     "@storybook/addon-essentials": "^8.4.4",
@@ -76,7 +74,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.5",
     "react-scripts": "5.0.1",
-    "rollup": "^4.24.0",
+    "rollup": "^4.34.8",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
@@ -89,7 +87,6 @@
   "peerDependencies": {
     "@chakra-ui/react": "^3.1.2",
     "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
