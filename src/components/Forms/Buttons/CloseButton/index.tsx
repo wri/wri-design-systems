@@ -3,7 +3,7 @@
 import { closeButtonStyles } from './styled'
 import { CloseButtonProps } from './types'
 import { CloseIcon } from '../../../icons'
-import { IconButton } from '../../..'
+import IconButton from '../IconButton'
 
 const CloseButton = ({ disabled, ...rest }: CloseButtonProps) => (
   <IconButton
