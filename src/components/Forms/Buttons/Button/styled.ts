@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css } from '@emotion/react'
 
 import { getThemedColor } from '../../../../lib/theme'
 import { ButtonProps } from './types'
@@ -21,7 +21,7 @@ export const baseButtonStyles = (size: ButtonProps['size']) => css`
     width: ${size === 'small' ? '10px' : '16px'};
     height: ${size === 'small' ? '10px' : '16px'};
   }
-`;
+`
 
 export const primaryButtonStyles = (disabled?: boolean) => css`
   ${disabled
@@ -60,7 +60,7 @@ export const primaryButtonStyles = (disabled?: boolean) => css`
       box-shadow: 0px 1px 2px 0px #0000000D;
     }
   `}
-`;
+`
 
 export const secondaryButtonStyles = (disabled?: boolean) => css`
   ${disabled
@@ -98,7 +98,7 @@ export const secondaryButtonStyles = (disabled?: boolean) => css`
       box-shadow: 0px 1px 2px 0px #0000000D;
     }
   `}
-`;
+`
 
 export const borderlessButtonStyles = (disabled?: boolean) => css`
   ${disabled
@@ -131,7 +131,7 @@ export const borderlessButtonStyles = (disabled?: boolean) => css`
       box-shadow: 0px 1px 2px 0px #0000000D;
     }
   `}
-`;
+`
 
 export const outlineButtonStyles = (disabled?: boolean) => css`
   ${disabled
@@ -166,4 +166,4 @@ export const outlineButtonStyles = (disabled?: boolean) => css`
       background-color: ${getThemedColor('primary', 100)};
     }
   `}
-`;
+`

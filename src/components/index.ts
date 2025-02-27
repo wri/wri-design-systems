@@ -1,9 +1,7 @@
 import { designSystemStyles } from '../lib/theme'
 
 // -- Styles -- //
-export {
-  designSystemStyles,
-}
+export { designSystemStyles }
 
 // -- Forms -- //
 
