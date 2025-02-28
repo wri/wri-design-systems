@@ -1,14 +1,16 @@
+/** @jsxImportSource @emotion/react */
+
 import React, { useEffect, useState } from 'react'
 
 import { Slider as ChakraSlider, For } from '@chakra-ui/react'
 import { SliderMarksProps, SliderProps } from './types'
 import {
-  ChakraSliderRoot,
-  StyledSliderMarker,
-  StyledSliderRange,
-  StyledSliderThumb,
-  StyledSliderThumbLabel,
-  StyledSliderTrack,
+  sliderRootStyles,
+  sliderRangeStyles,
+  sliderThumbLabelStyles,
+  sliderThumbStyles,
+  sliderTrackStyles,
+  sliderMarkerStyles,
 } from './styled'
 
 const SliderThumbs = (props: { value?: number[] }) => {
@@ -16,12 +18,16 @@ const SliderThumbs = (props: { value?: number[] }) => {
   return (
     <For each={value}>
       {(_, index) => (
-        <StyledSliderThumb key={index} index={index}>
-          <StyledSliderThumbLabel className='slider-value-preview'>
+        <ChakraSlider.Thumb key={index} css={sliderThumbStyles} index={index}>
+          <div
+            // eslint-disable-next-line react/no-unknown-property
+            css={sliderThumbLabelStyles}
+            className='slider-value-preview'
+          >
             {_}
-          </StyledSliderThumbLabel>
+          </div>
           <ChakraSlider.HiddenInput />
-        </StyledSliderThumb>
+        </ChakraSlider.Thumb>
       )}
     </For>
   )
@@ -40,15 +46,14 @@ const SliderMarks = React.forwardRef<HTMLDivElement, SliderMarksProps>(
           const isMiddleMark = isCentred && index === 1
 
           return (
-            <StyledSliderMarker
+            <ChakraSlider.Marker
               key={value}
+              css={sliderMarkerStyles(isCentred, isMiddleMark)}
               value={value}
-              isCentred={isCentred}
-              isMiddleMark={isMiddleMark}
             >
               <ChakraSlider.MarkerIndicator />
               <p>{label}</p>
-            </StyledSliderMarker>
+            </ChakraSlider.Marker>
           )
         })}
       </ChakraSlider.MarkerGroup>
@@ -90,7 +95,8 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   }
 
   return (
-    <ChakraSliderRoot
+    <ChakraSlider.Root
+      css={sliderRootStyles}
       ref={ref}
       thumbAlignment='center'
       onValueChange={handleOnValueChange}
@@ -109,13 +115,13 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
         )}
         */}
       <ChakraSlider.Control data-has-mark-label={hasMarkLabel || undefined}>
-        <StyledSliderTrack>
-          <StyledSliderRange />
-        </StyledSliderTrack>
+        <ChakraSlider.Track css={sliderTrackStyles}>
+          <ChakraSlider.Range css={sliderRangeStyles} />
+        </ChakraSlider.Track>
         <SliderThumbs value={value} />
         <SliderMarks marks={marks} isCentred={isCentred} />
       </ChakraSlider.Control>
-    </ChakraSliderRoot>
+    </ChakraSlider.Root>
   )
 })
 
