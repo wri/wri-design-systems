@@ -1,18 +1,22 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
 
 import { RadioGroup as ChakraRadioGroup } from '@chakra-ui/react'
 import { RadioProps } from './types'
-import { StyledRadio } from './styled'
+import { radioGroupItemStyles } from './styled'
 
 const Radio = ({ children, value, disabled, ...rest }: RadioProps) => (
-  <StyledRadio value={value} disabled={disabled} {...rest}>
+  <ChakraRadioGroup.Item
+    css={radioGroupItemStyles}
+    value={value}
+    disabled={disabled}
+    {...rest}
+  >
     <ChakraRadioGroup.ItemHiddenInput />
     <ChakraRadioGroup.ItemIndicator className='radio-item-indicator' />
     {children ? (
       <ChakraRadioGroup.ItemText>{children}</ChakraRadioGroup.ItemText>
     ) : null}
-  </StyledRadio>
+  </ChakraRadioGroup.Item>
 )
 
 export default Radio
