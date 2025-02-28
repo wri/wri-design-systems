@@ -1,30 +1,27 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
-export const DefaultInlineMessage = styled.div<{
-  isButtonRight?: boolean
-  size: string
-}>`
+export const defaultInlineMessageStyles = (
+  size: string,
+  isButtonRight?: boolean,
+) => css`
   width: 100%;
-  min-width: ${({ size }) => (size === 'small' ? '234px' : '366px')};
+  min-width: ${size === 'small' ? '234px' : '366px'};
   border-radius: 4px;
-  padding: ${({ size }) =>
-    size === 'small' ? '8px 8px 12px 8px' : '8px 12px 12px 12px'};
+  padding: ${size === 'small' ? '8px 8px 12px 8px' : '8px 12px 12px 12px'};
   display: flex;
-  align-items: ${({ isButtonRight }) =>
-    isButtonRight ? 'center' : 'flex-start'};
-  justify-content: ${({ isButtonRight }) =>
-    isButtonRight ? 'space-between' : 'flex-start'};
-  flex-direction: ${({ isButtonRight }) => (isButtonRight ? 'row' : 'column')};
+  align-items: ${isButtonRight ? 'center' : 'flex-start'};
+  justify-content: ${isButtonRight ? 'space-between' : 'flex-start'};
+  flex-direction: ${isButtonRight ? 'row' : 'column'};
   gap: 8px;
   margin-bottom: 16px;
 
   button {
-    margin-left: ${({ isButtonRight }) => (isButtonRight ? 0 : '24px')};
+    margin-left: ${isButtonRight ? 0 : '24px'};
   }
 `
 
-export const InlineMessageHeader = styled.div`
+export const inlineMessageHeaderStyles = css`
   display: flex;
   align-items: flex-start;
   gap: 8px;
@@ -34,34 +31,34 @@ export const InlineMessageHeader = styled.div`
   }
 `
 
-export const InlineMessageTitle = styled.p<{ size: string }>`
+export const inlineMessageTitleStyles = (size: string) => css`
   color: ${getThemedColor('neutral', 800)};
-  font-size: ${({ size }) => (size === 'small' ? '14px' : '18px')};
-  line-height: ${({ size }) => (size === 'small' ? '20px' : '28px')};
+  font-size: ${size === 'small' ? '14px' : '18px'};
+  line-height: ${size === 'small' ? '20px' : '28px'};
   font-weight: 400;
 `
 
-export const InlineMessageCaption = styled.p<{ size: string }>`
+export const inlineMessageCaptionStyles = (size: string) => css`
   color: ${getThemedColor('neutral', 700)};
-  font-size: ${({ size }) => (size === 'small' ? '12px' : '16px')};
-  line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};
+  font-size: ${size === 'small' ? '12px' : '16px'};
+  line-height: ${size === 'small' ? '16px' : '24px'};
   font-weight: 400;
   margin-left: 24px;
 `
 
-export const InfoWhiteInlineMessage = styled(DefaultInlineMessage)`
+export const infoWhiteInlineMessageStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
   border: 1px solid ${getThemedColor('neutral', 300)};
   color: ${getThemedColor('neutral', 700)};
 `
 
-export const InfoGreyInlineMessage = styled(DefaultInlineMessage)`
+export const infoGreyInlineMessageStyles = css`
   background-color: ${getThemedColor('neutral', 200)};
   border: 1px solid ${getThemedColor('neutral', 300)};
   color: ${getThemedColor('neutral', 700)};
 `
 
-export const SuccessInlineMessage = styled(DefaultInlineMessage)`
+export const successInlineMessageStyles = css`
   background-color: ${getThemedColor('success', 100)};
   border: 1px solid ${getThemedColor('success', 500)};
   color: ${getThemedColor('success', 500)};
@@ -71,7 +68,7 @@ export const SuccessInlineMessage = styled(DefaultInlineMessage)`
   }
 `
 
-export const WarningInlineMessage = styled(DefaultInlineMessage)`
+export const warningInlineMessageStyles = css`
   background-color: ${getThemedColor('warning', 100)};
   border: 1px solid ${getThemedColor('warning', 500)};
   color: ${getThemedColor('warning', 500)};
@@ -81,7 +78,7 @@ export const WarningInlineMessage = styled(DefaultInlineMessage)`
   }
 `
 
-export const ErrorInlineMessage = styled(DefaultInlineMessage)`
+export const errorInlineMessageStyles = css`
   background-color: ${getThemedColor('error', 100)};
   border: 1px solid ${getThemedColor('error', 500)};
   color: ${getThemedColor('error', 500)};
