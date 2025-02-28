@@ -161,7 +161,7 @@ export const outlineButtonStyles = (disabled?: boolean) => css`
     }
 
     &:focus-visible {
-      outline-color: ${getThemedColor('primary', 800)};
+      outline-color: ${getThemedColor('primary', 700)};
       background-color: ${getThemedColor('primary', 100)};
     }
   `}
