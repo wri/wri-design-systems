@@ -32,18 +32,19 @@ const MultiActionButton = ({
   mainActionLabel,
   mainActionOnClick = () => {},
   otherActions = [],
-  disabled,
+  ...rest
 }: MultiActionButtonProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Group attached aria-disabled={disabled}>
+    <Group attached aria-disabled={rest.disabled}>
       <Button
+        css={{}}
         label={mainActionLabel}
         variant={variant}
         size={size}
         onClick={mainActionOnClick}
-        disabled={disabled}
+        {...rest}
       />
       <ChakraMenu.Root
         onOpenChange={({ open }) => setIsOpen(open)}
@@ -59,7 +60,7 @@ const MultiActionButton = ({
             variant={variant}
             size={size}
             leftIcon={<ChevronDownIcon rotate={isOpen ? '180' : '0'} />}
-            disabled={disabled}
+            disabled={rest.disabled}
           />
         </ChakraMenu.Trigger>
         <MenuContent>

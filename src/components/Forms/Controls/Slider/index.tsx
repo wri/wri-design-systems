@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
 import React, { useEffect, useState } from 'react'
@@ -19,11 +20,7 @@ const SliderThumbs = (props: { value?: number[] }) => {
     <For each={value}>
       {(_, index) => (
         <ChakraSlider.Thumb key={index} css={sliderThumbStyles} index={index}>
-          <div
-            // eslint-disable-next-line react/no-unknown-property
-            css={sliderThumbLabelStyles}
-            className='slider-value-preview'
-          >
+          <div css={sliderThumbLabelStyles} className='slider-value-preview'>
             {_}
           </div>
           <ChakraSlider.HiddenInput />
