@@ -1,21 +1,19 @@
 /* eslint-disable no-nested-ternary */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
 
 import {
   Toaster as ChakraToaster,
+  Toast as ChakraToast,
   Portal,
   Stack,
-  createToaster,
-  CreateToasterReturn,
   Spinner,
 } from '@chakra-ui/react'
 import {
-  ChakraToastActionTrigger,
-  ChakraToastCaption,
-  ChakraToastCloseTrigger,
-  ChakraToastContainer,
-  ChakraToastTitle,
+  toastActionTriggerStyles,
+  toastCaptionStyles,
+  toastCloseTriggerStyles,
+  toastContainerStyles,
+  toastTitleStyles,
 } from './styled'
 import {
   CheckCircleIcon,
@@ -24,62 +22,15 @@ import {
   InfoIcon,
   WarningIcon,
 } from '../../icons'
-import { ToastProps } from './types'
-
-const commonProps = {
-  pauseOnPageIdle: true,
-  offsets: '24px',
-}
-
-const topStartToast = createToaster({
-  placement: 'top-start',
-  ...commonProps,
-})
-
-const topEndToast = createToaster({
-  placement: 'top-end',
-  ...commonProps,
-})
-
-const bottomStartToast = createToaster({
-  placement: 'bottom-start',
-  ...commonProps,
-})
-
-const bottomEndToast = createToaster({
-  placement: 'bottom-end',
-  ...commonProps,
-})
-
-const toasters: { [key: string]: CreateToasterReturn } = {
-  'top-start': topStartToast,
-  'top-end': topEndToast,
-  'bottom-start': bottomStartToast,
-  'bottom-end': bottomEndToast,
-}
-
-export const showToast = (props: ToastProps) => {
-  const toaster = toasters[props.placement]
-
-  toaster.create({
-    title: props.label,
-    description: props.caption,
-    duration: props.duration || 5000,
-    meta: {
-      closable: props.closable,
-      icon: props.icon,
-      closableLabel: props.closableLabel,
-    },
-    ...props,
-  })
-}
+import { toasters } from './utils'
+import Button from '../../Forms/Buttons/Button'
 
 const Toast = () =>
   Object.keys(toasters).map((toaster) => (
     <Portal key={toaster}>
       <ChakraToaster toaster={toasters[toaster]} insetInline={{ mdDown: '4' }}>
         {(toast) => (
-          <ChakraToastContainer width={{ md: 'sm' }}>
+          <ChakraToast.Root css={toastContainerStyles} width={{ md: 'sm' }}>
             <Stack flexDirection='row' className='icon-container'>
               {toast.type === 'info' ? (
                 toast.meta?.icon ? (
@@ -117,20 +68,27 @@ const Toast = () =>
                 )
               ) : null}
               <Stack gap='1' flex='1' maxWidth='100%'>
-                <ChakraToastTitle aria-label={`${toast.title}`}>
+                <ChakraToast.Title
+                  css={toastTitleStyles}
+                  aria-label={`${toast.title}`}
+                >
                   {toast.title}
-                </ChakraToastTitle>
+                </ChakraToast.Title>
                 {toast.description ? (
-                  <ChakraToastCaption aria-label={`${toast.description}`}>
+                  <ChakraToast.Title
+                    css={toastCaptionStyles}
+                    aria-label={`${toast.description}`}
+                  >
                     {toast.description}
-                  </ChakraToastCaption>
+                  </ChakraToast.Title>
                 ) : null}
               </Stack>
             </Stack>
             {toast.action || toast.meta?.closable ? (
               <Stack flexDirection='row'>
                 {toast.action ? (
-                  <ChakraToastActionTrigger
+                  <Button
+                    css={toastActionTriggerStyles}
                     label={toast.action.label}
                     size='small'
                     variant={toast.type === 'info' ? 'primary' : 'secondary'}
@@ -144,7 +102,8 @@ const Toast = () =>
                   />
                 ) : null}
                 {toast.meta?.closable ? (
-                  <ChakraToastCloseTrigger
+                  <Button
+                    css={toastCloseTriggerStyles}
                     label={toast.meta.closableLabel}
                     aria-label={toast.meta?.closableLabel || 'Dismiss'}
                     leftIcon={<CloseIcon height='10px!' width='10px!' />}
@@ -155,7 +114,7 @@ const Toast = () =>
                 ) : null}
               </Stack>
             ) : null}
-          </ChakraToastContainer>
+          </ChakraToast.Root>
         )}
       </ChakraToaster>
     </Portal>

@@ -1,9 +1,7 @@
-import { Toast as ChakraToast } from '@chakra-ui/react'
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
-import Button from '../../Forms/Buttons/Button'
 
-export const ChakraToastContainer = styled(ChakraToast.Root)`
+export const toastContainerStyles = css`
   justify-content: space-between;
   align-items: center;
   gap: 8px;
@@ -48,24 +46,24 @@ export const ChakraToastContainer = styled(ChakraToast.Root)`
   }
 `
 
-export const ChakraToastTitle = styled(ChakraToast.Title)`
+export const toastTitleStyles = css`
   font-size: 18px;
   line-height: 28px;
   font-weight: 400;
   color: ${getThemedColor('neutral', 800)};
 `
 
-export const ChakraToastCaption = styled(ChakraToast.Title)`
+export const toastCaptionStyles = css`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
 `
 
-export const ChakraToastActionTrigger = styled(Button)`
+export const toastActionTriggerStyles = css`
   padding: 6px;
 `
 
-export const ChakraToastCloseTrigger = styled(Button)`
+export const toastCloseTriggerStyles = css`
   padding: 6px;
 `
