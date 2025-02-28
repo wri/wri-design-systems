@@ -72,7 +72,7 @@ const SelectMultipleValueItem = ({
   <SelectValueText placeholder={placeholder}>
     {(items: SelectItemProps[]) =>
       items.map((item) => (
-        <HStack flexDirection='row' alignItems='flex-start'>
+        <HStack key={item.value} flexDirection='row' alignItems='flex-start'>
           <Tag
             key={item.value}
             label={item.label}
