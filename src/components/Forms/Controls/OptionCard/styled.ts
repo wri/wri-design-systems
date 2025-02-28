@@ -1,8 +1,8 @@
-import styled from '@emotion/styled'
-import { RadioCard } from '@chakra-ui/react'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
+import { OptionCardProps } from './types'
 
-export const OptionCardContainer = styled(RadioCard.Item)`
+export const optionCardContainerStyles = css`
   width: 241px;
   min-height: 70px;
   padding: 12px;
@@ -41,9 +41,7 @@ export const OptionCardContainer = styled(RadioCard.Item)`
   }
 `
 
-export const OptionCardItemHiddenInput = styled(RadioCard.ItemHiddenInput)``
-
-export const OptionCardControl = styled(RadioCard.ItemControl)`
+export const optionCardControlStyles = css`
   width: 100%;
   padding: 0;
   display: flex;
@@ -55,49 +53,46 @@ export const OptionCardControl = styled(RadioCard.ItemControl)`
   }
 `
 
-export const OptionCardHeader = styled.div<{ variant: string }>`
+export const optionCardHeaderStyles = (
+  variant: OptionCardProps['variant'],
+) => css`
   width: 100%;
   display: flex;
-  flex-direction: ${({ variant }) =>
-    variant === 'centered' ? 'column' : 'row'};
+  flex-direction: ${variant === 'centered' ? 'column' : 'row'};
   align-items: center;
   gap: 12px;
 `
 
-export const OptionCardIconContainer = styled.div`
+export const optionCardIconContainerStyles = css`
   svg {
     height: 32px;
     width: 32px;
   }
 `
 
-export const OptionCardHeaderContent = styled.div`
-  width: 100%;
-`
-
-export const OptionCardHeaderLabel = styled.p<{
-  variant: string
-  disabled?: boolean
-}>`
+export const optionCardHeaderLabelStyles = (
+  variant: OptionCardProps['variant'],
+  disabled?: OptionCardProps['disabled'],
+) => css`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: ${({ disabled }) => getThemedColor('neutral', disabled ? 500 : 800)};
-  text-align: ${({ variant }) => (variant === 'centered' ? 'center' : 'left')};
+  color: ${getThemedColor('neutral', disabled ? 500 : 800)};
+  text-align: ${variant === 'centered' ? 'center' : 'left'};
 `
 
-export const OptionCardHeaderCaption = styled.p<{
-  variant: string
-  disabled?: boolean
-}>`
+export const optionCardHeaderCaptionStyles = (
+  variant: OptionCardProps['variant'],
+  disabled?: OptionCardProps['disabled'],
+) => css`
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
-  color: ${({ disabled }) => getThemedColor('neutral', disabled ? 500 : 700)};
-  text-align: ${({ variant }) => (variant === 'centered' ? 'center' : 'left')};
+  color: ${getThemedColor('neutral', disabled ? 500 : 700)};
+  text-align: ${variant === 'centered' ? 'center' : 'left'};
 `
 
-export const OptionCardItemIndicator = styled(RadioCard.ItemIndicator)`
+export const optionCardItemIndicatorStyles = css`
   position: absolute;
   top: 0;
   right: 0;
@@ -128,11 +123,12 @@ export const OptionCardItemIndicator = styled(RadioCard.ItemIndicator)`
   }
 `
 
-export const OptionCardExpandedContainer = styled.div<{ disabled?: boolean }>`
+export const optionCardExpandedContainerStyles = (
+  disabled?: OptionCardProps['disabled'],
+) => css`
   width: 100%;
   border-top: 1px solid ${getThemedColor('neutral', 300)};
   margin-top: 12px;
   padding-top: 8px;
-  color: ${({ disabled }) =>
-    disabled ? getThemedColor('neutral', 500) : 'inherit'};
+  color: ${disabled ? getThemedColor('neutral', 500) : 'inherit'};
 `

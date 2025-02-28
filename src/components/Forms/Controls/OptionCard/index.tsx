@@ -1,19 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/* eslint-disable react/no-unknown-property */
+/** @jsxImportSource @emotion/react */
 
-import { HStack, RadioCard } from '@chakra-ui/react'
-import { OptionCardGroupProps, OptionCardProps } from './types'
+import { RadioCard } from '@chakra-ui/react'
+
+import { OptionCardProps } from './types'
 import {
-  OptionCardHeader,
-  OptionCardHeaderContent,
-  OptionCardHeaderCaption,
-  OptionCardHeaderLabel,
-  OptionCardIconContainer,
-  OptionCardContainer,
-  OptionCardExpandedContainer,
-  OptionCardItemHiddenInput,
-  OptionCardControl,
-  OptionCardItemIndicator,
+  optionCardContainerStyles,
+  optionCardControlStyles,
+  optionCardExpandedContainerStyles,
+  optionCardHeaderCaptionStyles,
+  optionCardHeaderLabelStyles,
+  optionCardHeaderStyles,
+  optionCardIconContainerStyles,
+  optionCardItemIndicatorStyles,
 } from './styled'
 
 const OptionCard = ({
@@ -25,49 +24,38 @@ const OptionCard = ({
   children,
   value,
 }: OptionCardProps) => (
-  <OptionCardContainer value={value} disabled={disabled}>
-    <OptionCardItemHiddenInput />
-    <OptionCardControl>
-      <OptionCardHeader variant={variant}>
-        <OptionCardIconContainer>{icon}</OptionCardIconContainer>
-        <OptionCardHeaderContent>
-          <OptionCardHeaderLabel
-            variant={variant}
-            disabled={disabled}
+  <RadioCard.Item
+    css={optionCardContainerStyles}
+    value={value}
+    disabled={disabled}
+  >
+    <RadioCard.ItemHiddenInput />
+    <RadioCard.ItemControl css={optionCardControlStyles}>
+      <div css={optionCardHeaderStyles(variant)}>
+        <div css={optionCardIconContainerStyles}>{icon}</div>
+        <div style={{ width: '100%' }}>
+          <p
+            css={optionCardHeaderLabelStyles(variant, disabled)}
             aria-label={label}
             aria-disabled={disabled}
           >
             {label}
-          </OptionCardHeaderLabel>
-          <OptionCardHeaderCaption
-            variant={variant}
-            disabled={disabled}
+          </p>
+          <p
+            css={optionCardHeaderCaptionStyles(variant, disabled)}
             aria-label={caption}
             aria-disabled={disabled}
           >
             {caption}
-          </OptionCardHeaderCaption>
-        </OptionCardHeaderContent>
-      </OptionCardHeader>
-      <OptionCardItemIndicator />
-    </OptionCardControl>
+          </p>
+        </div>
+      </div>
+      <RadioCard.ItemIndicator css={optionCardItemIndicatorStyles} />
+    </RadioCard.ItemControl>
     {variant === 'expanded' ? (
-      <OptionCardExpandedContainer disabled={disabled}>
-        {children}
-      </OptionCardExpandedContainer>
+      <div css={optionCardExpandedContainerStyles(disabled)}>{children}</div>
     ) : null}
-  </OptionCardContainer>
+  </RadioCard.Item>
 )
 
 export default OptionCard
-
-export const OptionCardGroup = ({
-  children,
-  ...rest
-}: OptionCardGroupProps) => (
-  <RadioCard.Root {...rest}>
-    <HStack alignItems='flex-start' flexWrap='wrap' gap='12px'>
-      {children}
-    </HStack>
-  </RadioCard.Root>
-)

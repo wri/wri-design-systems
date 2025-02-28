@@ -3,7 +3,8 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import OptionCard, { OptionCardGroup } from '.'
+import OptionCard from '.'
+import OptionCardGroup from './OptionCardGroup'
 import { InfoIcon } from '../../../icons'
 
 const meta = {
