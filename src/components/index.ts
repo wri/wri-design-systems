@@ -1,7 +1,10 @@
 import { designSystemStyles } from '../lib/theme'
 
 // -- Styles -- //
+
 export { designSystemStyles }
+
+// -- Styles -- //
 
 // -- Forms -- //
 
@@ -33,6 +36,8 @@ export { default as Select } from './Forms/Inputs/Select'
 // Tags
 export { default as Tag } from './Forms/Tag'
 
+// -- Forms -- //
+
 // // -- Geospatial -- //
 
 // // Layers
@@ -48,14 +53,22 @@ export { default as Tag } from './Forms/Tag'
 // export { default as QualitativeAttribute } from './Geospatial/Legends/QualitativeAttribute'
 // export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 
+// // -- Geospatial -- //
+
 // // -- Navigation -- //
+
 // export { default as Breadcrumb } from './Navigation/Breadcrumb'
 // export { default as Footer } from './Navigation/Footer'
 // export { default as NavigationRail } from './Navigation/NavigationRail'
 // export { default as TabBar } from './Navigation/TabBar'
 
-// // -- Status -- //
-// export { default as Badge } from './Status/Badge'
+// // -- Navigation -- //
+
+// -- Status -- //
+
+export { default as Badge } from './Status/Badge'
 // export { default as InlineMessage } from './Status/InlineMessage'
 // export { default as Toast } from './Status/Toast'
 // export { showToast } from './Status/Toast/utils'
+
+// -- Status -- //
