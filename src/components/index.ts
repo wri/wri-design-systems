@@ -65,7 +65,7 @@ export { default as Tag } from './Forms/Tag'
 // -- Status -- //
 
 export { default as Badge } from './Status/Badge'
-// export { default as InlineMessage } from './Status/InlineMessage'
+export { default as InlineMessage } from './Status/InlineMessage'
 export { default as Toast } from './Status/Toast'
 export { showToast } from './Status/Toast/utils'
 

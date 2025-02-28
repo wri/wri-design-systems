@@ -1,17 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/* eslint-disable react/no-unknown-property */
+/** @jsxImportSource @emotion/react */
 
 import Button from '../../Forms/Buttons/Button'
 import { InfoIcon } from '../../icons'
 import {
-  InfoWhiteInlineMessage,
-  ErrorInlineMessage,
-  InfoGreyInlineMessage,
-  SuccessInlineMessage,
-  WarningInlineMessage,
-  InlineMessageTitle,
-  InlineMessageCaption,
-  InlineMessageHeader,
+  defaultInlineMessageStyles,
+  errorInlineMessageStyles,
+  infoGreyInlineMessageStyles,
+  infoWhiteInlineMessageStyles,
+  inlineMessageCaptionStyles,
+  inlineMessageHeaderStyles,
+  inlineMessageTitleStyles,
+  successInlineMessageStyles,
+  warningInlineMessageStyles,
 } from './styled'
 import { InlineMessageProps } from './types'
 
@@ -25,29 +26,31 @@ const InlineMessage = ({
   actionLabel,
   isButtonRight,
 }: InlineMessageProps) => {
-  let StyledInlineMessage = InfoWhiteInlineMessage
+  let variantInlineMessageStyles = infoWhiteInlineMessageStyles
   if (variant === 'info-grey') {
-    StyledInlineMessage = InfoGreyInlineMessage
+    variantInlineMessageStyles = infoGreyInlineMessageStyles
   } else if (variant === 'success') {
-    StyledInlineMessage = SuccessInlineMessage
+    variantInlineMessageStyles = successInlineMessageStyles
   } else if (variant === 'warning') {
-    StyledInlineMessage = WarningInlineMessage
+    variantInlineMessageStyles = warningInlineMessageStyles
   } else if (variant === 'error') {
-    StyledInlineMessage = ErrorInlineMessage
+    variantInlineMessageStyles = errorInlineMessageStyles
   }
 
   return (
-    <StyledInlineMessage
-      isButtonRight={isButtonRight}
-      size={size}
+    <div
+      css={[
+        defaultInlineMessageStyles(size, isButtonRight),
+        variantInlineMessageStyles,
+      ]}
       aria-roledescription='Note'
     >
       <div>
-        <InlineMessageHeader>
+        <div css={inlineMessageHeaderStyles}>
           {icon}
-          <InlineMessageTitle size={size}>{label}</InlineMessageTitle>
-        </InlineMessageHeader>
-        <InlineMessageCaption size={size}>{caption}</InlineMessageCaption>
+          <p css={inlineMessageTitleStyles(size)}>{label}</p>
+        </div>
+        <p css={inlineMessageCaptionStyles(size)}>{caption}</p>
       </div>
       {actionLabel ? (
         <Button
@@ -61,7 +64,7 @@ const InlineMessage = ({
           onClick={onActionClick}
         />
       ) : null}
-    </StyledInlineMessage>
+    </div>
   )
 }
 
