@@ -1,16 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+/* eslint-disable react/no-unknown-property */
+/** @jsxImportSource @emotion/react */
+
+import { useState } from 'react'
 
 import { CheckboxListProps } from './types'
 import Checkbox from '../../Controls/Checkbox'
 import {
-  CheckboxListCaption,
-  CheckboxListContainer,
-  CheckboxListContent,
-  CheckboxListContentList,
-  CheckboxListErrorBar,
-  CheckboxListErrorMessage,
-  CheckboxListLabel,
+  checkboxListCaptionStyles,
+  checkboxListContainerStyles,
+  checkboxListContentListStyles,
+  checkboxListContentStyles,
+  checkboxListErrorBarStyles,
+  checkboxListErrorMessageStyles,
+  checkboxListLabelStyles,
 } from './styled'
 
 const CheckboxList = ({
@@ -40,25 +42,30 @@ const CheckboxList = ({
   }
 
   return (
-    <CheckboxListContainer aria-roledescription='group' aria-labelledby={label}>
-      {errorMessage ? <CheckboxListErrorBar /> : null}
-      <CheckboxListContent hasErrorMessage={!!errorMessage}>
-        <CheckboxListLabel aria-label={label}>
+    <div
+      css={checkboxListContainerStyles}
+      aria-roledescription='group'
+      aria-labelledby={label}
+    >
+      {errorMessage ? <div css={checkboxListErrorBarStyles} /> : null}
+      <div css={checkboxListContentStyles(!!errorMessage)}>
+        <p css={checkboxListLabelStyles} aria-label={label}>
           {required && <span aria-label='required'>*</span>}
           {label}
-        </CheckboxListLabel>
-        <CheckboxListCaption aria-label={caption}>
+        </p>
+        <p css={checkboxListCaptionStyles} aria-label={caption}>
           {caption}
-        </CheckboxListCaption>
+        </p>
         {errorMessage ? (
-          <CheckboxListErrorMessage aria-label={errorMessage}>
+          <p css={checkboxListErrorMessageStyles} aria-label={errorMessage}>
             {errorMessage}
-          </CheckboxListErrorMessage>
+          </p>
         ) : null}
-        <CheckboxListContentList horizontal={horizontal}>
+        <div css={checkboxListContentListStyles(horizontal)}>
           {checkboxes.map((checkbox) => (
             <Checkbox
               key={checkbox.name}
+              css={{}}
               defaultChecked={defaultValue === checkbox.value}
               onCheckedChange={({ checked }) =>
                 handleOnChecked(checked, checkbox.name)
@@ -66,9 +73,9 @@ const CheckboxList = ({
               {...checkbox}
             />
           ))}
-        </CheckboxListContentList>
-      </CheckboxListContent>
-    </CheckboxListContainer>
+        </div>
+      </div>
+    </div>
   )
 }
 

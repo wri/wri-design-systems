@@ -1,16 +1,16 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const CheckboxListContainer = styled.div`
+export const checkboxListContainerStyles = css`
   position: relative;
   height: 100%;
 `
 
-export const CheckboxListContent = styled.div<{ hasErrorMessage: boolean }>`
-  margin-left: ${({ hasErrorMessage }) => (hasErrorMessage ? '19px' : '0px')};
+export const checkboxListContentStyles = (hasErrorMessage: boolean) => css`
+  margin-left: ${hasErrorMessage ? '19px' : '0px'};
 `
 
-export const CheckboxListLabel = styled.p`
+export const checkboxListLabelStyles = css`
   font-size: 16px;
   line-height: 24px;
   color: ${getThemedColor('neutral', 900)};
@@ -21,21 +21,21 @@ export const CheckboxListLabel = styled.p`
   }
 `
 
-export const CheckboxListCaption = styled.p`
+export const checkboxListCaptionStyles = css`
   font-size: 14px;
   line-height: 20px;
   color: ${getThemedColor('neutral', 600)};
 `
 
-export const CheckboxListContentList = styled.div<{ horizontal?: boolean }>`
+export const checkboxListContentListStyles = (horizontal?: boolean) => css`
   margin-top: 12px;
   display: flex;
-  flex-direction: ${({ horizontal }) => (horizontal ? 'row' : 'column')};
+  flex-direction: ${horizontal ? 'row' : 'column'};
   flex-wrap: wrap;
-  gap: ${({ horizontal }) => (horizontal ? '20px' : '12px')};
+  gap: ${horizontal ? '20px' : '12px'};
 `
 
-export const CheckboxListErrorBar = styled.div`
+export const checkboxListErrorBarStyles = css`
   width: 3px;
   height: 100%;
   background-color: ${getThemedColor('error', 500)};
@@ -44,7 +44,7 @@ export const CheckboxListErrorBar = styled.div`
   left: 0;
 `
 
-export const CheckboxListErrorMessage = styled.p`
+export const checkboxListErrorMessageStyles = css`
   font-size: 14px;
   line-height: 20px;
   font-weight: 700;
