@@ -1,24 +1,18 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
-import {
-  SelectLabel,
-  SelectContent,
-  SelectTrigger,
-  SelectItem,
-} from './BaseSelect'
 
-export const SelectContainer = styled.div<{ size: string }>`
+export const selectContainerStyles = (size: string) => css`
   position: relative;
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: ${({ size }) => (size === 'small' ? '12px' : '16px')};
+  gap: ${size === 'small' ? '12px' : '16px'};
   margin-bottom: 16px;
 `
 
-export const SelectErrorBar = styled.div`
+export const selectErrorBarStyles = css`
   width: 3px;
   height: 100%;
   background-color: ${getThemedColor('error', 500)};
@@ -27,9 +21,9 @@ export const SelectErrorBar = styled.div`
   left: 0;
 `
 
-export const StyledSelectLabel = styled(SelectLabel)<{ size: string }>`
-  font-size: ${({ size }) => (size === 'small' ? '14px' : '16px')};
-  line-height: ${({ size }) => (size === 'small' ? '20px' : '24px')};
+export const selectLabelStyles = (size: string) => css`
+  font-size: ${size === 'small' ? '14px' : '16px'};
+  line-height: ${size === 'small' ? '20px' : '24px'};
   font-weight: 400;
   color: ${getThemedColor('neutral', 900)};
 
@@ -47,18 +41,13 @@ export const StyledSelectLabel = styled(SelectLabel)<{ size: string }>`
   }
 `
 
-export const StyledSelectCaption = styled.p<{
-  size: string
-  disabled?: boolean
-}>`
-  font-size: ${({ size }) => (size === 'small' ? '12px' : '14px')};
-  line-height: ${({ size }) => (size === 'small' ? '16px' : '20px')};
+export const selectCaptionStyles = (size: string, disabled?: boolean) => css`
+  font-size: ${size === 'small' ? '12px' : '14px'};
+  line-height: ${size === 'small' ? '16px' : '20px'};
   font-weight: 400;
   color: ${getThemedColor('neutral', 600)};
 
-  &[disabled] {
-    color: ${getThemedColor('neutral', 500)};
-  }
+  ${disabled ? `color: ${getThemedColor('neutral', 500)} !important;` : ''}
 `
 
 const getTriggerBorderColor = (isFilled: boolean, hasErrorMessage: boolean) => {
@@ -69,34 +58,31 @@ const getTriggerBorderColor = (isFilled: boolean, hasErrorMessage: boolean) => {
   return getThemedColor('neutral', isFilled ? 700 : 400)
 }
 
-export const StyledSelectTrigger = styled(SelectTrigger)<{
-  size: string
-  isFilled: boolean
-  hasErrorMessage: boolean
-  multiple?: boolean
-}>`
+export const selectTriggerStyles = (
+  size: string,
+  isFilled: boolean,
+  hasErrorMessage: boolean,
+  multiple?: boolean,
+) => css`
   .chakra-select__trigger {
-    min-height: ${({ size }) => (size === 'small' ? '32px' : '40px')};
+    min-height: ${size === 'small' ? '32px' : '40px'};
     border-radius: 4px;
     padding: 6px 8px;
-    border: 1px solid
-      ${({ isFilled, hasErrorMessage }) =>
-        getTriggerBorderColor(isFilled, hasErrorMessage)};
+    border: 1px solid ${getTriggerBorderColor(isFilled, hasErrorMessage)};
     box-shadow: 0px 1px 2px 0px #0000000d;
 
     .chakra-select__valueText {
-      font-size: ${({ size }) => (size === 'small' ? '14px' : '16px')};
-      line-height: ${({ size }) => (size === 'small' ? '20px' : '24px')};
+      font-size: ${size === 'small' ? '14px' : '16px'};
+      line-height: ${size === 'small' ? '20px' : '24px'};
       color: ${getThemedColor('neutral', 700)};
 
-      ${({ multiple }) =>
-        multiple
-          ? `
+      ${multiple
+        ? `
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
       `
-          : ''}
+        : ''}
     }
 
     &[data-state='open'] {
@@ -120,7 +106,7 @@ export const StyledSelectTrigger = styled(SelectTrigger)<{
 
   .chakra-select__indicator {
     svg {
-      width: ${({ size }) => (size === 'small' ? '12px' : '16px')};
+      width: ${size === 'small' ? '12px' : '16px'};
 
       path {
         fill: ${getThemedColor('neutral', 700)};
@@ -134,7 +120,7 @@ export const StyledSelectTrigger = styled(SelectTrigger)<{
     }
   }
 `
-export const StyledSelectContent = styled(SelectContent)`
+export const selectContentStyles = css`
   margin-top: -8px;
   border-radius: 4px;
   border: 1px solid ${getThemedColor('neutral', 400)};
@@ -143,7 +129,7 @@ export const StyledSelectContent = styled(SelectContent)`
   border-top: none;
 `
 
-export const StyledSelectItem = styled(SelectItem)`
+export const selectItemStyles = css`
   align-items: flex-start;
   &[data-highlighted] {
     background-color: ${getThemedColor('neutral', 200)};
@@ -151,29 +137,28 @@ export const StyledSelectItem = styled(SelectItem)`
   }
 `
 
-export const SelectItemLabel = styled.p<{ size: string; disabled?: boolean }>`
-  font-size: ${({ size }) => (size === 'small' ? '14px' : '16px')};
-  line-height: ${({ size }) => (size === 'small' ? '20px' : '24px')};
+export const selectItemLabelStyles = (size: string, disabled?: boolean) => css`
+  font-size: ${size === 'small' ? '14px' : '16px'};
+  line-height: ${size === 'small' ? '20px' : '24px'};
   color: ${getThemedColor('neutral', 800)};
 
-  &[disabled] {
-    color: ${getThemedColor('neutral', 500)} !important;
-  }
+  ${disabled ? `color: ${getThemedColor('neutral', 500)} !important;` : ''}
 `
 
-export const SelectItemCaption = styled.p<{ size: string; disabled?: boolean }>`
-  font-size: ${({ size }) => (size === 'small' ? '14px' : '16px')};
-  line-height: ${({ size }) => (size === 'small' ? '20px' : '24px')};
+export const selectItemCaptionStyles = (
+  size: string,
+  disabled?: boolean,
+) => css`
+  font-size: ${size === 'small' ? '14px' : '16px'};
+  line-height: ${size === 'small' ? '20px' : '24px'};
   color: ${getThemedColor('neutral', 700)};
 
-  &[disabled] {
-    color: ${getThemedColor('neutral', 500)};
-  }
+  ${disabled ? `color: ${getThemedColor('neutral', 500)} !important;` : ''}
 `
 
-export const SelectErrorMessage = styled.p<{ size: string }>`
-  font-size: ${({ size }) => (size === 'small' ? '12px' : '14px')};
-  line-height: ${({ size }) => (size === 'small' ? '16px' : '20px')};
+export const selectErrorMessageStyles = (size: string) => css`
+  font-size: ${size === 'small' ? '12px' : '14px'};
+  line-height: ${size === 'small' ? '16px' : '20px'};
   font-weight: 700;
   color: ${getThemedColor('error', 500)};
 `

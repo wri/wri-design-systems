@@ -1,5 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+/* eslint-disable react/no-unknown-property */
+/** @jsxImportSource @emotion/react */
+
+import { useState } from 'react'
 
 import {
   Box,
@@ -7,18 +9,25 @@ import {
   HStack,
   SelectValueChangeDetails,
 } from '@chakra-ui/react'
-import { SelectRoot, SelectValueText } from './BaseSelect'
 import {
-  StyledSelectLabel,
-  StyledSelectCaption,
-  StyledSelectTrigger,
-  StyledSelectContent,
-  SelectItemLabel,
-  SelectItemCaption,
-  StyledSelectItem,
-  SelectErrorMessage,
-  SelectContainer,
-  SelectErrorBar,
+  SelectContent,
+  SelectItem,
+  SelectLabel,
+  SelectRoot,
+  SelectTrigger,
+  SelectValueText,
+} from './BaseSelect'
+import {
+  selectCaptionStyles,
+  selectContainerStyles,
+  selectContentStyles,
+  selectErrorBarStyles,
+  selectErrorMessageStyles,
+  selectItemCaptionStyles,
+  selectItemLabelStyles,
+  selectItemStyles,
+  selectLabelStyles,
+  selectTriggerStyles,
 } from './styled'
 import { SelectItemProps, SelectProps } from './types'
 import Tag from '../../Tag'
@@ -41,13 +50,9 @@ const SelectValueItem = ({
       const { label, caption } = items[0]
       return (
         <HStack flexDirection='column' alignItems='flex-start'>
-          <SelectItemLabel size={size} disabled={disabled}>
-            {label}
-          </SelectItemLabel>
+          <p css={selectItemLabelStyles(size, disabled)}>{label}</p>
           {caption ? (
-            <SelectItemCaption size={size} disabled={disabled}>
-              {caption}
-            </SelectItemCaption>
+            <p css={selectItemCaptionStyles(size, disabled)}>{caption}</p>
           ) : null}
         </HStack>
       )
@@ -114,13 +119,14 @@ const Select = ({
   }
 
   return (
-    <SelectContainer
-      size={size}
+    <div
+      css={selectContainerStyles(size)}
       style={rest.style}
       className='select-input-container'
     >
-      {errorMessage ? <SelectErrorBar /> : null}
+      {errorMessage ? <div css={selectErrorBarStyles} /> : null}
       <SelectRoot
+        css={{}}
         collection={selectItems}
         disabled={disabled}
         required={required}
@@ -134,24 +140,24 @@ const Select = ({
         {...rest}
       >
         {label ? (
-          <StyledSelectLabel size={size}>
+          <SelectLabel css={selectLabelStyles(size)}>
             {required ? <span>*</span> : null}
             {label}
-          </StyledSelectLabel>
+          </SelectLabel>
         ) : null}
         {caption ? (
-          <StyledSelectCaption size={size} disabled={disabled}>
-            {caption}
-          </StyledSelectCaption>
+          <p css={selectCaptionStyles(size, disabled)}>{caption}</p>
         ) : null}
         {errorMessage && (
-          <SelectErrorMessage size={size}>{errorMessage}</SelectErrorMessage>
+          <p css={selectErrorMessageStyles(size)}>{errorMessage}</p>
         )}
-        <StyledSelectTrigger
-          size={size}
-          isFilled={selectedItems.length > 0}
-          hasErrorMessage={!!errorMessage}
-          multiple={multiple}
+        <SelectTrigger
+          css={selectTriggerStyles(
+            size,
+            selectedItems.length > 0,
+            !!errorMessage,
+            multiple,
+          )}
         >
           {multiple ? (
             <SelectMultipleValueItem
@@ -166,15 +172,13 @@ const Select = ({
               disabled={disabled}
             />
           )}
-        </StyledSelectTrigger>
-        <StyledSelectContent>
+        </SelectTrigger>
+        <SelectContent css={selectContentStyles}>
           {selectItems.items.map((item) => (
-            <StyledSelectItem item={item} key={item.value}>
+            <SelectItem css={selectItemStyles} item={item} key={item.value}>
               <Box>
-                <SelectItemLabel size={size}>{item.label}</SelectItemLabel>
-                <SelectItemCaption size={size}>
-                  {item.caption}
-                </SelectItemCaption>
+                <p css={selectItemLabelStyles(size)}>{item.label}</p>
+                <p css={selectItemCaptionStyles(size)}>{item.caption}</p>
               </Box>
               {multiple ? (
                 <Checkbox
@@ -183,11 +187,11 @@ const Select = ({
                   )}
                 />
               ) : null}
-            </StyledSelectItem>
+            </SelectItem>
           ))}
-        </StyledSelectContent>
+        </SelectContent>
       </SelectRoot>
-    </SelectContainer>
+    </div>
   )
 }
 
