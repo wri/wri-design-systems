@@ -11,7 +11,7 @@ export { default as CloseButton } from './Forms/Buttons/CloseButton'
 export { default as IconButton } from './Forms/Buttons/IconButton'
 export { default as MultiActionButton } from './Forms/Buttons/MultiActionButton'
 
-// // Controls
+// Controls
 export { default as Checkbox } from './Forms/Controls/Checkbox'
 export { default as OptionCard } from './Forms/Controls/OptionCard'
 export { default as OptionCardGroup } from './Forms/Controls/OptionCard/OptionCardGroup'
@@ -20,7 +20,7 @@ export { default as RadioGroup } from './Forms/Controls/Radio/RadioGroup'
 export { default as Slider } from './Forms/Controls/Slider'
 export { default as Switch } from './Forms/Controls/Switch'
 
-// // Inputs
+// Inputs
 export { default as CheckboxList } from './Forms/Inputs/CheckboxList'
 // export { default as InputWithUnits } from './Forms/Inputs/InputWithUnits'
 // export { default as Password } from './Forms/Inputs/Password'
@@ -30,7 +30,7 @@ export { default as CheckboxList } from './Forms/Inputs/CheckboxList'
 // export { default as Textarea } from './Forms/Inputs/Textarea'
 // export { default as TextInput } from './Forms/Inputs/TextInput'
 
-// // Tags
+// Tags
 export { default as Tag } from './Forms/Tag'
 
 // // -- Geospatial -- //
