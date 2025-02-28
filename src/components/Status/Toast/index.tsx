@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /** @jsxImportSource @emotion/react */
 
+import React from 'react'
 import {
   Toaster as ChakraToaster,
   Toast as ChakraToast,
@@ -25,7 +26,7 @@ import {
 import { toasters } from './utils'
 import Button from '../../Forms/Buttons/Button'
 
-const Toast = () =>
+const Toast: React.FC = () =>
   Object.keys(toasters).map((toaster) => (
     <Portal key={toaster}>
       <ChakraToaster toaster={toasters[toaster]} insetInline={{ mdDown: '4' }}>
