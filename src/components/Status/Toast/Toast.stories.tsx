@@ -4,7 +4,8 @@ import React from 'react'
 /* eslint-disable no-console */
 import type { Meta, StoryObj } from '@storybook/react'
 import Button from '../../Forms/Buttons/Button'
-import Toast, { showToast } from '.'
+import Toast from '.'
+import { showToast } from './utils'
 import { CheckIcon } from '../../icons'
 
 const meta = {

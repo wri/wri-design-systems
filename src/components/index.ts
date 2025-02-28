@@ -1,8 +1,6 @@
-import { designSystemStyles } from '../lib/theme'
-
 // -- Styles -- //
 
-export { designSystemStyles }
+export { designSystemStyles } from '../lib/theme'
 
 // -- Styles -- //
 
@@ -68,7 +66,7 @@ export { default as Tag } from './Forms/Tag'
 
 export { default as Badge } from './Status/Badge'
 // export { default as InlineMessage } from './Status/InlineMessage'
-// export { default as Toast } from './Status/Toast'
-// export { showToast } from './Status/Toast/utils'
+export { default as Toast } from './Status/Toast'
+export { showToast } from './Status/Toast/utils'
 
 // -- Status -- //
