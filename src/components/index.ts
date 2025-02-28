@@ -17,7 +17,7 @@ export { default as OptionCard } from './Forms/Controls/OptionCard'
 export { default as OptionCardGroup } from './Forms/Controls/OptionCard/OptionCardGroup'
 export { default as Radio } from './Forms/Controls/Radio'
 export { default as RadioGroup } from './Forms/Controls/Radio/RadioGroup'
-// export { default as Slider } from './Forms/Controls/Slider'
+export { default as Slider } from './Forms/Controls/Slider'
 export { default as Switch } from './Forms/Controls/Switch'
 
 // // Inputs

@@ -1,13 +1,12 @@
-import styled from '@emotion/styled'
-import { Slider } from '@chakra-ui/react'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const ChakraSliderRoot = styled(Slider.Root)`
+export const sliderRootStyles = css`
   height: 60px;
   padding: 40px 12px;
 `
 
-export const StyledSliderThumb = styled(Slider.Thumb)`
+export const sliderThumbStyles = css`
   height: 20px;
   width: 20px;
   background-color: ${getThemedColor('primary', 500)};
@@ -53,7 +52,7 @@ export const StyledSliderThumb = styled(Slider.Thumb)`
   }
 `
 
-export const StyledSliderThumbLabel = styled.div`
+export const sliderThumbLabelStyles = css`
   font-size: 14px;
   line-height: 20px;
   color: ${getThemedColor('neutral', 800)};
@@ -69,13 +68,13 @@ export const StyledSliderThumbLabel = styled.div`
   top: -30px;
 `
 
-export const StyledSliderTrack = styled(Slider.Track)`
+export const sliderTrackStyles = css`
   background-color: ${getThemedColor('neutral', 300)};
   border: none;
   box-shadow: none;
 `
 
-export const StyledSliderRange = styled(Slider.Range)`
+export const sliderRangeStyles = css`
   background-color: ${getThemedColor('primary', 500)};
   border: 1px solid ${getThemedColor('primary', 700)};
   border-radius: 8px;
@@ -90,10 +89,10 @@ export const StyledSliderRange = styled(Slider.Range)`
   }
 `
 
-export const StyledSliderMarker = styled(Slider.Marker)<{
-  isCentred?: boolean
-  isMiddleMark?: boolean
-}>`
+export const sliderMarkerStyles = (
+  isCentred?: boolean,
+  isMiddleMark?: boolean,
+) => css`
   font-size: 12px;
   line-height: 16px;
   color: ${getThemedColor('neutral', 800)};
@@ -105,18 +104,16 @@ export const StyledSliderMarker = styled(Slider.Marker)<{
 
   &[data-state='under-value'] {
     .chakra-slider__markerIndicator {
-      background-color: ${({ isCentred }) =>
-        isCentred
-          ? getThemedColor('neutral', 500)
-          : getThemedColor('neutral', 200)};
+      background-color: ${isCentred
+        ? getThemedColor('neutral', 500)
+        : getThemedColor('neutral', 200)};
     }
 
     &[data-disabled] {
       .chakra-slider__markerIndicator {
-        background-color: ${({ isCentred }) =>
-          isCentred
-            ? getThemedColor('neutral', 400)
-            : getThemedColor('neutral', 500)};
+        background-color: ${isCentred
+          ? getThemedColor('neutral', 400)
+          : getThemedColor('neutral', 500)};
       }
     }
   }
@@ -133,9 +130,8 @@ export const StyledSliderMarker = styled(Slider.Marker)<{
     }
   }
 
-  ${({ isMiddleMark }) =>
-    isMiddleMark
-      ? `
+  ${isMiddleMark
+    ? `
     --ty: -6px !important;
 
     .chakra-slider__markerIndicator {
@@ -150,5 +146,5 @@ export const StyledSliderMarker = styled(Slider.Marker)<{
       }
     }
   `
-      : ''};
+    : ''};
 `
