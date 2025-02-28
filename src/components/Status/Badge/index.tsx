@@ -1,12 +1,12 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/* eslint-disable react/no-unknown-property */
+/** @jsxImportSource @emotion/react */
 
 import { NotificationIcon } from '../../icons'
 import {
-  BadgeContainer,
-  BadgeLabelContainer,
-  BadgeLabel,
-  BadgeDotContainer,
+  badgeContainerStyles,
+  badgeDotContainerStyles,
+  badgeLabelContainerStyles,
+  badgeLabelStyles,
 } from './styled'
 import { BadgeProps } from './types'
 
@@ -23,23 +23,26 @@ const Badge = ({ hasNotification, notificationCount }: BadgeProps) => {
   const notification = getNotificationCount()
 
   return (
-    <BadgeContainer role='status' aria-live='polite'>
+    <div css={badgeContainerStyles} role='status' aria-live='polite'>
       {hasNotification && notification.length > 0 ? (
-        <BadgeLabelContainer>
-          <BadgeLabel aria-label={`${notificationCount} unread message`}>
+        <div css={badgeLabelContainerStyles}>
+          <p
+            css={badgeLabelStyles}
+            aria-label={`${notificationCount} unread message`}
+          >
             {notification}
-          </BadgeLabel>
-        </BadgeLabelContainer>
+          </p>
+        </div>
       ) : null}
       {hasNotification && !notificationCount ? (
-        <BadgeDotContainer aria-hidden />
+        <div css={badgeDotContainerStyles} aria-hidden />
       ) : null}
       <NotificationIcon
         color='var(--chakra-colors-neutral-800)'
         height='16px'
         width='16px'
       />
-    </BadgeContainer>
+    </div>
   )
 }
 

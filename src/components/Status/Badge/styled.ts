@@ -1,12 +1,12 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
-export const BadgeContainer = styled.div`
+export const badgeContainerStyles = css`
   position: relative;
   display: flex;
 `
 
-export const BadgeDotContainer = styled.div`
+export const badgeDotContainerStyles = css`
   height: 4px;
   width: 4px;
   background-color: ${getThemedColor('error', 500)};
@@ -16,7 +16,7 @@ export const BadgeDotContainer = styled.div`
   right: 0px;
 `
 
-export const BadgeLabelContainer = styled.div`
+export const badgeLabelContainerStyles = css`
   height: 8px;
   background-color: ${getThemedColor('error', 500)};
   padding: 0 2px 1px 2px;
@@ -29,7 +29,7 @@ export const BadgeLabelContainer = styled.div`
   left: 9px;
 `
 
-export const BadgeLabel = styled.p`
+export const badgeLabelStyles = css`
   font-size: 8px;
   font-weight: 700;
   color: ${getThemedColor('error', 100)};
