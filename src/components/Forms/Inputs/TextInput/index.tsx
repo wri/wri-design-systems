@@ -1,14 +1,17 @@
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState } from 'react'
 
-import { Field } from '@chakra-ui/react'
+import { Field, Input } from '@chakra-ui/react'
 import {
-  ErrorBar,
-  TextInputContainer,
-  StyledFieldCaption,
-  StyledFieldErrorMessage,
-  StyledFieldLabel,
-  StyledTextInput,
+  fieldCaptionStyles,
+  fieldErrorMessageStyles,
+  fieldLabelStyles,
+  textInputContainerStyles,
+  textInputErrorBarStyles,
+  textInputStyles,
 } from './styled'
 import { TextInputProps } from './types'
 
@@ -35,8 +38,8 @@ const TextInput = ({
   }
 
   return (
-    <TextInputContainer size={size} className='text-input-container'>
-      {errorMessage ? <ErrorBar /> : null}
+    <div css={textInputContainerStyles(size)} className='text-input-container'>
+      {errorMessage ? <div css={textInputErrorBarStyles} /> : null}
       <Field.Root
         required={required}
         invalid={!!errorMessage}
@@ -44,30 +47,35 @@ const TextInput = ({
         style={{ marginLeft: errorMessage ? '19px' : '0px' }}
       >
         {label ? (
-          <StyledFieldLabel size={size} disabled={disabled} aria-label={label}>
+          <Field.Label
+            css={fieldLabelStyles(size, disabled)}
+            aria-label={label}
+          >
             <Field.RequiredIndicator aria-label='required' />
             {label}
             {!required ? <span>{' (Optional)'}</span> : ''}
-          </StyledFieldLabel>
+          </Field.Label>
         ) : null}
         {caption ? (
-          <StyledFieldCaption
-            size={size}
-            disabled={disabled}
+          <Field.HelperText
+            css={fieldCaptionStyles(size, disabled)}
             aria-label={caption}
           >
             {caption}
-          </StyledFieldCaption>
+          </Field.HelperText>
         ) : null}
         {errorMessage ? (
-          <StyledFieldErrorMessage size={size} aria-label={errorMessage}>
+          <Field.ErrorText
+            css={fieldErrorMessageStyles(size)}
+            aria-label={errorMessage}
+          >
             {errorMessage}
-          </StyledFieldErrorMessage>
+          </Field.ErrorText>
         ) : null}
-        <StyledTextInput
+        <Input
           placeholder={placeholder}
           disabled={disabled}
-          size={size}
+          css={textInputStyles(size, value, defaultValue)}
           onChange={handleOnChange}
           value={value}
           _placeholder={{
@@ -76,7 +84,7 @@ const TextInput = ({
           {...rest}
         />
       </Field.Root>
-    </TextInputContainer>
+    </div>
   )
 }
 

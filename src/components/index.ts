@@ -29,7 +29,7 @@ export { default as CheckboxList } from './Forms/Inputs/CheckboxList'
 export { default as Select } from './Forms/Inputs/Select'
 // export { default as SliderInput } from './Forms/Inputs/SliderInput'
 // export { default as Textarea } from './Forms/Inputs/Textarea'
-// export { default as TextInput } from './Forms/Inputs/TextInput'
+export { default as TextInput } from './Forms/Inputs/TextInput'
 
 // Tags
 export { default as Tag } from './Forms/Tag'
