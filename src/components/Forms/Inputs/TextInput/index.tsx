@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 /* eslint-disable react/no-unknown-property */
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState } from 'react'
 
 import { Field, Input } from '@chakra-ui/react'

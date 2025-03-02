@@ -1,18 +1,18 @@
-import styled from '@emotion/styled'
-import { Textarea, Field } from '@chakra-ui/react'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
+import { TextareaProps } from './types'
 
-export const TextareaContainer = styled.div<{ size: 'small' | 'default' }>`
+export const textareaContainerStyles = (size: TextareaProps['size']) => css`
   position: relative;
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: ${({ size }) => (size === 'small' ? '12px' : '16px')};
+  gap: ${size === 'small' ? '12px' : '16px'};
   margin-bottom: 16px;
 `
-export const ErrorBar = styled.div`
+export const textareaErrorBarStyles = css`
   width: 3px;
   height: 100%;
   background-color: ${getThemedColor('error', 500)};
@@ -21,37 +21,38 @@ export const ErrorBar = styled.div`
   left: 0;
 `
 
-export const StyledFieldLabel = styled(Field.Label)<{
-  size: 'small' | 'default'
-  disabled?: boolean
-}>`
-  color: ${({ disabled }) => getThemedColor('neutral', disabled ? 600 : 900)};
-  font-size: ${({ size }) => (size === 'small' ? '14px' : '16px')};
+export const fieldLabelStyles = (
+  size: TextareaProps['size'],
+  disabled?: TextareaProps['disabled'],
+) => css`
+  color: ${getThemedColor('neutral', disabled ? 600 : 900)};
+  font-size: ${size === 'small' ? '14px' : '16px'};
   font-weight: 400;
-  line-height: ${({ size }) => (size === 'small' ? '20px' : '24px')};
+  line-height: ${size === 'small' ? '20px' : '24px'};
   margin-bottom: 2px;
 
   span {
-    color: ${({ disabled }) => getThemedColor('neutral', disabled ? 600 : 700)};
+    color: ${getThemedColor('neutral', disabled ? 600 : 700)};
   }
 
   .chakra-field__requiredIndicator {
-    color: ${({ disabled }) =>
-      disabled ? getThemedColor('neutral', 600) : getThemedColor('error', 500)};
+    color: ${disabled
+      ? getThemedColor('neutral', 600)
+      : getThemedColor('error', 500)};
   }
 `
 
-export const StyledFieldCaption = styled(Field.HelperText)<{
-  size: 'small' | 'default'
-  disabled?: boolean
-}>`
-  color: ${({ disabled }) => getThemedColor('neutral', disabled ? 500 : 600)};
-  font-size: ${({ size }) => (size === 'small' ? '12px' : '14px')};
+export const fieldCaptionStyles = (
+  size: TextareaProps['size'],
+  disabled?: TextareaProps['disabled'],
+) => css`
+  color: ${getThemedColor('neutral', disabled ? 500 : 600)};
+  font-size: ${size === 'small' ? '12px' : '14px'};
   font-weight: 400;
-  line-height: ${({ size }) => (size === 'small' ? '16px' : '20px')};
+  line-height: ${size === 'small' ? '16px' : '20px'};
 `
 
-export const StyledFieldHelperText = styled(Field.HelperText)`
+export const fieldHelperTextStyles = css`
   color: ${getThemedColor('neutral', 600)};
   font-size: 12px;
   font-weight: 400;
@@ -59,7 +60,7 @@ export const StyledFieldHelperText = styled(Field.HelperText)`
   margin-top: 8px;
 `
 
-export const StyledFieldErrorMessage = styled(Field.ErrorText)`
+export const fieldErrorMessageStyles = css`
   color: ${getThemedColor('error', 500)};
   font-size: 14px;
   font-weight: 700;
@@ -67,11 +68,15 @@ export const StyledFieldErrorMessage = styled(Field.ErrorText)`
   margin-top: 2px;
 `
 
-export const StyledTextarea = styled(Textarea)<{ size: 'small' | 'default' }>`
+export const textareaSyles = (
+  size: TextareaProps['size'],
+  value?: string,
+  defaultValue?: string,
+) => css`
   height: 104px;
   width: 100%;
   border-radius: 4px;
-  padding: ${({ size }) => (size === 'small' ? '8px' : '12px')};
+  padding: ${size === 'small' ? '8px' : '12px'};
   margin-top: 8px;
   background-color: ${getThemedColor('neutral', 100)};
   color: ${getThemedColor('neutral', 800)};
@@ -100,10 +105,9 @@ export const StyledTextarea = styled(Textarea)<{ size: 'small' | 'default' }>`
     border: 1px solid ${getThemedColor('neutral', 300)} !important;
   }
 
-  ${({ value, defaultValue }) =>
-    value || defaultValue
-      ? `
+  ${value || defaultValue
+    ? `
     border: 1px solid ${getThemedColor('neutral', 700)};
   `
-      : ''}
+    : ''}
 `

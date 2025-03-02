@@ -1,14 +1,17 @@
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
 import React, { useEffect, useState } from 'react'
-import { Field } from '@chakra-ui/react'
+import { Field, Textarea as ChakraTextarea } from '@chakra-ui/react'
 import { TextareaProps } from './types'
 import {
-  ErrorBar,
-  StyledFieldCaption,
-  StyledFieldErrorMessage,
-  StyledFieldLabel,
-  StyledTextarea,
-  TextareaContainer,
-  StyledFieldHelperText,
+  fieldCaptionStyles,
+  fieldErrorMessageStyles,
+  fieldHelperTextStyles,
+  fieldLabelStyles,
+  textareaContainerStyles,
+  textareaErrorBarStyles,
+  textareaSyles,
 } from './styled'
 
 const Textarea = ({
@@ -78,8 +81,8 @@ const Textarea = ({
   const hasError = !!errorMessage || showMinLengthError || showMaxLengthError
 
   return (
-    <TextareaContainer size={size}>
-      {hasError ? <ErrorBar /> : null}
+    <div css={textareaContainerStyles(size)}>
+      {hasError ? <div css={textareaErrorBarStyles} /> : null}
       <Field.Root
         required={required}
         invalid={hasError}
@@ -87,30 +90,35 @@ const Textarea = ({
         style={{ marginLeft: hasError ? '19px' : '0px' }}
       >
         {label ? (
-          <StyledFieldLabel size={size} disabled={disabled} aria-label={label}>
+          <Field.Label
+            css={fieldLabelStyles(size, disabled)}
+            aria-label={label}
+          >
             <Field.RequiredIndicator aria-label='required' />
             {label}
             {!required ? <span>{' (Optional)'}</span> : ''}
-          </StyledFieldLabel>
+          </Field.Label>
         ) : null}
         {caption ? (
-          <StyledFieldCaption
-            size={size}
-            disabled={disabled}
+          <Field.HelperText
+            css={fieldCaptionStyles(size, disabled)}
             aria-label={caption}
           >
             {caption}
-          </StyledFieldCaption>
+          </Field.HelperText>
         ) : null}
         {errorMessage ? (
-          <StyledFieldErrorMessage aria-label={errorMessage}>
+          <Field.ErrorText
+            css={fieldErrorMessageStyles}
+            aria-label={errorMessage}
+          >
             {errorMessage}
-          </StyledFieldErrorMessage>
+          </Field.ErrorText>
         ) : null}
-        <StyledTextarea
+        <ChakraTextarea
           placeholder={placeholder}
           disabled={disabled}
-          size={size}
+          css={textareaSyles(size, value, defaultValue)}
           onChange={handleOnChange}
           value={value}
           _placeholder={{
@@ -119,28 +127,30 @@ const Textarea = ({
           {...rest}
         />
         {showMinLengthError && minLength ? (
-          <StyledFieldErrorMessage
+          <Field.ErrorText
+            css={fieldErrorMessageStyles}
             style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
             aria-live='polite'
           >
             You need {minLength - value.length} more characters
-          </StyledFieldErrorMessage>
+          </Field.ErrorText>
         ) : null}
         {showMaxLengthError && maxLength ? (
-          <StyledFieldErrorMessage
+          <Field.ErrorText
+            css={fieldErrorMessageStyles}
             style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
             aria-live='polite'
           >
             You have {value.length - maxLength} characters too many
-          </StyledFieldErrorMessage>
+          </Field.ErrorText>
         ) : null}
         {helperText && !showMaxLengthError && !showMinLengthError ? (
-          <StyledFieldHelperText aria-label={helperText}>
+          <Field.HelperText css={fieldHelperTextStyles} aria-label={helperText}>
             {helperText}
-          </StyledFieldHelperText>
+          </Field.HelperText>
         ) : null}
       </Field.Root>
-    </TextareaContainer>
+    </div>
   )
 }
 
