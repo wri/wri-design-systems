@@ -1,14 +1,17 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
+import { useState } from 'react'
+import { Group } from '@chakra-ui/react'
 
 import { InputWithUnitsProps } from './types'
 import {
-  ErrorBar,
-  InputWithUnitsCaption,
-  InputWithUnitsContainer,
-  InputWithUnitsErrorMessage,
-  InputWithUnitsLabel,
-  StyledInputWithUnits,
+  errorBarStyles,
+  inputWithUnitsCaptionStyles,
+  inputWithUnitsContainerStyles,
+  inputWithUnitsErrorMessageStyles,
+  inputWithUnitsLabelStyles,
+  inputWithUnitsStyles,
 } from './styled'
 import TextInput from '../TextInput'
 import Select from '../Select'
@@ -40,24 +43,23 @@ const InputWithUnits = ({
   }
 
   return (
-    <StyledInputWithUnits>
-      {errorMessage ? <ErrorBar /> : null}
+    <div css={inputWithUnitsStyles}>
+      {errorMessage ? <div css={errorBarStyles} /> : null}
       <div style={{ marginLeft: errorMessage ? '19px' : '0px' }}>
-        <InputWithUnitsLabel disabled={disabled} aria-label={label}>
+        <p css={inputWithUnitsLabelStyles(disabled)} aria-label={label}>
           {required ? <span>*</span> : null}
           {label}
-        </InputWithUnitsLabel>
-        <InputWithUnitsCaption disabled={disabled} aria-label={caption}>
+        </p>
+        <p css={inputWithUnitsCaptionStyles(disabled)} aria-label={caption}>
           {caption}
-        </InputWithUnitsCaption>
+        </p>
         {errorMessage ? (
-          <InputWithUnitsErrorMessage aria-label={errorMessage}>
+          <p css={inputWithUnitsErrorMessageStyles} aria-label={errorMessage}>
             {errorMessage}
-          </InputWithUnitsErrorMessage>
+          </p>
         ) : null}
-        <InputWithUnitsContainer
-          unitsPosition={unitsPosition}
-          hasError={!!errorMessage}
+        <Group
+          css={inputWithUnitsContainerStyles(!!errorMessage, unitsPosition)}
           attached
         >
           {unitsPosition === 'start' ? (
@@ -93,9 +95,9 @@ const InputWithUnits = ({
               }}
             />
           ) : null}
-        </InputWithUnitsContainer>
+        </Group>
       </div>
-    </StyledInputWithUnits>
+    </div>
   )
 }
 

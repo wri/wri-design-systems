@@ -1,34 +1,39 @@
-import styled from '@emotion/styled'
-import { Group } from '@chakra-ui/react'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
+import { InputWithUnitsProps } from './types'
 
-export const StyledInputWithUnits = styled.div`
+export const inputWithUnitsStyles = css`
   width: 100%;
   max-width: 370px;
   position: relative;
 `
 
-export const InputWithUnitsLabel = styled.p<{ disabled?: boolean }>`
+export const inputWithUnitsLabelStyles = (
+  disabled?: InputWithUnitsProps['disabled'],
+) => css`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: ${({ disabled }) => getThemedColor('neutral', disabled ? 600 : 900)};
+  color: ${getThemedColor('neutral', disabled ? 600 : 900)};
 
   span {
-    color: ${({ disabled }) =>
-      disabled ? getThemedColor('neutral', 600) : getThemedColor('error', 500)};
+    color: ${disabled
+      ? getThemedColor('neutral', 600)
+      : getThemedColor('error', 500)};
     margin-right: 3px;
   }
 `
 
-export const InputWithUnitsCaption = styled.p<{ disabled?: boolean }>`
+export const inputWithUnitsCaptionStyles = (
+  disabled?: InputWithUnitsProps['disabled'],
+) => css`
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
-  color: ${({ disabled }) => getThemedColor('neutral', disabled ? 500 : 600)};
+  color: ${getThemedColor('neutral', disabled ? 500 : 600)};
 `
 
-export const ErrorBar = styled.div`
+export const errorBarStyles = css`
   width: 3px;
   height: 100%;
   background-color: ${getThemedColor('error', 500)};
@@ -37,17 +42,17 @@ export const ErrorBar = styled.div`
   left: 0;
 `
 
-export const InputWithUnitsErrorMessage = styled.p`
+export const inputWithUnitsErrorMessageStyles = css`
   font-size: 14px;
   line-height: 20px;
   font-weight: 700;
   color: ${getThemedColor('error', 500)};
 `
 
-export const InputWithUnitsContainer = styled(Group)<{
-  unitsPosition: string
-  hasError: boolean
-}>`
+export const inputWithUnitsContainerStyles = (
+  hasError: boolean,
+  unitsPosition?: InputWithUnitsProps['unitsPosition'],
+) => css`
   width: 100%;
   margin-top: 8px;
 
@@ -56,9 +61,8 @@ export const InputWithUnitsContainer = styled(Group)<{
 
     input {
       margin-top: 0px;
-      ${({ unitsPosition, hasError }) =>
-        unitsPosition === 'start'
-          ? `
+      ${unitsPosition === 'start'
+        ? `
           border-top-left-radius: 0;
           border-bottom-left-radius: 0;
           ${
@@ -70,7 +74,7 @@ export const InputWithUnitsContainer = styled(Group)<{
               : ''
           }
         `
-          : `
+        : `
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
           ${
@@ -93,9 +97,8 @@ export const InputWithUnitsContainer = styled(Group)<{
       padding: 6px 4px;
       background-color: ${getThemedColor('neutral', 300)};
 
-      ${({ unitsPosition, hasError }) =>
-        unitsPosition === 'start'
-          ? `
+      ${unitsPosition === 'start'
+        ? `
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
           ${
@@ -107,7 +110,7 @@ export const InputWithUnitsContainer = styled(Group)<{
               : ''
           }
         `
-          : `
+        : `
           border-top-left-radius: 0;
           border-bottom-left-radius: 0;
           ${
