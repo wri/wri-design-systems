@@ -1,12 +1,15 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
+import { Fragment, useState } from 'react'
 
 import { Box, Tabs } from '@chakra-ui/react'
 import {
-  TabBarContainer,
-  TabBarItemPanel,
-  TabBarItemView,
-  TabBarItemViewDivider,
+  defaultTabStyles,
+  tabBarContainerStyles,
+  tabBarItemPanelStyles,
+  tabBarItemViewDividerStyles,
+  tabBarItemViewStyles,
 } from './styled'
 import { TabBarItemProps, TabBarProps } from './types'
 
@@ -45,10 +48,8 @@ const TabBar = ({
     }
   }
 
-  const TabBarItem = isView ? TabBarItemView : TabBarItemPanel
-
   return (
-    <TabBarContainer variant={variant}>
+    <div css={tabBarContainerStyles(variant)}>
       <Tabs.Root
         width='full'
         defaultValue={defaultValue || tabs?.[0]?.value}
@@ -56,13 +57,17 @@ const TabBar = ({
       >
         <Tabs.List alignItems='center' border='none'>
           {tabs.map((tab, idx) => (
-            <>
+            <Fragment key={tab.label}>
               {isView &&
               idx === 1 &&
               getBorderSide(selectedTabIndex) === 'left' ? (
-                <TabBarItemViewDivider />
+                <div css={tabBarItemViewDividerStyles} />
               ) : null}
-              <TabBarItem
+              <Tabs.Trigger
+                css={[
+                  defaultTabStyles,
+                  isView ? tabBarItemViewStyles : tabBarItemPanelStyles,
+                ]}
                 key={tab.label}
                 aria-label={tab['aria-label'] || tab.label}
                 {...tab}
@@ -71,17 +76,17 @@ const TabBar = ({
                   {tab.icon}
                   {tab.label}
                 </Box>
-              </TabBarItem>
+              </Tabs.Trigger>
               {isView &&
               idx === 1 &&
               getBorderSide(selectedTabIndex) === 'right' ? (
-                <TabBarItemViewDivider />
+                <div css={tabBarItemViewDividerStyles} />
               ) : null}
-            </>
+            </Fragment>
           ))}
         </Tabs.List>
       </Tabs.Root>
-    </TabBarContainer>
+    </div>
   )
 }
 
