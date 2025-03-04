@@ -1,13 +1,13 @@
 /* eslint-disable no-nested-ternary */
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const StyledPassword = styled.div`
+export const passwordContainerStyles = css`
   width: 100%;
   max-width: 486px;
 `
 
-export const PasswordLabel = styled.p`
+export const passwordLabelStyles = css`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -19,14 +19,14 @@ export const PasswordLabel = styled.p`
   }
 `
 
-export const PasswordCaption = styled.p`
+export const passwordCaptionStyles = css`
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
   color: ${getThemedColor('neutral', 600)};
 `
 
-export const PasswordContainer = styled.div`
+export const passwordContentStyles = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,11 +46,11 @@ export const PasswordContainer = styled.div`
   }
 `
 
-export const PasswordStrengthContainer = styled.div`
+export const passwordStrengthContainerStyles = css`
   margin-top: 12px;
 `
 
-export const PasswordStrengthLabel = styled.p<{ strength: string }>`
+export const passwordStrengthLabelStyles = (strength: string) => css`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -58,19 +58,18 @@ export const PasswordStrengthLabel = styled.p<{ strength: string }>`
 
   span {
     font-weight: 700;
-    color: ${({ strength }) =>
-      getThemedColor(
-        strength === 'Medium'
-          ? 'warning'
-          : strength === 'Strong' || strength === 'Very Strong'
-            ? 'success'
-            : 'error',
-        500,
-      )};
+    color: ${getThemedColor(
+      strength === 'Medium'
+        ? 'warning'
+        : strength === 'Strong' || strength === 'Very Strong'
+          ? 'success'
+          : 'error',
+      500,
+    )};
   }
 `
 
-export const PasswordStrengthBar = styled.div<{ strength: string }>`
+export const passwordStrengthBarStyles = (strength: string) => css`
   height: 8px;
   width: 100%;
   background-color: ${getThemedColor('neutral', 300)};
@@ -80,30 +79,28 @@ export const PasswordStrengthBar = styled.div<{ strength: string }>`
 
   div {
     height: 100%;
-    width: ${({ strength }) =>
-      strength === 'Weak'
-        ? '25%'
-        : strength === 'Medium'
-          ? '50%'
-          : strength === 'Strong'
-            ? '75%'
-            : strength === 'Very Strong'
-              ? ' 100%'
-              : '5%'};
-    background-color: ${({ strength }) =>
-      getThemedColor(
-        strength === 'Medium'
-          ? 'warning'
-          : strength === 'Strong' || strength === 'Very Strong'
-            ? 'success'
-            : 'error',
-        500,
-      )};
+    width: ${strength === 'Weak'
+      ? '25%'
+      : strength === 'Medium'
+        ? '50%'
+        : strength === 'Strong'
+          ? '75%'
+          : strength === 'Very Strong'
+            ? ' 100%'
+            : '5%'};
+    background-color: ${getThemedColor(
+      strength === 'Medium'
+        ? 'warning'
+        : strength === 'Strong' || strength === 'Very Strong'
+          ? 'success'
+          : 'error',
+      500,
+    )};
     border-radius: 8px;
   }
 `
 
-export const PasswordStrengthItem = styled.div<{ isValid: boolean }>`
+export const passwordStrengthItemStyles = (isValid: boolean) => css`
   display: flex;
   align-items: center;
   gap: 4px;
@@ -115,8 +112,7 @@ export const PasswordStrengthItem = styled.div<{ isValid: boolean }>`
   div {
     height: 16px;
     width: 16px;
-    background-color: ${({ isValid }) =>
-      getThemedColor(isValid ? 'success' : 'error', 100)};
+    background-color: ${getThemedColor(isValid ? 'success' : 'error', 100)};
     display: flex;
     justify-content: center;
     align-items: center;

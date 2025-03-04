@@ -24,7 +24,7 @@ export { default as Switch } from './Forms/Controls/Switch'
 // Inputs
 export { default as CheckboxList } from './Forms/Inputs/CheckboxList'
 export { default as InputWithUnits } from './Forms/Inputs/InputWithUnits'
-// export { default as Password } from './Forms/Inputs/Password'
+export { default as Password } from './Forms/Inputs/Password'
 // export { default as RadioList } from './Forms/Inputs/RadioList'
 export { default as Select } from './Forms/Inputs/Select'
 // export { default as SliderInput } from './Forms/Inputs/SliderInput'
