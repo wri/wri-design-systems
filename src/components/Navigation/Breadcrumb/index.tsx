@@ -1,13 +1,15 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useEffect, useState } from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
+import { useEffect, useState, Fragment } from 'react'
 
 import { Breadcrumb as ChakraBreadcrumb } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { BreadcrumbProps } from './types'
 import {
-  BreadcrumbEllipsis,
-  BreadcrumbItem,
-  BreadcrumbSeparator,
+  breadcrumbEllipsisStyles,
+  breadcrumbItemStyles,
+  breadcrumbSeparatorStyles,
 } from './styled'
 import { ChevronDownIcon } from '../../icons'
 
@@ -23,38 +25,39 @@ const Breadcrumb = ({ links, separator, maxItems = 99 }: BreadcrumbProps) => {
       <ChakraBreadcrumb.List gap='16px'>
         {showEllipsis ? (
           <>
-            <BreadcrumbItem>
+            <ChakraBreadcrumb.Item css={breadcrumbItemStyles}>
               <Link to={links[0].link}>
                 {links[0].icon}
                 {links[0].label}
               </Link>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator>
+            </ChakraBreadcrumb.Item>
+            <ChakraBreadcrumb.Separator css={breadcrumbSeparatorStyles}>
               {separator || <ChevronDownIcon rotate='270' />}
-            </BreadcrumbSeparator>
+            </ChakraBreadcrumb.Separator>
             <li className='chakra-breadcrumb__item'>
-              <BreadcrumbEllipsis
+              <button
+                css={breadcrumbEllipsisStyles}
                 type='button'
                 onClick={() => setShowEllipsis(false)}
               >
                 ...
-              </BreadcrumbEllipsis>
+              </button>
             </li>
-            <BreadcrumbSeparator>
+            <ChakraBreadcrumb.Separator css={breadcrumbSeparatorStyles}>
               {separator || <ChevronDownIcon rotate='270' />}
-            </BreadcrumbSeparator>
-            <BreadcrumbItem>
+            </ChakraBreadcrumb.Separator>
+            <ChakraBreadcrumb.Item css={breadcrumbItemStyles}>
               <p aria-current='page' aria-label={links[links.length - 1].label}>
                 {links[links.length - 1].icon}
                 {links[links.length - 1].label}
               </p>
-            </BreadcrumbItem>
+            </ChakraBreadcrumb.Item>
           </>
         ) : (
           links.map((link, idx) =>
             link?.label ? (
-              <React.Fragment key={link.label}>
-                <BreadcrumbItem>
+              <Fragment key={link.label}>
+                <ChakraBreadcrumb.Item css={breadcrumbItemStyles}>
                   {idx < links.length - 1 ? (
                     <Link to={link.link}>
                       {link.icon}
@@ -66,13 +69,13 @@ const Breadcrumb = ({ links, separator, maxItems = 99 }: BreadcrumbProps) => {
                       {link.label}
                     </p>
                   )}
-                </BreadcrumbItem>
+                </ChakraBreadcrumb.Item>
                 {idx < links.length - 1 ? (
-                  <BreadcrumbSeparator>
+                  <ChakraBreadcrumb.Separator css={breadcrumbSeparatorStyles}>
                     {separator || <ChevronDownIcon rotate='270' />}
-                  </BreadcrumbSeparator>
+                  </ChakraBreadcrumb.Separator>
                 ) : null}
-              </React.Fragment>
+              </Fragment>
             ) : null,
           )
         )}
