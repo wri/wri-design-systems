@@ -1,18 +1,15 @@
-import styled from '@emotion/styled'
-import { Tabs } from '@chakra-ui/react'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
+import { TabBarProps } from './types'
 
-export const TabBarContainer = styled.div<{
-  variant: string
-}>`
+export const tabBarContainerStyles = (variant: TabBarProps['variant']) => css`
   width: 100%;
   display: flex;
   align-items: center;
   height: 40px;
 
-  ${({ variant }) =>
-    variant === 'view' &&
-    `
+  ${variant === 'view' &&
+  `
     border: 1px solid ${getThemedColor('neutral', 400)};
     background-color: ${getThemedColor('neutral', 200)};
     border-radius: 4px;
@@ -20,7 +17,7 @@ export const TabBarContainer = styled.div<{
   `}
 `
 
-export const DefaultTab = styled(Tabs.Trigger)`
+export const defaultTabStyles = css`
   width: 99%;
   height: 40px;
   padding: 8px 16px;
@@ -38,7 +35,7 @@ export const DefaultTab = styled(Tabs.Trigger)`
   }
 `
 
-export const TabBarItemPanel = styled(DefaultTab)`
+export const tabBarItemPanelStyles = css`
   background-color: ${getThemedColor('neutral', 200)};
   color: ${getThemedColor('neutral', 600)};
 
@@ -91,13 +88,13 @@ export const TabBarItemPanel = styled(DefaultTab)`
   }
 `
 
-export const TabBarItemViewDivider = styled.div`
+export const tabBarItemViewDividerStyles = css`
   width: 4px;
   height: 24px;
   background-color: ${getThemedColor('neutral', 400)};
 `
 
-export const TabBarItemView = styled(DefaultTab)`
+export const tabBarItemViewStyles = css`
   height: 32px;
   border-radius: 2px;
   background-color: ${getThemedColor('neutral', 200)};
