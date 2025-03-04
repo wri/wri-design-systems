@@ -14,9 +14,14 @@ import { Breadcrumb } from '@worldresources/wri-design-systems'
 
 Get paths based on your router approach
 
+React Router
+
 ```tsx
+import { Link, useLocation } from 'react-router-dom'
+
 const location = useLocation()
 const paths = location.pathname.split('/').slice(1)
+
 const breadcrumbs = paths.map((p, index) => ({
   label: p,
   link: `/${paths.slice(0, index + 1).join('/')}`,
@@ -24,8 +29,23 @@ const breadcrumbs = paths.map((p, index) => ({
 }))
 ```
 
+Next.js
+
 ```tsx
-<Breadcrumb links={breadcrumbs} />
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+const pathname = usePathname()
+const paths = pathname.split('/').slice(1)
+
+const breadcrumbs = paths.map((p, index) => ({
+  label: p,
+  link: `/${paths.slice(0, index + 1).join('/')}`,
+}))
+```
+
+```tsx
+<Breadcrumb links={breadcrumbs} linkRouter={Link} />
 ```
 
 ## Props
@@ -35,17 +55,18 @@ type BreadcrumbProps = {
   links: { label: string; link: string; icon?: React.ReactNode }[]
   separator?: React.ReactNode
   maxItems?: number
+  linkRouter: any // Link from react router or next.js
 }
 ```
 
 ## Custom Separator
 
 ```tsx
-<Breadcrumb links={breadcrumbs} separator='|' />
+<Breadcrumb links={breadcrumbs} separator='|' linkRouter={Link} />
 ```
 
 ## Max Items
 
 ```tsx
-<Breadcrumb links={breadcrumbs} maxItems={5} />
+<Breadcrumb links={breadcrumbs} maxItems={5} linkRouter={Link} />
 ```
