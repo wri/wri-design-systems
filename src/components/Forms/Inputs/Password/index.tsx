@@ -1,18 +1,20 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
+import { useState } from 'react'
 
 import TextInput from '../TextInput'
 import Button from '../../Buttons/Button'
 import { PasswordProps } from './types'
 import {
-  PasswordLabel,
-  PasswordCaption,
-  StyledPassword,
-  PasswordContainer,
-  PasswordStrengthContainer,
-  PasswordStrengthLabel,
-  PasswordStrengthBar,
-  PasswordStrengthItem,
+  passwordCaptionStyles,
+  passwordContainerStyles,
+  passwordContentStyles,
+  passwordLabelStyles,
+  passwordStrengthBarStyles,
+  passwordStrengthContainerStyles,
+  passwordStrengthItemStyles,
+  passwordStrengthLabelStyles,
 } from './styled'
 import { HideIcon, ShowIcon, CloseIcon, CheckIcon } from '../../../icons'
 
@@ -83,13 +85,15 @@ const Password = ({
   }
 
   return (
-    <StyledPassword>
-      <PasswordLabel aria-label={label}>
+    <div css={passwordContainerStyles}>
+      <p css={passwordLabelStyles} aria-label={label}>
         {required ? <span>*</span> : null}
         {label}
-      </PasswordLabel>
-      <PasswordCaption aria-label={caption}>{caption}</PasswordCaption>
-      <PasswordContainer>
+      </p>
+      <p css={passwordCaptionStyles} aria-label={caption}>
+        {caption}
+      </p>
+      <div css={passwordContentStyles}>
         <TextInput
           type={show ? 'text' : 'password'}
           value={password}
@@ -101,16 +105,16 @@ const Password = ({
           leftIcon={show ? <HideIcon /> : <ShowIcon />}
           onClick={() => setShow(!show)}
         />
-      </PasswordContainer>
+      </div>
       {password && !hideValidations ? (
-        <PasswordStrengthContainer>
-          <PasswordStrengthLabel strength={passwordStatus.strength}>
+        <div css={passwordStrengthContainerStyles}>
+          <p css={passwordStrengthLabelStyles(passwordStatus.strength)}>
             Password Strength: <span>{passwordStatus.strength}</span>
-          </PasswordStrengthLabel>
-          <PasswordStrengthBar strength={passwordStatus.strength}>
+          </p>
+          <div css={passwordStrengthBarStyles(passwordStatus.strength)}>
             <div />
-          </PasswordStrengthBar>
-          <PasswordStrengthItem isValid={passwordStatus.length}>
+          </div>
+          <div css={passwordStrengthItemStyles(passwordStatus.length)}>
             <div>
               {passwordStatus.length ? (
                 <CheckIcon
@@ -127,9 +131,9 @@ const Password = ({
               )}
             </div>
             <p>Use a minimum of {minLength} characters</p>
-          </PasswordStrengthItem>
+          </div>
           {!disabledRules?.uppercase ? (
-            <PasswordStrengthItem isValid={passwordStatus.uppercase}>
+            <div css={passwordStrengthItemStyles(passwordStatus.uppercase)}>
               <div>
                 {passwordStatus.uppercase ? (
                   <CheckIcon
@@ -146,10 +150,10 @@ const Password = ({
                 )}
               </div>
               <p>Use an uppercase letter</p>
-            </PasswordStrengthItem>
+            </div>
           ) : null}
           {!disabledRules?.lowercase ? (
-            <PasswordStrengthItem isValid={passwordStatus.lowercase}>
+            <div css={passwordStrengthItemStyles(passwordStatus.lowercase)}>
               <div>
                 {passwordStatus.lowercase ? (
                   <CheckIcon
@@ -166,10 +170,10 @@ const Password = ({
                 )}
               </div>
               <p>Use a lowercase letter</p>
-            </PasswordStrengthItem>
+            </div>
           ) : null}
           {!disabledRules?.numbers ? (
-            <PasswordStrengthItem isValid={passwordStatus.numbers}>
+            <div css={passwordStrengthItemStyles(passwordStatus.numbers)}>
               <div>
                 {passwordStatus.numbers ? (
                   <CheckIcon
@@ -186,10 +190,12 @@ const Password = ({
                 )}
               </div>
               <p>Use a number</p>
-            </PasswordStrengthItem>
+            </div>
           ) : null}
           {!disabledRules?.specialCharacters ? (
-            <PasswordStrengthItem isValid={passwordStatus.specialCharacters}>
+            <div
+              css={passwordStrengthItemStyles(passwordStatus.specialCharacters)}
+            >
               <div>
                 {passwordStatus.specialCharacters ? (
                   <CheckIcon
@@ -206,11 +212,11 @@ const Password = ({
                 )}
               </div>
               <p>Use a special character</p>
-            </PasswordStrengthItem>
+            </div>
           ) : null}
-        </PasswordStrengthContainer>
+        </div>
       ) : null}
-    </StyledPassword>
+    </div>
   )
 }
 
