@@ -47,12 +47,20 @@ const Tag = ({
       <ChakraTag.Label aria-label={label}>{label}</ChakraTag.Label>
       {closable && !disabled && size !== 'small' ? (
         <ChakraTag.EndElement>
-          <ChakraTag.CloseTrigger
+          <div
+            className='chakra-tag__closeTrigger'
+            role='button'
+            tabIndex={0}
             onClick={onClose}
+            onKeyDown={(event) => {
+              if (onClose && (event.key === 'Enter' || event.key === ' ')) {
+                onClose()
+              }
+            }}
             aria-label={`${label} tag close button`}
           >
             <CloseIcon />
-          </ChakraTag.CloseTrigger>
+          </div>
         </ChakraTag.EndElement>
       ) : null}
     </ChakraTag.Root>

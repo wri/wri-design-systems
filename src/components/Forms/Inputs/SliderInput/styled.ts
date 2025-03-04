@@ -7,6 +7,7 @@ export const sliderInputLabelStyles = (size: SliderInputProps['size']) => css`
   line-height: ${size === 'small' ? '20px' : '24px'};
   font-weight: 400;
   color: ${getThemedColor('neutral', 900)};
+  text-align: left;
 
   span {
     color: ${getThemedColor('error', 500)};
@@ -19,6 +20,7 @@ export const sliderInputCaptionStyles = (size: SliderInputProps['size']) => css`
   line-height: ${size === 'small' ? '16px' : '20px'};
   font-weight: 400;
   color: ${getThemedColor('neutral', 600)};
+  text-align: left;
 `
 
 export const sliderInputContentStyles = css`
