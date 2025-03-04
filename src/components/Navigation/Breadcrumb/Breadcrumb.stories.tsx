@@ -2,6 +2,7 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
+import { Link } from 'react-router-dom'
 import BreadcrumbStory from '.'
 // import { CheckIcon } from '../../icons'
 
@@ -24,6 +25,7 @@ export const Breadcrumb: Story = {
       { label: 'Two', link: '#' },
       { label: 'Three', link: '#' },
     ],
+    linkRouter: Link,
   },
 }
 
@@ -35,6 +37,7 @@ export const CustomSeparator: Story = {
       { label: 'Three', link: '#' },
     ],
     separator: '|',
+    linkRouter: Link,
   },
 }
 
@@ -47,5 +50,6 @@ export const MaxItems: Story = {
       { label: 'Four', link: '#' },
     ],
     maxItems: 3,
+    linkRouter: Link,
   },
 }

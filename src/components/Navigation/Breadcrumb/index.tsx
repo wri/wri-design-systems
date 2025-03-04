@@ -4,7 +4,6 @@
 import { useEffect, useState, Fragment } from 'react'
 
 import { Breadcrumb as ChakraBreadcrumb } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
 import { BreadcrumbProps } from './types'
 import {
   breadcrumbEllipsisStyles,
@@ -13,12 +12,19 @@ import {
 } from './styled'
 import { ChevronDownIcon } from '../../icons'
 
-const Breadcrumb = ({ links, separator, maxItems = 99 }: BreadcrumbProps) => {
+const Breadcrumb = ({
+  links,
+  separator,
+  maxItems = 99,
+  linkRouter,
+}: BreadcrumbProps) => {
   const [showEllipsis, setShowEllipsis] = useState(links.length > maxItems)
 
   useEffect(() => {
     setShowEllipsis(links.length > maxItems)
   }, [links.length])
+
+  const Link = linkRouter
 
   return (
     <ChakraBreadcrumb.Root>
@@ -26,7 +32,7 @@ const Breadcrumb = ({ links, separator, maxItems = 99 }: BreadcrumbProps) => {
         {showEllipsis ? (
           <>
             <ChakraBreadcrumb.Item css={breadcrumbItemStyles}>
-              <Link to={links[0].link}>
+              <Link to={links[0].link} href={links[0].link}>
                 {links[0].icon}
                 {links[0].label}
               </Link>
@@ -59,7 +65,7 @@ const Breadcrumb = ({ links, separator, maxItems = 99 }: BreadcrumbProps) => {
               <Fragment key={link.label}>
                 <ChakraBreadcrumb.Item css={breadcrumbItemStyles}>
                   {idx < links.length - 1 ? (
-                    <Link to={link.link}>
+                    <Link to={link.link} href={link.link}>
                       {link.icon}
                       {link.label}
                     </Link>
