@@ -1,13 +1,15 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
+import { useState } from 'react'
 
 import { Box, Collapsible, Tabs } from '@chakra-ui/react'
 import {
-  NavigationRailChildrenContainer,
-  NavigationRailContainer,
-  NavigationRailTab,
-  NavigationRailTabIcon,
-  NavigationRailTrigger,
+  navigationRailChildrenContainerStyles,
+  navigationRailContainerStyles,
+  navigationRailTabIconStyles,
+  navigationRailTabStyles,
+  navigationRailTriggerStyles,
 } from './styled'
 import { NavigationRailProps } from './types'
 import { HideSidebarIcon, ShowSidebarIcon } from '../../icons'
@@ -39,7 +41,7 @@ const NavigationRail = ({
 
   return (
     <>
-      <NavigationRailContainer>
+      <div css={navigationRailContainerStyles}>
         <Tabs.Root
           defaultValue={defaultValue || tabs?.[0]?.value}
           orientation='horizontal'
@@ -53,7 +55,8 @@ const NavigationRail = ({
             style={{ flexDirection: 'column' }}
           >
             {tabs.map((tab) => (
-              <NavigationRailTab
+              <Tabs.Trigger
+                css={navigationRailTabStyles}
                 key={tab.label}
                 aria-label={tab['aria-label'] || tab.label}
                 {...tab}
@@ -66,38 +69,39 @@ const NavigationRail = ({
                   className='tab-label'
                 >
                   {tab.icon ? (
-                    <NavigationRailTabIcon>{tab.icon}</NavigationRailTabIcon>
+                    <div css={navigationRailTabIconStyles}>{tab.icon}</div>
                   ) : null}
                   <p>{tab.label}</p>
                 </Box>
-              </NavigationRailTab>
+              </Tabs.Trigger>
             ))}
           </Tabs.List>
         </Tabs.Root>
 
         {children ? (
           <Collapsible.Root onOpenChange={handleOnOpenChange}>
-            <NavigationRailTrigger>
-              <NavigationRailTabIcon>
+            <Collapsible.Trigger css={navigationRailTriggerStyles}>
+              <div css={navigationRailTabIconStyles}>
                 {hideSidebar ? <ShowSidebarIcon /> : <HideSidebarIcon />}
-              </NavigationRailTabIcon>
+              </div>
               <div className='tab-label'>
                 <p>{hideSidebar ? 'Show' : 'Hide'}</p>
                 <p>Sidebar</p>
               </div>
-            </NavigationRailTrigger>
+            </Collapsible.Trigger>
           </Collapsible.Root>
         ) : null}
-      </NavigationRailContainer>
+      </div>
       {children ? (
         <Collapsible.Root defaultOpen open={!hideSidebar}>
           <Collapsible.Content>
-            <NavigationRailChildrenContainer
+            <div
+              css={navigationRailChildrenContainerStyles}
               role='tabpanel'
               aria-labelledby={seletedTab}
             >
               {children}
-            </NavigationRailChildrenContainer>
+            </div>
           </Collapsible.Content>
         </Collapsible.Root>
       ) : null}
