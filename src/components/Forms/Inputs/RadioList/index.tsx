@@ -1,16 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
 
 import { RadioListProps } from './types'
 import Radio from '../../Controls/Radio'
 import {
-  RadioListCaption,
-  RadioListContainer,
-  RadioListContent,
-  RadioListContentList,
-  RadioListErrorBar,
-  RadioListErrorMessage,
-  RadioListLabel,
+  radioListCaptionStyles,
+  radioListContainerStyles,
+  radioListContentListStyles,
+  radioListContentStyles,
+  radioListErrorBarStyles,
+  radioListErrorMessageStyles,
+  radioListLabelStyles,
 } from './styled'
 import RadioGroup from '../../Controls/Radio/RadioGroup'
 
@@ -25,20 +25,26 @@ const RadioList = ({
   horizontal,
   required,
 }: RadioListProps) => (
-  <RadioListContainer aria-roledescription='group' aria-labelledby={label}>
-    {errorMessage ? <RadioListErrorBar /> : null}
-    <RadioListContent hasErrorMessage={!!errorMessage}>
-      <RadioListLabel aria-label={label}>
+  <div
+    css={radioListContainerStyles}
+    aria-roledescription='group'
+    aria-labelledby={label}
+  >
+    {errorMessage ? <div css={radioListErrorBarStyles} /> : null}
+    <div css={radioListContentStyles(!!errorMessage)}>
+      <p css={radioListLabelStyles} aria-label={label}>
         {required && <span aria-label='required'>*</span>}
         {label}
-      </RadioListLabel>
-      <RadioListCaption aria-label={caption}>{caption}</RadioListCaption>
+      </p>
+      <p css={radioListCaptionStyles} aria-label={caption}>
+        {caption}
+      </p>
       {errorMessage ? (
-        <RadioListErrorMessage aria-label={errorMessage}>
+        <p css={radioListErrorMessageStyles} aria-label={errorMessage}>
           {errorMessage}
-        </RadioListErrorMessage>
+        </p>
       ) : null}
-      <RadioListContentList>
+      <div css={radioListContentListStyles}>
         <RadioGroup
           name={name}
           defaultValue={defaultValue}
@@ -46,12 +52,12 @@ const RadioList = ({
           horizontal={horizontal}
         >
           {radios.map((radio) => (
-            <Radio key={radio.value} {...radio} />
+            <Radio key={radio.value} css={{}} {...radio} />
           ))}
         </RadioGroup>
-      </RadioListContentList>
-    </RadioListContent>
-  </RadioListContainer>
+      </div>
+    </div>
+  </div>
 )
 
 export default RadioList
