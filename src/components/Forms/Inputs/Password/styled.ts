@@ -12,6 +12,7 @@ export const passwordLabelStyles = css`
   line-height: 24px;
   font-weight: 400;
   color: ${getThemedColor('neutral', 900)};
+  text-align: left;
 
   span {
     color: ${getThemedColor('error', 500)};
@@ -24,6 +25,7 @@ export const passwordCaptionStyles = css`
   line-height: 20px;
   font-weight: 400;
   color: ${getThemedColor('neutral', 600)};
+  text-align: left;
 `
 
 export const passwordContentStyles = css`
@@ -55,6 +57,7 @@ export const passwordStrengthLabelStyles = (strength: string) => css`
   line-height: 24px;
   font-weight: 400;
   color: ${getThemedColor('neutral', 800)};
+  text-align: left;
 
   span {
     font-weight: 700;

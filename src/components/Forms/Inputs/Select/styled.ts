@@ -26,6 +26,7 @@ export const selectLabelStyles = (size: string) => css`
   line-height: ${size === 'small' ? '20px' : '24px'};
   font-weight: 400;
   color: ${getThemedColor('neutral', 900)};
+  text-align: left;
 
   span {
     color: ${getThemedColor('error', 500)};
@@ -46,6 +47,7 @@ export const selectCaptionStyles = (size: string, disabled?: boolean) => css`
   line-height: ${size === 'small' ? '16px' : '20px'};
   font-weight: 400;
   color: ${getThemedColor('neutral', 600)};
+  text-align: left;
 
   ${disabled ? `color: ${getThemedColor('neutral', 500)} !important;` : ''}
 `
@@ -141,6 +143,7 @@ export const selectItemLabelStyles = (size: string, disabled?: boolean) => css`
   font-size: ${size === 'small' ? '14px' : '16px'};
   line-height: ${size === 'small' ? '20px' : '24px'};
   color: ${getThemedColor('neutral', 800)};
+  text-align: left;
 
   ${disabled ? `color: ${getThemedColor('neutral', 500)} !important;` : ''}
 `
@@ -152,6 +155,7 @@ export const selectItemCaptionStyles = (
   font-size: ${size === 'small' ? '14px' : '16px'};
   line-height: ${size === 'small' ? '20px' : '24px'};
   color: ${getThemedColor('neutral', 700)};
+  text-align: left;
 
   ${disabled ? `color: ${getThemedColor('neutral', 500)} !important;` : ''}
 `
@@ -161,4 +165,5 @@ export const selectErrorMessageStyles = (size: string) => css`
   line-height: ${size === 'small' ? '16px' : '20px'};
   font-weight: 700;
   color: ${getThemedColor('error', 500)};
+  text-align: left;
 `

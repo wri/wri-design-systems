@@ -34,7 +34,7 @@ export const baseTagStyles = (size: TagProps['size']) => css`
     height: 10px;
   }
 
-  button {
+  .chakra-tag__closeTrigger {
     margin-left: 8px;
 
     svg {
@@ -60,7 +60,7 @@ export const baseTagStyles = (size: TagProps['size']) => css`
       margin-right: 4px;
     }
 
-    button {
+    .chakra-tag__closeTrigger {
       margin-left: 6px;
 
       svg {
@@ -92,7 +92,7 @@ export const baseTagStyles = (size: TagProps['size']) => css`
       height: 12px;
     }
 
-    button {
+    .chakra-tag__closeTrigger {
       margin-left: 12px;
 
       svg {
@@ -113,15 +113,16 @@ export const baseTagStyles = (size: TagProps['size']) => css`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    &:focus-visible {
-      --focus-ring-color: ${getThemedColor('primary', 700)};
-      outline-offset: 2px;
-    }
   }
 
   .chakra-tag__closeTrigger {
     cursor: pointer;
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 2px solid ${getThemedColor('primary', 700)};
+      outline-style: auto;
+    }
   }
 
   &[data-disabled='true'] {

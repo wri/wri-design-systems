@@ -36,6 +36,7 @@ export const inlineMessageTitleStyles = (size: string) => css`
   font-size: ${size === 'small' ? '14px' : '18px'};
   line-height: ${size === 'small' ? '20px' : '28px'};
   font-weight: 400;
+  text-align: left;
 `
 
 export const inlineMessageCaptionStyles = (size: string) => css`
@@ -44,6 +45,7 @@ export const inlineMessageCaptionStyles = (size: string) => css`
   line-height: ${size === 'small' ? '16px' : '24px'};
   font-weight: 400;
   margin-left: 24px;
+  text-align: left;
 `
 
 export const infoWhiteInlineMessageStyles = css`

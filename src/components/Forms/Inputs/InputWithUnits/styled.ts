@@ -15,6 +15,7 @@ export const inputWithUnitsLabelStyles = (
   line-height: 24px;
   font-weight: 400;
   color: ${getThemedColor('neutral', disabled ? 600 : 900)};
+  text-align: left;
 
   span {
     color: ${disabled
@@ -31,6 +32,7 @@ export const inputWithUnitsCaptionStyles = (
   line-height: 20px;
   font-weight: 400;
   color: ${getThemedColor('neutral', disabled ? 500 : 600)};
+  text-align: left;
 `
 
 export const errorBarStyles = css`
@@ -47,6 +49,7 @@ export const inputWithUnitsErrorMessageStyles = css`
   line-height: 20px;
   font-weight: 700;
   color: ${getThemedColor('error', 500)};
+  text-align: left;
 `
 
 export const inputWithUnitsContainerStyles = (
