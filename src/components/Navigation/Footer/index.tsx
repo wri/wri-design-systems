@@ -1,12 +1,12 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
 
 import { FooterProps } from './types'
 import {
-  FooterContainer,
-  FooterContent,
-  FooterLabel,
-  StyledFooter,
+  footerContainerStyles,
+  footerContentStyles,
+  footerLabelStyles,
+  footerStyles,
 } from './styled'
 import { WriIcon } from '../../icons'
 
@@ -20,19 +20,19 @@ const Footer = ({
   const actualYear = new Date().getFullYear()
 
   return (
-    <StyledFooter fixed={fixed} filled={filled}>
-      <FooterContainer maxWidth={maxWidth}>
+    <footer css={footerStyles(fixed, filled)}>
+      <div css={footerContainerStyles(maxWidth)}>
         <div>
           <WriIcon height='32px' width='91px' />
         </div>
-        <FooterContent>{children}</FooterContent>
+        <div css={footerContentStyles}>{children}</div>
         <div>
-          <FooterLabel>
+          <p css={footerLabelStyles}>
             {label} {actualYear}
-          </FooterLabel>
+          </p>
         </div>
-      </FooterContainer>
-    </StyledFooter>
+      </div>
+    </footer>
   )
 }
 
