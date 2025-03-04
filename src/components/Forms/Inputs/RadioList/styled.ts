@@ -1,16 +1,16 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const RadioListContainer = styled.div`
+export const radioListContainerStyles = css`
   position: relative;
   height: 100%;
 `
 
-export const RadioListContent = styled.div<{ hasErrorMessage: boolean }>`
-  margin-left: ${({ hasErrorMessage }) => (hasErrorMessage ? '19px' : '0px')};
+export const radioListContentStyles = (hasErrorMessage: boolean) => css`
+  margin-left: ${hasErrorMessage ? '19px' : '0px'};
 `
 
-export const RadioListLabel = styled.p`
+export const radioListLabelStyles = css`
   font-size: 16px;
   line-height: 24px;
   color: ${getThemedColor('neutral', 900)};
@@ -21,17 +21,17 @@ export const RadioListLabel = styled.p`
   }
 `
 
-export const RadioListCaption = styled.p`
+export const radioListCaptionStyles = css`
   font-size: 14px;
   line-height: 20px;
   color: ${getThemedColor('neutral', 600)};
 `
 
-export const RadioListContentList = styled.div`
+export const radioListContentListStyles = css`
   margin-top: 12px;
 `
 
-export const RadioListErrorBar = styled.div`
+export const radioListErrorBarStyles = css`
   width: 3px;
   height: 100%;
   background-color: ${getThemedColor('error', 500)};
@@ -40,7 +40,7 @@ export const RadioListErrorBar = styled.div`
   left: 0;
 `
 
-export const RadioListErrorMessage = styled.p`
+export const radioListErrorMessageStyles = css`
   font-size: 14px;
   line-height: 20px;
   font-weight: 700;
