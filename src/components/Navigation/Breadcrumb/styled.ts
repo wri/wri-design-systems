@@ -1,8 +1,7 @@
-import styled from '@emotion/styled'
-import { Breadcrumb as ChakraBreadcrumb } from '@chakra-ui/react'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
-export const BreadcrumbItem = styled(ChakraBreadcrumb.Item)`
+export const breadcrumbItemStyles = css`
   a,
   p {
     font-size: 16px;
@@ -36,7 +35,7 @@ export const BreadcrumbItem = styled(ChakraBreadcrumb.Item)`
   }
 `
 
-export const BreadcrumbSeparator = styled(ChakraBreadcrumb.Separator)`
+export const breadcrumbSeparatorStyles = css`
   svg {
     height: 12px;
     width: 12px;
@@ -44,7 +43,7 @@ export const BreadcrumbSeparator = styled(ChakraBreadcrumb.Separator)`
   }
 `
 
-export const BreadcrumbEllipsis = styled.button`
+export const breadcrumbEllipsisStyles = css`
   cursor: pointer;
   color: ${getThemedColor('neutral', 600)};
   display: flex;
