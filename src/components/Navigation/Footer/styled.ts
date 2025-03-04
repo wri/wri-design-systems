@@ -1,27 +1,28 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
+import { FooterProps } from './types'
 
-export const StyledFooter = styled.footer<{
-  fixed?: boolean
-  filled?: boolean
-}>`
+export const footerStyles = (
+  fixed?: FooterProps['fixed'],
+  filled?: FooterProps['filled'],
+) => css`
   min-height: 56px;
   width: 100vw;
-  position: ${({ fixed }) => (fixed ? 'fixed' : 'absolute')};
+  position: ${fixed ? 'fixed' : 'absolute'};
   bottom: 0;
   left: 0;
-  background-color: ${({ filled }) =>
-    filled ? getThemedColor('neutral', 200) : 'transparent'};
-  background-color: ${({ filled }) =>
-    getThemedColor('neutral', filled ? 200 : 100)};
+  background-color: ${filled ? getThemedColor('neutral', 200) : 'transparent'};
+  background-color: ${getThemedColor('neutral', filled ? 200 : 100)};
   border-top: 1px solid ${getThemedColor('neutral', 400)};
   z-index: 101;
 `
 
-export const FooterContainer = styled.div<{ maxWidth?: number }>`
+export const footerContainerStyles = (
+  maxWidth?: FooterProps['maxWidth'],
+) => css`
   height: 100%;
   width: 100%;
-  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : '100%')};
+  max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,7 +36,7 @@ export const FooterContainer = styled.div<{ maxWidth?: number }>`
   }
 `
 
-export const FooterContent = styled.div`
+export const footerContentStyles = css`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -50,7 +51,7 @@ export const FooterContent = styled.div`
   }
 `
 
-export const FooterLabel = styled.p`
+export const footerLabelStyles = css`
   width: 240px;
   font-size: 14px;
   line-height: 20px;
