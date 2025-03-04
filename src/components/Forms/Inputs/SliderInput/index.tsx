@@ -1,12 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
 import React, { useState } from 'react'
 
 import { SliderInputProps } from './types'
 import {
-  SliderInputCaption,
-  SliderInputContainer,
-  SliderInputContent,
-  SliderInputLabel,
+  sliderInputCaptionStyles,
+  sliderInputContentStyles,
+  sliderInputLabelStyles,
 } from './styled'
 import TextInput from '../TextInput'
 import Slider from '../../Controls/Slider'
@@ -100,18 +101,18 @@ const SliderInput = ({
   }
 
   return (
-    <SliderInputContainer>
-      <SliderInputLabel size={size} aria-label={label}>
+    <div>
+      <p css={sliderInputLabelStyles(size)} aria-label={label}>
         {required ? <span>*</span> : null}
         {label}
-      </SliderInputLabel>
+      </p>
       {caption ? (
-        <SliderInputCaption size={size} aria-label={caption}>
+        <p css={sliderInputCaptionStyles(size)} aria-label={caption}>
           {caption}
-        </SliderInputCaption>
+        </p>
       ) : null}
 
-      <SliderInputContent>
+      <div css={sliderInputContentStyles}>
         {sliderItem.step && sliderItem.marks ? (
           <Select
             items={sliderItem.marks.map((mark: any) => ({
@@ -137,6 +138,7 @@ const SliderInput = ({
           />
         )}
         <Slider
+          css={{}}
           {...sliderItem}
           value={value}
           onValueChangeEnd={handleSliderChanged}
@@ -154,8 +156,8 @@ const SliderInput = ({
             onClick={(e: any) => e.target.select()}
           />
         ) : null}
-      </SliderInputContent>
-    </SliderInputContainer>
+      </div>
+    </div>
   )
 }
 

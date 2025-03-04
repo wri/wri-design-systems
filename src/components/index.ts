@@ -27,7 +27,7 @@ export { default as InputWithUnits } from './Forms/Inputs/InputWithUnits'
 export { default as Password } from './Forms/Inputs/Password'
 export { default as RadioList } from './Forms/Inputs/RadioList'
 export { default as Select } from './Forms/Inputs/Select'
-// export { default as SliderInput } from './Forms/Inputs/SliderInput'
+export { default as SliderInput } from './Forms/Inputs/SliderInput'
 export { default as Textarea } from './Forms/Inputs/Textarea'
 export { default as TextInput } from './Forms/Inputs/TextInput'
 

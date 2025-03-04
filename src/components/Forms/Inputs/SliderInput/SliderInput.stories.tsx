@@ -33,7 +33,7 @@ export const Continuous: Story = {
       max: 100,
       value: [30],
     },
-    onChange: (value) => console.log('Continuous', value),
+    onChange: (value: number[]) => console.log('Continuous', value),
     required: true,
   },
 }
@@ -48,7 +48,7 @@ export const Small: Story = {
       max: 100,
       value: [60],
     },
-    onChange: (value) => console.log('Small', value),
+    onChange: (value: number[]) => console.log('Small', value),
     required: true,
   },
 }
@@ -70,7 +70,7 @@ export const Discrete: Story = {
       ],
       step: 25,
     },
-    onChange: (value) => console.log('Discrete', value),
+    onChange: (value: number[]) => console.log('Discrete', value),
     required: true,
   },
 }
@@ -84,7 +84,7 @@ export const Range: Story = {
       max: 100,
       value: [20, 80],
     },
-    onChange: (value) => console.log('Range', value),
+    onChange: (value: number[]) => console.log('Range', value),
     required: true,
   },
 }
@@ -99,7 +99,7 @@ export const Centered: Story = {
       value: [0],
       isCentred: true,
     },
-    onChange: (value) => console.log('Centered', value),
+    onChange: (value: number[]) => console.log('Centered', value),
     required: true,
   },
 }
