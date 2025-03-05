@@ -48,7 +48,7 @@ export { default as Tag } from './Forms/Tag'
 // export { default as LayerParameters } from './Geospatial/Legends/LayerParameters'
 // export { default as LegendItem } from './Geospatial/Legends/LegendItem'
 // export { default as LegendPanel } from './Geospatial/Legends/LegendPanel'
-// export { default as QualitativeAttribute } from './Geospatial/Legends/QualitativeAttribute'
+export { default as QualitativeAttribute } from './Geospatial/Legends/QualitativeAttribute'
 export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 
 // // -- Geospatial -- //

@@ -1,16 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
+import { useState } from 'react'
 
 import { QualitativeAttributeProps } from './types'
 import {
-  LineIndicator,
-  PointIndicator,
-  QualitativeAttributeActionContainer,
-  QualitativeAttributeCaption,
-  QualitativeAttributeContainer,
-  QualitativeAttributeLabel,
-  QualitativeAttributeLabelContainer,
-  RasterIndicator,
+  lineIndicatorStyles,
+  pointIndicatorStyles,
+  qualitativeAttributeActionContainerStyles,
+  qualitativeAttributeCaptionStyles,
+  qualitativeAttributeContainerStyles,
+  qualitativeAttributeLabelContainerStyles,
+  qualitativeAttributeLabelStyles,
+  rasterIndicatorStyles,
 } from './styled'
 import { HideIcon, ShowIcon } from '../../../icons'
 import Button from '../../../Forms/Buttons/Button'
@@ -24,7 +26,7 @@ const QualitativeAttribute = ({
   showActionButton,
   pointIcon,
 }: QualitativeAttributeProps) => {
-  const [isShown, setIsShown] = React.useState(true)
+  const [isShown, setIsShown] = useState(true)
 
   const isRaster = type === 'raster'
   const isLine = type === 'line'
@@ -39,26 +41,24 @@ const QualitativeAttribute = ({
   }
 
   return (
-    <QualitativeAttributeContainer>
-      <QualitativeAttributeLabelContainer>
+    <div css={qualitativeAttributeContainerStyles}>
+      <div css={qualitativeAttributeLabelContainerStyles}>
         <div>
-          {isRaster && <RasterIndicator color={color} />}
-          {isLine && <LineIndicator color={color} />}
-          {isPoint && (
-            <PointIndicator color={color}>{pointIcon}</PointIndicator>
-          )}
+          {isRaster && <div css={rasterIndicatorStyles(color)} />}
+          {isLine && <div css={lineIndicatorStyles(color)} />}
+          {isPoint && <div css={pointIndicatorStyles(color)}>{pointIcon}</div>}
         </div>
         <div>
-          <QualitativeAttributeLabel aria-label={label}>
+          <p css={qualitativeAttributeLabelStyles} aria-label={label}>
             {label}
-          </QualitativeAttributeLabel>
-          <QualitativeAttributeCaption aria-label={caption}>
+          </p>
+          <p css={qualitativeAttributeCaptionStyles} aria-label={caption}>
             {caption}
-          </QualitativeAttributeCaption>
+          </p>
         </div>
-      </QualitativeAttributeLabelContainer>
+      </div>
       {onActionClick && showActionButton ? (
-        <QualitativeAttributeActionContainer>
+        <div css={qualitativeAttributeActionContainerStyles}>
           <Button
             variant='borderless'
             label={isShown ? 'Hide' : 'Show'}
@@ -66,9 +66,9 @@ const QualitativeAttribute = ({
             aria-label='Show or Hide action'
             onClick={handleOnClick}
           />
-        </QualitativeAttributeActionContainer>
+        </div>
       ) : null}
-    </QualitativeAttributeContainer>
+    </div>
   )
 }
 
