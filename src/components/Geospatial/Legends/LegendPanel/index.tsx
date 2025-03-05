@@ -1,8 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
 import React, { Children, cloneElement, ReactElement, useState } from 'react'
 
 import { LegendPanelProps } from './types'
-import { LegendPanelContainer } from './styled'
+import { legendPanelContainerStyles } from './styled'
 import { AnalysisIcon, LegendIcon } from '../../../icons'
 import TabBar from '../../../Navigation/TabBar'
 
@@ -33,7 +35,7 @@ const LegendPanel = ({
   }
 
   return (
-    <LegendPanelContainer>
+    <div css={legendPanelContainerStyles}>
       <TabBar
         tabs={[
           { label: 'Legend', value: 'legend-tab', icon: <LegendIcon /> },
@@ -64,7 +66,7 @@ const LegendPanel = ({
           {analysisContent}
         </div>
       ) : null}
-    </LegendPanelContainer>
+    </div>
   )
 }
 
