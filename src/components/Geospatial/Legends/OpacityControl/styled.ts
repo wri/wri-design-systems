@@ -1,18 +1,17 @@
-import styled from '@emotion/styled'
-import { Popover as ChakraPopover } from '@chakra-ui/react'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const OpacityControlContainer = styled(ChakraPopover.Content)`
+export const opacityControlContainerStyles = css`
   width: 234px;
   border: 1px solid ${getThemedColor('neutral', 600)};
   border-radius: 4px;
 `
 
-export const OpacityControlBody = styled(ChakraPopover.Body)`
+export const opacityControlBodyStyles = css`
   padding: 12px;
 `
 
-export const OpacityControlLabel = styled.p`
+export const opacityControlLabelStyles = css`
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
@@ -20,7 +19,7 @@ export const OpacityControlLabel = styled.p`
   color: ${getThemedColor('neutral', 900)};
 `
 
-export const OpacityControlTextInputContainer = styled.div`
+export const opacityControlTextInputContainerStyles = css`
   display: flex;
   align-items: center;
   gap: 12px;

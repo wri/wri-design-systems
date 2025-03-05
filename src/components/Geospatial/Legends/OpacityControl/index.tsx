@@ -1,3 +1,6 @@
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
 import React, { useState } from 'react'
 
 import { Popover as ChakraPopover } from '@chakra-ui/react'
@@ -7,10 +10,10 @@ import TextInput from '../../../Forms/Inputs/TextInput'
 import Slider from '../../../Forms/Controls/Slider'
 import { OpacityControlProps } from './types'
 import {
-  OpacityControlBody,
-  OpacityControlContainer,
-  OpacityControlTextInputContainer,
-  OpacityControlLabel,
+  opacityControlBodyStyles,
+  opacityControlContainerStyles,
+  opacityControlLabelStyles,
+  opacityControlTextInputContainerStyles,
 } from './styled'
 
 const OpacityControl = ({
@@ -53,10 +56,10 @@ const OpacityControl = ({
       </ChakraPopover.Trigger>
 
       <ChakraPopover.Positioner>
-        <OpacityControlContainer>
-          <OpacityControlBody>
-            <OpacityControlLabel>Opacity</OpacityControlLabel>
-            <OpacityControlTextInputContainer>
+        <ChakraPopover.Content css={opacityControlContainerStyles}>
+          <ChakraPopover.Body css={opacityControlBodyStyles}>
+            <p css={opacityControlLabelStyles}>Opacity</p>
+            <div css={opacityControlTextInputContainerStyles}>
               <div style={{ position: 'relative' }}>
                 <TextInput
                   aria-label='Opacity'
@@ -79,9 +82,9 @@ const OpacityControl = ({
                 value={[opacity]}
                 onValueChangeEnd={opacityChangeHandler}
               />
-            </OpacityControlTextInputContainer>
-          </OpacityControlBody>
-        </OpacityControlContainer>
+            </div>
+          </ChakraPopover.Body>
+        </ChakraPopover.Content>
       </ChakraPopover.Positioner>
     </ChakraPopover.Root>
   )

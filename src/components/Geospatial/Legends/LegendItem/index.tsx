@@ -1,14 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
 
 import { LegendItemProps } from './types'
 import {
-  LegendItemDragAndDropActions,
-  LegendItemContainer,
-  LegendItemDataUnit,
-  LegendItemHeaderContainer,
-  LegendItemLayerName,
-  LegendItemButtonsContainer,
+  legendItemButtonsContainerStyles,
+  legendItemContainerStyles,
+  legendItemDataUnitStyles,
+  legendItemDragAndDropActionsStyles,
+  legendItemHeaderContainerStyles,
+  legendItemLayerNameStyles,
 } from './styled'
 import Button from '../../../Forms/Buttons/Button'
 import { ChevronDownIcon, CloseIcon, DotsIcon, InfoIcon } from '../../../icons'
@@ -26,8 +26,8 @@ const LegendItem = ({
   onInfoClick,
   onOpacityChanged,
 }: LegendItemProps) => (
-  <LegendItemContainer>
-    <LegendItemDragAndDropActions>
+  <div css={legendItemContainerStyles}>
+    <div css={legendItemDragAndDropActionsStyles}>
       <IconButton
         icon={<DotsIcon />}
         aria-label='Drag and drop'
@@ -53,12 +53,12 @@ const LegendItem = ({
           onClick={onDownClick}
         />
       </div>
-    </LegendItemDragAndDropActions>
+    </div>
     <div>
-      <LegendItemHeaderContainer>
+      <div css={legendItemHeaderContainerStyles}>
         <div>
-          <LegendItemLayerName>{layerName}</LegendItemLayerName>
-          <LegendItemDataUnit>{dataUnit}</LegendItemDataUnit>
+          <h3 css={legendItemLayerNameStyles}>{layerName}</h3>
+          <p css={legendItemDataUnitStyles}>{dataUnit}</p>
         </div>
         <Button
           label='Remove'
@@ -67,9 +67,9 @@ const LegendItem = ({
           rightIcon={<CloseIcon />}
           onClick={onRemoveClick}
         />
-      </LegendItemHeaderContainer>
+      </div>
       {children}
-      <LegendItemButtonsContainer>
+      <div css={legendItemButtonsContainerStyles}>
         <Button
           label='About data'
           size='small'
@@ -78,9 +78,9 @@ const LegendItem = ({
           onClick={onInfoClick}
         />
         <OpacityControl defaultValue={80} onOpacityChanged={onOpacityChanged} />
-      </LegendItemButtonsContainer>
+      </div>
     </div>
-  </LegendItemContainer>
+  </div>
 )
 
 export default LegendItem
