@@ -1,7 +1,7 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const LegendItemContainer = styled.div`
+export const legendItemContainerStyles = css`
   padding: 12px;
   padding-bottom: 20px;
   display: flex;
@@ -9,7 +9,7 @@ export const LegendItemContainer = styled.div`
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
 `
 
-export const LegendItemDragAndDropActions = styled.div`
+export const legendItemDragAndDropActionsStyles = css`
   display: flex;
   flex-direction: column;
 
@@ -20,7 +20,7 @@ export const LegendItemDragAndDropActions = styled.div`
   }
 `
 
-export const LegendItemHeaderContainer = styled.div`
+export const legendItemHeaderContainerStyles = css`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -28,7 +28,7 @@ export const LegendItemHeaderContainer = styled.div`
   margin-bottom: 16px;
 `
 
-export const LegendItemLayerName = styled.h3`
+export const legendItemLayerNameStyles = css`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -36,7 +36,7 @@ export const LegendItemLayerName = styled.h3`
   color: ${getThemedColor('neutral', 800)};
 `
 
-export const LegendItemDataUnit = styled.p`
+export const legendItemDataUnitStyles = css`
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
@@ -44,7 +44,7 @@ export const LegendItemDataUnit = styled.p`
   color: ${getThemedColor('neutral', 600)};
 `
 
-export const LegendItemButtonsContainer = styled.div`
+export const legendItemButtonsContainerStyles = css`
   display: flex;
   justify-content: space-between;
 
