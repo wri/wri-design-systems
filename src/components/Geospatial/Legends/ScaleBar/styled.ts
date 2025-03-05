@@ -1,23 +1,23 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const ScaleBarContainer = styled.div`
+export const scaleBarContainerStyles = css`
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
 `
 
-export const ScaleBarGradientBar = styled.div<{ gradient: string }>`
+export const scaleBarGradientBarStyles = (gradient: string) => css`
   height: 20px;
   width: 100%;
   margin-bottom: 8px;
   border: 1px solid ${getThemedColor('neutral', 300)};
   border-radius: 4px;
-  ${({ gradient }) => (gradient ? `background: ${gradient};` : '')}
+  ${gradient ? `background: ${gradient};` : ''}
 `
 
-export const ScaleBarBar = styled.div`
+export const scaleBarBarStyles = css`
   height: 20px;
   width: 100%;
   margin-bottom: 8px;
@@ -37,13 +37,13 @@ export const ScaleBarBar = styled.div`
   }
 `
 
-export const ScaleBarLabelContainer = styled.div`
+export const scaleBarLabelContainerStyles = css`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 `
 
-export const ScaleBarValue = styled.p`
+export const scaleBarValueStyles = css`
   width: 100%;
   font-size: 12px;
   line-height: 16px;
@@ -52,7 +52,7 @@ export const ScaleBarValue = styled.p`
   text-align: center;
 `
 
-export const ScaleBarSubLabels = styled.p`
+export const scaleBarSubLabelsStyles = css`
   font-size: 12px;
   line-height: 16px;
   font-weight: 400;
