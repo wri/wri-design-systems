@@ -1,14 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { Children } from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
+import { Children } from 'react'
 
 import { Accordion, Box } from '@chakra-ui/react'
 import { LayerParametersProps } from './types'
 import { ChevronDownIcon } from '../../../icons'
 import {
-  LayerParametersItem,
-  LayerParametersItemContent,
-  LayerParametersLabel,
-  LayerParametersTrigger,
+  layerParametersItemContentStyles,
+  layerParametersItemStyles,
+  layerParametersLabelStyles,
+  layerParametersTriggerStyles,
 } from './styled'
 
 const LayerParameters = ({
@@ -18,15 +20,15 @@ const LayerParameters = ({
 }: LayerParametersProps) => (
   <div>
     <Accordion.Root defaultValue={openedByDefault ? [label] : []} multiple>
-      <LayerParametersItem value={label}>
-        <LayerParametersTrigger>
+      <Accordion.Item css={layerParametersItemStyles} value={label}>
+        <Accordion.ItemTrigger css={layerParametersTriggerStyles}>
           <Box
             width='full'
             display='flex'
             flexDirection='column'
             alignItems='flex-start'
           >
-            <LayerParametersLabel>{label}</LayerParametersLabel>
+            <p css={layerParametersLabelStyles}>{label}</p>
           </Box>
           <Accordion.ItemIndicator display='flex'>
             <ChevronDownIcon
@@ -35,13 +37,13 @@ const LayerParameters = ({
               width='16px'
             />
           </Accordion.ItemIndicator>
-        </LayerParametersTrigger>
-        <LayerParametersItemContent>
+        </Accordion.ItemTrigger>
+        <Accordion.ItemContent css={layerParametersItemContentStyles}>
           {Children.map(children, (child) => (
             <div className='layer-parameters-item-child'>{child}</div>
           ))}
-        </LayerParametersItemContent>
-      </LayerParametersItem>
+        </Accordion.ItemContent>
+      </Accordion.Item>
     </Accordion.Root>
   </div>
 )
