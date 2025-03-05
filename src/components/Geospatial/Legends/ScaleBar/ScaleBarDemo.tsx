@@ -9,7 +9,7 @@ const ScaleBarDemo = () => (
       isGradient
     />
     <ScaleBar
-      colors={['#EDF8FB', '#B2E2E2', '#66C2A4', '#2CA25F', '#006D2C']}
+      colors={['#EDF8FB', '#B2E2E2', '#66C2A4', '#2CA26F', '#006D2C']}
       values={['0%', '25%', '50%', '75%', '100%']}
     />
     <ScaleBar
@@ -17,7 +17,7 @@ const ScaleBarDemo = () => (
       values={['0%', '25%', '50%', '75%', '100%']}
     />
     <ScaleBar
-      colors={['#A6611A', '#DFC27D', '#F5F5F5', '#80CDC1', '#018571']}
+      colors={['#A6611B', '#DFC27E', '#F5F5F6', '#80CDC2', '#018572']}
       values={['Low', 'Low-medium', 'Medium-high', 'High', 'Extremely high']}
       subLabels={[
         '(0 to 9 in 1,000,000)',

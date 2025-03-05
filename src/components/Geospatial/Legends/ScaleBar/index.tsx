@@ -1,13 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
 
 import {
-  ScaleBarGradientBar,
-  ScaleBarContainer,
-  ScaleBarLabelContainer,
-  ScaleBarSubLabels,
-  ScaleBarValue,
-  ScaleBarBar,
+  scaleBarBarStyles,
+  scaleBarContainerStyles,
+  scaleBarGradientBarStyles,
+  scaleBarLabelContainerStyles,
+  scaleBarSubLabelsStyles,
+  scaleBarValueStyles,
 } from './styled'
 import { ScaleBarProps } from './types'
 
@@ -21,50 +21,53 @@ const generateGradient = (colors: string[]) => {
 }
 
 const ScaleBar = ({ colors, values, subLabels, isGradient }: ScaleBarProps) => (
-  <ScaleBarContainer>
+  <div css={scaleBarContainerStyles}>
     {isGradient ? (
-      <ScaleBarGradientBar gradient={generateGradient(colors)} />
+      <div css={scaleBarGradientBarStyles(generateGradient(colors))} />
     ) : (
-      <ScaleBarBar>
+      <div css={scaleBarBarStyles}>
         {colors?.map((color, idx) => (
           <div
             key={`${color}-${values?.[idx]}`}
+            data-test={`${color}-${values?.[idx]}`}
             style={{ backgroundColor: color, width: '100%', height: '100%' }}
           />
         ))}
-      </ScaleBarBar>
+      </div>
     )}
-    <ScaleBarLabelContainer>
+    <div css={scaleBarLabelContainerStyles}>
       {values?.map((value) => (
         <div
+          key={value}
           style={{
             width: isGradient ? 'auto' : `calc(100% / ${values.length})`,
             display: 'flex',
             justifyContent: 'center',
           }}
         >
-          <ScaleBarValue key={value}>{value}</ScaleBarValue>
+          <p css={scaleBarValueStyles}>{value}</p>
         </div>
       ))}
-    </ScaleBarLabelContainer>
+    </div>
     {subLabels && subLabels.length ? (
-      <ScaleBarLabelContainer>
+      <div css={scaleBarLabelContainerStyles}>
         {subLabels.map((subLabel) => (
           <div
+            key={subLabel}
             style={{
               width: isGradient ? 'auto' : `calc(100% / ${values.length})`,
               display: 'flex',
               justifyContent: 'center',
             }}
           >
-            <ScaleBarSubLabels key={subLabel} style={{ width: '100%' }}>
+            <p css={scaleBarSubLabelsStyles} style={{ width: '100%' }}>
               {subLabel}
-            </ScaleBarSubLabels>
+            </p>
           </div>
         ))}
-      </ScaleBarLabelContainer>
+      </div>
     ) : null}
-  </ScaleBarContainer>
+  </div>
 )
 
 export default ScaleBar
