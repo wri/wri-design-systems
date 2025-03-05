@@ -60,3 +60,9 @@ export const radioGroupItemStyles = css`
     }
   }
 `
+
+export const radioGroupItemTextStyles = css`
+  &[data-disabled] {
+    color: ${getThemedColor('neutral', 500)};
+  }
+`

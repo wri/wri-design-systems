@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
 
 import { Box } from '@chakra-ui/react'
 import Button from '../../../Forms/Buttons/Button'
@@ -7,11 +7,11 @@ import Switch from '../../../Forms/Controls/Switch'
 import Radio from '../../../Forms/Controls/Radio'
 import { LayerItemProps } from './types'
 import {
-  LayerCaption,
-  SwitchContainer,
-  SwitchContent,
-  LayerName,
-  LayerItemContainer,
+  layerCaptionStyles,
+  layerItemContainerStyles,
+  layerNameStyles,
+  switchContainerStyles,
+  switchContentStyles,
 } from './styled'
 import { InfoIcon } from '../../../icons'
 
@@ -30,21 +30,21 @@ const LayerItem = ({
   const isSwitch = variant === 'switch'
 
   return (
-    <LayerItemContainer>
+    <div css={layerItemContainerStyles}>
       {isSwitch ? (
-        <SwitchContainer>
-          <SwitchContent>
-            <LayerName
+        <div css={switchContainerStyles}>
+          <div css={switchContentStyles}>
+            <p
+              css={layerNameStyles(disabled)}
               aria-label={label}
               aria-disabled={disabled}
-              disabled={disabled}
             >
               {label}
-            </LayerName>
-            <LayerCaption aria-label={caption} disabled={disabled}>
+            </p>
+            <p aria-label={caption} css={layerCaptionStyles(disabled)}>
               {caption}
-            </LayerCaption>
-          </SwitchContent>
+            </p>
+          </div>
           <Switch
             aria-label={`${label}, ${caption}`}
             name={name}
@@ -53,7 +53,7 @@ const LayerItem = ({
             onChange={onChange}
             role='switch'
           />
-        </SwitchContainer>
+        </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Radio
@@ -64,7 +64,9 @@ const LayerItem = ({
           >
             {label}
           </Radio>
-          <LayerCaption style={{ marginLeft: '28px' }}>{caption}</LayerCaption>
+          <p style={{ marginLeft: '28px' }} css={layerCaptionStyles(disabled)}>
+            {caption}
+          </p>
         </div>
       )}
       {showInfoButton ? (
@@ -84,7 +86,7 @@ const LayerItem = ({
           />
         </Box>
       ) : null}
-    </LayerItemContainer>
+    </div>
   )
 }
 
