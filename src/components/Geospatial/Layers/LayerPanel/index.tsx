@@ -1,12 +1,12 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
 
 import TabBar from '../../../Navigation/TabBar'
 import {
-  LayerPanelDescription,
-  LayerPanelContainer,
-  LayerPanelHeader,
-  LayerPanelTitle,
+  layerPanelContainerStyles,
+  layerPanelDescriptionStyles,
+  layerPanelHeaderStyles,
+  layerPanelTitleStyles,
 } from './styled'
 import { LayerPanelProps } from './types'
 
@@ -19,13 +19,16 @@ const LayerPanel = ({
   onTabClick,
   children,
 }: LayerPanelProps) => (
-  <LayerPanelContainer>
-    <LayerPanelHeader role='complementary'>
-      <LayerPanelTitle aria-label={title}>{title}</LayerPanelTitle>
-      <LayerPanelDescription aria-label={description}>
+  <div css={layerPanelContainerStyles}>
+    {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+    <aside css={layerPanelHeaderStyles} role='complementary'>
+      <h2 css={layerPanelTitleStyles} aria-label={title}>
+        {title}
+      </h2>
+      <p css={layerPanelDescriptionStyles} aria-label={description}>
         {description}
-      </LayerPanelDescription>
-    </LayerPanelHeader>
+      </p>
+    </aside>
     {buttonTabs && buttonTabs.length > 0 ? (
       <TabBar
         variant={tabBarVariant}
@@ -35,7 +38,7 @@ const LayerPanel = ({
       />
     ) : null}
     {children}
-  </LayerPanelContainer>
+  </div>
 )
 
 export default LayerPanel
