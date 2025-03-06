@@ -24,6 +24,7 @@ const LayerSidebar = () => {
 
   return (
     <NavigationRail
+      customHeight='calc(100vh - 56px)'
       defaultValue={defaultTabValue}
       onTabClick={handleOnTabClick}
       onOpenChange={handleOnOpenChange}
