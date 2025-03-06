@@ -23,6 +23,7 @@ import TagDemo from './components/Forms/Tag/TagDemo'
 import { LayerGroupDemo } from './components/Geospatial/Layers/LayerGroup/LayerGroupDemo'
 import LayerItemDemo from './components/Geospatial/Layers/LayerItem/LayerItemDemo'
 import LayerPanelDemo from './components/Geospatial/Layers/LayerPanel/LayerPanelDemo'
+import LayerSidebar from './components/Geospatial/Layers/LayerSidebar/Demo'
 
 import LayerParametersDemo from './components/Geospatial/Legends/LayerParameters/LayerParametersDemo'
 import { LegendItemDemo } from './components/Geospatial/Legends/LegendItem/LegendItemDemo'
@@ -38,7 +39,6 @@ import BadgeDemo from './components/Status/Badge/BadgeDemo'
 import InlineMessageDemo from './components/Status/InlineMessage/InlineMessageDemo'
 import ToastDemo from './components/Status/Toast/ToastDemo'
 import { Toast } from './components'
-import LayerSidebar from './components/Geospatial/Layers/LayerSidebar/Demo'
 
 const App = () => (
   <div className='App'>
