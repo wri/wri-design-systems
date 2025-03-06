@@ -20,6 +20,7 @@ const NavigationRail = ({
   onTabClick,
   children,
   onOpenChange,
+  customHeight,
 }: NavigationRailProps) => {
   const [hideSidebar, setHideSidebar] = useState(false)
   const [seletedTab, setSeletedTab] = useState(defaultValue || tabs?.[0]?.value)
@@ -41,7 +42,7 @@ const NavigationRail = ({
 
   return (
     <>
-      <div css={navigationRailContainerStyles}>
+      <div css={navigationRailContainerStyles(customHeight)}>
         <Tabs.Root
           defaultValue={defaultValue || tabs?.[0]?.value}
           orientation='horizontal'

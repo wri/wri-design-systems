@@ -1,9 +1,12 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
+import { NavigationRailProps } from './types'
 
-export const navigationRailContainerStyles = css`
+export const navigationRailContainerStyles = (
+  customHeight?: NavigationRailProps['customHeight'],
+) => css`
   width: 64px;
-  height: 100vh;
+  height: ${customHeight || '100vh'};
   z-index: 100;
   position: fixed;
   top: 0;
