@@ -39,8 +39,8 @@ export { default as Tag } from './Forms/Tag'
 // // -- Geospatial -- //
 
 // // Layers
-// export { default as LayerGroup } from './Geospatial/Layers/LayerGroup'
-// export { default as LayerGroupContainer } from './Geospatial/Layers/LayerGroup/LayerGroupContainer'
+export { default as LayerGroup } from './Geospatial/Layers/LayerGroup'
+export { default as LayerGroupContainer } from './Geospatial/Layers/LayerGroup/LayerGroupContainer'
 export { default as LayerItem } from './Geospatial/Layers/LayerItem'
 // export { default as LayerPanel } from './Geospatial/Layers/LayerPanel'
 

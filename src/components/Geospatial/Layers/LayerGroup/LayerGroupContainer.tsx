@@ -1,20 +1,20 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
 
 import { Accordion } from '@chakra-ui/react'
 import { LayerGroupContainerProps } from './types'
-import { StyledLayerGroupContainer } from './styled'
+import { layerGroupContainerStyles } from './styled'
 
 const LayerGroupContainer = ({
   children,
   defaultValue,
   ...rest
 }: LayerGroupContainerProps) => (
-  <StyledLayerGroupContainer style={{ width: '300px' }}>
-    <Accordion.Root defaultValue={defaultValue} multiple {...rest}>
+  <div css={layerGroupContainerStyles} style={{ width: '300px' }}>
+    <Accordion.Root css={{}} defaultValue={defaultValue} multiple {...rest}>
       {children}
     </Accordion.Root>
-  </StyledLayerGroupContainer>
+  </div>
 )
 
 export default LayerGroupContainer
