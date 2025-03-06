@@ -1,11 +1,11 @@
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const StyledLayerGroupContainer = styled.div`
+export const layerGroupContainerStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
 `
 
-export const LayerGroupTitle = styled.span`
+export const layerGroupTitleStyles = css`
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -17,7 +17,7 @@ export const LayerGroupTitle = styled.span`
   gap: 10px;
 `
 
-export const LayerGroupCaption = styled.div`
+export const layerGroupCaptionStyles = css`
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;

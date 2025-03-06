@@ -1,9 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useEffect, useState } from 'react'
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
+import { useEffect, useState } from 'react'
 
 import { Accordion, Box } from '@chakra-ui/react'
 import { LayerGroupProps } from './types'
-import { LayerGroupCaption, LayerGroupTitle } from './styled'
+import { layerGroupCaptionStyles, layerGroupTitleStyles } from './styled'
 import LayerItem from '../LayerItem'
 import RadioGroup from '../../../Forms/Controls/Radio/RadioGroup'
 import { LayerItemProps } from '../LayerItem/types'
@@ -76,15 +78,15 @@ const LayerGroup = ({
           flexDirection='column'
           alignItems='flex-start'
         >
-          <LayerGroupTitle>
+          <span css={layerGroupTitleStyles}>
             {label}
             <Tag
               label={`${getActiveCount} Active`}
               size='small'
               variant={getActiveCount > 0 ? 'success' : 'info-grey'}
             />
-          </LayerGroupTitle>
-          <LayerGroupCaption>{caption}</LayerGroupCaption>
+          </span>
+          <div css={layerGroupCaptionStyles}>{caption}</div>
         </Box>
         <Accordion.ItemIndicator display='flex'>
           <ChevronDownIcon
