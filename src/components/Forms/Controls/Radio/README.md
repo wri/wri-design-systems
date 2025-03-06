@@ -23,13 +23,14 @@ import { RadioGroup, Radio } from '@worldresources/wri-design-systems'
 ```ts
 type RadioGroupProps = Omit<
   ChakraRadioGroup.ItemProps,
-  'size' | 'variant' | 'colorPalette' | 'value' | 'onChange'
+  'size' | 'variant' | 'colorPalette' | 'value' | 'onChange' | 'children'
 > & {
   name: string
   defaultValue?: string
   horizontal?: boolean
   onChange?: (name: string, selectedValue: string) => void
   customGap?: string
+  children?: React.ReactNode
 }
 ```
 
