@@ -7,7 +7,7 @@ export const iconButtonStyles = css`
   min-width: 20px !important;
   height: 20px;
   border-radius: 2px;
-  background-color: transparent;
+  background-color: ${getThemedColor('neutral', 100)};
 
   svg {
     width: 15px;

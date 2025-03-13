@@ -1,6 +1,7 @@
 import ButtonDemo from './components/Forms/Buttons/Button/ButtonDemo'
 import CloseButtonDemo from './components/Forms/Buttons/CloseButton/CloseButtonDemo'
 import IconButtonDemo from './components/Forms/Buttons/IconButton/IconButtonDemo'
+import MapControlsDemo from './components/Forms/Buttons/MapControls/MapControlsDemo'
 import MultiActionButtonDemo from './components/Forms/Buttons/MultiActionButton/MultiActionButtonDemo'
 
 import CheckboxDemo from './components/Forms/Controls/Checkbox/CheckboxDemo'
@@ -55,6 +56,7 @@ const App = () => (
         <ButtonDemo />
         <CloseButtonDemo />
         <IconButtonDemo />
+        <MapControlsDemo />
         <MultiActionButtonDemo />
 
         <CheckboxDemo />
