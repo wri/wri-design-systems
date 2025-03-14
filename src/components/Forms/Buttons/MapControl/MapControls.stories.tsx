@@ -2,22 +2,22 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import MapControlsStory from '.'
+import MapControlStory from '.'
 import { PlusIcon, MinusIcon, PrintIcon, ShareIcon } from '../../../icons'
 
 const meta = {
-  title: 'Forms/Buttons/Map Controls',
-  component: MapControlsStory,
+  title: 'Forms/Buttons/Map Control',
+  component: MapControlStory,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof MapControlsStory>
+} satisfies Meta<typeof MapControlStory>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const MapControls: Story = {
+export const MapControl: Story = {
   args: {
     items: [
       {

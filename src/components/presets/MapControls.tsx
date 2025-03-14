@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import MapControls from '../Forms/Buttons/MapControls'
+import MapControl from '../Forms/Buttons/MapControl'
 import {
   PlusIcon,
   MinusIcon,
@@ -19,7 +19,7 @@ type ZoomProps = {
 }
 
 const Zoom = ({ onZoomInClick, onZoomOutClick, vertical }: ZoomProps) => (
-  <MapControls
+  <MapControl
     items={[
       {
         icon: <PlusIcon />,
@@ -36,12 +36,12 @@ const Zoom = ({ onZoomInClick, onZoomOutClick, vertical }: ZoomProps) => (
   />
 )
 
-type GenericControlProps = {
+type GenericMapControlProps = {
   onClick: () => void
 }
 
-const Expand = ({ onClick }: GenericControlProps) => (
-  <MapControls
+const Expand = ({ onClick }: GenericMapControlProps) => (
+  <MapControl
     items={[
       {
         icon: <ExpandIcon />,
@@ -52,8 +52,8 @@ const Expand = ({ onClick }: GenericControlProps) => (
   />
 )
 
-const Share = ({ onClick }: GenericControlProps) => (
-  <MapControls
+const Share = ({ onClick }: GenericMapControlProps) => (
+  <MapControl
     items={[
       {
         icon: <ShareIcon />,
@@ -64,8 +64,8 @@ const Share = ({ onClick }: GenericControlProps) => (
   />
 )
 
-const Print = ({ onClick }: GenericControlProps) => (
-  <MapControls
+const Print = ({ onClick }: GenericMapControlProps) => (
+  <MapControl
     items={[
       {
         icon: <PrintIcon />,
@@ -76,8 +76,8 @@ const Print = ({ onClick }: GenericControlProps) => (
   />
 )
 
-const Settings = ({ onClick }: GenericControlProps) => (
-  <MapControls
+const Settings = ({ onClick }: GenericMapControlProps) => (
+  <MapControl
     items={[
       {
         icon: <SettingsIcon />,
@@ -88,8 +88,8 @@ const Settings = ({ onClick }: GenericControlProps) => (
   />
 )
 
-const Question = ({ onClick }: GenericControlProps) => (
-  <MapControls
+const Question = ({ onClick }: GenericMapControlProps) => (
+  <MapControl
     items={[
       {
         icon: <QuestionIcon />,
@@ -100,7 +100,7 @@ const Question = ({ onClick }: GenericControlProps) => (
   />
 )
 
-export const MapControlsPresets = {
+export const MapControls = {
   Zoom,
   Expand,
   Share,

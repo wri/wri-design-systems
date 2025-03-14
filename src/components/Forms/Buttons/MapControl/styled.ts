@@ -1,12 +1,12 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
-import { MapControlsProps } from './types'
+import { MapControlProps } from './types'
 
-export const mapControlsContainerStyles = css`
+export const mapControlContainerStyles = css`
   position: relative;
 `
 
-export const mapControlsBaseStyles = css`
+export const mapControlBaseStyles = css`
   height: 32px;
   width: 32px;
   padding: 0;
@@ -51,7 +51,7 @@ export const mapControlsBaseStyles = css`
 `
 
 export const topSeparatorStyles = (
-  vertical: MapControlsProps['vertical'],
+  vertical: MapControlProps['vertical'],
 ) => css`
   position: absolute;
   height: ${vertical ? '1px' : '6px'};
@@ -63,7 +63,7 @@ export const topSeparatorStyles = (
 `
 
 export const bottomSeparatorStyles = (
-  vertical: MapControlsProps['vertical'],
+  vertical: MapControlProps['vertical'],
 ) => css`
   position: absolute;
   height: ${vertical ? '1px' : '6px'};

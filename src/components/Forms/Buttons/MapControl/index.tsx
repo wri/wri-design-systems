@@ -4,20 +4,20 @@
 import { Group, Button as ChakraButton } from '@chakra-ui/react'
 
 import {
-  mapControlsContainerStyles,
-  mapControlsBaseStyles,
+  mapControlContainerStyles,
+  mapControlBaseStyles,
   topSeparatorStyles,
   bottomSeparatorStyles,
 } from './styled'
-import { MapControlsProps } from './types'
+import { MapControlProps } from './types'
 
-const MapControls = ({ items, vertical }: MapControlsProps) => {
+const MapControl = ({ items, vertical }: MapControlProps) => {
   if (items.length === 1) {
     const item = items[0]
 
     return (
       <ChakraButton
-        css={mapControlsBaseStyles}
+        css={mapControlBaseStyles}
         aria-label={item.ariaLabel}
         disabled={item.disabled}
         onClick={item.onClick}
@@ -27,13 +27,13 @@ const MapControls = ({ items, vertical }: MapControlsProps) => {
     )
   }
   return (
-    <div css={mapControlsContainerStyles}>
+    <div css={mapControlContainerStyles}>
       <div css={topSeparatorStyles(vertical)} />
       <Group orientation={vertical ? 'vertical' : 'horizontal'} attached>
         {items.map((item) => (
           <ChakraButton
             key={item.ariaLabel}
-            css={mapControlsBaseStyles}
+            css={mapControlBaseStyles}
             aria-label={item.ariaLabel}
             disabled={item.disabled}
             onClick={item.onClick}
@@ -47,4 +47,4 @@ const MapControls = ({ items, vertical }: MapControlsProps) => {
   )
 }
 
-export default MapControls
+export default MapControl

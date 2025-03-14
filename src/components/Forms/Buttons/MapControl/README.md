@@ -1,19 +1,19 @@
-# MapControls
+# MapControl
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-buttons-map-controls--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-buttons-map-control--docs)
 
-[MapControlsDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/MapControls/MapControlsDemo.tsx)
+[MapControlDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/MapControl/MapControlDemo.tsx)
 
 ## Import
 
 ```tsx
-import { MapControls } from '@worldresources/wri-design-systems'
+import { MapControl } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
 ```tsx
-<MapControls
+<MapControl
   items={[
     {
       icon: <CheckIcon />,
@@ -26,7 +26,7 @@ import { MapControls } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
-type MapControlsProps = {
+type MapControlProps = {
   items: {
     icon: React.ReactNode
     onClick?: () => void
@@ -37,10 +37,10 @@ type MapControlsProps = {
 }
 ```
 
-## Map Controls
+## Map Control
 
 ```tsx
-<MapControls
+<MapControl
   items={[
     {
       icon: <PlusIcon />,
@@ -59,7 +59,7 @@ type MapControlsProps = {
 ## Vertical
 
 ```tsx
-<MapControls
+<MapControl
   items={[
     {
       icon: <PlusIcon />,
@@ -79,7 +79,7 @@ type MapControlsProps = {
 ## Single
 
 ```tsx
-<MapControls
+<MapControl
   items={[
     {
       icon: <CheckIcon />,
@@ -92,7 +92,7 @@ type MapControlsProps = {
 ## Disabled
 
 ```tsx
-<MapControls
+<MapControl
   items={[
     {
       icon: <CheckIcon />,
@@ -106,12 +106,16 @@ type MapControlsProps = {
 ## Presets
 
 ```tsx
+import { MapControls } from '@worldresources/wri-design-systems'
+```
+
+```tsx
 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-  <MapControlsPresets.Zoom onZoomInClick={() => {}} onZoomOutClick={() => {}} />
-  <MapControlsPresets.Expand onClick={() => {}} />
-  <MapControlsPresets.Share onClick={() => {}} />
-  <MapControlsPresets.Print onClick={() => {}} />
-  <MapControlsPresets.Settings onClick={() => {}} />
-  <MapControlsPresets.Question onClick={() => {}} />
+  <MapControls.Zoom onZoomInClick={() => {}} onZoomOutClick={() => {}} />
+  <MapControls.Expand onClick={() => {}} />
+  <MapControls.Share onClick={() => {}} />
+  <MapControls.Print onClick={() => {}} />
+  <MapControls.Settings onClick={() => {}} />
+  <MapControls.Question onClick={() => {}} />
 </div>
 ```

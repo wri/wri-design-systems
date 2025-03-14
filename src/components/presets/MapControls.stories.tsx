@@ -2,7 +2,7 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import { MapControlsPresets } from './MapControlsPresets'
+import { MapControls } from './MapControls'
 
 const meta = {
   title: 'Presets/Map Controls',
@@ -18,15 +18,12 @@ type Story = StoryObj<typeof meta>
 export const Horizontal: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <MapControlsPresets.Zoom
-        onZoomInClick={() => {}}
-        onZoomOutClick={() => {}}
-      />
-      <MapControlsPresets.Expand onClick={() => {}} />
-      <MapControlsPresets.Share onClick={() => {}} />
-      <MapControlsPresets.Print onClick={() => {}} />
-      <MapControlsPresets.Settings onClick={() => {}} />
-      <MapControlsPresets.Question onClick={() => {}} />
+      <MapControls.Zoom onZoomInClick={() => {}} onZoomOutClick={() => {}} />
+      <MapControls.Expand onClick={() => {}} />
+      <MapControls.Share onClick={() => {}} />
+      <MapControls.Print onClick={() => {}} />
+      <MapControls.Settings onClick={() => {}} />
+      <MapControls.Question onClick={() => {}} />
     </div>
   ),
 }
@@ -41,16 +38,16 @@ export const Vertical: Story = {
         gap: '12px',
       }}
     >
-      <MapControlsPresets.Zoom
+      <MapControls.Zoom
         onZoomInClick={() => {}}
         onZoomOutClick={() => {}}
         vertical
       />
-      <MapControlsPresets.Expand onClick={() => {}} />
-      <MapControlsPresets.Share onClick={() => {}} />
-      <MapControlsPresets.Print onClick={() => {}} />
-      <MapControlsPresets.Settings onClick={() => {}} />
-      <MapControlsPresets.Question onClick={() => {}} />
+      <MapControls.Expand onClick={() => {}} />
+      <MapControls.Share onClick={() => {}} />
+      <MapControls.Print onClick={() => {}} />
+      <MapControls.Settings onClick={() => {}} />
+      <MapControls.Question onClick={() => {}} />
     </div>
   ),
 }

@@ -1,7 +1,7 @@
-import { MapControls, MapControlsPresets } from '../../..'
+import { MapControl, MapControls } from '../../..'
 import { CheckIcon, InfoIcon } from '../../../icons'
 
-const MapControlsDemo = () => (
+const MapControlDemo = () => (
   <div
     style={{
       display: 'flex',
@@ -11,7 +11,7 @@ const MapControlsDemo = () => (
     }}
   >
     <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
-      <MapControls
+      <MapControl
         items={[
           {
             icon: <CheckIcon />,
@@ -23,7 +23,7 @@ const MapControlsDemo = () => (
           },
         ]}
       />
-      <MapControls
+      <MapControl
         items={[
           {
             icon: <CheckIcon />,
@@ -36,7 +36,7 @@ const MapControlsDemo = () => (
         ]}
         vertical
       />
-      <MapControls
+      <MapControl
         items={[
           {
             icon: <CheckIcon />,
@@ -44,7 +44,7 @@ const MapControlsDemo = () => (
           },
         ]}
       />
-      <MapControls
+      <MapControl
         items={[
           {
             icon: <CheckIcon />,
@@ -55,15 +55,12 @@ const MapControlsDemo = () => (
       />
     </div>
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <MapControlsPresets.Zoom
-        onZoomInClick={() => {}}
-        onZoomOutClick={() => {}}
-      />
-      <MapControlsPresets.Expand onClick={() => {}} />
-      <MapControlsPresets.Share onClick={() => {}} />
-      <MapControlsPresets.Print onClick={() => {}} />
-      <MapControlsPresets.Settings onClick={() => {}} />
-      <MapControlsPresets.Question onClick={() => {}} />
+      <MapControls.Zoom onZoomInClick={() => {}} onZoomOutClick={() => {}} />
+      <MapControls.Expand onClick={() => {}} />
+      <MapControls.Share onClick={() => {}} />
+      <MapControls.Print onClick={() => {}} />
+      <MapControls.Settings onClick={() => {}} />
+      <MapControls.Question onClick={() => {}} />
     </div>
     <div
       style={{
@@ -73,18 +70,18 @@ const MapControlsDemo = () => (
         gap: '12px',
       }}
     >
-      <MapControlsPresets.Zoom
+      <MapControls.Zoom
         onZoomInClick={() => {}}
         onZoomOutClick={() => {}}
         vertical
       />
-      <MapControlsPresets.Expand onClick={() => {}} />
-      <MapControlsPresets.Share onClick={() => {}} />
-      <MapControlsPresets.Print onClick={() => {}} />
-      <MapControlsPresets.Settings onClick={() => {}} />
-      <MapControlsPresets.Question onClick={() => {}} />
+      <MapControls.Expand onClick={() => {}} />
+      <MapControls.Share onClick={() => {}} />
+      <MapControls.Print onClick={() => {}} />
+      <MapControls.Settings onClick={() => {}} />
+      <MapControls.Question onClick={() => {}} />
     </div>
   </div>
 )
 
-export default MapControlsDemo
+export default MapControlDemo

@@ -10,7 +10,7 @@ export { designSystemStyles } from '../lib/theme'
 export { default as Button } from './Forms/Buttons/Button'
 export { default as CloseButton } from './Forms/Buttons/CloseButton'
 export { default as IconButton } from './Forms/Buttons/IconButton'
-export { default as MapControls } from './Forms/Buttons/MapControls'
+export { default as MapControl } from './Forms/Buttons/MapControl'
 export { default as MultiActionButton } from './Forms/Buttons/MultiActionButton'
 
 // Controls
@@ -75,6 +75,6 @@ export { showToast } from './Status/Toast/utils'
 // -- Status -- //
 
 // -- Presets -- //
-export { MapControlsPresets } from './presets/MapControlsPresets'
+export { MapControls } from './presets/MapControls'
 export { IconMarkers } from './presets/IconMarkers'
 // -- Presets -- //

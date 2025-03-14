@@ -1,4 +1,4 @@
-export type MapControlsProps = {
+export type MapControlProps = {
   items: {
     icon: React.ReactNode
     onClick?: () => void
