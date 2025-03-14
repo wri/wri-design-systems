@@ -125,6 +125,8 @@ function App() {
 
 ## Geospatial
 
+- [Icon Marker](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/IconMarker)
+
 ### Layers
 
 - [Layer Group](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerGroup)

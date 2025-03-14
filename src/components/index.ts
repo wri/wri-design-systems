@@ -39,6 +39,8 @@ export { default as Tag } from './Forms/Tag'
 
 // // -- Geospatial -- //
 
+export { default as IconMarker } from './Geospatial/IconMarker'
+
 // // Layers
 export { default as LayerGroup } from './Geospatial/Layers/LayerGroup'
 export { default as LayerGroupContainer } from './Geospatial/Layers/LayerGroup/LayerGroupContainer'
@@ -74,4 +76,5 @@ export { showToast } from './Status/Toast/utils'
 
 // -- Presets -- //
 export { MapControlsPresets } from './presets/MapControlsPresets'
+export { IconMarkers } from './presets/IconMarkers'
 // -- Presets -- //

@@ -21,6 +21,8 @@ import TextInputDemo from './components/Forms/Inputs/TextInput/TextInputDemo'
 
 import TagDemo from './components/Forms/Tag/TagDemo'
 
+import IconMarkerDemo from './components/Geospatial/IconMarker/IconMarkerDemo'
+
 import { LayerGroupDemo } from './components/Geospatial/Layers/LayerGroup/LayerGroupDemo'
 import LayerItemDemo from './components/Geospatial/Layers/LayerItem/LayerItemDemo'
 import LayerPanelDemo from './components/Geospatial/Layers/LayerPanel/LayerPanelDemo'
@@ -75,6 +77,8 @@ const App = () => (
         <TextInputDemo />
 
         <TagDemo />
+
+        <IconMarkerDemo />
 
         <LayerGroupDemo />
         <LayerItemDemo />
