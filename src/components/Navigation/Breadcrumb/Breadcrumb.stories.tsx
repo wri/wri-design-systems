@@ -4,7 +4,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Link } from 'react-router-dom'
 import BreadcrumbStory from '.'
-// import { CheckIcon } from '../../icons'
+import { DropIcon, PaperIcon, PlantIcon, SettingsIcon } from '../../icons'
 
 const meta = {
   title: 'Navigation/Breadcrumb',
@@ -50,6 +50,18 @@ export const MaxItems: Story = {
       { label: 'Four', link: '#' },
     ],
     maxItems: 3,
+    linkRouter: Link,
+  },
+}
+
+export const WithIcons: Story = {
+  args: {
+    links: [
+      { label: 'Settings', link: '#', icon: <SettingsIcon /> },
+      { label: 'One', link: '#', icon: <DropIcon /> },
+      { label: 'Two', link: '#', icon: <PaperIcon /> },
+      { label: 'Three', link: '#', icon: <PlantIcon /> },
+    ],
     linkRouter: Link,
   },
 }
