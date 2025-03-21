@@ -1,6 +1,9 @@
 // -- Styles -- //
 
-export { designSystemStyles } from '../lib/theme'
+export {
+  designSystemStyles,
+  getThemedColor,
+} from '../lib/theme'
 
 // -- Styles -- //
 
@@ -55,6 +58,12 @@ export { default as QualitativeAttribute } from './Geospatial/Legends/Qualitativ
 export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 
 // // -- Geospatial -- //
+
+// -- Information Display -- //
+
+export { default as ItemCount } from './InformationDisplay/ItemCount'
+
+// -- Information Display -- //
 
 // // -- Navigation -- //
 

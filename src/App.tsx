@@ -34,6 +34,8 @@ import LegendPanelDemo from './components/Geospatial/Legends/LegendPanel/LegendP
 import QualitativeAttributeDemo from './components/Geospatial/Legends/QualitativeAttribute/QualitativeAttributeDemo'
 import ScaleBarDemo from './components/Geospatial/Legends/ScaleBar/ScaleBarDemo'
 
+import ItemCountDemo from './components/InformationDisplay/ItemCount/ItemCountDemo'
+
 import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
@@ -89,6 +91,8 @@ const App = () => (
         <LegendPanelDemo />
         <QualitativeAttributeDemo />
         <ScaleBarDemo />
+
+        <ItemCountDemo />
 
         <BreadcrumbDemo />
         <TabBarDemo />
