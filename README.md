@@ -143,6 +143,7 @@ function App() {
 - [Scale Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/ScaleBar)
 
 ## Information Display
+
 - [Item Count](https://github.com/wri/wri-design-systems/tree/main/src/components/InformationDisplay/ItemCount)
 
 ## Navigation

@@ -19,7 +19,7 @@ export type SelectProps = Omit<
 > & {
   label?: string
   caption?: string
-  placeholder: string
+  placeholder?: string
   defaultValue?: string[]
   items: SelectItemProps[]
   size?: 'default' | 'small'

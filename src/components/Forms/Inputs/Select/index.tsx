@@ -90,7 +90,7 @@ const SelectMultipleValueItem = ({
 const Select = ({
   label,
   caption,
-  placeholder,
+  placeholder = '',
   items,
   size = 'default',
   required,
