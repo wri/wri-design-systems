@@ -4,7 +4,7 @@ export type TextareaProps = Omit<
   ChakraTextareaProps,
   'size' | 'variant' | 'colorPalette' | 'defaultChecked'
 > & {
-  label: string
+  label?: string
   caption?: string
   placeholder?: string
   errorMessage?: string
