@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/information-display-item-count--docs)
 
-[ItemCountDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/InformationDisplay/ItemCountDemo.tsx)
+[ItemCountDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/InformationDisplay/ItemCount/ItemCountDemo.tsx)
 
 ## Import
 
@@ -24,6 +24,7 @@ import { ItemCount } from '@worldresources/wri-design-systems'
 
 ```ts
 type ItemCountProps = {
+  pageSize: number
   currentPage: number
   totalItems: number
   onPageSizeChange?: (pageSize: number) => void

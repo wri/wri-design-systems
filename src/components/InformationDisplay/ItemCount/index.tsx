@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
-import { useState } from 'react'
 import Select from '../../Forms/Inputs/Select'
 import {
   itemCountContainerStyles,
@@ -11,14 +10,13 @@ import {
 import { ItemCountProps } from './types'
 
 const ItemCount = ({
+  pageSize,
   currentPage,
   totalItems,
   onPageSizeChange,
 }: ItemCountProps) => {
-  const [pageSize, setPageSize] = useState(['10'])
-
   const getPageInfo = () => {
-    const localPageSize = parseInt(pageSize[0], 10)
+    const localPageSize = pageSize
     const startItem = (currentPage - 1) * localPageSize + 1
     const endItem = Math.min(startItem + localPageSize - 1, totalItems)
 
@@ -26,8 +24,6 @@ const ItemCount = ({
   }
 
   const handleSelectChange = (value: string[]) => {
-    setPageSize(value)
-
     if (onPageSizeChange) {
       onPageSizeChange(parseInt(value[0], 10))
     }
@@ -38,7 +34,7 @@ const ItemCount = ({
       <div css={itemCountPerPageContainerStyles}>
         <div style={{ width: '80px' }}>
           <Select
-            defaultValue={pageSize}
+            defaultValue={[`${pageSize}`]}
             items={[
               {
                 label: '10',

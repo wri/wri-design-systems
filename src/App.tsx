@@ -35,6 +35,8 @@ import QualitativeAttributeDemo from './components/Geospatial/Legends/Qualitativ
 import ScaleBarDemo from './components/Geospatial/Legends/ScaleBar/ScaleBarDemo'
 
 import ItemCountDemo from './components/InformationDisplay/ItemCount/ItemCountDemo'
+import PaginationDemo from './components/InformationDisplay/Pagination/PaginationDemo'
+import TableDemo from './components/InformationDisplay/Table/TableDemo'
 
 import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
@@ -93,6 +95,8 @@ const App = () => (
         <ScaleBarDemo />
 
         <ItemCountDemo />
+        <PaginationDemo />
+        <TableDemo />
 
         <BreadcrumbDemo />
         <TabBarDemo />

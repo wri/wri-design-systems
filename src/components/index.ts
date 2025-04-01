@@ -1,9 +1,6 @@
 // -- Styles -- //
 
-export {
-  designSystemStyles,
-  getThemedColor,
-} from '../lib/theme'
+export { designSystemStyles, getThemedColor } from '../lib/theme'
 
 // -- Styles -- //
 
@@ -62,6 +59,12 @@ export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 // -- Information Display -- //
 
 export { default as ItemCount } from './InformationDisplay/ItemCount'
+export { default as Pagination } from './InformationDisplay/Pagination'
+export {
+  default as Table,
+  TableRow,
+  TableCell,
+} from './InformationDisplay/Table'
 
 // -- Information Display -- //
 

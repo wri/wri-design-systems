@@ -2,24 +2,33 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import ItemCountStory from '.'
+import PaginationStory from '.'
 
 const meta = {
-  title: 'Information Display/Item Count',
-  component: ItemCountStory,
+  title: 'Information Display/Pagination',
+  component: PaginationStory,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ItemCountStory>
+} satisfies Meta<typeof PaginationStory>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const ItemCount: Story = {
+export const Pagination: Story = {
   args: {
+    totalItems: 100,
     pageSize: 10,
     currentPage: 1,
+  },
+}
+
+export const CompactPagination: Story = {
+  args: {
     totalItems: 100,
+    pageSize: 10,
+    currentPage: 1,
+    compact: true,
   },
 }

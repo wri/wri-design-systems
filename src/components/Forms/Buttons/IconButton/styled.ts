@@ -18,6 +18,10 @@ export const iconButtonStyles = css`
     }
   }
 
+  p {
+    color: ${getThemedColor('neutral', 800)};
+  }
+
   &:hover {
     background-color: color-mix(
       in srgb,

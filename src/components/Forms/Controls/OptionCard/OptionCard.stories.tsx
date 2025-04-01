@@ -3,6 +3,7 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
+import { ValueChangeDetails } from '@zag-js/radio-group'
 import OptionCard from '.'
 import OptionCardGroup from './OptionCardGroup'
 import { InfoIcon } from '../../../icons'
@@ -21,7 +22,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    onValueChange: ({ value }: { value: string }) => console.log(value),
+    onValueChange: ({ value }: ValueChangeDetails) => console.log(value),
   },
   render: (args) => (
     <OptionCardGroup {...args}>
@@ -49,7 +50,7 @@ export const Default: Story = {
 
 export const Centered: Story = {
   args: {
-    onValueChange: ({ value }: { value: string }) => console.log(value),
+    onValueChange: ({ value }: ValueChangeDetails) => console.log(value),
   },
   render: (args) => (
     <OptionCardGroup {...args}>
@@ -80,7 +81,7 @@ export const Centered: Story = {
 
 export const Expanded: Story = {
   args: {
-    onValueChange: ({ value }: { value: string }) => console.log(value),
+    onValueChange: ({ value }: ValueChangeDetails) => console.log(value),
   },
   render: (args) => (
     <OptionCardGroup {...args}>
@@ -124,7 +125,7 @@ export const Expanded: Story = {
 export const DefaultChecked: Story = {
   args: {
     defaultValue: 'value-2',
-    onValueChange: ({ value }: { value: string }) => console.log(value),
+    onValueChange: ({ value }: ValueChangeDetails) => console.log(value),
   },
   render: (args) => (
     <OptionCardGroup {...args}>
@@ -153,7 +154,7 @@ export const DefaultChecked: Story = {
 export const Disabled: Story = {
   args: {
     defaultValue: 'value-2',
-    onValueChange: ({ value }: { value: string }) => console.log(value),
+    onValueChange: ({ value }: ValueChangeDetails) => console.log(value),
   },
   render: (args) => (
     <OptionCardGroup {...args}>

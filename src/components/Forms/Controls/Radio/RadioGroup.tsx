@@ -1,11 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState } from 'react'
 
-import {
-  RadioGroup as ChakraRadioGroup,
-  RadioGroupValueChangeDetails,
-  HStack,
-} from '@chakra-ui/react'
+import { RadioGroup as ChakraRadioGroup, HStack } from '@chakra-ui/react'
+import { ValueChangeDetails } from '@zag-js/radio-group'
 import { RadioGroupProps } from './types'
 
 const RadioGroup = ({
@@ -19,11 +16,11 @@ const RadioGroup = ({
 }: RadioGroupProps) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
 
-  const handleOnChange = (details: RadioGroupValueChangeDetails) => {
-    setSelectedValue(details.value)
+  const handleOnChange = (details: ValueChangeDetails) => {
+    setSelectedValue(details.value || '')
 
     if (onChange) {
-      onChange(name, details.value)
+      onChange(name, details.value || '')
     }
   }
 

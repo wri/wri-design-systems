@@ -23,13 +23,13 @@ npm i @worldresources/wri-design-systems
 ## Other dependecies
 
 ```
-yarn add @chakra-ui/react@^3.1.2 @emotion/react@^11.13.3
+yarn add @chakra-ui/react@ @emotion/react@
 ```
 
 or
 
 ```
-npm i @chakra-ui/react@^3.1.2 @emotion/react@^11.13.3
+npm i @chakra-ui/react@ @emotion/react@
 ```
 
 ## Usage
@@ -145,6 +145,8 @@ function App() {
 ## Information Display
 
 - [Item Count](https://github.com/wri/wri-design-systems/tree/main/src/components/InformationDisplay/ItemCount)
+- [Pagination](https://github.com/wri/wri-design-systems/tree/main/src/components/InformationDisplay/Pagination)
+- [Table](https://github.com/wri/wri-design-systems/tree/main/src/components/InformationDisplay/Table)
 
 ## Navigation
 

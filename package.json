@@ -40,7 +40,7 @@
     ]
   },
   "devDependencies": {
-    "@chakra-ui/react": "^3.1.2",
+    "@chakra-ui/react": "^3.14.2",
     "@chakra-ui/storybook-addon": "^5.2.5",
     "@chromatic-com/storybook": "^1.9.0",
     "@emotion/react": "^11.13.3",
@@ -85,7 +85,7 @@
     "webpack": "^5.95.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^3.1.2",
+    "@chakra-ui/react": "^3.14.2",
     "@emotion/react": "^11.13.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
