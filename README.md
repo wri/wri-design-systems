@@ -88,6 +88,18 @@ function App() {
 }
 ```
 
+### getThemedColor
+
+Use **getThemedColor** to access your theme colors and variants.
+
+```tsx
+import { getThemedColor } from '@worldresources/wri-design-systems'
+```
+
+```
+border: 1px solid ${getThemedColor('neutral', 400)};
+```
+
 ## Components
 
 ## Forms
