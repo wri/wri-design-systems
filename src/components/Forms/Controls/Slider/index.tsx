@@ -59,12 +59,12 @@ const SliderMarks = React.forwardRef<HTMLDivElement, SliderMarksProps>(
 )
 
 const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
-  const { marks: marksProp, onValueChange, isCentred, ...rest } = props
-  const [value, setValue] = useState(rest.value || [0])
+  const { marks: marksProp, onValueChange, isCentred, value, ...rest } = props
+  const [newValue, setNewValue] = useState(value || [0])
 
   useEffect(() => {
-    setValue(rest.value || [0])
-  }, [rest.value])
+    setNewValue(value || [0])
+  }, [value])
 
   let marks = marksProp?.map((mark) => {
     if (typeof mark === 'number') return { value: mark, label: undefined }
@@ -84,7 +84,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   const hasMarkLabel = !!marks?.some((mark) => mark.label)
 
   const handleOnValueChange = (e: { value: number[] }) => {
-    setValue(e.value)
+    setNewValue(e.value)
 
     if (onValueChange) {
       onValueChange(e)
@@ -98,6 +98,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
       thumbAlignment='center'
       onValueChange={handleOnValueChange}
       origin={isCentred ? 'center' : 'start'}
+      value={newValue}
       {...rest}
     >
       {/*
@@ -115,7 +116,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
         <ChakraSlider.Track css={sliderTrackStyles}>
           <ChakraSlider.Range css={sliderRangeStyles} />
         </ChakraSlider.Track>
-        <SliderThumbs value={value} />
+        <SliderThumbs value={newValue} />
         <SliderMarks marks={marks} isCentred={isCentred} />
       </ChakraSlider.Control>
     </ChakraSlider.Root>
