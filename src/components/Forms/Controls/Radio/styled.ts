@@ -49,12 +49,14 @@ export const radioGroupItemStyles = css`
       &[data-disabled] {
         border: 1px solid ${getThemedColor('neutral', 400)};
         color: ${getThemedColor('neutral', 400)};
+        cursor: not-allowed;
       }
     }
 
     &[data-disabled] {
       border: 1px solid ${getThemedColor('neutral', 400)} !important;
       background-color: ${getThemedColor('neutral', 100)} !important;
+      cursor: not-allowed;
 
       &:hover,
       &:active {
@@ -65,7 +67,10 @@ export const radioGroupItemStyles = css`
 `
 
 export const radioGroupItemTextStyles = css`
+  cursor: pointer;
+
   &[data-disabled] {
     color: ${getThemedColor('neutral', 500)};
+    cursor: not-allowed;
   }
 `

@@ -78,4 +78,12 @@ export const rootSwitchStyles = css`
       }
     }
   }
+
+  .chakra-switch__label {
+    cursor: pointer;
+
+    &[data-disabled] {
+      cursor: not-allowed;
+    }
+  }
 `

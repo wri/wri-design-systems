@@ -71,4 +71,12 @@ export const checkboxStyles = css`
       }
     }
   }
+
+  .chakra-checkbox__label {
+    cursor: pointer;
+
+    &[data-disabled] {
+      cursor: not-allowed;
+    }
+  }
 `

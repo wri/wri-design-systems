@@ -123,6 +123,7 @@ export const optionCardItemIndicatorStyles = css`
 
   &[data-disabled] {
     border: 1px solid ${getThemedColor('neutral', 400)};
+    cursor: not-allowed;
   }
 `
 
