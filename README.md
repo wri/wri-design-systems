@@ -23,13 +23,13 @@ npm i @worldresources/wri-design-systems
 ## Other dependecies
 
 ```
-yarn add @chakra-ui/react@ @emotion/react
+yarn add @chakra-ui/react@^3.14.2 @emotion/react@^^11.14.0
 ```
 
 or
 
 ```
-npm i @chakra-ui/react@ @emotion/react
+npm i @chakra-ui/react@^3.14.2 @emotion/react@^^11.14.0
 ```
 
 ## Usage
