@@ -6,6 +6,7 @@ export const checkboxStyles = css`
     width: 20px;
     height: 20px;
     border: 1px solid ${getThemedColor('neutral', 600)};
+    cursor: pointer;
 
     svg {
       width: 12px;
@@ -32,7 +33,9 @@ export const checkboxStyles = css`
       box-shadow: none;
       outline: 2px solid ${getThemedColor('primary', 700)};
       outline-offset: 2px;
-      box-shadow: 0 0 0 2px ${getThemedColor('neutral', 100)}, rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      box-shadow:
+        0 0 0 2px ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
     }
 
     &[data-state='checked'],

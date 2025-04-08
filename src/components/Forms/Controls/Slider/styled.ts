@@ -12,6 +12,7 @@ export const sliderThumbStyles = css`
   background-color: ${getThemedColor('primary', 500)};
   border: 2px solid ${getThemedColor('primary', 700)};
   box-shadow: 0px 1px 2px 0px #0000000d;
+  cursor: pointer;
 
   &:hover,
   &[data-hover] {
@@ -36,7 +37,9 @@ export const sliderThumbStyles = css`
   &[data-focus-visible] {
     outline: 2px solid ${getThemedColor('primary', 700)};
     outline-offset: 2px;
-    box-shadow: 0 0 0 2px ${getThemedColor('neutral', 100)}, rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+    box-shadow:
+      0 0 0 2px ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
 
     .slider-value-preview {
       display: flex;

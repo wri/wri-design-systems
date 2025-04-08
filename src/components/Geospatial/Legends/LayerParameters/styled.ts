@@ -12,6 +12,7 @@ export const layerParametersTriggerStyles = css`
   padding: 6px 8px;
   align-items: center;
   background-color: ${getThemedColor('neutral', 100)};
+  cursor: pointer;
 
   &[aria-expanded='true'] {
     border-bottom: 1px solid ${getThemedColor('neutral', 300)};

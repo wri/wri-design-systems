@@ -72,6 +72,7 @@ export const selectTriggerStyles = (
     padding: 6px 8px;
     border: 1px solid ${getTriggerBorderColor(isFilled, hasErrorMessage)};
     box-shadow: 0px 1px 2px 0px #0000000d;
+    cursor: pointer;
 
     .chakra-select__valueText {
       font-size: ${size === 'small' ? '14px' : '16px'};
@@ -98,7 +99,9 @@ export const selectTriggerStyles = (
       outline-width: 2px;
       outline-color: ${getThemedColor('primary', 700)};
       border: 2px solid ${getThemedColor('neutral', 700)};
-      box-shadow: 0 0 0 2px ${getThemedColor('neutral', 100)}, rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      box-shadow:
+        0 0 0 2px ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
     }
 
     &[data-disabled] {

@@ -51,7 +51,9 @@ export const tabBarItemPanelStyles = css`
     background-color: ${getThemedColor('neutral', 300)};
     outline-color: ${getThemedColor('primary', 700)};
     outline-offset: 2px;
-    box-shadow: 0 0 0 2px ${getThemedColor('neutral', 100)}, rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+    box-shadow:
+      0 0 0 2px ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
   }
 
   &[data-selected] {
@@ -70,7 +72,9 @@ export const tabBarItemPanelStyles = css`
       background-color: ${getThemedColor('neutral', 100)};
       outline-color: ${getThemedColor('primary', 700)};
       outline-offset: 2px;
-      box-shadow: 0 0 0 2px ${getThemedColor('neutral', 100)}, rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      box-shadow:
+        0 0 0 2px ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
     }
 
     &::before {
@@ -116,7 +120,9 @@ export const tabBarItemViewStyles = css`
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
     outline-offset: 2px;
-    box-shadow: 0 0 0 2px ${getThemedColor('neutral', 100)}, rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+    box-shadow:
+      0 0 0 2px ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
   }
 
   &[data-selected] {
@@ -142,7 +148,9 @@ export const tabBarItemViewStyles = css`
     &:focus-visible {
       outline-color: ${getThemedColor('primary', 700)};
       outline-offset: 2px;
-      box-shadow: 0 0 0 2px ${getThemedColor('neutral', 100)}, rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      box-shadow:
+        0 0 0 2px ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
     }
 
     &::before {
