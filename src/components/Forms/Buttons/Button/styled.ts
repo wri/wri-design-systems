@@ -11,9 +11,10 @@ export const baseButtonStyles = (size: ButtonProps['size']) => css`
   padding: ${size === 'small' ? '6px 8px' : '8px 16px'};
   border-radius: 4px;
   box-shadow: 0px 1px 2px 0px #0000000d;
+  cursor: pointer;
 
   &:focus-visible {
-    box-shadow: none;
+    box-shadow: 0 0 0 2px ${getThemedColor('neutral', 100)}, rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
   }
 
   svg {
@@ -28,6 +29,7 @@ export const primaryButtonStyles = (disabled?: boolean) => css`
     background-color: ${getThemedColor('neutral', 300)};
     border: 1px solid ${getThemedColor('neutral', 400)};
     color: ${getThemedColor('neutral', 500)};
+    cursor: not-allowed !important;
 
     &:hover {
       background-color: ${getThemedColor('neutral', 300)} !important;
@@ -56,7 +58,6 @@ export const primaryButtonStyles = (disabled?: boolean) => css`
     &:focus-visible {
       outline-color: ${getThemedColor('primary', 700)};
       background-color: ${getThemedColor('primary', 500)};
-      box-shadow: 0px 1px 2px 0px #0000000D;
     }
   `}
 `
@@ -67,6 +68,7 @@ export const secondaryButtonStyles = (disabled?: boolean) => css`
     background-color: ${getThemedColor('neutral', 200)};
     border: 1px solid ${getThemedColor('neutral', 300)};
     color: ${getThemedColor('neutral', 500)};
+    cursor: not-allowed !important;
 
     &:hover {
       background-color: ${getThemedColor('neutral', 200)} !important;
@@ -94,7 +96,6 @@ export const secondaryButtonStyles = (disabled?: boolean) => css`
 
     &:focus-visible {
       outline-color: ${getThemedColor('primary', 700)};
-      box-shadow: 0px 1px 2px 0px #0000000D;
     }
   `}
 `
@@ -104,6 +105,7 @@ export const borderlessButtonStyles = (disabled?: boolean) => css`
     ? `
     background-color: transparent;
     color: ${getThemedColor('neutral', 500)};
+    cursor: not-allowed !important;
 
     &:hover {
       background-color: transparent !important;
@@ -127,7 +129,6 @@ export const borderlessButtonStyles = (disabled?: boolean) => css`
 
     &:focus-visible {
       outline-color: ${getThemedColor('primary', 700)};
-      box-shadow: 0px 1px 2px 0px #0000000D;
     }
   `}
 `
@@ -138,6 +139,7 @@ export const outlineButtonStyles = (disabled?: boolean) => css`
     background-color: ${getThemedColor('neutral', 200)};
     border: 1px solid ${getThemedColor('neutral', 300)};
     color: ${getThemedColor('neutral', 500)};
+    cursor: not-allowed !important;
 
     &:hover {
       background-color: ${getThemedColor('neutral', 200)} !important;
