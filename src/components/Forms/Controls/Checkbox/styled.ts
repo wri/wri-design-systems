@@ -44,7 +44,8 @@ export const checkboxStyles = css`
       background-color: ${getThemedColor('primary', 500)} !important;
 
       svg path {
-        fill: ${getThemedColor('accessible', 'text-on-primary-mids') || getThemedColor('primary', 900)};
+        fill: ${getThemedColor('accessible', 'text-on-primary-mids') ||
+        getThemedColor('primary', 900)};
       }
     }
 

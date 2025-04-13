@@ -51,7 +51,8 @@ export const rootSwitchStyles = css`
       width: 12px;
 
       path {
-        fill: ${getThemedColor('accessible', 'controls-on-neutral-lights') || getThemedColor('primary', 700)};
+        fill: ${getThemedColor('accessible', 'controls-on-neutral-lights') ||
+        getThemedColor('primary', 700)};
       }
     }
 

@@ -31,7 +31,7 @@ const MultiActionButton = ({
   variant = 'primary',
   size = 'default',
   mainActionLabel,
-  mainActionOnClick = () => { },
+  mainActionOnClick = () => {},
   otherActions = [],
   ...rest
 }: MultiActionButtonProps) => {
@@ -60,10 +60,15 @@ const MultiActionButton = ({
           <Button
             variant={variant}
             size={size}
-            leftIcon={<ChevronDownIcon
-              rotate={isOpen ? '180' : '0'}
-              color={getThemedColor('accessible', 'text-on-primary-mids') || getThemedColor('primary', 900)}
-            />}
+            leftIcon={
+              <ChevronDownIcon
+                rotate={isOpen ? '180' : '0'}
+                color={
+                  getThemedColor('accessible', 'text-on-primary-mids') ||
+                  getThemedColor('primary', 900)
+                }
+              />
+            }
             disabled={rest.disabled}
           />
         </ChakraMenu.Trigger>
