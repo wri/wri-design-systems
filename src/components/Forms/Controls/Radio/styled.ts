@@ -5,7 +5,7 @@ export const radioGroupItemStyles = css`
   .radio-item-indicator {
     width: 20px;
     height: 20px;
-    border: 1px solid ${getThemedColor('neutral', 600)};
+    border: 1px solid ${getThemedColor('neutral', 700)};
     cursor: pointer;
 
     .dot {
@@ -26,14 +26,14 @@ export const radioGroupItemStyles = css`
 
     &:focus-visible,
     &[data-focus-visible] {
-      outline: 2px solid ${getThemedColor('primary', 700)};
+      outline: 2px solid ${getThemedColor('accessible', 'controls-on-neutral-lights') || getThemedColor('primary', 700)};
       outline-offset: 2px;
       box-shadow:
         0 0 0 2px ${getThemedColor('neutral', 100)},
         rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
 
       &[data-checked] {
-        border: 2px solid ${getThemedColor('primary', 700)};
+        border: 2px solid ${getThemedColor('accessible', 'controls-on-neutral-lights') || getThemedColor('primary', 700)};
 
         &[data-disabled] {
           border: 2px solid ${getThemedColor('neutral', 400)};
@@ -42,9 +42,9 @@ export const radioGroupItemStyles = css`
     }
 
     &[data-checked] {
-      border: 1px solid ${getThemedColor('primary', 700)};
+      border: 1px solid ${getThemedColor('accessible', 'controls-on-neutral-lights') || getThemedColor('primary', 700)};
       background-color: ${getThemedColor('neutral', 100)} !important;
-      color: ${getThemedColor('primary', 700)};
+      color: ${getThemedColor('accessible', 'controls-on-neutral-lights') || getThemedColor('primary', 700)};
 
       &[data-disabled] {
         border: 1px solid ${getThemedColor('neutral', 400)};

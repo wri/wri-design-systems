@@ -10,7 +10,7 @@ export const layerGroupTitleStyles = css`
   font-weight: 700;
   line-height: 24px;
   text-align: left;
-  color: ${getThemedColor('neutral', 800)};
+  color: ${getThemedColor('neutral', 900)};
   display: flex;
   align-items: center;
   text-align: left;
@@ -22,6 +22,6 @@ export const layerGroupCaptionStyles = css`
   font-weight: 400;
   line-height: 16px;
   text-align: left;
-  color: ${getThemedColor('neutral', 600)};
+  color: ${getThemedColor('neutral', 700)};
   margin-bottom: 8px;
 `

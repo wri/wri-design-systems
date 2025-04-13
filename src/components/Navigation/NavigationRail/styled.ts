@@ -53,7 +53,7 @@ export const navigationRailTabStyles = css`
     font-weight: 400;
     line-height: 14px;
     text-align: center;
-    color: ${getThemedColor('neutral', 600)};
+    color: ${getThemedColor('neutral', 700)};
   }
 
   &[data-selected] {
@@ -74,7 +74,7 @@ export const navigationRailTabStyles = css`
     .tab-label {
       p {
         font-weight: 700;
-        color: ${getThemedColor('neutral', 700)};
+        color: ${getThemedColor('neutral', 800)};
       }
 
       svg {

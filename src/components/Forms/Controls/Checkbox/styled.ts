@@ -5,7 +5,7 @@ export const checkboxStyles = css`
   .chakra-checkbox__control {
     width: 20px;
     height: 20px;
-    border: 1px solid ${getThemedColor('neutral', 600)};
+    border: 1px solid ${getThemedColor('neutral', 700)};
     cursor: pointer;
 
     svg {
@@ -44,7 +44,7 @@ export const checkboxStyles = css`
       background-color: ${getThemedColor('primary', 500)} !important;
 
       svg path {
-        fill: ${getThemedColor('primary', 900)};
+        fill: ${getThemedColor('accessible', 'text-on-primary-mids') || getThemedColor('primary', 900)};
       }
     }
 

@@ -9,7 +9,7 @@ export const rootSwitchStyles = css`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${getThemedColor('neutral', 600)};
+    background-color: ${getThemedColor('neutral', 700)};
   }
 
   &[data-state='checked'] .chakra-switch__control-container {
@@ -25,7 +25,7 @@ export const rootSwitchStyles = css`
     width: 40px;
     display: flex;
     align-items: center;
-    background-color: ${getThemedColor('neutral', 500)};
+    background-color: ${getThemedColor('neutral', 600)};
 
     &:focus-visible,
     &[data-focus-visible] {
@@ -51,7 +51,7 @@ export const rootSwitchStyles = css`
       width: 12px;
 
       path {
-        fill: ${getThemedColor('primary', 700)};
+        fill: ${getThemedColor('accessible', 'controls-on-neutral-lights') || getThemedColor('primary', 700)};
       }
     }
 

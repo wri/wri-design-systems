@@ -23,7 +23,7 @@ export const toastContainerStyles = css`
     border: 1px solid ${getThemedColor('success', 500)};
 
     .chakra-toast__title {
-      color: ${getThemedColor('success', 500)};
+      color: ${getThemedColor('success', 900)};
     }
   }
 
@@ -32,7 +32,7 @@ export const toastContainerStyles = css`
     border: 1px solid ${getThemedColor('warning', 500)};
 
     .chakra-toast__title {
-      color: ${getThemedColor('warning', 500)};
+      color: ${getThemedColor('warning', 900)};
     }
   }
 
@@ -41,7 +41,7 @@ export const toastContainerStyles = css`
     border: 1px solid ${getThemedColor('error', 500)};
 
     .chakra-toast__title {
-      color: ${getThemedColor('error', 500)};
+      color: ${getThemedColor('error', 900)};
     }
   }
 `

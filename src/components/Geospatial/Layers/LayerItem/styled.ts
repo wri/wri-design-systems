@@ -30,5 +30,5 @@ export const layerCaptionStyles = (
   font-weight: 400;
   line-height: 20px;
   text-align: left;
-  color: ${getThemedColor('neutral', disabled ? 500 : 600)};
+  color: ${getThemedColor('neutral', disabled ? 500 : 700)};
 `

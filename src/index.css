@@ -12,17 +12,16 @@ code {
     monospace;
 }
 
-*:focus-visible {
-  box-shadow: none !important;
-}
-
+/*  */
 .app-container {
   margin-left: 364px;
   transition: margin-left 0.1s;
   padding: 20px;
+  margin-bottom: 60px;
 }
 
 .app-container.sidebar-closed {
   margin-left: 64px;
   transition: margin-left 0.1s;
 }
+/*  */

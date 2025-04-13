@@ -37,14 +37,14 @@ export const defaultTabStyles = css`
 
 export const tabBarItemPanelStyles = css`
   background-color: ${getThemedColor('neutral', 200)};
-  color: ${getThemedColor('neutral', 600)};
+  color: ${getThemedColor('neutral', 700)};
 
   &:hover {
-    background-color: ${getThemedColor('neutral', 100)};
+    background-color: ${getThemedColor('neutral', 300)};
   }
 
   &:active {
-    background-color: ${getThemedColor('neutral', 300)};
+    background-color: ${getThemedColor('neutral', 400)};
   }
 
   &:focus-visible {
@@ -58,14 +58,14 @@ export const tabBarItemPanelStyles = css`
 
   &[data-selected] {
     background-color: ${getThemedColor('neutral', 100)};
-    color: ${getThemedColor('neutral', 800)};
+    color: ${getThemedColor('neutral', 900)};
 
     &:hover {
-      background-color: ${getThemedColor('neutral', 200)};
+      background-color: ${getThemedColor('neutral', 300)};
     }
 
     &:active {
-      background-color: ${getThemedColor('neutral', 300)};
+      background-color: ${getThemedColor('neutral', 400)};
     }
 
     &:focus-visible {
@@ -104,7 +104,7 @@ export const tabBarItemViewStyles = css`
   height: 32px;
   border-radius: 2px;
   background-color: ${getThemedColor('neutral', 200)};
-  color: ${getThemedColor('neutral', 600)};
+  color: ${getThemedColor('neutral', 700)};
 
   &:hover {
     background-color: ${getThemedColor('neutral', 300)};
@@ -129,7 +129,7 @@ export const tabBarItemViewStyles = css`
     background-color: ${getThemedColor('neutral', 100)};
     border: 1px solid ${getThemedColor('neutral', 300)};
     box-shadow: 0px 1px 2px 0px #0000000d;
-    color: ${getThemedColor('neutral', 800)};
+    color: ${getThemedColor('neutral', 900)};
 
     &:hover {
       background-color: ${getThemedColor('neutral', 200)};

@@ -30,7 +30,7 @@ export const layerParametersLabelStyles = css`
   font-size: 12px;
   font-weight: 700;
   line-height: 16px;
-  color: ${getThemedColor('neutral', 700)};
+  color: ${getThemedColor('neutral', 800)};
 `
 
 export const layerParametersItemContentStyles = css`

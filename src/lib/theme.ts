@@ -30,6 +30,8 @@ export const wriTheme: ThemeProps = {
   primary: {
     100: { value: '#FFFBF2' },
     200: { value: '#FCEFD3' },
+    300: { value: '#FADFA7' },
+    400: { value: '#F5BF4F' },
     500: { value: '#F0AB00' },
     600: { value: '#DE9E00' },
     700: { value: '#855B00' },
@@ -37,11 +39,15 @@ export const wriTheme: ThemeProps = {
     900: { value: '#332300' },
   },
   secondary: {
+    100: { value: '#F2F6FF' },
+    200: { value: '#D7E0F7' },
     300: { value: '#B2C3F0' },
     400: { value: '#4F6CBA' },
     500: { value: '#3855A3' },
     600: { value: '#0A4298' },
     700: { value: '#123369' },
+    800: { value: '#162241' },
+    900: { value: '#0B1121' },
   },
   success: {
     100: { value: '#EBF5F2' },

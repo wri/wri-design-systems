@@ -62,30 +62,30 @@ export const infoGreyInlineMessageStyles = css`
 
 export const successInlineMessageStyles = css`
   background-color: ${getThemedColor('success', 100)};
-  border: 1px solid ${getThemedColor('success', 500)};
+  border: 1px solid ${getThemedColor('success', 300)};
   color: ${getThemedColor('success', 500)};
 
   p {
-    color: ${getThemedColor('success', 500)};
+    color: ${getThemedColor('success', 900)};
   }
 `
 
 export const warningInlineMessageStyles = css`
   background-color: ${getThemedColor('warning', 100)};
-  border: 1px solid ${getThemedColor('warning', 500)};
+  border: 1px solid ${getThemedColor('warning', 300)};
   color: ${getThemedColor('warning', 500)};
 
   p {
-    color: ${getThemedColor('warning', 500)};
+    color: ${getThemedColor('warning', 900)};
   }
 `
 
 export const errorInlineMessageStyles = css`
   background-color: ${getThemedColor('error', 100)};
-  border: 1px solid ${getThemedColor('error', 500)};
+  border: 1px solid ${getThemedColor('error', 300)};
   color: ${getThemedColor('error', 500)};
 
   p {
-    color: ${getThemedColor('error', 500)};
+    color: ${getThemedColor('error', 900)};
   }
 `

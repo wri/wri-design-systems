@@ -24,7 +24,7 @@ export const passwordCaptionStyles = css`
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
-  color: ${getThemedColor('neutral', 600)};
+  color: ${getThemedColor('neutral', 700)};
   text-align: left;
 `
 
@@ -67,7 +67,7 @@ export const passwordStrengthLabelStyles = (strength: string) => css`
         : strength === 'Strong' || strength === 'Very Strong'
           ? 'success'
           : 'error',
-      500,
+      900,
     )};
   }
 `
@@ -97,7 +97,7 @@ export const passwordStrengthBarStyles = (strength: string) => css`
         : strength === 'Strong' || strength === 'Very Strong'
           ? 'success'
           : 'error',
-      500,
+      900,
     )};
     border-radius: 8px;
   }

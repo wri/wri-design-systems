@@ -19,7 +19,7 @@ export const sliderInputCaptionStyles = (size: SliderInputProps['size']) => css`
   font-size: ${size === 'small' ? '12px' : '14px'};
   line-height: ${size === 'small' ? '16px' : '20px'};
   font-weight: 400;
-  color: ${getThemedColor('neutral', 600)};
+  color: ${getThemedColor('neutral', 700)};
   text-align: left;
 `
 

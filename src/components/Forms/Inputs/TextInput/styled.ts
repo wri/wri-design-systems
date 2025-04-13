@@ -16,7 +16,7 @@ export const textInputContainerStyles = (size: TextInputProps['size']) => css`
 export const textInputErrorBarStyles = css`
   width: 3px;
   height: 100%;
-  background-color: ${getThemedColor('error', 500)};
+  background-color: ${getThemedColor('error', 900)};
   position: absolute;
   top: 0;
   left: 0;
@@ -47,14 +47,14 @@ export const fieldCaptionStyles = (
   size: TextInputProps['size'],
   disabled?: TextInputProps['disabled'],
 ) => css`
-  color: ${getThemedColor('neutral', disabled ? 500 : 600)};
+  color: ${getThemedColor('neutral', disabled ? 600 : 700)};
   font-size: ${size === 'small' ? '12px' : '14px'};
   font-weight: 400;
   line-height: ${size === 'small' ? '16px' : '20px'};
 `
 
 export const fieldErrorMessageStyles = (size: TextInputProps['size']) => css`
-  color: ${getThemedColor('error', 500)};
+  color: ${getThemedColor('error', 900)};
   font-size: ${size === 'small' ? '12px' : '14px'};
   font-weight: 700;
   line-height: ${size === 'small' ? '16px' : '20px'};
@@ -93,7 +93,7 @@ export const textInputStyles = (
   }
 
   &[data-invalid] {
-    border: 1px solid ${getThemedColor('error', 500)} !important;
+    border: 1px solid ${getThemedColor('error', 900)} !important;
   }
 
   &:disabled {

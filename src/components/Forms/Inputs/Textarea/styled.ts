@@ -15,7 +15,7 @@ export const textareaContainerStyles = (size: TextareaProps['size']) => css`
 export const textareaErrorBarStyles = css`
   width: 3px;
   height: 100%;
-  background-color: ${getThemedColor('error', 500)};
+  background-color: ${getThemedColor('error', 900)};
   position: absolute;
   top: 0;
   left: 0;
@@ -46,7 +46,7 @@ export const fieldCaptionStyles = (
   size: TextareaProps['size'],
   disabled?: TextareaProps['disabled'],
 ) => css`
-  color: ${getThemedColor('neutral', disabled ? 500 : 600)};
+  color: ${getThemedColor('neutral', disabled ? 600 : 700)};
   font-size: ${size === 'small' ? '12px' : '14px'};
   font-weight: 400;
   line-height: ${size === 'small' ? '16px' : '20px'};
@@ -61,7 +61,7 @@ export const fieldHelperTextStyles = css`
 `
 
 export const fieldErrorMessageStyles = css`
-  color: ${getThemedColor('error', 500)};
+  color: ${getThemedColor('error', 900)};
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
@@ -100,7 +100,7 @@ export const textareaSyles = (
   }
 
   &[data-invalid] {
-    border: 1px solid ${getThemedColor('error', 500)} !important;
+    border: 1px solid ${getThemedColor('error', 900)} !important;
   }
 
   &:disabled {

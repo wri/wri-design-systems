@@ -15,7 +15,7 @@ export const legendItemDragAndDropActionsStyles = css`
 
   svg {
     path {
-      fill: ${getThemedColor('neutral', 500)} !important;
+      fill: ${getThemedColor('neutral', 700)} !important;
     }
   }
 `
@@ -33,7 +33,7 @@ export const legendItemLayerNameStyles = css`
   line-height: 24px;
   font-weight: 400;
   text-align: left;
-  color: ${getThemedColor('neutral', 800)};
+  color: ${getThemedColor('neutral', 900)};
 `
 
 export const legendItemDataUnitStyles = css`
@@ -41,7 +41,7 @@ export const legendItemDataUnitStyles = css`
   line-height: 20px;
   font-weight: 400;
   text-align: left;
-  color: ${getThemedColor('neutral', 600)};
+  color: ${getThemedColor('neutral', 700)};
 `
 
 export const legendItemButtonsContainerStyles = css`

@@ -144,18 +144,18 @@ export const infoGreyTagStyles = css`
 
 export const successTagStyles = css`
   background-color: ${getThemedColor('success', 100)};
-  border: 1px solid ${getThemedColor('success', 200)};
-  color: ${getThemedColor('success', 500)};
+  border: 1px solid ${getThemedColor('success', 300)};
+  color: ${getThemedColor('success', 900)};
 `
 
 export const warningTagStyles = css`
   background-color: ${getThemedColor('warning', 100)};
-  border: 1px solid ${getThemedColor('warning', 200)};
-  color: ${getThemedColor('warning', 500)};
+  border: 1px solid ${getThemedColor('warning', 300)};
+  color: ${getThemedColor('warning', 900)};
 `
 
 export const errorTagStyles = css`
   background-color: ${getThemedColor('error', 100)};
-  border: 1px solid ${getThemedColor('error', 200)};
-  color: ${getThemedColor('error', 500)};
+  border: 1px solid ${getThemedColor('error', 300)};
+  color: ${getThemedColor('error', 900)};
 `

@@ -12,7 +12,7 @@ export const layerPanelHeaderStyles = css`
 `
 
 export const layerPanelTitleStyles = css`
-  color: ${getThemedColor('neutral', 700)};
+  color: ${getThemedColor('neutral', 900)};
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
@@ -20,7 +20,7 @@ export const layerPanelTitleStyles = css`
 `
 
 export const layerPanelDescriptionStyles = css`
-  color: ${getThemedColor('neutral', 600)};
+  color: ${getThemedColor('neutral', 700)};
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;

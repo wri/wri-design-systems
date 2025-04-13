@@ -124,7 +124,7 @@ const Password = ({
                 />
               ) : (
                 <CloseIcon
-                  color='var(--chakra-colors-error-500)'
+                  color='var(--chakra-colors-error-900)'
                   height='8px'
                   width='8px'
                 />
@@ -143,7 +143,7 @@ const Password = ({
                   />
                 ) : (
                   <CloseIcon
-                    color='var(--chakra-colors-error-500)'
+                    color='var(--chakra-colors-error-900)'
                     height='8px'
                     width='8px'
                   />
@@ -163,7 +163,7 @@ const Password = ({
                   />
                 ) : (
                   <CloseIcon
-                    color='var(--chakra-colors-error-500)'
+                    color='var(--chakra-colors-error-900)'
                     height='8px'
                     width='8px'
                   />
@@ -183,7 +183,7 @@ const Password = ({
                   />
                 ) : (
                   <CloseIcon
-                    color='var(--chakra-colors-error-500)'
+                    color='var(--chakra-colors-error-900)'
                     height='8px'
                     width='8px'
                   />
@@ -205,7 +205,7 @@ const Password = ({
                   />
                 ) : (
                   <CloseIcon
-                    color='var(--chakra-colors-error-500)'
+                    color='var(--chakra-colors-error-900)'
                     height='8px'
                     width='8px'
                   />

@@ -39,7 +39,7 @@ export const optionCardContainerStyles = css`
     box-shadow: none;
     border: 1px solid ${getThemedColor('neutral', 300)};
     background-color: ${getThemedColor('neutral', 100)};
-    color: ${getThemedColor('neutral', 500)};
+    color: ${getThemedColor('neutral', 600)};
     cursor: not-allowed;
   }
 `
@@ -80,7 +80,7 @@ export const optionCardHeaderLabelStyles = (
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: ${getThemedColor('neutral', disabled ? 500 : 800)};
+  color: ${getThemedColor('neutral', disabled ? 600 : 900)};
   text-align: ${variant === 'centered' ? 'center' : 'left'};
 `
 
@@ -91,7 +91,7 @@ export const optionCardHeaderCaptionStyles = (
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
-  color: ${getThemedColor('neutral', disabled ? 500 : 700)};
+  color: ${getThemedColor('neutral', disabled ? 600 : 700)};
   text-align: ${variant === 'centered' ? 'center' : 'left'};
 `
 

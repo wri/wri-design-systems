@@ -25,7 +25,7 @@ export const checkboxListLabelStyles = css`
 export const checkboxListCaptionStyles = css`
   font-size: 14px;
   line-height: 20px;
-  color: ${getThemedColor('neutral', 600)};
+  color: ${getThemedColor('neutral', 700)};
   text-align: left;
 `
 
@@ -40,7 +40,7 @@ export const checkboxListContentListStyles = (horizontal?: boolean) => css`
 export const checkboxListErrorBarStyles = css`
   width: 3px;
   height: 100%;
-  background-color: ${getThemedColor('error', 500)};
+  background-color: ${getThemedColor('error', 900)};
   position: absolute;
   top: 0;
   left: 0;
@@ -50,6 +50,6 @@ export const checkboxListErrorMessageStyles = css`
   font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  color: ${getThemedColor('error', 500)};
+  color: ${getThemedColor('error', 900)};
   text-align: left;
 `

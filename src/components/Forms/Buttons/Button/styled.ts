@@ -40,7 +40,7 @@ export const primaryButtonStyles = (disabled?: boolean) => css`
     : `
     background-color: ${getThemedColor('primary', 500)};
     border: 1px solid ${getThemedColor('primary', 600)};
-    color: ${getThemedColor('primary', 900)};
+    color: ${getThemedColor('accessible', 'text-on-primary-mids') || getThemedColor('primary', 900)};
     box-shadow: 0px 1px 2px 0px #0000000D;
 
     &:hover {
@@ -79,7 +79,7 @@ export const secondaryButtonStyles = (disabled?: boolean) => css`
     : `
     background-color: ${getThemedColor('neutral', 100)};
     border: 1px solid ${getThemedColor('neutral', 300)};
-    color: ${getThemedColor('neutral', 700)};
+    color: ${getThemedColor('secondary', 800)};
     box-shadow: 0px 1px 2px 0px #0000000D;
 
     &:hover {
@@ -116,7 +116,7 @@ export const borderlessButtonStyles = (disabled?: boolean) => css`
     : `
     background-color: transparent;
     border: none;
-    color: ${getThemedColor('neutral', 800)};
+    color: ${getThemedColor('secondary', 900)};
     box-shadow: none;
 
     &:hover {

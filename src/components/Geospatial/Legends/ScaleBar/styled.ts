@@ -56,6 +56,6 @@ export const scaleBarSubLabelsStyles = css`
   font-size: 12px;
   line-height: 16px;
   font-weight: 400;
-  color: ${getThemedColor('neutral', 600)};
+  color: ${getThemedColor('neutral', 700)};
   text-align: center;
 `

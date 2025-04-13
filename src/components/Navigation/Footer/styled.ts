@@ -46,7 +46,7 @@ export const footerContentStyles = css`
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
-    color: ${getThemedColor('neutral', 600)};
+    color: ${getThemedColor('neutral', 700)};
     text-decoration: underline;
   }
 `

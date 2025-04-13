@@ -15,7 +15,7 @@ export const selectContainerStyles = (size: string) => css`
 export const selectErrorBarStyles = css`
   width: 3px;
   height: 100%;
-  background-color: ${getThemedColor('error', 500)};
+  background-color: ${getThemedColor('error', 900)};
   position: absolute;
   top: 0;
   left: 0;
@@ -46,15 +46,15 @@ export const selectCaptionStyles = (size: string, disabled?: boolean) => css`
   font-size: ${size === 'small' ? '12px' : '14px'};
   line-height: ${size === 'small' ? '16px' : '20px'};
   font-weight: 400;
-  color: ${getThemedColor('neutral', 600)};
+  color: ${getThemedColor('neutral', 700)};
   text-align: left;
 
-  ${disabled ? `color: ${getThemedColor('neutral', 500)} !important;` : ''}
+  ${disabled ? `color: ${getThemedColor('neutral', 600)} !important;` : ''}
 `
 
 const getTriggerBorderColor = (isFilled: boolean, hasErrorMessage: boolean) => {
   if (hasErrorMessage) {
-    return getThemedColor('error', 500)
+    return getThemedColor('error', 900)
   }
 
   return getThemedColor('neutral', isFilled ? 700 : 400)
@@ -149,7 +149,7 @@ export const selectItemLabelStyles = (size: string, disabled?: boolean) => css`
   color: ${getThemedColor('neutral', 800)};
   text-align: left;
 
-  ${disabled ? `color: ${getThemedColor('neutral', 500)} !important;` : ''}
+  ${disabled ? `color: ${getThemedColor('neutral', 600)} !important;` : ''}
 `
 
 export const selectItemCaptionStyles = (
@@ -161,13 +161,13 @@ export const selectItemCaptionStyles = (
   color: ${getThemedColor('neutral', 700)};
   text-align: left;
 
-  ${disabled ? `color: ${getThemedColor('neutral', 500)} !important;` : ''}
+  ${disabled ? `color: ${getThemedColor('neutral', 600)} !important;` : ''}
 `
 
 export const selectErrorMessageStyles = (size: string) => css`
   font-size: ${size === 'small' ? '12px' : '14px'};
   line-height: ${size === 'small' ? '16px' : '20px'};
   font-weight: 700;
-  color: ${getThemedColor('error', 500)};
+  color: ${getThemedColor('error', 900)};
   text-align: left;
 `
