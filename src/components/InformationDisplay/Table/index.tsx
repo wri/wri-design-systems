@@ -43,6 +43,7 @@ const Table = ({
     currentPage = 1,
     pageSize = 10,
     showItemCount,
+    showItemCountText,
   } = pagination || {}
 
   const onSort = (columnKey: string, order: string) => {
@@ -141,6 +142,7 @@ const Table = ({
               currentPage={currentPage}
               totalItems={totalItems}
               onPageSizeChange={onPageSizeChange}
+              showItemCountText={showItemCountText}
             />
           ) : null}
         </div>

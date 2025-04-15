@@ -90,6 +90,7 @@ const selectableRenderRow = (rowData: RowData) => {
     currentPage,
     pageSize,
     showItemCount: true,
+    showItemCountText: true,
   }}
 />
 ```
@@ -114,6 +115,7 @@ type TableProps = {
     currentPage: number
     pageSize: number
     showItemCount?: boolean
+    showItemCountText?: boolean
   }
   onSortColumn: (sortColumn: { key: string; order: string }) => void
   onPageSizeChange: (pageSize: number) => void
@@ -137,6 +139,7 @@ type TableProps = {
     currentPage,
     pageSize,
     showItemCount: true,
+    showItemCountText: true,
   }}
   onAllItemsSelected={onAllItemsSelected}
   selectedRows={selectedRows}

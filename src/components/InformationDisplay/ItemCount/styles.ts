@@ -4,13 +4,13 @@ import { getThemedColor } from '../../../lib/theme'
 export const itemCountContainerStyles = css`
   display: flex;
   flex-direction: column;
-  gap: 24px;
 `
 
 export const itemCountPerPageContainerStyles = css`
   display: flex;
   gap: 16px;
   align-items: center;
+  margin-bottom: 24px;
 
   .select-input-container {
     margin-bottom: 0px;

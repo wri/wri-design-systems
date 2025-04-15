@@ -131,6 +131,7 @@ const TableDemo = () => {
             currentPage,
             pageSize,
             showItemCount: true,
+            showItemCountText: true,
           }}
         />
       </div>

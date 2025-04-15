@@ -14,6 +14,7 @@ const ItemCount = ({
   currentPage,
   totalItems,
   onPageSizeChange,
+  showItemCountText,
 }: ItemCountProps) => {
   const getPageInfo = () => {
     const localPageSize = pageSize
@@ -59,7 +60,9 @@ const ItemCount = ({
         </div>
         <p css={itemCountPerPageLabelStyles}>Per Page</p>
       </div>
-      <p css={itemCountPerPageLabelStyles}>{getPageInfo()}</p>
+      {showItemCountText ? (
+        <p css={itemCountPerPageLabelStyles}>{getPageInfo()}</p>
+      ) : null}
     </div>
   )
 }
