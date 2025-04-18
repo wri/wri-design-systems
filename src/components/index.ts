@@ -37,24 +37,24 @@ export { default as Tag } from './Forms/Tag'
 
 // -- Forms -- //
 
-// // -- Geospatial -- //
+// -- Geospatial -- //
 
 export { default as IconMarker } from './Geospatial/IconMarker'
 
-// // Layers
+// Layers
 export { default as LayerGroup } from './Geospatial/Layers/LayerGroup'
 export { default as LayerGroupContainer } from './Geospatial/Layers/LayerGroup/LayerGroupContainer'
 export { default as LayerItem } from './Geospatial/Layers/LayerItem'
 export { default as LayerPanel } from './Geospatial/Layers/LayerPanel'
 
-// // Legends
+// Legends
 export { default as LayerParameters } from './Geospatial/Legends/LayerParameters'
 export { default as LegendItem } from './Geospatial/Legends/LegendItem'
 export { default as LegendPanel } from './Geospatial/Legends/LegendPanel'
 export { default as QualitativeAttribute } from './Geospatial/Legends/QualitativeAttribute'
 export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 
-// // -- Geospatial -- //
+// -- Geospatial -- //
 
 // -- Information Display -- //
 
@@ -68,14 +68,20 @@ export {
 
 // -- Information Display -- //
 
-// // -- Navigation -- //
+// -- Navigation -- //
 
 export { default as Breadcrumb } from './Navigation/Breadcrumb'
 export { default as Footer } from './Navigation/Footer'
 export { default as NavigationRail } from './Navigation/NavigationRail'
 export { default as TabBar } from './Navigation/TabBar'
 
-// // -- Navigation -- //
+// -- Navigation -- //
+
+// -- Overlays -- //
+
+export { default as Menu } from './Overlays/Menu'
+
+// -- Overlays -- //
 
 // -- Status -- //
 
@@ -87,6 +93,8 @@ export { showToast } from './Status/Toast/utils'
 // -- Status -- //
 
 // -- Presets -- //
+
 export { MapControls } from './presets/MapControls'
 export { IconMarkers } from './presets/IconMarkers'
+
 // -- Presets -- //

@@ -211,6 +211,10 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
 - [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
 
+## Overlays
+
+- [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Menu)
+
 ## Status
 
 - [Badge](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Badge)

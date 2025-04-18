@@ -42,6 +42,8 @@ import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
 
+import MenuDemo from './components/Overlays/Menu/MenuDemo'
+
 import BadgeDemo from './components/Status/Badge/BadgeDemo'
 import InlineMessageDemo from './components/Status/InlineMessage/InlineMessageDemo'
 import ToastDemo from './components/Status/Toast/ToastDemo'
@@ -100,6 +102,8 @@ const App = () => (
 
         <BreadcrumbDemo />
         <TabBarDemo />
+
+        <MenuDemo />
 
         <BadgeDemo />
         <InlineMessageDemo />
