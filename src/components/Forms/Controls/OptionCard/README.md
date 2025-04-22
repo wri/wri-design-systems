@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-controls-option-card--docs)
 
-[RadioDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Controls/OptionCard/OptionCardDemo.tsx)
+[OptionCardDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Controls/OptionCard/OptionCardDemo.tsx)
 
 ## Import
 

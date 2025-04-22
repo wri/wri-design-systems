@@ -50,7 +50,7 @@ const OptionCard = ({
           </p>
         </div>
       </div>
-      <RadioCard.ItemIndicator css={optionCardItemIndicatorStyles} />
+      <RadioCard.ItemIndicator css={optionCardItemIndicatorStyles(variant)} />
     </RadioCard.ItemControl>
     {variant === 'expanded' ? (
       <div css={optionCardExpandedContainerStyles(disabled)}>{children}</div>

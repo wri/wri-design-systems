@@ -5,6 +5,7 @@ import MapControlDemo from './components/Forms/Buttons/MapControl/MapControlDemo
 import MultiActionButtonDemo from './components/Forms/Buttons/MultiActionButton/MultiActionButtonDemo'
 
 import CheckboxDemo from './components/Forms/Controls/Checkbox/CheckboxDemo'
+import CheckboxOptionCardDemo from './components/Forms/Controls/CheckboxOptionCard/CheckboxOptionCardDemo'
 import OptionCardDemo from './components/Forms/Controls/OptionCard/OptionCardDemo'
 import RadioDemo from './components/Forms/Controls/Radio/RadioDemo'
 import SliderDemo from './components/Forms/Controls/Slider/SliderDemo'
@@ -68,6 +69,7 @@ const App = () => (
         <MultiActionButtonDemo />
 
         <CheckboxDemo />
+        <CheckboxOptionCardDemo />
         <OptionCardDemo />
         <RadioDemo />
         <SliderDemo />

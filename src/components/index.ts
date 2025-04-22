@@ -15,6 +15,7 @@ export { default as MultiActionButton } from './Forms/Buttons/MultiActionButton'
 
 // Controls
 export { default as Checkbox } from './Forms/Controls/Checkbox'
+export { default as CheckboxOptionCard } from './Forms/Controls/CheckboxOptionCard'
 export { default as OptionCard } from './Forms/Controls/OptionCard'
 export { default as OptionCardGroup } from './Forms/Controls/OptionCard/OptionCardGroup'
 export { default as Radio } from './Forms/Controls/Radio'

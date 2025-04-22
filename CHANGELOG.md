@@ -5,11 +5,13 @@
 ## New Components
 
 - [DS-133] - Menu Component
-- Adding CHANGELOG file
+- [DS-148] - CheckboxOptionCard Component
 
 ## New Features
 
 ## Other
+
+- Adding CHANGELOG file
 
 ## [v2.122.0] - 04-15-2025
 

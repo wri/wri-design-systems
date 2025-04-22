@@ -159,6 +159,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 ### Controls
 
 - [Checkbox](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Checkbox)
+- [Checkbox Option Card](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/CheckboxOptionCard)
 - [Option Card](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/OptionCard)
 - [Radio Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Radio)
 - [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Slider)

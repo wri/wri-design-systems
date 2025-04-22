@@ -1,8 +1,8 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
-import { OptionCardProps } from './types'
+import { CheckboxOptionCardItemProps } from './types'
 
-export const optionCardContainerStyles = css`
+export const checkboxOptionCardContainerStyles = css`
   width: 241px;
   min-height: 70px;
   padding: 12px;
@@ -44,7 +44,7 @@ export const optionCardContainerStyles = css`
   }
 `
 
-export const optionCardControlStyles = css`
+export const checkboxOptionCardControlStyles = css`
   width: 100%;
   padding: 0;
   display: flex;
@@ -56,8 +56,8 @@ export const optionCardControlStyles = css`
   }
 `
 
-export const optionCardHeaderStyles = (
-  variant: OptionCardProps['variant'],
+export const checkboxOptionCardContentStyles = (
+  variant: CheckboxOptionCardItemProps['variant'],
 ) => css`
   width: 100%;
   display: flex;
@@ -66,27 +66,28 @@ export const optionCardHeaderStyles = (
   gap: 12px;
 `
 
-export const optionCardIconContainerStyles = css`
+export const checkboxOptionCardIconContainerStyles = css`
   svg {
     height: 32px;
     width: 32px;
   }
 `
 
-export const optionCardHeaderLabelStyles = (
-  variant: OptionCardProps['variant'],
-  disabled?: OptionCardProps['disabled'],
+export const checkboxOptionCardLabelStyles = (
+  variant: CheckboxOptionCardItemProps['variant'],
+  disabled?: CheckboxOptionCardItemProps['disabled'],
 ) => css`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
   color: ${getThemedColor('neutral', disabled ? 600 : 900)};
   text-align: ${variant === 'centered' ? 'center' : 'left'};
+  display: block;
 `
 
-export const optionCardHeaderCaptionStyles = (
-  variant: OptionCardProps['variant'],
-  disabled?: OptionCardProps['disabled'],
+export const checkboxOptionCardCaptionStyles = (
+  variant: CheckboxOptionCardItemProps['variant'],
+  disabled?: CheckboxOptionCardItemProps['disabled'],
 ) => css`
   font-size: 14px;
   line-height: 20px;
@@ -95,8 +96,8 @@ export const optionCardHeaderCaptionStyles = (
   text-align: ${variant === 'centered' ? 'center' : 'left'};
 `
 
-export const optionCardItemIndicatorStyles = (
-  variant: OptionCardProps['variant'],
+export const checkboxOptionCardIndicatorStyles = (
+  variant: CheckboxOptionCardItemProps['variant'],
 ) => css`
   position: ${variant === 'centered' ? 'absolute' : 'relative'};
   top: 0;
@@ -106,20 +107,16 @@ export const optionCardItemIndicatorStyles = (
   border: 1px solid ${getThemedColor('neutral', 700)};
   cursor: pointer;
 
-  .dot {
-    width: 10px !important;
-    height: 10px !important;
-    scale: 1 !important;
-  }
-
-  &[data-checked] {
+  &[data-state='checked'] {
     border: 1px solid ${getThemedColor('primary', 700)};
-    background-color: ${getThemedColor('primary', 100)};
-    color: ${getThemedColor('primary', 700)};
+    background-color: ${getThemedColor('primary', 500)};
+    stroke: ${getThemedColor('accessible', 'text-on-primary-mids') ||
+    getThemedColor('primary', 900)};
 
     &[data-disabled] {
-      border: 1px solid ${getThemedColor('neutral', 400)};
-      color: ${getThemedColor('neutral', 400)};
+      border: 1px solid ${getThemedColor('neutral', 300)};
+      background-color: ${getThemedColor('neutral', 300)};
+      stroke: ${getThemedColor('neutral', 500)};
     }
   }
 
@@ -129,12 +126,13 @@ export const optionCardItemIndicatorStyles = (
   }
 `
 
-export const optionCardExpandedContainerStyles = (
-  disabled?: OptionCardProps['disabled'],
+export const checkboxOptionCardExpandedContainerStyles = (
+  disabled?: CheckboxOptionCardItemProps['disabled'],
 ) => css`
   width: 100%;
-  border-top: 1px solid ${getThemedColor('neutral', 300)};
+  border-color: ${getThemedColor('neutral', 300)};
   margin-top: 12px;
+  padding: 0px;
   padding-top: 8px;
   color: ${disabled ? getThemedColor('neutral', 500) : 'inherit'};
 `
