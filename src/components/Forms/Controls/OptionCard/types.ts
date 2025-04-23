@@ -1,6 +1,6 @@
 import { RadioCardRootProps } from '@chakra-ui/react'
 
-export type OptionCardProps = {
+export type OptionCardItemProps = {
   label: string
   caption?: string
   icon?: React.ReactNode
@@ -10,7 +10,7 @@ export type OptionCardProps = {
   value: string
 }
 
-export type OptionCardGroupProps = Omit<
+export type OptionCardProps = Omit<
   RadioCardRootProps,
   | 'colorPalette'
   | 'size'
@@ -21,5 +21,6 @@ export type OptionCardGroupProps = Omit<
   | 'defaultChecked'
 > & {
   defaultValue?: string
+  items: OptionCardItemProps[]
   onValueChange?: ({ value }: { value: string }) => void
 }

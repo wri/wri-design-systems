@@ -7,38 +7,23 @@
 ## Import
 
 ```tsx
-import { OptionCardGroup, OptionCard } from '@worldresources/wri-design-systems'
-```
-
-## Usage
-
-```tsx
-<OptionCardGroup>
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-1'
-  />
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-2'
-  />
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-3'
-  />
-</OptionCardGroup>
+import { OptionCard } from '@worldresources/wri-design-systems'
 ```
 
 ## Props
 
 ```ts
-type OptionCardGroupProps = Omit<
+type OptionCardItemProps = {
+  label: string
+  caption?: string
+  icon?: React.ReactNode
+  variant?: 'default' | 'centered' | 'expanded'
+  disabled?: boolean
+  children?: React.ReactNode
+  value: string
+}
+
+type OptionCardProps = Omit<
   RadioCardRootProps,
   | 'colorPalette'
   | 'size'
@@ -49,162 +34,172 @@ type OptionCardGroupProps = Omit<
   | 'defaultChecked'
 > & {
   defaultValue?: string
+  items: OptionCardItemProps[]
   onValueChange?: ({ value }: { value: string }) => void
-}
-```
-
-```ts
-type OptionCardProps = {
-  label: string
-  caption?: string
-  icon?: React.ReactNode
-  variant?: 'default' | 'centered' | 'expanded'
-  disabled?: boolean
-  children?: React.ReactNode
-  value: string
 }
 ```
 
 ## Default
 
 ```tsx
-<OptionCardGroup>
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-1'
-  />
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-2'
-  />
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-3'
-  />
-</OptionCardGroup>
+<OptionCard
+  items={[
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-1',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-2',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-3',
+    },
+  ]}
+/>
 ```
 
 ## Centered
 
 ```tsx
-<OptionCardGroup>
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    variant='centered'
-    value='value-1'
-  />
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    variant='centered'
-    value='value-2'
-  />
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    variant='centered'
-    value='value-3'
-  />
-</OptionCardGroup>
+<OptionCard
+  items={[
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      variant: 'centered',
+      value: 'value-1',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      variant: 'centered',
+      value: 'value-2',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      variant: 'centered',
+      value: 'value-3',
+    },
+  ]}
+/>
 ```
 
 ## Expanded
 
 ```tsx
-<OptionCardGroup>
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    variant='expanded'
-    value='value-1'
-  >
-    <div>Component Placeholder</div>
-    <div>Component Placeholder</div>
-    <div>Component Placeholder</div>
-  </OptionCard>
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    variant='expanded'
-    value='value-2'
-  >
-    <div>Component Placeholder</div>
-    <div>Component Placeholder</div>
-    <div>Component Placeholder</div>
-  </OptionCard>
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    variant='expanded'
-    value='value-3'
-  >
-    <div>Component Placeholder</div>
-    <div>Component Placeholder</div>
-    <div>Component Placeholder</div>
-  </OptionCard>
-</OptionCardGroup>
+<OptionCard
+  items={[
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      variant: 'expanded',
+      value: 'value-1',
+      children: (
+        <>
+          <div>Component Placeholder</div>
+          <div>Component Placeholder</div>
+          <div>Component Placeholder</div>
+        </>
+      ),
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      variant: 'expanded',
+      value: 'value-2',
+      children: (
+        <>
+          <div>Component Placeholder</div>
+          <div>Component Placeholder</div>
+          <div>Component Placeholder</div>
+        </>
+      ),
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      variant: 'expanded',
+      value: 'value-3',
+      children: (
+        <>
+          <div>Component Placeholder</div>
+          <div>Component Placeholder</div>
+          <div>Component Placeholder</div>
+        </>
+      ),
+    },
+  ]}
+/>
 ```
 
 ## Default Checked
 
 ```tsx
-<OptionCardGroup defaultValue='value-2'>
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-1'
-  />
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-2'
-  />
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-3'
-  />
-</OptionCardGroup>
+<OptionCard
+  defaultValue={'value-2'}
+  items={[
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-1',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-2',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-3',
+    },
+  ]}
+/>
 ```
 
 ## Disabled
 
 ```tsx
-<OptionCardGroup defaultValue='value-2'>
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-1'
-  />
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-2'
-    disabled
-  />
-  <OptionCard
-    label='Label'
-    caption='Caption'
-    icon={<InfoIcon />}
-    value='value-3'
-  />
-</OptionCardGroup>
+<OptionCard
+  defaultValue={'value-2'}
+  items={[
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-1',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-2',
+      disabled: true,
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-3',
+    },
+  ]}
+/>
 ```

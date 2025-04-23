@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
-import { OptionCardProps } from './types'
+import { OptionCardItemProps } from './types'
 
 export const optionCardContainerStyles = css`
   width: 241px;
@@ -57,7 +57,7 @@ export const optionCardControlStyles = css`
 `
 
 export const optionCardHeaderStyles = (
-  variant: OptionCardProps['variant'],
+  variant: OptionCardItemProps['variant'],
 ) => css`
   width: 100%;
   display: flex;
@@ -74,8 +74,8 @@ export const optionCardIconContainerStyles = css`
 `
 
 export const optionCardHeaderLabelStyles = (
-  variant: OptionCardProps['variant'],
-  disabled?: OptionCardProps['disabled'],
+  variant: OptionCardItemProps['variant'],
+  disabled?: OptionCardItemProps['disabled'],
 ) => css`
   font-size: 16px;
   line-height: 24px;
@@ -85,8 +85,8 @@ export const optionCardHeaderLabelStyles = (
 `
 
 export const optionCardHeaderCaptionStyles = (
-  variant: OptionCardProps['variant'],
-  disabled?: OptionCardProps['disabled'],
+  variant: OptionCardItemProps['variant'],
+  disabled?: OptionCardItemProps['disabled'],
 ) => css`
   font-size: 14px;
   line-height: 20px;
@@ -96,7 +96,7 @@ export const optionCardHeaderCaptionStyles = (
 `
 
 export const optionCardItemIndicatorStyles = (
-  variant: OptionCardProps['variant'],
+  variant: OptionCardItemProps['variant'],
 ) => css`
   position: ${variant === 'centered' ? 'absolute' : 'relative'};
   top: 0;
@@ -130,11 +130,12 @@ export const optionCardItemIndicatorStyles = (
 `
 
 export const optionCardExpandedContainerStyles = (
-  disabled?: OptionCardProps['disabled'],
+  disabled?: OptionCardItemProps['disabled'],
 ) => css`
   width: 100%;
   border-top: 1px solid ${getThemedColor('neutral', 300)};
   margin-top: 12px;
+  padding: 0px;
   padding-top: 8px;
   color: ${disabled ? getThemedColor('neutral', 500) : 'inherit'};
 `

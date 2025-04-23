@@ -7,7 +7,11 @@
 - [DS-133] - Menu Component
 - [DS-148] - CheckboxOptionCard Component
 
-## New Features
+## Renaming
+
+- OptionCard
+  - OptionCardGroup not exported anymore
+  - changed the way to implement the component
 
 ## Other
 

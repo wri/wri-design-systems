@@ -3,180 +3,172 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import { ValueChangeDetails } from '@zag-js/radio-group'
 import OptionCard from '.'
-import OptionCardGroup from './OptionCardGroup'
 import { InfoIcon } from '../../../icons'
 
 const meta = {
   title: 'Forms/Controls/Option Card',
-  component: OptionCardGroup,
+  component: OptionCard,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof OptionCardGroup>
+} satisfies Meta<typeof OptionCard>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    onValueChange: ({ value }: ValueChangeDetails) => console.log(value),
+    items: [
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-1',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-2',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-3',
+      },
+    ],
   },
-  render: (args) => (
-    <OptionCardGroup {...args}>
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        value='value-1'
-      />
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        value='value-2'
-      />
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        value='value-3'
-      />
-    </OptionCardGroup>
-  ),
 }
 
 export const Centered: Story = {
   args: {
-    onValueChange: ({ value }: ValueChangeDetails) => console.log(value),
+    items: [
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        variant: 'centered',
+        value: 'value-1',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        variant: 'centered',
+        value: 'value-2',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        variant: 'centered',
+        value: 'value-3',
+      },
+    ],
   },
-  render: (args) => (
-    <OptionCardGroup {...args}>
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        variant='centered'
-        value='value-1'
-      />
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        variant='centered'
-        value='value-2'
-      />
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        variant='centered'
-        value='value-3'
-      />
-    </OptionCardGroup>
-  ),
 }
 
 export const Expanded: Story = {
   args: {
-    onValueChange: ({ value }: ValueChangeDetails) => console.log(value),
+    items: [
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        variant: 'expanded',
+        value: 'value-1',
+        children: (
+          <>
+            <div>Component Placeholder</div>
+            <div>Component Placeholder</div>
+            <div>Component Placeholder</div>
+          </>
+        ),
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        variant: 'expanded',
+        value: 'value-2',
+        children: (
+          <>
+            <div>Component Placeholder</div>
+            <div>Component Placeholder</div>
+            <div>Component Placeholder</div>
+          </>
+        ),
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        variant: 'expanded',
+        value: 'value-3',
+        children: (
+          <>
+            <div>Component Placeholder</div>
+            <div>Component Placeholder</div>
+            <div>Component Placeholder</div>
+          </>
+        ),
+      },
+    ],
   },
-  render: (args) => (
-    <OptionCardGroup {...args}>
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        variant='expanded'
-        value='value-1'
-      >
-        <div>Component Placeholder</div>
-        <div>Component Placeholder</div>
-        <div>Component Placeholder</div>
-      </OptionCard>
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        variant='expanded'
-        value='value-2'
-      >
-        <div>Component Placeholder</div>
-        <div>Component Placeholder</div>
-        <div>Component Placeholder</div>
-      </OptionCard>
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        variant='expanded'
-        value='value-3'
-      >
-        <div>Component Placeholder</div>
-        <div>Component Placeholder</div>
-        <div>Component Placeholder</div>
-      </OptionCard>
-    </OptionCardGroup>
-  ),
 }
 
 export const DefaultChecked: Story = {
   args: {
     defaultValue: 'value-2',
-    onValueChange: ({ value }: ValueChangeDetails) => console.log(value),
+    items: [
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-1',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-2',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-3',
+      },
+    ],
   },
-  render: (args) => (
-    <OptionCardGroup {...args}>
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        value='value-1'
-      />
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        value='value-2'
-      />
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        value='value-3'
-      />
-    </OptionCardGroup>
-  ),
 }
 
 export const Disabled: Story = {
   args: {
     defaultValue: 'value-2',
-    onValueChange: ({ value }: ValueChangeDetails) => console.log(value),
+    items: [
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-1',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-2',
+        disabled: true,
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-3',
+      },
+    ],
   },
-  render: (args) => (
-    <OptionCardGroup {...args}>
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        value='value-1'
-      />
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        value='value-2'
-        disabled
-      />
-      <OptionCard
-        label='Label'
-        caption='Caption'
-        icon={<InfoIcon />}
-        value='value-3'
-      />
-    </OptionCardGroup>
-  ),
 }
