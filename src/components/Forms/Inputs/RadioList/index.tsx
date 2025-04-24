@@ -10,6 +10,7 @@ import {
   radioListContentStyles,
   radioListErrorBarStyles,
   radioListErrorMessageStyles,
+  radioListItemStyles,
   radioListLabelStyles,
 } from './styled'
 import RadioGroup from '../../Controls/Radio/RadioGroup'
@@ -23,6 +24,7 @@ const RadioList = ({
   onCheckedChange,
   errorMessage,
   horizontal,
+  variant = 'default',
   required,
 }: RadioListProps) => (
   <div
@@ -49,10 +51,14 @@ const RadioList = ({
           name={name}
           defaultValue={defaultValue}
           onChange={onCheckedChange}
-          horizontal={horizontal}
+          horizontal={horizontal && variant !== 'card'}
         >
           {radios.map((radio) => (
-            <Radio key={radio.value} css={{}} {...radio} />
+            <Radio
+              key={radio.value}
+              css={variant === 'card' ? radioListItemStyles : {}}
+              {...radio}
+            />
           ))}
         </RadioGroup>
       </div>

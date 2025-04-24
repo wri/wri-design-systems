@@ -49,3 +49,13 @@ export const radioListErrorMessageStyles = css`
   color: ${getThemedColor('error', 900)};
   text-align: left;
 `
+
+export const radioListItemStyles = css`
+  height: 48px;
+  width: 100%;
+  max-width: 366px;
+  border: 1px solid ${getThemedColor('neutral', 400)};
+  border-radius: 4px;
+  background-color: ${getThemedColor('neutral', 100)};
+  padding: 12px;
+`

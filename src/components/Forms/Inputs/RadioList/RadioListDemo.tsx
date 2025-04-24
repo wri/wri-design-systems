@@ -73,6 +73,49 @@ const RadioListDemo = () => (
       horizontal
       required
     />
+    <RadioList
+      label='Label'
+      caption='Caption'
+      name='radio-list-4'
+      radios={[
+        {
+          children: 'Radio 1',
+          value: 'radio-1',
+        },
+        {
+          children: 'Radio 2',
+          value: 'radio-2',
+        },
+        {
+          children: 'Radio 3',
+          value: 'radio-3',
+        },
+      ]}
+      variant='card'
+      required
+    />
+    <RadioList
+      label='Label'
+      caption='Caption'
+      name='radio-list-3'
+      radios={[
+        {
+          children: 'Radio 1',
+          value: 'radio-1',
+        },
+        {
+          children: 'Radio 2',
+          value: 'radio-2',
+        },
+        {
+          children: 'Radio 3',
+          value: 'radio-3',
+        },
+      ]}
+      variant='card'
+      errorMessage='Error Message'
+      required
+    />
   </div>
 )
 

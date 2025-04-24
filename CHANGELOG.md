@@ -7,6 +7,10 @@
 - [DS-133] - Menu Component
 - [DS-148] - CheckboxOptionCard Component
 
+## New Features
+
+- [DS-141] - Radio List - card variant
+
 ## Renaming
 
 - OptionCard

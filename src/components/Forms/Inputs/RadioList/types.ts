@@ -10,4 +10,5 @@ export type RadioListProps = {
   errorMessage?: string
   horizontal?: boolean
   required?: boolean
+  variant?: 'default' | 'card'
 }

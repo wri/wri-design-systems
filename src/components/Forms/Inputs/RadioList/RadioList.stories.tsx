@@ -114,3 +114,64 @@ export const WithErrorMessage: Story = {
     required: true,
   },
 }
+
+export const CardVariant: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    name: 'radio-list-2',
+    defaultValue: 'radio-2',
+    radios: [
+      {
+        children: 'Radio 1',
+        value: 'radio-1',
+      },
+      {
+        children: 'Radio 2',
+        value: 'radio-2',
+      },
+      {
+        children: 'Radio 3',
+        value: 'radio-3',
+      },
+    ],
+    variant: 'card',
+    required: true,
+  },
+  render: (args) => (
+    <div style={{ width: '366px' }}>
+      <RadioListStory {...args} />
+    </div>
+  ),
+}
+
+export const CardVariantWithErrorMessage: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    name: 'radio-list-2',
+    defaultValue: 'radio-2',
+    errorMessage: 'Error Message',
+    radios: [
+      {
+        children: 'Radio 1',
+        value: 'radio-1',
+      },
+      {
+        children: 'Radio 2',
+        value: 'radio-2',
+      },
+      {
+        children: 'Radio 3',
+        value: 'radio-3',
+      },
+    ],
+    variant: 'card',
+    required: true,
+  },
+  render: (args) => (
+    <div style={{ width: '366px' }}>
+      <RadioListStory {...args} />
+    </div>
+  ),
+}

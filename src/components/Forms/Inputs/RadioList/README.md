@@ -10,7 +10,24 @@
 import { RadioList } from '@worldresources/wri-design-systems'
 ```
 
-## Usage
+## Props
+
+```ts
+type RadioListProps = {
+  label: string
+  caption?: string
+  name: string
+  radios: RadioProps[]
+  defaultValue?: string
+  onCheckedChange?: (name: string, selectedValue: string) => void
+  errorMessage?: string
+  horizontal?: boolean
+  required?: boolean
+  variant?: 'default' | 'card'
+}
+```
+
+## Default
 
 ```tsx
 <RadioList
@@ -33,22 +50,6 @@ import { RadioList } from '@worldresources/wri-design-systems'
   ]}
   required
 />
-```
-
-## Props
-
-```ts
-type RadioListProps = {
-  label: string
-  caption?: string
-  name: string
-  radios: RadioProps[]
-  defaultValue?: string
-  onCheckedChange?: (name: string, selectedValue: string) => void
-  errorMessage?: string
-  horizontal?: boolean
-  required?: boolean
-}
 ```
 
 ## With Default Value
@@ -111,7 +112,6 @@ type RadioListProps = {
   caption='Caption'
   name='radio-list-2'
   defaultValue='radio-2'
-  errorMessage='Error Message'
   radios={[
     {
       children: 'Radio 1',
@@ -126,6 +126,62 @@ type RadioListProps = {
       value: 'radio-3',
     },
   ]}
+  errorMessage='Error Message'
+  required
+/>
+```
+
+## Card Variant
+
+```tsx
+<RadioList
+  label='Label'
+  caption='Caption'
+  name='radio-list-2'
+  defaultValue='radio-2'
+  radios={[
+    {
+      children: 'Radio 1',
+      value: 'radio-1',
+    },
+    {
+      children: 'Radio 2',
+      value: 'radio-2',
+    },
+    {
+      children: 'Radio 3',
+      value: 'radio-3',
+    },
+  ]}
+  variant='card'
+  required
+/>
+```
+
+## Card Variant With Error Message
+
+```tsx
+<RadioList
+  label='Label'
+  caption='Caption'
+  name='radio-list-2'
+  defaultValue='radio-2'
+  radios={[
+    {
+      children: 'Radio 1',
+      value: 'radio-1',
+    },
+    {
+      children: 'Radio 2',
+      value: 'radio-2',
+    },
+    {
+      children: 'Radio 3',
+      value: 'radio-3',
+    },
+  ]}
+  variant='card'
+  errorMessage='Error Message'
   required
 />
 ```
