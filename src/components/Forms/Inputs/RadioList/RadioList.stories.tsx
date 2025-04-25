@@ -13,6 +13,13 @@ const meta = {
   },
   tags: ['autodocs'],
   args: { onCheckedChange: fn() },
+  decorators: [
+    (Story: any) => (
+      <div style={{ width: '366px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof RadioListStory>
 
 export default meta

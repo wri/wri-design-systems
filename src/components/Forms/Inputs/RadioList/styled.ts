@@ -51,7 +51,8 @@ export const radioListErrorMessageStyles = css`
 `
 
 export const radioListItemStyles = css`
-  height: 48px;
+  height: 100%;
+  min-height: 48px;
   width: 100%;
   max-width: 366px;
   border: 1px solid ${getThemedColor('neutral', 400)};
