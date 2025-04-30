@@ -1,6 +1,6 @@
 {
   "name": "@worldresources/wri-design-systems",
-  "version": "2.122.0",
+  "version": "2.123.0",
   "description": "WRI UI Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
