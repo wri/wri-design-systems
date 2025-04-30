@@ -215,6 +215,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 ## Overlays
 
 - [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Menu)
+- [Modal](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Modal)
 
 ## Status
 

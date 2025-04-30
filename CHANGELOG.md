@@ -6,6 +6,7 @@
 
 - [DS-133] - Menu Component
 - [DS-148] - CheckboxOptionCard Component
+- [DS-110] - Modal Component
 
 ## New Features
 
@@ -18,6 +19,8 @@
   - changed the way to implement the component
 
 ## Other
+
+- RadioList - adding a container in storybook
 
 - Adding CHANGELOG file
 

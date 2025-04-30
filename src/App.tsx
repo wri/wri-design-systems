@@ -44,6 +44,7 @@ import FooterDemo from './components/Navigation/Footer/FooterDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
 
 import MenuDemo from './components/Overlays/Menu/MenuDemo'
+import ModalDemo from './components/Overlays/Modal/ModalDemo'
 
 import BadgeDemo from './components/Status/Badge/BadgeDemo'
 import InlineMessageDemo from './components/Status/InlineMessage/InlineMessageDemo'
@@ -106,6 +107,7 @@ const App = () => (
         <TabBarDemo />
 
         <MenuDemo />
+        <ModalDemo />
 
         <BadgeDemo />
         <InlineMessageDemo />
