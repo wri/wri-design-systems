@@ -1,6 +1,8 @@
 # Changelog
 
-## [v2.123.0] - WIP
+## [v2.124.0] - WIP
+
+## [v2.123.0] - 04-29-2025
 
 ## New Components
 
@@ -21,7 +23,6 @@
 ## Other
 
 - RadioList - adding a container in storybook
-
 - Adding CHANGELOG file
 
 ## [v2.122.0] - 04-15-2025
