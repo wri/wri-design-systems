@@ -6,7 +6,8 @@ const ModalDemo = () => {
     title?: string
     content?: React.ReactNode
     size?: 'small' | 'medium' | 'large' | 'xlarge'
-    isDraggable?: boolean
+    draggable?: boolean
+    blocking?: boolean
     showCancelButton?: boolean
     cancelLabel?: string
     showActionButton?: boolean
@@ -17,7 +18,8 @@ const ModalDemo = () => {
   const handleModalOpen = (
     size: 'small' | 'medium' | 'large' | 'xlarge',
     showActions = false,
-    isDraggable = false,
+    draggable = false,
+    blocking = false,
   ) => {
     setModalData({
       title: 'Title',
@@ -31,7 +33,8 @@ const ModalDemo = () => {
         console.log('Save and Close')
         setModalData({})
       },
-      isDraggable,
+      draggable,
+      blocking,
     })
   }
 
@@ -53,8 +56,12 @@ const ModalDemo = () => {
           onClick={() => handleModalOpen('medium', true)}
         />
         <Button
-          label='Medium Draggable'
+          label='Draggable'
           onClick={() => handleModalOpen('medium', false, true)}
+        />
+        <Button
+          label='Blocking'
+          onClick={() => handleModalOpen('medium', true, false, true)}
         />
       </div>
 
@@ -69,7 +76,8 @@ const ModalDemo = () => {
         showActionButton={modalData?.showActionButton}
         actionLabel={modalData?.actionLabel}
         onActionClick={modalData?.onActionClick}
-        isDraggable={modalData?.isDraggable}
+        draggable={modalData?.draggable}
+        blocking={modalData?.blocking}
       />
     </div>
   )

@@ -2,13 +2,21 @@
 
 ## [v2.124.0] - WIP
 
+## New Features
+
+- Modal - blocking variant
+
+## Renaming
+
+- Modal - "isDraggable" prop to "draggable"
+
 ## [v2.123.0] - 04-29-2025
 
 ## New Components
 
-- [DS-133] - Menu Component
-- [DS-148] - CheckboxOptionCard Component
-- [DS-110] - Modal Component
+- [DS-133] - [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Menu)
+- [DS-148] - [Checkbox Option Card](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/CheckboxOptionCard)
+- [DS-110] - [Modal](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Modal)
 
 ## New Features
 
@@ -101,11 +109,11 @@
 
 ## Renaming
 
-- RadioGroup prop “isRow” to “horizontal”
-- Select props “label” not required
+- RadioGroup prop "isRow" to "horizontal"
+- Select props "label" not required
 - Tag size='small’ not closable
 - LayerItem fixing disabled status
-- Slider - removed “defaultValue” prop
+- Slider - removed "defaultValue" prop
 
 ## Other
 

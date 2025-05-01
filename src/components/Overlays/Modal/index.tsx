@@ -17,7 +17,8 @@ const Modal = ({
   title,
   content,
   size = 'medium',
-  isDraggable,
+  draggable,
+  blocking,
   open,
   onClose,
   showCancelButton,
@@ -34,20 +35,23 @@ const Modal = ({
       onOpenChange={onClose}
       placement='center'
       scrollBehavior='inside'
-      closeOnInteractOutside={!isDraggable}
-      preventScroll={!isDraggable}
+      closeOnInteractOutside={!draggable && !blocking}
+      preventScroll={!draggable && !blocking}
+      closeOnEscape={!blocking}
       defaultOpen
     >
       <Portal>
-        {!isDraggable ? <Dialog.Backdrop /> : null}
-        <Draggable>
+        {!draggable ? <Dialog.Backdrop /> : null}
+        <Draggable disabled={!draggable}>
           <Dialog.Positioner>
             <Dialog.Content css={modalContainerStyles(size)}>
               <Dialog.Header css={modalHeaderStyles}>
                 <Dialog.Title css={modalTitleStyles}>{title}</Dialog.Title>
-                <Dialog.CloseTrigger css={modalCloseButtonStyles} asChild>
-                  <CloseButton />
-                </Dialog.CloseTrigger>
+                {!blocking ? (
+                  <Dialog.CloseTrigger css={modalCloseButtonStyles} asChild>
+                    <CloseButton />
+                  </Dialog.CloseTrigger>
+                ) : null}
               </Dialog.Header>
               <Dialog.Body css={modalContentStyles}>{content}</Dialog.Body>
               {showCancelButton || showActionButton ? (

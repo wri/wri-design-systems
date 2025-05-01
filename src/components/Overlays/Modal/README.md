@@ -17,7 +17,8 @@ type ModalProps = {
   title: string
   content: React.ReactNode
   size?: 'small' | 'medium' | 'large' | 'xlarge'
-  isDraggable?: boolean
+  draggable?: boolean
+  blocking?: boolean
   open: boolean
   onClose?: () => void
   showCancelButton?: boolean
@@ -101,6 +102,18 @@ type ModalProps = {
   content={<p>Content</p>}
   open={showModal}
   onClose={() => setShowModal(false)}
-  isDraggable
+  draggable
+/>
+```
+
+### Blocking
+
+```tsx
+<Modal
+  title='Title'
+  content={<p>Content</p>}
+  open={showModal}
+  onClose={() => setShowModal(false)}
+  blocking
 />
 ```

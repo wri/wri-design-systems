@@ -153,7 +153,35 @@ export const Draggable: Story = {
           {...args}
           open={showModal}
           onClose={() => setShowModal(false)}
-          isDraggable
+          draggable
+        />
+      </>
+    )
+  },
+}
+
+export const Blocking: Story = {
+  args: {
+    title: 'Title',
+    content: <p>Content</p>,
+    open: false,
+  },
+  render: (args) => {
+    const [showModal, setShowModal] = useState(false)
+
+    return (
+      <>
+        <Button label='Show Modal' onClick={() => setShowModal(true)} />
+        <ModalStory
+          {...args}
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          showCancelButton
+          cancelLabel='Cancel'
+          showActionButton
+          actionLabel='Save'
+          onActionClick={() => setShowModal(false)}
+          blocking
         />
       </>
     )
