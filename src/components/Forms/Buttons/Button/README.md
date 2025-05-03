@@ -100,3 +100,17 @@ type ButtonProps = Omit<
 ```tsx
 <Button label='Primary' variant='primary' loading />
 ```
+
+## Presets
+
+```tsx
+import { SSOButtons } from '@worldresources/wri-design-systems'
+```
+
+```tsx
+<div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+  <SSOButtons.Google />
+  <SSOButtons.Facebook />
+  <SSOButtons.X />
+</div>
+```

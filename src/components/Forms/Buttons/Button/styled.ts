@@ -12,6 +12,7 @@ export const baseButtonStyles = (size: ButtonProps['size']) => css`
   border-radius: 4px;
   box-shadow: 0px 1px 2px 0px #0000000d;
   cursor: pointer;
+  gap: 0;
 
   &:focus-visible {
     box-shadow:

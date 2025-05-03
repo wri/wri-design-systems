@@ -1,4 +1,5 @@
 import { Button } from '../../..'
+import { SSOButtons } from '../../../presets/SSOButtons'
 
 const ButtonDemo = () => (
   <div
@@ -24,6 +25,11 @@ const ButtonDemo = () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
       <Button label='Button Label' variant='outline' />
       <Button label='Button Label' variant='outline' size='small' />
+    </div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <SSOButtons.Google />
+      <SSOButtons.Facebook />
+      <SSOButtons.X />
     </div>
   </div>
 )

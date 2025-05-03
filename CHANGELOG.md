@@ -2,6 +2,10 @@
 
 ## [v2.125.0] - WIP
 
+## New Features
+
+- [DS-184] - [SSOButtons] - Google, Facebook and X Button presets
+
 ## [v2.124.0] - 04-30-2025
 
 ## New Features
