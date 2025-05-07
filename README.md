@@ -210,6 +210,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Breadcrumb](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Breadcrumb)
 - [Footer](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Footer)
 - [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
+- [Step Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/StepBar)
 - [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
 
 ## Overlays

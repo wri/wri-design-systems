@@ -2,6 +2,8 @@
 
 ## [v2.125.0] - WIP
 
+- [DS-182] - [Step Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/StepBar)
+
 ## New Features
 
 - [DS-184] - [SSOButtons] - Google, Facebook and X Button presets

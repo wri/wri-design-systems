@@ -41,6 +41,7 @@ import TableDemo from './components/InformationDisplay/Table/TableDemo'
 
 import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
+import StepBarDemo from './components/Navigation/StepBar/StepBarDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
 
 import MenuDemo from './components/Overlays/Menu/MenuDemo'
@@ -104,6 +105,7 @@ const App = () => (
         <TableDemo />
 
         <BreadcrumbDemo />
+        <StepBarDemo />
         <TabBarDemo />
 
         <MenuDemo />

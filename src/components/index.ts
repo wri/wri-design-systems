@@ -73,6 +73,7 @@ export {
 export { default as Breadcrumb } from './Navigation/Breadcrumb'
 export { default as Footer } from './Navigation/Footer'
 export { default as NavigationRail } from './Navigation/NavigationRail'
+export { default as StepBar } from './Navigation/StepBar'
 export { default as TabBar } from './Navigation/TabBar'
 
 // -- Navigation -- //
