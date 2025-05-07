@@ -1,6 +1,8 @@
 # Changelog
 
-## [v2.125.0] - WIP
+## [v2.126.0] - WIP
+
+## [v2.125.0] - 05-06-2025
 
 - [DS-182] - [Step Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/StepBar)
 
