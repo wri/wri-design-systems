@@ -4,6 +4,8 @@
 
 ## [v2.125.0] - 05-06-2025
 
+## New Components
+
 - [DS-182] - [Step Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/StepBar)
 
 ## New Features
