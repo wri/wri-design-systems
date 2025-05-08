@@ -2,6 +2,10 @@
 
 ## [v2.127.0] - WIP
 
+## New Features
+
+- [DS-184] - [SSOButtons] - Microsoft Button preset
+
 ## [v2.126.0] - 05-06-2025
 
 ## New Components

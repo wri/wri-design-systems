@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 import Button from '../Forms/Buttons/Button'
-import { GoogleIcon, FacebookIcon, XIcon } from '../icons'
+import { GoogleIcon, FacebookIcon, XIcon, MicrosoftIcon } from '../icons'
 
 type GenericSSOButtonsProps = {
   ariaLabel?: string
@@ -53,9 +53,24 @@ const X = ({
     onClick={onClick}
   />
 )
+const Microsoft = ({
+  ariaLabel,
+  size = 'default',
+  onClick,
+}: GenericSSOButtonsProps) => (
+  <Button
+    label='Microsoft'
+    leftIcon={<MicrosoftIcon />}
+    aria-label={ariaLabel || 'Microsoft Login'}
+    variant='secondary'
+    size={size}
+    onClick={onClick}
+  />
+)
 
 export const SSOButtons = {
   Google,
   Facebook,
   X,
+  Microsoft,
 }

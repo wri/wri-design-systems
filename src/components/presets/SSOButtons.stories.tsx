@@ -26,3 +26,7 @@ export const Facebook: Story = {
 export const X: Story = {
   render: () => <SSOButtons.X />,
 }
+
+export const Microsoft: Story = {
+  render: () => <SSOButtons.Microsoft />,
+}

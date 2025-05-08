@@ -30,6 +30,7 @@ const ButtonDemo = () => (
       <SSOButtons.Google />
       <SSOButtons.Facebook />
       <SSOButtons.X />
+      <SSOButtons.Microsoft />
     </div>
   </div>
 )
