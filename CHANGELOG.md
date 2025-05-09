@@ -2,6 +2,12 @@
 
 ## [v2.127.0] - WIP
 
+## [v2.126.1] - 05-08-2025
+
+## New Components
+
+- [SSOButtons] - finally exported - LOL
+
 ## New Features
 
 - [DS-184] - [SSOButtons] - Microsoft Button preset

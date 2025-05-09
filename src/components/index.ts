@@ -98,5 +98,6 @@ export { showToast } from './Status/Toast/utils'
 
 export { MapControls } from './presets/MapControls'
 export { IconMarkers } from './presets/IconMarkers'
+export { SSOButtons } from './presets/SSOButtons'
 
 // -- Presets -- //
