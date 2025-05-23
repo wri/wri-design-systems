@@ -52,9 +52,11 @@ const QualitativeAttribute = ({
           <p css={qualitativeAttributeLabelStyles} aria-label={label}>
             {label}
           </p>
-          <p css={qualitativeAttributeCaptionStyles} aria-label={caption}>
-            {caption}
-          </p>
+          {caption ? (
+            <p css={qualitativeAttributeCaptionStyles} aria-label={caption}>
+              {caption}
+            </p>
+          ) : null}
         </div>
       </div>
       {onActionClick && showActionButton ? (

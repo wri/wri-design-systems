@@ -2,6 +2,12 @@
 
 ## [v2.127.0] - WIP
 
+## [v2.126.3] - 05-23-2025
+
+## Fixes
+
+- [QualitativeAttribute] - removing min-height
+
 ## [v2.126.2] - 05-23-2025
 
 ## Fixes

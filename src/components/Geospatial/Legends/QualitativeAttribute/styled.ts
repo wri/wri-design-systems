@@ -41,7 +41,6 @@ export const pointIndicatorStyles = (
 `
 
 export const qualitativeAttributeContainerStyles = css`
-  min-height: 36px;
   width: 100%;
   display: flex;
   justify-content: space-between;
