@@ -2,6 +2,12 @@
 
 ## [v2.127.0] - WIP
 
+## [v2.126.2] - 05-23-2025
+
+## Fixes
+
+- [QualitativeAttribute] - centering line indicator
+
 ## [v2.126.1] - 05-08-2025
 
 ## New Components
