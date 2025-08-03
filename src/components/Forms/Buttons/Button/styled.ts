@@ -24,6 +24,10 @@ export const baseButtonStyles = (size: ButtonProps['size']) => css`
     width: ${size === 'small' ? '10px' : '16px'};
     height: ${size === 'small' ? '10px' : '16px'};
   }
+
+  &[data-disabled] svg path {
+    fill: ${getThemedColor('neutral', 500)};
+  }
 `
 
 export const primaryButtonStyles = (disabled?: boolean) => css`

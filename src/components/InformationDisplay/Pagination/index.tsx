@@ -11,49 +11,17 @@ import {
   paginationLabelStyles,
   paginationPrevNextStyles,
 } from './styles'
+import Button from '../../Forms/Buttons/Button'
 
 const Pagination = ({
   totalItems,
   pageSize,
   currentPage,
-  compact,
+  variant = 'default',
   onPageChange,
 }: PaginationProps) => {
-  if (compact) {
-    return (
-      <div aria-label='Pagination'>
-        <ChakraPagination.Root
-          count={totalItems}
-          pageSize={pageSize}
-          defaultPage={1}
-        >
-          <ButtonGroup gap='4' size='sm' variant='ghost'>
-            <ChakraPagination.PrevTrigger asChild>
-              <IconButton
-                css={paginationPrevNextStyles}
-                style={{ rotate: '90deg' }}
-                icon={
-                  <ChevronDownIcon color='var(--chakra-colors-primary-600)' />
-                }
-                aria-label='Previous page'
-              />
-            </ChakraPagination.PrevTrigger>
-            <ChakraPagination.PageText css={paginationLabelCompactStyles} />
-            <ChakraPagination.NextTrigger asChild>
-              <IconButton
-                css={paginationPrevNextStyles}
-                style={{ rotate: '270deg' }}
-                icon={
-                  <ChevronDownIcon color='var(--chakra-colors-primary-600)' />
-                }
-                aria-label='Next page'
-              />
-            </ChakraPagination.NextTrigger>
-          </ButtonGroup>
-        </ChakraPagination.Root>
-      </div>
-    )
-  }
+  const isCompact = variant === 'compact' || variant === 'compact-with-buttons'
+  const isCompactWithButtons = variant === 'compact-with-buttons'
 
   return (
     <div aria-label='Pagination'>
@@ -71,29 +39,61 @@ const Pagination = ({
           css={paginationLabelsGroupStyles}
         >
           <ChakraPagination.PrevTrigger asChild>
-            <IconButton
-              css={paginationPrevNextStyles}
-              style={{ rotate: '90deg' }}
-              icon={<ChevronDownIcon />}
-              aria-label='Previous page'
-            />
-          </ChakraPagination.PrevTrigger>
-          <ChakraPagination.Items
-            render={(page) => (
+            {isCompactWithButtons ? (
+              <Button
+                variant='secondary'
+                label='Previous'
+                size='small'
+                leftIcon={
+                  <ChevronDownIcon
+                    style={{ rotate: '90deg' }}
+                    color='var(--chakra-colors-primary-500)'
+                  />
+                }
+              />
+            ) : (
               <IconButton
-                css={paginationLabelStyles}
-                aria-label={`Page ${page.value}`}
-                icon={<p>{page.value}</p>}
+                css={paginationPrevNextStyles}
+                style={{ rotate: '90deg' }}
+                icon={<ChevronDownIcon />}
+                aria-label='Previous page'
               />
             )}
-          />
-          <ChakraPagination.NextTrigger asChild>
-            <IconButton
-              css={paginationPrevNextStyles}
-              style={{ rotate: '270deg' }}
-              icon={<ChevronDownIcon />}
-              aria-label='Next page'
+          </ChakraPagination.PrevTrigger>
+          {isCompact ? (
+            <ChakraPagination.PageText css={paginationLabelCompactStyles} />
+          ) : (
+            <ChakraPagination.Items
+              render={(page) => (
+                <IconButton
+                  css={paginationLabelStyles}
+                  aria-label={`Page ${page.value}`}
+                  icon={<p>{page.value}</p>}
+                />
+              )}
             />
+          )}
+          <ChakraPagination.NextTrigger asChild>
+            {isCompactWithButtons ? (
+              <Button
+                variant='secondary'
+                label='Next'
+                size='small'
+                rightIcon={
+                  <ChevronDownIcon
+                    style={{ rotate: '270deg' }}
+                    color='var(--chakra-colors-primary-500)'
+                  />
+                }
+              />
+            ) : (
+              <IconButton
+                css={paginationPrevNextStyles}
+                style={{ rotate: '270deg' }}
+                icon={<ChevronDownIcon />}
+                aria-label='Next page'
+              />
+            )}
           </ChakraPagination.NextTrigger>
         </ButtonGroup>
       </ChakraPagination.Root>

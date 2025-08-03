@@ -6,7 +6,18 @@ import { Pagination } from '../..'
 const PaginationDemo = () => (
   <div>
     <Pagination totalItems={50} pageSize={10} currentPage={1} />
-    <Pagination totalItems={100} pageSize={10} currentPage={1} compact />
+    <Pagination
+      totalItems={50}
+      pageSize={10}
+      currentPage={1}
+      variant='compact'
+    />
+    <Pagination
+      totalItems={50}
+      pageSize={10}
+      currentPage={1}
+      variant='compact-with-buttons'
+    />
   </div>
 )
 

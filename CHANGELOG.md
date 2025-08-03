@@ -1,6 +1,12 @@
 # Changelog
 
+## [v2.128.0] - WIP
+
 ## [v2.127.0] - WIP
+
+## New Features
+
+- [Pagination] - adding "compact-with-buttons" variant
 
 ## [v2.126.3] - 05-23-2025
 

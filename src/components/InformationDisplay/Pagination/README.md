@@ -23,13 +23,24 @@ type PaginationProps = {
   currentPage: number
   totalItems: number
   pageSize: number
-  compact?: boolean
+  variant?: 'default' | 'compact' | 'compact-with-buttons'
   onPageChange?: (page: number) => void
 }
 ```
 
-## Compact Pagination
+## Compact
 
 ```tsx
-<Pagination totalItems={100} pageSize={10} currentPage={1} compact />
+<Pagination totalItems={100} pageSize={10} currentPage={1} variant='compact' />
+```
+
+## Compact With Buttons
+
+```tsx
+<Pagination
+  totalItems={100}
+  pageSize={10}
+  currentPage={1}
+  variant='compact-with-buttons'
+/>
 ```

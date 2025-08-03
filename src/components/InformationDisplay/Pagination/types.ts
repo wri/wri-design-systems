@@ -2,6 +2,6 @@ export type PaginationProps = {
   currentPage: number
   totalItems: number
   pageSize: number
-  compact?: boolean
+  variant?: 'default' | 'compact' | 'compact-with-buttons'
   onPageChange?: (page: number) => void
 }

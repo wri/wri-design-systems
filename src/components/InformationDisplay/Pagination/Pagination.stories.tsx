@@ -24,11 +24,20 @@ export const Pagination: Story = {
   },
 }
 
-export const CompactPagination: Story = {
+export const Compact: Story = {
   args: {
     totalItems: 100,
     pageSize: 10,
     currentPage: 1,
-    compact: true,
+    variant: 'compact',
+  },
+}
+
+export const CompactWithButtons: Story = {
+  args: {
+    totalItems: 100,
+    pageSize: 10,
+    currentPage: 1,
+    variant: 'compact-with-buttons',
   },
 }
