@@ -17,8 +17,8 @@ export type TableProps = {
     showItemCount?: boolean
     showItemCountText?: boolean
   }
-  onSortColumn: (sortColumn: { key: string; order: string }) => void
-  onPageSizeChange: (pageSize: number) => void
-  onPageChange: (page: number) => void
+  onSortColumn?: (sortColumn: { key: string; order: string }) => void
+  onPageSizeChange?: (pageSize: number) => void
+  onPageChange?: (page: number) => void
   onAllItemsSelected?: (checked: boolean) => void
 }

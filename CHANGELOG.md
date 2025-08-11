@@ -5,6 +5,7 @@
 ## Fixes
 
 - [TextInput] - minor UI fixes
+- [Table] - onSortColumn, onPageSizeChange, onPageChange props as optionals
 
 ## [v2.127.0] - 08-03-2025
 
