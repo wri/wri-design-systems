@@ -31,12 +31,20 @@ export const fieldLabelStyles = (
   font-weight: 400;
   line-height: ${size === 'small' ? '20px' : '24px'};
   margin-bottom: 2px;
+  display: flex;
+  align-items: flex-start;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  cursor: text;
 
   span {
     color: ${getThemedColor('neutral', disabled ? 600 : 700)};
   }
 
   .chakra-field__requiredIndicator {
+    margin-top: 4px;
     color: ${disabled
       ? getThemedColor('neutral', 600)
       : getThemedColor('error', 500)};
@@ -51,6 +59,10 @@ export const fieldCaptionStyles = (
   font-size: ${size === 'small' ? '12px' : '14px'};
   font-weight: 400;
   line-height: ${size === 'small' ? '16px' : '20px'};
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
 `
 
 export const fieldErrorMessageStyles = (size: TextInputProps['size']) => css`
@@ -75,6 +87,7 @@ export const textInputStyles = (
   color: ${getThemedColor('neutral', 800)};
   border: 1px solid ${getThemedColor('neutral', 400)};
   box-shadow: 0px 1px 2px 0px #0000000d;
+  font-size: ${size === 'small' ? '14px' : '16px'};
 
   &:focus-visible,
   &[data-focus-visible] {

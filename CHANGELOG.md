@@ -2,7 +2,11 @@
 
 ## [v2.128.0] - WIP
 
-## [v2.127.0] - WIP
+## Fixes
+
+- [TextInput] - minor UI fixes
+
+## [v2.127.0] - 08-03-2025
 
 ## New Features
 
