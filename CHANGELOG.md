@@ -2,10 +2,14 @@
 
 ## [v2.128.0] - WIP
 
+## [v2.127.1] - 08-12-2025
+
 ## Fixes
 
 - [TextInput] - minor UI fixes
 - [Table] - onSortColumn, onPageSizeChange, onPageChange props as optionals
+- [NavigationRail] - onFocusChange was causing the content to be hidden on click
+- [TabBar] - onFocusChange was causing the content to be hidden on click
 
 ## [v2.127.0] - 08-03-2025
 

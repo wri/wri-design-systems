@@ -47,7 +47,9 @@ const NavigationRail = ({
           defaultValue={defaultValue || tabs?.[0]?.value}
           orientation='horizontal'
           width='full'
-          onFocusChange={({ focusedValue }) => handleOnTabClick(focusedValue)}
+          onValueChange={({ value }) => {
+            handleOnTabClick(value)
+          }}
           role='tablist'
         >
           <Tabs.List

@@ -53,7 +53,7 @@ const TabBar = ({
       <Tabs.Root
         width='full'
         defaultValue={defaultValue || tabs?.[0]?.value}
-        onFocusChange={({ focusedValue }) => handleOnTabClick(focusedValue)}
+        onValueChange={({ value }) => handleOnTabClick(value)}
       >
         <Tabs.List alignItems='center' border='none'>
           {tabs.map((tab, idx) => (
