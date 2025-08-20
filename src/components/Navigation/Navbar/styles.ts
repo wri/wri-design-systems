@@ -117,6 +117,16 @@ export const navbarRightItemStyles = (divsCollided?: boolean) => css`
   align-items: center;
   justify-content: center;
   padding: 0 12px;
+
+  ${divsCollided
+    ? css`
+        .chakra-menu__trigger {
+          &:hover {
+            background-color: ${getThemedColor('primary', 700)};
+          }
+        }
+      `
+    : ''}
 `
 
 export const navbarActionsContainerStyles = (divsCollided: boolean) => css`

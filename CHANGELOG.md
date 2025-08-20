@@ -2,7 +2,13 @@
 
 ## [v2.129.0] - WIP
 
-## [v2.128.0] - 08-20-2025
+## [v2.128.1] - 08-20-2025
+
+## Fixes
+
+- [Navbar] - updating hover for menu elements in dark background
+
+## [v2.128.0] - 08-19-2025
 
 ## New Components
 
