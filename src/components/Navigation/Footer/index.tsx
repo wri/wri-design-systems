@@ -8,7 +8,7 @@ import {
   footerLabelStyles,
   footerStyles,
 } from './styled'
-import { WriIcon } from '../../icons'
+import { WriLogoBlackAndWhiteIcon } from '../../icons'
 
 const Footer = ({
   children,
@@ -23,7 +23,7 @@ const Footer = ({
     <footer css={footerStyles(fixed, filled)}>
       <div css={footerContainerStyles(maxWidth)}>
         <div>
-          <WriIcon height='32px' width='91px' />
+          <WriLogoBlackAndWhiteIcon height='32px' width='91px' />
         </div>
         <div css={footerContentStyles}>{children}</div>
         <div>

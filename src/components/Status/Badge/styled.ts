@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
 export const badgeContainerStyles = css`
+  width: 16px;
   position: relative;
   display: flex;
 `

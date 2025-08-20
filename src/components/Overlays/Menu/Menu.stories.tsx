@@ -4,6 +4,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import MenuStory from '.'
 import { PlaceholderIcon } from '../../icons'
+import Button from '../../Forms/Buttons/Button'
 
 const meta = {
   title: 'Overlays/Menu',
@@ -140,5 +141,22 @@ export const WithSubmenu: Story = {
         ],
       },
     ],
+  },
+}
+
+export const CustomTrigger: Story = {
+  args: {
+    label: 'Open Menu',
+    items: [
+      {
+        label: 'Label',
+        value: 'label-6-1',
+      },
+      {
+        label: 'Label',
+        value: 'value-6-2',
+      },
+    ],
+    customTrigger: <Button label='Open Menu' variant='secondary' />,
   },
 }

@@ -37,11 +37,7 @@ const Badge = ({ hasNotification, notificationCount }: BadgeProps) => {
       {hasNotification && !notificationCount ? (
         <div css={badgeDotContainerStyles} aria-hidden />
       ) : null}
-      <NotificationIcon
-        color='var(--chakra-colors-neutral-800)'
-        height='16px'
-        width='16px'
-      />
+      <NotificationIcon color='currentColor' height='16px' width='16px' />
     </div>
   )
 }

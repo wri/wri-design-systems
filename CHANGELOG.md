@@ -1,6 +1,21 @@
 # Changelog
 
-## [v2.128.0] - WIP
+## [v2.129.0] - WIP
+
+## [v2.128.0] - 08-20-2025
+
+## New Components
+
+- [DS-80] - [Navbar]
+
+## New Features
+
+- [Menu] - adding customTrigger prop + UI improvements
+- [NavigationRail] - replacing "customHeight" with "navbarHeight" and "footerHeight"
+
+## Fixes
+
+- [Badge] - minor UI updates
 
 ## [v2.127.1] - 08-12-2025
 

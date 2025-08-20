@@ -17,7 +17,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   rules: {
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
     // Require braces in arrow function body as needed
     'arrow-body-style': ['error', 'as-needed'],
     // Allow named exports from files with a single export

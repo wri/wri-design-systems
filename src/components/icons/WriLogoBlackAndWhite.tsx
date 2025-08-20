@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Icon, IconProps } from '@chakra-ui/react'
 
-export const WriIcon = (props: IconProps) => (
+export const WriLogoBlackAndWhiteIcon = (props: IconProps) => (
   <Icon {...props}>
     <svg
       width='91'

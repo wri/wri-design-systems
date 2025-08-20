@@ -14,6 +14,7 @@ code {
 
 /*  */
 .app-container {
+  margin-top: 48px;
   margin-left: 364px;
   transition: margin-left 0.1s;
   padding: 20px;

@@ -5,7 +5,7 @@ import LayerPanelDemo from '../LayerPanel/LayerPanelDemo'
 
 const defaultTabValue = 'label-1'
 
-const LayerSidebar = () => {
+const LayerSidebarDemo = () => {
   const [selectedTabValue, setSelectedTabValue] = useState(defaultTabValue)
 
   const handleOnTabClick = (selectedValue: string) => {
@@ -24,7 +24,8 @@ const LayerSidebar = () => {
 
   return (
     <NavigationRail
-      customHeight='calc(100vh - 56px)'
+      navbarHeight='48px'
+      footerHeight='56px'
       defaultValue={defaultTabValue}
       onTabClick={handleOnTabClick}
       onOpenChange={handleOnOpenChange}
@@ -53,4 +54,4 @@ const LayerSidebar = () => {
   )
 }
 
-export default LayerSidebar
+export default LayerSidebarDemo

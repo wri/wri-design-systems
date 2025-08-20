@@ -3,13 +3,14 @@ import { getThemedColor } from '../../../lib/theme'
 import { NavigationRailProps } from './types'
 
 export const navigationRailContainerStyles = (
-  customHeight?: NavigationRailProps['customHeight'],
+  navbarHeight?: NavigationRailProps['navbarHeight'],
+  footerHeight?: NavigationRailProps['footerHeight'],
 ) => css`
   width: 64px;
-  height: ${customHeight || '100vh'};
+  height: calc(100vh - ${navbarHeight || '0px'} - ${footerHeight || '0px'});
   z-index: 100;
   position: fixed;
-  top: 0;
+  top: ${navbarHeight || '0px'};
   left: 0;
   border-right: 1px solid ${getThemedColor('neutral', 300)};
   background-color: ${getThemedColor('neutral', 200)};
@@ -165,12 +166,15 @@ export const navigationRailTriggerStyles = css`
   }
 `
 
-export const navigationRailChildrenContainerStyles = css`
+export const navigationRailChildrenContainerStyles = (
+  navbarHeight?: NavigationRailProps['navbarHeight'],
+  footerHeight?: NavigationRailProps['footerHeight'],
+) => css`
   width: 300px;
-  height: 100vh;
+  height: calc(100vh - ${navbarHeight || '0px'} - ${footerHeight || '0px'});
   z-index: 100;
   position: fixed;
-  top: 0;
+  top: ${navbarHeight || '0px'};
   left: 64px;
   box-shadow: 2px 0px 2px 0px #0000000d;
   background-color: ${getThemedColor('neutral', 100)};

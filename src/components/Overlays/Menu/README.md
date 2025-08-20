@@ -20,9 +20,11 @@ type MenuItemProps = {
   endIcon?: React.ReactNode
   command?: string
   children?: React.ReactNode
-  value: string
+  value?: string
   disabled?: boolean
   submenu?: MenuItemProps[]
+  onClick?: () => void
+  link?: string
 }
 
 type MenuProps = {
@@ -33,6 +35,7 @@ type MenuProps = {
     items: MenuItemProps[]
   }[]
   onSelect?: (value: string) => void
+  customTrigger?: React.ReactNode
 }
 ```
 
@@ -172,5 +175,39 @@ type MenuProps = {
       ],
     },
   ]}
+/>
+```
+
+### Custom Trigger
+
+```tsx
+<Menu
+  label='With Custom Trigger'
+  items={[
+    {
+      label: 'Label',
+      value: 'label-4-1',
+    },
+    {
+      label: 'Label',
+      value: 'label-4-2',
+      submenu: [
+        {
+          label: 'Label',
+          value: 'label-4-2-1',
+        },
+        {
+          label: 'Label',
+          value: 'label-4-2-2',
+        },
+      ],
+    },
+    {
+      label: 'Label',
+      value: 'label-4-3',
+    },
+  ]}
+  onSelect={(value) => console.log('onSelect', value)}
+  customTrigger={<Button label='Open Menu' variant='secondary' />}
 />
 ```

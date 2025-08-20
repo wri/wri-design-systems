@@ -5,9 +5,11 @@ export type MenuItemProps = {
   endIcon?: React.ReactNode
   command?: string
   children?: React.ReactNode
-  value: string
+  value?: string
   disabled?: boolean
   submenu?: MenuItemProps[]
+  onClick?: () => void
+  link?: string
 }
 
 export type MenuProps = {
@@ -18,4 +20,5 @@ export type MenuProps = {
     items: MenuItemProps[]
   }[]
   onSelect?: (value: string) => void
+  customTrigger?: React.ReactNode
 }

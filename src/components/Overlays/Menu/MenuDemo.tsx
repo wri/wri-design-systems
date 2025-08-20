@@ -1,4 +1,4 @@
-import { Menu } from '../..'
+import { Button, Menu } from '../..'
 import { PlaceholderIcon } from '../../icons'
 
 const MenuDemo = () => (
@@ -111,6 +111,36 @@ const MenuDemo = () => (
         },
       ]}
       onSelect={(value) => console.log('onSelect', value)}
+    />
+
+    <Menu
+      label='With Custom Trigger'
+      items={[
+        {
+          label: 'Label',
+          value: 'label-4-1',
+        },
+        {
+          label: 'Label',
+          value: 'label-4-2',
+          submenu: [
+            {
+              label: 'Label',
+              value: 'label-4-2-1',
+            },
+            {
+              label: 'Label',
+              value: 'label-4-2-2',
+            },
+          ],
+        },
+        {
+          label: 'Label',
+          value: 'label-4-3',
+        },
+      ]}
+      onSelect={(value) => console.log('onSelect', value)}
+      customTrigger={<Button label='Open Menu' variant='secondary' />}
     />
   </div>
 )

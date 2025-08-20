@@ -27,7 +27,7 @@ import IconMarkerDemo from './components/Geospatial/IconMarker/IconMarkerDemo'
 import { LayerGroupDemo } from './components/Geospatial/Layers/LayerGroup/LayerGroupDemo'
 import LayerItemDemo from './components/Geospatial/Layers/LayerItem/LayerItemDemo'
 import LayerPanelDemo from './components/Geospatial/Layers/LayerPanel/LayerPanelDemo'
-import LayerSidebar from './components/Geospatial/Layers/LayerSidebar/Demo'
+import LayerSidebarDemo from './components/Geospatial/Layers/LayerSidebar/LayerSidebarDemo'
 
 import LayerParametersDemo from './components/Geospatial/Legends/LayerParameters/LayerParametersDemo'
 import { LegendItemDemo } from './components/Geospatial/Legends/LegendItem/LegendItemDemo'
@@ -41,6 +41,7 @@ import TableDemo from './components/InformationDisplay/Table/TableDemo'
 
 import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
+import NavbarDemo from './components/Navigation/Navbar/NavbarDemo'
 import StepBarDemo from './components/Navigation/StepBar/StepBarDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
 
@@ -54,6 +55,7 @@ import { Toast } from './components'
 
 const App = () => (
   <div className='App'>
+    <NavbarDemo />
     <div className='app-container'>
       <h1 style={{ marginBottom: '20px' }}>Welcome to WRI OS</h1>
       <div
@@ -115,7 +117,7 @@ const App = () => (
         <InlineMessageDemo />
         <ToastDemo />
       </div>
-      <LayerSidebar />
+      <LayerSidebarDemo />
     </div>
     <FooterDemo />
     <Toast />

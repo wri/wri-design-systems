@@ -1,9 +1,39 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
+export const menuStyles = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 2px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${getThemedColor('neutral', 200)};
+  }
+
+  &:focus-visible {
+    border-radius: 0px;
+    box-shadow:
+      0 0 0 2px ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+    outline-color: ${getThemedColor('primary', 700)};
+    outline-offset: 2px;
+    outline-style: solid;
+    outline-width: 2px;
+  }
+`
+
 export const menuContentStyles = css`
   width: 224px;
   border: 1px solid ${getThemedColor('neutral', 600)};
+  box-shadow: 0px 4px 6px -4px #0000001a;
+  box-shadow: 0px 10px 15px -3px #0000001a;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `
 
 export const menuSubmenuTriggerStyles = css`
