@@ -22,7 +22,13 @@ export const NotificationBell: Story = {
 
 export const NotificationCount: Story = {
   args: {
-    hasNotification: true,
+    notificationCount: 1,
+  },
+}
+
+export const NotificationCountWitLabel: Story = {
+  args: {
+    label: 'Notifications',
     notificationCount: 1,
   },
 }

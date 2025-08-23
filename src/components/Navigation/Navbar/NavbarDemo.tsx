@@ -86,8 +86,7 @@ const NavbarDemo = () => {
       ]}
       utilitySection={[
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          Notifications
-          <Badge notificationCount={3} hasNotification />
+          <Badge label='Notifications' notificationCount={3} />
         </div>,
         <p>Account</p>,
         <Menu

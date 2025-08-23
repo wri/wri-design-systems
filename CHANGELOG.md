@@ -2,6 +2,12 @@
 
 ## [v2.129.0] - WIP
 
+## [v2.128.2] - 08-23-2025
+
+## New Features
+
+- [Badge] - adding "label" prop + UI for mobile and tablet
+
 ## [v2.128.1] - 08-20-2025
 
 ## Fixes

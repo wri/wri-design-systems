@@ -22,6 +22,7 @@ import { Badge } from '@worldresources/wri-design-systems'
 type BadgeProps = {
   hasNotification?: boolean
   notificationCount?: number
+  label?: string
 }
 ```
 
@@ -34,7 +35,13 @@ type BadgeProps = {
 ## Notification Count
 
 ```tsx
-<Badge notificationCount={100} hasNotification />
+<Badge notificationCount={100} />
+```
+
+## Notification Count With Label
+
+```tsx
+<Badge label='Notifications' notificationCount={100} />
 ```
 
 ## Notification Dot
