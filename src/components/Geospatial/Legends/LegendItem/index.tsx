@@ -54,7 +54,7 @@ const LegendItem = ({
         />
       </div>
     </div>
-    <div>
+    <div style={{ width: '100%' }}>
       <div css={legendItemHeaderContainerStyles}>
         <div>
           <h3 css={legendItemLayerNameStyles}>{layerName}</h3>

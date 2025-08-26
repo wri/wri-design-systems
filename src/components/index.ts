@@ -45,12 +45,10 @@ export { default as IconMarker } from './Geospatial/IconMarker'
 export { default as LayerGroup } from './Geospatial/Layers/LayerGroup'
 export { default as LayerGroupContainer } from './Geospatial/Layers/LayerGroup/LayerGroupContainer'
 export { default as LayerItem } from './Geospatial/Layers/LayerItem'
-export { default as LayerPanel } from './Geospatial/Layers/LayerPanel'
 
 // Legends
 export { default as LayerParameters } from './Geospatial/Legends/LayerParameters'
 export { default as LegendItem } from './Geospatial/Legends/LegendItem'
-export { default as LegendPanel } from './Geospatial/Legends/LegendPanel'
 export { default as QualitativeAttribute } from './Geospatial/Legends/QualitativeAttribute'
 export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 
@@ -67,6 +65,12 @@ export {
 } from './InformationDisplay/Table'
 
 // -- Information Display -- //
+
+// -- Layout -- //
+
+export { default as Panel } from './Layout/Panel'
+
+// -- Layout -- //
 
 // -- Navigation -- //
 

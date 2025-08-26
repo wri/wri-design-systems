@@ -10,7 +10,7 @@ const LayerGroupContainer = ({
   defaultValue,
   ...rest
 }: LayerGroupContainerProps) => (
-  <div css={layerGroupContainerStyles} style={{ width: '300px' }}>
+  <div css={layerGroupContainerStyles} style={{ width: '100%' }}>
     <Accordion.Root css={{}} defaultValue={defaultValue} multiple {...rest}>
       {children}
     </Accordion.Root>

@@ -170,7 +170,7 @@ export const navigationRailChildrenContainerStyles = (
   navbarHeight?: NavigationRailProps['navbarHeight'],
   footerHeight?: NavigationRailProps['footerHeight'],
 ) => css`
-  width: 300px;
+  width: 320px;
   height: calc(100vh - ${navbarHeight || '0px'} - ${footerHeight || '0px'});
   z-index: 100;
   position: fixed;

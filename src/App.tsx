@@ -39,6 +39,8 @@ import ItemCountDemo from './components/InformationDisplay/ItemCount/ItemCountDe
 import PaginationDemo from './components/InformationDisplay/Pagination/PaginationDemo'
 import TableDemo from './components/InformationDisplay/Table/TableDemo'
 
+import PanelDemo from './components/Layout/Panel/PanelDemo'
+
 import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
 import NavbarDemo from './components/Navigation/Navbar/NavbarDemo'
@@ -92,12 +94,25 @@ const App = () => (
 
         <IconMarkerDemo />
 
-        <LayerGroupDemo />
-        <LayerItemDemo />
-        <LayerPanelDemo />
+        <div
+          style={{
+            width: '320px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '50px',
+          }}
+        >
+          <LayerGroupDemo />
+          <LayerItemDemo />
+          <div style={{ height: '600px' }}>
+            <LayerPanelDemo />
+          </div>
+        </div>
 
         <LayerParametersDemo />
-        <LegendItemDemo />
+        <div style={{ width: '320px' }}>
+          <LegendItemDemo />
+        </div>
         <LegendPanelDemo />
         <QualitativeAttributeDemo />
         <ScaleBarDemo />
@@ -105,6 +120,8 @@ const App = () => (
         <ItemCountDemo />
         <PaginationDemo />
         <TableDemo />
+
+        <PanelDemo />
 
         <BreadcrumbDemo />
         <StepBarDemo />

@@ -19,7 +19,7 @@ export const LegendItemDemo = ({
   onUpClick?: VoidFunction
   onDownClick?: VoidFunction
 }) => (
-  <div style={{ width: '290px' }}>
+  <div style={{ width: '100%' }}>
     <LegendItem
       layerName='Layer Name'
       dataUnit='Data Unit'
@@ -73,7 +73,7 @@ export const LegendItemDemo2 = ({
   onUpClick?: VoidFunction
   onDownClick?: VoidFunction
 }) => (
-  <div style={{ width: '290px' }}>
+  <div style={{ width: '100%' }}>
     <LegendItem
       layerName='Layer Name 2'
       dataUnit='Data Unit'
@@ -126,7 +126,7 @@ export const LegendItemDemo3 = ({
   onUpClick?: VoidFunction
   onDownClick?: VoidFunction
 }) => (
-  <div style={{ width: '290px' }}>
+  <div style={{ width: '100%' }}>
     <LegendItem
       layerName='Layer Name 3'
       dataUnit='Data Unit'

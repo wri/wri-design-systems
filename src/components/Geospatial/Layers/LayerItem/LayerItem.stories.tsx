@@ -14,9 +14,11 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     (Story: any) => (
-      <RadioGroup name='radio-group'>
-        <Story />
-      </RadioGroup>
+      <div style={{ width: '320px' }}>
+        <RadioGroup name='radio-group'>
+          <Story />
+        </RadioGroup>
+      </div>
     ),
   ],
 } satisfies Meta<typeof LayerItem>

@@ -3,7 +3,7 @@ import { getThemedColor } from '../../../../lib/theme'
 import { LayerItemProps } from './types'
 
 export const layerItemContainerStyles = css`
-  width: 268px;
+  width: 100%;
   padding: 16px 0;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
 `

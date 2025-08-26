@@ -12,6 +12,13 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [
+    (Story: any) => (
+      <div style={{ width: '320px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof LayerGroupContainer>
 
 export default meta

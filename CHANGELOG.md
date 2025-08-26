@@ -1,6 +1,20 @@
 # Changelog
 
-## [v2.129.0] - WIP
+## [v2.130.0] - WIP
+
+## [v2.129.0] - 08-25-2025
+
+## New Components
+
+- [Panel]
+
+## Fixes
+
+- [LayerItem] - width 100%
+- [LayerGroup] - width 100%
+- [LayerPanel] - not a component any more, it's now a Panel demo
+- [LegendItem] - width 100%
+- [LegendPanel] - not a component any more, it's now a Panel demo
 
 ## [v2.128.2] - 08-23-2025
 

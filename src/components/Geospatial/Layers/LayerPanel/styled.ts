@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
 export const layerPanelContainerStyles = css`
-  width: 300px;
+  width: 100%;
   background-color: ${getThemedColor('neutral', 100)};
 `
 

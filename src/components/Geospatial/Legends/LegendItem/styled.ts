@@ -49,6 +49,6 @@ export const legendItemButtonsContainerStyles = css`
   justify-content: space-between;
 
   button {
-    width: 110px;
+    width: 46%;
   }
 `

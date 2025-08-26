@@ -70,7 +70,7 @@ const LayerGroup = ({
   ).length
 
   return (
-    <Accordion.Item value={value} width='300px'>
+    <Accordion.Item value={value} width='100%'>
       <Accordion.ItemTrigger padding='16px' alignItems='flex-start'>
         <Box
           width='full'
