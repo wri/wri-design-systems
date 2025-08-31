@@ -21,7 +21,7 @@ import {
 import Button from '../../Forms/Buttons/Button'
 
 const meta = {
-  title: 'Layout/Panel/Layer Panel',
+  title: 'Containers/Panel/Layer Panel',
   component: Panel,
   parameters: {
     layout: 'centered',

@@ -39,7 +39,7 @@ import ItemCountDemo from './components/InformationDisplay/ItemCount/ItemCountDe
 import PaginationDemo from './components/InformationDisplay/Pagination/PaginationDemo'
 import TableDemo from './components/InformationDisplay/Table/TableDemo'
 
-import PanelDemo from './components/Layout/Panel/PanelDemo'
+import PanelDemo from './components/Containers/Panel/PanelDemo'
 
 import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'

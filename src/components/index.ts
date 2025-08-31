@@ -66,11 +66,11 @@ export {
 
 // -- Information Display -- //
 
-// -- Layout -- //
+// -- Containers -- //
 
-export { default as Panel } from './Layout/Panel'
+export { default as Panel } from './Containers/Panel'
 
-// -- Layout -- //
+// -- Containers -- //
 
 // -- Navigation -- //
 

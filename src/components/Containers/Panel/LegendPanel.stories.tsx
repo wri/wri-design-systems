@@ -16,7 +16,7 @@ import {
 import { AnalysisIcon, LegendIcon } from '../../icons'
 
 const meta = {
-  title: 'Layout/Panel/Legend Panel',
+  title: 'Containers/Panel/Legend Panel',
   component: Panel,
   parameters: {
     layout: 'centered',

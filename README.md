@@ -205,9 +205,9 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Pagination](https://github.com/wri/wri-design-systems/tree/main/src/components/InformationDisplay/Pagination)
 - [Table](https://github.com/wri/wri-design-systems/tree/main/src/components/InformationDisplay/Table)
 
-## Layout
+## Containers
 
-- [Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Layout/Panel)
+- [Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Panel)
 
 ## Navigation
 

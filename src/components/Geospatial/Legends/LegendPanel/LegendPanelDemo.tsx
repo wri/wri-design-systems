@@ -9,7 +9,7 @@ import {
   LegendItemDemo2,
   LegendItemDemo3,
 } from '../LegendItem/LegendItemDemo'
-import Panel from '../../../Layout/Panel'
+import Panel from '../../../Containers/Panel'
 import { legendPanelContainerStyles } from './styled'
 import TabBar from '../../../Navigation/TabBar'
 import { AnalysisIcon, LegendIcon } from '../../../icons'
