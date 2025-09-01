@@ -1,6 +1,17 @@
 # Changelog
 
+## [v2.131.0] - WIP
+
 ## [v2.130.0] - WIP
+
+## New Components
+
+- [Sheet]
+
+## Fixes
+
+- [Panel] - moved Panel folder structure to Containers
+- [Panel] - adding README
 
 ## [v2.129.0] - 08-25-2025
 

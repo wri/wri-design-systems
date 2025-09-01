@@ -208,6 +208,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 ## Containers
 
 - [Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Panel)
+- [Sheet](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Sheet)
 
 ## Navigation
 

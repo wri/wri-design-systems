@@ -40,6 +40,7 @@ import PaginationDemo from './components/InformationDisplay/Pagination/Paginatio
 import TableDemo from './components/InformationDisplay/Table/TableDemo'
 
 import PanelDemo from './components/Containers/Panel/PanelDemo'
+import SheetDemo from './components/Containers/Sheet/SheetDemo'
 
 import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
@@ -122,6 +123,7 @@ const App = () => (
         <TableDemo />
 
         <PanelDemo />
+        <SheetDemo />
 
         <BreadcrumbDemo />
         <StepBarDemo />

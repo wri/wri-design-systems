@@ -61,7 +61,14 @@ const LayerPanelDemo = () => {
         </>
       }
       footer={
-        <div>
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <Button label='Do something' />
         </div>
       }

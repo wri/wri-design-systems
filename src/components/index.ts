@@ -69,6 +69,7 @@ export {
 // -- Containers -- //
 
 export { default as Panel } from './Containers/Panel'
+export { default as Sheet } from './Containers/Sheet'
 
 // -- Containers -- //
 

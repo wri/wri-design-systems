@@ -26,7 +26,7 @@ export const panelHeaderContainerStyles = css`
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
 `
 
-const getHeaderHeight = (headerHeight?: number, footerHeight?: number) => {
+const getContentHeight = (headerHeight?: number, footerHeight?: number) => {
   if (headerHeight && footerHeight)
     return `calc(100% - ${headerHeight + footerHeight}px)`
   if (headerHeight) return `calc(100% - ${headerHeight}px)`
@@ -38,7 +38,7 @@ export const panelContentContainerStyles = (
   headerHeight?: number,
   footerHeight?: number,
 ) => css`
-  height: ${getHeaderHeight(headerHeight, footerHeight)};
+  height: ${getContentHeight(headerHeight, footerHeight)};
   width: 100%;
   overflow-y: scroll;
 `
@@ -48,7 +48,7 @@ export const panelFooterContainerStyles = css`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: absolute;
   bottom: 0;
   left: 0;
