@@ -79,7 +79,7 @@ export const Sheet: Story = {
         </div>
         <Button
           style={{ width: '200px' }}
-          label='Show Closed Sheet'
+          label='Show Minimized Sheet'
           onClick={() => setIsOpen(true)}
         />
       </div>
@@ -127,7 +127,7 @@ export const SheetMid: Story = {
         </div>
         <Button
           style={{ width: '200px' }}
-          label='Show Closed Sheet'
+          label='Show Mid Sheet'
           onClick={() => setIsOpen(true)}
         />
       </div>
@@ -175,7 +175,7 @@ export const SheetFull: Story = {
         </div>
         <Button
           style={{ width: '200px' }}
-          label='Show Closed Sheet'
+          label='Show Full Sheet'
           onClick={() => setIsOpen(true)}
         />
       </div>

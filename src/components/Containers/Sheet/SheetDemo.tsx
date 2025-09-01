@@ -190,7 +190,7 @@ const SheetDemo = () => {
         </div>
         <Button
           style={{ width: '200px' }}
-          label='Show Extended Sheet'
+          label='Show Full Sheet'
           onClick={() =>
             setShowSheet({
               ...showSheet,
