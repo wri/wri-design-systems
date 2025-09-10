@@ -77,4 +77,5 @@ export const sheetFooterContainerStyles = css`
   bottom: 0;
   left: 0;
   border-top: 1px solid ${getThemedColor('neutral', 300)};
+  background-color: ${getThemedColor('neutral', 100)};
 `

@@ -2,6 +2,12 @@
 
 ## [v2.131.0] - WIP
 
+## [v2.130.1] - 09-09-2025
+
+## Fixes
+
+- [Sheet] - footer white background
+
 ## [v2.130.0] - 09-01-2025
 
 ## New Components
