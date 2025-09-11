@@ -228,6 +228,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 
 - [Badge](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Badge)
 - [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/InlineMessage)
+- [Progress Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/ProgressBar)
 - [Toast](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Toast)
 
 ## Templates

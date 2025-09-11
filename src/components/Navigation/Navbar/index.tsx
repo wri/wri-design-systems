@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
@@ -147,8 +148,8 @@ const Navbar = ({
           {!isMobile ? (
             <>
               <div css={navbarRightContainerStyles}>
-                {utilitySection?.map((utilityChild) => (
-                  <div css={navbarRightItemStyles(divsCollided)}>
+                {utilitySection?.map((utilityChild, idx) => (
+                  <div css={navbarRightItemStyles(divsCollided)} key={idx}>
                     {utilityChild}
                   </div>
                 ))}

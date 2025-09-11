@@ -1,6 +1,12 @@
 # Changelog
 
-## [v2.131.0] - WIP
+## [v2.132.0] - WIP
+
+## [v2.131.0] - 09-10-2025
+
+## New Components
+
+- [Progress Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/ProgressBar)
 
 ## [v2.130.1] - 09-09-2025
 
@@ -12,7 +18,7 @@
 
 ## New Components
 
-- [Sheet]
+- [Sheet](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Sheet)
 
 ## Fixes
 
@@ -23,7 +29,7 @@
 
 ## New Components
 
-- [Panel]
+- [Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Panel)
 
 ## Fixes
 

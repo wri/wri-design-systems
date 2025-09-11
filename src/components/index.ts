@@ -95,6 +95,7 @@ export { default as Modal } from './Overlays/Modal'
 
 export { default as Badge } from './Status/Badge'
 export { default as InlineMessage } from './Status/InlineMessage'
+export { default as ProgressBar } from './Status/ProgressBar'
 export { default as Toast } from './Status/Toast'
 export { showToast } from './Status/Toast/utils'
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
@@ -88,7 +89,7 @@ const Menu = ({ label, items, groups, onSelect, customTrigger }: MenuProps) => {
               if (item.submenu) {
                 return (
                   <ChakraMenu.Root
-                    key={item.value}
+                    key={`${item.value}-${idx}`}
                     positioning={{ placement: 'right-start', gutter: 2 }}
                     onSelect={({ value }) => onSelect && onSelect(value)}
                   >
@@ -120,7 +121,7 @@ const Menu = ({ label, items, groups, onSelect, customTrigger }: MenuProps) => {
 
               return (
                 <MenuItem
-                  key={item.value}
+                  key={`${item.value}-${idx}`}
                   item={item}
                   isLast={idx === items.length - 1}
                 />

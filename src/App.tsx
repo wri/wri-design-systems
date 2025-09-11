@@ -53,6 +53,7 @@ import ModalDemo from './components/Overlays/Modal/ModalDemo'
 
 import BadgeDemo from './components/Status/Badge/BadgeDemo'
 import InlineMessageDemo from './components/Status/InlineMessage/InlineMessageDemo'
+import ProgressBarDemo from './components/Status/ProgressBar/ProgressBarDemo'
 import ToastDemo from './components/Status/Toast/ToastDemo'
 import { Toast } from './components'
 
@@ -134,6 +135,7 @@ const App = () => (
 
         <BadgeDemo />
         <InlineMessageDemo />
+        <ProgressBarDemo />
         <ToastDemo />
       </div>
       <LayerSidebarDemo />
