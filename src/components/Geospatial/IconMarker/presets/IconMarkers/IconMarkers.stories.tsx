@@ -2,10 +2,10 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import { IconMarkers } from './IconMarkers'
+import { IconMarkers } from '.'
 
 const meta = {
-  title: 'Presets/Icon Markers',
+  title: 'Geospatial/Icon Marker/Presets/Icon Markers',
   parameters: {
     layout: 'centered',
   },

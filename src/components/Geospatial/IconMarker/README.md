@@ -41,6 +41,10 @@ type IconMarkerProps = {
 
 ## Presets
 
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-icon-marker-presets-icon-markers--docs)
+
+[IconMarkersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/IconMarker/IconMarkerDemo.tsx)
+
 ```tsx
 import { IconMarkers } from '@worldresources/wri-design-systems'
 ```

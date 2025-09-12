@@ -1,6 +1,6 @@
 import { IconMarker } from '../..'
 import { PlaceholderIcon } from '../../icons'
-import { IconMarkers } from '../../presets/IconMarkers'
+import { IconMarkers } from './presets/IconMarkers'
 
 const IconMarkerDemo = () => (
   <div

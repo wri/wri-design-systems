@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import IconMarker from '../Geospatial/IconMarker'
-import { DropIcon, PaperIcon, PlantIcon } from '../icons'
+import IconMarker from '../..'
+import { DropIcon, PaperIcon, PlantIcon } from '../../../../icons'
 
 type GenericIconMarkersProps = {
   ariaLabel?: string
