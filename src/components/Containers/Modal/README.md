@@ -1,8 +1,8 @@
 # Modal
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/overlays-modal--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/containers-modal--docs)
 
-[ModalDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Overlays/Modal/ModalDemo.tsx)
+[ModalDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Containers/Modal/ModalDemo.tsx)
 
 ## Import
 

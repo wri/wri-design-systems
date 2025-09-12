@@ -87,7 +87,7 @@ export { default as TabBar } from './Navigation/TabBar'
 // -- Overlays -- //
 
 export { default as Menu } from './Overlays/Menu'
-export { default as Modal } from './Overlays/Modal'
+export { default as Modal } from './Containers/Modal'
 
 // -- Overlays -- //
 

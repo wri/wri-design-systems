@@ -49,7 +49,7 @@ import StepBarDemo from './components/Navigation/StepBar/StepBarDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
 
 import MenuDemo from './components/Overlays/Menu/MenuDemo'
-import ModalDemo from './components/Overlays/Modal/ModalDemo'
+import ModalDemo from './components/Containers/Modal/ModalDemo'
 
 import BadgeDemo from './components/Status/Badge/BadgeDemo'
 import InlineMessageDemo from './components/Status/InlineMessage/InlineMessageDemo'

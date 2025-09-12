@@ -7,7 +7,7 @@ import ModalStory from '.'
 import Button from '../../Forms/Buttons/Button'
 
 const meta = {
-  title: 'Overlays/Modal',
+  title: 'Containers/Modal',
   component: ModalStory,
   parameters: {
     layout: 'centered',

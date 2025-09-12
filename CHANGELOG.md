@@ -129,7 +129,7 @@
 
 - [DS-133] - [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Menu)
 - [DS-148] - [Checkbox Option Card](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/CheckboxOptionCard)
-- [DS-110] - [Modal](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Modal)
+- [DS-110] - [Modal](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Modal)
 
 ## New Features
 
