@@ -11,6 +11,7 @@ export { default as Button } from './Forms/Actions/Button'
 export { default as CloseButton } from './Forms/Actions/CloseButton'
 export { default as IconButton } from './Forms/Actions/IconButton'
 export { default as MapControl } from './Forms/Actions/MapControl'
+export { default as Menu } from './Forms/Actions/Menu'
 export { default as MultiActionButton } from './Forms/Actions/MultiActionButton'
 
 // Controls
@@ -68,6 +69,7 @@ export {
 
 // -- Containers -- //
 
+export { default as Modal } from './Containers/Modal'
 export { default as Panel } from './Containers/Panel'
 export { default as Sheet } from './Containers/Sheet'
 
@@ -83,13 +85,6 @@ export { default as StepBar } from './Navigation/StepBar'
 export { default as TabBar } from './Navigation/TabBar'
 
 // -- Navigation -- //
-
-// -- Overlays -- //
-
-export { default as Menu } from './Overlays/Menu'
-export { default as Modal } from './Containers/Modal'
-
-// -- Overlays -- //
 
 // -- Status -- //
 

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import NavbarStory from '.'
 import { WriLogoIcon } from '../../icons'
 import Badge from '../../Status/Badge'
-import Menu from '../../Overlays/Menu'
+import Menu from '../../Forms/Actions/Menu'
 
 const meta = {
   title: 'Navigation/Navbar',

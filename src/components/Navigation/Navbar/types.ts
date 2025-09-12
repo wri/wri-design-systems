@@ -1,4 +1,4 @@
-import { MenuItemProps } from '../../Overlays/Menu/types'
+import { MenuItemProps } from '../../Forms/Actions/Menu/types'
 
 export type NavbarNavigationItemsProps = {
   label: string

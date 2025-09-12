@@ -2,6 +2,7 @@ import ButtonDemo from './components/Forms/Actions/Button/ButtonDemo'
 import CloseButtonDemo from './components/Forms/Actions/CloseButton/CloseButtonDemo'
 import IconButtonDemo from './components/Forms/Actions/IconButton/IconButtonDemo'
 import MapControlDemo from './components/Forms/Actions/MapControl/MapControlDemo'
+import MenuDemo from './components/Forms/Actions/Menu/MenuDemo'
 import MultiActionButtonDemo from './components/Forms/Actions/MultiActionButton/MultiActionButtonDemo'
 
 import CheckboxDemo from './components/Forms/Controls/Checkbox/CheckboxDemo'
@@ -39,6 +40,7 @@ import ItemCountDemo from './components/InformationDisplay/ItemCount/ItemCountDe
 import PaginationDemo from './components/InformationDisplay/Pagination/PaginationDemo'
 import TableDemo from './components/InformationDisplay/Table/TableDemo'
 
+import ModalDemo from './components/Containers/Modal/ModalDemo'
 import PanelDemo from './components/Containers/Panel/PanelDemo'
 import SheetDemo from './components/Containers/Sheet/SheetDemo'
 
@@ -47,9 +49,6 @@ import FooterDemo from './components/Navigation/Footer/FooterDemo'
 import NavbarDemo from './components/Navigation/Navbar/NavbarDemo'
 import StepBarDemo from './components/Navigation/StepBar/StepBarDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
-
-import MenuDemo from './components/Overlays/Menu/MenuDemo'
-import ModalDemo from './components/Containers/Modal/ModalDemo'
 
 import BadgeDemo from './components/Status/Badge/BadgeDemo'
 import InlineMessageDemo from './components/Status/InlineMessage/InlineMessageDemo'

@@ -1,8 +1,8 @@
 # Menu
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/overlays-menu--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-actions-menu--docs)
 
-[MenuDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Overlays/Menu/MenuDemo.tsx)
+[MenuDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Actions/Menu/MenuDemo.tsx)
 
 ## Import
 

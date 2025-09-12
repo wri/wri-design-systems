@@ -21,7 +21,7 @@ import { NavbarProps } from './types'
 import NavbarMobile from './NavbarMobile'
 import { CloseIcon, MenuIcon } from '../../icons'
 import Button from '../../Forms/Actions/Button'
-import Menu from '../../Overlays/Menu'
+import Menu from '../../Forms/Actions/Menu'
 
 const MIN_INNER_WIDTH = 1023 // 1080 // 1180
 const MAX_INNER_WIDTH = 1440 // 1250

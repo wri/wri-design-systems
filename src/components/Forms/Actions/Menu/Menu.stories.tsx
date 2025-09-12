@@ -3,11 +3,11 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import MenuStory from '.'
-import { PlaceholderIcon } from '../../icons'
-import Button from '../../Forms/Actions/Button'
+import { PlaceholderIcon } from '../../../icons'
+import Button from '../Button'
 
 const meta = {
-  title: 'Overlays/Menu',
+  title: 'Forms/Actions/Menu',
   component: MenuStory,
   parameters: {
     layout: 'centered',

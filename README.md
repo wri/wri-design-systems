@@ -154,6 +154,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/CloseButton)
 - [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/IconButton)
 - [Map Control](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MapControl)
+- [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Menu)
 - [Multi Action Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MultiActionButton)
 
 ### Controls
@@ -219,10 +220,6 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
 - [Step Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/StepBar)
 - [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
-
-## Overlays
-
-- [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Menu)
 
 ## Status
 

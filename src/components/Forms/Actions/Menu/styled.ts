@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor } from '../../../../lib/theme'
 
 export const menuStyles = css`
   display: flex;

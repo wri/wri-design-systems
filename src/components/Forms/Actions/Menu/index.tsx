@@ -14,7 +14,7 @@ import {
   menuItemLabelContentStyles,
   menuSubmenuTriggerStyles,
 } from './styled'
-import { ChevronDownIcon } from '../../icons'
+import { ChevronDownIcon } from '../../../icons'
 
 const MenuItem = ({
   item,
