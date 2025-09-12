@@ -3,7 +3,7 @@ import React from 'react'
 
 /* eslint-disable no-console */
 import type { Meta, StoryObj } from '@storybook/react'
-import Button from '../../Forms/Buttons/Button'
+import Button from '../../Forms/Actions/Button'
 import Toast from '.'
 import { showToast } from './utils'
 import { CheckIcon } from '../../icons'

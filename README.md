@@ -148,13 +148,13 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 
 ## Forms
 
-### Buttons
+### Actions
 
-- [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/Button)
-- [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/CloseButton)
-- [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/IconButton)
-- [Map Control](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/MapControl)
-- [Multi Action Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/MultiActionButton)
+- [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Button)
+- [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/CloseButton)
+- [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/IconButton)
+- [Map Control](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MapControl)
+- [Multi Action Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MultiActionButton)
 
 ### Controls
 

@@ -6,7 +6,12 @@
 
 ## Updates
 
-[Modal] - from Overlays/Modal to Containers/Modal
+- [Modal] - from Overlays/Modal to Containers/Modal
+- [Button] - from Buttons/Button to Actions/Button
+- [CloseButton] - from Buttons/CloseButton to Actions/CloseButton
+- [IconButton] - from Buttons/IconButton to Actions/IconButton
+- [MultiActionButton] - from Buttons/MultiActionButton to Actions/MultiActionButton
+- [MapControl] - from Buttons/MapControl to Actions/MapControl
 
 ## [v2.131.0] - 09-10-2025
 

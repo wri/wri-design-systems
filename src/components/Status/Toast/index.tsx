@@ -24,7 +24,7 @@ import {
   WarningIcon,
 } from '../../icons'
 import { toasters } from './utils'
-import Button from '../../Forms/Buttons/Button'
+import Button from '../../Forms/Actions/Button'
 
 const Toast: React.FC = () =>
   Object.keys(toasters).map((toaster) => (

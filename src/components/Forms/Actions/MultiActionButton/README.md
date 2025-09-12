@@ -1,8 +1,8 @@
 # MultiActionButton
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-buttons-multi-action-button--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-actions-multi-action-button--docs)
 
-[MultiActionButtonDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/MultiActionButton/MultiActionButtonDemo.tsx)
+[MultiActionButtonDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MultiActionButton/MultiActionButtonDemo.tsx)
 
 ## Import
 

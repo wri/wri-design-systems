@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 
 import { Box } from '@chakra-ui/react'
-import Button from '../../../Forms/Buttons/Button'
+import Button from '../../../Forms/Actions/Button'
 import Switch from '../../../Forms/Controls/Switch'
 import Radio from '../../../Forms/Controls/Radio'
 import { LayerItemProps } from './types'

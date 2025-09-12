@@ -15,7 +15,7 @@ import {
   rasterIndicatorStyles,
 } from './styled'
 import { HideIcon, ShowIcon } from '../../../icons'
-import Button from '../../../Forms/Buttons/Button'
+import Button from '../../../Forms/Actions/Button'
 
 const QualitativeAttribute = ({
   type,

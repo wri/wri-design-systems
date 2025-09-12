@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
-import Button from '../../Forms/Buttons/Button'
+import Button from '../../Forms/Actions/Button'
 import { InfoIcon } from '../../icons'
 import {
   defaultInlineMessageStyles,

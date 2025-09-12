@@ -3,7 +3,7 @@
 
 import { ButtonGroup, Pagination as ChakraPagination } from '@chakra-ui/react'
 import { PaginationProps } from './types'
-import IconButton from '../../Forms/Buttons/IconButton'
+import IconButton from '../../Forms/Actions/IconButton'
 import { ChevronDownIcon } from '../../icons'
 import {
   paginationLabelCompactStyles,
@@ -11,7 +11,7 @@ import {
   paginationLabelStyles,
   paginationPrevNextStyles,
 } from './styles'
-import Button from '../../Forms/Buttons/Button'
+import Button from '../../Forms/Actions/Button'
 
 const Pagination = ({
   totalItems,

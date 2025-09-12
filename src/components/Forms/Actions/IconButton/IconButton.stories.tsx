@@ -7,7 +7,7 @@ import IconButton from '.'
 import { ChevronDownIcon, MenuDotsIcon } from '../../../icons'
 
 const meta = {
-  title: 'Forms/Buttons/Icon Button',
+  title: 'Forms/Actions/Icon Button',
   component: IconButton,
   parameters: {
     layout: 'centered',

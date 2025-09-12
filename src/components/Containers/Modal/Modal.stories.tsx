@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import ModalStory from '.'
-import Button from '../../Forms/Buttons/Button'
+import Button from '../../Forms/Actions/Button'
 
 const meta = {
   title: 'Containers/Modal',

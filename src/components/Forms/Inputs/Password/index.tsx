@@ -4,7 +4,7 @@
 import { useState } from 'react'
 
 import TextInput from '../TextInput'
-import Button from '../../Buttons/Button'
+import Button from '../../Actions/Button'
 import { PasswordProps } from './types'
 import {
   passwordCaptionStyles,

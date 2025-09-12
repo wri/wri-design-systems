@@ -16,7 +16,7 @@ import {
 } from './styles'
 import ItemCount from '../ItemCount'
 import { ChevronDownIcon } from '../../icons'
-import IconButton from '../../Forms/Buttons/IconButton'
+import IconButton from '../../Forms/Actions/IconButton'
 import Checkbox from '../../Forms/Controls/Checkbox'
 
 const Table = ({

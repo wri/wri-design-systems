@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import StepBarStory from '.'
-import Button from '../../Forms/Buttons/Button'
+import Button from '../../Forms/Actions/Button'
 
 const meta = {
   title: 'Navigation/Step Bar',

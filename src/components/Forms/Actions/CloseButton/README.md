@@ -1,8 +1,8 @@
 # CloseButton
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-buttons-close-button--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-actions-close-button--docs)
 
-[CloseButtonDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Buttons/CloseButton/CloseButtonDemo.tsx)
+[CloseButtonDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Actions/CloseButton/CloseButtonDemo.tsx)
 
 ## Import
 

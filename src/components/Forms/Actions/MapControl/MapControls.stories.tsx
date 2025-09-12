@@ -6,7 +6,7 @@ import MapControlStory from '.'
 import { PlusIcon, MinusIcon, PrintIcon, ShareIcon } from '../../../icons'
 
 const meta = {
-  title: 'Forms/Buttons/Map Control',
+  title: 'Forms/Actions/Map Control',
   component: MapControlStory,
   parameters: {
     layout: 'centered',

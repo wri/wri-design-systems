@@ -21,7 +21,7 @@ import {
 } from './styles'
 import { NavbarNavigationItemsProps, NavbarProps } from './types'
 import { ChevronDownIcon, CloseIcon } from '../../icons'
-import Button from '../../Forms/Buttons/Button'
+import Button from '../../Forms/Actions/Button'
 
 const NavbarMobile = ({
   navigationSection,

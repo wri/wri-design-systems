@@ -7,7 +7,7 @@ import { fn } from '@storybook/test'
 import MultiActionButton from '.'
 
 const meta = {
-  title: 'Forms/Buttons/Multi Action Button',
+  title: 'Forms/Actions/Multi Action Button',
   component: MultiActionButton,
   parameters: {
     layout: 'centered',

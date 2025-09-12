@@ -6,12 +6,12 @@ export { designSystemStyles, getThemedColor } from '../lib/theme'
 
 // -- Forms -- //
 
-// Buttons
-export { default as Button } from './Forms/Buttons/Button'
-export { default as CloseButton } from './Forms/Buttons/CloseButton'
-export { default as IconButton } from './Forms/Buttons/IconButton'
-export { default as MapControl } from './Forms/Buttons/MapControl'
-export { default as MultiActionButton } from './Forms/Buttons/MultiActionButton'
+// Actions
+export { default as Button } from './Forms/Actions/Button'
+export { default as CloseButton } from './Forms/Actions/CloseButton'
+export { default as IconButton } from './Forms/Actions/IconButton'
+export { default as MapControl } from './Forms/Actions/MapControl'
+export { default as MultiActionButton } from './Forms/Actions/MultiActionButton'
 
 // Controls
 export { default as Checkbox } from './Forms/Controls/Checkbox'

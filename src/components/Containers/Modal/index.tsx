@@ -10,8 +10,8 @@ import {
   modalHeaderStyles,
   modalTitleStyles,
 } from './styled'
-import Button from '../../Forms/Buttons/Button'
-import CloseButton from '../../Forms/Buttons/CloseButton'
+import Button from '../../Forms/Actions/Button'
+import CloseButton from '../../Forms/Actions/CloseButton'
 
 const Modal = ({
   title,

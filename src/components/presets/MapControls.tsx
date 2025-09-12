@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import MapControl from '../Forms/Buttons/MapControl'
+import MapControl from '../Forms/Actions/MapControl'
 import {
   PlusIcon,
   MinusIcon,

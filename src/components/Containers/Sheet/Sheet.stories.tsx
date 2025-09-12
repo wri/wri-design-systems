@@ -5,8 +5,8 @@ import React, { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import SheetStory from '.'
-import Button from '../../Forms/Buttons/Button'
-import IconButton from '../../Forms/Buttons/IconButton'
+import Button from '../../Forms/Actions/Button'
+import IconButton from '../../Forms/Actions/IconButton'
 import { CloseIcon } from '../../icons'
 
 const meta = {

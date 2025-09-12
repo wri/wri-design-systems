@@ -1,8 +1,8 @@
-import ButtonDemo from './components/Forms/Buttons/Button/ButtonDemo'
-import CloseButtonDemo from './components/Forms/Buttons/CloseButton/CloseButtonDemo'
-import IconButtonDemo from './components/Forms/Buttons/IconButton/IconButtonDemo'
-import MapControlDemo from './components/Forms/Buttons/MapControl/MapControlDemo'
-import MultiActionButtonDemo from './components/Forms/Buttons/MultiActionButton/MultiActionButtonDemo'
+import ButtonDemo from './components/Forms/Actions/Button/ButtonDemo'
+import CloseButtonDemo from './components/Forms/Actions/CloseButton/CloseButtonDemo'
+import IconButtonDemo from './components/Forms/Actions/IconButton/IconButtonDemo'
+import MapControlDemo from './components/Forms/Actions/MapControl/MapControlDemo'
+import MultiActionButtonDemo from './components/Forms/Actions/MultiActionButton/MultiActionButtonDemo'
 
 import CheckboxDemo from './components/Forms/Controls/Checkbox/CheckboxDemo'
 import CheckboxOptionCardDemo from './components/Forms/Controls/CheckboxOptionCard/CheckboxOptionCardDemo'

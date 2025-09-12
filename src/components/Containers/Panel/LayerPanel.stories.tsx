@@ -18,7 +18,7 @@ import {
   LayerGroupDemo2,
   LayerGroupDemo3,
 } from '../../Geospatial/Layers/LayerGroup/LayerGroupDemo'
-import Button from '../../Forms/Buttons/Button'
+import Button from '../../Forms/Actions/Button'
 
 const meta = {
   title: 'Containers/Panel/Layer Panel',

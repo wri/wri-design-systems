@@ -1,8 +1,8 @@
 # Button
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-buttons-button--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-actions-button--docs)
 
-[ButtonDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Buttons/Button/ButtonDemo.tsx)
+[ButtonDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Forms/Actions/Button/ButtonDemo.tsx)
 
 ## Import
 

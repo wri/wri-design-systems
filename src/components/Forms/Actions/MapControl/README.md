@@ -1,8 +1,8 @@
 # MapControl
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-buttons-map-control--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-actions-map-control--docs)
 
-[MapControlDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Buttons/MapControl/MapControlDemo.tsx)
+[MapControlDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MapControl/MapControlDemo.tsx)
 
 ## Import
 
