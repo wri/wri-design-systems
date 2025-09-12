@@ -1,5 +1,5 @@
 import { Button } from '../../..'
-import { SSOButtons } from './preset/SSOButtons'
+import { SSOButtons } from './presets/SSOButtons'
 
 const ButtonDemo = () => (
   <div

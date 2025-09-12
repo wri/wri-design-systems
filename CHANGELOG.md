@@ -12,7 +12,7 @@
 - [IconButton] - from Buttons/IconButton to Actions/IconButton
 - [MultiActionButton] - from Buttons/MultiActionButton to Actions/MultiActionButton
 - [MapControl] - from Buttons/MapControl to Actions/MapControl
-- [SSOButtons] - from presets to Forms/Actions/Button/preset/SSOButtons
+- [SSOButtons] - from presets to Forms/Actions/Button/presets/SSOButtons
 - [Menu] - from Overlays/Menu to Forms/Actions/Menu
 - renaming InformationDisplay to DataDisplay
 
