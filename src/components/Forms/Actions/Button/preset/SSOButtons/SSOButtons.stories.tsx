@@ -2,10 +2,10 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import { SSOButtons } from './SSOButtons'
+import { SSOButtons } from '.'
 
 const meta = {
-  title: 'Presets/SSO Buttons',
+  title: 'Forms/Actions/Button/Preset/SSO Buttons',
   parameters: {
     layout: 'centered',
   },

@@ -12,6 +12,7 @@
 - [IconButton] - from Buttons/IconButton to Actions/IconButton
 - [MultiActionButton] - from Buttons/MultiActionButton to Actions/MultiActionButton
 - [MapControl] - from Buttons/MapControl to Actions/MapControl
+- [SSOButtons] - from presets to Actions/Button/preset/SSOButtons
 
 ## [v2.131.0] - 09-10-2025
 
