@@ -1,6 +1,12 @@
 # Changelog
 
-## [v2.132.0] - WIP
+## [v2.133.0] - WIP
+
+## [v2.131.1] - WIP
+
+## Updates
+
+[Modal] - from Overlays/Modal to Containers/Modal
 
 ## [v2.131.0] - 09-10-2025
 
