@@ -1,8 +1,8 @@
 # Table
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/information-display-table--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/data-display-table--docs)
 
-[TableDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/InformationDisplay/Table/TableDemo.tsx)
+[TableDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/DataDisplay/Table/TableDemo.tsx)
 
 ## Import
 

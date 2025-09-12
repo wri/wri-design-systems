@@ -14,6 +14,7 @@
 - [MapControl] - from Buttons/MapControl to Actions/MapControl
 - [SSOButtons] - from presets to Forms/Actions/Button/preset/SSOButtons
 - [Menu] - from Overlays/Menu to Forms/Actions/Menu
+- renaming InformationDisplay to DataDisplay
 
 ## [v2.131.0] - 09-10-2025
 

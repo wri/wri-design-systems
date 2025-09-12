@@ -1,8 +1,8 @@
 # Item Count
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/information-display-item-count--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/data-display-item-count--docs)
 
-[ItemCountDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/InformationDisplay/ItemCount/ItemCountDemo.tsx)
+[ItemCountDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/DataDisplay/ItemCount/ItemCountDemo.tsx)
 
 ## Import
 

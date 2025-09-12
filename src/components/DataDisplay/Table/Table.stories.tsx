@@ -7,7 +7,7 @@ import { columns } from './TableDemo'
 import Checkbox from '../../Forms/Controls/Checkbox'
 
 const meta = {
-  title: 'Information Display/Table',
+  title: 'Data Display/Table',
   component: TableStory,
   parameters: {
     layout: 'centered',

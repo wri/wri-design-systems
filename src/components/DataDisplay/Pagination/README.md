@@ -1,8 +1,8 @@
 # Pagination
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/information-display-pagination--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/data-display-pagination--docs)
 
-[PaginationDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/InformationDisplay/Pagination/PaginationDemo.tsx)
+[PaginationDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/DataDisplay/Pagination/PaginationDemo.tsx)
 
 ## Import
 

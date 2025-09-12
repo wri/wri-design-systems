@@ -36,9 +36,9 @@ import LegendPanelDemo from './components/Geospatial/Legends/LegendPanel/LegendP
 import QualitativeAttributeDemo from './components/Geospatial/Legends/QualitativeAttribute/QualitativeAttributeDemo'
 import ScaleBarDemo from './components/Geospatial/Legends/ScaleBar/ScaleBarDemo'
 
-import ItemCountDemo from './components/InformationDisplay/ItemCount/ItemCountDemo'
-import PaginationDemo from './components/InformationDisplay/Pagination/PaginationDemo'
-import TableDemo from './components/InformationDisplay/Table/TableDemo'
+import ItemCountDemo from './components/DataDisplay/ItemCount/ItemCountDemo'
+import PaginationDemo from './components/DataDisplay/Pagination/PaginationDemo'
+import TableDemo from './components/DataDisplay/Table/TableDemo'
 
 import ModalDemo from './components/Containers/Modal/ModalDemo'
 import PanelDemo from './components/Containers/Panel/PanelDemo'

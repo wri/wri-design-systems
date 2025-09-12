@@ -146,6 +146,18 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 
 ## Components
 
+## Containers
+
+- [Modal](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Modal)
+- [Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Panel)
+- [Sheet](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Sheet)
+
+## Data Display
+
+- [Item Count](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/ItemCount)
+- [Pagination](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/Pagination)
+- [Table](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/Table)
+
 ## Forms
 
 ### Actions
@@ -199,18 +211,6 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Legend Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/LegendPanel)
 - [Qualitative Attribute](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/QualitativeAttribute)
 - [Scale Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/ScaleBar)
-
-## Information Display
-
-- [Item Count](https://github.com/wri/wri-design-systems/tree/main/src/components/InformationDisplay/ItemCount)
-- [Pagination](https://github.com/wri/wri-design-systems/tree/main/src/components/InformationDisplay/Pagination)
-- [Table](https://github.com/wri/wri-design-systems/tree/main/src/components/InformationDisplay/Table)
-
-## Containers
-
-- [Modal](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Modal)
-- [Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Panel)
-- [Sheet](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Sheet)
 
 ## Navigation
 

@@ -57,13 +57,9 @@ export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 
 // -- Information Display -- //
 
-export { default as ItemCount } from './InformationDisplay/ItemCount'
-export { default as Pagination } from './InformationDisplay/Pagination'
-export {
-  default as Table,
-  TableRow,
-  TableCell,
-} from './InformationDisplay/Table'
+export { default as ItemCount } from './DataDisplay/ItemCount'
+export { default as Pagination } from './DataDisplay/Pagination'
+export { default as Table, TableRow, TableCell } from './DataDisplay/Table'
 
 // -- Information Display -- //
 

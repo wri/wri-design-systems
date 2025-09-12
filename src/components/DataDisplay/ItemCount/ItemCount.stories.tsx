@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import ItemCountStory from '.'
 
 const meta = {
-  title: 'Information Display/Item Count',
+  title: 'Data Display/Item Count',
   component: ItemCountStory,
   parameters: {
     layout: 'centered',
