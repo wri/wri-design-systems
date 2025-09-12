@@ -8,9 +8,11 @@ export { designSystemStyles, getThemedColor } from '../lib/theme'
 
 // Actions
 export { default as Button } from './Forms/Actions/Button'
+export { SSOButtons } from './Forms/Actions/Button/presets/SSOButtons'
 export { default as CloseButton } from './Forms/Actions/CloseButton'
 export { default as IconButton } from './Forms/Actions/IconButton'
 export { default as MapControl } from './Forms/Actions/MapControl'
+export { MapControls } from './Forms/Actions/MapControl/presets/MapControls'
 export { default as Menu } from './Forms/Actions/Menu'
 export { default as MultiActionButton } from './Forms/Actions/MultiActionButton'
 
@@ -94,8 +96,6 @@ export { showToast } from './Status/Toast/utils'
 
 // -- Presets -- //
 
-export { MapControls } from './presets/MapControls'
 export { IconMarkers } from './presets/IconMarkers'
-export { SSOButtons } from './Forms/Actions/Button/presets/SSOButtons'
 
 // -- Presets -- //

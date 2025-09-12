@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import MapControl from '../Forms/Actions/MapControl'
+import MapControl from '../..'
 import {
   PlusIcon,
   MinusIcon,
@@ -10,7 +10,7 @@ import {
   PrintIcon,
   SettingsIcon,
   QuestionIcon,
-} from '../icons'
+} from '../../../../../icons'
 
 type ZoomProps = {
   onZoomInClick: () => void

@@ -105,6 +105,10 @@ type MapControlProps = {
 
 ## Presets
 
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-actions-map-control-preset-map-controls--docs)
+
+[MapControlsDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MapControl/MapControlDemo.tsx)
+
 ```tsx
 import { MapControls } from '@worldresources/wri-design-systems'
 ```

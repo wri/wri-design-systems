@@ -2,10 +2,10 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import { MapControls } from './MapControls'
+import { MapControls } from '.'
 
 const meta = {
-  title: 'Presets/Map Controls',
+  title: 'Forms/Actions/Map Control/Preset/Map Controls',
   parameters: {
     layout: 'centered',
   },
