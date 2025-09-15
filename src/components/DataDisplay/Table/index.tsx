@@ -4,7 +4,7 @@
 import React, { useState } from 'react'
 import { Table as ChakraTable } from '@chakra-ui/react'
 import { TableProps } from './types'
-import Pagination from '../Pagination'
+import Pagination from '../../Navigation/Pagination'
 import {
   tableContainerStyles,
   tableFooterContainerStyles,

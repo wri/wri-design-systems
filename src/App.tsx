@@ -37,7 +37,6 @@ import QualitativeAttributeDemo from './components/Geospatial/Legends/Qualitativ
 import ScaleBarDemo from './components/Geospatial/Legends/ScaleBar/ScaleBarDemo'
 
 import ItemCountDemo from './components/DataDisplay/ItemCount/ItemCountDemo'
-import PaginationDemo from './components/DataDisplay/Pagination/PaginationDemo'
 import TableDemo from './components/DataDisplay/Table/TableDemo'
 
 import ModalDemo from './components/Containers/Modal/ModalDemo'
@@ -47,6 +46,7 @@ import SheetDemo from './components/Containers/Sheet/SheetDemo'
 import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
 import NavbarDemo from './components/Navigation/Navbar/NavbarDemo'
+import PaginationDemo from './components/Navigation/Pagination/PaginationDemo'
 import StepBarDemo from './components/Navigation/StepBar/StepBarDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
 

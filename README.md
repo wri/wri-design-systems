@@ -155,7 +155,6 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 ## Data Display
 
 - [Item Count](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/ItemCount)
-- [Pagination](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/Pagination)
 - [Table](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/Table)
 
 ## Forms
@@ -218,6 +217,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Footer](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Footer)
 - [Navbar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Navbar)
 - [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
+- [Pagination](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Pagination)
 - [Step Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/StepBar)
 - [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
 

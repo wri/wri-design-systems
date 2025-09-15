@@ -61,7 +61,6 @@ export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 // -- Information Display -- //
 
 export { default as ItemCount } from './DataDisplay/ItemCount'
-export { default as Pagination } from './DataDisplay/Pagination'
 export { default as Table, TableRow, TableCell } from './DataDisplay/Table'
 
 // -- Information Display -- //
@@ -80,6 +79,7 @@ export { default as Breadcrumb } from './Navigation/Breadcrumb'
 export { default as Footer } from './Navigation/Footer'
 export { default as Navbar } from './Navigation/Navbar'
 export { default as NavigationRail } from './Navigation/NavigationRail'
+export { default as Pagination } from './Navigation/Pagination'
 export { default as StepBar } from './Navigation/StepBar'
 export { default as TabBar } from './Navigation/TabBar'
 
