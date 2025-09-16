@@ -22,6 +22,7 @@
 - [MapControls] - from presets to Forms/Actions/MapControl/presets/MapControls
 - [IconMarkers] - from presets to Geospatial/IconMarker/presets/IconMarkers
 - [Pagination] - from DataDiplay to Navigation
+- [TableProps] - [TextareaProps] - [TextInputProps] - not required fields
 
 ## [v2.131.0] - 09-10-2025
 

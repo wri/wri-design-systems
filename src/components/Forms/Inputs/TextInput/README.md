@@ -23,7 +23,7 @@ type TextInputProps = Omit<
   ChakraInputProps,
   'size' | 'variant' | 'colorPalette' | 'defaultChecked'
 > & {
-  label: string
+  label?: string
   caption?: string
   placeholder?: string
   errorMessage?: string
