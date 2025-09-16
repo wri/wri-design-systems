@@ -24,6 +24,7 @@
 - [Pagination] - from DataDiplay to Navigation
 - [TableProps] - [TextareaProps] - [TextInputProps] - not required fields
 - [NavigationRail] - adding NavigationRailTabProps to README
+- [TabBar] - adding TabBarItemProps to README
 
 ## [v2.131.0] - 09-10-2025
 

@@ -26,8 +26,15 @@ import { TabBar } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type TabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
+  label: string
+  value: string
+  icon?: React.ReactNode
+  disabled?: boolean
+}
+
 type TabBarProps = {
-  variant: 'panel' | 'view'
+  variant?: 'panel' | 'view'
   defaultValue?: string
   tabs: TabBarItemProps[]
   onTabClick?: (tabLabel: string) => void
