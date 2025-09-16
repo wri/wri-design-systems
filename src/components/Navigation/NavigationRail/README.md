@@ -34,6 +34,13 @@ import { NavigationRail } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type NavigationRailTabProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
+  label: string
+  value: string
+  icon?: React.ReactNode
+  disabled?: boolean
+}
+
 type NavigationRailProps = {
   tabs: NavigationRailTabProps[]
   defaultValue?: string

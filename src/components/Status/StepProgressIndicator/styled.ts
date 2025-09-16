@@ -18,7 +18,9 @@ export const stepProgressIndicatorItemStyles = css`
   justify-content: space-between;
 `
 
-export const stepProgressIndicatorItemIndicatorStyles = (active: boolean) => css`
+export const stepProgressIndicatorItemIndicatorStyles = (
+  active: boolean,
+) => css`
   height: 32px;
   width: 32px;
   display: flex;

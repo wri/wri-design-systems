@@ -12,7 +12,10 @@ import {
 } from './styled'
 import { StepProgressIndicatorProps } from './types'
 
-const StepProgressIndicator = ({ steps, currentStep }: StepProgressIndicatorProps) => (
+const StepProgressIndicator = ({
+  steps,
+  currentStep,
+}: StepProgressIndicatorProps) => (
   <div css={stepProgressIndicatorContainerStyles}>
     {steps.map((step, idx) => (
       <div
@@ -36,7 +39,9 @@ const StepProgressIndicator = ({ steps, currentStep }: StepProgressIndicatorProp
           )}
         </button>
         {step.label ? (
-          <p css={stepProgressIndicatorItemLabelStyles(currentStep === idx + 1)}>
+          <p
+            css={stepProgressIndicatorItemLabelStyles(currentStep === idx + 1)}
+          >
             {step.label}
           </p>
         ) : null}
