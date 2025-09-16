@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { StepBar, Button } from '../..'
+import { StepProgressIndicator, Button } from '../..'
 
-const StepBarDemo = () => {
+const StepProgressIndicatorDemo = () => {
   const [currentStep, setCurrentStep] = useState(1)
   return (
     <div>
-      <StepBar
+      <StepProgressIndicator
         steps={[
           { label: 'Label', onClick: () => setCurrentStep(1) },
           { label: 'Label', onClick: () => setCurrentStep(2) },
@@ -39,4 +39,4 @@ const StepBarDemo = () => {
   )
 }
 
-export default StepBarDemo
+export default StepProgressIndicatorDemo

@@ -80,7 +80,6 @@ export { default as Footer } from './Navigation/Footer'
 export { default as Navbar } from './Navigation/Navbar'
 export { default as NavigationRail } from './Navigation/NavigationRail'
 export { default as Pagination } from './Navigation/Pagination'
-export { default as StepBar } from './Navigation/StepBar'
 export { default as TabBar } from './Navigation/TabBar'
 
 // -- Navigation -- //
@@ -90,6 +89,7 @@ export { default as TabBar } from './Navigation/TabBar'
 export { default as Badge } from './Status/Badge'
 export { default as InlineMessage } from './Status/InlineMessage'
 export { default as ProgressBar } from './Status/ProgressBar'
+export { default as StepProgressIndicator } from './Status/StepProgressIndicator'
 export { default as Toast } from './Status/Toast'
 export { showToast } from './Status/Toast/utils'
 

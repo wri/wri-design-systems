@@ -2,22 +2,22 @@
 import React, { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import StepBarStory from '.'
+import StepProgressIndicatorStory from '.'
 import Button from '../../Forms/Actions/Button'
 
 const meta = {
-  title: 'Navigation/Step Bar',
-  component: StepBarStory,
+  title: 'Status/Step Progress Indicator',
+  component: StepProgressIndicatorStory,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof StepBarStory>
+} satisfies Meta<typeof StepProgressIndicatorStory>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const StepBar: Story = {
+export const StepProgressIndicator: Story = {
   args: {
     steps: [],
     currentStep: 1,
@@ -26,7 +26,7 @@ export const StepBar: Story = {
     const [currentStep, setCurrentStep] = useState(args.currentStep)
     return (
       <div style={{ width: '540px' }}>
-        <StepBarStory
+        <StepProgressIndicatorStory
           steps={[
             { label: 'Label', onClick: () => setCurrentStep(1) },
             { label: 'Label', onClick: () => setCurrentStep(2) },

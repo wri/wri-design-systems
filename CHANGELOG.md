@@ -2,7 +2,11 @@
 
 ## [v2.133.0] - WIP
 
-## [v2.131.1] - WIP
+## [v2.132.0] - WIP
+
+## Renaming
+
+- [StepProgressIndicator] - renaming StepBar to StepProgressIndicator and moved to Status
 
 ## Updates
 

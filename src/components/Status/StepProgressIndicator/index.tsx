@@ -3,25 +3,25 @@
 
 import { CheckIcon } from '../../icons'
 import {
-  stepBarContainerStyles,
-  stepBarItemIndicatorStyles,
-  stepBarItemLabelStyles,
-  stepBarItemStyles,
-  stepBarLineContainerStyles,
-  stepBarLineStyles,
+  stepProgressIndicatorContainerStyles,
+  stepProgressIndicatorItemIndicatorStyles,
+  stepProgressIndicatorItemLabelStyles,
+  stepProgressIndicatorItemStyles,
+  stepProgressIndicatorLineContainerStyles,
+  stepProgressIndicatorLineStyles,
 } from './styled'
-import { StepBarProps } from './types'
+import { StepProgressIndicatorProps } from './types'
 
-const StepBar = ({ steps, currentStep }: StepBarProps) => (
-  <div css={stepBarContainerStyles}>
+const StepProgressIndicator = ({ steps, currentStep }: StepProgressIndicatorProps) => (
+  <div css={stepProgressIndicatorContainerStyles}>
     {steps.map((step, idx) => (
       <div
         // eslint-disable-next-line react/no-array-index-key
         key={`${step.label}-${idx}`}
-        css={stepBarItemStyles}
+        css={stepProgressIndicatorItemStyles}
       >
         <button
-          css={stepBarItemIndicatorStyles(currentStep >= idx + 1)}
+          css={stepProgressIndicatorItemIndicatorStyles(currentStep >= idx + 1)}
           type='button'
           onClick={step.onClick}
           aria-current={currentStep === idx + 1}
@@ -36,16 +36,16 @@ const StepBar = ({ steps, currentStep }: StepBarProps) => (
           )}
         </button>
         {step.label ? (
-          <p css={stepBarItemLabelStyles(currentStep === idx + 1)}>
+          <p css={stepProgressIndicatorItemLabelStyles(currentStep === idx + 1)}>
             {step.label}
           </p>
         ) : null}
       </div>
     ))}
-    <div css={stepBarLineContainerStyles}>
-      <div css={stepBarLineStyles} />
+    <div css={stepProgressIndicatorLineContainerStyles}>
+      <div css={stepProgressIndicatorLineStyles} />
     </div>
   </div>
 )
 
-export default StepBar
+export default StepProgressIndicator

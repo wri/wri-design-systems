@@ -1,4 +1,4 @@
-export type StepBarProps = {
+export type StepProgressIndicatorProps = {
   steps: {
     label?: string
     onClick?: () => void

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
-export const stepBarContainerStyles = css`
+export const stepProgressIndicatorContainerStyles = css`
   width: 100%;
   display: flex;
   align-items: center;
@@ -9,7 +9,7 @@ export const stepBarContainerStyles = css`
   position: relative;
 `
 
-export const stepBarItemStyles = css`
+export const stepProgressIndicatorItemStyles = css`
   height: 60px;
   width: 80px;
   display: flex;
@@ -18,7 +18,7 @@ export const stepBarItemStyles = css`
   justify-content: space-between;
 `
 
-export const stepBarItemIndicatorStyles = (active: boolean) => css`
+export const stepProgressIndicatorItemIndicatorStyles = (active: boolean) => css`
   height: 32px;
   width: 32px;
   display: flex;
@@ -44,14 +44,14 @@ export const stepBarItemIndicatorStyles = (active: boolean) => css`
     : ''}
 `
 
-export const stepBarItemLabelStyles = (active: boolean) => css`
+export const stepProgressIndicatorItemLabelStyles = (active: boolean) => css`
   color: ${getThemedColor('neutral', active ? 800 : 600)};
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
 `
 
-export const stepBarLineContainerStyles = css`
+export const stepProgressIndicatorLineContainerStyles = css`
   height: 1px;
   width: 100%;
   padding: 0 30px;
@@ -60,7 +60,7 @@ export const stepBarLineContainerStyles = css`
   left: 0;
   z-index: -1;
 `
-export const stepBarLineStyles = css`
+export const stepProgressIndicatorLineStyles = css`
   height: 1px;
   width: 100%;
   background-color: ${getThemedColor('neutral', 400)};

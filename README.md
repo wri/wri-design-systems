@@ -218,7 +218,6 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Navbar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Navbar)
 - [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
 - [Pagination](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Pagination)
-- [Step Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/StepBar)
 - [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
 
 ## Status
@@ -226,6 +225,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Badge](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Badge)
 - [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/InlineMessage)
 - [Progress Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/ProgressBar)
+- [Step Progress Indicator](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/StepProgressIndicator)
 - [Toast](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Toast)
 
 ## Templates

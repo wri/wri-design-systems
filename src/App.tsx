@@ -47,12 +47,12 @@ import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
 import NavbarDemo from './components/Navigation/Navbar/NavbarDemo'
 import PaginationDemo from './components/Navigation/Pagination/PaginationDemo'
-import StepBarDemo from './components/Navigation/StepBar/StepBarDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
 
 import BadgeDemo from './components/Status/Badge/BadgeDemo'
 import InlineMessageDemo from './components/Status/InlineMessage/InlineMessageDemo'
 import ProgressBarDemo from './components/Status/ProgressBar/ProgressBarDemo'
+import StepProgressIndicatorDemo from './components/Status/StepProgressIndicator/StepProgressIndicatorDemo'
 import ToastDemo from './components/Status/Toast/ToastDemo'
 import { Toast } from './components'
 
@@ -126,7 +126,6 @@ const App = () => (
         <SheetDemo />
 
         <BreadcrumbDemo />
-        <StepBarDemo />
         <TabBarDemo />
 
         <MenuDemo />
@@ -135,6 +134,7 @@ const App = () => (
         <BadgeDemo />
         <InlineMessageDemo />
         <ProgressBarDemo />
+        <StepProgressIndicatorDemo />
         <ToastDemo />
       </div>
       <LayerSidebarDemo />
