@@ -2,11 +2,11 @@
 import React, { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import NavigationRail from '../../../Navigation/NavigationRail'
-import LayerPanelDemo from '../LayerPanel/LayerPanelDemo'
+import NavigationRail from '..'
+import LayerPanelDemo from '../../../Geospatial/Layers/LayerPanel/LayerPanelDemo'
 
 const meta = {
-  title: 'Geospatial/Layers/Layer Sidebar',
+  title: 'Navigation/Navigation Rail/Layer Sidebar',
   component: NavigationRail,
   parameters: {
     layout: 'fullscreen',

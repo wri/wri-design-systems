@@ -201,7 +201,6 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Layer Group](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerGroup)
 - [Layer Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerItem)
 - [Layer Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerPanel)
-- [Layer Sidebar](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerSidebar)
 
 ### Legends
 

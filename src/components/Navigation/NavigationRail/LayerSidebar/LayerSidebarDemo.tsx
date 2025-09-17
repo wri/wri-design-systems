@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { CheckIcon } from '../../../icons'
 import { NavigationRail } from '../../..'
-import LayerPanelDemo from '../LayerPanel/LayerPanelDemo'
+import LayerPanelDemo from '../../../Geospatial/Layers/LayerPanel/LayerPanelDemo'
 
 const defaultTabValue = 'label-1'
 

@@ -25,6 +25,7 @@
 - [TableProps] - [TextareaProps] - [TextInputProps] - not required fields
 - [NavigationRail] - adding NavigationRailTabProps to README
 - [TabBar] - adding TabBarItemProps to README
+- [LayerSidebar] - from Geospatial/layers to Navigation/NavigationRail
 
 ## [v2.131.0] - 09-10-2025
 
