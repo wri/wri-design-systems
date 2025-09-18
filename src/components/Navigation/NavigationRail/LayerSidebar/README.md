@@ -1,6 +1,6 @@
 # Layer Sidebar
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/navigation-navigation-rail-layer-sidebar--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/navigation-navigation-rail-templates-layer-sidebar--docs)
 
 [LayerSidebarDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Navigation/NavigationRail/LayerSidebar/LayerSidebarDemo.tsx)
 

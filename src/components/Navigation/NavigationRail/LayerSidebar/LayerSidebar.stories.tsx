@@ -6,7 +6,7 @@ import NavigationRail from '..'
 import LayerPanelDemo from '../../../Geospatial/Layers/LayerPanel/LayerPanelDemo'
 
 const meta = {
-  title: 'Navigation/Navigation Rail/Layer Sidebar',
+  title: 'Navigation/Navigation Rail/Templates/Layer Sidebar',
   component: NavigationRail,
   parameters: {
     layout: 'fullscreen',
