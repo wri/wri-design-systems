@@ -1,6 +1,6 @@
 # NavigationRail
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/navigation-navigation-rail--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/navigation-navigation-rail-navigation-rail--docs)
 
 [NavigationRailDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Navigation/NavigationRail/NavigationRailDemo.tsx)
 
