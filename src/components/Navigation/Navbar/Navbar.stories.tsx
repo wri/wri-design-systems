@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import NavbarStory from '.'
 import { WriLogoIcon } from '../../icons'
 import Badge from '../../Status/Badge'
@@ -41,9 +41,11 @@ type Story = StoryObj<typeof meta>
 export const Navbar: Story = {
   args: {
     linkRouter: Link,
+    pathname: '/',
   },
   render: function Render() {
     const [language, setLanguage] = useState('')
+    const location = useLocation()
 
     const languages = [
       {
@@ -64,6 +66,7 @@ export const Navbar: Story = {
           </Link>
         }
         linkRouter={Link}
+        pathname={location.pathname}
         navigationSection={[
           {
             label: 'About',

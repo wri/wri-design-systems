@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { Badge, Menu, Navbar } from '../..'
 import { WriLogoIcon } from '../../icons'
@@ -16,6 +16,7 @@ const languages = [
 
 const NavbarDemo = () => {
   const [language, setLanguage] = useState('')
+  const location = useLocation()
 
   return (
     <Navbar
@@ -25,6 +26,7 @@ const NavbarDemo = () => {
         </Link>
       }
       linkRouter={Link}
+      pathname={location.pathname}
       navigationSection={[
         {
           label: 'About',

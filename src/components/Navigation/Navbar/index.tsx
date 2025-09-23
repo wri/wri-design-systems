@@ -3,7 +3,6 @@
 /** @jsxImportSource @emotion/react */
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import {
   navbarStyles,
   navbarContainerStyles,
@@ -32,6 +31,7 @@ const NAVBAR_MAX_HEIGHT = 96
 const Navbar = ({
   logo,
   linkRouter,
+  pathname,
   navigationSection,
   utilitySection,
   actionsSection,
@@ -39,7 +39,6 @@ const Navbar = ({
   fixed,
   onNavbarHeightChange,
 }: NavbarProps) => {
-  const location = useLocation()
   const leftRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLDivElement>(null)
@@ -127,7 +126,7 @@ const Navbar = ({
                     key={item.label}
                     to={item.link}
                     href={item.link}
-                    css={navbarLeftLinkStyles(location.pathname === item.link)}
+                    css={navbarLeftLinkStyles(pathname === item.link)}
                   >
                     {item.label}
                   </Link>
@@ -189,7 +188,7 @@ const Navbar = ({
                   key={item.label}
                   to={item.link}
                   href={item.link}
-                  css={navbarLeftLinkStyles(location.pathname === item.link)}
+                  css={navbarLeftLinkStyles(pathname === item.link)}
                 >
                   {item.label}
                 </Link>
@@ -215,6 +214,7 @@ const Navbar = ({
           linkRouter={linkRouter}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
+          pathname={pathname}
         />
       ) : null}
     </nav>

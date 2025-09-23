@@ -1,14 +1,12 @@
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
-import { useLocation, useNavigate } from 'react-router-dom'
-import { Key, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useRef, useState } from 'react'
 import {
   navbarMobileStyles,
   navbarMobileContainerStyles,
   navbarMobileUtilityContainerStyles,
-  navbarRightItemStyles,
-  navbarStyles,
   navbarMobileNavigationContainerStyles,
   navbarMobileActionsContainerStyles,
   navbarMobileNavigationLinkItemStyles,
@@ -17,7 +15,6 @@ import {
   navbarMenuActionStyles,
   navbarMobileSubmenuHeaderStyles,
   navbarMobileNavigationLinksContainerStyles,
-  navbarMobileNavigationLinkItemContainerStyles,
 } from './styles'
 import { NavbarNavigationItemsProps, NavbarProps } from './types'
 import { ChevronDownIcon, CloseIcon } from '../../icons'
@@ -30,6 +27,7 @@ const NavbarMobile = ({
   linkRouter,
   isOpen,
   setIsOpen,
+  pathname,
 }: NavbarProps & {
   isOpen?: boolean
   setIsOpen: (isOpen: boolean) => void
@@ -38,7 +36,6 @@ const NavbarMobile = ({
     NavbarNavigationItemsProps | undefined
   >(undefined)
   const [menuIndex, setMenuIndex] = useState(-1)
-  const location = useLocation()
   const navigate = useNavigate()
   const backButtonRef = useRef<HTMLButtonElement>(null)
   const menuButtonRefs = useRef<(HTMLButtonElement | null)[]>([])
@@ -75,7 +72,7 @@ const NavbarMobile = ({
                           type='button'
                           key={item.label}
                           css={navbarMobileNavigationLinkItemStyles(
-                            location.pathname === item.link,
+                            pathname === item.link,
                           )}
                           onClick={() => {
                             navigate(item.link || '')

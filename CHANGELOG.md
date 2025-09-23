@@ -1,6 +1,12 @@
 # Changelog
 
-## [v2.133.0] - WIP
+## [v2.134.0] - WIP
+
+## [v2.133.0] - 09-23-2025
+
+## New Features
+
+- [Navbar] - pathname is now required from router
 
 ## [v2.132.0] - 09-17-2025
 

@@ -20,6 +20,7 @@ import { Navbar } from '@worldresources/wri-design-systems'
     </Link>
   }
   linkRouter={Link}
+  pathname={pathname}
   navigationSection={[
     {
       label: 'About',
@@ -118,6 +119,7 @@ type NavbarNavigationItemsProps = {
 type NavbarProps = {
   logo?: React.ReactNode
   linkRouter: any // Link from react router or next.js
+  pathname: string // Pathname from react router or next.js
   navigationSection?: NavbarNavigationItemsProps[]
   utilitySection?: React.ReactNode[]
   actionsSection?: {
