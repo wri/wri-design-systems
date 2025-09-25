@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
-import { useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
 import {
   navbarMobileStyles,
@@ -36,7 +35,6 @@ const NavbarMobile = ({
     NavbarNavigationItemsProps | undefined
   >(undefined)
   const [menuIndex, setMenuIndex] = useState(-1)
-  const navigate = useNavigate()
   const backButtonRef = useRef<HTMLButtonElement>(null)
   const menuButtonRefs = useRef<(HTMLButtonElement | null)[]>([])
 
@@ -68,21 +66,21 @@ const NavbarMobile = ({
                   {navigationSection.map((item, idx) => {
                     if (item.link) {
                       return (
-                        <button
-                          type='button'
+                        <Link
                           key={item.label}
-                          css={navbarMobileNavigationLinkItemStyles(
-                            pathname === item.link,
-                          )}
+                          to={item.link}
+                          href={item.link}
                           onClick={() => {
-                            navigate(item.link || '')
                             setSubmenu(undefined)
                             setMenuIndex(-1)
                             setIsOpen(false)
                           }}
+                          css={navbarMobileNavigationLinkItemStyles(
+                            pathname === item.link,
+                          )}
                         >
                           {item.label}
-                        </button>
+                        </Link>
                       )
                     }
 
@@ -174,19 +172,19 @@ const NavbarMobile = ({
             </div>
             <div css={navbarMobileNavigationLinksContainerStyles}>
               {submenu?.items?.map((item) => (
-                <button
-                  type='button'
+                <Link
                   key={item.label}
+                  to={item.link}
+                  href={item.link}
                   css={navbarMobileNavigationLinkItemStyles()}
                   onClick={() => {
-                    navigate(item.link || '')
                     setSubmenu(undefined)
                     setMenuIndex(-1)
                     setIsOpen(false)
                   }}
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
             </div>
           </>

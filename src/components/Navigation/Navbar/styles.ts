@@ -209,7 +209,6 @@ export const navbarMobileUtilityContainerStyles = css`
 `
 
 export const navbarMobileNavigationContainerStyles = css`
-  padding-top: 16px;
   background-color: ${getThemedColor('neutral', 100)};
 `
 
@@ -222,6 +221,7 @@ export const navbarMobileNavigationLinksContainerStyles = css`
 export const navbarMobileNavigationLinkItemContainerStyles = css``
 
 export const navbarMobileNavigationLinkItemStyles = (active?: boolean) => css`
+  display: inline-block;
   width: 100%;
   padding: 12px 16px;
   color: ${getThemedColor('neutral', 900)};

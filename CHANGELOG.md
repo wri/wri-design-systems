@@ -2,6 +2,10 @@
 
 ## [v2.134.0] - WIP
 
+## [v2.133.1] - WIP
+
+- [Navbar] - removing useNavigate to work with Link prop
+
 ## [v2.133.0] - 09-23-2025
 
 ## New Features
