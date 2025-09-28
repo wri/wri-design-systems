@@ -45,7 +45,7 @@ const Navbar = ({
   const [divsCollided, setDivsCollided] = useState(false)
   const [divsCollidedAt, setDivsCollidedAt] = useState(-1)
   const [isMobile, setIsMobile] = useState(
-    window?.innerWidth <= MIN_INNER_WIDTH,
+    typeof window !== 'undefined' && window?.innerWidth <= MIN_INNER_WIDTH,
   )
   const [isOpen, setIsOpen] = useState(false)
 

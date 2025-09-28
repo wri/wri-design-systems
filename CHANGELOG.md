@@ -2,6 +2,18 @@
 
 ## [v2.134.0] - WIP
 
+## [v2.133.3] - 09-75-2025
+
+## Fixes
+
+- [InlineMessage] - min-width: 320px
+
+## [v2.133.2] - 09-25-2025
+
+## Fixes
+
+- [Navbar] - validating window
+
 ## [v2.133.1] - 09-25-2025
 
 ## Updates

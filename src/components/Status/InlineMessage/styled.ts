@@ -6,7 +6,7 @@ export const defaultInlineMessageStyles = (
   isButtonRight?: boolean,
 ) => css`
   width: 100%;
-  min-width: ${size === 'small' ? '234px' : '366px'};
+  min-width: ${size === 'small' ? '234px' : '320px'};
   border-radius: 4px;
   padding: ${size === 'small' ? '8px 8px 12px 8px' : '8px 12px 12px 12px'};
   display: flex;
