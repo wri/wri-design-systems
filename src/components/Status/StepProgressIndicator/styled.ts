@@ -20,6 +20,7 @@ export const stepProgressIndicatorItemStyles = css`
 
 export const stepProgressIndicatorItemIndicatorStyles = (
   active: boolean,
+  disabled: boolean,
 ) => css`
   height: 32px;
   width: 32px;
@@ -36,13 +37,43 @@ export const stepProgressIndicatorItemIndicatorStyles = (
 
   ${active
     ? `
-  background-color: ${getThemedColor('primary', 100)};
-  color: ${getThemedColor('primary', 800)};
-  border: 1px solid ${getThemedColor('primary', 400)};
-  box-shadow: 0px 1px 2px -1px #0000001A;
-  box-shadow: 0px 1px 3px 0px #0000001A;
-  cursor: pointer;
+    background-color: ${getThemedColor('primary', 100)};
+    color: ${getThemedColor('primary', 800)};
+    border: 1px solid ${getThemedColor('primary', 400)};
+    box-shadow: 0px 1px 2px -1px #0000001A;
+    box-shadow: 0px 1px 3px 0px #0000001A;
+    cursor: pointer;
   `
+    : ''}
+
+  &:hover {
+    background-color: ${getThemedColor('primary', 200)};
+    box-shadow: 0px 2px 4px -2px #0000001a;
+    box-shadow: 0px 4px 6px -1px #0000001a;
+  }
+
+  &:active {
+    background-color: ${getThemedColor('primary', 300)};
+    box-shadow: 0px 2px 4px -2px #0000001a;
+    box-shadow: 0px 4px 6px -1px #0000001a;
+  }
+
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+    outline-offset: 3px;
+    box-shadow: 0px 2px 4px -2px #0000001a;
+    box-shadow: 0px 4px 6px -1px #0000001a;
+  }
+
+  ${disabled
+    ? `
+    background-color: ${getThemedColor('neutral', 300)};
+  
+    &:hover {
+      background-color: ${getThemedColor('neutral', 300)};
+      box-shadow: none;
+    }
+    `
     : ''}
 `
 

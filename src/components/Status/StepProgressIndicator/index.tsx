@@ -24,13 +24,17 @@ const StepProgressIndicator = ({
         css={stepProgressIndicatorItemStyles}
       >
         <button
-          css={stepProgressIndicatorItemIndicatorStyles(currentStep >= idx + 1)}
+          css={stepProgressIndicatorItemIndicatorStyles(
+            currentStep >= idx + 1,
+            currentStep < idx + 1,
+          )}
           type='button'
           onClick={step.onClick}
           aria-current={currentStep === idx + 1}
           aria-disabled={currentStep < idx + 1}
           disabled={currentStep < idx + 1}
           aria-label={`Current Step ${idx}${step.label ? ` ${step.label}` : ''}`}
+          data-active={currentStep >= idx + 1}
         >
           {currentStep > idx + 1 ? (
             <CheckIcon height='16px' width='16px' />

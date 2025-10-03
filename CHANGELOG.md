@@ -2,7 +2,13 @@
 
 ## [v2.134.0] - WIP
 
-## [v2.133.3] - 09-75-2025
+## [v2.133.4] - 03-10-2025
+
+## Updates
+
+- [StepProgressIndicator] - UI updates
+
+## [v2.133.3] - 09-27-2025
 
 ## Fixes
 
