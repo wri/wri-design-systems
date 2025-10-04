@@ -2,6 +2,9 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
 export const rootSwitchStyles = css`
+  --switch-height: 24px;
+  --switch-width: 40px;
+
   .chakra-switch__control-container {
     width: 42px;
     height: 26px;
@@ -21,8 +24,6 @@ export const rootSwitchStyles = css`
   }
 
   .chakra-switch__control {
-    height: 24px;
-    width: 40px;
     display: flex;
     align-items: center;
     background-color: ${getThemedColor('neutral', 600)};
@@ -47,6 +48,10 @@ export const rootSwitchStyles = css`
   }
 
   .chakra-switch__thumb {
+    height: 20px;
+    width: 20px;
+    translate: calc((var(--switch-width) - var(--switch-height)) / 8) 0;
+
     svg {
       width: 12px;
 
@@ -60,6 +65,15 @@ export const rootSwitchStyles = css`
     &[data-hover] {
       outline: 9px solid
         color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
+    }
+
+    &:is(
+        :checked,
+        [data-checked],
+        [aria-checked='true'],
+        [data-state='checked']
+      ) {
+      translate: calc(var(--switch-width) + 2px - var(--switch-height)) 0;
     }
 
     &[data-active] {
