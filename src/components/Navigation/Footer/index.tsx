@@ -12,7 +12,7 @@ import { WriLogoBlackAndWhiteIcon } from '../../icons'
 
 const Footer = ({
   children,
-  label = '©️World Resources Institute',
+  label = '\u00A9 World Resources Institute',
   fixed,
   filled,
   maxWidth,
