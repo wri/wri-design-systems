@@ -42,6 +42,7 @@ export { default as Tag } from './Forms/Tag'
 
 // -- Geospatial -- //
 
+export { default as BaseMap } from './Geospatial/BaseMap'
 export { default as IconMarker } from './Geospatial/IconMarker'
 export { IconMarkers } from './Geospatial/IconMarker/presets/IconMarkers'
 

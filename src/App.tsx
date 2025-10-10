@@ -23,6 +23,7 @@ import TextInputDemo from './components/Forms/Inputs/TextInput/TextInputDemo'
 
 import TagDemo from './components/Forms/Tag/TagDemo'
 
+import BaseMapDemo from './components/Geospatial/BaseMap/BaseMapDemo'
 import IconMarkerDemo from './components/Geospatial/IconMarker/IconMarkerDemo'
 
 import { LayerGroupDemo } from './components/Geospatial/Layers/LayerGroup/LayerGroupDemo'
@@ -93,6 +94,7 @@ const App = () => (
 
         <TagDemo />
 
+        <BaseMapDemo />
         <IconMarkerDemo />
 
         <div

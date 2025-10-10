@@ -194,6 +194,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 
 ## Geospatial
 
+- [Base Map](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/BaseMap)
 - [Icon Marker](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/IconMarker)
 
 ### Layers

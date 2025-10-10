@@ -1,6 +1,12 @@
 # Changelog
 
-## [v2.134.0] - WIP
+## [v2.135.0] - WIP
+
+## [v2.134.0] - 10-10-2025
+
+## New Components
+
+- [Base Map](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/BaseMap)
 
 ## [v2.133.5] - 04-10-2025
 
