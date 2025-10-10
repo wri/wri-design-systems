@@ -73,6 +73,7 @@ export const selectTriggerStyles = (
     border: 1px solid ${getTriggerBorderColor(isFilled, hasErrorMessage)};
     box-shadow: 0px 1px 2px 0px #0000000d;
     cursor: pointer;
+    background-color: ${getThemedColor('neutral', 100)};
 
     .chakra-select__valueText {
       font-size: ${size === 'small' ? '14px' : '16px'};
