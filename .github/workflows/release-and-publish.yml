@@ -57,7 +57,8 @@ jobs:
           git config user.email "bot@wri.dev"
 
       - name: Bump version & create tag
-        run: npm version ${{ steps.bump.outputs.bump }} -m "chore(release): %s"
+        run: |
+          npm version ${{ steps.bump.outputs.bump }} -m 'chore(release): %s'
 
       - name: Read new version
         id: ver
