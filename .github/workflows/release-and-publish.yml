@@ -60,12 +60,12 @@ jobs:
 
       - name: Git config (bot user)
         run: |
-          git config user.name  "wri-bot"
-          git config user.email "bot@wri.dev"
+          git config user.name  "ds-wri-bot"
+          git config user.email "ds-bot@wri.org"
 
       - name: Bump version & create tag
         run: |
-          npm version ${{ steps.bump.outputs.bump }} -m 'chore(release): %s'
+          npm version ${{ steps.bump.outputs.bump }} -m 'release: %s'
 
       - name: Read new version
         id: ver
