@@ -42,3 +42,20 @@ export const listItemIconStyles = css`
     fill: ${getThemedColor('neutral', 700)};
   }
 `
+export const listItemContainerStyles = css`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: white;
+  border-bottom: 1px solid ${getThemedColor('neutral', 200)};
+  cursor: default;
+
+  &:hover {
+    background-color: ${getThemedColor('neutral', 200)};
+  }
+
+  &:active {
+    background-color: ${getThemedColor('neutral', 300)};
+  }
+`

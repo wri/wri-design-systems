@@ -28,7 +28,7 @@ export const Default: Story = {
       {
         id: 0,
         label: 'Label',
-        data: 'Data' ,
+        data: 'Data',
         variant: 'data',
         icon: <UserIcon />,
       },

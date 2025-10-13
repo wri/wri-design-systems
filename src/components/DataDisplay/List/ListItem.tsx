@@ -10,6 +10,7 @@ import {
   listItemNavigationButtonStyles,
   listItemIconStyles,
   listItemCaptionStyles,
+  listItemContainerStyles,
 } from './styled'
 import { ListItemProps } from './types'
 
@@ -35,17 +36,8 @@ const ListItem = ({
 
   return (
     <Flex
-      align='center'
-      justify='space-between'
-      px={4}
-      py={3}
-      bg='white'
-
-      borderBottom='1px solid'
-      borderColor='gray.200'
+      css={listItemContainerStyles}
       cursor={isClickable ? 'pointer' : 'default'}
-      _hover={isClickable ? { bg: '#f9f9f9' } : undefined}
-      _active={isClickable ? { bg: '#f1f1f1' } : undefined}
       onClick={isClickable ? onItemClick : undefined}
       tabIndex={isClickable ? 0 : undefined}
       onKeyDown={handleKeyDown}
@@ -53,7 +45,7 @@ const ListItem = ({
       aria-expanded={isClickable ? isExpanded : undefined}
       aria-controls={isClickable && id ? `item-content-${id}` : undefined}
     >
-      <Flex gap={3} flex='1' overflow="hidden">
+      <Flex gap={3} flex='1' overflow='hidden'>
         {icon && (
           <Icon
             css={listItemIconStyles}
@@ -61,7 +53,7 @@ const ListItem = ({
             boxSize={4}
           />
         )}
-        <Box flex="1" minWidth={0}>
+        <Box flex='1' minWidth={0}>
           <Text
             fontWeight={variant === 'navigation' ? '700' : '400'}
             css={listItemLabelStyles}
@@ -69,11 +61,7 @@ const ListItem = ({
             {label}
           </Text>
 
-          {caption && (
-            <Text css={listItemCaptionStyles}>
-              {caption}
-            </Text>
-          )}
+          {caption && <Text css={listItemCaptionStyles}>{caption}</Text>}
         </Box>
       </Flex>
 
