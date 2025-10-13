@@ -30,8 +30,6 @@ jobs:
       - name: Install deps
         run: yarn install --frozen-lockfile
 
-
-
       - name: Run lint-fix
         run: yarn lint-fix
 
@@ -47,5 +45,3 @@ jobs:
           else
             echo "OK: 'lint-fix' produced no changes."
           fi
-
-
