@@ -8,24 +8,18 @@ import {
   modalContainerStyles,
   modalContentStyles,
   modalHeaderStyles,
-  modalTitleStyles,
 } from './styled'
-import Button from '../../Forms/Actions/Button'
 import CloseButton from '../../Forms/Actions/CloseButton'
 
 const Modal = ({
-  title,
+  header,
   content,
+  footer,
   size = 'medium',
   draggable,
   blocking,
   open,
   onClose,
-  showCancelButton,
-  cancelLabel = 'Cancel',
-  showActionButton,
-  actionLabel,
-  onActionClick,
 }: ModalProps) => {
   if (!open) return null
 
@@ -46,7 +40,7 @@ const Modal = ({
           <Dialog.Positioner>
             <Dialog.Content css={modalContainerStyles(size)}>
               <Dialog.Header css={modalHeaderStyles}>
-                <Dialog.Title css={modalTitleStyles}>{title}</Dialog.Title>
+                {header}
                 {!blocking ? (
                   <Dialog.CloseTrigger css={modalCloseButtonStyles} asChild>
                     <CloseButton />
@@ -54,17 +48,8 @@ const Modal = ({
                 ) : null}
               </Dialog.Header>
               <Dialog.Body css={modalContentStyles}>{content}</Dialog.Body>
-              {showCancelButton || showActionButton ? (
-                <Dialog.Footer>
-                  {showCancelButton ? (
-                    <Dialog.ActionTrigger asChild>
-                      <Button label={cancelLabel} variant='secondary' />
-                    </Dialog.ActionTrigger>
-                  ) : null}
-                  {showActionButton ? (
-                    <Button label={actionLabel} onClick={onActionClick} />
-                  ) : null}
-                </Dialog.Footer>
+              {footer ? (
+                <Dialog.Footer padding='12px'>{footer}</Dialog.Footer>
               ) : null}
             </Dialog.Content>
           </Dialog.Positioner>

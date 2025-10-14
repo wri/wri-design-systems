@@ -1,14 +1,10 @@
 export type ModalProps = {
-  title: string
+  header: React.ReactNode
   content: React.ReactNode
+  footer?: React.ReactNode
   size?: 'small' | 'medium' | 'large' | 'xlarge'
   draggable?: boolean
   blocking?: boolean
   open: boolean
   onClose?: () => void
-  showCancelButton?: boolean
-  cancelLabel?: string
-  showActionButton?: boolean
-  actionLabel?: string
-  onActionClick?: VoidFunction
 }

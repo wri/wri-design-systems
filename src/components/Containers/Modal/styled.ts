@@ -16,19 +16,13 @@ export const modalContainerStyles = (size: ModalProps['size']) => css`
 `
 
 export const modalHeaderStyles = css`
-  height: 40px;
+  height: 100%;
+  min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
-`
-
-export const modalTitleStyles = css`
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 700;
-  color: ${getThemedColor('neutral', 800)};
 `
 
 export const modalCloseButtonStyles = css`

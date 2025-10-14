@@ -1,18 +1,14 @@
 import { useState } from 'react'
-import { Button, Modal } from '../..'
+import { Button, getThemedColor, Modal } from '../..'
 
 const ModalDemo = () => {
   const [modalData, setModalData] = useState<{
-    title?: string
+    header?: React.ReactNode
     content?: React.ReactNode
+    footer?: React.ReactNode
     size?: 'small' | 'medium' | 'large' | 'xlarge'
     draggable?: boolean
     blocking?: boolean
-    showCancelButton?: boolean
-    cancelLabel?: string
-    showActionButton?: boolean
-    actionLabel?: string
-    onActionClick?: VoidFunction
   }>({})
 
   const handleModalOpen = (
@@ -22,17 +18,35 @@ const ModalDemo = () => {
     blocking = false,
   ) => {
     setModalData({
-      title: 'Title',
-      content: <p>{size}</p>,
+      header: (
+        <p
+          style={{
+            fontWeight: 'bold',
+            color: getThemedColor('neutral', 800),
+          }}
+        >
+          Title
+        </p>
+      ),
+      content: <p>Modal size: {size}</p>,
+      footer: showActions ? (
+        <>
+          <Button
+            label='Cancel'
+            variant='secondary'
+            onClick={() => {
+              setModalData({})
+            }}
+          />
+          <Button
+            label='Save'
+            onClick={() => {
+              setModalData({})
+            }}
+          />
+        </>
+      ) : null,
       size,
-      showCancelButton: showActions,
-      cancelLabel: 'Cancel',
-      showActionButton: showActions,
-      actionLabel: 'Save',
-      onActionClick: () => {
-        console.log('Save and Close')
-        setModalData({})
-      },
       draggable,
       blocking,
     })
@@ -66,16 +80,12 @@ const ModalDemo = () => {
       </div>
 
       <Modal
-        title={modalData?.title || ''}
+        header={modalData?.header}
         content={modalData?.content}
+        footer={modalData?.footer}
         size={modalData?.size}
         open={!!modalData?.content}
         onClose={() => setModalData({})}
-        showCancelButton={modalData?.showCancelButton}
-        cancelLabel={modalData?.cancelLabel}
-        showActionButton={modalData?.showActionButton}
-        actionLabel={modalData?.actionLabel}
-        onActionClick={modalData?.onActionClick}
         draggable={modalData?.draggable}
         blocking={modalData?.blocking}
       />
