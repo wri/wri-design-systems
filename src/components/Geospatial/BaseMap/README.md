@@ -156,6 +156,7 @@ type BaseMapProps = {
   options: BaseMapOptionProps[]
   onOptionSelected?: (option: BaseMapOptionProps) => void
   maxHeight?: string
+  maxWidth?: string
 }
 ```
 
