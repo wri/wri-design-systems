@@ -1,0 +1,86 @@
+/** @jsxImportSource @emotion/react */
+
+import React from 'react'
+import { Box, DataListItemValue, Flex, Icon, Text } from '@chakra-ui/react'
+import { ChevronRightIcon } from '../../icons'
+import IconButton from '../../Forms/Actions/IconButton'
+import {
+  listItemLabelStyles,
+  listItemValueStyles,
+  listItemNavigationButtonStyles,
+  listItemIconStyles,
+  listItemCaptionStyles,
+  listItemContainerStyles,
+} from './styled'
+import { ListItemProps } from './types'
+
+const ListItem = ({
+  label,
+  caption,
+  icon,
+  value,
+  variant = 'data',
+  onItemClick,
+  isExpanded = false,
+  id,
+}: ListItemProps) => {
+  const isClickable = variant === 'navigation' && !!onItemClick
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (!isClickable) return
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      onItemClick?.()
+    }
+  }
+
+  return (
+    <Flex
+      css={listItemContainerStyles}
+      cursor={isClickable ? 'pointer' : 'default'}
+      onClick={isClickable ? onItemClick : undefined}
+      tabIndex={isClickable ? 0 : undefined}
+      onKeyDown={handleKeyDown}
+      role={isClickable ? 'button' : undefined}
+      aria-expanded={isClickable ? isExpanded : undefined}
+      aria-controls={isClickable && id ? `item-content-${id}` : undefined}
+    >
+      <Flex gap={3} flex='1' overflow='hidden'>
+        {icon && (
+          <Icon
+            css={listItemIconStyles}
+            as={icon.type as React.ElementType}
+            boxSize={4}
+          />
+        )}
+        <Box flex='1' minWidth={0}>
+          <Text
+            fontWeight={variant === 'navigation' ? '700' : '400'}
+            css={listItemLabelStyles}
+          >
+            {label}
+          </Text>
+
+          {caption && <Text css={listItemCaptionStyles}>{caption}</Text>}
+        </Box>
+      </Flex>
+
+      {variant === 'data' && value && (
+        <Text css={listItemValueStyles}>{value}</Text>
+      )}
+
+      {variant === 'navigation' && isClickable && (
+        <IconButton
+          css={listItemNavigationButtonStyles}
+          icon={<ChevronRightIcon />}
+          onClick={onItemClick}
+          aria-label={`Expand ${label}`}
+          aria-expanded={isExpanded}
+          aria-controls={id ? `item-content-${id}` : undefined}
+        />
+      )}
+    </Flex>
+  )
+}
+
+export default ListItem

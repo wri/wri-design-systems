@@ -63,6 +63,7 @@ export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 
 export { default as ItemCount } from './DataDisplay/ItemCount'
 export { default as Table, TableRow, TableCell } from './DataDisplay/Table'
+export { default as List } from './DataDisplay/List'
 
 // -- Information Display -- //
 
