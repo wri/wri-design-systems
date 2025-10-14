@@ -14,18 +14,14 @@ import { Modal } from '@worldresources/wri-design-systems'
 
 ```ts
 type ModalProps = {
-  title: string
+  header: React.ReactNode
   content: React.ReactNode
+  footer?: React.ReactNode
   size?: 'small' | 'medium' | 'large' | 'xlarge'
   draggable?: boolean
   blocking?: boolean
   open: boolean
   onClose?: () => void
-  showCancelButton?: boolean
-  cancelLabel?: string
-  showActionButton?: boolean
-  actionLabel?: string
-  onActionClick?: VoidFunction
 }
 ```
 
@@ -35,7 +31,16 @@ type ModalProps = {
 
 ```tsx
 <Modal
-  title='Title'
+  header={
+    <p
+      style={{
+        fontWeight: 'bold',
+        color: getThemedColor('neutral', 800),
+      }}
+    >
+      Title
+    </p>
+  }
   content={<p>Content</p>}
   open={showModal}
   onClose={() => setShowModal(false)}
@@ -46,8 +51,26 @@ type ModalProps = {
 
 ```tsx
 <Modal
-  title='Title'
-  content={<p>Content</p>}
+  header={
+    <p
+      style={{
+        fontWeight: 'bold',
+        color: getThemedColor('neutral', 800),
+      }}
+    >
+      Title
+    </p>
+  }
+  header={
+    <p
+      style={{
+        fontWeight: 'bold',
+        color: getThemedColor('neutral', 800),
+      }}
+    >
+      Title
+    </p>
+  }
   size='small'
   open={showModal}
   onClose={() => setShowModal(false)}
@@ -58,7 +81,16 @@ type ModalProps = {
 
 ```tsx
 <Modal
-  title='Title'
+  header={
+    <p
+      style={{
+        fontWeight: 'bold',
+        color: getThemedColor('neutral', 800),
+      }}
+    >
+      Title
+    </p>
+  }
   content={<p>Content</p>}
   size='large'
   open={showModal}
@@ -70,7 +102,16 @@ type ModalProps = {
 
 ```tsx
 <Modal
-  title='Title'
+  header={
+    <p
+      style={{
+        fontWeight: 'bold',
+        color: getThemedColor('neutral', 800),
+      }}
+    >
+      Title
+    </p>
+  }
   content={<p>Content</p>}
   size='xlarge'
   open={showModal}
@@ -82,15 +123,36 @@ type ModalProps = {
 
 ```tsx
 <Modal
-  title='Title'
+  header={
+    <p
+      style={{
+        fontWeight: 'bold',
+        color: getThemedColor('neutral', 800),
+      }}
+    >
+      Title
+    </p>
+  }
   content={<p>Content</p>}
+  footer={
+    <>
+      <Button
+        label='Cancel'
+        variant='secondary'
+        onClick={() => {
+          setModalData({})
+        }}
+      />
+      <Button
+        label='Save'
+        onClick={() => {
+          setModalData({})
+        }}
+      />
+    </>
+  }
   open={showModal}
   onClose={() => setShowModal(false)}
-  showCancelButton
-  cancelLabel='Cancel'
-  showActionButton
-  actionLabel='Save'
-  onActionClick={() => setShowModal(false)}
 />
 ```
 
@@ -98,7 +160,16 @@ type ModalProps = {
 
 ```tsx
 <Modal
-  title='Title'
+  header={
+    <p
+      style={{
+        fontWeight: 'bold',
+        color: getThemedColor('neutral', 800),
+      }}
+    >
+      Title
+    </p>
+  }
   content={<p>Content</p>}
   open={showModal}
   onClose={() => setShowModal(false)}
@@ -110,7 +181,16 @@ type ModalProps = {
 
 ```tsx
 <Modal
-  title='Title'
+  header={
+    <p
+      style={{
+        fontWeight: 'bold',
+        color: getThemedColor('neutral', 800),
+      }}
+    >
+      Title
+    </p>
+  }
   content={<p>Content</p>}
   open={showModal}
   onClose={() => setShowModal(false)}

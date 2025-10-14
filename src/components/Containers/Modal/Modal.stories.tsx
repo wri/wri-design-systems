@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import ModalStory from '.'
 import Button from '../../Forms/Actions/Button'
+import { getThemedColor } from '../../../lib/theme'
 
 const meta = {
   title: 'Containers/Modal',
@@ -13,7 +14,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  args: { onActionClick: fn() },
 } satisfies Meta<typeof ModalStory>
 
 export default meta
@@ -21,7 +21,16 @@ type Story = StoryObj<typeof meta>
 
 export const Modal: Story = {
   args: {
-    title: 'Title',
+    header: (
+      <p
+        style={{
+          fontWeight: 'bold',
+          color: getThemedColor('neutral', 800),
+        }}
+      >
+        Title
+      </p>
+    ),
     content: <p>Content</p>,
     open: false,
   },
@@ -43,7 +52,16 @@ export const Modal: Story = {
 
 export const Small: Story = {
   args: {
-    title: 'Title',
+    header: (
+      <p
+        style={{
+          fontWeight: 'bold',
+          color: getThemedColor('neutral', 800),
+        }}
+      >
+        Title
+      </p>
+    ),
     content: <p>Content</p>,
     size: 'small',
     open: false,
@@ -66,7 +84,16 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: {
-    title: 'Title',
+    header: (
+      <p
+        style={{
+          fontWeight: 'bold',
+          color: getThemedColor('neutral', 800),
+        }}
+      >
+        Title
+      </p>
+    ),
     content: <p>Content</p>,
     size: 'large',
     open: false,
@@ -89,7 +116,16 @@ export const Large: Story = {
 
 export const ExtraLarge: Story = {
   args: {
-    title: 'Title',
+    header: (
+      <p
+        style={{
+          fontWeight: 'bold',
+          color: getThemedColor('neutral', 800),
+        }}
+      >
+        Title
+      </p>
+    ),
     content: <p>Content</p>,
     size: 'xlarge',
     open: false,
@@ -112,7 +148,16 @@ export const ExtraLarge: Story = {
 
 export const WithActions: Story = {
   args: {
-    title: 'Title',
+    header: (
+      <p
+        style={{
+          fontWeight: 'bold',
+          color: getThemedColor('neutral', 800),
+        }}
+      >
+        Title
+      </p>
+    ),
     content: <p>Content</p>,
     open: false,
   },
@@ -124,13 +169,25 @@ export const WithActions: Story = {
         <Button label='Show Modal' onClick={() => setShowModal(true)} />
         <ModalStory
           {...args}
+          footer={
+            <>
+              <Button
+                label='Cancel'
+                variant='secondary'
+                onClick={() => {
+                  setShowModal(false)
+                }}
+              />
+              <Button
+                label='Save'
+                onClick={() => {
+                  setShowModal(false)
+                }}
+              />
+            </>
+          }
           open={showModal}
           onClose={() => setShowModal(false)}
-          showCancelButton
-          cancelLabel='Cancel'
-          showActionButton
-          actionLabel='Save'
-          onActionClick={() => setShowModal(false)}
         />
       </>
     )
@@ -139,7 +196,16 @@ export const WithActions: Story = {
 
 export const Draggable: Story = {
   args: {
-    title: 'Title',
+    header: (
+      <p
+        style={{
+          fontWeight: 'bold',
+          color: getThemedColor('neutral', 800),
+        }}
+      >
+        Title
+      </p>
+    ),
     content: <p>Content</p>,
     open: false,
   },
@@ -162,7 +228,16 @@ export const Draggable: Story = {
 
 export const Blocking: Story = {
   args: {
-    title: 'Title',
+    header: (
+      <p
+        style={{
+          fontWeight: 'bold',
+          color: getThemedColor('neutral', 800),
+        }}
+      >
+        Title
+      </p>
+    ),
     content: <p>Content</p>,
     open: false,
   },
@@ -174,13 +249,25 @@ export const Blocking: Story = {
         <Button label='Show Modal' onClick={() => setShowModal(true)} />
         <ModalStory
           {...args}
+          footer={
+            <>
+              <Button
+                label='Cancel'
+                variant='secondary'
+                onClick={() => {
+                  setShowModal(false)
+                }}
+              />
+              <Button
+                label='Save'
+                onClick={() => {
+                  setShowModal(false)
+                }}
+              />
+            </>
+          }
           open={showModal}
           onClose={() => setShowModal(false)}
-          showCancelButton
-          cancelLabel='Cancel'
-          showActionButton
-          actionLabel='Save'
-          onActionClick={() => setShowModal(false)}
           blocking
         />
       </>
