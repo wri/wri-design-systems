@@ -289,6 +289,7 @@ export const BaseMapWithinSheet: Story = {
                   ]}
                   onOptionSelected={(option) => setSelectedOption(option)}
                   maxHeight='100%'
+                  maxWidth='100%'
                 />
               }
               defaultSnap='mid'
