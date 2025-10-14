@@ -155,8 +155,8 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 ## Data Display
 
 - [Item Count](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/ItemCount)
-- [Table](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/Table)
 - [List](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/List)
+- [Table](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/Table)
 
 ## Forms
 

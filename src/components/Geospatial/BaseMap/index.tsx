@@ -24,8 +24,9 @@ const BaseMap = ({
   options,
   onOptionSelected,
   maxHeight = '400px',
+  maxWidth = '260px',
 }: BaseMapProps) => (
-  <div css={baseMapContainerStyles(maxHeight)}>
+  <div css={baseMapContainerStyles(maxHeight, maxWidth)}>
     <div className='base-map-scroll-content'>
       <div css={baseMapHeaderContainerStyles}>
         <p className='base-map-header-title'>{title}</p>

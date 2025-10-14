@@ -313,6 +313,7 @@ const BaseMapDemo = () => {
                 ]}
                 onOptionSelected={(option) => setSelectedOption(option)}
                 maxHeight='100%'
+                maxWidth='100%'
               />
             }
             defaultSnap='mid'

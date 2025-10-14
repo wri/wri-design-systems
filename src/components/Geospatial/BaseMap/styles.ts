@@ -1,9 +1,12 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
-export const baseMapContainerStyles = (maxHeight?: string) => css`
+export const baseMapContainerStyles = (
+  maxHeight?: string,
+  maxWidth?: string,
+) => css`
   height: ${maxHeight};
-  width: 260px;
+  width: ${maxWidth};
   border: 1px solid ${getThemedColor('neutral', 300)};
   border-bottom: none;
   border-radius: 4px;
