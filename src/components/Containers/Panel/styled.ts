@@ -40,7 +40,6 @@ export const panelContentContainerStyles = (
 ) => css`
   height: ${getContentHeight(headerHeight, footerHeight)};
   width: 100%;
-  overflow-y: scroll;
 `
 
 export const panelFooterContainerStyles = css`
