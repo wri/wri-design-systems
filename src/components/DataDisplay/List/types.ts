@@ -9,20 +9,11 @@ export interface ListItemProps {
   value?: string
   variant?: ListItemVariant
   isExpanded?: boolean
-  id?: string | number
+  id?: string
   onItemClick?: () => void
+  ariaLabel?: string
 }
 
 export interface ListProps {
-  items: ListEntry[]
-}
-
-export interface ListEntry {
-  id?: string | number
-  label: string
-  data?: string
-  caption?: string
-  icon?: ReactElement
-  variant?: 'data' | 'navigation'
-  onClick?: () => void
+  items: ListItemProps[]
 }
