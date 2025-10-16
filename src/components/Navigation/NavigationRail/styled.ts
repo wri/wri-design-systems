@@ -2,16 +2,10 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 import { NavigationRailProps } from './types'
 
-export const navigationRailContainerStyles = (
-  navbarHeight?: NavigationRailProps['navbarHeight'],
-  footerHeight?: NavigationRailProps['footerHeight'],
-) => css`
+export const navigationRailContainerStyles = css`
   width: 64px;
-  height: calc(100vh - ${navbarHeight || '0px'} - ${footerHeight || '0px'});
+  height: 100%;
   z-index: 100;
-  position: fixed;
-  top: ${navbarHeight || '0px'};
-  left: 0;
   border-right: 1px solid ${getThemedColor('neutral', 300)};
   background-color: ${getThemedColor('neutral', 200)};
   display: flex;
@@ -166,16 +160,10 @@ export const navigationRailTriggerStyles = css`
   }
 `
 
-export const navigationRailChildrenContainerStyles = (
-  navbarHeight?: NavigationRailProps['navbarHeight'],
-  footerHeight?: NavigationRailProps['footerHeight'],
-) => css`
+export const navigationRailChildrenContainerStyles = css`
   width: 320px;
-  height: calc(100vh - ${navbarHeight || '0px'} - ${footerHeight || '0px'});
+  height: 100%;
   z-index: 100;
-  position: fixed;
-  top: ${navbarHeight || '0px'};
-  left: 64px;
   box-shadow: 2px 0px 2px 0px #0000000d;
   background-color: ${getThemedColor('neutral', 100)};
   overflow-y: auto;

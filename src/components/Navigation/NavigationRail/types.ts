@@ -16,6 +16,4 @@ export type NavigationRailProps = {
   onTabClick?: (selectedValue: string) => void
   children?: React.ReactNode
   onOpenChange?: (open: boolean) => void
-  navbarHeight?: string
-  footerHeight?: string
 }

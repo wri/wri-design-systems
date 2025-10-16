@@ -9,7 +9,7 @@ export const navbarStyles = (
   height: ${isFullHeight ? '96px' : '48px'};
   width: 100%;
   background-color: ${getThemedColor('neutral', 100)};
-  position: ${fixed ? 'fixed' : 'absolute'};
+  position: ${fixed ? 'sticky' : 'absolute'};
   top: 0;
   left: 0;
   z-index: 102;

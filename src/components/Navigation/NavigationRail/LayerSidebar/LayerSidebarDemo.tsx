@@ -24,8 +24,6 @@ const LayerSidebarDemo = () => {
 
   return (
     <NavigationRail
-      navbarHeight='48px'
-      footerHeight='56px'
       defaultValue={defaultTabValue}
       onTabClick={handleOnTabClick}
       onOpenChange={handleOnOpenChange}
