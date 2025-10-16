@@ -3,13 +3,13 @@ import React, { ReactElement } from 'react'
 export type ListItemVariant = 'data' | 'navigation'
 
 export interface ListItemProps {
+  id?: string
   label: string
   caption?: string
   icon?: ReactElement
   value?: string
   variant?: ListItemVariant
   isExpanded?: boolean
-  id?: string | number
   onItemClick?: () => void
   ariaLabel?: string
 }
