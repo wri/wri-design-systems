@@ -14,21 +14,22 @@ import { List } from '@worldresources/wri-design-systems'
 
 ```tsx
 const items = [
-  {
-    id: '0',
-    label: 'Item 1',
-    caption: 'This is the first item',
-    icon: SomeIcon,
-    data: 'Value 1',
-    variant: 'data',
-  },
-  {
-    id: '1',
-    label: 'Expandable Item',
-    variant: 'navigation',
-    onClick: () => console.log('Item clicked'),
-  },
-]
+      {
+        id: 'data-1',
+        label: 'Status',
+        value: 'Active',
+        variant: 'data' as const,
+        icon: <MapIcon />,
+      },
+      {
+        id: 'nav-1',
+        label: 'Settings',
+        caption: 'Configure options',
+        variant: 'navigation' as const,
+        icon: <SettingsIcon />,
+        onItemClick: () => alert('Settings clicked'),
+      },
+    ]
 
 <List items={items} />
 
@@ -37,18 +38,21 @@ const items = [
 ## Props
 
 ```ts
-type ListProps = {
-  items: ListItemProps[]
-}
+export type ListItemVariant = 'data' | 'navigation'
 
-type ListItemProps = {
-  id?: string
+export interface ListItemProps {
   label: string
   caption?: string
-  icon?: React.ElementType
-  value?: string | number
-  variant?: 'data' | 'navigation'
-  onItemClick?: () => void
+  icon?: ReactElement
+  value?: string
+  variant?: ListItemVariant
   isExpanded?: boolean
+  id?: string | number
+  onItemClick?: () => void
+  ariaLabel?: string
+}
+
+export interface ListProps {
+  items: ListItemProps[]
 }
 ```
