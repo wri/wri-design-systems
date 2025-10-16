@@ -61,87 +61,91 @@ import { Toast } from './components'
 const App = () => (
   <div className='App'>
     <NavbarDemo />
-    <div className='app-container'>
-      <h1 style={{ marginBottom: '20px' }}>Welcome to WRI OS</h1>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'flex-start',
-          flexWrap: 'wrap',
-          gap: 25,
-        }}
-      >
-        <ButtonDemo />
-        <CloseButtonDemo />
-        <IconButtonDemo />
-        <MapControlDemo />
-        <MultiActionButtonDemo />
 
-        <CheckboxDemo />
-        <CheckboxOptionCardDemo />
-        <OptionCardDemo />
-        <RadioDemo />
-        <SliderDemo />
-        <SwitchDemo />
+    <div style={{ display: 'flex' }}>
+      <LayerSidebarDemo />
 
-        <CheckboxListDemo />
-        <InputWithUnitsDemo />
-        <PasswordDemo />
-        <RadioListDemo />
-        <SelectDemo />
-        <SliderInputDemo />
-        <TextareaDemo />
-        <TextInputDemo />
-
-        <TagDemo />
-
-        <BaseMapDemo />
-        <IconMarkerDemo />
-
+      <div className='app-container'>
+        <h1 style={{ marginBottom: '20px' }}>Welcome to WRI OS</h1>
         <div
           style={{
-            width: '320px',
             display: 'flex',
-            flexDirection: 'column',
-            gap: '50px',
+            alignItems: 'flex-start',
+            flexWrap: 'wrap',
+            gap: 25,
           }}
         >
-          <LayerGroupDemo />
-          <LayerItemDemo />
-          <div style={{ height: '600px' }}>
-            <LayerPanelDemo />
+          <ButtonDemo />
+          <CloseButtonDemo />
+          <IconButtonDemo />
+          <MapControlDemo />
+          <MultiActionButtonDemo />
+
+          <CheckboxDemo />
+          <CheckboxOptionCardDemo />
+          <OptionCardDemo />
+          <RadioDemo />
+          <SliderDemo />
+          <SwitchDemo />
+
+          <CheckboxListDemo />
+          <InputWithUnitsDemo />
+          <PasswordDemo />
+          <RadioListDemo />
+          <SelectDemo />
+          <SliderInputDemo />
+          <TextareaDemo />
+          <TextInputDemo />
+
+          <TagDemo />
+
+          <BaseMapDemo />
+          <IconMarkerDemo />
+
+          <div
+            style={{
+              width: '320px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '50px',
+            }}
+          >
+            <LayerGroupDemo />
+            <LayerItemDemo />
+            <div style={{ height: '600px' }}>
+              <LayerPanelDemo />
+            </div>
           </div>
+
+          <LayerParametersDemo />
+          <div style={{ width: '320px' }}>
+            <LegendItemDemo />
+          </div>
+          <LegendPanelDemo />
+          <QualitativeAttributeDemo />
+          <ScaleBarDemo />
+
+          <ItemCountDemo />
+          <PaginationDemo />
+          <TableDemo />
+          <ListDemo />
+
+          <PanelDemo />
+          <SheetDemo />
+
+          <BreadcrumbDemo />
+          <TabBarDemo />
+
+          <MenuDemo />
+          <ModalDemo />
+
+          <BadgeDemo />
+          <InlineMessageDemo />
+          <ProgressBarDemo />
+          <StepProgressIndicatorDemo />
+          <ToastDemo />
         </div>
-
-        <LayerParametersDemo />
-        <div style={{ width: '320px' }}>
-          <LegendItemDemo />
-        </div>
-        <LegendPanelDemo />
-        <QualitativeAttributeDemo />
-        <ScaleBarDemo />
-
-        <ItemCountDemo />
-        <PaginationDemo />
-        <TableDemo />
-        <ListDemo />
-
-        <PanelDemo />
-        <SheetDemo />
-
-        <BreadcrumbDemo />
-        <TabBarDemo />
-
-        <MenuDemo />
-        <ModalDemo />
-
-        <BadgeDemo />
-        <InlineMessageDemo />
-        <ProgressBarDemo />
-        <StepProgressIndicatorDemo />
-        <ToastDemo />
       </div>
-      <LayerSidebarDemo />
     </div>
     <FooterDemo />
     <Toast />

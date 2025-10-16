@@ -20,8 +20,6 @@ const NavigationRail = ({
   onTabClick,
   children,
   onOpenChange,
-  navbarHeight,
-  footerHeight,
 }: NavigationRailProps) => {
   const [hideSidebar, setHideSidebar] = useState(false)
   const [seletedTab, setSeletedTab] = useState(defaultValue || tabs?.[0]?.value)
@@ -42,8 +40,16 @@ const NavigationRail = ({
   }
 
   return (
-    <>
-      <div css={navigationRailContainerStyles(navbarHeight, footerHeight)}>
+    <div
+      style={{
+        height: 'calc(100vh - 48px - 56px)',
+        position: 'fixed',
+        top: '48px',
+        left: 0,
+        display: 'flex',
+      }}
+    >
+      <div css={navigationRailContainerStyles}>
         <Tabs.Root
           defaultValue={defaultValue || tabs?.[0]?.value}
           orientation='horizontal'
@@ -98,12 +104,9 @@ const NavigationRail = ({
       </div>
       {children ? (
         <Collapsible.Root defaultOpen open={!hideSidebar}>
-          <Collapsible.Content>
+          <Collapsible.Content height='100%'>
             <div
-              css={navigationRailChildrenContainerStyles(
-                navbarHeight,
-                footerHeight,
-              )}
+              css={navigationRailChildrenContainerStyles}
               role='tabpanel'
               aria-labelledby={seletedTab}
             >
@@ -112,7 +115,7 @@ const NavigationRail = ({
           </Collapsible.Content>
         </Collapsible.Root>
       ) : null}
-    </>
+    </div>
   )
 }
 

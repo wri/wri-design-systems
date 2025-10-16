@@ -47,8 +47,6 @@ type NavigationRailProps = {
   onTabClick?: (selectedValue: string) => void
   children?: React.ReactNode
   onOpenChange?: (open: boolean) => void
-  navbarHeight?: string
-  footerHeight?: string
 }
 ```
 
@@ -128,8 +126,6 @@ type NavigationRailProps = {
 
 ```tsx
 <NavigationRail
-  navbarHeight='48px'
-  footerHeight='56px'
   tabs={[
     {
       label: 'Label 1',

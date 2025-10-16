@@ -8,7 +8,7 @@ export const footerStyles = (
 ) => css`
   min-height: 56px;
   width: 100vw;
-  position: ${fixed ? 'fixed' : 'absolute'};
+  position: ${fixed ? 'sticky' : 'absolute'};
   bottom: 0;
   left: 0;
   background-color: ${filled ? getThemedColor('neutral', 200) : 'transparent'};
