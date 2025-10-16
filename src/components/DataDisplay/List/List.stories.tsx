@@ -57,19 +57,19 @@ export const LabelWithData: Story = {
       {
         id: 'data-1',
         label: 'Layer 1',
-        data: 'Value 1',
+        value: 'Value 1',
         variant: 'data',
       },
       {
         id: 'data-2',
         label: 'Layer 2',
-        data: 'Value 2',
+        value: 'Value 2',
         variant: 'data',
       },
       {
         id: 'data-3',
         label: 'Layer 3',
-        data: 'Value 3',
+        value: 'Value 3',
         variant: 'data',
       },
     ],
@@ -82,21 +82,21 @@ export const DataWithIcons: Story = {
       {
         id: 'data-1',
         label: 'Attribute 1',
-        data: 'Info',
+        value: 'Info',
         variant: 'data',
         icon: <MapIcon />,
       },
       {
         id: 'data-2',
         label: 'Attribute 2',
-        data: 'Warning',
+        value: 'Warning',
         variant: 'data',
         icon: <SettingsIcon />,
       },
       {
         id: 'data-3',
         label: 'Attribute 3',
-        data: 'Data',
+        value: 'Data',
         variant: 'data',
         icon: <UserIcon />,
       },
@@ -194,7 +194,7 @@ export const MixedItems: Story = {
       {
         id: 'data-1',
         label: 'Status',
-        data: 'Active',
+        value: 'Active',
         variant: 'data',
         icon: <MapIcon />,
       },
@@ -209,7 +209,7 @@ export const MixedItems: Story = {
       {
         id: 'data-2',
         label: 'Version',
-        data: '2.0',
+        value: '2.0',
         variant: 'data',
       },
       {

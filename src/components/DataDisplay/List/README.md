@@ -14,21 +14,29 @@ import { List } from '@worldresources/wri-design-systems'
 
 ```tsx
 const items = [
-  {
-    id: '0',
-    label: 'Item 1',
-    caption: 'This is the first item',
-    icon: SomeIcon,
-    data: 'Value 1',
-    variant: 'data',
-  },
-  {
-    id: '1',
-    label: 'Expandable Item',
-    variant: 'navigation',
-    onClick: () => console.log('Item clicked'),
-  },
-]
+    {
+      id: 0,
+      label: 'Username',
+      value: 'John Doe',
+      variant: 'data' as const,
+      icon: <UserIcon />,
+    },
+    {
+      id: 1,
+      label: 'Connection Status',
+      value: 'Active',
+      variant: 'data' as const,
+      icon: <InfoIcon />,
+    },
+    {
+      id: 2,
+      label: 'Account Settings',
+      caption: 'Manage your profile and security',
+      icon: <UserIcon />,
+      variant: 'navigation' as const,
+      onItemClick: () => alert('Navigating to Settings'),
+    },
+  ]
 
 <List items={items} />
 
@@ -37,18 +45,19 @@ const items = [
 ## Props
 
 ```ts
-type ListProps = {
-  items: ListItemProps[]
-}
-
-type ListItemProps = {
-  id?: string
+export interface ListItemProps {
   label: string
   caption?: string
-  icon?: React.ElementType
-  value?: string | number
-  variant?: 'data' | 'navigation'
-  onItemClick?: () => void
+  icon?: ReactElement
+  value?: string
+  variant?: ListItemVariant
   isExpanded?: boolean
+  id?: string | number
+  onItemClick?: () => void
+  ariaLabel?: string
+}
+
+export interface ListProps {
+  items: ListItemProps[]
 }
 ```

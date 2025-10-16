@@ -23,7 +23,7 @@ const ListDemo = () => {
       caption: 'Manage your profile and security',
       icon: <UserIcon />,
       variant: 'navigation' as const,
-      onClick: () => alert('Navigating to Settings'),
+      onItemClick: () => alert('Navigating to Settings'),
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const ListDemo = () => {
       caption: 'Go back to the main dashboard of your application',
       icon: <InfoIcon />,
       variant: 'navigation' as const,
-      onClick: () => alert('Navigating to Home'),
+      onItemClick: () => alert('Navigating to Home'),
     },
     {
       id: 4,

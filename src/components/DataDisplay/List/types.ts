@@ -9,7 +9,7 @@ export interface ListItemProps {
   value?: string
   variant?: ListItemVariant
   isExpanded?: boolean
-  id?: string
+  id?: string | number
   onItemClick?: () => void
   ariaLabel?: string
 }
