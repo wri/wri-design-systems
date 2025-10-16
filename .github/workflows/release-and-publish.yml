@@ -5,10 +5,20 @@ on:
     branches: [main]
     types: [closed]
 
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
 jobs:
   release:
     name: Bump, Tag, Publish & Release
-    if: github.event.pull_request.merged == true
+    if: >
+      github.event.pull_request.merged == true &&
+      (
+        contains(join(github.event.pull_request.labels.*.name, ','), 'patch') ||
+        contains(join(github.event.pull_request.labels.*.name, ','), 'minor') ||
+        contains(join(github.event.pull_request.labels.*.name, ','), 'major')
+      )
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -88,3 +98,16 @@ jobs:
           tag_name: v${{ steps.ver.outputs.version }}
           name: v${{ steps.ver.outputs.version }}
           generate_release_notes: true
+
+  no_bump_notice:
+    name: Skip release (no-bump)
+    if: >
+      github.event.pull_request.merged == true &&
+      contains(join(github.event.pull_request.labels.*.name, ','), 'no-bump')
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: '🚨 Release skipped: PR labeled **no-bump**. No version bump, tag, or publish.'
