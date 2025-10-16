@@ -1,43 +1,34 @@
 import List from '.'
-import { UserIcon, InfoIcon } from '../../icons'
+import { MapIcon, SettingsIcon } from '../../icons'
 
 const ListDemo = () => {
   const items = [
     {
-      id: 0,
-      label: 'Username',
-      value: 'John Doe',
-      variant: 'data' as const,
-      icon: <UserIcon />,
-    },
-    {
-      id: 1,
-      label: 'Connection Status',
+      id: 'data-1',
+      label: 'Status',
       value: 'Active',
       variant: 'data' as const,
-      icon: <InfoIcon />,
+      icon: <MapIcon />,
     },
     {
-      id: 2,
-      label: 'Account Settings',
-      caption: 'Manage your profile and security',
-      icon: <UserIcon />,
+      id: 'nav-1',
+      label: 'Settings',
+      caption: 'Configure options',
       variant: 'navigation' as const,
-      onClick: () => alert('Navigating to Settings'),
+      icon: <SettingsIcon />,
+      onItemClick: () => alert('Settings clicked'),
     },
     {
-      id: 3,
-      label: 'Home Page',
-      caption: 'Go back to the main dashboard of your application',
-      icon: <InfoIcon />,
-      variant: 'navigation' as const,
-      onClick: () => alert('Navigating to Home'),
-    },
-    {
-      id: 4,
-      label: 'Current Balance',
-      value: '$1,500.00',
+      id: 'data-2',
+      label: 'Version',
+      value: '2.0',
       variant: 'data' as const,
+    },
+    {
+      id: 'nav-2',
+      label: 'Profile',
+      variant: 'navigation' as const,
+      onItemClick: () => alert('Profile clicked'),
     },
   ]
 
