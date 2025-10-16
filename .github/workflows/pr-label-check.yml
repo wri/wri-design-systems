@@ -1,18 +1,52 @@
-name: 'PR Label Checker'
+name: PR Label Guard
+
 on:
   pull_request:
-    branches:
-      - main
-    types: [opened, labeled, unlabeled, synchronize]
+    branches: [main]
+    types: [opened, labeled, unlabeled, synchronize, reopened, edited]
+
+permissions:
+  pull-requests: write
+  contents: read
+
 jobs:
-  check_labels:
-    name: 'Check Version Bump Labels'
+  validate:
+    name: Validate versioning label
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+
     steps:
-      - uses: mheap/github-action-required-labels@v5
+      - name: Check label count
+        id: check
+        uses: actions/github-script@v7
         with:
-          mode: exactly
-          count: 1
-          labels: 'major, minor, patch'
+          script: |
+            const allowed = new Set(['major','minor','patch','no-bump']);
+            const labels = (context.payload.pull_request.labels || []).map(l => l.name.toLowerCase());
+            const count = labels.filter(l => allowed.has(l)).length;
+
+            let valid = (count === 1);
+            let reason = '';
+            if (count === 0) reason = 'missing';
+            else if (count > 1) reason = 'multiple';
+
+            core.setOutput('valid', String(valid));
+            core.setOutput('reason', reason);
+            core.setOutput('count', String(count));
+
+      - name: Comment when invalid
+        if: steps.check.outputs.valid != 'true'
+        uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            ❌ Versioning label check failed.
+
+            Please apply **exactly one** of: `major`, `minor`, `patch`, `no-bump`.
+
+            Reason: **${{ steps.check.outputs.reason || 'invalid' }}**
+            Current count (of allowed labels): **${{ steps.check.outputs.count }}**
+
+      - name: Fail when invalid
+        if: steps.check.outputs.valid != 'true'
+        run: |
+          echo "Label validation failed: ${{ steps.check.outputs.reason }}"
+          exit 1
