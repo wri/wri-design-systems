@@ -6,6 +6,10 @@ export const layerItemContainerStyles = css`
   width: 100%;
   padding: 16px 0;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 `
 export const switchContainerStyles = css`
   display: flex;

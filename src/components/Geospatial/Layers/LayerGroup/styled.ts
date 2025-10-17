@@ -5,6 +5,12 @@ export const layerGroupContainerStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
 `
 
+export const layerGroupBoxStyles = css`
+  padding: 16px 16px 0px 16px;
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+  }
+`
 export const layerGroupTitleStyles = css`
   font-size: 16px;
   font-weight: 700;
