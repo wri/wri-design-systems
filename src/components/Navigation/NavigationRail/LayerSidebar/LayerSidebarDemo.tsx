@@ -13,11 +13,11 @@ const LayerSidebarDemo = () => {
   }
 
   const handleOnOpenChange = (open: boolean) => {
-    const $container = document.querySelector('.app-container')
+    const $container = document.querySelector('.ds-app-container')
     if ($container) {
       $container?.setAttribute(
         'class',
-        !open ? 'app-container sidebar-closed' : 'app-container',
+        !open ? 'ds-app-container ds-sidebar-closed' : 'ds-app-container',
       )
     }
   }

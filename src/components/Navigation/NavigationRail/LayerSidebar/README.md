@@ -16,13 +16,13 @@ import { NavigationRail } from '@worldresources/wri-design-systems'
 
 ```css
 /* Suggested css */
-.app-container {
+.ds-app-container {
   margin-left: 364px;
   transition: margin-left 0.1s;
   padding: 20px;
 }
 
-.app-container.sidebar-closed {
+.ds-app-container.ds-sidebar-closed {
   margin-left: 64px;
   transition: margin-left 0.1s;
 }
@@ -45,11 +45,11 @@ const handleOnTabClick = (selectedValue: string) => {
 
 // Suggested css update
 const handleOnOpenChange = (open: boolean) => {
-  const $container = document.querySelector('.app-container')
+  const $container = document.querySelector('.ds-app-container')
   if ($container) {
     $container?.setAttribute(
       'class',
-      open ? 'app-container' : 'app-container sidebar-closed',
+      open ? 'ds-app-container' : 'ds-app-container ds-sidebar-closed',
     )
   }
 }

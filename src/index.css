@@ -12,16 +12,14 @@ code {
     monospace;
 }
 
-/* FOR LOCAL DEVELOPMENT */
-/* .app-container {
+.ds-app-container {
   margin-left: 384px;
   transition: margin-left 0.1s;
   padding: 20px;
   margin-bottom: 60px;
 }
 
-.app-container.sidebar-closed {
+.ds-app-container.ds-sidebar-closed {
   margin-left: 64px;
   transition: margin-left 0.1s;
-} */
-/* FOR LOCAL DEVELOPMENT */
+}
