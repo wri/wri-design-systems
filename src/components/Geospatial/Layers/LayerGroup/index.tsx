@@ -5,7 +5,11 @@ import { useEffect, useState } from 'react'
 
 import { Accordion, Box } from '@chakra-ui/react'
 import { LayerGroupProps } from './types'
-import { layerGroupCaptionStyles, layerGroupTitleStyles } from './styled'
+import {
+  layerGroupCaptionStyles,
+  layerGroupTitleStyles,
+  layerGroupBoxStyles,
+} from './styled'
 import LayerItem from '../LayerItem'
 import RadioGroup from '../../../Forms/Controls/Radio/RadioGroup'
 import { LayerItemProps } from '../LayerItem/types'
@@ -69,9 +73,17 @@ const LayerGroup = ({
     (item) => item === true,
   ).length
 
+  const ariaLabel = `${label}, ${getActiveCount} Active layers on the map${
+    caption ? `, ${caption}` : ''
+  }`
+
   return (
     <Accordion.Item value={value} width='100%'>
-      <Accordion.ItemTrigger padding='16px' alignItems='flex-start'>
+      <Accordion.ItemTrigger
+        css={layerGroupBoxStyles}
+        alignItems='flex-start'
+        aria-label={ariaLabel}
+      >
         <Box
           width='full'
           display='flex'
