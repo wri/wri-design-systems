@@ -34,6 +34,8 @@ const ListItem = ({
   }
 
   const Container = isClickable ? chakra.button : chakra.div
+  const computedAriaLabel =
+    ariaLabel || (variant === 'data' && value ? `${label}, ${value}` : label)
 
   return (
     <Container
@@ -44,7 +46,7 @@ const ListItem = ({
       onKeyDown={handleKeyDown}
       role={isClickable ? 'button' : undefined}
       aria-expanded={isClickable ? isExpanded : undefined}
-      aria-label={ariaLabel || (isClickable ? label : undefined)}
+      aria-label={computedAriaLabel}
     >
       <Flex gap={3} flex='1' overflow='hidden'>
         {icon && (

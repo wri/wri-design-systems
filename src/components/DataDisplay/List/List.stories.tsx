@@ -5,7 +5,7 @@ import { UserIcon, MapIcon, SettingsIcon } from '../../icons'
 import List from '.'
 
 const meta = {
-  title: 'Data Display/List',
+  title: 'Data Display/Lists/List',
   component: List,
   parameters: {
     layout: 'centered',
