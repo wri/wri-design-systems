@@ -154,26 +154,20 @@ const BaseMapDemo = () => {
           />
         </div>
 
-        <button
-          style={{
-            height: '40px',
-            width: '260px',
-            border: `1px solid ${getThemedColor('neutral', 300)}`,
-            borderRadius: '4px',
-            borderTopLeftRadius: isOpenBaseMap ? '0px' : '4px',
-            borderTopRightRadius: isOpenBaseMap ? '0px' : '4px',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '8px',
-            padding: '0px 8px',
-            backgroundColor: 'white',
-          }}
+        <Button
+          style={{ width: '260px' }}
+          variant='secondary'
+          leftIcon={<MapIcon />}
+          label={`Base map: ${selectedOption?.label}`}
+          rightIcon={
+            isOpenBaseMap ? (
+              <ChevronDownIcon rotate='180' />
+            ) : (
+              <ChevronDownIcon />
+            )
+          }
           onClick={() => setIsOpenBaseMap(!isOpenBaseMap)}
-          type='button'
         >
-          <MapIcon />
           <p
             style={{
               width: '200px',
@@ -184,13 +178,10 @@ const BaseMapDemo = () => {
               textAlign: 'left',
               color: getThemedColor('neutral', 800),
             }}
-          >{`Base map: ${selectedOption?.label}`}</p>
-          {isOpenBaseMap ? (
-            <ChevronDownIcon rotate='180' />
-          ) : (
-            <ChevronDownIcon />
-          )}
-        </button>
+          >
+            {`Base map: ${selectedOption?.label}`}
+          </p>
+        </Button>
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

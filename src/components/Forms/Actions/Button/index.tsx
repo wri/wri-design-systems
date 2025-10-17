@@ -18,6 +18,7 @@ const Button = ({
   disabled,
   leftIcon,
   rightIcon,
+  children,
   ...rest
 }: ButtonProps) => {
   let variantButtonStyles = primaryButtonStyles
@@ -55,7 +56,7 @@ const Button = ({
       {!rightIcon && loading ? (
         <Spinner size='sm' marginRight={label ? 2 : 0} />
       ) : null}
-      {label}
+      {children || label}
       {rightIcon && !loading ? (
         <Box marginLeft={label ? 2 : 0} display='flex' alignItems='center'>
           {rightIcon}

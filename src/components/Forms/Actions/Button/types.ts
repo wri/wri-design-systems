@@ -12,4 +12,5 @@ export type ButtonProps = Omit<
   disabled?: boolean
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
+  children?: React.ReactNode // use instead of label
 }
