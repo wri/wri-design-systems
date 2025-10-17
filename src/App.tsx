@@ -65,7 +65,7 @@ const App = () => (
     <div style={{ display: 'flex' }}>
       <LayerSidebarDemo />
 
-      <div className='app-container'>
+      <div className='ds-app-container'>
         <h1 style={{ marginBottom: '20px' }}>Welcome to WRI OS</h1>
         <div
           style={{
