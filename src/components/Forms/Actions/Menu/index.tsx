@@ -28,6 +28,8 @@ const MenuItem = ({
       css={menuItemContainerStyles}
       value={item.value || item.label || ''}
       disabled={item.disabled}
+      role='menuitem'
+      aria-label={item.label}
     >
       {item.children ? (
         item.children
@@ -43,7 +45,9 @@ const MenuItem = ({
             <div css={menuItemLabelContentStyles}>
               <p className='menu-item-label'>{item.label}</p>
               {item.command ? (
-                <ChakraMenu.ItemCommand>{item.command}</ChakraMenu.ItemCommand>
+                <ChakraMenu.ItemCommand aria-label={`Shortcut ${item.command}`}>
+                  {item.command}
+                </ChakraMenu.ItemCommand>
               ) : null}
             </div>
             {item.caption ? (
@@ -84,16 +88,28 @@ const Menu = ({ label, items, groups, onSelect, customTrigger }: MenuProps) => {
       </ChakraMenu.Trigger>
       <Portal>
         <ChakraMenu.Positioner>
-          <ChakraMenu.Content css={menuContentStyles}>
+          <ChakraMenu.Content
+            css={menuContentStyles}
+            role='menu'
+            aria-label={label || 'Menu'}
+          >
             {items?.map((item, idx) => {
               if (item.submenu) {
+                const [submenuOpen, setSubmenuOpen] = useState(false)
                 return (
                   <ChakraMenu.Root
                     key={`${item.value}-${idx}`}
                     positioning={{ placement: 'right-start', gutter: 2 }}
                     onSelect={({ value }) => onSelect && onSelect(value)}
+                    onOpenChange={({ open }) => setSubmenuOpen(open)}
+                    open={submenuOpen}
                   >
-                    <ChakraMenu.TriggerItem css={menuSubmenuTriggerStyles}>
+                    <ChakraMenu.TriggerItem
+                      css={menuSubmenuTriggerStyles}
+                      role='menuitem'
+                      aria-haspopup='true'
+                      aria-expanded={submenuOpen ? 'true' : 'false'}
+                    >
                       {item.label}{' '}
                       <ChevronDownIcon
                         rotate='270'
@@ -102,7 +118,11 @@ const Menu = ({ label, items, groups, onSelect, customTrigger }: MenuProps) => {
                     </ChakraMenu.TriggerItem>
                     <Portal>
                       <ChakraMenu.Positioner>
-                        <ChakraMenu.Content css={menuContentStyles}>
+                        <ChakraMenu.Content
+                          css={menuContentStyles}
+                          role='menu'
+                          aria-label={`${item.label} submenu`}
+                        >
                           {item.submenu.map((submenuItem, submenuIdx) => (
                             <MenuItem
                               key={submenuItem.value}
@@ -130,8 +150,14 @@ const Menu = ({ label, items, groups, onSelect, customTrigger }: MenuProps) => {
 
             {groups?.map((group, idx) => (
               <React.Fragment key={group.title}>
-                <ChakraMenu.ItemGroup>
-                  <ChakraMenu.ItemGroupLabel css={menuItemGroupLabelStyles}>
+                <ChakraMenu.ItemGroup
+                  role='group'
+                  aria-labelledby={`group-${idx}`}
+                >
+                  <ChakraMenu.ItemGroupLabel
+                    id={`group-${idx}`}
+                    css={menuItemGroupLabelStyles}
+                  >
                     {group.title}
                   </ChakraMenu.ItemGroupLabel>
                   {group.items?.map((groupItem) => (
