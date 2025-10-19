@@ -97,7 +97,7 @@ export const baseMapOptionsItemImageStyles = (imageUrl: string) => css`
 
 export const baseMapOptionsItemDataContainerStyles = css`
   width: 100%;
-  max-width: 199px;
+  max-width: calc(100% - 44px);
 
   .base-map-title-container {
     display: flex;
