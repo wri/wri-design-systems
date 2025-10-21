@@ -10,6 +10,9 @@ export const selectContainerStyles = (size: string) => css`
   align-items: flex-start;
   gap: ${size === 'small' ? '12px' : '16px'};
   margin-bottom: 16px;
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+  }
 `
 
 export const selectErrorBarStyles = css`

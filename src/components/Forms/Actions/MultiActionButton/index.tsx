@@ -6,7 +6,12 @@ import { Group, Menu as ChakraMenu, Portal } from '@chakra-ui/react'
 import { MultiActionButtonProps } from './types'
 import Button from '../Button'
 import { ChevronDownIcon } from '../../../icons'
-import { menuContentStyles, menuTriggerStyles, menuItemStyles } from './styled'
+import {
+  menuContentStyles,
+  menuTriggerStyles,
+  menuItemStyles,
+  disabledGroupStyles,
+} from './styled'
 import { getThemedColor } from '../../../../lib/theme'
 
 interface MenuContentProps extends ChakraMenu.ContentProps {
@@ -33,20 +38,34 @@ const MultiActionButton = ({
   mainActionLabel,
   mainActionOnClick = () => {},
   otherActions = [],
+  disabled: isDisabledProp,
   ...rest
 }: MultiActionButtonProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const totalAriaLabel = isDisabledProp
+    ? `${mainActionLabel} action button with menu, disabled`
+    : undefined
+
   return (
-    <Group attached aria-disabled={rest.disabled}>
+    <Group
+      css={disabledGroupStyles}
+      attached
+      tabIndex={isDisabledProp ? 0 : undefined}
+      aria-disabled={isDisabledProp}
+      aria-label={totalAriaLabel}
+      role='group'
+    >
       <Button
         css={{}}
         label={mainActionLabel}
         variant={variant}
         size={size}
         onClick={mainActionOnClick}
+        disabled={isDisabledProp}
         {...rest}
       />
+
       <ChakraMenu.Root
         onOpenChange={({ open }) => setIsOpen(open)}
         positioning={{ placement: 'bottom-end' }}
@@ -69,7 +88,7 @@ const MultiActionButton = ({
                 }
               />
             }
-            disabled={rest.disabled}
+            disabled={isDisabledProp}
           />
         </ChakraMenu.Trigger>
         <MenuContent>
