@@ -4,7 +4,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import QualitativeAttribute from '.'
-import { InfoIcon } from '../../../icons'
+import { PlaceholderIcon } from '../../../icons'
 
 const meta = {
   title: 'Geospatial/Legends/Qualitative Attributes',
@@ -49,8 +49,8 @@ export const Point: Story = {
     type: 'point',
     label: 'Attribute',
     caption: 'Caption',
-    color: '#F3FFF2',
-    pointIcon: <InfoIcon />,
+    color: '#C7E9C0',
+    pointIcon: <PlaceholderIcon color='#006D2C' />,
   },
 }
 
