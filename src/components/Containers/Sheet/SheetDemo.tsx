@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Button, IconButton, Sheet } from '../..'
 import { CloseIcon } from '../../icons'
 
@@ -21,6 +21,15 @@ const SheetDemo = () => {
     mid: false,
     full: false,
   })
+  const closedSheetTriggerRef = useRef<HTMLButtonElement>(null)
+
+  const handleCloseClosedSheet = () => {
+    setShowSheet((prev) => ({
+      ...prev,
+      closed: false,
+    }))
+    closedSheetTriggerRef.current?.focus()
+  }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
@@ -41,12 +50,7 @@ const SheetDemo = () => {
                 <IconButton
                   icon={<CloseIcon />}
                   aria-label='Close'
-                  onClick={() =>
-                    setShowSheet({
-                      ...showSheet,
-                      closed: false,
-                    })
-                  }
+                  onClick={handleCloseClosedSheet}
                 />
               </div>
             }
@@ -54,10 +58,11 @@ const SheetDemo = () => {
             footer={<div>Footer</div>}
             defaultSnap='closed'
             open={showSheet.closed}
-            onClose={() => setShowSheet({ ...showSheet, closed: false })}
+            onClose={handleCloseClosedSheet}
           />
         </div>
         <Button
+          ref={closedSheetTriggerRef}
           style={{ width: '200px' }}
           label='Show Closed Sheet'
           onClick={() =>

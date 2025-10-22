@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import BaseMapStory from '.'
@@ -190,6 +190,12 @@ export const BaseMapWithinSheet: Story = {
       active: true,
     })
     const [showSheet, setShowSheet] = useState(false)
+    const closedSheetTriggerRef = useRef<HTMLButtonElement>(null)
+
+    const handleCloseSheet = () => {
+      setShowSheet(false)
+      closedSheetTriggerRef.current?.focus()
+    }
 
     return (
       <div
@@ -285,10 +291,11 @@ export const BaseMapWithinSheet: Story = {
               }
               defaultSnap='mid'
               open={showSheet}
-              onClose={() => setShowSheet(false)}
+              onClose={handleCloseSheet}
             />
           </div>
           <Button
+            ref={closedSheetTriggerRef}
             style={{ width: '200px' }}
             label='Show Closed Sheet'
             onClick={() => setShowSheet(true)}
