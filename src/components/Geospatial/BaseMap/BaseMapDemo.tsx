@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { BaseMap, Button, getThemedColor, Select, Sheet } from '../..'
 import { ChevronDownIcon, MapIcon } from '../../icons'
 import { BaseMapOptionProps } from './types'
@@ -19,6 +19,12 @@ const BaseMapDemo = () => {
   })
   const [isOpenBaseMap, setIsOpenBaseMap] = useState(false)
   const [showSheet, setShowSheet] = useState(false)
+  const closedSheetTriggerRef = useRef<HTMLButtonElement>(null)
+
+  const handleCloseSheet = () => {
+    setShowSheet(false)
+    closedSheetTriggerRef.current?.focus()
+  }
 
   return (
     <div>
@@ -309,10 +315,11 @@ const BaseMapDemo = () => {
             }
             defaultSnap='mid'
             open={showSheet}
-            onClose={() => setShowSheet(false)}
+            onClose={handleCloseSheet}
           />
         </div>
         <Button
+          ref={closedSheetTriggerRef}
           style={{ width: '200px' }}
           label='Show Closed Sheet'
           onClick={() => setShowSheet(true)}
