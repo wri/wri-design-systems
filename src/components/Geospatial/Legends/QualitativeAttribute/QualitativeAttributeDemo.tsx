@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 
 import { QualitativeAttribute } from '../../..'
-import { InfoIcon } from '../../../icons'
 
 const QualitativeAttributeDemo = () => (
   <div style={{ width: '238px' }}>
@@ -20,12 +19,7 @@ const QualitativeAttributeDemo = () => (
       onActionClick={() => console.log('click')}
       showActionButton
     />
-    <QualitativeAttribute
-      type='point'
-      label='Attribute'
-      color='#F3FFF2'
-      pointIcon={<InfoIcon />}
-    />
+    <QualitativeAttribute type='point' label='Attribute' color='#C7E9C0' />
   </div>
 )
 

@@ -20,7 +20,7 @@ export const lineIndicatorStyles = (
   border-radius: 2px;
   background-color: ${color};
   border: 1px solid ${getThemedColor('neutral', 400)};
-  margin-top: 5px;
+  margin-top: 6px;
 `
 
 export const pointIndicatorStyles = (
