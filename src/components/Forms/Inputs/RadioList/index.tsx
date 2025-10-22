@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 /* eslint-disable react/no-unknown-property */
 
+import { Group } from '@chakra-ui/react'
 import { RadioListProps } from './types'
 import Radio from '../../Controls/Radio'
 import {
@@ -26,44 +27,51 @@ const RadioList = ({
   horizontal,
   variant = 'default',
   required,
-}: RadioListProps) => (
-  <div
-    css={radioListContainerStyles}
-    aria-roledescription='group'
-    aria-labelledby={label}
-  >
-    {errorMessage ? <div css={radioListErrorBarStyles} /> : null}
-    <div css={radioListContentStyles(!!errorMessage)}>
-      <p css={radioListLabelStyles} aria-label={label}>
-        {required && <span aria-label='required'>*</span>}
-        {label}
-      </p>
-      <p css={radioListCaptionStyles} aria-label={caption}>
-        {caption}
-      </p>
-      {errorMessage ? (
-        <p css={radioListErrorMessageStyles} aria-label={errorMessage}>
-          {errorMessage}
+}: RadioListProps) => {
+  const captionText = caption ? `${caption}.` : ''
+  const requiredText = required ? 'Required.' : 'Optional.'
+  const errorText = errorMessage ? `Error: ${errorMessage}.` : ''
+  const groupLabel = `${label}. ${captionText} ${requiredText} ${errorText} `
+  return (
+    <Group
+      tabIndex={0}
+      css={radioListContainerStyles}
+      aria-roledescription='group'
+      aria-label={groupLabel}
+    >
+      {errorMessage ? <div css={radioListErrorBarStyles} /> : null}
+      <div css={radioListContentStyles(!!errorMessage)}>
+        <p css={radioListLabelStyles} aria-label={label}>
+          {required && <span aria-label='required'>*</span>}
+          {label}
         </p>
-      ) : null}
-      <div css={radioListContentListStyles}>
-        <RadioGroup
-          name={name}
-          defaultValue={defaultValue}
-          onChange={onCheckedChange}
-          horizontal={horizontal && variant !== 'card'}
-        >
-          {radios.map((radio) => (
-            <Radio
-              key={radio.value}
-              css={variant === 'card' ? radioListItemStyles : {}}
-              {...radio}
-            />
-          ))}
-        </RadioGroup>
+        <p css={radioListCaptionStyles} aria-label={caption}>
+          {caption}
+        </p>
+        {errorMessage ? (
+          <p css={radioListErrorMessageStyles} aria-label={errorMessage}>
+            {errorMessage}
+          </p>
+        ) : null}
+        <div css={radioListContentListStyles}>
+          <RadioGroup
+            name={name}
+            defaultValue={defaultValue}
+            onChange={onCheckedChange}
+            horizontal={horizontal && variant !== 'card'}
+          >
+            {radios.map((radio) => (
+              <Radio
+                key={radio.value}
+                css={variant === 'card' ? radioListItemStyles : {}}
+                {...radio}
+              />
+            ))}
+          </RadioGroup>
+        </div>
       </div>
-    </div>
-  </div>
-)
+    </Group>
+  )
+}
 
 export default RadioList

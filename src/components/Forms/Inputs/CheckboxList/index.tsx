@@ -2,7 +2,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { useState } from 'react'
-
+import { Group } from '@chakra-ui/react'
 import { CheckboxListProps } from './types'
 import Checkbox from '../../Controls/Checkbox'
 import {
@@ -40,12 +40,15 @@ const CheckboxList = ({
       onCheckedChange(newCheckedValues)
     }
   }
-
+  const captionText = caption ? `${caption}.` : ''
+  const requiredText = required ? 'Required.' : 'Optional'
+  const errorText = errorMessage ? `Error: ${errorMessage}.` : ''
+  const groupLabel = `${label}. ${captionText} ${requiredText} ${errorText} `
   return (
-    <div
+    <Group
       css={checkboxListContainerStyles}
-      aria-roledescription='group'
-      aria-labelledby={label}
+      tabIndex={0}
+      aria-label={groupLabel}
     >
       {errorMessage ? <div css={checkboxListErrorBarStyles} /> : null}
       <div css={checkboxListContentStyles(!!errorMessage)}>
@@ -75,7 +78,7 @@ const CheckboxList = ({
           ))}
         </div>
       </div>
-    </div>
+    </Group>
   )
 }
 

@@ -4,6 +4,9 @@ import { getThemedColor } from '../../../../lib/theme'
 export const radioListContainerStyles = css`
   position: relative;
   height: 100%;
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+  }
 `
 
 export const radioListContentStyles = (hasErrorMessage: boolean) => css`

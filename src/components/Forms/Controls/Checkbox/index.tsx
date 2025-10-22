@@ -24,7 +24,7 @@ const Checkbox = ({
     defaultChecked={defaultChecked}
     disabled={disabled}
     onCheckedChange={onCheckedChange}
-    aria-label={rest['aria-label'] || name}
+    aria-label={undefined}
     gap={children ? '10px' : '0'}
     {...rest}
   >
@@ -32,6 +32,7 @@ const Checkbox = ({
     <ChakraCheckbox.Control>
       {indeterminate ? <CheckIndeterminateIcon /> : <CheckIcon />}
     </ChakraCheckbox.Control>
+
     <ChakraCheckbox.Label>{children}</ChakraCheckbox.Label>
   </ChakraCheckbox.Root>
 )

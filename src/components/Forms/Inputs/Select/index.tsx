@@ -8,6 +8,7 @@ import {
   createListCollection,
   HStack,
   SelectValueChangeDetails,
+  Group,
 } from '@chakra-ui/react'
 import {
   SelectContent,
@@ -117,12 +118,18 @@ const Select = ({
     const newItems = selectedItems.filter((item) => item !== value)
     onChangeHandler(newItems)
   }
-
+  const totalAriaLabel =
+    `${label || 'Select input'}${required ? ' required.' : ''}${
+      caption ? ` ${caption}.` : ''
+    }${disabled ? ' Disabled.' : ''}`.trim()
   return (
-    <div
+    <Group
       css={selectContainerStyles(size)}
       style={rest.style}
       className='select-input-container'
+      tabIndex={disabled ? 0 : undefined}
+      aria-disabled={disabled}
+      aria-label={disabled ? totalAriaLabel : undefined}
     >
       {errorMessage ? <div css={selectErrorBarStyles} /> : null}
       <SelectRoot
@@ -191,7 +198,7 @@ const Select = ({
           ))}
         </SelectContent>
       </SelectRoot>
-    </div>
+    </Group>
   )
 }
 

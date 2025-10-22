@@ -105,7 +105,6 @@ const Password = ({
           variant='secondary'
           leftIcon={show ? <HideIcon /> : <ShowIcon />}
           aria-label={show ? 'Hide password' : 'Show password'}
-          aria-pressed={show}
           onClick={() => setShow(!show)}
           type='button'
         />

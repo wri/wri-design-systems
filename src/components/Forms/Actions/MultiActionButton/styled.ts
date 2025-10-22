@@ -31,3 +31,8 @@ export const menuItemStyles = (size: MultiActionButtonProps['size']) => css`
     background-color: ${getThemedColor('neutral', 200)};
   }
 `
+export const disabledGroupStyles = css`
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+  }
+`
