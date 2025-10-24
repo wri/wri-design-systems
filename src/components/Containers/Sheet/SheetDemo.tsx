@@ -51,8 +51,8 @@ const SheetDemo = () => {
               />
             </div>
           }
-          content={<div style={{ padding: '0 16px' }}>{content}</div>}
-          footer={<div>Footer</div>}
+          content={<div style={{ padding: '16px' }}>{content}</div>}
+          footer={<div style={{ padding: '16px' }}>Footer</div>}
           defaultSnap='closed'
           open={showSheet.closed}
           onClose={handleCloseClosedSheet}
@@ -94,8 +94,8 @@ const SheetDemo = () => {
               />
             </div>
           }
-          content={<div style={{ padding: '0 16px' }}>{content}</div>}
-          footer={<div>Footer</div>}
+          content={<div style={{ padding: '16px' }}>{content}</div>}
+          footer={<div style={{ padding: '16px' }}>Footer</div>}
           open={showSheet.minimized}
           onClose={() => setShowSheet({ ...showSheet, minimized: false })}
         />
@@ -136,8 +136,8 @@ const SheetDemo = () => {
               />
             </div>
           }
-          content={<div style={{ padding: '0 16px' }}>{content}</div>}
-          footer={<div>Footer</div>}
+          content={<div style={{ padding: '16px' }}>{content}</div>}
+          footer={<div style={{ padding: '16px' }}>Footer</div>}
           defaultSnap='mid'
           open={showSheet.mid}
           onClose={() => setShowSheet({ ...showSheet, mid: false })}
@@ -179,8 +179,8 @@ const SheetDemo = () => {
               />
             </div>
           }
-          content={<div style={{ padding: '0 16px' }}>{content}</div>}
-          footer={<div>Footer</div>}
+          content={<div style={{ padding: '16px' }}>{content}</div>}
+          footer={<div style={{ padding: '16px' }}>Footer</div>}
           defaultSnap='full'
           open={showSheet.full}
           onClose={() => setShowSheet({ ...showSheet, full: false })}
