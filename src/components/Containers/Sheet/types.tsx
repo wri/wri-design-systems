@@ -8,4 +8,5 @@ export type SheetProps = {
   midHeight?: number // default 200px
   maxFullHeight?: number // default 1000px
   defaultSnap?: 'closed' | 'minimized' | 'mid' | 'full'
+  className?: string
 }

@@ -9,25 +9,25 @@ import { designSystemStyles } from './lib/theme'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <React.StrictMode>
-    <ChakraProvider value={designSystemStyles}>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<App />}>
-            <Route path='/page1' element={<App />} />
-            <Route path='/page1/page2' element={<App />} />
-            <Route path='/page1/page2/page3' element={<App />} />
-            <Route path='/page1/page2/page3/page4' element={<App />} />
-            <Route path='/page1/page2/page3/page4/page5' element={<App />} />
-            <Route
-              path='/page1/page2/page3/page4/page5/page6'
-              element={<App />}
-            />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </ChakraProvider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <ChakraProvider value={designSystemStyles}>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App />}>
+          <Route path='/page1' element={<App />} />
+          <Route path='/page1/page2' element={<App />} />
+          <Route path='/page1/page2/page3' element={<App />} />
+          <Route path='/page1/page2/page3/page4' element={<App />} />
+          <Route path='/page1/page2/page3/page4/page5' element={<App />} />
+          <Route
+            path='/page1/page2/page3/page4/page5/page6'
+            element={<App />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </ChakraProvider>,
+  // </React.StrictMode>,
 )
 
 // If you want to start measuring performance in your app, pass a function

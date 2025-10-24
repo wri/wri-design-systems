@@ -1,9 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import BaseMapStory from '.'
-import Select from '../../Forms/Inputs/Select'
 import { BaseMapOptionProps } from './types'
 import { getThemedColor } from '../../../lib/theme'
 import { ChevronDownIcon, MapIcon } from '../../icons'
@@ -190,117 +189,102 @@ export const BaseMapWithinSheet: Story = {
       active: true,
     })
     const [showSheet, setShowSheet] = useState(false)
-    const closedSheetTriggerRef = useRef<HTMLButtonElement>(null)
 
     const handleCloseSheet = () => {
       setShowSheet(false)
-      closedSheetTriggerRef.current?.focus()
     }
 
     return (
-      <div
-        style={{
-          height: '1070px',
-          display: 'flex',
-          alignItems: 'flex-end',
-        }}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div
-            style={{ height: '500px', width: '260px', position: 'relative' }}
-          >
-            <Sheet
-              content={
-                <BaseMapStory
-                  title='Base map settings'
-                  caption='Update the visual style of the map.'
-                  additionalSettings={[
-                    {
-                      label: 'Show boundaries',
-                      checked: additionalSettings.showBoundaries,
-                      onCheckedChange: ({ checked }: { checked: boolean }) => {
-                        setAdditionalSettings((current) => ({
-                          ...current,
-                          showBoundaries: checked,
-                        }))
-                      },
-                      children: 'Component Placeholder',
-                    },
-                    {
-                      label: 'Show map labels',
-                      checked: additionalSettings.showMapLabels,
-                      onCheckedChange: ({ checked }: { checked: boolean }) => {
-                        setAdditionalSettings((current) => ({
-                          ...current,
-                          showMapLabels: checked,
-                        }))
-                      },
-                    },
-                    {
-                      label: 'Show roads',
-                      checked: additionalSettings.showRoads,
-                      onCheckedChange: ({ checked }: { checked: boolean }) => {
-                        setAdditionalSettings((current) => ({
-                          ...current,
-                          showRoads: checked,
-                        }))
-                      },
-                    },
-                  ]}
-                  options={[
-                    {
-                      id: 'carto-positron',
-                      label: 'Mapbox Streets',
-                      caption:
-                        'Emphasizes accurate, legible styling of road and transit networks.',
-                      imageUrl:
-                        'https://carto.com/help/images/building-maps/basemaps/positron_labels.png',
-                      active: selectedOption?.id === 'carto-positron',
-                    },
-                    {
-                      id: 'arcgis-hybrid',
-                      label: 'Mapbox Light',
-                      caption:
-                        'Subtle map that provides basic geographic context.',
-                      imageUrl:
-                        'https://carto.com/help/images/building-maps/basemaps/dark_labels.png',
-                      active: selectedOption?.id === 'arcgis-hybrid',
-                    },
-                    {
-                      id: 'osm',
-                      label: 'Mapbox Satellite',
-                      caption: 'Global satellite imagery from NASA, and USGS.',
-                      imageUrl:
-                        'https://carto.com/help/images/building-maps/basemaps/voyager_labels.png',
-                      active: selectedOption?.id === 'osm',
-                      children: 'Component Placeholder',
-                    },
-                    {
-                      id: 'carto-voyager',
-                      label: 'Open Street Map',
-                      caption: 'Community-built open data map.',
-                      imageUrl:
-                        'https://carto.com/help/images/building-maps/basemaps/voyager_labels.png',
-                      active: selectedOption?.id === 'carto-voyager',
-                    },
-                  ]}
-                  onOptionSelected={(option) => setSelectedOption(option)}
-                  maxHeight='100%'
-                  maxWidth='100%'
-                />
-              }
-              defaultSnap='mid'
-              open={showSheet}
-              onClose={handleCloseSheet}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <Sheet
+          content={
+            <BaseMapStory
+              title='Base map settings'
+              caption='Update the visual style of the map.'
+              additionalSettings={[
+                {
+                  label: 'Show boundaries',
+                  checked: additionalSettings.showBoundaries,
+                  onCheckedChange: ({ checked }: { checked: boolean }) => {
+                    setAdditionalSettings((current) => ({
+                      ...current,
+                      showBoundaries: checked,
+                    }))
+                  },
+                  children: 'Component Placeholder',
+                },
+                {
+                  label: 'Show map labels',
+                  checked: additionalSettings.showMapLabels,
+                  onCheckedChange: ({ checked }: { checked: boolean }) => {
+                    setAdditionalSettings((current) => ({
+                      ...current,
+                      showMapLabels: checked,
+                    }))
+                  },
+                },
+                {
+                  label: 'Show roads',
+                  checked: additionalSettings.showRoads,
+                  onCheckedChange: ({ checked }: { checked: boolean }) => {
+                    setAdditionalSettings((current) => ({
+                      ...current,
+                      showRoads: checked,
+                    }))
+                  },
+                },
+              ]}
+              options={[
+                {
+                  id: 'carto-positron',
+                  label: 'Mapbox Streets',
+                  caption:
+                    'Emphasizes accurate, legible styling of road and transit networks.',
+                  imageUrl:
+                    'https://carto.com/help/images/building-maps/basemaps/positron_labels.png',
+                  active: selectedOption?.id === 'carto-positron',
+                },
+                {
+                  id: 'arcgis-hybrid',
+                  label: 'Mapbox Light',
+                  caption: 'Subtle map that provides basic geographic context.',
+                  imageUrl:
+                    'https://carto.com/help/images/building-maps/basemaps/dark_labels.png',
+                  active: selectedOption?.id === 'arcgis-hybrid',
+                },
+                {
+                  id: 'osm',
+                  label: 'Mapbox Satellite',
+                  caption: 'Global satellite imagery from NASA, and USGS.',
+                  imageUrl:
+                    'https://carto.com/help/images/building-maps/basemaps/voyager_labels.png',
+                  active: selectedOption?.id === 'osm',
+                  children: 'Component Placeholder',
+                },
+                {
+                  id: 'carto-voyager',
+                  label: 'Open Street Map',
+                  caption: 'Community-built open data map.',
+                  imageUrl:
+                    'https://carto.com/help/images/building-maps/basemaps/voyager_labels.png',
+                  active: selectedOption?.id === 'carto-voyager',
+                },
+              ]}
+              onOptionSelected={(option) => setSelectedOption(option)}
+              maxHeight='100%'
+              maxWidth='100%'
             />
-          </div>
-          <Button
-            ref={closedSheetTriggerRef}
-            style={{ width: '200px' }}
-            label='Show Closed Sheet'
-            onClick={() => setShowSheet(true)}
-          />
-        </div>
+          }
+          defaultSnap='mid'
+          open={showSheet}
+          onClose={handleCloseSheet}
+        />
+
+        <Button
+          style={{ width: '200px' }}
+          label='Show Closed Sheet'
+          onClick={() => setShowSheet(true)}
+        />
       </div>
     )
   },

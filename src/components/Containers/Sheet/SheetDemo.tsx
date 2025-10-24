@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Button, IconButton, Sheet } from '../..'
 import { CloseIcon } from '../../icons'
 
@@ -21,48 +21,44 @@ const SheetDemo = () => {
     mid: false,
     full: false,
   })
-  const closedSheetTriggerRef = useRef<HTMLButtonElement>(null)
 
   const handleCloseClosedSheet = () => {
     setShowSheet((prev) => ({
       ...prev,
       closed: false,
     }))
-    closedSheetTriggerRef.current?.focus()
   }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ height: '500px', width: '420px', position: 'relative' }}>
-          <Sheet
-            header={
-              <div
-                style={{
-                  width: '100%',
-                  padding: '0 16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <p>Header - Closed</p>
-                <IconButton
-                  icon={<CloseIcon />}
-                  aria-label='Close'
-                  onClick={handleCloseClosedSheet}
-                />
-              </div>
-            }
-            content={<div style={{ padding: '0 16px' }}>{content}</div>}
-            footer={<div>Footer</div>}
-            defaultSnap='closed'
-            open={showSheet.closed}
-            onClose={handleCloseClosedSheet}
-          />
-        </div>
+        <Sheet
+          header={
+            <div
+              style={{
+                width: '100%',
+                padding: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <p>Header - Closed</p>
+              <IconButton
+                icon={<CloseIcon />}
+                aria-label='Close'
+                onClick={handleCloseClosedSheet}
+              />
+            </div>
+          }
+          content={<div style={{ padding: '0 16px' }}>{content}</div>}
+          footer={<div>Footer</div>}
+          defaultSnap='closed'
+          open={showSheet.closed}
+          onClose={handleCloseClosedSheet}
+        />
+
         <Button
-          ref={closedSheetTriggerRef}
           style={{ width: '200px' }}
           label='Show Closed Sheet'
           onClick={() =>
@@ -75,36 +71,35 @@ const SheetDemo = () => {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ height: '500px', width: '420px', position: 'relative' }}>
-          <Sheet
-            header={
-              <div
-                style={{
-                  padding: '0 16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <p>Header - Minimized</p>
-                <IconButton
-                  icon={<CloseIcon />}
-                  aria-label='Close'
-                  onClick={() =>
-                    setShowSheet({
-                      ...showSheet,
-                      minimized: false,
-                    })
-                  }
-                />
-              </div>
-            }
-            content={<div style={{ padding: '0 16px' }}>{content}</div>}
-            footer={<div>Footer</div>}
-            open={showSheet.minimized}
-            onClose={() => setShowSheet({ ...showSheet, minimized: false })}
-          />
-        </div>
+        <Sheet
+          header={
+            <div
+              style={{
+                padding: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <p>Header - Minimized</p>
+              <IconButton
+                icon={<CloseIcon />}
+                aria-label='Close'
+                onClick={() =>
+                  setShowSheet({
+                    ...showSheet,
+                    minimized: false,
+                  })
+                }
+              />
+            </div>
+          }
+          content={<div style={{ padding: '0 16px' }}>{content}</div>}
+          footer={<div>Footer</div>}
+          open={showSheet.minimized}
+          onClose={() => setShowSheet({ ...showSheet, minimized: false })}
+        />
+
         <Button
           style={{ width: '200px' }}
           label='Show Minimized Sheet'
@@ -118,37 +113,36 @@ const SheetDemo = () => {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ height: '500px', width: '420px', position: 'relative' }}>
-          <Sheet
-            header={
-              <div
-                style={{
-                  padding: '0 16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <p>Header - Mid</p>
-                <IconButton
-                  icon={<CloseIcon />}
-                  aria-label='Close'
-                  onClick={() =>
-                    setShowSheet({
-                      ...showSheet,
-                      mid: false,
-                    })
-                  }
-                />
-              </div>
-            }
-            content={<div style={{ padding: '0 16px' }}>{content}</div>}
-            footer={<div>Footer</div>}
-            defaultSnap='mid'
-            open={showSheet.mid}
-            onClose={() => setShowSheet({ ...showSheet, mid: false })}
-          />
-        </div>
+        <Sheet
+          header={
+            <div
+              style={{
+                padding: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <p>Header - Mid</p>
+              <IconButton
+                icon={<CloseIcon />}
+                aria-label='Close'
+                onClick={() =>
+                  setShowSheet({
+                    ...showSheet,
+                    mid: false,
+                  })
+                }
+              />
+            </div>
+          }
+          content={<div style={{ padding: '0 16px' }}>{content}</div>}
+          footer={<div>Footer</div>}
+          defaultSnap='mid'
+          open={showSheet.mid}
+          onClose={() => setShowSheet({ ...showSheet, mid: false })}
+        />
+
         <Button
           style={{ width: '200px' }}
           label='Show Mid Sheet'
@@ -162,37 +156,36 @@ const SheetDemo = () => {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ height: '500px', width: '420px', position: 'relative' }}>
-          <Sheet
-            header={
-              <div
-                style={{
-                  padding: '0 16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <p>Header - Extended</p>
-                <IconButton
-                  icon={<CloseIcon />}
-                  aria-label='Close'
-                  onClick={() =>
-                    setShowSheet({
-                      ...showSheet,
-                      full: false,
-                    })
-                  }
-                />
-              </div>
-            }
-            content={<div style={{ padding: '0 16px' }}>{content}</div>}
-            footer={<div>Footer</div>}
-            defaultSnap='full'
-            open={showSheet.full}
-            onClose={() => setShowSheet({ ...showSheet, full: false })}
-          />
-        </div>
+        <Sheet
+          header={
+            <div
+              style={{
+                padding: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <p>Header - Extended</p>
+              <IconButton
+                icon={<CloseIcon />}
+                aria-label='Close'
+                onClick={() =>
+                  setShowSheet({
+                    ...showSheet,
+                    full: false,
+                  })
+                }
+              />
+            </div>
+          }
+          content={<div style={{ padding: '0 16px' }}>{content}</div>}
+          footer={<div>Footer</div>}
+          defaultSnap='full'
+          open={showSheet.full}
+          onClose={() => setShowSheet({ ...showSheet, full: false })}
+        />
+
         <Button
           style={{ width: '200px' }}
           label='Show Full Sheet'

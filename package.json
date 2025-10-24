@@ -96,5 +96,8 @@
     "url": "git+https://github.com/wri/wri-design-systems.git"
   },
   "author": "WRI",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react-spring-bottom-sheet": "^3.4.1"
+  }
 }

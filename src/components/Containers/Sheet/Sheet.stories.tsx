@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import SheetStory from '.'
@@ -16,13 +16,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  decorators: [
-    (Story: any) => (
-      <div style={{ height: '1200px' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [(Story: any) => <Story />],
 } satisfies Meta<typeof SheetStory>
 
 export default meta
@@ -47,44 +41,39 @@ export const Sheet: Story = {
   },
   render: function Render(args) {
     const [isOpen, setIsOpen] = useState(args.open)
-    const triggerRef = useRef<HTMLButtonElement>(null)
 
     const handleClose = () => {
       setIsOpen(false)
-      triggerRef.current?.focus()
     }
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ height: '1100px', width: '420px', position: 'relative' }}>
-          <SheetStory
-            {...args}
-            header={
-              <div
-                style={{
-                  width: '100%',
-                  padding: '0 16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <p>Header</p>
-                <IconButton
-                  icon={<CloseIcon />}
-                  aria-label='Close'
-                  onClick={handleClose}
-                />
-              </div>
-            }
-            content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
-            footer={<div>Footer</div>}
-            open={isOpen}
-            onClose={handleClose}
-          />
-        </div>
+        <SheetStory
+          {...args}
+          header={
+            <div
+              style={{
+                width: '100%',
+                padding: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <p>Header</p>
+              <IconButton
+                icon={<CloseIcon />}
+                aria-label='Close'
+                onClick={handleClose}
+              />
+            </div>
+          }
+          content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
+          footer={<div>Footer</div>}
+          open={isOpen}
+          onClose={handleClose}
+        />
         <Button
-          ref={triggerRef}
           style={{ width: '200px' }}
           label='Show Minimized Sheet'
           onClick={() => setIsOpen(true)}
@@ -102,44 +91,39 @@ export const SheetMid: Story = {
   },
   render: function Render(args) {
     const [isOpen, setIsOpen] = useState(args.open)
-    const triggerRef = useRef<HTMLButtonElement>(null)
 
     const handleClose = () => {
       setIsOpen(false)
-      triggerRef.current?.focus()
     }
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ height: '1100px', width: '420px', position: 'relative' }}>
-          <SheetStory
-            {...args}
-            header={
-              <div
-                style={{
-                  width: '100%',
-                  padding: '0 16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <p>Header</p>
-                <IconButton
-                  icon={<CloseIcon />}
-                  aria-label='Close'
-                  onClick={handleClose}
-                />
-              </div>
-            }
-            content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
-            footer={<div>Footer</div>}
-            open={isOpen}
-            onClose={handleClose}
-          />
-        </div>
+        <SheetStory
+          {...args}
+          header={
+            <div
+              style={{
+                width: '100%',
+                padding: '16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <p>Header</p>
+              <IconButton
+                icon={<CloseIcon />}
+                aria-label='Close'
+                onClick={handleClose}
+              />
+            </div>
+          }
+          content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
+          footer={<div>Footer</div>}
+          open={isOpen}
+          onClose={handleClose}
+        />
         <Button
-          ref={triggerRef}
           style={{ width: '200px' }}
           label='Show Mid Sheet'
           onClick={() => setIsOpen(true)}
@@ -157,44 +141,39 @@ export const SheetFull: Story = {
   },
   render: function Render(args) {
     const [isOpen, setIsOpen] = useState(args.open)
-    const triggerRef = useRef<HTMLButtonElement>(null)
 
     const handleClose = () => {
       setIsOpen(false)
-      triggerRef.current?.focus()
     }
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ height: '1100px', width: '420px', position: 'relative' }}>
-          <SheetStory
-            {...args}
-            header={
-              <div
-                style={{
-                  width: '100%',
-                  padding: '0 16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <p>Header</p>
-                <IconButton
-                  icon={<CloseIcon />}
-                  aria-label='Close'
-                  onClick={handleClose}
-                />
-              </div>
-            }
-            content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
-            footer={<div>Footer</div>}
-            open={isOpen}
-            onClose={handleClose}
-          />
-        </div>
+        <SheetStory
+          {...args}
+          header={
+            <div
+              style={{
+                width: '100%',
+                padding: '0 16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <p>Header</p>
+              <IconButton
+                icon={<CloseIcon />}
+                aria-label='Close'
+                onClick={handleClose}
+              />
+            </div>
+          }
+          content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
+          footer={<div>Footer</div>}
+          open={isOpen}
+          onClose={handleClose}
+        />
         <Button
-          ref={triggerRef}
           style={{ width: '200px' }}
           label='Show Full Sheet'
           onClick={() => setIsOpen(true)}
@@ -212,44 +191,39 @@ export const SheetClosed: Story = {
   },
   render: function Render(args) {
     const [isOpen, setIsOpen] = useState(args.open)
-    const triggerRef = useRef<HTMLButtonElement>(null)
 
     const handleClose = () => {
       setIsOpen(false)
-      triggerRef.current?.focus()
     }
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ height: '1100px', width: '420px', position: 'relative' }}>
-          <SheetStory
-            {...args}
-            header={
-              <div
-                style={{
-                  width: '100%',
-                  padding: '0 16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <p>Header</p>
-                <IconButton
-                  icon={<CloseIcon />}
-                  aria-label='Close'
-                  onClick={handleClose}
-                />
-              </div>
-            }
-            content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
-            footer={<div>Footer</div>}
-            open={isOpen}
-            onClose={handleClose}
-          />
-        </div>
+        <SheetStory
+          {...args}
+          header={
+            <div
+              style={{
+                width: '100%',
+                padding: '0 16px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <p>Header</p>
+              <IconButton
+                icon={<CloseIcon />}
+                aria-label='Close'
+                onClick={handleClose}
+              />
+            </div>
+          }
+          content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
+          footer={<div>Footer</div>}
+          open={isOpen}
+          onClose={handleClose}
+        />
         <Button
-          ref={triggerRef}
           style={{ width: '200px' }}
           label='Show Closed Sheet'
           onClick={() => setIsOpen(true)}
