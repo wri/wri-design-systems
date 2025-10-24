@@ -68,8 +68,8 @@ export const Sheet: Story = {
               />
             </div>
           }
-          content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
-          footer={<div>Footer</div>}
+          content={<div style={{ padding: '16px' }}>{args.content}</div>}
+          footer={<div style={{ padding: '16px' }}>Footer</div>}
           open={isOpen}
           onClose={handleClose}
         />
@@ -118,8 +118,8 @@ export const SheetMid: Story = {
               />
             </div>
           }
-          content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
-          footer={<div>Footer</div>}
+          content={<div style={{ padding: '16px' }}>{args.content}</div>}
+          footer={<div style={{ padding: '16px' }}>Footer</div>}
           open={isOpen}
           onClose={handleClose}
         />
@@ -154,7 +154,7 @@ export const SheetFull: Story = {
             <div
               style={{
                 width: '100%',
-                padding: '0 16px',
+                padding: '16px',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -168,8 +168,8 @@ export const SheetFull: Story = {
               />
             </div>
           }
-          content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
-          footer={<div>Footer</div>}
+          content={<div style={{ padding: '16px' }}>{args.content}</div>}
+          footer={<div style={{ padding: '16px' }}>Footer</div>}
           open={isOpen}
           onClose={handleClose}
         />
@@ -204,7 +204,7 @@ export const SheetClosed: Story = {
             <div
               style={{
                 width: '100%',
-                padding: '0 16px',
+                padding: '16px',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -218,8 +218,8 @@ export const SheetClosed: Story = {
               />
             </div>
           }
-          content={<div style={{ padding: '0 16px' }}>{args.content}</div>}
-          footer={<div>Footer</div>}
+          content={<div style={{ padding: '16px' }}>{args.content}</div>}
+          footer={<div style={{ padding: '16px' }}>Footer</div>}
           open={isOpen}
           onClose={handleClose}
         />
