@@ -5,6 +5,8 @@ export const sheetContainerStyles = (hasHeader?: boolean) => css`
   [data-rsbs-overlay] {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
+    overflow: hidden;
+    z-index: 1000;
   }
 
   [data-rsbs-overlay],
@@ -27,6 +29,5 @@ export const sheetContainerStyles = (hasHeader?: boolean) => css`
   [data-rsbs-footer] {
     padding: 0px;
     min-height: 64px;
-    background-color: ${getThemedColor('neutral', 100)};
   }
 `

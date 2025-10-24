@@ -23,3 +23,10 @@ code {
   margin-left: 64px;
   transition: margin-left 0.1s;
 }
+
+.ds-custom-sheet-styles {
+  [data-rsbs-overlay] {
+    width: 400px;
+    bottom: 56px;
+  }
+}
