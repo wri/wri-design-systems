@@ -1,12 +1,15 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
-export const sheetContainerStyles = (hasHeader?: boolean) => css`
+export const sheetContainerStyles = (
+  hasHeader?: boolean,
+  zIndex?: number,
+) => css`
   [data-rsbs-overlay] {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     overflow: hidden;
-    z-index: 1000;
+    z-index: ${zIndex};
   }
 
   [data-rsbs-overlay],

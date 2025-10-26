@@ -9,4 +9,6 @@ export type SheetProps = {
   maxFullHeight?: number // default 1000px
   defaultSnap?: 'closed' | 'minimized' | 'mid' | 'full'
   className?: string
+  blocking?: boolean
+  zIndex?: number // default 1000
 }
