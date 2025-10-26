@@ -20,9 +20,11 @@ const Sheet = ({
   maxFullHeight,
   defaultSnap = 'minimized',
   className,
+  blocking,
+  zIndex = 1000,
 }: SheetProps) => (
   <BottomSheet
-    css={sheetContainerStyles(!!header)}
+    css={sheetContainerStyles(!!header, zIndex)}
     className={className}
     open={open}
     onDismiss={onClose}
@@ -46,6 +48,7 @@ const Sheet = ({
 
       return snap
     }}
+    blocking={blocking}
   >
     {content}
   </BottomSheet>
