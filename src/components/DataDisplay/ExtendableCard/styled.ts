@@ -6,6 +6,7 @@ export const extendableCardContainerStyles = css`
 `
 export const extendableCardItemTriggerStyles = css`
   padding: 16px;
+  cursor: pointer;
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
   }
