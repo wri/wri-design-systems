@@ -18,7 +18,6 @@ import { ExtendableCard } from '@worldresources/wri-design-systems'
 
 import { Icon, Box, Flex, Text } from '@chakra-ui/react'
 import { MapIcon } from '../../icons'
-import List from '../List'
 
 const cardHeader = (
   <div>Card Title</div>
