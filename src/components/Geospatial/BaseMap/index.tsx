@@ -27,10 +27,10 @@ const BaseMap = ({
   maxWidth = '260px',
 }: BaseMapProps) => (
   <div css={baseMapContainerStyles(maxHeight, maxWidth)}>
-    <div className='base-map-scroll-content'>
+    <div className='ds-base-map-scroll-content'>
       <div css={baseMapHeaderContainerStyles}>
-        <p className='base-map-header-title'>{title}</p>
-        <p className='base-map-header-caption'>{caption}</p>
+        <p className='ds-base-map-header-title'>{title}</p>
+        <p className='ds-base-map-header-caption'>{caption}</p>
       </div>
       <div css={baseMapContentContainerStyles}>
         {additionalSettings ? (
@@ -72,8 +72,8 @@ const BaseMap = ({
               >
                 <div css={baseMapOptionsItemImageStyles(option.imageUrl)} />
                 <div css={baseMapOptionsItemDataContainerStyles}>
-                  <div className='base-map-title-container'>
-                    <p className='base-map-title'>{option.label}</p>
+                  <div className='ds-base-map-title-container'>
+                    <p className='ds-base-map-title'>{option.label}</p>
                     {option.active ? (
                       <Tag
                         label='Active'
@@ -84,9 +84,11 @@ const BaseMap = ({
                     ) : null}
                   </div>
 
-                  <p className='base-map-caption'>{option.caption}</p>
+                  <p className='ds-base-map-caption'>{option.caption}</p>
                   {option.active && option.children ? (
-                    <div className='base-map-children'>{option.children}</div>
+                    <div className='ds-base-map-children'>
+                      {option.children}
+                    </div>
                   ) : null}
                 </div>
               </div>

@@ -133,7 +133,7 @@ const SliderInput = ({
             type='number'
             onChange={(e) => handleInputChanged(e, 0)}
             onBlur={(e) => handleInputBlur(e, 0)}
-            className='opacity-control-text-input'
+            className='ds-opacity-control-text-input'
             onClick={(e: any) => e.target.select()}
           />
         )}
@@ -152,7 +152,7 @@ const SliderInput = ({
             type='number'
             onChange={(e) => handleInputChanged(e, 1)}
             onBlur={(e) => handleInputBlur(e, 1)}
-            className='opacity-control-text-input'
+            className='ds-opacity-control-text-input'
             onClick={(e: any) => e.target.select()}
           />
         ) : null}

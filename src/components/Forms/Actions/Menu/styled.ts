@@ -139,8 +139,8 @@ export const menuItemContainerStyles = css`
     outline: none;
     box-shadow: none;
 
-    .menu-item-label,
-    .menu-item-caption {
+    .ds-menu-item-label,
+    .ds-menu-item-caption {
       color: ${getThemedColor('neutral', 600)};
     }
   }
@@ -162,14 +162,14 @@ export const menuItemLabelContentStyles = css`
   color: ${getThemedColor('neutral', 700)};
   width: 100%;
 
-  .menu-item-label {
+  .ds-menu-item-label {
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
     color: ${getThemedColor('neutral', 900)};
   }
 
-  .menu-item-caption {
+  .ds-menu-item-caption {
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;

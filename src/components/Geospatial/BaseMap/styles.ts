@@ -14,7 +14,7 @@ export const baseMapContainerStyles = (
   border-bottom-left-radius: 0px;
   background-color: ${getThemedColor('neutral', 100)};
 
-  .base-map-scroll-content {
+  .ds-base-map-scroll-content {
     height: 100%;
     overflow-y: scroll;
   }
@@ -24,7 +24,7 @@ export const baseMapHeaderContainerStyles = css`
   padding: 16px 12px;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
 
-  .base-map-header-title {
+  .ds-base-map-header-title {
     font-size: 18px;
     line-height: 28px;
     font-weight: 700;
@@ -33,7 +33,7 @@ export const baseMapHeaderContainerStyles = css`
     margin-bottom: 4px;
   }
 
-  .base-map-header-caption {
+  .ds-base-map-header-caption {
     font-size: 14px;
     line-height: 20x;
     color: ${getThemedColor('neutral', 700)};
@@ -99,14 +99,14 @@ export const baseMapOptionsItemDataContainerStyles = css`
   width: 100%;
   max-width: calc(100% - 44px);
 
-  .base-map-title-container {
+  .ds-base-map-title-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 6px;
   }
 
-  .base-map-title {
+  .ds-base-map-title {
     font-size: 14px;
     line-height: 20px;
     font-weight: 700;
@@ -115,7 +115,7 @@ export const baseMapOptionsItemDataContainerStyles = css`
     margin-bottom: 2px;
   }
 
-  .base-map-caption {
+  .ds-base-map-caption {
     font-size: 12px;
     line-height: 16px;
     font-weight: 400;
@@ -123,7 +123,7 @@ export const baseMapOptionsItemDataContainerStyles = css`
     text-align: left;
   }
 
-  .base-map-children {
+  .ds-base-map-children {
     margin-top: 10px;
   }
 `

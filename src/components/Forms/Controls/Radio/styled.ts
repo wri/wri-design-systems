@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
 export const radioGroupItemStyles = css`
-  .radio-item-indicator {
+  .ds-radio-item-indicator {
     width: 20px;
     height: 20px;
     border: 1px solid ${getThemedColor('neutral', 700)};

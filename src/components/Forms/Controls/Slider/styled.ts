@@ -19,7 +19,7 @@ export const sliderThumbStyles = css`
     outline: 4px solid
       color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
 
-    .slider-value-preview {
+    .ds-slider-value-preview {
       display: flex;
     }
   }
@@ -41,7 +41,7 @@ export const sliderThumbStyles = css`
       0 0 0 2px ${getThemedColor('neutral', 100)},
       rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
 
-    .slider-value-preview {
+    .ds-slider-value-preview {
       display: flex;
     }
   }

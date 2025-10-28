@@ -12,7 +12,7 @@ export const itemCountPerPageContainerStyles = css`
   align-items: center;
   margin-bottom: 24px;
 
-  .select-input-container {
+  .ds-select-input-container {
     margin-bottom: 0px;
   }
 `

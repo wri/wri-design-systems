@@ -76,7 +76,7 @@ const NavigationRail = ({
                   alignItems='center'
                   flexDirection='column'
                   gap='5px'
-                  className='tab-label'
+                  className='ds-tab-label'
                 >
                   {tab.icon ? (
                     <div css={navigationRailTabIconStyles}>{tab.icon}</div>
@@ -94,7 +94,7 @@ const NavigationRail = ({
               <div css={navigationRailTabIconStyles}>
                 {hideSidebar ? <ShowSidebarIcon /> : <HideSidebarIcon />}
               </div>
-              <div className='tab-label'>
+              <div className='ds-tab-label'>
                 <p>{hideSidebar ? 'Show' : 'Hide'}</p>
                 <p>Sidebar</p>
               </div>

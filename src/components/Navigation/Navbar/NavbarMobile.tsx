@@ -56,7 +56,7 @@ const NavbarMobile = ({
               {utilitySection ? (
                 <div css={navbarMobileUtilityContainerStyles}>
                   {utilitySection?.map((utilityChild) => (
-                    <div className='utility-item'>{utilityChild}</div>
+                    <div className='ds-utility-item'>{utilityChild}</div>
                   ))}
                 </div>
               ) : null}

@@ -12,7 +12,7 @@ export const toastContainerStyles = css`
   box-shadow: 0px 4px 6px -4px #0000001a;
   box-shadow: 0px 10px 15px -3px #0000001a;
 
-  .icon-container svg {
+  .ds-toast-icon-container svg {
     width: 20px;
     height: 20px;
     margin-top: 3px;
