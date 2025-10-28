@@ -216,6 +216,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 
 - [Breadcrumb](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Breadcrumb)
 - [Footer](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Footer)
+- [Mobile Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/MobileTabBar)
 - [Navbar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Navbar)
 - [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
 - [Pagination](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Pagination)
