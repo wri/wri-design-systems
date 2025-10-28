@@ -1,17 +1,18 @@
 import { Tabs as ChakraTabs } from '@chakra-ui/react'
 import type { Ref } from 'react'
 
-export type TabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
+export type MobileTabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
   label: string
   value: string
-  icon?: React.ReactNode
+  icon: React.ReactNode
+  bagdeCount?: number
   disabled?: boolean
   ref?: Ref<HTMLButtonElement>
+  hideLabel?: boolean
 }
 
-export type TabBarProps = {
-  variant?: 'panel' | 'view'
+export type MobileTabBarProps = {
   defaultValue?: string
-  tabs: TabBarItemProps[]
+  tabs: MobileTabBarItemProps[]
   onTabClick?: (tabLabel: string) => void
 }

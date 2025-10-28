@@ -80,6 +80,7 @@ export { default as Sheet } from './Containers/Sheet'
 
 export { default as Breadcrumb } from './Navigation/Breadcrumb'
 export { default as Footer } from './Navigation/Footer'
+export { default as MobileTabBar } from './Navigation/MobileTabBar'
 export { default as Navbar } from './Navigation/Navbar'
 export { default as NavigationRail } from './Navigation/NavigationRail'
 export { default as Pagination } from './Navigation/Pagination'

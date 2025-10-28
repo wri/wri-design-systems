@@ -47,6 +47,7 @@ import SheetDemo from './components/Containers/Sheet/SheetDemo'
 
 import BreadcrumbDemo from './components/Navigation/Breadcrumb/BreadcrumbDemo'
 import FooterDemo from './components/Navigation/Footer/FooterDemo'
+import MobileTabBarDemo from './components/Navigation/MobileTabBar/MobileTabBarDemo'
 import NavbarDemo from './components/Navigation/Navbar/NavbarDemo'
 import LayerSidebarDemo from './components/Navigation/NavigationRail/LayerSidebar/LayerSidebarDemo'
 import PaginationDemo from './components/Navigation/Pagination/PaginationDemo'
@@ -136,6 +137,7 @@ const App = () => (
           <SheetDemo />
 
           <BreadcrumbDemo />
+          <MobileTabBarDemo />
           <TabBarDemo />
 
           <MenuDemo />
