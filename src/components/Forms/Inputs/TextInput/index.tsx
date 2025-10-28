@@ -37,7 +37,10 @@ const TextInput = ({
   }
 
   return (
-    <div css={textInputContainerStyles(size)} className='text-input-container'>
+    <div
+      css={textInputContainerStyles(size)}
+      className='ds-text-input-container'
+    >
       {errorMessage ? <div css={textInputErrorBarStyles} /> : null}
       <Field.Root
         required={required}

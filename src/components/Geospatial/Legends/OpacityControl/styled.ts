@@ -24,7 +24,7 @@ export const opacityControlTextInputContainerStyles = css`
   align-items: center;
   gap: 12px;
 
-  .text-input-container {
+  .ds-text-input-container {
     width: 48px;
     margin: 0px;
 

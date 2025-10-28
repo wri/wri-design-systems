@@ -38,7 +38,7 @@ export const layerParametersItemContentStyles = css`
   display: flex;
   flex-direction: column;
 
-  .layer-parameters-item-child {
+  .ds-layer-parameters-item-child {
     padding-bottom: 16px;
     border-bottom: 1px solid ${getThemedColor('neutral', 300)};
     margin-bottom: 16px;

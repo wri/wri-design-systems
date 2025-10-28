@@ -32,7 +32,7 @@ const Toast: React.FC = () =>
       <ChakraToaster toaster={toasters[toaster]} insetInline={{ mdDown: '4' }}>
         {(toast) => (
           <ChakraToast.Root css={toastContainerStyles} width={{ md: 'sm' }}>
-            <Stack flexDirection='row' className='icon-container'>
+            <Stack flexDirection='row' className='ds-toast-icon-container'>
               {toast.type === 'info' ? (
                 toast.meta?.icon ? (
                   toast.meta.icon

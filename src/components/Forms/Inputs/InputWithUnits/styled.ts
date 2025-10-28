@@ -59,7 +59,7 @@ export const inputWithUnitsContainerStyles = (
   width: 100%;
   margin-top: 8px;
 
-  .text-input-container {
+  .ds-text-input-container {
     margin-bottom: 0px;
 
     input {
@@ -92,7 +92,7 @@ export const inputWithUnitsContainerStyles = (
     }
   }
 
-  .select-input-container {
+  .ds-select-input-container {
     max-width: 82px;
     margin-bottom: 0px;
 

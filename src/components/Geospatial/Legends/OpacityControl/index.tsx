@@ -67,7 +67,7 @@ const OpacityControl = ({
                   max='100'
                   value={opacity}
                   onChange={handleOpacityChanged}
-                  className='opacity-control-text-input'
+                  className='ds-opacity-control-text-input'
                   onClick={(e: any) => e.target.select()}
                 />
                 <p

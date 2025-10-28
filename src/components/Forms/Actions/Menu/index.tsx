@@ -43,7 +43,7 @@ const MenuItem = ({
             )}
           >
             <div css={menuItemLabelContentStyles}>
-              <p className='menu-item-label'>{item.label}</p>
+              <p className='ds-menu-item-label'>{item.label}</p>
               {item.command ? (
                 <ChakraMenu.ItemCommand aria-label={`Shortcut ${item.command}`}>
                   {item.command}
@@ -51,7 +51,7 @@ const MenuItem = ({
               ) : null}
             </div>
             {item.caption ? (
-              <p className='menu-item-caption'>{item.caption}</p>
+              <p className='ds-menu-item-caption'>{item.caption}</p>
             ) : null}
           </div>
           {item.endIcon}

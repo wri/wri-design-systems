@@ -35,7 +35,7 @@ export const passwordContentStyles = css`
   gap: 8px;
   margin-top: 8px;
 
-  .text-input-container {
+  .ds-text-input-container {
     margin-bottom: 0px;
 
     input {

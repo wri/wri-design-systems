@@ -126,7 +126,7 @@ const Select = ({
     <Group
       css={selectContainerStyles(size)}
       style={rest.style}
-      className='select-input-container'
+      className='ds-select-input-container'
       tabIndex={disabled ? 0 : undefined}
       aria-disabled={disabled}
       aria-label={disabled ? totalAriaLabel : undefined}

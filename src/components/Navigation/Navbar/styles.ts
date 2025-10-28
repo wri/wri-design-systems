@@ -190,7 +190,7 @@ export const navbarMobileUtilityContainerStyles = css`
   background-color: ${getThemedColor('neutral', 200)};
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
 
-  .utility-item {
+  .ds-utility-item {
     padding: 12px 16px;
     width: 100%;
     height: 48px;

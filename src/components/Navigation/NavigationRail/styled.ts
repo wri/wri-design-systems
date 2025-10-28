@@ -43,7 +43,7 @@ export const navigationRailTabStyles = css`
     box-shadow: none;
   }
 
-  .tab-label p {
+  .ds-tab-label p {
     font-size: 10px;
     font-weight: 400;
     line-height: 14px;
@@ -66,7 +66,7 @@ export const navigationRailTabStyles = css`
       box-shadow: none;
     }
 
-    .tab-label {
+    .ds-tab-label {
       p {
         font-weight: 700;
         color: ${getThemedColor('neutral', 800)};
@@ -91,7 +91,7 @@ export const navigationRailTabStyles = css`
       background-color: ${getThemedColor('neutral', 100)} !important;
     }
 
-    .tab-label {
+    .ds-tab-label {
       p {
         color: ${getThemedColor('neutral', 400)};
       }
@@ -151,7 +151,7 @@ export const navigationRailTriggerStyles = css`
     box-shadow: none;
   }
 
-  .tab-label p {
+  .ds-tab-label p {
     font-size: 10px;
     font-weight: 400;
     line-height: 14px;

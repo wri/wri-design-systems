@@ -40,7 +40,7 @@ const LayerParameters = ({
         </Accordion.ItemTrigger>
         <Accordion.ItemContent css={layerParametersItemContentStyles}>
           {Children.map(children, (child) => (
-            <div className='layer-parameters-item-child'>{child}</div>
+            <div className='ds-layer-parameters-item-child'>{child}</div>
           ))}
         </Accordion.ItemContent>
       </Accordion.Item>
