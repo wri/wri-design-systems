@@ -29,7 +29,7 @@ const BaseMap = ({
   <div css={baseMapContainerStyles(maxHeight, maxWidth)}>
     <div className='ds-base-map-scroll-content'>
       <div css={baseMapHeaderContainerStyles}>
-        <p className='ds-base-map-header-title'>{title}</p>
+        <h2 className='ds-base-map-header-title'>{title}</h2>
         <p className='ds-base-map-header-caption'>{caption}</p>
       </div>
       <div css={baseMapContentContainerStyles}>

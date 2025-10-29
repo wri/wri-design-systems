@@ -56,6 +56,6 @@ type MobileTabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
 type MobileTabBarProps = {
   defaultValue?: string
   tabs: MobileTabBarItemProps[]
-  onTabClick?: (tabLabel: string) => void
+  onTabClick?: (tabValue: string) => void
 }
 ```

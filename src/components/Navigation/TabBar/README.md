@@ -37,7 +37,7 @@ type TabBarProps = {
   variant?: 'panel' | 'view'
   defaultValue?: string
   tabs: TabBarItemProps[]
-  onTabClick?: (tabLabel: string) => void
+  onTabClick?: (tabValue: string) => void
 }
 ```
 
