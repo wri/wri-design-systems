@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals'
 import { designSystemStyles } from './lib/theme'
 
 const basename = process.env.PUBLIC_BASE_PATH || ''
+console.log('basename', basename)
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
