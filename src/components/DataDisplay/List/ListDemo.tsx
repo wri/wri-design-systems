@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+
 import List from '.'
 import { MapIcon, SettingsIcon } from '../../icons'
 

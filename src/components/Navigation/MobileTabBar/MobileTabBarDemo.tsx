@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { MobileTabBar } from '../..'
 import { PlaceholderIcon } from '../../icons'
 
