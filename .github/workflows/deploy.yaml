@@ -35,10 +35,12 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build app
-        run: yarn build-app
+        run: |
+          export PUBLIC_URL='/${{ github.event.repository.name }}'
+          yarn build-app
 
       - name: Build Storybook
-        run: yarn build-storybook --output-dir ${{ env.STORYBOOK_DIR }}
+        run: yarn build-storybook --output-dir ${{ env.STORYBOOK_DIR }} # add: --base-url /wri-design-systems/storybook/
 
       - name: Assemble publish directory
         run: |
