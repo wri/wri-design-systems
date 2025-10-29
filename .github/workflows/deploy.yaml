@@ -38,7 +38,7 @@ jobs:
 
       - name: Build app
         run: |
-          export PUBLIC_URL='/${{ github.event.repository.name }}'
+          export PUBLIC_URL='/${{ github.event.repository.name }}/'
           yarn build-app
 
       - name: Build Storybook
