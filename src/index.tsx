@@ -7,7 +7,7 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { designSystemStyles } from './lib/theme'
 
-const basename = process.env.PUBLIC_BASE_PATH || ''
+const basename = process.env.PUBLIC_URL || ''
 
 // eslint-disable-next-line no-console
 console.log('basename', basename)
