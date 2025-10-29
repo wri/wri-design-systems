@@ -7,11 +7,13 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { designSystemStyles } from './lib/theme'
 
+const basename = process.env.PUBLIC_BASE_PATH || ''
+
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   // <React.StrictMode>
   <ChakraProvider value={designSystemStyles}>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path='/' element={<App />}>
           <Route path='/page1' element={<App />} />

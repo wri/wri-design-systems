@@ -21,6 +21,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_BASE_PATH: '/${{ github.event.repository.name }}'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
