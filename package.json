@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "start": "react-scripts start",
+    "build-app": "react-scripts build",
     "build": "rm -rf dist && rollup -c",
     "build-dev": "rm -rf dist && rollup -c --watch",
     "test": "react-scripts test",

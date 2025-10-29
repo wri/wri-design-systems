@@ -1,28 +1,69 @@
-name: Build and Publish WRI Design Systems to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
-    branches:
-      - 'main'
+    branches: [main]
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+env:
+  APP_BUILD_DIR: build
+  STORYBOOK_DIR: storybook-static
+  PUBLISH_DIR: public
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '22.x'
+          cache: 'yarn'
 
-      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+
+      - name: Build app
+        run: yarn build-app
+
+      - name: Build Storybook
+        run: yarn build-storybook --output-dir ${{ env.STORYBOOK_DIR }}
+
+      - name: Assemble publish directory
+        run: |
+          rm -rf $PUBLISH_DIR
+          mkdir -p $PUBLISH_DIR/storybook
+          cp -r $APP_BUILD_DIR/* $PUBLISH_DIR/
+          cp -r $STORYBOOK_DIR/* $PUBLISH_DIR/storybook/
+          # SPA fallback opcional (React Router, etc.)
+          if [ -f "$PUBLISH_DIR/index.html" ]; then cp $PUBLISH_DIR/index.html $PUBLISH_DIR/404.html; fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          install_command: yarn install
-          build_command: yarn build-storybook
-          path: storybook-static
-          checkout: false
+          path: ${{ env.PUBLISH_DIR }}
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
