@@ -46,7 +46,6 @@ const PanelDemo = () => (
       style={{
         height: '400px',
         padding: '20px',
-        position: 'fixed',
         bottom: '320px',
         right: 0,
         zIndex: 1000,
