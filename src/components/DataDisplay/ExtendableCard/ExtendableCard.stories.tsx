@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { NotificationIcon } from '../../icons'
+import { NotificationIcon, UserIcon } from '../../icons'
 import List from '../List'
+import Tag from '../../Forms/Tag'
 import ExtendableCard from '.'
 
 const meta = {
@@ -81,32 +82,47 @@ const BaseChildren = (
       {
         id: 'data-1',
         label: 'Label',
-        value: 'data',
-        variant: 'navigation',
+        value: 'Data',
+        variant: 'data',
+        icon: <UserIcon />,
       },
       {
         id: 'data-2',
         label: 'Label',
-        value: 'data',
+        value: 'Data',
         variant: 'data',
+        icon: <UserIcon />,
       },
       {
         id: 'data-3',
         label: 'Label',
-        value: 'data',
+        value: 'Data',
         variant: 'data',
+        icon: <UserIcon />,
       },
       {
         id: 'data-4',
         label: 'Label',
-        value: 'data',
+        value: 'Data',
         variant: 'data',
+        icon: <UserIcon />,
+      },
+      {
+        id: 'data-5',
+        label: 'Label',
+        value: 'Data',
+        variant: 'data',
+        icon: <UserIcon />,
       },
     ]}
   />
 )
 
-const BaseFooter = <div style={{ padding: '16px' }}> Footer Content </div>
+const BaseFooter = (
+  <div style={{ display: 'flex', padding: '0.5rem' }}>
+    <Tag label='Label' variant='info-grey' />
+  </div>
+)
 
 export const IconAndFooter: Story = {
   args: {
