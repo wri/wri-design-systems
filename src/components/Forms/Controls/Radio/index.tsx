@@ -2,7 +2,11 @@
 
 import { RadioGroup as ChakraRadioGroup } from '@chakra-ui/react'
 import { RadioProps } from './types'
-import { radioGroupItemStyles, radioGroupItemTextStyles } from './styled'
+import {
+  radioGroupItemStyles,
+  radioGroupItemTextStyles,
+  radioGroupHiddenInputStyles,
+} from './styled'
 
 const Radio = ({ children, value, disabled, ...rest }: RadioProps) => (
   <ChakraRadioGroup.Item
@@ -11,7 +15,7 @@ const Radio = ({ children, value, disabled, ...rest }: RadioProps) => (
     disabled={disabled}
     {...rest}
   >
-    <ChakraRadioGroup.ItemHiddenInput />
+    <ChakraRadioGroup.ItemHiddenInput css={radioGroupHiddenInputStyles} />
     <ChakraRadioGroup.ItemIndicator className='ds-radio-item-indicator' />
     {children ? (
       <ChakraRadioGroup.ItemText css={radioGroupItemTextStyles}>

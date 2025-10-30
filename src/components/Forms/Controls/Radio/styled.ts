@@ -81,3 +81,8 @@ export const radioGroupItemTextStyles = css`
     cursor: not-allowed;
   }
 `
+export const radioGroupHiddenInputStyles = css`
+  margin: 0 !important;
+  width: 20px !important;
+  height: 20px !important;
+`
