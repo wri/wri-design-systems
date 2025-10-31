@@ -4,6 +4,7 @@ import IconButtonDemo from './components/Forms/Actions/IconButton/IconButtonDemo
 import MapControlDemo from './components/Forms/Actions/MapControl/MapControlDemo'
 import MenuDemo from './components/Forms/Actions/Menu/MenuDemo'
 import MultiActionButtonDemo from './components/Forms/Actions/MultiActionButton/MultiActionButtonDemo'
+import TooltipDemo from './components/Forms/Actions/Tooltip/TooltipDemo'
 
 import CheckboxDemo from './components/Forms/Controls/Checkbox/CheckboxDemo'
 import CheckboxOptionCardDemo from './components/Forms/Controls/CheckboxOptionCard/CheckboxOptionCardDemo'
@@ -68,7 +69,16 @@ const App = () => (
       <LayerSidebarDemo />
 
       <div className='ds-app-container'>
-        <h1 style={{ marginBottom: '20px' }}>Welcome to WRI OS</h1>
+        <h1
+          style={{
+            fontSize: '30px',
+            lineHeight: '40px',
+            fontWeight: 'bold',
+            marginBottom: '20px',
+          }}
+        >
+          Welcome to WRI OS
+        </h1>
         <div
           style={{
             display: 'flex',
@@ -82,6 +92,7 @@ const App = () => (
           <IconButtonDemo />
           <MapControlDemo />
           <MultiActionButtonDemo />
+          <TooltipDemo />
 
           <CheckboxDemo />
           <CheckboxOptionCardDemo />

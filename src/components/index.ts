@@ -15,6 +15,7 @@ export { default as MapControl } from './Forms/Actions/MapControl'
 export { MapControls } from './Forms/Actions/MapControl/presets/MapControls'
 export { default as Menu } from './Forms/Actions/Menu'
 export { default as MultiActionButton } from './Forms/Actions/MultiActionButton'
+export { default as Tooltip } from './Forms/Actions/Tooltip'
 
 // Controls
 export { default as Checkbox } from './Forms/Controls/Checkbox'

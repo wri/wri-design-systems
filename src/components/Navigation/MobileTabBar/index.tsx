@@ -39,27 +39,38 @@ const MobileTabBar = ({
         onValueChange={({ value }) => handleOnTabClick(value)}
       >
         <Tabs.List alignItems='center' border='none'>
-          {tabs.map((tab, idx) => (
-            <Tabs.Trigger
-              css={mobileTabBarItemStyles}
-              key={tab.label}
-              aria-label={tab['aria-label'] || tab.label}
-              {...tab}
-            >
-              <div css={mobileTabBarItemIconContainerStyles}>
-                {tab.icon}
-                {tab.bagdeCount ? (
-                  <div
-                    css={mobileTabBarItemBadgeStyles}
-                    className='ds-badge-count'
-                  >
-                    {tab.bagdeCount}
-                  </div>
-                ) : null}
-              </div>
-              {!tab.hideLabel ? <p>{tab.label}</p> : null}
-            </Tabs.Trigger>
-          ))}
+          {tabs.map((tab) => {
+            const {
+              label,
+              icon,
+              bagdeCount,
+              hideLabel,
+              'aria-label': ariaLabel,
+              ...rest
+            } = tab
+
+            return (
+              <Tabs.Trigger
+                css={mobileTabBarItemStyles}
+                key={label}
+                aria-label={ariaLabel || label}
+                {...rest}
+              >
+                <div css={mobileTabBarItemIconContainerStyles}>
+                  {icon}
+                  {bagdeCount ? (
+                    <div
+                      css={mobileTabBarItemBadgeStyles}
+                      className='ds-badge-count'
+                    >
+                      {bagdeCount}
+                    </div>
+                  ) : null}
+                </div>
+                {!hideLabel ? <p>{label}</p> : null}
+              </Tabs.Trigger>
+            )
+          })}
         </Tabs.List>
       </Tabs.Root>
     </div>
