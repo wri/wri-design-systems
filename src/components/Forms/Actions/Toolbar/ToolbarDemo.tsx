@@ -1,5 +1,5 @@
 import React from 'react'
-import Toolbar from '../..'
+import Toolbar from '.'
 import {
   PlusIcon,
   MinusIcon,
@@ -8,7 +8,7 @@ import {
   PrintIcon,
   SettingsIcon,
   QuestionIcon,
-} from '../../../../../icons'
+} from '../../../icons'
 
 const mapControlItems = [
   {
