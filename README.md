@@ -169,6 +169,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Map Control](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MapControl)
 - [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Menu)
 - [Multi Action Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MultiActionButton)
+- [Tooltip](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Tooltip)
 
 ### Controls
 
