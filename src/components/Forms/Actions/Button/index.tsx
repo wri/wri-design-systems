@@ -45,6 +45,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       return newLabel
     }
 
+    const hasContent = label || children
+
     return (
       <ChakraButton
         aria-label={getAriaLabel()}
@@ -55,21 +57,29 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...rest}
       >
         {leftIcon && !loading ? (
-          <Box marginRight={label ? 2 : 0} display='flex' alignItems='center'>
+          <Box
+            marginRight={hasContent ? 2 : 0}
+            display='flex'
+            alignItems='center'
+          >
             {leftIcon}
           </Box>
         ) : null}
         {!rightIcon && loading ? (
-          <Spinner size='sm' marginRight={label ? 2 : 0} />
+          <Spinner size='sm' marginRight={hasContent ? 2 : 0} />
         ) : null}
         {children || label}
         {rightIcon && !loading ? (
-          <Box marginLeft={label ? 2 : 0} display='flex' alignItems='center'>
+          <Box
+            marginLeft={hasContent ? 2 : 0}
+            display='flex'
+            alignItems='center'
+          >
             {rightIcon}
           </Box>
         ) : null}
         {!!rightIcon && loading ? (
-          <Spinner size='sm' marginLeft={label ? 2 : 0} />
+          <Spinner size='sm' marginLeft={hasContent ? 2 : 0} />
         ) : null}
       </ChakraButton>
     )
