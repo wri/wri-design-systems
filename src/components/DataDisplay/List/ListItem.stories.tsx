@@ -96,3 +96,12 @@ export const NavigationWithCaption: Story = {
     icon: <UserIcon />,
   },
 }
+
+export const NavigationDisabled: Story = {
+  args: {
+    label: 'Menu item',
+    variant: 'navigation',
+    icon: <UserIcon />,
+    disabled: true,
+  },
+}

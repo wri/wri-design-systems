@@ -12,6 +12,7 @@ export interface ListItemProps {
   isExpanded?: boolean
   onItemClick?: () => void
   ariaLabel?: string
+  disabled?: boolean
 }
 
 export interface ListProps {

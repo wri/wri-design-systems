@@ -5,8 +5,10 @@ export const listContainerStyles = css`
   border: 1px solid ${getThemedColor('neutral', 300)};
 `
 
-export const listItemLabelStyles = css`
-  color: ${getThemedColor('neutral', 700)};
+export const listItemLabelStyles = (disabled: boolean) => css`
+  color: ${disabled
+    ? getThemedColor('neutral', 400)
+    : getThemedColor('neutral', 700)};
   line-height: 20px;
   white-space: nowrap;
   overflow: hidden;
@@ -29,11 +31,14 @@ export const listItemValueStyles = css`
   text-overflow: ellipsis;
 `
 
-export const listItemIconStyles = css`
+export const listItemIconStyles = (disabled: boolean) => css`
   width: 16px;
   height: 16px;
+
   path {
-    fill: ${getThemedColor('neutral', 700)};
+    fill: ${disabled
+      ? getThemedColor('neutral', 400)
+      : getThemedColor('neutral', 700)};
   }
 `
 
@@ -57,15 +62,11 @@ export const listItemNavigationStyles = css`
   border-bottom: 1px solid ${getThemedColor('neutral', 200)};
   width: 100%;
   text-align: left;
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0px 2px 4px -2px #0000001a;
-    box-shadow: 0px 4px 6px -1px #0000001a;
-    background-color: color-mix(
-      in srgb,
-      ${getThemedColor('primary', 500)} 20%,
-      transparent
-    );
+
+  &:hover:not(:disabled) {
+    cursor: pointer;
+    background-color: ${getThemedColor('neutral', 200)};
+    border-bottom: 1px solid ${getThemedColor('neutral', 300)};
   }
 
   &:focus-visible {
@@ -78,8 +79,12 @@ export const listItemNavigationStyles = css`
       rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
   }
 
-  &:active {
-    background-color: ${getThemedColor('primary', 100)};
-    border: 1px solid ${getThemedColor('primary', 700)};
+  &:active:not(:disabled) {
+    background-color: ${getThemedColor('neutral', 300)};
+    border-color: ${getThemedColor('neutral', 300)};
+  }
+
+  &:disabled {
+    background-color: ${getThemedColor('neutral', 200)};
   }
 `
