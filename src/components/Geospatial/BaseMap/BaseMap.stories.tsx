@@ -140,6 +140,7 @@ export const BaseMap: Story = {
           style={{ width: '260px' }}
           variant='secondary'
           leftIcon={<MapIcon />}
+          aria-label={`Base map: ${selectedOption?.label}`}
           rightIcon={
             isOpenBaseMap ? (
               <ChevronDownIcon rotate='180' />
