@@ -2,7 +2,13 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 import { TooltipProps } from './types'
 
-export const tooltipContainerStyles = (variant: TooltipProps['variant']) => css`
+export const tooltipTriggerStyles = css`
+  &:focus-visible {
+    outline: none;
+  }
+`
+
+export const tooltipContentStyles = (variant: TooltipProps['variant']) => css`
   background-color: ${getThemedColor('neutral', 800)};
   border-radius: 4px;
   border: 1px solid ${getThemedColor('neutral', 800)};

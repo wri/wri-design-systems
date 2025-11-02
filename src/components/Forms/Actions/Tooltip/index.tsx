@@ -2,8 +2,9 @@
 /** @jsxImportSource @emotion/react */
 
 import { Tooltip as ChakraTooltip, Portal } from '@chakra-ui/react'
+import { useState } from 'react'
 import { TooltipProps } from './types'
-import { tooltipContainerStyles } from './styles'
+import { tooltipContentStyles, tooltipTriggerStyles } from './styles'
 
 const Tooltip = ({
   children,
@@ -13,9 +14,11 @@ const Tooltip = ({
   position = 'bottom',
   variant = 'pill',
   portalRef,
-  openDelay,
-  closeDelay,
+  openDelay = 0,
+  closeDelay = 0,
 }: TooltipProps) => {
+  const [open, setOpen] = useState(false)
+
   if (disabled) return children
 
   return (
@@ -32,11 +35,19 @@ const Tooltip = ({
       }}
       openDelay={openDelay}
       closeDelay={closeDelay}
+      open={open}
+      onOpenChange={({ open: isOpen }) => setOpen(isOpen)}
     >
-      <ChakraTooltip.Trigger>{children}</ChakraTooltip.Trigger>
+      <ChakraTooltip.Trigger
+        tabIndex={0}
+        onClick={() => setOpen(true)}
+        css={tooltipTriggerStyles}
+      >
+        {children}
+      </ChakraTooltip.Trigger>
       <Portal disabled={disabled} container={portalRef}>
         <ChakraTooltip.Positioner>
-          <ChakraTooltip.Content css={tooltipContainerStyles(variant)}>
+          <ChakraTooltip.Content css={tooltipContentStyles(variant)}>
             {showArrow && variant === 'pill' ? (
               <ChakraTooltip.Arrow>
                 <ChakraTooltip.ArrowTip />
