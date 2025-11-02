@@ -33,7 +33,6 @@ import { MobileTabBar } from '@worldresources/wri-design-systems'
       label: 'Five',
       value: 'five',
       icon: <PlaceholderIcon />,
-      hideLabel: true,
     },
   ]}
   onTabClick={console.log}
@@ -50,12 +49,12 @@ type MobileTabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
   bagdeCount?: number
   disabled?: boolean
   ref?: Ref<HTMLButtonElement>
-  hideLabel?: boolean
 }
 
 type MobileTabBarProps = {
   defaultValue?: string
   tabs: MobileTabBarItemProps[]
   onTabClick?: (tabValue: string) => void
+  hideLabels?: boolean
 }
 ```

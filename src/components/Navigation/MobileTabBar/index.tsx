@@ -18,6 +18,7 @@ const MobileTabBar = ({
   defaultValue,
   tabs,
   onTabClick,
+  hideLabels,
 }: MobileTabBarProps) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(
     getTabIndex(tabs, defaultValue) || 0,
@@ -44,7 +45,6 @@ const MobileTabBar = ({
               label,
               icon,
               bagdeCount,
-              hideLabel,
               'aria-label': ariaLabel,
               ...rest
             } = tab
@@ -67,7 +67,7 @@ const MobileTabBar = ({
                     </div>
                   ) : null}
                 </div>
-                {!hideLabel ? <p>{label}</p> : null}
+                {!hideLabels ? <p>{label}</p> : null}
               </Tabs.Trigger>
             )
           })}

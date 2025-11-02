@@ -104,7 +104,7 @@ export const MobileTabBarDisabled: Story = {
   },
 }
 
-export const MobileTabBarWithHideLabel: Story = {
+export const MobileTabBarWithHiddenLabels: Story = {
   args: {
     tabs: [
       { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
@@ -124,9 +124,9 @@ export const MobileTabBarWithHideLabel: Story = {
         label: 'Five',
         value: 'five',
         icon: <PlaceholderIcon />,
-        hideLabel: true,
       },
     ],
     onTabClick: () => {},
+    hideLabels: true,
   },
 }

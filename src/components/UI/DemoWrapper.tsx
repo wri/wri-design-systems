@@ -27,7 +27,7 @@ type DemoWrapperProps = {
 }
 
 const DemoWrapper = ({ title, children }: DemoWrapperProps) => {
-  const id = title.toLowerCase().replace(' ', '-')
+  const id = title.toLowerCase().replaceAll(' ', '-')
 
   return (
     <div css={demoWrapperContainerStyles} id={id}>
