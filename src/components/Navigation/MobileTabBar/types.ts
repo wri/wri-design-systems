@@ -8,11 +8,11 @@ export type MobileTabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
   bagdeCount?: number
   disabled?: boolean
   ref?: Ref<HTMLButtonElement>
-  hideLabel?: boolean
 }
 
 export type MobileTabBarProps = {
   defaultValue?: string
   tabs: MobileTabBarItemProps[]
   onTabClick?: (tabValue: string) => void
+  hideLabels?: boolean
 }
