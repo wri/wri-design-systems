@@ -15,4 +15,5 @@ export interface ToolbarProps {
   toggleControl?: boolean
   ariaLabel?: string
   defaultGaps?: boolean
+  breakpoint?: number
 }

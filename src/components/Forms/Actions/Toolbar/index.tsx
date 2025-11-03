@@ -3,18 +3,20 @@
 
 import { useState } from 'react'
 import { Group, Button as ChakraButton, Box } from '@chakra-ui/react'
-import { ChevronLeftIcon, ChevronRightIcon } from '../../../icons'
+import { ChevronLeftIcon, ChevronRightIcon, MenuDotsIcon } from '../../../icons'
+import Menu from '../Menu'
 import { toolbarContainerStyles, toolbarBaseStyles } from './styled'
 import { ToolbarProps } from './types'
 
 const Toolbar = ({
   items,
-  vertical,
+  vertical = false,
   variant,
   expanded,
   toggleControl,
   ariaLabel,
   defaultGaps,
+  breakpoint = 370,
 }: ToolbarProps) => {
   const [isExpanded, setIsExpanded] = useState(expanded)
   const showLabel = isExpanded || variant === 'default'
@@ -61,7 +63,7 @@ const Toolbar = ({
         marginLeft={showLabel ? '8px' : '0'}
       >
         <Box as='span'>
-          {isExpanded && (
+          {isExpanded ? (
             <>
               <ChevronRightIcon style={{ width: '20px', height: '12px' }} />
               <ChevronRightIcon
@@ -69,8 +71,7 @@ const Toolbar = ({
                 ml='-12px'
               />
             </>
-          )}
-          {!isExpanded && (
+          ) : (
             <>
               <ChevronLeftIcon
                 style={{ width: '20px', height: '12px' }}
@@ -88,8 +89,43 @@ const Toolbar = ({
     </ChakraButton>
   ) : null
 
+  const overflowItems = items.slice(3)
+
+  const menuItems = overflowItems.map((item) => ({
+    label: item.label,
+    value: item.label,
+    startIcon: item.icon,
+    disabled: item.disabled,
+  }))
+
+  const handleMenuSelect = (value: string) => {
+    const selectedItem = overflowItems.find((item) => item.label === value)
+    if (selectedItem && selectedItem.onClick) {
+      selectedItem.onClick()
+    }
+  }
+
+  const overflowMenuTrigger = (
+    <ChakraButton
+      css={toolbarBaseStyles(false)}
+      style={{ width: '32px', height: '32px' }}
+      mr={defaultGaps && !vertical ? '16px' : '0'}
+      mb={defaultGaps && vertical ? '16px' : '0'}
+    >
+      <Box as='span' maxWidth='20px'>
+        <Box as='span' maxWidth='20px'>
+          <MenuDotsIcon style={{ width: '20px', height: '12px' }} />
+        </Box>
+      </Box>
+    </ChakraButton>
+  )
+
   return (
-    <div role='toolbar' aria-label={ariaLabel} css={toolbarContainerStyles}>
+    <div
+      role='toolbar'
+      aria-label={ariaLabel}
+      css={toolbarContainerStyles(breakpoint)}
+    >
       <Group
         orientation={vertical ? 'vertical' : 'horizontal'}
         attached
@@ -103,6 +139,7 @@ const Toolbar = ({
             (!defaultGaps && item.gap === true)
           return (
             <ChakraButton
+              className='toolbar-item-button'
               key={item.ariaLabel}
               css={toolbarBaseStyles(showLabel)}
               aria-label={item.ariaLabel}
@@ -130,6 +167,16 @@ const Toolbar = ({
             </ChakraButton>
           )
         })}
+
+        <div className='toolbar-overflow-menu'>
+          <Menu
+            label='test'
+            items={menuItems}
+            onSelect={handleMenuSelect}
+            customTrigger={overflowMenuTrigger}
+          />
+        </div>
+
         {toggleButton}
       </Group>
     </div>
