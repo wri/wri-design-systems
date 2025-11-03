@@ -19,7 +19,7 @@ const Toolbar = ({
   breakpoint = 370,
 }: ToolbarProps) => {
   const [isExpanded, setIsExpanded] = useState(expanded)
-  const showLabel = isExpanded || variant === 'default'
+  const showLabel = isExpanded
 
   if (items.length === 1) {
     const item = items[0]

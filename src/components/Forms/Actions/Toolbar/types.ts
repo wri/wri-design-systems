@@ -10,7 +10,6 @@ export interface ToolbarItem {
 export interface ToolbarProps {
   items: ToolbarItem[]
   vertical?: boolean
-  variant?: 'default' | 'another-variant'
   expanded?: boolean
   toggleControl?: boolean
   ariaLabel?: string

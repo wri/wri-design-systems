@@ -28,18 +28,23 @@ import { Toolbar } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
-type Toolbar = {
-  items: {
-    icon: React.ReactNode
-    label?: string
-    onClick?: () => void
-    disabled?: boolean
-    ariaLabel: string
-    gap?: boolean // If true, adds spacing after this item (used for grouping)
-  }[]
+interface ToolbarItem {
+  icon: React.ReactElement
+  label?: string
+  onClick?: () => void
+  disabled?: boolean
+  ariaLabel: string
+  gap?: boolean // If true, adds spacing after this item (used for grouping)
+}
+
+interface ToolbarProps {
+  items: ToolbarItem[]
   vertical?: boolean
   expanded?: boolean // Controls the visibility of item labels (default is false/icons only)
   toggleControl?: boolean // Renders an expand/collapse button when combined with 'expanded'
+  ariaLabel?: string // Main accessibility label for the toolbar container
+  defaultGaps?: boolean // If true, adds gaps between all items by default
+  breakpoint?: number // The viewport width (in px) at which the toolbar collapses into a menu
 }
 ```
 
