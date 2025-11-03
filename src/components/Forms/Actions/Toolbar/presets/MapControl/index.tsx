@@ -20,7 +20,7 @@ type MapControlsToolbarProps = {
   onQuestionClick?: () => void
   vertical?: boolean
   expanded?: boolean
-  toggleControl?: boolean
+  showExpandedToggle?: boolean
   ariaLabel?: string
 }
 
@@ -34,7 +34,7 @@ const MapControlsToolbar = ({
   onQuestionClick,
   vertical,
   expanded,
-  toggleControl,
+  showExpandedToggle,
   ariaLabel,
 }: MapControlsToolbarProps) => {
   const mapControlItems = [
@@ -92,7 +92,7 @@ const MapControlsToolbar = ({
       items={mapControlItems}
       vertical={vertical}
       expanded={expanded}
-      toggleControl={toggleControl}
+      showExpandedToggle={showExpandedToggle}
       ariaLabel={ariaLabel || 'Map controls toolbar'}
     />
   )

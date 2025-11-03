@@ -78,7 +78,7 @@ export const Horizontal: Story = {
     items: mapControlItems,
     ariaLabel: 'Map controls toolbar',
     defaultGaps: true,
-    toggleControl: true,
+    showExpandedToggle: false,
   },
   render: (args) => <Toolbar {...args} />,
 }
@@ -88,7 +88,7 @@ export const MapControls: Story = {
     items: mapControlItems,
     vertical: true,
     ariaLabel: 'Map controls toolbar',
-    toggleControl: true,
+    showExpandedToggle: true,
     defaultGaps: true,
     expanded: false,
   },

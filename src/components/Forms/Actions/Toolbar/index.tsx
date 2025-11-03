@@ -11,22 +11,20 @@ import { ToolbarProps } from './types'
 const Toolbar = ({
   items,
   vertical = false,
-  variant,
-  expanded,
-  toggleControl,
+  expanded = false,
+  showExpandedToggle,
   ariaLabel,
   defaultGaps,
   breakpoint = 370,
 }: ToolbarProps) => {
   const [isExpanded, setIsExpanded] = useState(expanded)
-  const showLabel = isExpanded
 
   if (items.length === 1) {
     const item = items[0]
 
     return (
       <ChakraButton
-        css={toolbarBaseStyles(showLabel)}
+        css={toolbarBaseStyles(isExpanded)}
         aria-label={item.ariaLabel}
         disabled={item.disabled}
         onClick={item.onClick}
@@ -38,9 +36,9 @@ const Toolbar = ({
           overflow='hidden'
           whiteSpace='nowrap'
           transition='max-width 0.3s ease, opacity 0.2s ease, margin-left 0.3s ease'
-          maxWidth={showLabel ? '150px' : '0'}
-          opacity={showLabel ? 1 : 0}
-          marginLeft={showLabel ? '8px' : '0'}
+          maxWidth={isExpanded ? '150px' : '0'}
+          opacity={isExpanded ? 1 : 0}
+          marginLeft={isExpanded ? '8px' : '0'}
         >
           {item.label}
         </Box>
@@ -48,9 +46,9 @@ const Toolbar = ({
     )
   }
 
-  const toggleButton = toggleControl ? (
+  const toggleButton = showExpandedToggle ? (
     <ChakraButton
-      css={toolbarBaseStyles(showLabel)}
+      css={toolbarBaseStyles(isExpanded)}
       onClick={() => setIsExpanded(!isExpanded)}
       aria-label={isExpanded ? 'Collapse' : 'Expand'}
     >
@@ -59,8 +57,8 @@ const Toolbar = ({
         overflow='hidden'
         whiteSpace='nowrap'
         transition='max-width 0.3s ease, opacity 0.2s ease, margin-left 0.3s ease'
-        maxWidth={showLabel ? '150px' : '20px'}
-        marginLeft={showLabel ? '8px' : '0'}
+        maxWidth={isExpanded ? '150px' : '20px'}
+        marginLeft={isExpanded ? '8px' : '0'}
       >
         <Box as='span'>
           {isExpanded ? (
@@ -141,7 +139,7 @@ const Toolbar = ({
             <ChakraButton
               className='toolbar-item-button'
               key={item.ariaLabel}
-              css={toolbarBaseStyles(showLabel)}
+              css={toolbarBaseStyles(isExpanded)}
               aria-label={item.ariaLabel}
               disabled={item.disabled}
               onClick={item.onClick}
@@ -153,13 +151,13 @@ const Toolbar = ({
                 overflow='hidden'
                 whiteSpace='nowrap'
                 transition='max-width 0.3s ease, opacity 0.2s ease, margin-left 0.3s ease'
-                maxWidth={showLabel ? '150px' : '20px'}
-                marginLeft={showLabel ? '8px' : '0'}
+                maxWidth={isExpanded ? '150px' : '20px'}
+                marginLeft={isExpanded ? '8px' : '0'}
               >
                 <Box as='span' mr={item.icon ? '8px' : '0'}>
                   {item.icon}
                 </Box>
-                <span aria-hidden={!showLabel}>
+                <span aria-hidden={!isExpanded}>
                   {/*  Hide the text from screen readers when collapsed to avoid redundancy */}
                   {item.label}
                 </span>

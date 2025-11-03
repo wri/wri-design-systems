@@ -11,7 +11,7 @@ export interface ToolbarProps {
   items: ToolbarItem[]
   vertical?: boolean
   expanded?: boolean
-  toggleControl?: boolean
+  showExpandedToggle?: boolean
   ariaLabel?: string
   defaultGaps?: boolean
   breakpoint?: number

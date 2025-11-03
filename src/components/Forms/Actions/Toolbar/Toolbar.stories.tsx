@@ -21,7 +21,7 @@ export const Default: Story = {
   args: {
     vertical: true,
     expanded: false,
-    toggleControl: true,
+    showExpandedToggle: true,
     defaultGaps: true,
     items: [
       {
