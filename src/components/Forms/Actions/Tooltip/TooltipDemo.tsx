@@ -1,4 +1,4 @@
-import { Tooltip } from '../../..'
+import { Checkbox, Tooltip } from '../../..'
 import { InfoIcon } from '../../../icons'
 import DemoWrapper from '../../../UI/DemoWrapper'
 
@@ -11,6 +11,14 @@ const TooltipDemo = () => (
         <p>Pill:</p>
         <Tooltip content='This is a tooltip'>
           <InfoIcon height='20px' width='20px' />
+        </Tooltip>
+      </div>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <p>Pill:</p>
+        <Tooltip content='This is a tooltip'>
+          <Checkbox name='Checkbox' value='1'>
+            Checkbox
+          </Checkbox>
         </Tooltip>
       </div>
       <div style={{ display: 'flex', gap: '10px' }}>
