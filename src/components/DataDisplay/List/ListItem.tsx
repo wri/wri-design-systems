@@ -22,13 +22,13 @@ const ListItem = ({
   onItemClick,
   isExpanded = false,
   ariaLabel,
+  disabled = false,
 }: ListItemProps) => {
   const isClickable = variant === 'navigation' && !!onItemClick
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (!isClickable) return
     if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault()
       onItemClick?.()
     }
   }
@@ -47,11 +47,12 @@ const ListItem = ({
       role={isClickable ? 'button' : undefined}
       aria-expanded={isClickable ? isExpanded : undefined}
       aria-label={computedAriaLabel}
+      disabled={disabled}
     >
       <Flex gap={3} flex='1' overflow='hidden'>
         {icon && (
           <Icon
-            css={listItemIconStyles}
+            css={listItemIconStyles(disabled)}
             as={icon.type as React.ElementType}
             boxSize={4}
             aria-hidden='true'
@@ -60,7 +61,7 @@ const ListItem = ({
         <Box flex='1' minWidth={0}>
           <Text
             fontWeight={variant === 'navigation' ? '700' : '400'}
-            css={listItemLabelStyles}
+            css={listItemLabelStyles(disabled)}
           >
             {label}
           </Text>
@@ -73,7 +74,12 @@ const ListItem = ({
       )}
 
       {variant === 'navigation' && (
-        <Icon as={ChevronRightIcon} boxSize={4} aria-hidden='true' />
+        <Icon
+          as={ChevronRightIcon}
+          boxSize={4}
+          aria-hidden='true'
+          css={listItemIconStyles(disabled)}
+        />
       )}
     </Container>
   )
