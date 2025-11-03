@@ -114,6 +114,35 @@ const MobileTabBarDemo = () => (
         hideLabels
       />
     </div>
+    <div style={{ width: '100%', maxWidth: '450px', margin: '25px 0' }}>
+      <p style={{ marginBottom: '10px', fontWeight: 'bold' }}>
+        Automatic activation mode
+      </p>
+      <MobileTabBar
+        tabs={[
+          { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
+          { label: 'Two', value: 'two', icon: <PlaceholderIcon /> },
+          {
+            label: 'Three',
+            value: 'three',
+            icon: <PlaceholderIcon />,
+            bagdeCount: 3,
+          },
+          {
+            label: 'Four',
+            value: 'four',
+            icon: <PlaceholderIcon />,
+          },
+          {
+            label: 'Five',
+            value: 'five',
+            icon: <PlaceholderIcon />,
+          },
+        ]}
+        onTabClick={console.log}
+        activationMode='automatic'
+      />
+    </div>
   </DemoWrapper>
 )
 

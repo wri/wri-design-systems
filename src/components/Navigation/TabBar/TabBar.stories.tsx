@@ -72,3 +72,15 @@ export const PanelTabWithIcons: Story = {
     ],
   },
 }
+
+export const AutomaticActivationMode: Story = {
+  args: {
+    variant: 'panel',
+    tabs: [
+      { label: 'One', value: 'one', icon: <CheckIcon /> },
+      { label: 'Two', value: 'two' },
+      { label: 'Three', value: 'three' },
+    ],
+    activationMode: 'automatic',
+  },
+}

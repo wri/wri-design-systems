@@ -33,6 +33,7 @@ const TabBar = ({
   defaultValue,
   tabs,
   onTabClick,
+  activationMode = 'manual',
 }: TabBarProps) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(
     getTabIndex(tabs, defaultValue) || 0,
@@ -54,6 +55,7 @@ const TabBar = ({
         width='full'
         defaultValue={defaultValue || tabs?.[0]?.value}
         onValueChange={({ value }) => handleOnTabClick(value)}
+        activationMode={activationMode}
       >
         <Tabs.List alignItems='center' border='none'>
           {tabs.map((tab, idx) => (
