@@ -9,6 +9,7 @@ import {
   SettingsIcon,
   QuestionIcon,
 } from '../../../icons'
+import DemoWrapper from '../../../UI/DemoWrapper'
 
 const mapControlItems = [
   {
@@ -62,6 +63,8 @@ const mapControlItems = [
 ]
 
 const MapControlDemo = () => (
-  <Toolbar items={mapControlItems} vertical showExpandedToggle />
+  <DemoWrapper title='Map Controls Toolbar'>
+    <Toolbar items={mapControlItems} vertical showExpandedToggle />
+  </DemoWrapper>
 )
 export default MapControlDemo
