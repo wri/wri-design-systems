@@ -1,15 +1,33 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
-import { MapControlProps } from './types'
 
-export const mapControlContainerStyles = css`
+export const toolbarContainerStyles = (breakpoint: number) => css`
   position: relative;
+
+  .toolbar-overflow-menu {
+    display: none;
+  }
+
+  @media (max-width: ${breakpoint}px) {
+    .toolbar-item-button:nth-of-type(n + 4) {
+      display: none;
+    }
+
+    .toolbar-overflow-menu {
+      display: inline-flex;
+    }
+  }
 `
 
-export const mapControlBaseStyles = css`
+export const toolbarBaseStyles = (showLabel: boolean) => css`
+  display: flex;
+  align-items: center;
+  justify-content: ${showLabel ? 'space-between' : 'center'};
+  gap: ${showLabel ? '8px' : '0'};
   height: 32px;
-  width: 32px;
-  padding: 0;
+  padding: ${showLabel ? '0 12px' : '0'};
+  text-align: ${showLabel ? 'left' : 'center'};
+  color: black;
   min-width: 32px;
   border-radius: 2px;
   background-color: ${getThemedColor('neutral', 100)};
@@ -26,8 +44,13 @@ export const mapControlBaseStyles = css`
     }
   }
 
+  > span {
+    flex: ${showLabel ? '1 1 auto' : '0 0 auto'};
+    text-align: right;
+  }
+
   &:hover {
-    background-color: ${getThemedColor('neutral', 200)};
+    background-color: ${getThemedColor('primary', 200)};
   }
 
   &:active {
@@ -51,27 +74,4 @@ export const mapControlBaseStyles = css`
       }
     }
   }
-`
-
-export const topSeparatorStyles = (
-  vertical: MapControlProps['vertical'],
-) => css`
-  position: absolute;
-  height: ${vertical ? '1px' : '6px'};
-  width: ${vertical ? '6px' : '1px'};
-  top: ${vertical ? '31px' : '1px'};
-  left: ${vertical ? '1px' : '31px'};
-  background-color: ${getThemedColor('neutral', 100)};
-  z-index: 1;
-`
-
-export const bottomSeparatorStyles = (
-  vertical: MapControlProps['vertical'],
-) => css`
-  position: absolute;
-  height: ${vertical ? '1px' : '6px'};
-  width: ${vertical ? '6px' : '1px'};
-  bottom: ${vertical ? '31px' : '1px'};
-  left: ${vertical ? '25px' : '31px'};
-  background-color: ${getThemedColor('neutral', 100)};
 `
