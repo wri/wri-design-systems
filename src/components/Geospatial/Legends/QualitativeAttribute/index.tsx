@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 /* eslint-disable react/no-unknown-property */
 
-import { useId, useState } from 'react'
+import { useId, useState, useMemo } from 'react'
 
 import { QualitativeAttributeProps } from './types'
 import {
@@ -35,16 +35,40 @@ const QualitativeAttribute = ({
   const isLine = type === 'line'
   const isPoint = type === 'point'
 
+  const combinedAriaId = useId()
+
+  const combinedAriaLabel = useMemo(() => {
+    const visibilityText = isShown ? 'visible' : 'hidden'
+    const typeText = type ? `${type} layer` : 'layer'
+    const captionText = caption ? `, ${caption}` : ''
+    return `${typeText}, ${label}${captionText}. Currently ${visibilityText}.`
+  }, [isShown, type, label, caption])
+
   const handleOnClick = () => {
     setIsShown((prev) => !prev)
     onActionClick?.()
   }
 
   const buttonText = isShown ? 'Hide' : 'Show'
-  const describedBy = caption ? `${labelId} ${captionId}` : labelId
 
   return (
     <div css={qualitativeAttributeContainerStyles}>
+      <p
+        id={combinedAriaId}
+        css={{
+          position: 'absolute',
+          width: 1,
+          height: 1,
+          margin: -1,
+          padding: 0,
+          border: 0,
+          clip: 'rect(0 0 0 0)',
+          overflow: 'hidden',
+        }}
+      >
+        {combinedAriaLabel}
+      </p>
+
       <div css={qualitativeAttributeLabelContainerStyles}>
         <div>
           {isRaster && <div css={rasterIndicatorStyles(color)} />}
@@ -71,8 +95,7 @@ const QualitativeAttribute = ({
             label={buttonText}
             rightIcon={isShown ? <HideIcon /> : <ShowIcon />}
             aria-pressed={isShown}
-            aria-describedby={describedBy}
-            aria-label={`${buttonText} ${label}`}
+            aria-labelledby={`${combinedAriaId} ${labelId}`}
             onClick={handleOnClick}
           />
         </div>
