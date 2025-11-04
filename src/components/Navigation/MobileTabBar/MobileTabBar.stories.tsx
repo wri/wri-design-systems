@@ -130,3 +130,30 @@ export const MobileTabBarWithHiddenLabels: Story = {
     hideLabels: true,
   },
 }
+
+export const AutomaticActivationMode: Story = {
+  args: {
+    tabs: [
+      { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
+      { label: 'Two', value: 'two', icon: <PlaceholderIcon /> },
+      {
+        label: 'Three',
+        value: 'three',
+        icon: <PlaceholderIcon />,
+        bagdeCount: 3,
+      },
+      {
+        label: 'Four',
+        value: 'four',
+        icon: <PlaceholderIcon />,
+      },
+      {
+        label: 'Five',
+        value: 'five',
+        icon: <PlaceholderIcon />,
+      },
+    ],
+    onTabClick: () => {},
+    activationMode: 'automatic',
+  },
+}

@@ -15,4 +15,5 @@ export type MobileTabBarProps = {
   tabs: MobileTabBarItemProps[]
   onTabClick?: (tabValue: string) => void
   hideLabels?: boolean
+  activationMode?: 'automatic' | 'manual' // default: 'manual'
 }

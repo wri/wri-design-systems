@@ -19,6 +19,7 @@ const MobileTabBar = ({
   tabs,
   onTabClick,
   hideLabels,
+  activationMode = 'manual',
 }: MobileTabBarProps) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(
     getTabIndex(tabs, defaultValue) || 0,
@@ -38,6 +39,7 @@ const MobileTabBar = ({
         width='full'
         defaultValue={defaultValue || tabs?.[0]?.value}
         onValueChange={({ value }) => handleOnTabClick(value)}
+        activationMode={activationMode}
       >
         <Tabs.List alignItems='center' border='none'>
           {tabs.map((tab) => {

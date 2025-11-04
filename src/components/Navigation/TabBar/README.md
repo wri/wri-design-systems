@@ -38,6 +38,7 @@ type TabBarProps = {
   defaultValue?: string
   tabs: TabBarItemProps[]
   onTabClick?: (tabValue: string) => void
+  activationMode?: 'automatic' | 'manual' // default: 'manual'
 }
 ```
 
@@ -91,5 +92,19 @@ type TabBarProps = {
     { label: 'Two', value: 'two' },
     { label: 'Three', value: 'three' },
   ]}
+/>
+```
+
+## Automatic Activation Mode
+
+```tsx
+<TabBar
+  variant='panel'
+  tabs={[
+    { label: 'One', value: 'one', icon: <CheckIcon /> },
+    { label: 'Two', value: 'two' },
+    { label: 'Three', value: 'three' },
+  ]}
+  activationMode='automatic'
 />
 ```

@@ -44,6 +44,16 @@ const TabBarDemo = () => (
         { label: 'Three', value: 'three' },
       ]}
     />
+    <br />
+    <TabBar
+      variant='panel'
+      tabs={[
+        { label: 'One', value: 'one' },
+        { label: 'Two', value: 'two' },
+        { label: 'Three', value: 'three' },
+      ]}
+      activationMode='automatic'
+    />
   </div>
 )
 

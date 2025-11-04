@@ -14,4 +14,5 @@ export type TabBarProps = {
   defaultValue?: string
   tabs: TabBarItemProps[]
   onTabClick?: (tabValue: string) => void
+  activationMode?: 'automatic' | 'manual' // default: 'manual'
 }
