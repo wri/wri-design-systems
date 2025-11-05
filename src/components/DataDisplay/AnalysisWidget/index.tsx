@@ -1,9 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Accordion, Box, Flex } from '@chakra-ui/react'
 import Tag from '../../Forms/Tag'
 import {
-  analysisWidgetContainerStyles,
   analysisWidgetHeaderStyles,
   analysisWidgetFooterStyles,
   analysisWidgetContentStyles,
@@ -22,18 +21,13 @@ const AnalysisWidget = ({
   const itemValue = 'analysis-widget-item'
   const [isOpen, setIsOpen] = useState(expanded)
   const headerId = `analysis-widget-header-${itemValue}`
-  const toggleRef = useRef(null)
 
   const handleToggle = () => {
     setIsOpen(!isOpen)
   }
 
   return (
-    <Box
-      as='section'
-      aria-labelledby={headerId}
-      css={analysisWidgetContainerStyles}
-    >
+    <Box as='section' aria-labelledby={headerId}>
       <Accordion.Root
         multiple
         value={!collapsible ? [itemValue] : undefined}
@@ -42,7 +36,6 @@ const AnalysisWidget = ({
         <Accordion.Item css={analysisWidgetContentStyles} value={itemValue}>
           <Accordion.ItemTrigger
             id={headerId}
-            ref={toggleRef}
             role='button'
             aria-expanded={isOpen}
             tabIndex={0}

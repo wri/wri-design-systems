@@ -1,53 +1,6 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
-export const analysisWidgetContainerStyles = css`
-  border: 1px solid ${getThemedColor('neutral', 300)};
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-    @keyframes fade-out {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      }
-    }
-  }
-`
-
-export const keyframesStyles = css`
-  @keyframes slide-down {
-    from {
-      height: 0;
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      height: auto;
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes slide-up {
-    from {
-      height: auto;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      height: 0;
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-  }
-`
-
 export const analysisWidgetHeaderStyles = css`
   padding: 16px;
   cursor: pointer;
