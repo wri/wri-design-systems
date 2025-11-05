@@ -17,4 +17,5 @@ export interface ListItemProps {
 
 export interface ListProps {
   items: ListItemProps[]
+  noBorder?: boolean
 }

@@ -99,6 +99,7 @@
   "author": "WRI",
   "license": "MIT",
   "dependencies": {
+    "@floating-ui/react": "^0.27.16",
     "react-spring-bottom-sheet": "^3.4.1"
   }
 }

@@ -24,9 +24,10 @@ import { IconMarker } from '@worldresources/wri-design-systems'
 ```ts
 type IconMarkerProps = {
   ariaLabel: string
-  icon: React.ReactNode
+  icon?: React.ReactNode
   backgroundColor?: string
   onClick?: () => void
+  showFocusState?: boolean
 }
 ```
 
@@ -54,5 +55,6 @@ import { IconMarkers } from '@worldresources/wri-design-systems'
   <IconMarkers.Paper />
   <IconMarkers.Drop />
   <IconMarkers.Plant />
+  <IconMarkers.Point />
 </div>
 ```

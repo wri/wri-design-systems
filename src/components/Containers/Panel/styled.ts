@@ -41,6 +41,10 @@ export const panelContentContainerStyles = (
   height: ${getContentHeight(headerHeight, footerHeight)};
   width: 100%;
   overflow-y: auto;
+
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+  }
 `
 
 export const panelFooterContainerStyles = css`

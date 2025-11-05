@@ -1,25 +1,24 @@
 /** @jsxImportSource @emotion/react */
 /* eslint-disable react/no-unknown-property */
 
+import { forwardRef } from 'react'
 import { IconMarkerProps } from './types'
-import { iconMarkerStyles } from './styles'
+import { iconMarkerContainerStyles, iconMarkerStyles } from './styles'
 
-const IconMarker = ({
-  ariaLabel,
-  icon,
-  backgroundColor,
-  onClick,
-}: IconMarkerProps) => (
-  <div
-    css={iconMarkerStyles(backgroundColor, !!onClick)}
-    aria-label={ariaLabel}
-    role='button'
-    tabIndex={0}
-    onClick={onClick}
-    onKeyDown={onClick}
-  >
-    {icon}
-  </div>
+const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
+  ({ ariaLabel, icon, backgroundColor, onClick, showFocusState }, ref) => (
+    <div css={showFocusState ? iconMarkerContainerStyles(!!icon) : ''}>
+      <button
+        type='button'
+        css={iconMarkerStyles(backgroundColor, !!onClick, !!icon)}
+        aria-label={ariaLabel}
+        ref={ref}
+        onClick={onClick}
+      >
+        {icon}
+      </button>
+    </div>
+  ),
 )
 
 export default IconMarker

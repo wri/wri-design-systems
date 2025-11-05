@@ -46,6 +46,7 @@ export { default as Tag } from './Forms/Tag'
 export { default as BaseMap } from './Geospatial/BaseMap'
 export { default as IconMarker } from './Geospatial/IconMarker'
 export { IconMarkers } from './Geospatial/IconMarker/presets/IconMarkers'
+export { default as MapPopUp } from './Geospatial/MapPopUp'
 
 // Layers
 export { default as LayerGroup } from './Geospatial/Layers/LayerGroup'
