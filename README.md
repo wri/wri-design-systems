@@ -158,6 +158,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [List](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/List)
 - [Table](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/Table)
 - [Extendable Card](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/ExtendableCard)
+- [Analysis Widget](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/AnalysisWidget)
 
 ## Forms
 

@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/data-display-analysiswidget--docs)
 
----
+## [AnalysisWidgetDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/AnalysisWidget/AnalysisWidgetDemo.tsx)
 
 ## Import
 

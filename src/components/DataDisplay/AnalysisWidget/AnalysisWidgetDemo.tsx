@@ -3,6 +3,7 @@ import AnalysisWidget from '.'
 import DemoWrapper from '../../UI/DemoWrapper'
 import Tag from '../../Forms/Tag'
 import { InfoIcon, RefreshIcon } from '../../icons'
+import { getThemedColor } from '../../../lib/theme'
 
 const AnalysisWidgetDemo = () => (
   <DemoWrapper title='Analysis Widget'>
@@ -26,7 +27,14 @@ const AnalysisWidgetDemo = () => (
               }}
             >
               <div style={{ fontWeight: '700' }}>Title</div>
-              <div style={{ color: '#4A5568', fontWeight: 400 }}>caption</div>
+              <div
+                style={{
+                  color: getThemedColor('neutral', 700),
+                  fontWeight: 400,
+                }}
+              >
+                caption
+              </div>
             </div>
           </div>
         }
@@ -64,7 +72,9 @@ const AnalysisWidgetDemo = () => (
           <div style={{ fontWeight: '700', fontSize: 24 }}>
             Component Placeholder
           </div>
-          <div style={{ color: '#4A5568', fontWeight: 400 }}>
+          <div
+            style={{ color: getThemedColor('neutral', 700), fontWeight: 400 }}
+          >
             Substitute for another component
           </div>
         </div>
