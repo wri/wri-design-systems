@@ -36,20 +36,21 @@ jobs:
 
       - name: Build app
         run: |
-          export PUBLIC_URL='/${{ github.event.repository.name }}/'
+          export PUBLIC_URL='/${{ github.event.repository.name }}/demo/'
           yarn build-app
 
       - name: Build Storybook
-        run: yarn build-storybook --output-dir ${{ env.STORYBOOK_DIR }} # add: --base-url /wri-design-systems/storybook/
+        run: yarn build-storybook --output-dir ${{ env.STORYBOOK_DIR }}
 
       - name: Assemble publish directory
         run: |
           rm -rf $PUBLISH_DIR
-          mkdir -p $PUBLISH_DIR/storybook
-          cp -r $APP_BUILD_DIR/* $PUBLISH_DIR/
-          cp -r $STORYBOOK_DIR/* $PUBLISH_DIR/storybook/
+          mkdir -p $PUBLISH_DIR/demo
+          cp -r $APP_BUILD_DIR/* $PUBLISH_DIR/demo/
+          cp -r $STORYBOOK_DIR/* $PUBLISH_DIR/
           # SPA fallback opcional (React Router, etc.)
           if [ -f "$PUBLISH_DIR/index.html" ]; then cp $PUBLISH_DIR/index.html $PUBLISH_DIR/404.html; fi
+          if [ -f "$PUBLISH_DIR/demo/index.html" ]; then cp $PUBLISH_DIR/demo/index.html $PUBLISH_DIR/demo/404.html; fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
