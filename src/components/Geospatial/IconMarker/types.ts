@@ -1,6 +1,7 @@
 export type IconMarkerProps = {
   ariaLabel: string
-  icon: React.ReactNode
+  icon?: React.ReactNode
   backgroundColor?: string
   onClick?: () => void
+  showFocusState?: boolean
 }

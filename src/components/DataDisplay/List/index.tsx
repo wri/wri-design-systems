@@ -5,8 +5,8 @@ import ListItem from './ListItem'
 import { listContainerStyles } from './styled'
 import { ListProps } from './types'
 
-const List = ({ items }: ListProps) => (
-  <Box css={listContainerStyles}>
+const List = ({ items, noBorder }: ListProps) => (
+  <Box css={listContainerStyles(noBorder)}>
     {items.map((item) => (
       <ListItem
         id={item.id}

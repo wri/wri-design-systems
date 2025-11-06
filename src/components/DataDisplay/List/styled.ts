@@ -1,8 +1,9 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
-export const listContainerStyles = css`
+export const listContainerStyles = (noBorder?: boolean) => css`
   border: 1px solid ${getThemedColor('neutral', 300)};
+  ${noBorder ? 'border: none;' : ''}
 `
 
 export const listItemLabelStyles = (disabled: boolean) => css`

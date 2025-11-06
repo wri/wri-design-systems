@@ -18,6 +18,7 @@ const IconMarkerDemo = () => (
     <IconMarkers.Paper />
     <IconMarkers.Drop />
     <IconMarkers.Plant />
+    <IconMarkers.Point />
   </div>
 )
 

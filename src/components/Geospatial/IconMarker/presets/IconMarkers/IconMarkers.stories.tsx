@@ -26,3 +26,7 @@ export const Drop: Story = {
 export const Plant: Story = {
   render: () => <IconMarkers.Plant />,
 }
+
+export const Point: Story = {
+  render: () => <IconMarkers.Point />,
+}
