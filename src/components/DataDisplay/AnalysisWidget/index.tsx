@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Accordion, Box, Flex } from '@chakra-ui/react'
 import Tag from '../../Forms/Tag'
 import {
+  analysisWidgetContainerStyles,
   analysisWidgetHeaderStyles,
   analysisWidgetFooterStyles,
   analysisWidgetContentStyles,
@@ -27,7 +28,11 @@ const AnalysisWidget = ({
   }
 
   return (
-    <Box as='section' aria-labelledby={headerId}>
+    <Box
+      as='section'
+      aria-labelledby={headerId}
+      css={analysisWidgetContainerStyles}
+    >
       <Accordion.Root
         multiple
         value={!collapsible ? [itemValue] : undefined}
@@ -40,37 +45,38 @@ const AnalysisWidget = ({
             aria-expanded={isOpen}
             tabIndex={0}
             css={analysisWidgetHeaderStyles}
-            alignItems='center'
             pointerEvents={collapsible ? 'auto' : 'none'}
             onClick={collapsible ? handleToggle : undefined}
           >
-            <Flex gap={3} flex='1' overflow='hidden' alignItems='center'>
+            <Flex gap={3} flex='1' overflow='hidden' alignItems='top'>
               {header}
+
+              {actions &&
+                actions.map((action) => (
+                  <Tag
+                    variant='info-grey'
+                    key={action.label}
+                    label={action.label}
+                    onClick={(e) => {
+                      action.onClick()
+                      e.preventDefault()
+                      e.stopPropagation()
+                    }}
+                    icon={action?.icon}
+                  />
+                ))}
+
+              {collapsible && (
+                <Accordion.ItemIndicator height='16px' display='flex'>
+                  <ChevronDownIcon
+                    aria-label='Toggle section'
+                    color='var(--chakra-colors-neutral-700)'
+                    height='16px'
+                    width='16px'
+                  />
+                </Accordion.ItemIndicator>
+              )}
             </Flex>
-            {actions &&
-              actions.map((action) => (
-                <Tag
-                  variant='info-grey'
-                  key={action.label}
-                  label={action.label}
-                  onClick={(e) => {
-                    action.onClick()
-                    e.preventDefault()
-                    e.stopPropagation()
-                  }}
-                  icon={action?.icon}
-                />
-              ))}
-            {collapsible && (
-              <Accordion.ItemIndicator>
-                <ChevronDownIcon
-                  aria-label='Toggle section'
-                  color='var(--chakra-colors-neutral-700)'
-                  height='16px'
-                  width='16px'
-                />
-              </Accordion.ItemIndicator>
-            )}
           </Accordion.ItemTrigger>
           <div
             className={isOpen ? 'item-content-open' : 'item-content-closed'}
