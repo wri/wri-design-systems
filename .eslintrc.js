@@ -51,5 +51,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'react/no-unstable-nested-components': 0,
     'import/extensions': 0,
+    'no-console': 'error',
   },
 }
