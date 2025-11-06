@@ -67,6 +67,7 @@ export { default as ItemCount } from './DataDisplay/ItemCount'
 export { default as List } from './DataDisplay/List'
 export { default as Table, TableRow, TableCell } from './DataDisplay/Table'
 export { default as ExtendableCard } from './DataDisplay/ExtendableCard'
+export { default as AnalysisWidget } from './DataDisplay/AnalysisWidget'
 
 // -- Information Display -- //
 

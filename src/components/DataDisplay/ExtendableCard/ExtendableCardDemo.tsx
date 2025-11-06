@@ -4,7 +4,7 @@ import { fn } from '@storybook/test'
 import ExtendableCard from '.'
 import List from '../List'
 import Tag from '../../Forms/Tag'
-import { MapIcon, NotificationIcon } from '../../icons'
+import { MapIcon } from '../../icons'
 
 const demoHeader = (
   <Flex gap={3} flex='1' overflow='hidden' alignItems='center'>

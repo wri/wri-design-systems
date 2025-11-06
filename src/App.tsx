@@ -42,6 +42,7 @@ import ItemCountDemo from './components/DataDisplay/ItemCount/ItemCountDemo'
 import TableDemo from './components/DataDisplay/Table/TableDemo'
 import ListDemo from './components/DataDisplay/List/ListDemo'
 import ExtendableCardDemo from './components/DataDisplay/ExtendableCard/ExtendableCardDemo'
+import AnalysisWidgetDemo from './components/DataDisplay/AnalysisWidget/AnalysisWidgetDemo'
 
 import ModalDemo from './components/Containers/Modal/ModalDemo'
 import PanelDemo from './components/Containers/Panel/PanelDemo'
@@ -145,6 +146,7 @@ const App = () => (
           <TableDemo />
           <ListDemo />
           <ExtendableCardDemo />
+          <AnalysisWidgetDemo />
 
           <PanelDemo />
           <SheetDemo />
