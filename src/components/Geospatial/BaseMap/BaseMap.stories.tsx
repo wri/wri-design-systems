@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import BaseMapStory from '.'
@@ -42,6 +42,13 @@ export const BaseMap: Story = {
       active: true,
     })
     const [isOpenBaseMap, setIsOpenBaseMap] = useState(false)
+    const baseMapContainerRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+      if (baseMapContainerRef.current) {
+        baseMapContainerRef.current.inert = !isOpenBaseMap
+      }
+    }, [isOpenBaseMap])
 
     return (
       <div
@@ -53,6 +60,7 @@ export const BaseMap: Story = {
         }}
       >
         <div
+          ref={baseMapContainerRef}
           style={{
             height: isOpenBaseMap ? '400px' : 0,
             overflow: 'hidden',
