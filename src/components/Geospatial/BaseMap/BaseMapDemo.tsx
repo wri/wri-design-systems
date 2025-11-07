@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BaseMap, Button, getThemedColor, Select, Sheet } from '../..'
 import { ChevronDownIcon, MapIcon } from '../../icons'
 import { BaseMapOptionProps } from './types'
@@ -19,10 +19,17 @@ const BaseMapDemo = () => {
   })
   const [isOpenBaseMap, setIsOpenBaseMap] = useState(false)
   const [showSheet, setShowSheet] = useState(false)
+  const baseMapContainerRef = useRef<HTMLDivElement>(null)
 
   const handleCloseSheet = () => {
     setShowSheet(false)
   }
+
+  useEffect(() => {
+    if (baseMapContainerRef.current) {
+      baseMapContainerRef.current.inert = !isOpenBaseMap
+    }
+  }, [isOpenBaseMap])
 
   return (
     <div>
@@ -35,6 +42,7 @@ const BaseMapDemo = () => {
         }}
       >
         <div
+          ref={baseMapContainerRef}
           style={{
             height: isOpenBaseMap ? '400px' : 0,
             overflow: 'hidden',
