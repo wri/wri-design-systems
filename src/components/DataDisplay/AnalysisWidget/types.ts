@@ -2,7 +2,7 @@ import React from 'react'
 
 export interface AnalysisWidgetProps {
   children: React.ReactNode
-  header: React.ReactNode
+  header?: React.ReactNode
   footer?: React.ReactNode
   expanded?: boolean
   collapsible?: boolean

@@ -3,32 +3,33 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 import React, { Children, cloneElement, ReactElement, useState } from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
-import Panel from '.'
-import { legendPanelContainerStyles } from '../../Geospatial/Legends/LegendPanel/styled'
-import TabBar from '../../Navigation/TabBar'
+import Panel from '..'
+import { legendPanelContainerStyles } from '../../../Geospatial/Legends/LegendPanel/styled'
+import TabBar from '../../../Navigation/TabBar'
+import Button from '../../../Forms/Actions/Button'
+import AnalysisWidget from '../../../DataDisplay/AnalysisWidget'
 import {
   LegendItemDemo,
   LegendItemDemo2,
   LegendItemDemo3,
-} from '../../Geospatial/Legends/LegendItem/LegendItemDemo'
+} from '../../../Geospatial/Legends/LegendItem/LegendItemDemo'
+import { GraphIcon } from '../../../icons'
 
 const meta = {
-  title: 'Containers/Panel/Templates/Legend Panel',
+  title: 'Containers/Panel/Templates/Analysis Panel',
   component: Panel,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Panel>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-const defaultTabValue = 'legend-tab'
+const defaultTabValue = 'analysis-tab'
 
-export const LegendPanel: Story = {
+export const FloatingNoInformation: Story = {
   args: {
     content: <div>content</div>,
   },
@@ -54,10 +55,11 @@ export const LegendPanel: Story = {
 
     return (
       <Panel
-        {...args}
+        variant='floating'
         content={
           <div css={legendPanelContainerStyles}>
             <TabBar
+              defaultValue='analysis-tab'
               tabs={[
                 { label: 'Legend', value: 'legend-tab' },
                 {
@@ -90,15 +92,39 @@ export const LegendPanel: Story = {
               </div>
             ) : null}
             {selectedTabValue === 'analysis-tab' ? (
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '10px',
-                }}
+              <AnalysisWidget
+                footer={
+                  <div style={{ padding: '10px' }}>
+                    <Button
+                      style={{ width: '100%' }}
+                      label='Label'
+                      variant='primary'
+                    />
+                  </div>
+                }
               >
-                <div>analysisContent</div>
-              </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '10px',
+                    height: '600px',
+                  }}
+                >
+                  <div style={{ padding: '20px' }}>
+                    <div style={{ textAlign: 'center', padding: '20px' }}>
+                      <GraphIcon />
+                    </div>
+                    <h2 style={{ fontWeight: '700', fontSize: '20px' }}>
+                      Select an area on the map to analyse
+                    </h2>
+                    <p>
+                      When you select an area, the result of your analysis will
+                      appear here.
+                    </p>
+                  </div>
+                </div>
+              </AnalysisWidget>
             ) : null}
           </div>
         }

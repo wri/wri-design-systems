@@ -39,45 +39,53 @@ const AnalysisWidget = ({
         defaultValue={expanded ? [itemValue] : []}
       >
         <Accordion.Item css={analysisWidgetContentStyles} value={itemValue}>
-          <Accordion.ItemTrigger
-            id={headerId}
-            role='button'
-            aria-expanded={isOpen}
-            tabIndex={0}
-            css={analysisWidgetHeaderStyles}
-            pointerEvents={collapsible ? 'auto' : 'none'}
-            onClick={collapsible ? handleToggle : undefined}
-          >
-            <Flex gap={3} flex='1' overflow='hidden' alignItems='top'>
-              {header}
+          {header && (
+            <Accordion.ItemTrigger
+              id={headerId}
+              role='button'
+              aria-expanded={isOpen}
+              tabIndex={0}
+              css={analysisWidgetHeaderStyles}
+              pointerEvents={collapsible ? 'auto' : 'none'}
+              onClick={collapsible ? handleToggle : undefined}
+            >
+              <Flex
+                gap={3}
+                flex='1'
+                overflow='hidden'
+                alignItems='top'
+                justifyContent='space-between'
+              >
+                {header}
 
-              {actions &&
-                actions.map((action) => (
-                  <Tag
-                    variant='info-grey'
-                    key={action.label}
-                    label={action.label}
-                    onClick={(e) => {
-                      action.onClick()
-                      e.preventDefault()
-                      e.stopPropagation()
-                    }}
-                    icon={action?.icon}
-                  />
-                ))}
+                {actions &&
+                  actions.map((action) => (
+                    <Tag
+                      variant='info-grey'
+                      key={action.label}
+                      label={action.label}
+                      onClick={(e) => {
+                        action.onClick()
+                        e.preventDefault()
+                        e.stopPropagation()
+                      }}
+                      icon={action?.icon}
+                    />
+                  ))}
 
-              {collapsible && (
-                <Accordion.ItemIndicator height='16px' display='flex'>
-                  <ChevronDownIcon
-                    aria-label='Toggle section'
-                    color='var(--chakra-colors-neutral-700)'
-                    height='16px'
-                    width='16px'
-                  />
-                </Accordion.ItemIndicator>
-              )}
-            </Flex>
-          </Accordion.ItemTrigger>
+                {collapsible && (
+                  <Accordion.ItemIndicator height='16px' display='flex'>
+                    <ChevronDownIcon
+                      aria-label='Toggle section'
+                      color='var(--chakra-colors-neutral-700)'
+                      height='16px'
+                      width='16px'
+                    />
+                  </Accordion.ItemIndicator>
+                )}
+              </Flex>
+            </Accordion.ItemTrigger>
+          )}
           <div
             className={isOpen ? 'item-content-open' : 'item-content-closed'}
             aria-hidden={!isOpen}
