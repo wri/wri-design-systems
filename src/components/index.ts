@@ -93,6 +93,7 @@ export { default as TabBar } from './Navigation/TabBar'
 
 // -- Status -- //
 
+export { default as Avatar } from './Status/Avatar'
 export { default as Badge } from './Status/Badge'
 export { default as InlineMessage } from './Status/InlineMessage'
 export { default as ProgressBar } from './Status/ProgressBar'
