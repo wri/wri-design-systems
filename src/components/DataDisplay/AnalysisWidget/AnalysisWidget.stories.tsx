@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
 import { Text } from '@chakra-ui/react'
 import Tag from '../../Forms/Tag'
 import { InfoIcon, RefreshIcon } from '../../icons'
@@ -93,7 +94,7 @@ export const Default: Story = {
     actions: [
       {
         label: 'About',
-        onClick: () => console.log('About Action clicked'),
+        onClick: fn(),
         icon: <InfoIcon />,
       },
     ],
@@ -108,7 +109,7 @@ export const Collapsed: Story = {
     actions: [
       {
         label: 'About',
-        onClick: () => console.log('About Action clicked'),
+        onClick: fn(),
         icon: <InfoIcon />,
       },
     ],

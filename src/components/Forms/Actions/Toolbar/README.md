@@ -1,6 +1,6 @@
 # Toolbar
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-actions-map-control--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-actions-toolbar--docs)
 
 [ToolbarDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Toolbar/ToolbarDemo.tsx)
 

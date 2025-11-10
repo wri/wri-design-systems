@@ -3,7 +3,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 import React, { Children, cloneElement, ReactElement, useState } from 'react'
-
+import { fn } from '@storybook/test'
 import type { Meta, StoryObj } from '@storybook/react'
 import Panel from '..'
 import AnalysisWidget from '../../../DataDisplay/AnalysisWidget'
@@ -107,7 +107,7 @@ export const Floating: Story = {
                   actions={[
                     {
                       label: 'About',
-                      onClick: () => console.log('About Action clicked'),
+                      onClick: fn(),
                     },
                   ]}
                 >

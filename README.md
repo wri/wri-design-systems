@@ -167,7 +167,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Button)
 - [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/CloseButton)
 - [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/IconButton)
-- [Map Control](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MapControl)
+- [Toolbar](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Toolbar)
 - [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Menu)
 - [Multi Action Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MultiActionButton)
 - [Tooltip](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Tooltip)

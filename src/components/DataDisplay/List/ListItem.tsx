@@ -50,14 +50,7 @@ const ListItem = ({
       disabled={disabled}
     >
       <Flex gap={3} flex='1' overflow='hidden'>
-        {icon && (
-          <Icon
-            css={listItemIconStyles(disabled)}
-            as={icon.type as React.ElementType}
-            boxSize={4}
-            aria-hidden='true'
-          />
-        )}
+        {icon}
         <Box flex='1' minWidth={0}>
           <Text
             fontWeight={variant === 'navigation' ? '700' : '400'}
