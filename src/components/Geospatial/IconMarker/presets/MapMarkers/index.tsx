@@ -2,7 +2,6 @@
 import React from 'react'
 
 import IconMarker from '../..'
-import { PaperIcon } from '../../../../icons'
 import { IconMarkerProps } from '../../types'
 
 type GenericIconMarkersProps = {
