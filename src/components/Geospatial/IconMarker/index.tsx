@@ -15,7 +15,7 @@ const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
       showFocusState,
       count,
       mode,
-      variant = 'cluster',
+      variant = 'icon',
     },
     ref,
   ) => {
@@ -66,7 +66,8 @@ const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
           ref={ref}
           onClick={onClick}
         >
-          {variant === 'cluster' ? (displayCount ?? icon) : null}
+          {variant === 'cluster' && displayCount}
+          {variant === 'icon' && icon}
         </button>
       </div>
     )

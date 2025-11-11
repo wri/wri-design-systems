@@ -36,31 +36,28 @@ export const iconMarkerStyles = (
   hasIcon: boolean,
   mode: IconMarkerProps['mode'],
   count: IconMarkerProps['count'],
-  variant: IconMarkerProps['variant'] = 'cluster',
+  variant: IconMarkerProps['variant'] = 'icon',
 ) => {
-  let size = '24px'
+  let size = '16px'
+  let border = `4px solid ${getThemedColor('neutral', 100)}`
 
-  if (variant === 'cluster' && hasIcon) {
+  if (variant === 'cluster') {
     const baseSize = 28
     const maxSize = 96
     const increment = 0.5
-
+    border = '4px solid #FFFFFF'
     if (count !== undefined && count > 1) {
       const calculatedSize = baseSize + (count - 1) * increment
       size = `${Math.min(calculatedSize, maxSize)}px`
     } else {
       size = `${baseSize}px`
     }
-  }
-
-  let border = ''
-
-  if (variant === 'simple-pin') {
+  } else if (variant === 'simple-pin') {
     border = `4px solid ${getThemedColor('error', 500)}`
+    size = '24px'
   } else if (hasIcon) {
-    border = '2px solid #FFFFFF'
-  } else {
-    border = '4px solid #FFFFFF'
+    size = '28px'
+    border = `2px solid ${getThemedColor('neutral', 100)}`
   }
 
   return css`
@@ -68,7 +65,7 @@ export const iconMarkerStyles = (
     height: ${size};
     width: ${size};
     background-color: ${variant === 'simple-pin'
-      ? '#FFFFFF'
+      ? getThemedColor('neutral', 100)
       : getBackgroundColor(backgroundColor, mode)};
     color: ${mode === 'dark'
       ? getThemedColor('neutral', 100)
@@ -110,18 +107,3 @@ export const iconMarkerStyles = (
     }
   `
 }
-
-export const simplePinWrapperStyles = css`
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-`
-
-export const pinStemStyles = css`
-  border: dashed;
-  width: 4px;
-  height: 10px;
-  background-color: ${getThemedColor('error', 500)};
-  margin-top: -1px;
-`

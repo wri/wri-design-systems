@@ -6,5 +6,5 @@ export type IconMarkerProps = {
   showFocusState?: boolean
   count?: number
   mode?: 'dark' | 'light'
-  variant?: 'cluster' | 'simple-pin'
+  variant?: 'cluster' | 'simple-pin' | 'icon'
 }

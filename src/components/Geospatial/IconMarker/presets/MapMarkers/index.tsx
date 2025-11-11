@@ -24,7 +24,6 @@ export const ClusterPoint = ({
 }: GenericIconMarkersProps) => (
   <IconMarker
     count={count}
-    icon={<PaperIcon color='#79022C' />}
     mode={mode}
     onClick={onClick}
     ref={triggerRef}
@@ -43,7 +42,6 @@ export const SimpleMapPin = ({
 }: GenericIconMarkersProps) => (
   <IconMarker
     count={count}
-    icon={<PaperIcon color='#79022C' />}
     mode={mode}
     onClick={onClick}
     ref={triggerRef}
