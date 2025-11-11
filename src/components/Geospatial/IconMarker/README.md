@@ -42,6 +42,8 @@ type IconMarkerProps = {
 
 ## Presets
 
+### Icon Markers
+
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-icon-marker-presets-icon-markers--docs)
 
 [IconMarkersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/IconMarker/IconMarkerDemo.tsx)
@@ -56,5 +58,23 @@ import { IconMarkers } from '@worldresources/wri-design-systems'
   <IconMarkers.Drop />
   <IconMarkers.Plant />
   <IconMarkers.Point />
+</div>
+```
+
+### Map Markers
+
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-icon-marker-presets-map-markers--docs)
+
+[MapMarkersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/IconMarker/MapMarkerDemo.tsx)
+
+```tsx
+import { SimpleMapPin, ClusterPoint } from '@worldresources/wri-design-systems'
+```
+
+```tsx
+<div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+  <ClusterPoint count={10} mode='dark' />
+  <ClusterPoint count={123123} mode='light' />
+  <SimpleMapPin />
 </div>
 ```
