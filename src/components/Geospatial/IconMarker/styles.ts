@@ -38,7 +38,7 @@ export const iconMarkerStyles = (
   count: IconMarkerProps['count'],
   variant: IconMarkerProps['variant'] = 'cluster',
 ) => {
-  let size = '24px'
+  let size
 
   if (variant === 'cluster' && hasIcon) {
     const baseSize = 28
