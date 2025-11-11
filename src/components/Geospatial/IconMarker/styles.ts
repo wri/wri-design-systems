@@ -45,7 +45,7 @@ export const iconMarkerStyles = (
     const baseSize = 28
     const maxSize = 96
     const increment = 0.5
-    border = '4px solid #FFFFFF'
+    border = `4px solid ${getThemedColor('neutral', 100)}`
     if (count !== undefined && count > 1) {
       const calculatedSize = baseSize + (count - 1) * increment
       size = `${Math.min(calculatedSize, maxSize)}px`
