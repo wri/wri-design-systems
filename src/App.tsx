@@ -56,6 +56,7 @@ import LayerSidebarDemo from './components/Navigation/NavigationRail/LayerSideba
 import PaginationDemo from './components/Navigation/Pagination/PaginationDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
 
+import AvatarDemo from './components/Status/Avatar/AvatarDemo'
 import BadgeDemo from './components/Status/Badge/BadgeDemo'
 import InlineMessageDemo from './components/Status/InlineMessage/InlineMessageDemo'
 import ProgressBarDemo from './components/Status/ProgressBar/ProgressBarDemo'
@@ -158,6 +159,7 @@ const App = () => (
           <MenuDemo />
           <ModalDemo />
 
+          <AvatarDemo />
           <BadgeDemo />
           <InlineMessageDemo />
           <ProgressBarDemo />
