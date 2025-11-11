@@ -123,5 +123,5 @@ export const pinStemStyles = css`
   width: 4px;
   height: 10px;
   background-color: ${getThemedColor('error', 500)};
-  margin-top: -1px; // Para que se conecte con el círculo
+  margin-top: -1px;
 `
