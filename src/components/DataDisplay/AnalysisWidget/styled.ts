@@ -3,7 +3,6 @@ import { getThemedColor } from '../../../lib/theme'
 
 export const analysisWidgetContainerStyles = css`
   border: 1px solid ${getThemedColor('neutral', 300)};
-  border-radius: 8px;
 `
 
 export const analysisWidgetHeaderStyles = css`
