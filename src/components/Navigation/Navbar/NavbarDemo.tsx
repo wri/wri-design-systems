@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
-import { Badge, Menu, Navbar } from '../..'
+import { Avatar, Badge, Menu, Navbar } from '../..'
 import { WriLogoIcon } from '../../icons'
 
 const languages = [
@@ -90,7 +90,14 @@ const NavbarDemo = () => {
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Badge label='Notifications' notificationCount={3} />
         </div>,
-        <p>Account</p>,
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <Avatar
+            name='John Doe'
+            src='https://bit.ly/sage-adebayo'
+            notificationCount={3}
+          />
+          <p>My Account</p>
+        </div>,
         <Menu
           label={
             languages?.find((l) => l.value === language)?.label || 'Language'
@@ -100,10 +107,7 @@ const NavbarDemo = () => {
         />,
         <p>WRI Apps</p>,
       ]}
-      actionsSection={[
-        { label: 'Create account', onClick: () => {} },
-        { label: 'Sign in', onClick: () => {} },
-      ]}
+      actionsSection={[{ label: 'Sign in', onClick: () => {} }]}
       maxWidth={1440}
       fixed
     />

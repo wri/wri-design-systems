@@ -85,7 +85,14 @@ import { Navbar } from '@worldresources/wri-design-systems'
       Notifications
       <Badge notificationCount={3} hasNotification />
     </div>,
-    <p>Account</p>,
+    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <Avatar
+        name='John Doe'
+        src='https://bit.ly/sage-adebayo'
+        notificationCount={3}
+      />
+      <p>My Account</p>
+    </div>,
     <Menu
       label='Language'
       items={[
