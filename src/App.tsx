@@ -26,6 +26,7 @@ import TagDemo from './components/Forms/Tag/TagDemo'
 
 import BaseMapDemo from './components/Geospatial/BaseMap/BaseMapDemo'
 import IconMarkerDemo from './components/Geospatial/IconMarker/IconMarkerDemo'
+import MapMarkerDemo from './components/Geospatial/IconMarker/MapMarkerDemo'
 import MapPopUpDemo from './components/Geospatial/MapPopUp/MapPopUpDemo'
 
 import { LayerGroupDemo } from './components/Geospatial/Layers/LayerGroup/LayerGroupDemo'
@@ -117,6 +118,7 @@ const App = () => (
 
           <BaseMapDemo />
           <IconMarkerDemo />
+          <MapMarkerDemo />
           <MapPopUpDemo />
 
           <div
