@@ -34,7 +34,6 @@ const RadioList = ({
   const groupLabel = `${label}. ${captionText} ${requiredText} ${errorText} `
   return (
     <Group
-      tabIndex={0}
       css={radioListContainerStyles}
       aria-roledescription='group'
       aria-label={groupLabel}
