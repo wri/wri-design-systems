@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button, getThemedColor, Modal } from '../..'
+import DemoWrapper from '../../UI/DemoWrapper'
 
 const ModalDemo = () => {
   const [modalData, setModalData] = useState<{
@@ -53,43 +54,58 @@ const ModalDemo = () => {
   }
 
   return (
-    <div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        <Button label='Small Modal' onClick={() => handleModalOpen('small')} />
-        <Button
-          label='Medium Modal'
-          onClick={() => handleModalOpen('medium')}
-        />
-        <Button label='Large Modal' onClick={() => handleModalOpen('large')} />
-        <Button
-          label='Extra Large Modal'
-          onClick={() => handleModalOpen('xlarge')}
-        />
-        <Button
-          label='Medium With Actions'
-          onClick={() => handleModalOpen('medium', true)}
-        />
-        <Button
-          label='Draggable'
-          onClick={() => handleModalOpen('medium', false, true)}
-        />
-        <Button
-          label='Blocking'
-          onClick={() => handleModalOpen('medium', true, false, true)}
+    <DemoWrapper title='Modal'>
+      <div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+            maxWidth: '200px',
+          }}
+        >
+          <Button
+            label='Small Modal'
+            onClick={() => handleModalOpen('small')}
+          />
+          <Button
+            label='Medium Modal'
+            onClick={() => handleModalOpen('medium')}
+          />
+          <Button
+            label='Large Modal'
+            onClick={() => handleModalOpen('large')}
+          />
+          <Button
+            label='Extra Large Modal'
+            onClick={() => handleModalOpen('xlarge')}
+          />
+          <Button
+            label='Medium With Actions'
+            onClick={() => handleModalOpen('medium', true)}
+          />
+          <Button
+            label='Draggable'
+            onClick={() => handleModalOpen('medium', false, true)}
+          />
+          <Button
+            label='Blocking'
+            onClick={() => handleModalOpen('medium', true, false, true)}
+          />
+        </div>
+
+        <Modal
+          header={modalData?.header}
+          content={modalData?.content}
+          footer={modalData?.footer}
+          size={modalData?.size}
+          open={!!modalData?.content}
+          onClose={() => setModalData({})}
+          draggable={modalData?.draggable}
+          blocking={modalData?.blocking}
         />
       </div>
-
-      <Modal
-        header={modalData?.header}
-        content={modalData?.content}
-        footer={modalData?.footer}
-        size={modalData?.size}
-        open={!!modalData?.content}
-        onClose={() => setModalData({})}
-        draggable={modalData?.draggable}
-        blocking={modalData?.blocking}
-      />
-    </div>
+    </DemoWrapper>
   )
 }
 

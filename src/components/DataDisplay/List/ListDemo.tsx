@@ -2,6 +2,7 @@
 
 import List from '.'
 import { MapIcon, SettingsIcon } from '../../icons'
+import DemoWrapper from '../../UI/DemoWrapper'
 
 const ListDemo = () => {
   const items = [
@@ -34,6 +35,12 @@ const ListDemo = () => {
     },
   ]
 
-  return <List items={items} />
+  return (
+    <DemoWrapper title='List'>
+      <div style={{ width: '100%', maxWidth: '350px' }}>
+        <List items={items} />
+      </div>
+    </DemoWrapper>
+  )
 }
 export default ListDemo

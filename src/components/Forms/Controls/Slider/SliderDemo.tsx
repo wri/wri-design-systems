@@ -1,45 +1,53 @@
 import { Slider } from '../../..'
+import DemoWrapper from '../../../UI/DemoWrapper'
 
 const SliderDemo = () => (
-  <div
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '20px',
-    }}
-  >
-    <Slider width='280px' min={0} max={100} value={[50]} />
-    <Slider
-      width='280px'
-      min={0}
-      max={100}
-      value={[50]}
-      marks={[
-        { value: 0, label: 0 },
-        { value: 25, label: 25 },
-        { value: 50, label: 50 },
-        { value: 75, label: 75 },
-        { value: 100, label: 100 },
-      ]}
-    />
-    <Slider
-      width='280px'
-      min={0}
-      max={100}
-      value={[50]}
-      marks={[
-        { value: 0, label: 0 },
-        { value: 25, label: 25 },
-        { value: 50, label: 50 },
-        { value: 75, label: 75 },
-        { value: 100, label: 100 },
-      ]}
-      step={25}
-    />
-    <Slider width='280px' value={[20, 80]} />
-    <Slider width='280px' min={-100} max={100} value={[0]} isCentred />
-    <Slider width='280px' value={[70]} marks={[0, 25, 50, 75, 100]} disabled />
-  </div>
+  <DemoWrapper title='Slider'>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '20px',
+      }}
+    >
+      <Slider width='280px' min={0} max={100} value={[50]} />
+      <Slider
+        width='280px'
+        min={0}
+        max={100}
+        value={[50]}
+        marks={[
+          { value: 0, label: 0 },
+          { value: 25, label: 25 },
+          { value: 50, label: 50 },
+          { value: 75, label: 75 },
+          { value: 100, label: 100 },
+        ]}
+      />
+      <Slider
+        width='280px'
+        min={0}
+        max={100}
+        value={[50]}
+        marks={[
+          { value: 0, label: 0 },
+          { value: 25, label: 25 },
+          { value: 50, label: 50 },
+          { value: 75, label: 75 },
+          { value: 100, label: 100 },
+        ]}
+        step={25}
+      />
+      <Slider width='280px' value={[20, 80]} />
+      <Slider width='280px' min={-100} max={100} value={[0]} isCentred />
+      <Slider
+        width='280px'
+        value={[70]}
+        marks={[0, 25, 50, 75, 100]}
+        disabled
+      />
+    </div>
+  </DemoWrapper>
 )
 
 export default SliderDemo

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Button, IconButton, Sheet } from '../..'
 import { CloseIcon } from '../../icons'
+import DemoWrapper from '../../UI/DemoWrapper'
 
 const content = (
   <div>
@@ -30,175 +31,177 @@ const SheetDemo = () => {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <Sheet
-          header={
-            <div
-              style={{
-                width: '100%',
-                padding: '16px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <p>Header - Closed</p>
-              <IconButton
-                icon={<CloseIcon />}
-                aria-label='Close'
-                onClick={handleCloseClosedSheet}
-              />
-            </div>
-          }
-          content={<div style={{ padding: '16px' }}>{content}</div>}
-          footer={<div style={{ padding: '16px' }}>Footer</div>}
-          defaultSnap='closed'
-          open={showSheet.closed}
-          onClose={handleCloseClosedSheet}
-        />
+    <DemoWrapper title='Sheet'>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <Sheet
+            header={
+              <div
+                style={{
+                  width: '100%',
+                  padding: '16px',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <p>Header - Closed</p>
+                <IconButton
+                  icon={<CloseIcon />}
+                  aria-label='Close'
+                  onClick={handleCloseClosedSheet}
+                />
+              </div>
+            }
+            content={<div style={{ padding: '16px' }}>{content}</div>}
+            footer={<div style={{ padding: '16px' }}>Footer</div>}
+            defaultSnap='closed'
+            open={showSheet.closed}
+            onClose={handleCloseClosedSheet}
+          />
 
-        <Button
-          style={{ width: '200px' }}
-          label='Show Closed Sheet'
-          onClick={() =>
-            setShowSheet({
-              ...showSheet,
-              closed: true,
-            })
-          }
-        />
+          <Button
+            style={{ width: '200px' }}
+            label='Show Closed Sheet'
+            onClick={() =>
+              setShowSheet({
+                ...showSheet,
+                closed: true,
+              })
+            }
+          />
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <Sheet
+            className='ds-custom-sheet-styles'
+            header={
+              <div
+                style={{
+                  padding: '16px',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <p>Header - Minimized</p>
+                <IconButton
+                  icon={<CloseIcon />}
+                  aria-label='Close'
+                  onClick={() =>
+                    setShowSheet({
+                      ...showSheet,
+                      minimized: false,
+                    })
+                  }
+                />
+              </div>
+            }
+            content={<div style={{ padding: '16px' }}>{content}</div>}
+            footer={<div style={{ padding: '16px' }}>Footer</div>}
+            open={showSheet.minimized}
+            onClose={() => setShowSheet({ ...showSheet, minimized: false })}
+          />
+
+          <Button
+            style={{ width: '200px' }}
+            label='Show Minimized Sheet'
+            onClick={() =>
+              setShowSheet({
+                ...showSheet,
+                minimized: true,
+              })
+            }
+          />
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <Sheet
+            header={
+              <div
+                style={{
+                  padding: '16px',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <p>Header - Mid</p>
+                <IconButton
+                  icon={<CloseIcon />}
+                  aria-label='Close'
+                  onClick={() =>
+                    setShowSheet({
+                      ...showSheet,
+                      mid: false,
+                    })
+                  }
+                />
+              </div>
+            }
+            content={<div style={{ padding: '16px' }}>{content}</div>}
+            footer={<div style={{ padding: '16px' }}>Footer</div>}
+            defaultSnap='mid'
+            open={showSheet.mid}
+            onClose={() => setShowSheet({ ...showSheet, mid: false })}
+          />
+
+          <Button
+            style={{ width: '200px' }}
+            label='Show Mid Sheet'
+            onClick={() =>
+              setShowSheet({
+                ...showSheet,
+                mid: true,
+              })
+            }
+          />
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <Sheet
+            header={
+              <div
+                style={{
+                  padding: '16px',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <p>Header - Extended</p>
+                <IconButton
+                  icon={<CloseIcon />}
+                  aria-label='Close'
+                  onClick={() =>
+                    setShowSheet({
+                      ...showSheet,
+                      full: false,
+                    })
+                  }
+                />
+              </div>
+            }
+            content={<div style={{ padding: '16px' }}>{content}</div>}
+            footer={<div style={{ padding: '16px' }}>Footer</div>}
+            defaultSnap='full'
+            open={showSheet.full}
+            onClose={() => setShowSheet({ ...showSheet, full: false })}
+          />
+
+          <Button
+            style={{ width: '200px' }}
+            label='Show Full Sheet'
+            onClick={() =>
+              setShowSheet({
+                ...showSheet,
+                full: true,
+              })
+            }
+          />
+        </div>
       </div>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <Sheet
-          className='ds-custom-sheet-styles'
-          header={
-            <div
-              style={{
-                padding: '16px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <p>Header - Minimized</p>
-              <IconButton
-                icon={<CloseIcon />}
-                aria-label='Close'
-                onClick={() =>
-                  setShowSheet({
-                    ...showSheet,
-                    minimized: false,
-                  })
-                }
-              />
-            </div>
-          }
-          content={<div style={{ padding: '16px' }}>{content}</div>}
-          footer={<div style={{ padding: '16px' }}>Footer</div>}
-          open={showSheet.minimized}
-          onClose={() => setShowSheet({ ...showSheet, minimized: false })}
-        />
-
-        <Button
-          style={{ width: '200px' }}
-          label='Show Minimized Sheet'
-          onClick={() =>
-            setShowSheet({
-              ...showSheet,
-              minimized: true,
-            })
-          }
-        />
-      </div>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <Sheet
-          header={
-            <div
-              style={{
-                padding: '16px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <p>Header - Mid</p>
-              <IconButton
-                icon={<CloseIcon />}
-                aria-label='Close'
-                onClick={() =>
-                  setShowSheet({
-                    ...showSheet,
-                    mid: false,
-                  })
-                }
-              />
-            </div>
-          }
-          content={<div style={{ padding: '16px' }}>{content}</div>}
-          footer={<div style={{ padding: '16px' }}>Footer</div>}
-          defaultSnap='mid'
-          open={showSheet.mid}
-          onClose={() => setShowSheet({ ...showSheet, mid: false })}
-        />
-
-        <Button
-          style={{ width: '200px' }}
-          label='Show Mid Sheet'
-          onClick={() =>
-            setShowSheet({
-              ...showSheet,
-              mid: true,
-            })
-          }
-        />
-      </div>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <Sheet
-          header={
-            <div
-              style={{
-                padding: '16px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <p>Header - Extended</p>
-              <IconButton
-                icon={<CloseIcon />}
-                aria-label='Close'
-                onClick={() =>
-                  setShowSheet({
-                    ...showSheet,
-                    full: false,
-                  })
-                }
-              />
-            </div>
-          }
-          content={<div style={{ padding: '16px' }}>{content}</div>}
-          footer={<div style={{ padding: '16px' }}>Footer</div>}
-          defaultSnap='full'
-          open={showSheet.full}
-          onClose={() => setShowSheet({ ...showSheet, full: false })}
-        />
-
-        <Button
-          style={{ width: '200px' }}
-          label='Show Full Sheet'
-          onClick={() =>
-            setShowSheet({
-              ...showSheet,
-              full: true,
-            })
-          }
-        />
-      </div>
-    </div>
+    </DemoWrapper>
   )
 }
 

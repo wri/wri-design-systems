@@ -17,6 +17,7 @@ code {
   transition: margin-left 0.1s;
   padding: 20px;
   margin-bottom: 60px;
+  overflow-x: auto;
 }
 
 .ds-app-container.ds-sidebar-closed {
