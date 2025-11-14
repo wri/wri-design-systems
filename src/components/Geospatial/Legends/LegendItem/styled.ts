@@ -7,6 +7,7 @@ export const legendItemContainerStyles = css`
   display: flex;
   gap: 12px;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
+  background-color: ${getThemedColor('neutral', 100)};
 `
 
 export const legendItemDragAndDropActionsStyles = css`

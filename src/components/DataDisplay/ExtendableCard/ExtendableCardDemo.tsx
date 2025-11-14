@@ -5,6 +5,7 @@ import ExtendableCard from '.'
 import List from '../List'
 import Tag from '../../Forms/Tag'
 import { MapIcon } from '../../icons'
+import DemoWrapper from '../../UI/DemoWrapper'
 
 const demoHeader = (
   <Flex gap={3} flex='1' overflow='hidden' alignItems='center'>
@@ -57,11 +58,13 @@ const demoFooter = (
 )
 
 const ExtendableCardDemo = () => (
-  <div style={{ width: '320px' }}>
-    <ExtendableCard header={demoHeader} footer={demoFooter}>
-      {demoChildren}
-    </ExtendableCard>
-  </div>
+  <DemoWrapper title='Extendable Card'>
+    <div style={{ width: '100%', maxWidth: '320px' }}>
+      <ExtendableCard header={demoHeader} footer={demoFooter}>
+        {demoChildren}
+      </ExtendableCard>
+    </div>
+  </DemoWrapper>
 )
 
 export default ExtendableCardDemo

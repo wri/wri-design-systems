@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Table, TableRow, TableCell, Checkbox } from '../..'
+import DemoWrapper from '../../UI/DemoWrapper'
 
 export const columns = [
   {
@@ -117,44 +118,46 @@ const TableDemo = () => {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
-      <div style={{ width: '900px' }}>
-        <Table
-          columns={columns}
-          data={dataByPage}
-          renderRow={renderRow}
-          onSortColumn={setSortColumn}
-          onPageSizeChange={setPageSize}
-          onPageChange={setCurrentPage}
-          pagination={{
-            totalItems,
-            currentPage,
-            pageSize,
-            showItemCount: true,
-            showItemCountText: true,
-          }}
-        />
+    <DemoWrapper title='Table'>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
+        <div style={{ width: '100%', maxWidth: '900px' }}>
+          <Table
+            columns={columns}
+            data={dataByPage}
+            renderRow={renderRow}
+            onSortColumn={setSortColumn}
+            onPageSizeChange={setPageSize}
+            onPageChange={setCurrentPage}
+            pagination={{
+              totalItems,
+              currentPage,
+              pageSize,
+              showItemCount: true,
+              showItemCountText: true,
+            }}
+          />
+        </div>
+        <div style={{ width: '100%', maxWidth: '900px' }}>
+          <Table
+            columns={columns}
+            data={dataByPage}
+            renderRow={selectableRenderRow}
+            onSortColumn={setSortColumn}
+            onPageSizeChange={setPageSize}
+            onPageChange={setCurrentPage}
+            pagination={{
+              totalItems,
+              currentPage,
+              pageSize,
+              showItemCount: true,
+            }}
+            onAllItemsSelected={onAllItemsSelected}
+            selectedRows={selectedRows}
+            selectable
+          />
+        </div>
       </div>
-      <div style={{ width: '900px' }}>
-        <Table
-          columns={columns}
-          data={dataByPage}
-          renderRow={selectableRenderRow}
-          onSortColumn={setSortColumn}
-          onPageSizeChange={setPageSize}
-          onPageChange={setCurrentPage}
-          pagination={{
-            totalItems,
-            currentPage,
-            pageSize,
-            showItemCount: true,
-          }}
-          onAllItemsSelected={onAllItemsSelected}
-          selectedRows={selectedRows}
-          selectable
-        />
-      </div>
-    </div>
+    </DemoWrapper>
   )
 }
 

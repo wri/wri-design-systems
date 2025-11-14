@@ -1,9 +1,17 @@
 /* eslint-disable no-console */
 import { Button, showToast } from '../..'
+import DemoWrapper from '../../UI/DemoWrapper'
 
 const ToastDemo = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-    <div style={{ display: 'flex', gap: '16px' }}>
+  <DemoWrapper title='Toast'>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '16px',
+        maxWidth: '200px',
+      }}
+    >
       <Button
         label='Info - Top Left'
         variant='primary'
@@ -39,8 +47,6 @@ const ToastDemo = () => (
           })
         }
       />
-    </div>
-    <div style={{ display: 'flex', gap: '16px' }}>
       <Button
         label='Warning - Bottom Left'
         variant='primary'
@@ -65,8 +71,6 @@ const ToastDemo = () => (
           })
         }
       />
-    </div>
-    <div style={{ display: 'flex', gap: '16px' }}>
       <Button
         label='Loading - Bottom Right'
         variant='primary'
@@ -81,7 +85,7 @@ const ToastDemo = () => (
         }
       />
     </div>
-  </div>
+  </DemoWrapper>
 )
 
 export default ToastDemo

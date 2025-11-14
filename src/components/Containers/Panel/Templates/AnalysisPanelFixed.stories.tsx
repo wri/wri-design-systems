@@ -177,7 +177,7 @@ export const Fixed: Story = {
                   header={
                     <div>
                       <Text style={{ fontWeight: '700' }}>
-                        High priority areas{' '}
+                        High priority areas
                       </Text>
                       <Text
                         style={{
