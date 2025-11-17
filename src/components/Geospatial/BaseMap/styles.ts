@@ -31,6 +31,10 @@ export const baseMapHeaderContainerStyles = css`
     color: ${getThemedColor('neutral', 900)};
     text-align: left;
     margin-bottom: 4px;
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 
   .ds-base-map-header-caption {
