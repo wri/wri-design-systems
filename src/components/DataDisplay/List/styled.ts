@@ -72,7 +72,6 @@ export const listItemNavigationStyles = css`
 
   &:focus-visible {
     outline: 2px solid ${getThemedColor('primary', 700)};
-    outline-offset: 2px;
     box-shadow: 0px 2px 4px -2px #0000001a;
     box-shadow: 0px 4px 6px -1px #0000001a;
     box-shadow:

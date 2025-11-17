@@ -7,10 +7,12 @@ export const analysisWidgetContainerStyles = css`
 
 export const analysisWidgetHeaderStyles = css`
   padding: 16px;
+
   cursor: pointer;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
   &:focus-visible {
-    outline-color: ${getThemedColor('primary', 700)};
+    outline-offset: -2px;
+    outline: 2px solid ${getThemedColor('primary', 700)};
   }
   &:hover {
     box-shadow: 0px 2px 4px -2px #0000001a;
