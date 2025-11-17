@@ -6,6 +6,7 @@ export const layerParametersItemStyles = css`
   border: 1px solid ${getThemedColor('neutral', 300)};
   border-radius: 4px;
   box-shadow: 0px 1px 2px 0px #0000000d;
+  background-color: ${getThemedColor('neutral', 100)};
 `
 
 export const layerParametersTriggerStyles = css`

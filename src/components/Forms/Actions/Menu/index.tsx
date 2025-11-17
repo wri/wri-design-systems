@@ -110,7 +110,7 @@ const Menu = ({ label, items, groups, onSelect, customTrigger }: MenuProps) => {
                       aria-haspopup='true'
                       aria-expanded={submenuOpen ? 'true' : 'false'}
                     >
-                      {item.label}{' '}
+                      {item.label}
                       <ChevronDownIcon
                         rotate='270'
                         color='var(--chakra-colors-neutral-700)'

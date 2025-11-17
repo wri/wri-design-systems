@@ -113,8 +113,8 @@ export const Floating: Story = {
                 >
                   <div style={{ padding: '20px' }}>
                     <p>
-                      Lorem ipsum dolor <b>sit amet</b> consectetur. Vitae dolor{' '}
-                      <b>tellus vel duis</b> viverra. Quisque at <b>quis</b>{' '}
+                      Lorem ipsum dolor <b>sit amet</b> consectetur. Vitae dolor
+                      <b>tellus vel duis</b> viverra. Quisque at <b>quis</b>
                       facilisis ante.
                     </p>
                     <div style={{ textAlign: 'center', padding: '20px' }}>

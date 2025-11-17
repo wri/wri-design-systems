@@ -1,33 +1,44 @@
 import { ScaleBar } from '../../..'
+import DemoWrapper from '../../../UI/DemoWrapper'
 
 const ScaleBarDemo = () => (
-  <div style={{ width: '238px' }}>
-    <ScaleBar
-      colors={['#E5F5F9', '#2CA25F']}
-      values={['Low', 'Medium', 'High']}
-      subLabels={['<100K', '>600K']}
-      isGradient
-    />
-    <ScaleBar
-      colors={['#EDF8FB', '#B2E2E2', '#66C2A4', '#2CA26F', '#006D2C']}
-      values={['0%', '25%', '50%', '75%', '100%']}
-    />
-    <ScaleBar
-      colors={['#A6611A', '#DFC27D', '#F5F5F5', '#80CDC1', '#018571']}
-      values={['0%', '25%', '50%', '75%', '100%']}
-    />
-    <ScaleBar
-      colors={['#A6611B', '#DFC27E', '#F5F5F6', '#80CDC2', '#018572']}
-      values={['Low', 'Low-medium', 'Medium-high', 'High', 'Extremely high']}
-      subLabels={[
-        '(0 to 9 in 1,000,000)',
-        '(9 in 1,000,000 to 7 in 100,000)',
-        '(7 in 100,000 to 3 in 10,000)',
-        '(3 in 10,000 to 2 in 1,000)',
-        '(more than 2 in 1,000)',
-      ]}
-    />
-  </div>
+  <DemoWrapper title='Scale Bar'>
+    <div
+      style={{
+        width: '100%',
+        maxWidth: '250px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '20px',
+      }}
+    >
+      <ScaleBar
+        colors={['#E5F5F9', '#2CA25F']}
+        values={['Low', 'Medium', 'High']}
+        subLabels={['<100K', '>600K']}
+        isGradient
+      />
+      <ScaleBar
+        colors={['#EDF8FB', '#B2E2E2', '#66C2A4', '#2CA26F', '#006D2C']}
+        values={['0%', '25%', '50%', '75%', '100%']}
+      />
+      <ScaleBar
+        colors={['#A6611A', '#DFC27D', '#F5F5F5', '#80CDC1', '#018571']}
+        values={['0%', '25%', '50%', '75%', '100%']}
+      />
+      <ScaleBar
+        colors={['#A6611B', '#DFC27E', '#F5F5F6', '#80CDC2', '#018572']}
+        values={['Low', 'Low-medium', 'Medium-high', 'High', 'Extremely high']}
+        subLabels={[
+          '(0 to 9 in 1,000,000)',
+          '(9 in 1,000,000 to 7 in 100,000)',
+          '(7 in 100,000 to 3 in 10,000)',
+          '(3 in 10,000 to 2 in 1,000)',
+          '(more than 2 in 1,000)',
+        ]}
+      />
+    </div>
+  </DemoWrapper>
 )
 
 export default ScaleBarDemo

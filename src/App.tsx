@@ -64,6 +64,7 @@ import ProgressBarDemo from './components/Status/ProgressBar/ProgressBarDemo'
 import StepProgressIndicatorDemo from './components/Status/StepProgressIndicator/StepProgressIndicatorDemo'
 import ToastDemo from './components/Status/Toast/ToastDemo'
 import { Toast } from './components'
+import DemoWrapper from './components/UI/DemoWrapper'
 
 const App = () => (
   <div className='App'>
@@ -81,7 +82,7 @@ const App = () => (
             marginBottom: '20px',
           }}
         >
-          Welcome to WRI OS
+          Welcome to WRI DS
         </h1>
         <div
           style={{
@@ -123,23 +124,32 @@ const App = () => (
 
           <div
             style={{
-              width: '320px',
+              width: '100%',
+              maxWidth: '350px',
               display: 'flex',
               flexDirection: 'column',
               gap: '50px',
             }}
           >
-            <LayerGroupDemo />
-            <LayerItemDemo />
-            <div style={{ height: '600px' }}>
-              <LayerPanelDemo />
-            </div>
+            <DemoWrapper title='Layer Group'>
+              <LayerGroupDemo />
+            </DemoWrapper>
+            <DemoWrapper title='Layer Panel'>
+              <LayerItemDemo />
+            </DemoWrapper>
+            <DemoWrapper title='Layer Panel'>
+              <div style={{ height: '600px' }}>
+                <LayerPanelDemo />
+              </div>
+            </DemoWrapper>
           </div>
 
           <LayerParametersDemo />
-          <div style={{ width: '320px' }}>
-            <LegendItemDemo />
-          </div>
+          <DemoWrapper title='Legend Item'>
+            <div style={{ width: '320px' }}>
+              <LegendItemDemo />
+            </div>
+          </DemoWrapper>
           <LegendPanelDemo />
           <QualitativeAttributeDemo />
           <ScaleBarDemo />

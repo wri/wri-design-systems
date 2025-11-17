@@ -1,10 +1,13 @@
 import { CloseButton } from '../../..'
+import DemoWrapper from '../../../UI/DemoWrapper'
 
 const CloseButtonDemo = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-    <CloseButton />
-    <CloseButton disabled />
-  </div>
+  <DemoWrapper title='Close Button'>
+    <div style={{ display: 'flex', gap: '20px' }}>
+      <CloseButton />
+      <CloseButton disabled />
+    </div>
+  </DemoWrapper>
 )
 
 export default CloseButtonDemo
