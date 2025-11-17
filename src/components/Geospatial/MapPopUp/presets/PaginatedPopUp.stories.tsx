@@ -131,7 +131,6 @@ export const MapPopUp: Story = {
           ariaLabel='point icon'
           onClick={() => setOpen(true)}
           triggerRef={triggerRef}
-          showFocusState={open}
         />
         <MapPopUpStory
           {...args}

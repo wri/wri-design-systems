@@ -25,7 +25,6 @@ const triggerPlantRef = useRef<HTMLButtonElement>(null)
     ariaLabel='plant icon'
     onClick={() => setOpenPlant(true)}
     triggerRef={triggerPlantRef}
-    showFocusState={openPlant}
   />
   <MapPopUp
     open={openPlant}

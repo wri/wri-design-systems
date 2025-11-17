@@ -25,7 +25,6 @@ const MapPopUpDemo = () => {
             ariaLabel='plant icon'
             onClick={() => setOpenPlant(true)}
             triggerRef={triggerPlantRef}
-            showFocusState={openPlant}
           />
           <MapPopUp
             open={openPlant}
@@ -115,7 +114,6 @@ const MapPopUpDemo = () => {
             ariaLabel='point icon'
             onClick={() => setOpenPoint(true)}
             triggerRef={triggerPointRef}
-            showFocusState={openPoint}
           />
           <MapPopUp
             open={openPoint}

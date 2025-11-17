@@ -103,7 +103,6 @@ export const MapPopUp: Story = {
           ariaLabel='plant icon'
           onClick={() => setOpen(true)}
           triggerRef={triggerRef}
-          showFocusState={open}
         />
         <MapPopUpStory
           {...args}
