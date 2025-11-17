@@ -12,13 +12,7 @@ import AnalysisWidget from '../../../DataDisplay/AnalysisWidget'
 import List from '../../../DataDisplay/List'
 import TabBar from '../../../Navigation/TabBar'
 import Tag from '../../../Forms/Tag'
-import {
-  RefreshIcon,
-  ShareIcon,
-  SaveIcon,
-  DownloadIcon,
-  SettingsIcon,
-} from '../../../icons'
+import { ShareIcon, SaveIcon, DownloadIcon, SettingsIcon } from '../../../icons'
 import Button from '../../../Forms/Actions/Button'
 import { getThemedColor } from '../../../../lib/theme'
 import CloseButton from '../../../Forms/Actions/CloseButton'
@@ -55,6 +49,7 @@ const listItems = [
     label: 'Nyando, Kisumu',
     caption: '[34.826, -0.151]',
     variant: 'navigation' as const,
+    onItemClick: () => fn(),
     icon: <NumberIcon value='1' />,
   },
   {
@@ -62,6 +57,7 @@ const listItems = [
     label: 'Kisumu East, Kisumu',
     caption: '[34.826, -0.125]',
     variant: 'navigation' as const,
+    onItemClick: () => fn(),
     icon: <NumberIcon value='2' />,
   },
   {
@@ -69,6 +65,7 @@ const listItems = [
     label: 'Nyando, Kisumu',
     caption: '[34.889, -0.142]',
     variant: 'navigation' as const,
+    onItemClick: () => fn(),
     icon: <NumberIcon value='3' />,
   },
   {
@@ -76,6 +73,7 @@ const listItems = [
     label: 'Kisumu East, Kisumu',
     caption: '[34.835, -0.098]',
     variant: 'navigation' as const,
+    onItemClick: () => fn(),
     icon: <NumberIcon value='4' />,
   },
   {
@@ -83,6 +81,7 @@ const listItems = [
     label: 'Nyando, Kisumu',
     caption: '[34.844, -0.098]',
     variant: 'navigation' as const,
+    onItemClick: () => fn(),
     icon: <NumberIcon value='5' />,
   },
   {
@@ -90,6 +89,7 @@ const listItems = [
     label: 'Nyando, Kisumu',
     caption: '[34.826, -0.16]',
     variant: 'navigation' as const,
+    onItemClick: () => fn(),
     icon: <NumberIcon value='6' />,
   },
 ]
