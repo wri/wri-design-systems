@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 
 import { useState } from 'react'
-import { Box, Tabs } from '@chakra-ui/react'
+import { Tabs, VisuallyHidden } from '@chakra-ui/react'
 import { MobileTabBarItemProps, MobileTabBarProps } from './types'
 import {
   mobileTabBarContainerStyles,
@@ -21,12 +21,15 @@ const MobileTabBar = ({
   hideLabels,
   activationMode = 'manual',
 }: MobileTabBarProps) => {
-  const [selectedTabIndex, setSelectedTabIndex] = useState(
-    getTabIndex(tabs, defaultValue) || 0,
-  )
+  const totalTabs = tabs.length
+  const [selectedTabIndex, setSelectedTabIndex] = useState(() => {
+    const initialIndex = getTabIndex(tabs, defaultValue)
+    return initialIndex >= 0 ? initialIndex : 0
+  })
 
   const handleOnTabClick = (tabValue: string) => {
-    setSelectedTabIndex(getTabIndex(tabs, tabValue))
+    const nextIndex = getTabIndex(tabs, tabValue)
+    setSelectedTabIndex(nextIndex >= 0 ? nextIndex : 0)
 
     if (onTabClick) {
       onTabClick(tabValue)
@@ -42,20 +45,39 @@ const MobileTabBar = ({
         activationMode={activationMode}
       >
         <Tabs.List alignItems='center' border='none'>
-          {tabs.map((tab) => {
+          {tabs.map((tab, index) => {
             const {
               label,
               icon,
               bagdeCount,
               'aria-label': ariaLabel,
+              'aria-describedby': ariaDescribedBy,
+              disabled,
               ...rest
             } = tab
+            const srStatusId = `${tab.value}-sr-status`
+            const isSelected = selectedTabIndex === index
+            const srStatus = [
+              `tab ${index + 1} of ${totalTabs}`,
+              isSelected ? 'selected' : 'not selected',
+            ]
+
+            if (disabled) {
+              srStatus.push('disabled')
+            }
+
+            const describedBy =
+              [ariaDescribedBy, srStatusId].filter(Boolean).join(' ') ||
+              undefined
 
             return (
               <Tabs.Trigger
                 css={mobileTabBarItemStyles}
-                key={label}
+                key={tab.value}
                 aria-label={ariaLabel || label}
+                aria-disabled={disabled ? true : undefined}
+                aria-describedby={describedBy}
+                disabled={disabled}
                 {...rest}
               >
                 <div css={mobileTabBarItemIconContainerStyles}>
@@ -70,6 +92,9 @@ const MobileTabBar = ({
                   ) : null}
                 </div>
                 {!hideLabels ? <p>{label}</p> : null}
+                <VisuallyHidden id={srStatusId}>
+                  {srStatus.join(', ')}
+                </VisuallyHidden>
               </Tabs.Trigger>
             )
           })}
