@@ -45,11 +45,7 @@ const CheckboxList = ({
   const errorText = errorMessage ? `Error: ${errorMessage}.` : ''
   const groupLabel = `${label}. ${captionText} ${requiredText} ${errorText} `
   return (
-    <Group
-      css={checkboxListContainerStyles}
-      tabIndex={0}
-      aria-label={groupLabel}
-    >
+    <Group css={checkboxListContainerStyles} aria-label={groupLabel}>
       {errorMessage ? <div css={checkboxListErrorBarStyles} /> : null}
       <div css={checkboxListContentStyles(!!errorMessage)}>
         <p css={checkboxListLabelStyles} aria-label={label}>
