@@ -5,7 +5,6 @@ import { IconMarkerProps } from '../../types'
 type GenericIconMarkersProps = {
   onClick?: () => void
   triggerRef?: React.Ref<HTMLButtonElement>
-  showFocusState?: boolean
   count?: IconMarkerProps['count']
   mode?: IconMarkerProps['mode']
   variant?: IconMarkerProps['variant']
@@ -14,7 +13,6 @@ type GenericIconMarkersProps = {
 export const ClusterPoint = ({
   onClick,
   triggerRef,
-  showFocusState,
   count,
   mode,
   variant = 'cluster',
@@ -24,7 +22,6 @@ export const ClusterPoint = ({
     mode={mode}
     onClick={onClick}
     ref={triggerRef}
-    showFocusState={showFocusState}
     variant={variant}
   />
 )
@@ -32,7 +29,6 @@ export const ClusterPoint = ({
 export const SimpleMapPin = ({
   onClick,
   triggerRef,
-  showFocusState,
   count,
   mode,
   variant = 'simple-pin',
@@ -42,7 +38,6 @@ export const SimpleMapPin = ({
     mode={mode}
     onClick={onClick}
     ref={triggerRef}
-    showFocusState={showFocusState}
     variant={variant}
   />
 )

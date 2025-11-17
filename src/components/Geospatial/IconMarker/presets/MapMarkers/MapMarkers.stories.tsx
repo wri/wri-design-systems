@@ -12,7 +12,7 @@ type ClusterPointProps = {
 }
 
 const meta = {
-  title: 'Geospatial/Icon Marker/Presets/Map Markers',
+  title: 'Geospatial/Icon Marker',
   parameters: {
     layout: 'centered',
   },

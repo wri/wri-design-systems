@@ -2,16 +2,6 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 import { IconMarkerProps } from './types'
 
-export const iconMarkerContainerStyles = (hasIcon: boolean) => css`
-  height: ${hasIcon ? '32px' : '20px'};
-  width: ${hasIcon ? '32px' : '20px'};
-  border: 2px solid ${getThemedColor('primary', 700)};
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 2px ${getThemedColor('neutral', 100)},
-    rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
-`
-
 const getBackgroundColor = (
   backgroundColor: IconMarkerProps['backgroundColor'],
   mode: IconMarkerProps['mode'],

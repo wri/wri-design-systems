@@ -3,7 +3,7 @@
 
 import { forwardRef } from 'react'
 import { IconMarkerProps } from './types'
-import { iconMarkerContainerStyles, iconMarkerStyles } from './styles'
+import { iconMarkerStyles } from './styles'
 
 const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
   (
@@ -12,7 +12,6 @@ const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
       icon,
       backgroundColor,
       onClick,
-      showFocusState,
       count,
       mode,
       variant = 'icon',
@@ -51,7 +50,7 @@ const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
     }
 
     return (
-      <div css={showFocusState ? iconMarkerContainerStyles(!!icon) : ''}>
+      <div>
         <button
           type='button'
           css={iconMarkerStyles(

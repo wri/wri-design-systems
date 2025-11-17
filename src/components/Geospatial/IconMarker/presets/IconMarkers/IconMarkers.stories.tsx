@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { IconMarkers } from '.'
 
 const meta = {
-  title: 'Geospatial/Icon Marker/Presets/Icon Markers',
+  title: 'Geospatial/Icon Marker',
   parameters: {
     layout: 'centered',
   },

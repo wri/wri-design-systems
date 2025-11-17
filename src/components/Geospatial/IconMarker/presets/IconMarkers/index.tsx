@@ -9,69 +9,44 @@ type GenericIconMarkersProps = {
   ariaLabel?: string
   onClick?: () => void
   triggerRef?: React.Ref<HTMLButtonElement>
-  showFocusState?: boolean
 }
 
-const Paper = ({
-  ariaLabel,
-  onClick,
-  triggerRef,
-  showFocusState,
-}: GenericIconMarkersProps) => (
+const Paper = ({ ariaLabel, onClick, triggerRef }: GenericIconMarkersProps) => (
   <IconMarker
     ariaLabel={ariaLabel || 'paper icon'}
     icon={<PaperIcon color='#79022C' />}
     backgroundColor='#FFBCD4'
     onClick={onClick}
     ref={triggerRef}
-    showFocusState={showFocusState}
   />
 )
 
-const Drop = ({
-  ariaLabel,
-  onClick,
-  triggerRef,
-  showFocusState,
-}: GenericIconMarkersProps) => (
+const Drop = ({ ariaLabel, onClick, triggerRef }: GenericIconMarkersProps) => (
   <IconMarker
     ariaLabel={ariaLabel || 'drop icon'}
     icon={<DropIcon color='#7D2A03' />}
     backgroundColor='#F3A078'
     onClick={onClick}
     ref={triggerRef}
-    showFocusState={showFocusState}
   />
 )
 
-const Plant = ({
-  ariaLabel,
-  onClick,
-  triggerRef,
-  showFocusState,
-}: GenericIconMarkersProps) => (
+const Plant = ({ ariaLabel, onClick, triggerRef }: GenericIconMarkersProps) => (
   <IconMarker
     ariaLabel={ariaLabel || 'plant icon'}
     icon={<PlantIcon color='#3B6402' />}
     backgroundColor='#B7E578'
     onClick={onClick}
     ref={triggerRef}
-    showFocusState={showFocusState}
   />
 )
 
-const Point = ({
-  ariaLabel,
-  onClick,
-  triggerRef,
-  showFocusState,
-}: GenericIconMarkersProps) => (
+const Point = ({ ariaLabel, onClick, triggerRef }: GenericIconMarkersProps) => (
   <IconMarker
     ariaLabel={ariaLabel || 'point icon'}
     backgroundColor={getThemedColor('primary', 500)}
     onClick={onClick}
     ref={triggerRef}
-    showFocusState={showFocusState}
   />
 )
 
