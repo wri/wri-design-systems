@@ -1,7 +1,7 @@
 import { IconMarker } from '../..'
 import { PlaceholderIcon } from '../../icons'
 import DemoWrapper from '../../UI/DemoWrapper'
-import { IconMarkers } from './presets/IconMarkers'
+import { IconMarkers } from './IconMarkers'
 
 const IconMarkerDemo = () => (
   <DemoWrapper title='Icon Marker'>

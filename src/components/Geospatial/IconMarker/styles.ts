@@ -3,9 +3,8 @@ import { getThemedColor } from '../../../lib/theme'
 import { IconMarkerProps } from './types'
 
 export const iconMarkerContainerStyles = (hasIcon: boolean) => css`
-  height: ${hasIcon ? '32px' : '20px'};
-  width: ${hasIcon ? '32px' : '20px'};
-  border: 2px solid ${getThemedColor('primary', 700)};
+  outline: 2px solid ${getThemedColor('primary', 700)};
+  outline-offset: 2px;
   border-radius: 50%;
   box-shadow:
     0 0 0 2px ${getThemedColor('neutral', 100)},

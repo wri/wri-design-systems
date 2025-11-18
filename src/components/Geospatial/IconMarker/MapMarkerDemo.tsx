@@ -1,4 +1,4 @@
-import { SimpleMapPin, ClusterPoint } from './presets/MapMarkers'
+import { SimpleMapPin, ClusterPoint } from './MapMarkers'
 import DemoWrapper from '../../UI/DemoWrapper'
 
 const IconMarkerDemo = () => (

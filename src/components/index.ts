@@ -45,11 +45,8 @@ export { default as Tag } from './Forms/Tag'
 
 export { default as BaseMap } from './Geospatial/BaseMap'
 export { default as IconMarker } from './Geospatial/IconMarker'
-export {
-  SimpleMapPin,
-  ClusterPoint,
-} from './Geospatial/IconMarker/presets/MapMarkers'
-export { IconMarkers } from './Geospatial/IconMarker/presets/IconMarkers'
+export { SimpleMapPin, ClusterPoint } from './Geospatial/IconMarker/MapMarkers'
+export { IconMarkers } from './Geospatial/IconMarker/IconMarkers'
 
 export { default as MapPopUp } from './Geospatial/MapPopUp'
 
