@@ -168,4 +168,5 @@ export const navigationRailChildrenContainerStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
   overflow-y: auto;
   overflow-x: hidden;
+  border-right: 1px solid ${getThemedColor('neutral', 300)};
 `

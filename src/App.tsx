@@ -134,7 +134,7 @@ const App = () => (
             <DemoWrapper title='Layer Group'>
               <LayerGroupDemo />
             </DemoWrapper>
-            <DemoWrapper title='Layer Panel'>
+            <DemoWrapper title='Layer Item'>
               <LayerItemDemo />
             </DemoWrapper>
             <DemoWrapper title='Layer Panel'>

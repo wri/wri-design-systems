@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { CheckIcon } from '../../../icons'
 import { NavigationRail } from '../../..'
 import LayerPanelDemo from '../../../Geospatial/Layers/LayerPanel/LayerPanelDemo'
+import DemoIndex from '../../../UI/DemoIndex'
 
 const defaultTabValue = 'label-1'
 
@@ -45,8 +46,8 @@ const LayerSidebarDemo = () => {
         },
       ]}
     >
-      {selectedTabValue === 'label-1' ? <LayerPanelDemo /> : null}
-      {selectedTabValue === 'label-2' ? <div>content 2</div> : null}
+      {selectedTabValue === 'label-1' ? <DemoIndex /> : null}
+      {selectedTabValue === 'label-2' ? <LayerPanelDemo /> : null}
       {selectedTabValue === 'label-3' ? <div>content 3</div> : null}
     </NavigationRail>
   )
