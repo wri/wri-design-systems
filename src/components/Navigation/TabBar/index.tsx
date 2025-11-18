@@ -14,7 +14,10 @@ import {
 import { TabBarItemProps, TabBarProps } from './types'
 
 const getTabIndex = (tabs: TabBarItemProps[], selectedTab?: string) =>
-  tabs.findIndex((t) => t.value === selectedTab)
+  Math.max(
+    0,
+    tabs.findIndex((t) => t.value === selectedTab),
+  )
 
 const getBorderSide = (selectedTabIndex: number) => {
   if (selectedTabIndex === 1) {

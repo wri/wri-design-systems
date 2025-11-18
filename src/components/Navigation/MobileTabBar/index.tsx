@@ -12,7 +12,10 @@ import {
 } from './styled'
 
 const getTabIndex = (tabs: MobileTabBarItemProps[], selectedTab?: string) =>
-  tabs.findIndex((t) => t.value === selectedTab)
+  Math.max(
+    0,
+    tabs.findIndex((t) => t.value === selectedTab),
+  )
 
 const MobileTabBar = ({
   defaultValue,
@@ -24,12 +27,12 @@ const MobileTabBar = ({
   const totalTabs = tabs.length
   const [selectedTabIndex, setSelectedTabIndex] = useState(() => {
     const initialIndex = getTabIndex(tabs, defaultValue)
-    return initialIndex >= 0 ? initialIndex : 0
+    return initialIndex
   })
 
   const handleOnTabClick = (tabValue: string) => {
     const nextIndex = getTabIndex(tabs, tabValue)
-    setSelectedTabIndex(nextIndex >= 0 ? nextIndex : 0)
+    setSelectedTabIndex(nextIndex)
 
     if (onTabClick) {
       onTabClick(tabValue)
@@ -55,19 +58,19 @@ const MobileTabBar = ({
               disabled,
               ...rest
             } = tab
-            const srStatusId = `${tab.value}-sr-status`
+            const strStatusId = `${tab.value}-str-status`
             const isSelected = selectedTabIndex === index
-            const srStatus = [
+            const strStatus = [
               `tab ${index + 1} of ${totalTabs}`,
               isSelected ? 'selected' : 'not selected',
             ]
 
             if (disabled) {
-              srStatus.push('disabled')
+              strStatus.push('disabled')
             }
 
             const describedBy =
-              [ariaDescribedBy, srStatusId].filter(Boolean).join(' ') ||
+              [ariaDescribedBy, strStatusId].filter(Boolean).join(' ') ||
               undefined
 
             return (
@@ -92,8 +95,8 @@ const MobileTabBar = ({
                   ) : null}
                 </div>
                 {!hideLabels ? <p>{label}</p> : null}
-                <VisuallyHidden id={srStatusId}>
-                  {srStatus.join(', ')}
+                <VisuallyHidden id={strStatusId}>
+                  {strStatus.join(', ')}
                 </VisuallyHidden>
               </Tabs.Trigger>
             )
