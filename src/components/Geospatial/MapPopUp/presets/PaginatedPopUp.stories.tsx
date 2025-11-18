@@ -2,8 +2,9 @@
 import React, { useRef, useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
 import MapPopUpStory from '..'
-import { NotificationIcon, PlaceholderIcon, UserIcon } from '../../../icons'
+import { NotificationIcon, UserIcon } from '../../../icons'
 import { IconMarkers } from '../../IconMarker/IconMarkers'
 import { getThemedColor } from '../../../../lib/theme'
 import List from '../../../DataDisplay/List'
@@ -45,7 +46,7 @@ const footer = (
 export const MapPopUp: Story = {
   args: {
     open: false,
-    onOpenChange: () => {},
+    onOpenChange: fn(),
     anchorRef: null as any,
     header: (
       <div>
@@ -90,7 +91,7 @@ export const MapPopUp: Story = {
             caption: 'Additional information',
             variant: 'navigation',
             icon: <UserIcon />,
-            onItemClick: () => {},
+            onItemClick: fn(),
           },
           {
             id: 'nav-2',
@@ -98,7 +99,7 @@ export const MapPopUp: Story = {
             caption: 'More details here',
             variant: 'navigation',
             icon: <UserIcon />,
-            onItemClick: () => {},
+            onItemClick: fn(),
           },
           {
             id: 'nav-3',
@@ -106,7 +107,7 @@ export const MapPopUp: Story = {
             caption: 'Extra context',
             variant: 'navigation',
             icon: <UserIcon />,
-            onItemClick: () => {},
+            onItemClick: fn(),
           },
           {
             id: 'nav-4',
@@ -114,6 +115,7 @@ export const MapPopUp: Story = {
             caption: 'Additional information',
             variant: 'navigation',
             icon: <UserIcon />,
+            onItemClick: fn(),
           },
         ]}
         noBorder

@@ -166,6 +166,7 @@ const MapPopUpDemo = () => {
                     caption: 'Additional information',
                     variant: 'navigation',
                     icon: <UserIcon />,
+                    onItemClick: () => {},
                   },
                   {
                     id: 'nav-2',
@@ -173,6 +174,7 @@ const MapPopUpDemo = () => {
                     caption: 'More details here',
                     variant: 'navigation',
                     icon: <UserIcon />,
+                    onItemClick: () => {},
                   },
                   {
                     id: 'nav-3',
@@ -180,6 +182,7 @@ const MapPopUpDemo = () => {
                     caption: 'Extra context',
                     variant: 'navigation',
                     icon: <UserIcon />,
+                    onItemClick: () => {},
                   },
                   {
                     id: 'nav-4',
@@ -187,6 +190,7 @@ const MapPopUpDemo = () => {
                     caption: 'Additional information',
                     variant: 'navigation',
                     icon: <UserIcon />,
+                    onItemClick: () => {},
                   },
                 ]}
                 noBorder
