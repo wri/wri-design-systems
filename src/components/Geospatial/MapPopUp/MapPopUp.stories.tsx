@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import MapPopUpStory from '.'
 import { NotificationIcon } from '../../icons'
-import { IconMarkers } from '../IconMarker/presets/IconMarkers'
+import { IconMarkers } from '../IconMarker/IconMarkers'
 import { getThemedColor } from '../../../lib/theme'
 import Button from '../../Forms/Actions/Button'
 

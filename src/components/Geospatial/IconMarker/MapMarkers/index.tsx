@@ -1,6 +1,6 @@
 import React from 'react'
-import IconMarker from '../..'
-import { IconMarkerProps } from '../../types'
+import IconMarker from '..'
+import { IconMarkerProps } from '../types'
 
 type GenericIconMarkersProps = {
   onClick?: () => void
