@@ -1,6 +1,10 @@
 // -- Styles -- //
 
-export { designSystemStyles, getThemedColor } from '../lib/theme'
+export {
+  designSystemStyles,
+  designSystemStylesForTailwind,
+  getThemedColor,
+} from '../lib/theme'
 
 // -- Styles -- //
 
