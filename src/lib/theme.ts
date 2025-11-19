@@ -78,6 +78,27 @@ export const wriTheme: ThemeProps = {
   },
 }
 
+const createSystemWithTwFormat = (
+  theme: ThemeProps,
+): Record<string, string> => {
+  const twFormat: Record<string, string> = {}
+
+  const colorKeys = Object.keys(theme) as (keyof ThemeProps)[]
+  colorKeys.forEach((colorKey) => {
+    const colorVariants = Object.keys(theme[colorKey]) as (number | string)[]
+    colorVariants.forEach((colorVariant) => {
+      const variantValue = theme[colorKey][colorVariant].value
+      const key = `${colorKey}-${colorVariant}`
+
+      twFormat[key] = variantValue
+    })
+  })
+
+  return twFormat
+}
+
+export const designSystemStylesForTailwind = createSystemWithTwFormat(wriTheme)
+
 export const designSystemStyles = createSystem(defaultConfig, {
   theme: {
     tokens: {
