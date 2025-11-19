@@ -12,7 +12,13 @@ import AnalysisWidget from '../../../DataDisplay/AnalysisWidget'
 import List from '../../../DataDisplay/List'
 import TabBar from '../../../Navigation/TabBar'
 import Tag from '../../../Forms/Tag'
-import { ShareIcon, SaveIcon, DownloadIcon, SettingsIcon } from '../../../icons'
+import {
+  ShareIcon,
+  SaveIcon,
+  DownloadIcon,
+  SettingsIcon,
+  NumberIcon,
+} from '../../../icons'
 import Button from '../../../Forms/Actions/Button'
 import { getThemedColor } from '../../../../lib/theme'
 import CloseButton from '../../../Forms/Actions/CloseButton'
@@ -29,19 +35,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const defaultTabValue = 'prioritization-tab'
-
-const NumberIcon = ({ value }: { value: string }) => (
-  <div
-    style={{
-      background: getThemedColor('primary', 300),
-      height: '24px',
-      width: '24px',
-      textAlign: 'center',
-    }}
-  >
-    {value}
-  </div>
-)
 
 const listItems = [
   {

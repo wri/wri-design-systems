@@ -7,6 +7,7 @@ export interface AnalysisWidgetProps {
   expanded?: boolean
   collapsible?: boolean
   actions?: AnalysisWidgetActionsProps[]
+  showFooterOnCollapsed?: boolean
 }
 
 export interface AnalysisWidgetActionsProps {

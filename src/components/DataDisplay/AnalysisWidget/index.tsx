@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Accordion, Box, Flex } from '@chakra-ui/react'
 import Tag from '../../Forms/Tag'
+import Button from '../../Forms/Actions/Button'
 import {
   analysisWidgetContainerStyles,
   analysisWidgetHeaderStyles,
@@ -18,6 +19,7 @@ const AnalysisWidget = ({
   expanded = true,
   collapsible = true,
   actions,
+  showFooterOnCollapsed = false,
 }: AnalysisWidgetProps) => {
   const itemValue = 'analysis-widget-item'
   const [isOpen, setIsOpen] = useState(expanded)
@@ -91,9 +93,14 @@ const AnalysisWidget = ({
             aria-hidden={!isOpen}
           >
             {children}
-            {footer && <Box css={analysisWidgetFooterStyles}>{footer}</Box>}
+            {!showFooterOnCollapsed && footer && (
+              <Box css={analysisWidgetFooterStyles}>{footer}</Box>
+            )}
           </div>
         </Accordion.Item>
+        {showFooterOnCollapsed && footer && (
+          <Box css={analysisWidgetFooterStyles}>{footer}</Box>
+        )}
       </Accordion.Root>
     </Box>
   )
