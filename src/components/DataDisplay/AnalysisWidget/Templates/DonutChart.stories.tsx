@@ -59,7 +59,7 @@ const BaseHeader = () => (
 const BaseChildren = (
   <div style={{ padding: '1rem' }}>
     <Text>
-      There were <b>4,308,579</b> deforestation alerts reported in <b>Brazil</b>
+      There were <b>4,308,579</b> deforestation alerts reported in <b>Brazil</b>{' '}
       between <b>13th of September 2023</b> and <b>20th of September 2023</b>,
       cover a total of <b>52.2 kha</b> of which <b>66%</b> were high confidence
       alerts detected by a single system and <b>3.0%</b>

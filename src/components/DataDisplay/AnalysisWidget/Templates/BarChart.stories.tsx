@@ -139,7 +139,7 @@ const BaseChildren = (
   <div>
     <Text style={{ padding: '1rem' }}>
       Showing <b>% people</b> that would benefit by each clean cooking
-      technology in the selected area in the
+      technology in the selected area in the{' '}
       <span
         style={{
           color: getThemedColor('primary', 700),
@@ -147,7 +147,7 @@ const BaseChildren = (
         }}
       >
         Stated Policies
-      </span>
+      </span>{' '}
       scenario.
     </Text>
     {listItems.map(({ id, label, value }) => (
