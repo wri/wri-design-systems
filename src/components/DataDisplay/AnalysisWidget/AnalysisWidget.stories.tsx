@@ -3,7 +3,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Text } from '@chakra-ui/react'
-import Tag from '../../Forms/Tag'
+import Button from '../../Forms/Actions/Button'
 import { InfoIcon, RefreshIcon } from '../../icons'
 import AnalysisWidget from '.'
 import { getThemedColor } from '../../../lib/theme'
@@ -64,24 +64,24 @@ const BaseChildren = (
 )
 
 const BaseFooter = (
-  <div style={{ display: 'flex', padding: '0.5rem' }}>
-    <Tag
+  <div style={{ display: 'flex', gap: '0.5rem', padding: '0.5rem' }}>
+    <Button
+      variant='secondary'
+      size='small'
       label='Label'
-      variant='info-grey'
-      icon={<RefreshIcon />}
-      style={{ marginRight: '0.5rem' }}
+      leftIcon={<RefreshIcon />}
     />
-    <Tag
+    <Button
+      variant='secondary'
+      size='small'
       label='Label'
-      variant='info-grey'
-      icon={<RefreshIcon />}
-      style={{ marginRight: '0.5rem' }}
+      leftIcon={<RefreshIcon />}
     />
-    <Tag
+    <Button
+      variant='secondary'
+      size='small'
       label='Label'
-      variant='info-grey'
-      icon={<RefreshIcon />}
-      style={{ marginRight: '0.5rem' }}
+      leftIcon={<RefreshIcon />}
     />
   </div>
 )

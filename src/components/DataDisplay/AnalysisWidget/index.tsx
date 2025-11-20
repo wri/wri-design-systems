@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from 'react'
 import { Accordion, Box, Flex } from '@chakra-ui/react'
-import Tag from '../../Forms/Tag'
 import Button from '../../Forms/Actions/Button'
 import {
   analysisWidgetContainerStyles,
@@ -62,8 +61,9 @@ const AnalysisWidget = ({
 
                 {actions &&
                   actions.map((action) => (
-                    <Tag
-                      variant='info-grey'
+                    <Button
+                      variant='secondary'
+                      size='small'
                       key={action.label}
                       label={action.label}
                       onClick={(e) => {
@@ -71,7 +71,7 @@ const AnalysisWidget = ({
                         e.preventDefault()
                         e.stopPropagation()
                       }}
-                      icon={action?.icon}
+                      leftIcon={action?.icon}
                     />
                   ))}
 
