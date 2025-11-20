@@ -76,7 +76,7 @@ const components = [
   'Text Input',
   'Tag',
   'Base Map',
-  'Icon Marker',
+  'Map Marker',
   'Map Marker Presets',
   'Map Pop Up',
   'Layer Group',

@@ -1,4 +1,4 @@
-export type IconMarkerProps = {
+export type MapMarkerProps = {
   ariaLabel?: string
   icon?: React.ReactNode
   backgroundColor?: string

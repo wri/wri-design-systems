@@ -1,20 +1,20 @@
-# Icon Marker
+# Map Marker
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-icon-marker--docs)
 
-[IconMarkerDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/IconMarker/IconMarkerDemo.tsx)
+[IconMarkerDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/MapMarker/IconMarkerDemo.tsx)
 
 ## Import
 
 ```tsx
-import { IconMarker } from '@worldresources/wri-design-systems'
+import { MapMarker } from '@worldresources/wri-design-systems'
 ```
 
 ## Usage
 
 ```tsx
-<IconMarker
-  ariaLabel='icon marker'
+<MapMarker
+  ariaLabel='map marker'
   icon={<PlaceholderIcon color='var(--chakra-colors-success-500)' />}
 />
 ```
@@ -22,7 +22,7 @@ import { IconMarker } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
-type IconMarkerProps = {
+type MapMarkerProps = {
   ariaLabel?: string
   icon?: React.ReactNode
   backgroundColor?: string
@@ -37,7 +37,7 @@ type IconMarkerProps = {
 ## Default index open
 
 ```tsx
-<IconMarker
+<MapMarker
   ariaLabel='icon marker'
   icon={<PlaceholderIcon color='var(--chakra-colors-success-500)' />}
 />
@@ -45,11 +45,11 @@ type IconMarkerProps = {
 
 ## Presets
 
-### Icon Markers
+### Map Marker Prestes
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-icon-marker-presets-icon-markers--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-map-marker-presets--docs)
 
-[IconMarkersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/IconMarker/IconMarkerDemo.tsx)
+[IconMarkersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/MapMarker/MapMarkerPresetsDemo.tsx)
 
 ```tsx
 import { IconMarkers } from '@worldresources/wri-design-systems'
@@ -68,7 +68,7 @@ import { IconMarkers } from '@worldresources/wri-design-systems'
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-icon-marker-presets-map-markers--docs)
 
-[MapMarkersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/IconMarker/MapMarkerDemo.tsx)
+[MapMarkersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/MapMarker/MapMarkerDemo.tsx)
 
 ```tsx
 import { SimpleMapPin, ClusterPoint } from '@worldresources/wri-design-systems'

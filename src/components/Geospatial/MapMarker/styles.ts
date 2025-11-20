@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
-import { IconMarkerProps } from './types'
+import { MapMarkerProps } from './types'
 
 export const iconMarkerContainerStyles = (hasIcon: boolean) => css`
   outline: 2px solid ${getThemedColor('primary', 700)};
@@ -12,8 +12,8 @@ export const iconMarkerContainerStyles = (hasIcon: boolean) => css`
 `
 
 const getBackgroundColor = (
-  backgroundColor: IconMarkerProps['backgroundColor'],
-  mode: IconMarkerProps['mode'],
+  backgroundColor: MapMarkerProps['backgroundColor'],
+  mode: MapMarkerProps['mode'],
 ) => {
   if (backgroundColor) {
     return backgroundColor
@@ -30,12 +30,12 @@ const getBackgroundColor = (
 }
 
 export const iconMarkerStyles = (
-  backgroundColor: IconMarkerProps['backgroundColor'],
+  backgroundColor: MapMarkerProps['backgroundColor'],
   hasOnClick: boolean,
   hasIcon: boolean,
-  mode: IconMarkerProps['mode'],
-  count: IconMarkerProps['count'],
-  variant: IconMarkerProps['variant'] = 'icon',
+  mode: MapMarkerProps['mode'],
+  count: MapMarkerProps['count'],
+  variant: MapMarkerProps['variant'] = 'icon',
 ) => {
   let size = '16px'
   let border = `4px solid ${getThemedColor('neutral', 100)}`

@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import IconMarker from '..'
+import MapMarker from '..'
 import { DropIcon, PaperIcon, PlantIcon } from '../../../icons'
 import { getThemedColor } from '../../../../lib/theme'
 
@@ -18,7 +18,7 @@ const Paper = ({
   triggerRef,
   showFocusState,
 }: GenericIconMarkersProps) => (
-  <IconMarker
+  <MapMarker
     ariaLabel={ariaLabel || 'paper icon'}
     icon={<PaperIcon color='#79022C' />}
     backgroundColor='#FFBCD4'
@@ -34,7 +34,7 @@ const Drop = ({
   triggerRef,
   showFocusState,
 }: GenericIconMarkersProps) => (
-  <IconMarker
+  <MapMarker
     ariaLabel={ariaLabel || 'drop icon'}
     icon={<DropIcon color='#7D2A03' />}
     backgroundColor='#F3A078'
@@ -50,7 +50,7 @@ const Plant = ({
   triggerRef,
   showFocusState,
 }: GenericIconMarkersProps) => (
-  <IconMarker
+  <MapMarker
     ariaLabel={ariaLabel || 'plant icon'}
     icon={<PlantIcon color='#3B6402' />}
     backgroundColor='#B7E578'
@@ -66,7 +66,7 @@ const Point = ({
   triggerRef,
   showFocusState,
 }: GenericIconMarkersProps) => (
-  <IconMarker
+  <MapMarker
     ariaLabel={ariaLabel || 'point icon'}
     backgroundColor={getThemedColor('primary', 500)}
     onClick={onClick}

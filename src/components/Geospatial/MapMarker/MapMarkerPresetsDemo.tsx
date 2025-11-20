@@ -1,10 +1,10 @@
-import { IconMarker } from '../..'
+import { MapMarker } from '../..'
 import { PlaceholderIcon } from '../../icons'
 import DemoWrapper from '../../UI/DemoWrapper'
-import { IconMarkers } from './IconMarkers'
+import { IconMarkers } from './Presets'
 
-const IconMarkerDemo = () => (
-  <DemoWrapper title='Icon Marker'>
+const MapMarkerPresetsDemo = () => (
+  <DemoWrapper title='Map Marker'>
     <div
       style={{
         display: 'flex',
@@ -13,7 +13,7 @@ const IconMarkerDemo = () => (
         flexWrap: 'wrap',
       }}
     >
-      <IconMarker
+      <MapMarker
         ariaLabel='icon marker'
         icon={<PlaceholderIcon color='var(--chakra-colors-success-500)' />}
       />
@@ -25,4 +25,4 @@ const IconMarkerDemo = () => (
   </DemoWrapper>
 )
 
-export default IconMarkerDemo
+export default MapMarkerPresetsDemo

@@ -2,10 +2,10 @@
 /* eslint-disable react/no-unknown-property */
 
 import { forwardRef } from 'react'
-import { IconMarkerProps } from './types'
+import { MapMarkerProps } from './types'
 import { iconMarkerContainerStyles, iconMarkerStyles } from './styles'
 
-const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
+const MapMarker = forwardRef<HTMLButtonElement, MapMarkerProps>(
   (
     {
       ariaLabel,
@@ -74,4 +74,4 @@ const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
   },
 )
 
-export default IconMarker
+export default MapMarker

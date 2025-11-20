@@ -6,7 +6,7 @@ import IconMarkerStory from '.'
 import { PlaceholderIcon } from '../../icons'
 
 const meta = {
-  title: 'Geospatial/Icon Marker',
+  title: 'Geospatial/Map Marker',
   component: IconMarkerStory,
   parameters: {
     layout: 'centered',
@@ -17,7 +17,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const IconMarker: Story = {
+export const MapMarker: Story = {
   args: {
     ariaLabel: 'icon marker',
     icon: <PlaceholderIcon color='var(--chakra-colors-success-500)' />,
