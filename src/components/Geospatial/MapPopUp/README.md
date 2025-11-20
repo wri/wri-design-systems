@@ -21,7 +21,7 @@ const triggerPlantRef = useRef<HTMLButtonElement>(null)
 .
 
 <div>
-  <IconMarkers.Plant
+  <MapMarkers.Plant
     ariaLabel='plant icon'
     onClick={() => setOpenPlant(true)}
     triggerRef={triggerPlantRef}

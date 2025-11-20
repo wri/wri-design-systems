@@ -2,10 +2,10 @@
 /* eslint-disable react/no-unknown-property */
 
 import { forwardRef } from 'react'
-import { IconMarkerProps } from './types'
-import { iconMarkerContainerStyles, iconMarkerStyles } from './styles'
+import { MapMarkerProps } from './types'
+import { mapMarkerContainerStyles, mapMarkerStyles } from './styles'
 
-const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
+const MapMarker = forwardRef<HTMLButtonElement, MapMarkerProps>(
   (
     {
       ariaLabel,
@@ -51,10 +51,10 @@ const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
     }
 
     return (
-      <div css={showFocusState ? iconMarkerContainerStyles(!!icon) : ''}>
+      <div css={showFocusState ? mapMarkerContainerStyles(!!icon) : ''}>
         <button
           type='button'
-          css={iconMarkerStyles(
+          css={mapMarkerStyles(
             backgroundColor,
             !!onClick,
             !!icon,
@@ -74,4 +74,4 @@ const IconMarker = forwardRef<HTMLButtonElement, IconMarkerProps>(
   },
 )
 
-export default IconMarker
+export default MapMarker

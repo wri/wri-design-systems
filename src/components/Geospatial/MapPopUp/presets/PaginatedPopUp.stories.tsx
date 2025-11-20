@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import MapPopUpStory from '..'
 import { NotificationIcon, UserIcon } from '../../../icons'
-import { IconMarkers } from '../../IconMarker/IconMarkers'
+import { MapMarkers } from '../../MapMarker/Presets'
 import { getThemedColor } from '../../../../lib/theme'
 import List from '../../../DataDisplay/List'
 import Button from '../../../Forms/Actions/Button'
@@ -129,7 +129,7 @@ export const MapPopUp: Story = {
 
     return (
       <div>
-        <IconMarkers.Point
+        <MapMarkers.Point
           ariaLabel='point icon'
           onClick={() => setOpen(true)}
           triggerRef={triggerRef}

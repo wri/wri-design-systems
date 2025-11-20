@@ -1,11 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
-import IconMarker from '..'
+import MapMarker from '..'
 import { DropIcon, PaperIcon, PlantIcon } from '../../../icons'
 import { getThemedColor } from '../../../../lib/theme'
 
-type GenericIconMarkersProps = {
+type GenericMapMarkersProps = {
   ariaLabel?: string
   onClick?: () => void
   triggerRef?: React.Ref<HTMLButtonElement>
@@ -17,8 +17,8 @@ const Paper = ({
   onClick,
   triggerRef,
   showFocusState,
-}: GenericIconMarkersProps) => (
-  <IconMarker
+}: GenericMapMarkersProps) => (
+  <MapMarker
     ariaLabel={ariaLabel || 'paper icon'}
     icon={<PaperIcon color='#79022C' />}
     backgroundColor='#FFBCD4'
@@ -33,8 +33,8 @@ const Drop = ({
   onClick,
   triggerRef,
   showFocusState,
-}: GenericIconMarkersProps) => (
-  <IconMarker
+}: GenericMapMarkersProps) => (
+  <MapMarker
     ariaLabel={ariaLabel || 'drop icon'}
     icon={<DropIcon color='#7D2A03' />}
     backgroundColor='#F3A078'
@@ -49,8 +49,8 @@ const Plant = ({
   onClick,
   triggerRef,
   showFocusState,
-}: GenericIconMarkersProps) => (
-  <IconMarker
+}: GenericMapMarkersProps) => (
+  <MapMarker
     ariaLabel={ariaLabel || 'plant icon'}
     icon={<PlantIcon color='#3B6402' />}
     backgroundColor='#B7E578'
@@ -65,8 +65,8 @@ const Point = ({
   onClick,
   triggerRef,
   showFocusState,
-}: GenericIconMarkersProps) => (
-  <IconMarker
+}: GenericMapMarkersProps) => (
+  <MapMarker
     ariaLabel={ariaLabel || 'point icon'}
     backgroundColor={getThemedColor('primary', 500)}
     onClick={onClick}
@@ -75,7 +75,7 @@ const Point = ({
   />
 )
 
-export const IconMarkers = {
+export const MapMarkers = {
   Paper,
   Drop,
   Plant,

@@ -1,8 +1,8 @@
 import { SimpleMapPin, ClusterPoint } from './MapMarkers'
 import DemoWrapper from '../../UI/DemoWrapper'
 
-const IconMarkerDemo = () => (
-  <DemoWrapper title='Map Marker Presets'>
+const MapMarkerDemo = () => (
+  <DemoWrapper title='Map Marker'>
     <div style={{ display: 'flex', gap: '40px', alignItems: 'center' }}>
       <ClusterPoint count={10} mode='dark' />
       <ClusterPoint count={123123} mode='light' />
@@ -11,4 +11,4 @@ const IconMarkerDemo = () => (
   </DemoWrapper>
 )
 
-export default IconMarkerDemo
+export default MapMarkerDemo

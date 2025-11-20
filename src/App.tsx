@@ -25,8 +25,8 @@ import TextInputDemo from './components/Forms/Inputs/TextInput/TextInputDemo'
 import TagDemo from './components/Forms/Tag/TagDemo'
 
 import BaseMapDemo from './components/Geospatial/BaseMap/BaseMapDemo'
-import IconMarkerDemo from './components/Geospatial/IconMarker/IconMarkerDemo'
-import MapMarkerDemo from './components/Geospatial/IconMarker/MapMarkerDemo'
+import MapMarkerPresetsDemo from './components/Geospatial/MapMarker/MapMarkerPresetsDemo'
+import MapMarkerDemo from './components/Geospatial/MapMarker/MapMarkerDemo'
 import MapPopUpDemo from './components/Geospatial/MapPopUp/MapPopUpDemo'
 
 import { LayerGroupDemo } from './components/Geospatial/Layers/LayerGroup/LayerGroupDemo'
@@ -118,8 +118,8 @@ const App = () => (
           <TagDemo />
 
           <BaseMapDemo />
-          <IconMarkerDemo />
           <MapMarkerDemo />
+          <MapMarkerPresetsDemo />
           <MapPopUpDemo />
 
           <div

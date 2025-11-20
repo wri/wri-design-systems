@@ -2,24 +2,24 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import IconMarkerStory from '.'
+import MapMarkerStory from '.'
 import { PlaceholderIcon } from '../../icons'
 
 const meta = {
-  title: 'Geospatial/Icon Marker',
-  component: IconMarkerStory,
+  title: 'Geospatial/Map Marker',
+  component: MapMarkerStory,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof IconMarkerStory>
+} satisfies Meta<typeof MapMarkerStory>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const IconMarker: Story = {
+export const MapMarker: Story = {
   args: {
-    ariaLabel: 'icon marker',
+    ariaLabel: 'map marker',
     icon: <PlaceholderIcon color='var(--chakra-colors-success-500)' />,
   },
 }

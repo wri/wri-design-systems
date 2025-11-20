@@ -3,16 +3,16 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import { SimpleMapPin as SimpleMapPinPreset, ClusterPoint } from '.'
-import { IconMarkerProps } from '../types'
+import { MapMarkerProps } from '../types'
 
 type ClusterPointProps = {
-  count?: IconMarkerProps['count']
-  mode?: IconMarkerProps['mode']
-  variant?: IconMarkerProps['variant']
+  count?: MapMarkerProps['count']
+  mode?: MapMarkerProps['mode']
+  variant?: MapMarkerProps['variant']
 }
 
 const meta = {
-  title: 'Geospatial/Icon Marker',
+  title: 'Geospatial/Map Marker',
   parameters: {
     layout: 'centered',
   },

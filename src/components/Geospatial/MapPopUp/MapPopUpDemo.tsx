@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Button, getThemedColor, IconMarkers, List, MapPopUp } from '../..'
+import { Button, getThemedColor, MapMarkers, List, MapPopUp } from '../..'
 import DemoWrapper from '../../UI/DemoWrapper'
 import { NotificationIcon, UserIcon } from '../../icons'
 
@@ -21,7 +21,7 @@ const MapPopUpDemo = () => {
         }}
       >
         <div>
-          <IconMarkers.Plant
+          <MapMarkers.Plant
             ariaLabel='plant icon'
             onClick={() => setOpenPlant(true)}
             triggerRef={triggerPlantRef}
@@ -111,7 +111,7 @@ const MapPopUpDemo = () => {
         </div>
 
         <div>
-          <IconMarkers.Point
+          <MapMarkers.Point
             ariaLabel='point icon'
             onClick={() => setOpenPoint(true)}
             triggerRef={triggerPointRef}
