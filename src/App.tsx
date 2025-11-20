@@ -118,8 +118,8 @@ const App = () => (
           <TagDemo />
 
           <BaseMapDemo />
-          <MapMarkerPresetsDemo />
           <MapMarkerDemo />
+          <MapMarkerPresetsDemo />
           <MapPopUpDemo />
 
           <div

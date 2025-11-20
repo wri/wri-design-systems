@@ -1,8 +1,8 @@
 # Map Marker
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-icon-marker--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-map-marker--docs)
 
-[IconMarkerDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/MapMarker/IconMarkerDemo.tsx)
+[MapMarkerDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/MapMarker/MapMarkerDemo.tsx)
 
 ## Import
 
@@ -38,7 +38,7 @@ type MapMarkerProps = {
 
 ```tsx
 <MapMarker
-  ariaLabel='icon marker'
+  ariaLabel='map marker'
   icon={<PlaceholderIcon color='var(--chakra-colors-success-500)' />}
 />
 ```
@@ -49,26 +49,20 @@ type MapMarkerProps = {
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-map-marker-presets--docs)
 
-[IconMarkersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/MapMarker/MapMarkerPresetsDemo.tsx)
+[MapMarkersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/MapMarker/MapMarkerPresetsDemo.tsx)
 
 ```tsx
-import { IconMarkers } from '@worldresources/wri-design-systems'
+import { MapMarkers } from '@worldresources/wri-design-systems'
 ```
 
 ```tsx
 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-  <IconMarkers.Paper />
-  <IconMarkers.Drop />
-  <IconMarkers.Plant />
-  <IconMarkers.Point />
+  <MapMarkers.Paper />
+  <MapMarkers.Drop />
+  <MapMarkers.Plant />
+  <MapMarkers.Point />
 </div>
 ```
-
-### Map Markers
-
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-icon-marker-presets-map-markers--docs)
-
-[MapMarkersDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/MapMarker/MapMarkerDemo.tsx)
 
 ```tsx
 import { SimpleMapPin, ClusterPoint } from '@worldresources/wri-design-systems'

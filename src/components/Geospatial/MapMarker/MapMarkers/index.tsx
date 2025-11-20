@@ -2,7 +2,7 @@ import React from 'react'
 import MapMarker from '..'
 import { MapMarkerProps } from '../types'
 
-type GenericIconMarkersProps = {
+type GenericMapMarkersProps = {
   onClick?: () => void
   triggerRef?: React.Ref<HTMLButtonElement>
   showFocusState?: boolean
@@ -18,7 +18,7 @@ export const ClusterPoint = ({
   count,
   mode,
   variant = 'cluster',
-}: GenericIconMarkersProps) => (
+}: GenericMapMarkersProps) => (
   <MapMarker
     count={count}
     mode={mode}
@@ -36,7 +36,7 @@ export const SimpleMapPin = ({
   count,
   mode,
   variant = 'simple-pin',
-}: GenericIconMarkersProps) => (
+}: GenericMapMarkersProps) => (
   <MapMarker
     count={count}
     mode={mode}

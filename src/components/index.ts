@@ -50,7 +50,7 @@ export { default as Tag } from './Forms/Tag'
 export { default as BaseMap } from './Geospatial/BaseMap'
 export { default as MapMarker } from './Geospatial/MapMarker'
 export { SimpleMapPin, ClusterPoint } from './Geospatial/MapMarker/MapMarkers'
-export { IconMarkers } from './Geospatial/MapMarker/Presets'
+export { MapMarkers } from './Geospatial/MapMarker/Presets'
 
 export { default as MapPopUp } from './Geospatial/MapPopUp'
 

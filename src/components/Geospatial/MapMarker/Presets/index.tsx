@@ -5,7 +5,7 @@ import MapMarker from '..'
 import { DropIcon, PaperIcon, PlantIcon } from '../../../icons'
 import { getThemedColor } from '../../../../lib/theme'
 
-type GenericIconMarkersProps = {
+type GenericMapMarkersProps = {
   ariaLabel?: string
   onClick?: () => void
   triggerRef?: React.Ref<HTMLButtonElement>
@@ -17,7 +17,7 @@ const Paper = ({
   onClick,
   triggerRef,
   showFocusState,
-}: GenericIconMarkersProps) => (
+}: GenericMapMarkersProps) => (
   <MapMarker
     ariaLabel={ariaLabel || 'paper icon'}
     icon={<PaperIcon color='#79022C' />}
@@ -33,7 +33,7 @@ const Drop = ({
   onClick,
   triggerRef,
   showFocusState,
-}: GenericIconMarkersProps) => (
+}: GenericMapMarkersProps) => (
   <MapMarker
     ariaLabel={ariaLabel || 'drop icon'}
     icon={<DropIcon color='#7D2A03' />}
@@ -49,7 +49,7 @@ const Plant = ({
   onClick,
   triggerRef,
   showFocusState,
-}: GenericIconMarkersProps) => (
+}: GenericMapMarkersProps) => (
   <MapMarker
     ariaLabel={ariaLabel || 'plant icon'}
     icon={<PlantIcon color='#3B6402' />}
@@ -65,7 +65,7 @@ const Point = ({
   onClick,
   triggerRef,
   showFocusState,
-}: GenericIconMarkersProps) => (
+}: GenericMapMarkersProps) => (
   <MapMarker
     ariaLabel={ariaLabel || 'point icon'}
     backgroundColor={getThemedColor('primary', 500)}
@@ -75,7 +75,7 @@ const Point = ({
   />
 )
 
-export const IconMarkers = {
+export const MapMarkers = {
   Paper,
   Drop,
   Plant,
