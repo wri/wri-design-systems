@@ -3,7 +3,7 @@
 
 import { forwardRef } from 'react'
 import { MapMarkerProps } from './types'
-import { MapMarkerContainerStyles, MapMarkerStyles } from './styles'
+import { mapMarkerContainerStyles, mapMarkerStyles } from './styles'
 
 const MapMarker = forwardRef<HTMLButtonElement, MapMarkerProps>(
   (
@@ -51,10 +51,10 @@ const MapMarker = forwardRef<HTMLButtonElement, MapMarkerProps>(
     }
 
     return (
-      <div css={showFocusState ? MapMarkerContainerStyles(!!icon) : ''}>
+      <div css={showFocusState ? mapMarkerContainerStyles(!!icon) : ''}>
         <button
           type='button'
-          css={MapMarkerStyles(
+          css={mapMarkerStyles(
             backgroundColor,
             !!onClick,
             !!icon,

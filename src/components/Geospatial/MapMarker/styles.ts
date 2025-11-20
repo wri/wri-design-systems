@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 import { MapMarkerProps } from './types'
 
-export const MapMarkerContainerStyles = (hasIcon: boolean) => css`
+export const mapMarkerContainerStyles = (hasIcon: boolean) => css`
   outline: 2px solid ${getThemedColor('primary', 700)};
   outline-offset: 2px;
   border-radius: 50%;
@@ -29,7 +29,7 @@ const getBackgroundColor = (
   return getThemedColor('success', 300)
 }
 
-export const MapMarkerStyles = (
+export const mapMarkerStyles = (
   backgroundColor: MapMarkerProps['backgroundColor'],
   hasOnClick: boolean,
   hasIcon: boolean,
