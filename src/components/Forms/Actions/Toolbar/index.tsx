@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { Group, Button as ChakraButton, Box } from '@chakra-ui/react'
 import { ChevronLeftIcon, ChevronRightIcon, MenuDotsIcon } from '../../../icons'
 import Menu from '../Menu'
+import Tooltip from '../Tooltip'
 import { toolbarContainerStyles, toolbarBaseStyles } from './styled'
 import { ToolbarProps } from './types'
 
@@ -155,11 +156,15 @@ const Toolbar = ({
                 marginLeft={isExpanded ? '8px' : '0'}
               >
                 <Box as='span' mr={item.icon ? '8px' : '0'}>
-                  {item.icon}
+                  <Tooltip content={item?.tooltip} disabled={!item?.tooltip}>
+                    {item.icon}
+                  </Tooltip>
                 </Box>
                 <span aria-hidden={!isExpanded}>
                   {/*  Hide the text from screen readers when collapsed to avoid redundancy */}
-                  {item.label}
+                  <Tooltip content={item?.tooltip} disabled={!item?.tooltip}>
+                    {item.label}
+                  </Tooltip>
                 </span>
               </Box>
             </ChakraButton>

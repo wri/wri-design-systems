@@ -50,7 +50,7 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
   }
 
   &:hover {
-    background-color: ${getThemedColor('primary', 200)};
+    background-color: ${getThemedColor('primary', 300)};
   }
 
   &:active {
