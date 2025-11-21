@@ -5,6 +5,7 @@ export interface ToolbarItem {
   disabled?: boolean
   onClick?: () => void
   gap?: boolean
+  tooltip?: string
 }
 
 export interface ToolbarProps {

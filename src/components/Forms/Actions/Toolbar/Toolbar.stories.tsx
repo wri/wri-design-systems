@@ -44,6 +44,30 @@ export const Default: Story = {
   },
 }
 
+export const WithTooltip: Story = {
+  args: {
+    vertical: true,
+    expanded: false,
+    showExpandedToggle: true,
+    defaultGaps: true,
+    items: [
+      {
+        icon: <ShareIcon />,
+        ariaLabel: 'share',
+        disabled: false,
+        label: 'Share',
+        tooltip: 'Share tooltip',
+      },
+      {
+        icon: <PrintIcon />,
+        ariaLabel: 'print',
+        label: 'Print',
+        tooltip: 'Print tooltip',
+      },
+    ],
+  },
+}
+
 export const MapControl: Story = {
   args: {
     items: [
