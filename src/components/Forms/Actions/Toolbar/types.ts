@@ -17,3 +17,15 @@ export interface ToolbarProps {
   defaultGaps?: boolean
   breakpoint?: number
 }
+
+export interface ToolbarButtonProps {
+  isExpanded: boolean
+  ariaLabel: string
+  icon?: React.ReactNode
+  label?: React.ReactNode
+  tooltip?: string
+  disabled?: boolean
+  onClick?: () => void
+  showGap?: boolean
+  vertical?: boolean
+}

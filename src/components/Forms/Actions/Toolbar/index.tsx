@@ -3,9 +3,13 @@
 
 import { useState } from 'react'
 import { Group, Button as ChakraButton, Box } from '@chakra-ui/react'
-import { ChevronLeftIcon, ChevronRightIcon, MenuDotsIcon } from '../../../icons'
+import {
+  MenuDotsIcon,
+  DoubleChevronRight,
+  DoubleChevronLeft,
+} from '../../../icons'
 import Menu from '../Menu'
-import Tooltip from '../Tooltip'
+import ToolbarButton from './ToolbarButton'
 import { toolbarContainerStyles, toolbarBaseStyles } from './styled'
 import { ToolbarProps } from './types'
 
@@ -47,47 +51,6 @@ const Toolbar = ({
     )
   }
 
-  const toggleButton = showExpandedToggle ? (
-    <ChakraButton
-      css={toolbarBaseStyles(isExpanded)}
-      onClick={() => setIsExpanded(!isExpanded)}
-      aria-label={isExpanded ? 'Collapse' : 'Expand'}
-    >
-      <Box
-        as='span'
-        overflow='hidden'
-        whiteSpace='nowrap'
-        transition='max-width 0.3s ease, opacity 0.2s ease, margin-left 0.3s ease'
-        maxWidth={isExpanded ? '150px' : '20px'}
-        marginLeft={isExpanded ? '8px' : '0'}
-      >
-        <Box as='span'>
-          {isExpanded ? (
-            <>
-              <ChevronRightIcon style={{ width: '20px', height: '12px' }} />
-              <ChevronRightIcon
-                style={{ width: '20px', height: '12px' }}
-                ml='-12px'
-              />
-            </>
-          ) : (
-            <>
-              <ChevronLeftIcon
-                style={{ width: '20px', height: '12px' }}
-                ml='-4px'
-              />
-              <ChevronLeftIcon
-                style={{ width: '20px', height: '12px' }}
-                ml='-14px'
-              />
-            </>
-          )}
-        </Box>
-        {isExpanded && <>Collapse</>}
-      </Box>
-    </ChakraButton>
-  ) : null
-
   const overflowItems = items.slice(3)
 
   const menuItems = overflowItems.map((item) => ({
@@ -105,20 +68,16 @@ const Toolbar = ({
   }
 
   const overflowMenuTrigger = (
-    <ChakraButton
-      css={toolbarBaseStyles(false)}
-      style={{ width: '32px', height: '32px' }}
-      mr={defaultGaps && !vertical ? '16px' : '0'}
-      mb={defaultGaps && vertical ? '16px' : '0'}
-    >
-      <Box as='span' maxWidth='20px'>
-        <Box as='span' maxWidth='20px'>
-          <MenuDotsIcon style={{ width: '20px', height: '12px' }} />
-        </Box>
-      </Box>
-    </ChakraButton>
+    <div style={{ position: 'relative', display: 'flex', width: '48px' }}>
+      <ToolbarButton
+        isExpanded={isExpanded}
+        ariaLabel={isExpanded ? 'Collapse' : 'Expand'}
+        icon={<MenuDotsIcon />}
+        showGap={false}
+        vertical={vertical}
+      />
+    </div>
   )
-
   return (
     <div
       role='toolbar'
@@ -136,51 +95,43 @@ const Toolbar = ({
           const showGap =
             (defaultGaps && item.gap !== false) ||
             (!defaultGaps && item.gap === true)
+
           return (
-            <ChakraButton
-              className='toolbar-item-button'
+            <ToolbarButton
               key={item.ariaLabel}
-              css={toolbarBaseStyles(isExpanded)}
-              aria-label={item.ariaLabel}
+              isExpanded={isExpanded}
+              ariaLabel={item.ariaLabel}
+              icon={item.icon}
+              label={item.label}
+              tooltip={item.tooltip}
               disabled={item.disabled}
               onClick={item.onClick}
-              mr={showGap && !vertical ? '16px' : '0'}
-              mb={showGap && vertical ? '16px' : '0'}
-            >
-              <Box
-                as='span'
-                overflow='hidden'
-                whiteSpace='nowrap'
-                transition='max-width 0.3s ease, opacity 0.2s ease, margin-left 0.3s ease'
-                maxWidth={isExpanded ? '150px' : '20px'}
-                marginLeft={isExpanded ? '8px' : '0'}
-              >
-                <Box as='span' mr={item.icon ? '8px' : '0'}>
-                  <Tooltip content={item?.tooltip} disabled={!item?.tooltip}>
-                    {item.icon}
-                  </Tooltip>
-                </Box>
-                <span aria-hidden={!isExpanded}>
-                  {/*  Hide the text from screen readers when collapsed to avoid redundancy */}
-                  <Tooltip content={item?.tooltip} disabled={!item?.tooltip}>
-                    {item.label}
-                  </Tooltip>
-                </span>
-              </Box>
-            </ChakraButton>
+              showGap={showGap}
+              vertical={vertical}
+            />
           )
         })}
 
         <div className='toolbar-overflow-menu'>
           <Menu
-            label='test'
+            label=''
             items={menuItems}
             onSelect={handleMenuSelect}
             customTrigger={overflowMenuTrigger}
           />
         </div>
 
-        {toggleButton}
+        {showExpandedToggle && (
+          <ToolbarButton
+            isExpanded={isExpanded}
+            ariaLabel={isExpanded ? 'Collapse' : 'Expand'}
+            icon={isExpanded ? <DoubleChevronRight /> : <DoubleChevronLeft />}
+            label='Collapse'
+            onClick={() => setIsExpanded(!isExpanded)}
+            showGap={false}
+            vertical={vertical}
+          />
+        )}
       </Group>
     </div>
   )
