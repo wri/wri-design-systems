@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Icon, IconProps } from '@chakra-ui/react'
 
-export const DoubleChevronLeft = (props: IconProps) => (
+export const DoubleChevronLeftIcon = (props: IconProps) => (
   <Icon {...props}>
     <svg
       width='16'

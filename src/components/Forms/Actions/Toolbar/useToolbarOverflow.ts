@@ -37,7 +37,7 @@ export function useToolbarOverflow({
 
     const mustCollapse = totalWidthNeeded > containerWidth
     setShouldForceCollapse(mustCollapse)
-    if (!isVertical) {
+    if (itemsCount > 1 && !isVertical) {
       setvisibleNumberOfItems(Math.floor(containerWidth / itemWidthCollapsed))
     }
   }, [
