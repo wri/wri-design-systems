@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     vertical: true,
-    expanded: true,
+    expanded: false,
     showExpandedToggle: true,
     defaultGaps: true,
     items: [
