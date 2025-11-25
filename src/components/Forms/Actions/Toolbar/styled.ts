@@ -1,22 +1,8 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const toolbarContainerStyles = (breakpoint: number) => css`
+export const toolbarContainerStyles = css`
   position: relative;
-
-  .toolbar-overflow-menu {
-    display: none;
-  }
-
-  @media (max-width: ${breakpoint}px) {
-    .toolbar-item-button:nth-of-type(n + 4) {
-      display: none;
-    }
-
-    .toolbar-overflow-menu {
-      display: inline-flex;
-    }
-  }
 `
 
 export const toolbarBaseStyles = (showLabel: boolean) => css`
@@ -75,4 +61,10 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
       }
     }
   }
+`
+
+export const overflowMenuItemStyles = css`
+  padding: 4px;
+  background: rgba(0, 0, 0, 0);
+  border: none;
 `
