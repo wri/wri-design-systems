@@ -5,6 +5,7 @@ export interface ToolbarItem {
   disabled?: boolean
   onClick?: () => void
   gap?: boolean
+  tooltip?: string
 }
 
 export interface ToolbarProps {
@@ -14,5 +15,25 @@ export interface ToolbarProps {
   showExpandedToggle?: boolean
   ariaLabel?: string
   defaultGaps?: boolean
-  breakpoint?: number
+}
+
+export interface ToolbarButtonProps {
+  isExpanded: boolean
+  ariaLabel: string
+  icon?: React.ReactNode
+  label?: React.ReactNode
+  tooltip?: string
+  disabled?: boolean
+  onClick?: () => void
+  showGap?: boolean
+  vertical?: boolean
+}
+
+export interface UseToolbarOverflowParams {
+  itemsCount: number
+  isExpanded: boolean
+  isVertical: boolean
+  collapsedWidth: number // 48px
+  expandedLabelWidth: number
+  gap?: number
 }

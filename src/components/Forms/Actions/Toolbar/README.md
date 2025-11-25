@@ -44,7 +44,6 @@ interface ToolbarProps {
   showExpandedToggle?: boolean // Renders an expand/collapse button when combined with 'expanded'
   ariaLabel?: string // Main accessibility label for the toolbar container
   defaultGaps?: boolean // If true, adds gaps between all items by default
-  breakpoint?: number // The viewport width (in px) at which the toolbar collapses into a menu
 }
 ```
 

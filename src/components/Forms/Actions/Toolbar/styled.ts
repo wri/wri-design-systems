@@ -1,22 +1,8 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const toolbarContainerStyles = (breakpoint: number) => css`
+export const toolbarContainerStyles = css`
   position: relative;
-
-  .toolbar-overflow-menu {
-    display: none;
-  }
-
-  @media (max-width: ${breakpoint}px) {
-    .toolbar-item-button:nth-of-type(n + 4) {
-      display: none;
-    }
-
-    .toolbar-overflow-menu {
-      display: inline-flex;
-    }
-  }
 `
 
 export const toolbarBaseStyles = (showLabel: boolean) => css`
@@ -24,11 +10,11 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
   align-items: center;
   justify-content: ${showLabel ? 'space-between' : 'center'};
   gap: ${showLabel ? '8px' : '0'};
-  height: 32px;
-  padding: ${showLabel ? '0 12px' : '0'};
+  height: 48px;
+  padding: ${showLabel ? '0 0px' : '0'};
   text-align: ${showLabel ? 'left' : 'center'};
   color: black;
-  min-width: 32px;
+  min-width: 48px;
   border-radius: 2px;
   background-color: ${getThemedColor('neutral', 100)};
   border: 1px solid ${getThemedColor('neutral', 300)};
@@ -36,21 +22,22 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
   box-shadow: 0px 10px 15px -3px #0000001a;
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
 
     path {
       fill: ${getThemedColor('neutral', 800)};
     }
   }
 
-  > span {
+  > div {
     flex: ${showLabel ? '1 1 auto' : '0 0 auto'};
     text-align: right;
-  }
-
-  &:hover {
-    background-color: ${getThemedColor('primary', 200)};
+    border-radius: 5px;
+    height: 32px;
+    &:hover {
+      background-color: ${getThemedColor('primary', 300)};
+    }
   }
 
   &:active {
@@ -74,4 +61,10 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
       }
     }
   }
+`
+
+export const overflowMenuItemStyles = css`
+  padding: 4px;
+  background: rgba(0, 0, 0, 0);
+  border: none;
 `
