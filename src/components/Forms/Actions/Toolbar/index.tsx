@@ -5,8 +5,8 @@ import { useState } from 'react'
 import { Group, Menu as ChakraMenu, Portal } from '@chakra-ui/react'
 import {
   MenuDotsIcon,
-  DoubleChevronRight,
-  DoubleChevronLeft,
+  DoubleChevronRightIcon,
+  DoubleChevronLeftIcon,
 } from '../../../icons'
 import ToolbarButton from './ToolbarButton'
 import { toolbarContainerStyles, overflowMenuItemStyles } from './styled'
@@ -102,7 +102,7 @@ const Toolbar = ({
           )
         })}
 
-        {shouldForceCollapse && menuItems.length && (
+        {shouldForceCollapse && menuItems.length > 1 && (
           <ChakraMenu.Root
             onSelect={({ value }) => handleMenuSelect(value)}
             onOpenChange={({ open }) => setIsOpen(open)}
@@ -144,7 +144,13 @@ const Toolbar = ({
           <ToolbarButton
             isExpanded={isExpanded}
             ariaLabel={isExpanded ? 'Collapse' : 'Expand'}
-            icon={isExpanded ? <DoubleChevronRight /> : <DoubleChevronLeft />}
+            icon={
+              isExpanded ? (
+                <DoubleChevronRightIcon />
+              ) : (
+                <DoubleChevronLeftIcon />
+              )
+            }
             label='Collapse'
             onClick={() => setIsExpanded(!isExpanded)}
             showGap={false}
