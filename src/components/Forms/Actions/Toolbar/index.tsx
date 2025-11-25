@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 
 import { useState } from 'react'
-import { Group, Button as ChakraButton, Box } from '@chakra-ui/react'
+import { Group } from '@chakra-ui/react'
 import {
   MenuDotsIcon,
   DoubleChevronRight,
@@ -10,7 +10,7 @@ import {
 } from '../../../icons'
 import Menu from '../Menu'
 import ToolbarButton from './ToolbarButton'
-import { toolbarContainerStyles, toolbarBaseStyles } from './styled'
+import { toolbarContainerStyles } from './styled'
 import { ToolbarProps } from './types'
 
 const Toolbar = ({
@@ -23,33 +23,6 @@ const Toolbar = ({
   breakpoint = 370,
 }: ToolbarProps) => {
   const [isExpanded, setIsExpanded] = useState(expanded)
-
-  if (items.length === 1) {
-    const item = items[0]
-
-    return (
-      <ChakraButton
-        css={toolbarBaseStyles(isExpanded)}
-        aria-label={item.ariaLabel}
-        disabled={item.disabled}
-        onClick={item.onClick}
-      >
-        {item.icon}
-        <Box
-          as='span'
-          display='inline-block'
-          overflow='hidden'
-          whiteSpace='nowrap'
-          transition='max-width 0.3s ease, opacity 0.2s ease, margin-left 0.3s ease'
-          maxWidth={isExpanded ? '150px' : '0'}
-          opacity={isExpanded ? 1 : 0}
-          marginLeft={isExpanded ? '8px' : '0'}
-        >
-          {item.label}
-        </Box>
-      </ChakraButton>
-    )
-  }
 
   const overflowItems = items.slice(3)
 
@@ -89,7 +62,7 @@ const Toolbar = ({
         attached
         display='grid'
         borderCollapse='collapse'
-        gridAutoFlow={vertical ? 'row' : 'column'}
+        gridAutoFlow={vertical || items.length === 1 ? 'row' : 'column'}
       >
         {items.map((item) => {
           const showGap =
@@ -121,7 +94,7 @@ const Toolbar = ({
           />
         </div>
 
-        {showExpandedToggle && (
+        {showExpandedToggle && (vertical || items.length === 1) && (
           <ToolbarButton
             isExpanded={isExpanded}
             ariaLabel={isExpanded ? 'Collapse' : 'Expand'}

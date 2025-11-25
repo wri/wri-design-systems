@@ -95,7 +95,9 @@ export const Vertical: Story = {
         ariaLabel: 'zoom out',
       },
     ],
+
     vertical: true,
+    showExpandedToggle: false,
   },
 }
 
@@ -104,9 +106,14 @@ export const Single: Story = {
     items: [
       {
         icon: <PrintIcon />,
+        label: 'Print',
+
         ariaLabel: 'print',
       },
     ],
+
+    showExpandedToggle: false,
+    expanded: true,
   },
 }
 
