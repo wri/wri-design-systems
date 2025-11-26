@@ -6,4 +6,5 @@ export type QualitativeAttributeProps = {
   showActionButton?: boolean
   onActionClick?: () => void
   pointIcon?: React.ReactNode
+  ariaLabelType?: string
 }

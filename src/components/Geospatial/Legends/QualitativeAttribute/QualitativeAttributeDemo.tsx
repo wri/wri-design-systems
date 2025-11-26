@@ -27,6 +27,7 @@ const QualitativeAttributeDemo = () => (
         label='Attribute'
         color='#238B45'
         onActionClick={() => console.log('click')}
+        ariaLabelType='line layer'
         showActionButton
       />
       <QualitativeAttribute type='point' label='Attribute' color='#C7E9C0' />
