@@ -1,45 +1,70 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
+import { AvatarProps } from './types'
 
-export const avatarContainerStyles = css`
-  height: 28px;
-  width: 28px;
-  border-radius: 50%;
-  background-color: ${getThemedColor('primary', 300)};
-  border: 1px solid ${getThemedColor('primary', 800)};
-  position: relative;
-
-  &[role='button'] {
-    cursor: pointer;
-
-    &:hover {
-      background-color: ${getThemedColor('primary', 500)};
-      box-shadow: 0px 2px 4px -2px #0000001a;
-      box-shadow: 0px 4px 6px -1px #0000001a;
-    }
-
-    &:active {
-      outline: none;
-      background-color: ${getThemedColor('primary', 600)} !important;
-      border: 1px solid ${getThemedColor('primary', 700)} !important;
-      box-shadow: 0px 2px 4px -2px #0000001a;
-      box-shadow: 0px 4px 6px -1px #0000001a;
-    }
-
-    &:focus-visible {
-      outline-offset: 3px;
-      outline-color: ${getThemedColor('primary', 700)};
-      background-color: ${getThemedColor('primary', 500)};
-    }
+export const AVATAR_SIZES = {
+  small: '16px',
+  medium: '24px',
+  large: '40px',
+  default: '16px',
+}
+function getContainerSize(size: AvatarProps['size'], customSize: string) {
+  if (typeof customSize === 'string' && customSize.trim() !== '') {
+    return customSize
   }
-`
 
-export const avatarFallbackStyles = css`
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 700;
-  color: ${getThemedColor('primary', 800)};
-`
+  if (size && AVATAR_SIZES[size]) {
+    return AVATAR_SIZES[size]
+  }
+
+  return AVATAR_SIZES.default
+}
+
+export function avatarContainerStyles(
+  size: AvatarProps['size'],
+  customSize: string,
+  disabled: boolean,
+) {
+  const containerSize = getContainerSize(size, customSize)
+  const backgroundColor = disabled
+    ? getThemedColor('neutral', 200)
+    : getThemedColor('primary', 300)
+  const borderColor = disabled
+    ? getThemedColor('neutral', 400)
+    : getThemedColor('primary', 800)
+  return css`
+    height: ${containerSize};
+    width: ${containerSize};
+    border-radius: 50%;
+    background-color: ${backgroundColor};
+    border: 1px solid ${borderColor};
+    position: relative;
+
+    &[role='button'] {
+      cursor: pointer;
+
+      &:hover {
+        background-color: ${getThemedColor('primary', 500)};
+        box-shadow: 0px 2px 4px -2px #0000001a;
+        box-shadow: 0px 4px 6px -1px #0000001a;
+      }
+
+      &:active {
+        outline: none;
+        background-color: ${getThemedColor('primary', 600)} !important;
+        border: 1px solid ${getThemedColor('primary', 700)} !important;
+        box-shadow: 0px 2px 4px -2px #0000001a;
+        box-shadow: 0px 4px 6px -1px #0000001a;
+      }
+
+      &:focus-visible {
+        outline-offset: 3px;
+        outline-color: ${getThemedColor('primary', 700)};
+        background-color: ${getThemedColor('primary', 500)};
+      }
+    }
+  `
+}
 
 export const avatarNotificationContainerStyles = (width?: string) => css`
   width: ${width || '16px'};
