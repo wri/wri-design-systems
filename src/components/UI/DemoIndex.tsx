@@ -54,6 +54,7 @@ const demoIndexButtonStyles = (isSelected: boolean) => css`
 `
 
 const components = [
+  'Avatar',
   'Button',
   'Close Button',
   'Icon Button',

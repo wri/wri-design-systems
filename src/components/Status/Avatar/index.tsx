@@ -4,15 +4,35 @@
 import { forwardRef } from 'react'
 import { Avatar as ChakraAvatar } from '@chakra-ui/react'
 import { AvatarProps } from './types'
+import { UserIcon } from '../../icons'
+import { getThemedColor } from '../../../lib/theme'
 import {
   avatarContainerStyles,
-  avatarFallbackStyles,
   avatarCountContainerStyles,
   avatarNotificationContainerStyles,
 } from './styled'
 
 const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
-  ({ name, ariaLabel, src, srcSet, onClick, notificationCount }, ref) => {
+  (
+    {
+      name,
+      ariaLabel,
+      size = 'medium',
+      customSize = '',
+      src,
+      srcSet,
+      onClick,
+      notificationCount,
+      disabled = true,
+      customBackgroundColor = '',
+    },
+    ref,
+  ) => {
+    const handleClick = () => {
+      if (!disabled) {
+        onClick?.()
+      }
+    }
     const getNotificationCount = () => {
       let notification = ''
       if (notificationCount && notificationCount > 0) {
@@ -30,23 +50,39 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
     } else if (notificationCount && notificationCount > 9) {
       width = '22px'
     }
-
+    const hasImage = !!src || !!srcSet
+    const isClickable = onClick && !disabled
     return (
       <ChakraAvatar.Root
         aria-label={ariaLabel || name}
         ref={ref}
-        css={avatarContainerStyles}
-        onClick={onClick}
+        css={avatarContainerStyles(
+          size,
+          customSize,
+          disabled,
+          customBackgroundColor,
+        )}
+        onClick={handleClick}
         onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            onClick?.()
+          if (!disabled && e.key === 'Enter') {
+            handleClick()
           }
         }}
-        role={onClick ? 'button' : undefined}
-        tabIndex={onClick ? 0 : undefined}
+        role={isClickable ? 'button' : undefined}
+        tabIndex={isClickable ? 0 : undefined}
+        aria-disabled={disabled}
       >
-        <ChakraAvatar.Fallback name={name} css={avatarFallbackStyles} />
-        <ChakraAvatar.Image src={src} srcSet={srcSet} />
+        {hasImage ? (
+          <ChakraAvatar.Image src={src} srcSet={srcSet} />
+        ) : (
+          <UserIcon
+            size='100%'
+            style={{
+              padding: '15%',
+              color: disabled ? getThemedColor('neutral', 400) : undefined,
+            }}
+          />
+        )}
         {notification.length > 0 ? (
           <div css={avatarNotificationContainerStyles(width)}>
             <div css={avatarCountContainerStyles(width)}>
