@@ -24,18 +24,25 @@ export function avatarContainerStyles(
   size: AvatarProps['size'],
   customSize: string,
   disabled: boolean,
+  customBackgroundColor: string,
 ) {
   const containerSize = getContainerSize(size, customSize)
-  const backgroundColor = disabled
+
+  const defaultBackgroundColor = disabled
     ? getThemedColor('neutral', 200)
     : getThemedColor('primary', 300)
+
+  const backgroundColor = customBackgroundColor ?? defaultBackgroundColor
+  const opacity = customBackgroundColor && disabled ? 'opacity: 0.7;' : ''
   const borderColor = disabled
     ? getThemedColor('neutral', 400)
-    : getThemedColor('primary', 800)
+    : getThemedColor('neutral', 800)
+
   return css`
     height: ${containerSize};
     width: ${containerSize};
     border-radius: 50%;
+    ${opacity}
     background-color: ${backgroundColor};
     border: 1px solid ${borderColor};
     position: relative;

@@ -8,4 +8,5 @@ export type AvatarProps = {
   onClick?: () => void
   notificationCount?: number
   disabled?: boolean
+  customBackgroundColor?: string
 }

@@ -24,6 +24,7 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
       onClick,
       notificationCount,
       disabled = true,
+      customBackgroundColor = '',
     },
     ref,
   ) => {
@@ -55,7 +56,12 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
       <ChakraAvatar.Root
         aria-label={ariaLabel || name}
         ref={ref}
-        css={avatarContainerStyles(size, customSize, disabled)}
+        css={avatarContainerStyles(
+          size,
+          customSize,
+          disabled,
+          customBackgroundColor,
+        )}
         onClick={handleClick}
         onKeyDown={(e) => {
           if (!disabled && e.key === 'Enter') {
