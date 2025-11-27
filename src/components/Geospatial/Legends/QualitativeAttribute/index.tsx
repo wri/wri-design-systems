@@ -25,6 +25,7 @@ const QualitativeAttribute = ({
   onActionClick,
   showActionButton,
   pointIcon = <PlaceholderIcon color='#006D2C' />,
+  ariaLabelType = '',
 }: QualitativeAttributeProps) => {
   const [isShown, setIsShown] = useState(true)
 
@@ -39,9 +40,9 @@ const QualitativeAttribute = ({
 
   const combinedAriaLabel = useMemo(() => {
     const visibilityText = isShown ? 'visible' : 'hidden'
-    const typeText = type ? `${type} layer` : 'layer'
+    const typeText = ariaLabelType ?? `${ariaLabelType},`
     const captionText = caption ? `, ${caption}` : ''
-    return `${typeText}, ${label}${captionText}. Currently ${visibilityText}.`
+    return `${typeText} ${label}${captionText}. Currently ${visibilityText}.`
   }, [isShown, type, label, caption])
 
   const handleOnClick = () => {
