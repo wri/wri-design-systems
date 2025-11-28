@@ -81,8 +81,16 @@ code {
   --color-error-500: var(--chakra-colors-error-500);
   --color-error-900: var(--chakra-colors-error-900);
 
-  --color-accessible-text-on-primary-mids: var(--chakra-colors-accessible-text-on-primary-mids);
-  --color-accessible-text-on-secondary-mids: var(--chakra-colors-accessible-text-on-secondary-mids);
-  --color-accessible-controls-on-neutral-lights: var(--chakra-colors-accessible-controls-on-neutral-lights);
-  --color-accessible-controls-on-neutral-darks: var(--chakra-colors-accessible-controls-on-neutral-darks);
+  --color-accessible-text-on-primary-mids: var(
+    --chakra-colors-accessible-text-on-primary-mids
+  );
+  --color-accessible-text-on-secondary-mids: var(
+    --chakra-colors-accessible-text-on-secondary-mids
+  );
+  --color-accessible-controls-on-neutral-lights: var(
+    --chakra-colors-accessible-controls-on-neutral-lights
+  );
+  --color-accessible-controls-on-neutral-darks: var(
+    --chakra-colors-accessible-controls-on-neutral-darks
+  );
 }
