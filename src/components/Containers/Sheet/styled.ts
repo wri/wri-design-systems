@@ -1,6 +1,19 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
+export const grabberLabelStyles = css`
+  width: 40px;
+  height: 6px;
+  border-color: ${getThemedColor('neutral', 300)};
+  border-radius: 4px;
+  margin: 8px auto;
+  cursor: grab;
+  border: 2px;
+  &:focus {
+    outline-color: ${getThemedColor('primary', 700)};
+  }
+`
+
 export const sheetContainerStyles = (
   hasHeader?: boolean,
   zIndex?: number,
