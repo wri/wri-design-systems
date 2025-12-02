@@ -3,7 +3,7 @@
 
 import { useState } from 'react'
 
-import { Box, Collapsible, Tabs } from '@chakra-ui/react'
+import { Box, Collapsible, Tabs, useMediaQuery } from '@chakra-ui/react'
 import {
   navigationRailChildrenContainerStyles,
   navigationRailContainerStyles,
@@ -13,6 +13,7 @@ import {
 } from './styled'
 import { NavigationRailProps } from './types'
 import { HideSidebarIcon, ShowSidebarIcon } from '../../icons'
+import { getThemedColor } from '../../../lib/theme'
 
 const NavigationRail = ({
   tabs = [],
@@ -22,10 +23,12 @@ const NavigationRail = ({
   onOpenChange,
 }: NavigationRailProps) => {
   const [hideSidebar, setHideSidebar] = useState(false)
-  const [seletedTab, setSeletedTab] = useState(defaultValue || tabs?.[0]?.value)
+  const [selectedTab, setSelectedTab] = useState(
+    defaultValue || tabs?.[0]?.value,
+  )
 
   const handleOnTabClick = (selectedValue: string) => {
-    setSeletedTab(selectedValue)
+    setSelectedTab(selectedValue)
     if (onTabClick) {
       onTabClick(selectedValue)
     }
@@ -37,6 +40,50 @@ const NavigationRail = ({
     if (onOpenChange) {
       onOpenChange(!open)
     }
+  }
+  const [isMobile] = useMediaQuery(['(max-width: 768px)'])
+  if (isMobile) {
+    return (
+      <Tabs.Root
+        defaultValue={selectedTab}
+        onValueChange={({ value }) => handleOnTabClick(value)}
+      >
+        <Tabs.List
+          style={{
+            display: 'flex',
+            overflowX: 'auto',
+            whiteSpace: 'nowrap',
+            padding: '8px',
+            gap: '8px',
+          }}
+        >
+          {tabs.map((tab) => (
+            <Tabs.Trigger
+              key={tab.value}
+              value={tab.value}
+              css={{
+                '--indicator-color': getThemedColor('primary', 500),
+                flexShrink: 0,
+                padding: '10px 16px',
+                color: getThemedColor('neutral', 600),
+                '&[data-selected]': {
+                  color: getThemedColor('neutral', 800),
+                  fontWeight: 600,
+                },
+              }}
+            >
+              {tab.label}
+            </Tabs.Trigger>
+          ))}
+        </Tabs.List>
+
+        {tabs.map((tab) => (
+          <Tabs.Content key={tab.value} value={tab.value}>
+            {children}
+          </Tabs.Content>
+        ))}
+      </Tabs.Root>
+    )
   }
 
   return (
@@ -108,7 +155,7 @@ const NavigationRail = ({
             <div
               css={navigationRailChildrenContainerStyles}
               role='tabpanel'
-              aria-labelledby={seletedTab}
+              aria-labelledby={selectedTab}
             >
               {children}
             </div>
