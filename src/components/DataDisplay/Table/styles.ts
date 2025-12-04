@@ -42,7 +42,6 @@ export const tableHeaderSortContainerStyles = css`
     height: 10px;
     width: 10px !important;
     min-width: 10px !important;
-    background-color: transparent;
 
     svg {
       height: 10px;
@@ -59,7 +58,10 @@ export const tableHeaderSortButtonStyles = (selected: boolean) => css`
     path {
       fill: ${selected
         ? getThemedColor('primary', 600)
-        : getThemedColor('neutral', 400)} !important;
+        : getThemedColor(
+            'accessible',
+            'controls-on-neutral-lights',
+          )} !important;
     }
   }
 `
