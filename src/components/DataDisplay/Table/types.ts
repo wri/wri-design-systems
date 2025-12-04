@@ -10,6 +10,7 @@ export type TableProps = {
   stickyHeader?: boolean
   selectable?: boolean
   selectedRows?: any
+  variant?: 'default' | 'full-width'
   pagination?: {
     totalItems: number
     currentPage: number

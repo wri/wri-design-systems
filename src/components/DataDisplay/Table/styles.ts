@@ -1,16 +1,23 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
-export const tableContainerStyles = css`
-  border: 1px solid ${getThemedColor('neutral', 300)};
+export const tableContainerStyles = (variant: string) => css`
+  border: ${variant === 'full-width'
+    ? 'none'
+    : `1px solid ${getThemedColor('neutral', 300)}`};
   border-radius: 2px;
-  box-shadow: 0 0 0 1px ${getThemedColor('neutral', 300)};
+  box-shadow: ${variant === 'full-width'
+    ? 'none'
+    : `0 0 0 1px ${getThemedColor('neutral', 300)}`};
 `
 
-export const tableHeaderContainerStyles = css`
+export const tableHeaderContainerStyles = (variant: string) => css`
   tr {
-    background-color: ${getThemedColor('neutral', 200)};
-  }
+    background-color: ${
+      variant === 'full-width'
+        ? getThemedColor('neutral', 100)
+        : getThemedColor('neutral', 200)
+    }
 `
 
 export const tableHeaderLabelStyles = css`
@@ -65,4 +72,10 @@ export const tableFooterContainerStyles = css`
 
 export const tablePaginationContainerStyles = css`
   margin-top: 9px;
+`
+
+export const tableBodyStyles = css`
+  tr {
+    height: 48px;
+  }
 `
