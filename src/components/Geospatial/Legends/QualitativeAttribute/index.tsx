@@ -40,7 +40,11 @@ const QualitativeAttribute = ({
 
   const combinedAriaLabel = useMemo(() => {
     const visibilityText = isShown ? 'visible' : 'hidden'
-    const typeText = ariaLabelType ?? `${ariaLabelType},`
+    let typeText = ariaLabelType ?? `${ariaLabelType},`
+
+    if (isLine) {
+      typeText = 'line,'
+    }
     const captionText = caption ? `, ${caption}` : ''
     return `${typeText} ${label}${captionText}. Currently ${visibilityText}.`
   }, [isShown, type, label, caption])
