@@ -103,8 +103,12 @@ import { Navbar } from '@worldresources/wri-design-systems'
     <p>WRI Apps</p>,
   ]}
   actionsSection={[
-    { label: 'Create account', onClick: () => {} },
-    { label: 'Sign in', onClick: () => {} },
+    {
+      ariaLabel: 'Create account',
+      children: 'Create account',
+      onClick: () => {},
+    },
+    { ariaLabel: 'Sign in', children: 'Sign in', onClick: () => {} },
   ]}
   maxWidth={1440}
   fixed
@@ -130,11 +134,15 @@ type NavbarProps = {
   navigationSection?: NavbarNavigationItemsProps[]
   utilitySection?: React.ReactNode[]
   actionsSection?: {
-    label: string
-    onClick?: () => void
+    ariaLabel: ButtonProps['aria-label']
+    children?: ButtonProps['children']
+    variant?: ButtonProps['variant']
+    size?: ButtonProps['size']
+    onClick?: ButtonProps['onClick']
   }[]
   maxWidth?: number
   fixed?: boolean
   onNavbarHeightChange?: (height: number) => void
+  backgroundColor?: string
 }
 ```

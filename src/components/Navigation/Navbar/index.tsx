@@ -38,6 +38,7 @@ const Navbar = ({
   maxWidth,
   fixed,
   onNavbarHeightChange,
+  backgroundColor,
 }: NavbarProps) => {
   const leftRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
@@ -107,7 +108,7 @@ const Navbar = ({
   }, [onResize])
 
   return (
-    <nav css={navbarStyles(divsCollided && !isMobile, fixed)}>
+    <nav css={navbarStyles(divsCollided && !isMobile, fixed, backgroundColor)}>
       <div css={navbarContainerStyles(divsCollided && !isMobile, maxWidth)}>
         <div
           css={navbarLeftContainerStyles(divsCollided && !isMobile)}
@@ -156,7 +157,7 @@ const Navbar = ({
               {actionsSection ? (
                 <div css={navbarActionsContainerStyles(divsCollided)}>
                   {actionsSection.map((action) => (
-                    <Button key={action.label} {...action} />
+                    <Button key={action.ariaLabel} {...action} />
                   ))}
                 </div>
               ) : null}

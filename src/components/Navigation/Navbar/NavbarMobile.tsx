@@ -120,10 +120,10 @@ const NavbarMobile = ({
               <div css={navbarMobileActionsContainerStyles}>
                 {actionsSection.map((action) => (
                   <Button
-                    key={action.label}
-                    label={action.label}
-                    onClick={() => {
-                      action?.onClick?.()
+                    key={action.ariaLabel}
+                    {...action}
+                    onClick={(e) => {
+                      action?.onClick?.(e)
                       setSubmenu(undefined)
                       setMenuIndex(-1)
                       setIsOpen(false)
