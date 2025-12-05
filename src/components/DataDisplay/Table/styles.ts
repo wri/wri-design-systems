@@ -13,11 +13,14 @@ export const tableContainerStyles = (variant: string) => css`
 
 export const tableHeaderContainerStyles = (variant: string) => css`
   tr {
-    background-color: ${
-      variant === 'full-width'
-        ? getThemedColor('neutral', 100)
-        : getThemedColor('neutral', 200)
+    background-color: ${variant === 'full-width'
+      ? getThemedColor('neutral', 100)
+      : getThemedColor('neutral', 200)};
+
+    th {
+      border-color: ${getThemedColor('neutral', 300)};
     }
+  }
 `
 
 export const tableHeaderLabelStyles = css`
@@ -79,5 +82,9 @@ export const tablePaginationContainerStyles = css`
 export const tableBodyStyles = css`
   tr {
     height: 48px;
+
+    td {
+      border-color: ${getThemedColor('neutral', 300)};
+    }
   }
 `
