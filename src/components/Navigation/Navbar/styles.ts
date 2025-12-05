@@ -5,10 +5,11 @@ import { NavbarProps } from './types'
 export const navbarStyles = (
   isFullHeight?: boolean,
   fixed?: NavbarProps['fixed'],
+  backgroundColor?: NavbarProps['backgroundColor'],
 ) => css`
   height: ${isFullHeight ? '96px' : '48px'};
   width: 100%;
-  background-color: ${getThemedColor('neutral', 100)};
+  background-color: ${backgroundColor || getThemedColor('neutral', 100)};
   position: ${fixed ? 'sticky' : 'absolute'};
   top: 0;
   left: 0;

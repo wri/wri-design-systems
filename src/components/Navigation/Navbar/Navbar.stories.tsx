@@ -149,7 +149,9 @@ export const Navbar: Story = {
           />,
           <p>WRI Apps</p>,
         ]}
-        actionsSection={[{ label: 'Sign in', onClick: () => {} }]}
+        actionsSection={[
+          { ariaLabel: 'Sign in', children: 'Sign in', onClick: () => {} },
+        ]}
         maxWidth={1440}
         fixed
       />

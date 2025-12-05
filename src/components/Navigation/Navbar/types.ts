@@ -1,3 +1,4 @@
+import { ButtonProps } from '../../Forms/Actions/Button/types'
 import { MenuItemProps } from '../../Forms/Actions/Menu/types'
 
 export type NavbarNavigationItemsProps = {
@@ -16,10 +17,14 @@ export type NavbarProps = {
   navigationSection?: NavbarNavigationItemsProps[]
   utilitySection?: React.ReactNode[]
   actionsSection?: {
-    label: string
-    onClick?: () => void
+    ariaLabel: ButtonProps['aria-label']
+    children?: ButtonProps['children']
+    variant?: ButtonProps['variant']
+    size?: ButtonProps['size']
+    onClick?: ButtonProps['onClick']
   }[]
   maxWidth?: number
   fixed?: boolean
   onNavbarHeightChange?: (height: number) => void
+  backgroundColor?: string
 }
