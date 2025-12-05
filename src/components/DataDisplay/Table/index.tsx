@@ -13,6 +13,7 @@ import {
   tableHeaderSortButtonStyles,
   tableHeaderSortContainerStyles,
   tablePaginationContainerStyles,
+  tableBodyStyles,
 } from './styles'
 import ItemCount from '../ItemCount'
 import { ChevronDownIcon } from '../../icons'
@@ -28,6 +29,7 @@ const Table = ({
   pagination,
   selectable,
   selectedRows,
+  variant = 'full-width',
   onSortColumn,
   onPageSizeChange,
   onPageChange,
@@ -60,12 +62,12 @@ const Table = ({
   return (
     <div>
       <ChakraTable.Root
-        css={tableContainerStyles}
+        css={tableContainerStyles(variant)}
         striped={striped}
         stickyHeader={stickyHeader}
         interactive
       >
-        <ChakraTable.Header css={tableHeaderContainerStyles}>
+        <ChakraTable.Header css={tableHeaderContainerStyles(variant)}>
           <ChakraTable.Row>
             {selectable ? (
               <ChakraTable.ColumnHeader>
@@ -127,7 +129,7 @@ const Table = ({
             ))}
           </ChakraTable.Row>
         </ChakraTable.Header>
-        <ChakraTable.Body>
+        <ChakraTable.Body css={tableBodyStyles}>
           {data.map((item: any) => (
             <React.Fragment key={item.id}>{renderRow(item)}</React.Fragment>
           ))}
