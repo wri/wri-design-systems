@@ -86,5 +86,9 @@ export const tableBodyStyles = css`
     td {
       border-color: ${getThemedColor('neutral', 300)};
     }
+
+    :hover {
+      background-color: ${getThemedColor('neutral', 200)};
+    }
   }
 `
