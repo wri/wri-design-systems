@@ -140,6 +140,24 @@ const TableDemo = () => {
         <div style={{ width: '100%', maxWidth: '900px' }}>
           <Table
             columns={columns}
+            renderRow={renderRow}
+            onSortColumn={setSortColumn}
+            onPageSizeChange={setPageSize}
+            onPageChange={setCurrentPage}
+            pagination={{
+              totalItems,
+              currentPage,
+              pageSize,
+              showItemCount: true,
+              showItemCountText: true,
+            }}
+            variant='full-width'
+            loading
+          />
+        </div>
+        <div style={{ width: '100%', maxWidth: '900px' }}>
+          <Table
+            columns={columns}
             data={dataByPage}
             renderRow={selectableRenderRow}
             onSortColumn={setSortColumn}
