@@ -40,8 +40,9 @@ With this custom theme you can change the color scheme according to your Project
 
 ```tsx
 import { createSystem, defaultConfig } from '@chakra-ui/react'
+import { designSystemStyles } from '@worldresources/wri-design-systems'
 
-export const system = createSystem(defaultConfig, {
+export const system = createSystem(designSystemStyles._config, {
   theme: {
     tokens: {
       colors: {
