@@ -3,7 +3,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Box, Text, Container, Flex } from '@chakra-ui/react'
-import Tag from '../../../Forms/Tag'
+import Button from '../../../Forms/Actions/Button'
 import ProgressBar from '../../../Status/ProgressBar'
 import { InfoIcon, SettingsIcon, DownloadIcon, ShareIcon } from '../../../icons'
 import AnalysisWidget from '..'
@@ -157,24 +157,24 @@ const BaseChildren = (
 )
 
 const BaseFooter = (
-  <div style={{ display: 'flex', padding: '0.5rem' }}>
-    <Tag
+  <div style={{ display: 'flex', gap: '0.5rem', padding: '0.5rem' }}>
+    <Button
       label='Filter'
-      variant='info-grey'
-      icon={<SettingsIcon />}
-      style={{ marginRight: '0.5rem' }}
+      size='small'
+      variant='secondary'
+      leftIcon={<SettingsIcon />}
     />
-    <Tag
+    <Button
       label='Download'
-      variant='info-grey'
-      icon={<DownloadIcon />}
-      style={{ marginRight: '0.5rem' }}
+      size='small'
+      variant='secondary'
+      leftIcon={<DownloadIcon />}
     />
-    <Tag
+    <Button
       label='Share'
-      variant='info-grey'
-      icon={<ShareIcon />}
-      style={{ marginRight: '0.5rem' }}
+      size='small'
+      variant='secondary'
+      leftIcon={<ShareIcon />}
     />
   </div>
 )
