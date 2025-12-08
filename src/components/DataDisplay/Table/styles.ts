@@ -92,3 +92,10 @@ export const tableBodyStyles = css`
     }
   }
 `
+
+export const tableLoaderStyles = css`
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

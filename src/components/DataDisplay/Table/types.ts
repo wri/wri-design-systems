@@ -4,7 +4,7 @@ export type TableProps = {
     label: string
     sortable?: boolean
   }[]
-  data: any
+  data?: any
   renderRow: any
   striped?: boolean
   stickyHeader?: boolean
@@ -22,4 +22,5 @@ export type TableProps = {
   onPageSizeChange?: (pageSize: number) => void
   onPageChange?: (page: number) => void
   onAllItemsSelected?: (checked: boolean) => void
+  loading?: boolean
 }

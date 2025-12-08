@@ -101,6 +101,75 @@ export const Table = {
   },
 }
 
+export const FullWidthTable = {
+  render: () => {
+    const totalItems = 100
+    const [currentPage, setCurrentPage] = useState(1)
+    const [pageSize, setPageSize] = useState(10)
+    const [sortColumn, setSortColumn] = useState<{
+      key: string
+      order: string
+    }>({
+      key: '',
+      order: '',
+    })
+
+    const startRange = (currentPage - 1) * pageSize
+    const endRange = startRange + pageSize
+
+    let fullData = [...data]
+
+    if (sortColumn && sortColumn.key !== '') {
+      const { key, order } = sortColumn
+      const isDesc = order === 'desc'
+
+      fullData = fullData.sort((a, b) => {
+        if (typeof a[key] === 'string' && typeof b[key] === 'string') {
+          const newA = a[key]
+          const newB = b[key]
+
+          return isDesc ? newA.localeCompare(newB) : newB.localeCompare(newA)
+        }
+
+        const newA = a[key] as number
+        const newB = b[key] as number
+
+        return isDesc ? newA - newB : newB - newA
+      })
+    }
+
+    const dataByPage = fullData.slice(startRange, endRange) as RowData[]
+
+    const renderRow = (rowData: RowData) => (
+      <TableRow>
+        <TableCell>{rowData.name}</TableCell>
+        <TableCell>{rowData.email}</TableCell>
+        <TableCell>{rowData.age}</TableCell>
+      </TableRow>
+    )
+
+    return (
+      <div style={{ width: '900px' }}>
+        <TableStory
+          columns={columns}
+          data={dataByPage}
+          renderRow={renderRow}
+          onSortColumn={setSortColumn}
+          onPageSizeChange={setPageSize}
+          onPageChange={setCurrentPage}
+          pagination={{
+            totalItems,
+            currentPage,
+            pageSize,
+            showItemCount: true,
+          }}
+          variant='full-width'
+        />
+      </div>
+    )
+  },
+}
+
 export const Selectable = {
   render: () => {
     const totalItems = 100

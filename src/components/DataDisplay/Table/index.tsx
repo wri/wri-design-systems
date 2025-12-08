@@ -2,7 +2,7 @@
 /** @jsxImportSource @emotion/react */
 
 import React, { useState } from 'react'
-import { Table as ChakraTable } from '@chakra-ui/react'
+import { Table as ChakraTable, Spinner } from '@chakra-ui/react'
 import { TableProps } from './types'
 import Pagination from '../../Navigation/Pagination'
 import {
@@ -14,26 +14,29 @@ import {
   tableHeaderSortContainerStyles,
   tablePaginationContainerStyles,
   tableBodyStyles,
+  tableLoaderStyles,
 } from './styles'
 import ItemCount from '../ItemCount'
 import { ChevronDownIcon } from '../../icons'
 import IconButton from '../../Forms/Actions/IconButton'
 import Checkbox from '../../Forms/Controls/Checkbox'
+import { getThemedColor } from '../../../lib/theme'
 
 const Table = ({
   columns,
-  data,
+  data = [],
   renderRow,
   striped,
   stickyHeader,
   pagination,
   selectable,
   selectedRows,
-  variant = 'full-width',
+  variant = 'default',
   onSortColumn,
   onPageSizeChange,
   onPageChange,
   onAllItemsSelected,
+  loading,
 }: TableProps) => {
   const [sortColumn, setSortColumn] = useState<{ key: string; order: string }>({
     key: '',
@@ -135,6 +138,11 @@ const Table = ({
           ))}
         </ChakraTable.Body>
       </ChakraTable.Root>
+      {loading ? (
+        <div css={tableLoaderStyles}>
+          <Spinner size='lg' color={getThemedColor('primary', 500)} />
+        </div>
+      ) : null}
 
       <div css={tableFooterContainerStyles}>
         <div>
