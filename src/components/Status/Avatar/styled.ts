@@ -54,6 +54,8 @@ export function avatarContainerStyles(
         background-color: ${getThemedColor('primary', 500)};
         box-shadow: 0px 2px 4px -2px #0000001a;
         box-shadow: 0px 4px 6px -1px #0000001a;
+        outline-offset: 3px;
+        outline: 2px solid ${getThemedColor('primary', 700)};
       }
 
       &:active {
@@ -92,4 +94,11 @@ export const avatarCountContainerStyles = (width?: string) => css`
   font-size: 12px;
   font-weight: 700;
   color: ${getThemedColor('error', 100)};
+`
+
+export const avatarFallbackStyles = css`
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: ${getThemedColor('primary', 800)};
 `

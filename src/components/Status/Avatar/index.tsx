@@ -10,6 +10,7 @@ import {
   avatarContainerStyles,
   avatarCountContainerStyles,
   avatarNotificationContainerStyles,
+  avatarFallbackStyles,
 } from './styled'
 
 const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
@@ -72,9 +73,12 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
         tabIndex={isClickable ? 0 : undefined}
         aria-disabled={disabled}
       >
-        {hasImage ? (
-          <ChakraAvatar.Image src={src} srcSet={srcSet} />
-        ) : (
+        {hasImage && <ChakraAvatar.Image src={src} srcSet={srcSet} />}
+        {!hasImage && name && (
+          <ChakraAvatar.Fallback name={name} css={avatarFallbackStyles} />
+        )}
+
+        {!hasImage && !name && (
           <UserIcon
             size='100%'
             style={{
