@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState } from 'react'
 
-import type { Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import TableStory, { TableCell, TableRow } from '.'
 import { columns } from './TableDemo'
 import Checkbox from '../../Forms/Controls/Checkbox'
@@ -13,6 +13,12 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['default', 'full-width'],
+    },
+  },
 } satisfies Meta<typeof TableStory>
 
 export default meta
@@ -34,7 +40,7 @@ const data: Record<string, any>[] = Array(100)
   }))
 
 export const Table = {
-  render: () => {
+  render: (args: StoryObj<typeof TableStory>['args']) => {
     const totalItems = 100
     const [currentPage, setCurrentPage] = useState(1)
     const [pageSize, setPageSize] = useState(10)
@@ -83,6 +89,7 @@ export const Table = {
     return (
       <div style={{ width: '900px' }}>
         <TableStory
+          {...args}
           columns={columns}
           data={dataByPage}
           renderRow={renderRow}
@@ -102,7 +109,11 @@ export const Table = {
 }
 
 export const FullWidthTable = {
-  render: () => {
+  args: {
+    variant: 'full-width',
+  },
+
+  render: (args: StoryObj<typeof TableStory>['args']) => {
     const totalItems = 100
     const [currentPage, setCurrentPage] = useState(1)
     const [pageSize, setPageSize] = useState(10)
@@ -151,6 +162,7 @@ export const FullWidthTable = {
     return (
       <div style={{ width: '900px' }}>
         <TableStory
+          {...args}
           columns={columns}
           data={dataByPage}
           renderRow={renderRow}
@@ -163,7 +175,6 @@ export const FullWidthTable = {
             pageSize,
             showItemCount: true,
           }}
-          variant='full-width'
         />
       </div>
     )
@@ -171,7 +182,7 @@ export const FullWidthTable = {
 }
 
 export const Selectable = {
-  render: () => {
+  render: (args: StoryObj<typeof TableStory>['args']) => {
     const totalItems = 100
     const [currentPage, setCurrentPage] = useState(1)
     const [pageSize, setPageSize] = useState(10)
@@ -248,6 +259,7 @@ export const Selectable = {
     return (
       <div style={{ width: '900px' }}>
         <TableStory
+          {...args}
           columns={columns}
           data={dataByPage}
           renderRow={selectableRenderRow}
