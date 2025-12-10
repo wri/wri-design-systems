@@ -106,6 +106,7 @@ const components = [
   'Progress Bar',
   'Step Progress Indicator',
   'Toast',
+  'Search',
 ]
 
 const DemoIndex = () => {

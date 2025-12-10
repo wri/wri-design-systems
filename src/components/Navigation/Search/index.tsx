@@ -44,7 +44,7 @@ const Search = ({
 
     if (selected) {
       onSelect?.(selected)
-      setFilterText(selected.label)
+      setFilterText('')
       onClose()
     }
   }
