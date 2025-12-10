@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 
-export type ListItemVariant = 'data' | 'navigation'
+export type ListItemVariant = 'data' | 'navigation' | 'select'
 
 export interface ListItemProps {
   id?: string

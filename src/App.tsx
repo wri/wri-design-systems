@@ -21,7 +21,6 @@ import SelectDemo from './components/Forms/Inputs/Select/SelectDemo'
 import SliderInputDemo from './components/Forms/Inputs/SliderInput/SliderInputDemo'
 import TextareaDemo from './components/Forms/Inputs/Textarea/TextareaDemo'
 import TextInputDemo from './components/Forms/Inputs/TextInput/TextInputDemo'
-
 import TagDemo from './components/Forms/Tag/TagDemo'
 
 import BaseMapDemo from './components/Geospatial/BaseMap/BaseMapDemo'
@@ -56,6 +55,7 @@ import NavbarDemo from './components/Navigation/Navbar/NavbarDemo'
 import LayerSidebarDemo from './components/Navigation/NavigationRail/LayerSidebar/LayerSidebarDemo'
 import PaginationDemo from './components/Navigation/Pagination/PaginationDemo'
 import TabBarDemo from './components/Navigation/TabBar/TabBarDemo'
+import SearchDemo from './components/Navigation/Search/SearchDemo'
 
 import AvatarDemo from './components/Status/Avatar/AvatarDemo'
 import BadgeDemo from './components/Status/Badge/BadgeDemo'
@@ -114,8 +114,8 @@ const App = () => (
           <SliderInputDemo />
           <TextareaDemo />
           <TextInputDemo />
-
           <TagDemo />
+          <SearchDemo />
 
           <BaseMapDemo />
           <MapMarkerDemo />
