@@ -7,9 +7,11 @@ export const analysisWidgetContainerStyles = css`
 
 export const analysisWidgetHeaderStyles = css`
   padding: 16px;
-
   cursor: pointer;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
+  > div {
+    overflow: visible;
+  }
   &:focus-visible {
     outline-offset: -2px;
     outline: 2px solid ${getThemedColor('primary', 700)};

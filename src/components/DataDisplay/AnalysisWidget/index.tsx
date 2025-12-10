@@ -76,7 +76,11 @@ const AnalysisWidget = ({
                   ))}
 
                 {collapsible && (
-                  <Accordion.ItemIndicator height='16px' display='flex'>
+                  <Accordion.ItemIndicator
+                    height='16px'
+                    marginTop='8px'
+                    display='flex'
+                  >
                     <ChevronDownIcon
                       aria-label='Toggle section'
                       color='var(--chakra-colors-neutral-700)'
