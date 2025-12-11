@@ -48,16 +48,18 @@ export type SearchProps = Omit<
   placeholder?: string
   disabled?: boolean
   size?: 'small' | 'default'
-  options: SearchOption[]
-  onSelect?: (selectedOption: SearchOption) => void
+  options: ListItemProps[]
+  resultsMaxHeight?: string
+  isLoading?: boolean
+  displayResults?: 'none' | 'text' | 'list' | 'custom'
+  onSelect?: (selectedOption: ListItemProps) => void
   onQueryChange?: (query: string) => void
   onClear?: () => void
-}
-
-export type SearchOption = {
-  id: string
-  label: string
-  caption?: string
-  icon?: React.ReactNode
+  renderResults?: (params: {
+    items: any[]
+    highlightedIndex: number
+    query: string
+    onSelect: (id: string) => void
+  }) => React.ReactNode
 }
 ```

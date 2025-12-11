@@ -2,26 +2,38 @@
 /* eslint-disable react/no-unknown-property */
 
 import React, { useState, useRef, useEffect, useId } from 'react'
-import { InputGroup, Box, Portal, useDisclosure } from '@chakra-ui/react'
+import {
+  InputGroup,
+  Box,
+  Portal,
+  useDisclosure,
+  Spinner,
+} from '@chakra-ui/react'
 import CloseButton from '../../Forms/Actions/CloseButton'
 import TextInput from '../../Forms/Inputs/TextInput'
 import List from '../../DataDisplay/List'
+import TextResults from './TextResults'
 import { SearchIcon } from '../../icons'
 import { SearchProps } from './types'
-import { ListItemProps } from '../../DataDisplay/List/types'
+import { getThemedColor } from '../../../lib/theme'
 
 const Search = ({
   placeholder,
   disabled,
   size = 'default',
   options = [],
+  resultsMaxHeight = '200px',
+  isLoading = false,
+  displayResults = 'text',
   onSelect,
   onQueryChange,
   onClear,
+  renderResults,
 }: SearchProps) => {
   const [filterText, setFilterText] = useState('')
   const { open, onOpen, onClose } = useDisclosure()
   const [filteredResults, setFilteredResults] = useState(options)
+  const [highlightedIndex, setHighlightedIndex] = useState(-1)
 
   const containerRef = useRef<HTMLDivElement>(null)
   const handleOnSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,19 +86,51 @@ const Search = ({
     onOpen()
   }, [filterText])
 
+  useEffect(() => {
+    // Clicking outside the results container closes it.
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        open &&
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        onClose()
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [open])
+
   const endElement = filterText.length ? (
     <CloseButton style={{ marginTop: '-12px' }} onClick={handleOnClear} />
   ) : null
 
   const resultsVisible =
-    !!filterText.length && filteredResults.length > 0 && open
+    displayResults !== 'none' &&
+    !!filterText.length &&
+    filteredResults.length > 0 &&
+    open
+
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
       <InputGroup
-        startElement={<SearchIcon style={{ marginTop: '-12px' }} />}
+        startElement={
+          <SearchIcon
+            fill={
+              disabled
+                ? getThemedColor('neutral', 500)
+                : getThemedColor('primary', 700)
+            }
+            style={{ marginTop: '-12px' }}
+          />
+        }
         endElement={endElement}
       >
         <TextInput
+          autoComplete='off'
           placeholder={placeholder || 'Filter'}
           onChange={handleOnSearch}
           value={filterText}
@@ -101,10 +145,51 @@ const Search = ({
           role='combobox'
           aria-autocomplete='list'
           disabled={disabled}
+          size={size}
+          onKeyDown={(e) => {
+            if (!resultsVisible) return
+
+            if (e.key === 'ArrowDown') {
+              e.preventDefault()
+              setHighlightedIndex((prev) => {
+                const next = Math.min(prev + 1, filteredResults.length - 1)
+                return next
+              })
+            }
+
+            if (e.key === 'ArrowUp') {
+              e.preventDefault()
+              setHighlightedIndex((prev) => {
+                const next = Math.max(prev - 1, 0)
+                return next
+              })
+            }
+
+            if (e.key === 'Enter') {
+              e.preventDefault()
+              if (highlightedIndex >= 0) {
+                const item = filteredResults[highlightedIndex]
+                handleSelect(item.id || item.label)
+              }
+            }
+
+            if (e.key === 'Escape') {
+              onClose()
+            }
+          }}
         />
       </InputGroup>
-
-      {resultsVisible && (
+      {(resultsVisible || (isLoading && !!filterText.length)) &&
+        displayResults === 'custom' &&
+        renderResults &&
+        !isLoading &&
+        renderResults({
+          items: filteredResults,
+          highlightedIndex,
+          query: filterText,
+          onSelect: handleSelect,
+        })}
+      {(resultsVisible || (isLoading && !!filterText.length)) && (
         <Portal container={containerRef}>
           <Box
             position='absolute'
@@ -116,10 +201,27 @@ const Search = ({
             borderRadius='md'
             boxShadow='md'
             zIndex={1000}
-            maxHeight='200px'
             overflowY='auto'
+            maxHeight={resultsMaxHeight}
           >
-            <List items={filteredResults} />
+            {isLoading && (
+              <Box padding='1rem'>
+                <Spinner />
+              </Box>
+            )}
+
+            {displayResults === 'text' && !isLoading && (
+              <TextResults
+                highlightedIndex={highlightedIndex}
+                items={filteredResults}
+                query={filterText}
+                onSelect={handleSelect}
+              />
+            )}
+
+            {displayResults === 'list' && !isLoading && (
+              <List items={filteredResults} />
+            )}
           </Box>
         </Portal>
       )}
