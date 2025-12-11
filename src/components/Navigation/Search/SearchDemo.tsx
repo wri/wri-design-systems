@@ -64,7 +64,7 @@ const SearchDemo = () => (
         renderResults={({ items, query, highlightedIndex, onSelect }) => (
           <div>
             <Box padding='6px 8px'>
-              **Recent searches**
+              Recent searches
               <TextResults
                 highlightedIndex={highlightedIndex}
                 items={items}
