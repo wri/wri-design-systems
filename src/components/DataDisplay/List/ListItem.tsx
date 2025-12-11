@@ -24,7 +24,8 @@ const ListItem = ({
   ariaLabel,
   disabled = false,
 }: ListItemProps) => {
-  const isClickable = variant === 'navigation' && !!onItemClick
+  const isClickable =
+    (variant === 'navigation' || variant === 'select') && !!onItemClick
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (!isClickable) return
@@ -53,7 +54,7 @@ const ListItem = ({
         {icon}
         <Box flex='1' minWidth={0}>
           <Text
-            fontWeight={variant === 'navigation' ? '700' : '400'}
+            fontWeight={variant === 'data' ? '400' : '700'}
             css={listItemLabelStyles(disabled)}
           >
             {label}

@@ -94,6 +94,7 @@ export { default as Navbar } from './Navigation/Navbar'
 export { default as NavigationRail } from './Navigation/NavigationRail'
 export { default as Pagination } from './Navigation/Pagination'
 export { default as TabBar } from './Navigation/TabBar'
+export { default as Search } from './Navigation/Search'
 
 // -- Navigation -- //
 
