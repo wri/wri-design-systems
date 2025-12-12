@@ -6,7 +6,7 @@ export const grabberLabelStyles = css`
   height: 6px;
   border-color: ${getThemedColor('neutral', 300)};
   border-radius: 4px;
-  margin: 8px auto;
+  margin: 6px auto;
   cursor: grab;
   border: 2px;
   &:focus {
