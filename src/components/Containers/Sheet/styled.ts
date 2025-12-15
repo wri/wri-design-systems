@@ -3,14 +3,17 @@ import { getThemedColor } from '../../../lib/theme'
 
 export const grabberLabelStyles = css`
   width: 40px;
-  height: 6px;
-  border-color: ${getThemedColor('neutral', 300)};
   border-radius: 4px;
-  margin: 8px auto;
+  background: transparent;
+  padding: 4px 6px;
   cursor: grab;
-  border: 2px;
-  &:focus {
+  &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
+  }
+  div {
+    height: 2px;
+    margin: 0px 0px;
+    background: ${getThemedColor('neutral', 300)};
   }
 `
 
@@ -36,11 +39,7 @@ export const sheetContainerStyles = (
   }
 
   [data-rsbs-header]:before {
-    margin-top: 6px;
-    height: 2px;
-    width: 32px;
-    background-color: ${getThemedColor('neutral', 300)};
-    cursor: pointer;
+    content: none;
   }
 
   [data-rsbs-footer] {
