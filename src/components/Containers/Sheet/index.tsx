@@ -8,6 +8,20 @@ import { sheetContainerStyles, grabberLabelStyles } from './styled'
 import 'react-spring-bottom-sheet/dist/style.css'
 
 const closedSnap = 20
+const getSnapIndex = (value: number, points: number[]) => {
+  let closestIndex = 0
+  let minDiff = Infinity
+
+  points.forEach((point, index) => {
+    const diff = Math.abs(point - value)
+    if (diff < minDiff) {
+      minDiff = diff
+      closestIndex = index
+    }
+  })
+
+  return closestIndex
+}
 
 const Sheet = ({
   header,
@@ -33,14 +47,19 @@ const Sheet = ({
   let grabberLabel = 'Expand sheet'
 
   if (currentSnap != null) {
-    const index = snaps.indexOf(currentSnap)
+    const index = getSnapIndex(currentSnap, snaps)
 
     if (index > 0 && index < snaps.length - 1) {
       grabberLabel = 'Make full screen'
     } else if (index === snaps.length - 1) {
-      grabberLabel = 'Expand sheet'
+      grabberLabel = 'Expanded sheet'
     }
   }
+  const isFull = !!(
+    currentSnap != null &&
+    snaps.length &&
+    getSnapIndex(currentSnap, snaps) === snaps.length - 1
+  )
 
   return (
     <BottomSheet
@@ -51,11 +70,10 @@ const Sheet = ({
       onDismiss={onClose}
       header={
         <div>
-          <div
-            tabIndex={0}
-            role='button'
+          <button
+            type='button'
+            disabled={isFull}
             aria-label={grabberLabel}
-            aria-expanded={open}
             css={grabberLabelStyles}
             onKeyDown={(e) => {
               if (e.key !== 'Enter' && e.key !== ' ') return
@@ -75,6 +93,18 @@ const Sheet = ({
               sheetRef.current?.snapTo?.(() => nextSnap)
             }}
           />
+          <span
+            aria-live='polite'
+            style={{
+              position: 'absolute',
+              width: 1,
+              height: 1,
+              overflow: 'hidden',
+              clip: 'rect(0 0 0 0)',
+            }}
+          >
+            {grabberLabel}
+          </span>
           {header}
         </div>
       }
