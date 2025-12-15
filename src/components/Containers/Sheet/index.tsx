@@ -92,7 +92,9 @@ const Sheet = ({
               const nextSnap = snaps[nextIndex]
               sheetRef.current?.snapTo?.(() => nextSnap)
             }}
-          />
+          >
+            <div />
+          </button>
           <span
             aria-live='polite'
             style={{
