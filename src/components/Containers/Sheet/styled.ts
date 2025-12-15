@@ -6,7 +6,7 @@ export const grabberLabelStyles = css`
   height: 6px;
   border-color: ${getThemedColor('neutral', 300)};
   border-radius: 4px;
-  margin: 6px auto;
+  margin: 8px auto;
   cursor: grab;
   border: 2px;
   &:focus {
@@ -36,6 +36,7 @@ export const sheetContainerStyles = (
   }
 
   [data-rsbs-header]:before {
+    margin-top: 6px;
     height: 2px;
     width: 32px;
     background-color: ${getThemedColor('neutral', 300)};
