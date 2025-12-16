@@ -11,6 +11,7 @@ import {
   listItemNavigationStyles,
 } from './styled'
 import { ListItemProps } from './types'
+import { getThemedColor } from '../../../lib/theme'
 
 const ListItem = ({
   id,
@@ -23,6 +24,7 @@ const ListItem = ({
   isExpanded = false,
   ariaLabel,
   disabled = false,
+  isHighlighted = false,
 }: ListItemProps) => {
   const isClickable =
     (variant === 'navigation' || variant === 'select') && !!onItemClick
@@ -41,7 +43,12 @@ const ListItem = ({
   return (
     <Container
       id={id}
-      css={variant === 'data' ? listItemDataStyles : listItemNavigationStyles}
+      css={[
+        variant === 'data' ? listItemDataStyles : listItemNavigationStyles,
+        isHighlighted && {
+          backgroundColor: getThemedColor('neutral', 200),
+        },
+      ]}
       onClick={isClickable ? onItemClick : undefined}
       tabIndex={isClickable ? 0 : undefined}
       onKeyDown={handleKeyDown}
@@ -49,6 +56,7 @@ const ListItem = ({
       aria-expanded={isClickable ? isExpanded : undefined}
       aria-label={computedAriaLabel}
       disabled={disabled}
+      aria-selected={isHighlighted}
     >
       <Flex gap={3} flex='1' overflow='hidden'>
         {icon}

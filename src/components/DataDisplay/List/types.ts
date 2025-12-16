@@ -13,9 +13,11 @@ export interface ListItemProps {
   onItemClick?: () => void
   ariaLabel?: string
   disabled?: boolean
+  isHighlighted?: boolean
 }
 
 export interface ListProps {
   items: ListItemProps[]
   noBorder?: boolean
+  highlightedIndex?: number
 }
