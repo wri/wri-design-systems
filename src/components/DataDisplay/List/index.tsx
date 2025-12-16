@@ -1,13 +1,13 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from 'react'
+import React from 'react'
 import { Box } from '@chakra-ui/react'
 import ListItem from './ListItem'
 import { listContainerStyles } from './styled'
 import { ListProps } from './types'
 
-const List = ({ items, noBorder }: ListProps) => (
+const List = ({ items, noBorder, highlightedIndex }: ListProps) => (
   <Box css={listContainerStyles(noBorder)}>
-    {items.map((item) => (
+    {items.map((item, index) => (
       <ListItem
         id={item.id}
         key={item.id ?? item.label}
@@ -17,6 +17,7 @@ const List = ({ items, noBorder }: ListProps) => (
         value={item.value}
         variant={item.variant ?? 'data'}
         onItemClick={item.onItemClick}
+        isHighlighted={index === highlightedIndex}
       />
     ))}
   </Box>

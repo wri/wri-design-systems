@@ -220,7 +220,10 @@ const Search = ({
             )}
 
             {displayResults === 'list' && !isLoading && (
-              <List items={filteredResults} />
+              <List
+                items={filteredResults}
+                highlightedIndex={highlightedIndex}
+              />
             )}
           </Box>
         </Portal>
