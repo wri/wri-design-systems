@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Group } from '@chakra-ui/react'
 import { CheckboxListProps } from './types'
 import Checkbox from '../../Controls/Checkbox'
-import { ChevronDownIcon, ChevronLeftIcon } from '../../../icons'
+import { ChevronDownIcon } from '../../../icons'
 import {
   checkboxListCaptionStyles,
   checkboxListContainerStyles,
