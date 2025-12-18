@@ -81,6 +81,27 @@ const CheckboxListDemo = () => (
         horizontal
         required
       />
+
+      <CheckboxList
+        label={{ type: 'checkbox', label: 'Parent', name: 'all' }}
+        checkboxes={[
+          {
+            children: 'Checkbox 1',
+            name: 'checkbox-1',
+            value: 'checkbox-1',
+          },
+          {
+            children: 'Checkbox 2',
+            name: 'checkbox-2',
+            value: 'checkbox-2',
+          },
+          {
+            children: 'Checkbox 3',
+            name: 'checkbox-3',
+            value: 'checkbox-3',
+          },
+        ]}
+      />
     </div>
   </DemoWrapper>
 )

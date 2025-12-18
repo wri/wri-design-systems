@@ -40,8 +40,16 @@ import { CheckboxList } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
-type CheckboxListProps = {
-  label: string
+export type CheckboxListLabel =
+  | string
+  | {
+      type: 'checkbox'
+      label: string
+      name: string
+    }
+
+export type CheckboxListProps = {
+  label: CheckboxListLabel
   caption?: string
   checkboxes: CheckboxProps[]
   defaultValue?: string
@@ -49,6 +57,8 @@ type CheckboxListProps = {
   errorMessage?: string
   horizontal?: boolean
   required?: boolean
+  hideCheckedCounter?: boolean
+  hideExpandToggle?: boolean
 }
 ```
 
