@@ -122,3 +122,34 @@ export const WithErrorMessage: Story = {
     required: true,
   },
 }
+
+export const WithParentCheckbox: Story = {
+  render: (args) => (
+    <div style={{ width: '250px' }}>
+      <CheckboxListStory {...args} />
+    </div>
+  ),
+  args: {
+    label: { type: 'checkbox', label: 'Parent', name: 'all' },
+    defaultValue: 'checkbox-2',
+    checkboxes: [
+      {
+        children: 'Checkbox 1',
+        name: 'checkbox-1',
+        value: 'checkbox-1',
+      },
+      {
+        children: 'Checkbox 2',
+        name: 'checkbox-2',
+        value: 'checkbox-2',
+      },
+      {
+        children: 'Checkbox 3',
+        name: 'checkbox-3',
+        value: 'checkbox-3',
+      },
+    ],
+
+    required: true,
+  },
+}
