@@ -113,11 +113,16 @@ const components = [
 
 const DemoIndex = () => {
   const [selectedComponentId, setSelectedComponentId] = useState('')
+  const [filterText, setFilterText] = useState('')
 
   const componentOptions = components.map((component) => ({
     id: component.toLowerCase().replaceAll(' ', '-'),
     label: component,
   }))
+
+  const filteredComponentes = componentOptions.filter(({ id }) =>
+    id.toLowerCase().includes(filterText.toLowerCase()),
+  )
 
   const handleSelect = (option: ListItemProps) => {
     const { id } = option
@@ -142,12 +147,13 @@ const DemoIndex = () => {
       <Search
         options={componentOptions}
         placeholder='Search a component'
-        displayResults='list'
+        displayResults='none'
         onSelect={(option) => handleSelect(option as ListItemProps)}
+        onQueryChange={setFilterText}
       />
 
       <div style={{ marginTop: 12 }}>
-        {componentOptions.map((component) => (
+        {filteredComponentes.map((component) => (
           <div key={component.id}>
             <button
               type='button'
