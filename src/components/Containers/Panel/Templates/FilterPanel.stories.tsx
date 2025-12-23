@@ -64,97 +64,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const content = (
-  <div>
-    <Box
-      style={{
-        border: `1px solid ${getThemedColor('neutral', 300)}`,
-        padding: '15px',
-        margin: '15px',
-        borderRadius: '5px',
-      }}
-    >
-      <h2 css={layerPanelTitleStyles}>Label</h2>
-      <p css={layerPanelDescriptionStyles}>Caption</p>
-
-      <Search options={sampleOptions} placeholder='Search' />
-      <div style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}>
-        <Tag variant='info-white' label='Label' closable />
-        <Tag variant='info-white' label='Label' closable />
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-          marginBottom: '40px',
-        }}
-      >
-        <Checkbox name='Checkbox' value='1' defaultChecked>
-          Label
-        </Checkbox>
-        <CheckboxList
-          label={{ type: 'checkbox', label: 'Label', name: 'all' }}
-          checkboxes={[
-            {
-              children: 'Label',
-              name: 'checkbox-1',
-              value: 'checkbox-1',
-            },
-            {
-              children: 'Label',
-              name: 'checkbox-2',
-              value: 'checkbox-2',
-            },
-            {
-              children: 'Label',
-              name: 'checkbox-3',
-              value: 'checkbox-3',
-            },
-          ]}
-        />
-
-        <CheckboxList
-          label={{ type: 'checkbox', label: 'Label', name: 'all' }}
-          checkboxes={[
-            {
-              children: 'Label',
-              name: 'checkbox-1',
-              value: 'checkbox-1',
-            },
-            {
-              children: 'Label',
-              name: 'checkbox-2',
-              value: 'checkbox-2',
-            },
-            {
-              children: 'Label',
-              name: 'checkbox-3',
-              value: 'checkbox-3',
-            },
-            {
-              children: 'Label',
-              name: 'checkbox-4',
-              value: 'checkbox-4',
-            },
-            {
-              children: 'Label',
-              name: 'checkbox-5',
-              value: 'checkbox-5',
-            },
-          ]}
-        />
-        <Checkbox name='Checkbox2' value='1' defaultChecked>
-          Label
-        </Checkbox>
-        <Checkbox name='Checkbox3' value='1' defaultChecked>
-          Label
-        </Checkbox>
-      </div>
-    </Box>
-  </div>
-)
-
 export const FilterPanel: Story = {
   args: {
     content: <div>content</div>,
@@ -190,8 +99,129 @@ export const FilterPanel: Story = {
         }
         content={
           <div style={{ maxHeight: '500px' }}>
-            {content}
-            {content}
+            <div>
+              <Box
+                style={{
+                  border: `1px solid ${getThemedColor('neutral', 300)}`,
+                  padding: '15px',
+                  margin: '15px',
+                  borderRadius: '5px',
+                }}
+              >
+                <h2 css={layerPanelTitleStyles}>Label</h2>
+                <p css={layerPanelDescriptionStyles}>Caption</p>
+
+                <Search options={sampleOptions} placeholder='Search' />
+                <div
+                  style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}
+                >
+                  <Tag variant='info-white' label='Label' closable />
+                  <Tag variant='info-white' label='Label' closable />
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '20px',
+                    marginBottom: '40px',
+                  }}
+                >
+                  <Checkbox name='Checkbox' value='1' defaultChecked>
+                    Label
+                  </Checkbox>
+                  <CheckboxList
+                    label={{ type: 'checkbox', label: 'Label', name: 'all' }}
+                    checkboxes={[
+                      {
+                        children: 'Label',
+                        name: 'checkbox-1',
+                        value: 'checkbox-1',
+                      },
+                      {
+                        children: 'Label',
+                        name: 'checkbox-2',
+                        value: 'checkbox-2',
+                      },
+                      {
+                        children: 'Label',
+                        name: 'checkbox-3',
+                        value: 'checkbox-3',
+                      },
+                    ]}
+                  />
+
+                  <CheckboxList
+                    label={{ type: 'checkbox', label: 'Label', name: 'all' }}
+                    checkboxes={[
+                      {
+                        children: 'Label',
+                        name: 'checkbox-1',
+                        value: 'checkbox-1',
+                      },
+                      {
+                        children: 'Label',
+                        name: 'checkbox-2',
+                        value: 'checkbox-2',
+                      },
+                      {
+                        children: 'Label',
+                        name: 'checkbox-3',
+                        value: 'checkbox-3',
+                      },
+                      {
+                        children: 'Label',
+                        name: 'checkbox-4',
+                        value: 'checkbox-4',
+                      },
+                      {
+                        children: 'Label',
+                        name: 'checkbox-5',
+                        value: 'checkbox-5',
+                      },
+                    ]}
+                  />
+                  <Checkbox name='Checkbox2' value='1' defaultChecked>
+                    Label
+                  </Checkbox>
+                  <Checkbox name='Checkbox3' value='1' defaultChecked>
+                    Label
+                  </Checkbox>
+                </div>
+              </Box>
+            </div>
+            <div>
+              <Box
+                style={{
+                  border: `1px solid ${getThemedColor('neutral', 300)}`,
+                  padding: '15px',
+                  margin: '15px',
+                  borderRadius: '5px',
+                }}
+              >
+                <h2 css={layerPanelTitleStyles}>Label</h2>
+                <p css={layerPanelDescriptionStyles}>Caption</p>
+
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '20px',
+                    marginBottom: '40px',
+                  }}
+                >
+                  <Checkbox name='Checkbox' value='1' defaultChecked>
+                    Label
+                  </Checkbox>
+
+                  <Checkbox name='Checkbox2' value='1' defaultChecked>
+                    Label
+                  </Checkbox>
+                  <Checkbox name='Checkbox3' value='1' defaultChecked>
+                    Label
+                  </Checkbox>
+                </div>
+              </Box>
+            </div>
           </div>
         }
         footer={
