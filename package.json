@@ -99,7 +99,9 @@
   "author": "WRI",
   "license": "MIT",
   "dependencies": {
+    "@chakra-ui/charts": "^3.30.0",
     "@floating-ui/react": "^0.27.16",
-    "react-spring-bottom-sheet": "^3.4.1"
+    "react-spring-bottom-sheet": "^3.4.1",
+    "recharts": "^3.6.0"
   }
 }

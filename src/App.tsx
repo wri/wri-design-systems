@@ -43,6 +43,7 @@ import TableDemo from './components/DataDisplay/Table/TableDemo'
 import ListDemo from './components/DataDisplay/List/ListDemo'
 import ExtendableCardDemo from './components/DataDisplay/ExtendableCard/ExtendableCardDemo'
 import AnalysisWidgetDemo from './components/DataDisplay/AnalysisWidget/AnalysisWidgetDemo'
+import ChartContainerDemo from './components/DataDisplay/Charts/ChartContainer/ChartContainerDemo'
 
 import ModalDemo from './components/Containers/Modal/ModalDemo'
 import PanelDemo from './components/Containers/Panel/PanelDemo'
@@ -160,6 +161,7 @@ const App = () => (
           <ListDemo />
           <ExtendableCardDemo />
           <AnalysisWidgetDemo />
+          <ChartContainerDemo />
 
           <PanelDemo />
           <SheetDemo />
