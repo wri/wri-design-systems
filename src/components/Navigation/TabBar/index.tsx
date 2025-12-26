@@ -8,6 +8,7 @@ import {
   defaultTabStyles,
   tabBarContainerStyles,
   tabBarItemPanelStyles,
+  tabBarItemTransparentStyles,
   tabBarItemViewDividerStyles,
   tabBarItemViewStyles,
 } from './styled'
@@ -42,8 +43,6 @@ const TabBar = ({
     getTabIndex(tabs, defaultValue) || 0,
   )
 
-  const isView = variant === 'view'
-
   const handleOnTabClick = (tabValue: string) => {
     setSelectedTabIndex(getTabIndex(tabs, tabValue))
 
@@ -63,7 +62,7 @@ const TabBar = ({
         <Tabs.List alignItems='center' border='none'>
           {tabs.map((tab, idx) => (
             <Fragment key={tab.label}>
-              {isView &&
+              {variant === 'view' &&
               idx === 1 &&
               getBorderSide(selectedTabIndex) === 'left' ? (
                 <div css={tabBarItemViewDividerStyles} />
@@ -71,7 +70,9 @@ const TabBar = ({
               <Tabs.Trigger
                 css={[
                   defaultTabStyles,
-                  isView ? tabBarItemViewStyles : tabBarItemPanelStyles,
+                  variant === 'view' && tabBarItemViewStyles,
+                  variant === 'panel' && tabBarItemPanelStyles,
+                  variant === 'transparent' && tabBarItemTransparentStyles,
                 ]}
                 key={tab.label}
                 aria-label={tab['aria-label'] || tab.label}
@@ -82,7 +83,7 @@ const TabBar = ({
                   {tab.label}
                 </Box>
               </Tabs.Trigger>
-              {isView &&
+              {variant === 'view' &&
               idx === 1 &&
               getBorderSide(selectedTabIndex) === 'right' ? (
                 <div css={tabBarItemViewDividerStyles} />

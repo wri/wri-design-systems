@@ -10,7 +10,7 @@ export type TabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
 }
 
 export type TabBarProps = {
-  variant?: 'panel' | 'view'
+  variant?: 'panel' | 'view' | 'transparent'
   defaultValue?: string
   tabs: TabBarItemProps[]
   onTabClick?: (tabValue: string) => void

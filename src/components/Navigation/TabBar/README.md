@@ -34,7 +34,7 @@ type TabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
 }
 
 type TabBarProps = {
-  variant?: 'panel' | 'view'
+  variant?: 'panel' | 'view' | 'transparent'
   defaultValue?: string
   tabs: TabBarItemProps[]
   onTabClick?: (tabValue: string) => void
@@ -106,5 +106,18 @@ type TabBarProps = {
     { label: 'Three', value: 'three' },
   ]}
   activationMode='automatic'
+/>
+```
+
+## Transparent
+
+```tsx
+<TabBar
+  variant='transparent'
+  tabs={[
+    { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
+    { label: 'Two', value: 'two', icon: <PlaceholderIcon /> },
+    { label: 'Three', value: 'three', icon: <PlaceholderIcon /> },
+  ]}
 />
 ```
