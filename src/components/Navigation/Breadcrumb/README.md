@@ -56,6 +56,7 @@ type BreadcrumbProps = {
   separator?: React.ReactNode
   maxItems?: number
   linkRouter: any // Link from react router or next.js
+  size?: 'small' | 'default'
 }
 ```
 
@@ -69,4 +70,10 @@ type BreadcrumbProps = {
 
 ```tsx
 <Breadcrumb links={breadcrumbs} maxItems={5} linkRouter={Link} />
+```
+
+## Small size
+
+```tsx
+<Breadcrumb links={breadcrumbs} maxItems={5} linkRouter={Link} size='small' />
 ```

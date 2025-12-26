@@ -3,4 +3,5 @@ export type BreadcrumbProps = {
   separator?: React.ReactNode
   maxItems?: number
   linkRouter: any // Link from react router or next.js
+  size?: 'small' | 'default'
 }

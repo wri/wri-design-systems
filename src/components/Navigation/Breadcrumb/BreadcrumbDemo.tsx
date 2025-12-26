@@ -48,6 +48,12 @@ const BreadcrumbDemo = () => {
         <Breadcrumb links={breadcrumbs} linkRouter={Link} />
         <Breadcrumb links={breadcrumbs} separator='--' linkRouter={Link} />
         <Breadcrumb links={breadcrumbs} maxItems={5} linkRouter={Link} />
+        <Breadcrumb
+          links={breadcrumbs}
+          maxItems={5}
+          linkRouter={Link}
+          size='small'
+        />
       </div>
     </DemoWrapper>
   )
