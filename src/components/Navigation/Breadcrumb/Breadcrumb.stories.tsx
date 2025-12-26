@@ -65,3 +65,16 @@ export const WithIcons: Story = {
     linkRouter: Link,
   },
 }
+
+export const SmallSize: Story = {
+  args: {
+    links: [
+      { label: 'Settings', link: '#', icon: <SettingsIcon /> },
+      { label: 'One', link: '#', icon: <DropIcon /> },
+      { label: 'Two', link: '#', icon: <PaperIcon /> },
+      { label: 'Three', link: '#', icon: <PlantIcon /> },
+    ],
+    linkRouter: Link,
+    size: 'small',
+  },
+}

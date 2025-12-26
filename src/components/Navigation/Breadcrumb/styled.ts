@@ -1,12 +1,13 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
+import { BreadcrumbProps } from './types'
 
-export const breadcrumbItemStyles = css`
+export const breadcrumbItemStyles = (size: BreadcrumbProps['size']) => css`
   a,
   p {
-    font-size: 16px;
+    font-size: ${size === 'small' ? '12px' : '16px'};
     font-weight: 400;
-    line-height: 24px;
+    line-height: ${size === 'small' ? '16px' : '24px'};
     color: ${getThemedColor('neutral', 600)};
     display: flex;
     align-items: center;
@@ -15,8 +16,8 @@ export const breadcrumbItemStyles = css`
     text-transform: capitalize;
 
     svg {
-      height: 16px;
-      width: 16px;
+      height: ${size === 'small' ? '12px' : '16px'};
+      width: ${size === 'small' ? '12px' : '16px'};
       color: ${getThemedColor('neutral', 600)};
     }
   }
@@ -35,10 +36,10 @@ export const breadcrumbItemStyles = css`
   }
 `
 
-export const breadcrumbSeparatorStyles = css`
+export const breadcrumbSeparatorStyles = (size: BreadcrumbProps['size']) => css`
   svg {
-    height: 12px;
-    width: 12px;
+    height: ${size === 'small' ? '8px' : '12px'};
+    width: ${size === 'small' ? '8px' : '12px'};
     color: ${getThemedColor('neutral', 600)};
   }
 `

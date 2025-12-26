@@ -17,6 +17,7 @@ const Breadcrumb = ({
   separator,
   maxItems = 99,
   linkRouter,
+  size = 'default',
 }: BreadcrumbProps) => {
   const [showEllipsis, setShowEllipsis] = useState(links.length > maxItems)
 
@@ -28,16 +29,16 @@ const Breadcrumb = ({
 
   return (
     <ChakraBreadcrumb.Root>
-      <ChakraBreadcrumb.List gap='16px'>
+      <ChakraBreadcrumb.List gap={size === 'small' ? '6px' : '10px'}>
         {showEllipsis ? (
           <>
-            <ChakraBreadcrumb.Item css={breadcrumbItemStyles}>
+            <ChakraBreadcrumb.Item css={breadcrumbItemStyles(size)}>
               <Link to={links[0].link} href={links[0].link}>
                 {links[0].icon}
                 {links[0].label}
               </Link>
             </ChakraBreadcrumb.Item>
-            <ChakraBreadcrumb.Separator css={breadcrumbSeparatorStyles}>
+            <ChakraBreadcrumb.Separator css={breadcrumbSeparatorStyles(size)}>
               {separator || <ChevronDownIcon rotate='270' />}
             </ChakraBreadcrumb.Separator>
             <li className='chakra-breadcrumb__item'>
@@ -49,10 +50,10 @@ const Breadcrumb = ({
                 ...
               </button>
             </li>
-            <ChakraBreadcrumb.Separator css={breadcrumbSeparatorStyles}>
+            <ChakraBreadcrumb.Separator css={breadcrumbSeparatorStyles(size)}>
               {separator || <ChevronDownIcon rotate='270' />}
             </ChakraBreadcrumb.Separator>
-            <ChakraBreadcrumb.Item css={breadcrumbItemStyles}>
+            <ChakraBreadcrumb.Item css={breadcrumbItemStyles(size)}>
               <p aria-current='page' aria-label={links[links.length - 1].label}>
                 {links[links.length - 1].icon}
                 {links[links.length - 1].label}
@@ -63,7 +64,7 @@ const Breadcrumb = ({
           links.map((link, idx) =>
             link?.label ? (
               <Fragment key={link.label}>
-                <ChakraBreadcrumb.Item css={breadcrumbItemStyles}>
+                <ChakraBreadcrumb.Item css={breadcrumbItemStyles(size)}>
                   {idx < links.length - 1 ? (
                     <Link to={link.link} href={link.link}>
                       {link.icon}
@@ -77,7 +78,9 @@ const Breadcrumb = ({
                   )}
                 </ChakraBreadcrumb.Item>
                 {idx < links.length - 1 ? (
-                  <ChakraBreadcrumb.Separator css={breadcrumbSeparatorStyles}>
+                  <ChakraBreadcrumb.Separator
+                    css={breadcrumbSeparatorStyles(size)}
+                  >
                     {separator || <ChevronDownIcon rotate='270' />}
                   </ChakraBreadcrumb.Separator>
                 ) : null}
