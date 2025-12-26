@@ -3,7 +3,7 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import TabBar from '.'
-import { CheckIcon } from '../../icons'
+import { CheckIcon, PlaceholderIcon } from '../../icons'
 
 const meta = {
   title: 'Navigation/Tab Bar',
@@ -82,5 +82,16 @@ export const AutomaticActivationMode: Story = {
       { label: 'Three', value: 'three' },
     ],
     activationMode: 'automatic',
+  },
+}
+
+export const TransparentTab: Story = {
+  args: {
+    variant: 'transparent',
+    tabs: [
+      { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
+      { label: 'Two', value: 'two', icon: <PlaceholderIcon /> },
+      { label: 'Three', value: 'three', icon: <PlaceholderIcon /> },
+    ],
   },
 }

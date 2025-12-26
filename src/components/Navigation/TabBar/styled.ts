@@ -15,6 +15,18 @@ export const tabBarContainerStyles = (variant: TabBarProps['variant']) => css`
     border-radius: 4px;
     padding: 4px;
   `}
+
+  ${variant === 'transparent' &&
+  `
+    border: none;
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 0px 16px;
+
+    .chakra-tabs__list {
+      gap: 32px;
+    }
+  `}
 `
 
 export const defaultTabStyles = css`
@@ -171,6 +183,79 @@ export const tabBarItemViewStyles = css`
       background-color: ${getThemedColor('neutral', 100)};
       color: ${getThemedColor('neutral', 400)};
       opacity: 1;
+    }
+  }
+`
+
+export const tabBarItemTransparentStyles = css`
+  background-color: transparent;
+  color: ${getThemedColor('neutral', 600)};
+  width: auto;
+  padding: 0px;
+  justify-content: flex-start;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    background-color: ${getThemedColor('neutral', 100)};
+    border-bottom: 2px solid ${getThemedColor('primary', 500)};
+  }
+
+  &:active {
+    background-color: ${getThemedColor('neutral', 100)};
+    border-bottom: 2px solid ${getThemedColor('primary', 500)};
+  }
+
+  &:focus-visible {
+    background-color: ${getThemedColor('neutral', 100)};
+    border-bottom: 2px solid ${getThemedColor('primary', 500)};
+    outline-color: ${getThemedColor('primary', 700)};
+    outline-offset: 2px;
+    box-shadow:
+      0 0 0 2px ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+  }
+
+  &[data-selected] {
+    background-color: ${getThemedColor('neutral', 100)};
+    border-bottom: 2px solid ${getThemedColor('primary', 500)};
+    color: ${getThemedColor('neutral', 800)};
+
+    &:hover {
+      background-color: ${getThemedColor('neutral', 100)};
+      border-bottom: 2px solid ${getThemedColor('primary', 500)};
+      color: ${getThemedColor('neutral', 800)};
+    }
+
+    &:focus-visible {
+      background-color: ${getThemedColor('neutral', 100)};
+      outline-color: ${getThemedColor('primary', 700)};
+      outline-offset: 2px;
+      box-shadow:
+        0 0 0 2px ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+    }
+
+    &::before {
+      content: none;
+    }
+  }
+
+  &[data-disabled] {
+    background-color: transparent;
+    color: ${getThemedColor('neutral', 400)};
+
+    &:hover {
+      border-bottom: 2px solid transparent;
+    }
+
+    &[data-selected] {
+      background-color: ${getThemedColor('neutral', 100)};
+      color: ${getThemedColor('neutral', 400)};
+      opacity: 1;
+
+      &:hover {
+        border-bottom: 2px solid ${getThemedColor('primary', 500)};
+      }
     }
   }
 `

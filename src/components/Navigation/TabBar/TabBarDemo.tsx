@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import { TabBar } from '../..'
-import { CheckIcon } from '../../icons'
+import { CheckIcon, PlaceholderIcon } from '../../icons'
 import DemoWrapper from '../../UI/DemoWrapper'
 
 const TabBarDemo = () => (
@@ -55,6 +55,15 @@ const TabBarDemo = () => (
           { label: 'Three', value: 'three' },
         ]}
         activationMode='automatic'
+      />
+      <br />
+      <TabBar
+        variant='transparent'
+        tabs={[
+          { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
+          { label: 'Two', value: 'two', icon: <PlaceholderIcon /> },
+          { label: 'Three', value: 'three', icon: <PlaceholderIcon /> },
+        ]}
       />
     </div>
   </DemoWrapper>
