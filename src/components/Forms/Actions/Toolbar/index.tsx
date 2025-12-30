@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 /* eslint-disable react/no-unknown-property */
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Group, Menu as ChakraMenu, Portal } from '@chakra-ui/react'
 import {
   MenuDotsIcon,
@@ -21,6 +21,7 @@ const Toolbar = ({
   vertical = false,
   expanded = false,
   showExpandedToggle,
+  autoCollapse = false,
   ariaLabel,
   defaultGaps,
 }: ToolbarProps) => {
@@ -33,7 +34,13 @@ const Toolbar = ({
       collapsedWidth: COLLAPSED_WIDTH,
       expandedLabelWidth: EXPANDED_LABEL_WIDTH,
       gap: 16,
+      showExpandedToggle,
+      autoCollapse,
     })
+
+  useEffect(() => {
+    setIsExpanded(expanded)
+  }, [expanded])
 
   const visibleItems = items.slice(0, visibleNumberOfItems)
   const overflowItems = items.slice(visibleNumberOfItems, items.length)
@@ -68,13 +75,9 @@ const Toolbar = ({
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div
-      ref={containerRef}
-      role='toolbar'
-      aria-label={ariaLabel}
-      css={toolbarContainerStyles}
-    >
+    <div role='toolbar' aria-label={ariaLabel} css={toolbarContainerStyles}>
       <Group
+        ref={containerRef}
         orientation={vertical ? 'vertical' : 'horizontal'}
         attached
         display='grid'
@@ -140,7 +143,7 @@ const Toolbar = ({
           </ChakraMenu.Root>
         )}
 
-        {showExpandedToggle && !shouldForceCollapse && (
+        {showExpandedToggle && !autoCollapse && !shouldForceCollapse && (
           <ToolbarButton
             isExpanded={isExpanded}
             ariaLabel={isExpanded ? 'Collapse' : 'Expand'}

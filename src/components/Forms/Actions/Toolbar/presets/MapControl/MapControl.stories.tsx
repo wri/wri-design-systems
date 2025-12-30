@@ -80,18 +80,35 @@ export const Horizontal: Story = {
     defaultGaps: true,
     showExpandedToggle: true,
     expanded: true,
+    autoCollapse: true,
+    vertical: false,
   },
-  render: (args) => <Toolbar {...args} />,
+  render: (args) => (
+    <div style={{ width: 1100, border: '1px solid #ccc', padding: 16 }}>
+      <Toolbar {...args} />
+    </div>
+  ),
 }
 
-export const MapControls: Story = {
+export const Vertical: Story = {
   args: {
     items: mapControlItems,
     vertical: true,
     ariaLabel: 'Map controls toolbar',
     showExpandedToggle: true,
-    defaultGaps: true,
-    expanded: false,
+    defaultGaps: false,
+    expanded: true,
   },
-  render: (args) => <Toolbar {...args} />,
+  render: (args) => (
+    <div
+      style={{
+        width: 800,
+        height: 550,
+        border: '1px solid #ccc',
+        padding: 16,
+      }}
+    >
+      <Toolbar {...args} />
+    </div>
+  ),
 }
