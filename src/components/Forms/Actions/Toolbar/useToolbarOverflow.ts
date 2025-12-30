@@ -8,6 +8,8 @@ export function useToolbarOverflow({
   collapsedWidth,
   expandedLabelWidth,
   gap = 0,
+  showExpandedToggle,
+  autoCollapse,
 }: UseToolbarOverflowParams) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [containerWidth, setContainerWidth] = useState(0)
@@ -29,24 +31,37 @@ export function useToolbarOverflow({
   useEffect(() => {
     if (containerWidth === 0) return
 
+    if (!autoCollapse) {
+      setShouldForceCollapse(false)
+      setvisibleNumberOfItems(itemsCount)
+      return
+    }
+
+    const toggleWidth = showExpandedToggle ? collapsedWidth + gap : 0
+    const availableWidth = containerWidth - toggleWidth
+
     const itemWidthCollapsed = collapsedWidth + gap
     const itemWidthExpanded = expandedLabelWidth + gap
     const currentItemWidth = isExpanded ? itemWidthExpanded : itemWidthCollapsed
 
     const totalWidthNeeded = itemsCount * currentItemWidth - gap
 
-    const mustCollapse = totalWidthNeeded > containerWidth
+    const mustCollapse = totalWidthNeeded > availableWidth
     setShouldForceCollapse(mustCollapse)
+
     if (itemsCount > 1 && !isVertical) {
-      setvisibleNumberOfItems(Math.floor(containerWidth / itemWidthCollapsed))
+      setvisibleNumberOfItems(Math.floor(availableWidth / itemWidthCollapsed))
     }
   }, [
     containerWidth,
     itemsCount,
+    isExpanded,
     isVertical,
     collapsedWidth,
     expandedLabelWidth,
     gap,
+    showExpandedToggle,
+    autoCollapse,
   ])
 
   return {

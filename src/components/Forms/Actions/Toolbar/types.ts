@@ -15,6 +15,7 @@ export interface ToolbarProps {
   showExpandedToggle?: boolean
   ariaLabel?: string
   defaultGaps?: boolean
+  autoCollapse?: boolean
 }
 
 export interface ToolbarButtonProps {
@@ -36,4 +37,6 @@ export interface UseToolbarOverflowParams {
   collapsedWidth: number // 48px
   expandedLabelWidth: number
   gap?: number
+  showExpandedToggle?: boolean
+  autoCollapse?: boolean
 }
