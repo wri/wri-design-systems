@@ -1,6 +1,6 @@
 export type QualitativeAttributeProps = {
   type: 'raster' | 'line' | 'point'
-  label: string
+  label: string | React.ReactNode
   caption?: string
   color: string
   showActionButton?: boolean
