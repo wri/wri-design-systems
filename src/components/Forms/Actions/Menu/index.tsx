@@ -64,7 +64,14 @@ const MenuItem = ({
   </>
 )
 
-const Menu = ({ label, items, groups, onSelect, customTrigger }: MenuProps) => {
+const Menu = ({
+  theme = 'light',
+  label,
+  items,
+  groups,
+  onSelect,
+  customTrigger,
+}: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -73,7 +80,7 @@ const Menu = ({ label, items, groups, onSelect, customTrigger }: MenuProps) => {
       onOpenChange={({ open }) => setIsOpen(open)}
       open={isOpen}
     >
-      <ChakraMenu.Trigger css={menuStyles} asChild>
+      <ChakraMenu.Trigger css={menuStyles(theme)} asChild>
         {customTrigger || (
           <button type='button'>
             {label}

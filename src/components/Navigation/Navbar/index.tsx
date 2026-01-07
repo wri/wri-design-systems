@@ -29,6 +29,8 @@ const NAVBAR_MIN_HEIGHT = 48
 const NAVBAR_MAX_HEIGHT = 96
 
 const Navbar = ({
+  variant = 'default',
+  theme = 'light',
   logo,
   linkRouter,
   pathname,
@@ -107,11 +109,29 @@ const Navbar = ({
     }
   }, [onResize])
 
+  const isCondensed = variant === 'condensed'
   return (
-    <nav css={navbarStyles(divsCollided && !isMobile, fixed, backgroundColor)}>
-      <div css={navbarContainerStyles(divsCollided && !isMobile, maxWidth)}>
+    <nav
+      css={navbarStyles(
+        divsCollided && !isMobile,
+        fixed,
+        backgroundColor,
+        theme,
+        isCondensed,
+      )}
+    >
+      <div
+        css={navbarContainerStyles(
+          divsCollided && !isMobile,
+          maxWidth,
+          isCondensed,
+        )}
+      >
         <div
-          css={navbarLeftContainerStyles(divsCollided && !isMobile)}
+          css={navbarLeftContainerStyles(
+            (divsCollided && !isMobile) || theme === 'dark',
+            isCondensed,
+          )}
           ref={leftRef}
         >
           {logo ? (
@@ -119,6 +139,7 @@ const Navbar = ({
               {logo}
             </div>
           ) : null}
+
           <div css={navbarLeftItemsContainerStyles(divsCollided)}>
             {navigationSection?.map((item) => {
               if (item.link) {
@@ -127,7 +148,7 @@ const Navbar = ({
                     key={item.label}
                     to={item.link}
                     href={item.link}
-                    css={navbarLeftLinkStyles(pathname === item.link)}
+                    css={navbarLeftLinkStyles(pathname === item.link, theme)}
                   >
                     {item.label}
                   </Link>
@@ -136,6 +157,7 @@ const Navbar = ({
 
               return (
                 <Menu
+                  theme={theme}
                   key={item.label}
                   label={item.label}
                   items={item.items || []}
@@ -144,17 +166,18 @@ const Navbar = ({
             })}
           </div>
         </div>
-        <div css={navbarRightContainerStyles} ref={rightRef}>
+
+        <div css={navbarRightContainerStyles(isCondensed)} ref={rightRef}>
           {!isMobile ? (
             <>
-              <div css={navbarRightContainerStyles}>
+              <div css={navbarRightContainerStyles(isCondensed)}>
                 {utilitySection?.map((utilityChild, idx) => (
                   <div css={navbarRightItemStyles(divsCollided)} key={idx}>
                     {utilityChild}
                   </div>
                 ))}
               </div>
-              {actionsSection ? (
+              {actionsSection?.length ? (
                 <div css={navbarActionsContainerStyles(divsCollided)}>
                   {actionsSection.map((action) => (
                     <Button key={action.ariaLabel} {...action} />
@@ -167,7 +190,7 @@ const Navbar = ({
               type='button'
               onClick={() => setIsOpen(!isOpen)}
               aria-label='Open menu'
-              css={navbarMenuActionStyles}
+              css={navbarMenuActionStyles(theme)}
             >
               {isOpen ? 'Close' : 'Menu'}
               {isOpen ? (
@@ -181,7 +204,7 @@ const Navbar = ({
       </div>
 
       {divsCollided && !isMobile ? (
-        <div css={navbarSecondBarStyles}>
+        <div css={navbarSecondBarStyles(theme, isCondensed)}>
           {navigationSection?.map((item) => {
             if (item.link) {
               return (
@@ -189,7 +212,7 @@ const Navbar = ({
                   key={item.label}
                   to={item.link}
                   href={item.link}
-                  css={navbarLeftLinkStyles(pathname === item.link)}
+                  css={navbarLeftLinkStyles(pathname === item.link, theme)}
                 >
                   {item.label}
                 </Link>
@@ -198,6 +221,7 @@ const Navbar = ({
 
             return (
               <Menu
+                theme={theme}
                 key={item.label}
                 label={item.label}
                 items={item.items || []}
@@ -209,6 +233,7 @@ const Navbar = ({
 
       {isMobile ? (
         <NavbarMobile
+          theme={theme}
           navigationSection={navigationSection}
           utilitySection={utilitySection}
           actionsSection={actionsSection}

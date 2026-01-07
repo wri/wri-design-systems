@@ -11,6 +11,8 @@ export type NavbarNavigationItemsProps = {
 }
 
 export type NavbarProps = {
+  variant?: 'default' | 'condensed'
+  theme?: 'light' | 'dark'
   logo?: React.ReactNode
   linkRouter: any // Link from react router or next.js
   pathname: string // Pathname from react router or next.js
