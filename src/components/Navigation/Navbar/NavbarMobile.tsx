@@ -20,6 +20,7 @@ import { ChevronDownIcon, CloseIcon } from '../../icons'
 import Button from '../../Forms/Actions/Button'
 
 const NavbarMobile = ({
+  theme = 'light',
   navigationSection,
   utilitySection,
   actionsSection,
@@ -54,7 +55,7 @@ const NavbarMobile = ({
               }}
             >
               {utilitySection ? (
-                <div css={navbarMobileUtilityContainerStyles}>
+                <div css={navbarMobileUtilityContainerStyles(theme)}>
                   {utilitySection?.map((utilityChild) => (
                     <div className='ds-utility-item'>{utilityChild}</div>
                   ))}

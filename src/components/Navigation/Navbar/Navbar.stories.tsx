@@ -158,3 +158,102 @@ export const Navbar: Story = {
     )
   },
 }
+
+export const Condensed: Story = {
+  args: {
+    linkRouter: Link,
+    pathname: '/',
+  },
+  render: function Render() {
+    const [language, setLanguage] = useState('')
+    const location = useLocation()
+
+    const languages = [
+      {
+        label: 'English',
+        value: 'en',
+      },
+      {
+        label: 'Spanish',
+        value: 'es',
+      },
+    ]
+
+    return (
+      <NavbarStory
+        variant='condensed'
+        theme='dark'
+        logo={
+          <Link to='/'>
+            <WriLogoIcon height='20px' width='92px' />
+          </Link>
+        }
+        linkRouter={Link}
+        pathname={location.pathname}
+        navigationSection={[
+          {
+            label: 'About',
+            link: '/page1',
+          },
+          {
+            label: 'Tools',
+            items: [
+              {
+                label: 'Tool 1',
+                link: '/page1/page2',
+              },
+              {
+                label: 'Tool 2',
+                link: '/page1/page2/page3',
+              },
+            ],
+          },
+          {
+            label: 'Data',
+            items: [
+              {
+                label: 'Data 1',
+                link: '/page1/page2/page3',
+              },
+              {
+                label: 'Data 2',
+                link: '/page1/page2/page3/page4',
+              },
+            ],
+          },
+          {
+            label: 'Use Cases',
+            link: '/page1/page2/page3',
+            items: [
+              {
+                label: 'Use Case 1',
+                link: '/page1/page2/page3/page4',
+              },
+              {
+                label: 'Use Case 2',
+                link: '/page1/page2/page3/page4/page5',
+              },
+            ],
+          },
+          {
+            label: 'News',
+            items: [
+              {
+                label: 'News 1',
+                link: '/page1/page2/page3/page4/page5/page6',
+              },
+            ],
+          },
+          {
+            label: 'Help',
+            link: '/page1/page2/page3/page4/page5/page6',
+          },
+        ]}
+        utilitySection={[]}
+        actionsSection={[]}
+        maxWidth={1440}
+        fixed
+      />
+    )
+  },
+}

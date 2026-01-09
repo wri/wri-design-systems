@@ -6,46 +6,72 @@ export const navbarStyles = (
   isFullHeight?: boolean,
   fixed?: NavbarProps['fixed'],
   backgroundColor?: NavbarProps['backgroundColor'],
+  theme?: NavbarProps['theme'],
+  isCondensed?: boolean,
+) => {
+  let maxHeight = '48px'
+  if (isFullHeight) {
+    maxHeight = '96px'
+  } else if (isCondensed) {
+    maxHeight = '28px'
+  }
+
+  return css`
+    max-height: ${maxHeight};
+    width: 100%;
+    background-color: ${backgroundColor || theme === 'dark'
+      ? getThemedColor('neutral', 800)
+      : getThemedColor('neutral', 100)};
+    position: ${fixed ? 'sticky' : 'absolute'};
+    top: 0;
+    left: 0;
+    z-index: 102;
+    border-bottom: 1px solid ${getThemedColor('neutral', 400)};
+  `
+}
+export const navbarSecondBarStyles = (
+  theme?: NavbarProps['theme'],
+  isCondensed?: boolean,
 ) => css`
-  height: ${isFullHeight ? '96px' : '48px'};
+  height: ${isCondensed ? '28px' : '48px'};
   width: 100%;
-  background-color: ${backgroundColor || getThemedColor('neutral', 100)};
-  position: ${fixed ? 'sticky' : 'absolute'};
-  top: 0;
-  left: 0;
-  z-index: 102;
-  border-bottom: 1px solid ${getThemedColor('neutral', 400)};
-`
-export const navbarSecondBarStyles = css`
-  height: 48px;
-  width: 100%;
-  background-color: ${getThemedColor('neutral', 100)};
-  border-bottom: 1px solid ${getThemedColor('neutral', 400)};
+  background-color: ${theme === 'dark'
+    ? getThemedColor('neutral', 800)
+    : getThemedColor('neutral', 100)};
+  border-bottom: 1px solid
+    ${theme === 'dark'
+      ? getThemedColor('neutral', 800)
+      : getThemedColor('neutral', 400)};
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 0px;
-  padding: 8px 16px;
+  padding: ${isCondensed ? '0px' : '8px 16px'};
 `
 
 export const navbarContainerStyles = (
   isBlack: boolean,
   maxWidth?: NavbarProps['maxWidth'],
+  isCondensed?: boolean,
 ) => css`
-  height: 48px;
+  height: ${isCondensed ? '28px' : '48px'};
   width: 100%;
   max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
   background-color: ${isBlack ? getThemedColor('neutral', 800) : 'transparent'};
   display: flex;
-  align-items: center;
+  align-items: ${isCondensed ? 'start' : 'center'};
+
   justify-content: space-between;
   margin: 0 auto;
-  padding: 8px 16px;
+  padding: ${isCondensed ? '0px' : '8px 16px'};
 `
 
-export const navbarLeftContainerStyles = (isBlackBackground: boolean) => css`
+export const navbarLeftContainerStyles = (
+  isBlackBackground: boolean,
+  isCondensed: boolean,
+) => css`
   display: flex;
-  align-items: center;
+  margin: ${isCondensed ? '-1px' : '0px'};
   justify-content: flex-start;
   gap: 12px;
   color: ${getThemedColor('neutral', isBlackBackground ? 100 : 900)};
@@ -53,6 +79,7 @@ export const navbarLeftContainerStyles = (isBlackBackground: boolean) => css`
 
 export const navbarLogoContainerStyles = css`
   outline: none;
+
   a {
     &:focus-visible {
       border-radius: 0px;
@@ -71,15 +98,22 @@ export const navbarLeftItemsContainerStyles = (divsCollided: boolean) => css`
   gap: 0px;
 `
 
-export const navbarLeftLinkStyles = (active?: boolean) => css`
+export const navbarLeftLinkStyles = (
+  active?: boolean,
+  theme?: NavbarProps['theme'],
+) => css`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: ${getThemedColor('neutral', 900)};
+  color: ${theme === 'dark'
+    ? getThemedColor('neutral', 200)
+    : getThemedColor('neutral', 900)};
   padding: 2px 12px;
 
   &:hover {
-    background-color: ${getThemedColor('neutral', 200)};
+    background-color: ${theme === 'dark'
+      ? 'default'
+      : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {
@@ -100,8 +134,8 @@ export const navbarLeftLinkStyles = (active?: boolean) => css`
     : ''}
 `
 
-export const navbarRightContainerStyles = css`
-  height: 48px;
+export const navbarRightContainerStyles = (isCondensed?: boolean) => css`
+  height: ${isCondensed ? '28px' : '48px'};
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -140,19 +174,21 @@ export const navbarActionsContainerStyles = (divsCollided: boolean) => css`
   border-left: 1px solid ${getThemedColor('neutral', divsCollided ? 700 : 300)};
 `
 
-export const navbarMenuActionStyles = css`
+export const navbarMenuActionStyles = (theme: NavbarProps['theme']) => css`
   background-color: none;
   border: none;
   cursor: pointer;
   padding: 0px;
-  color: ${getThemedColor('neutral', 800)};
+  color: ${getThemedColor('neutral', theme === 'dark' ? 100 : 800)};
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
 
   &:hover {
-    background-color: ${getThemedColor('neutral', 200)};
+    background-color: ${theme === 'dark'
+      ? 'default'
+      : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {
@@ -187,8 +223,12 @@ export const navbarMobileContainerStyles = css`
   width: 100%;
 `
 
-export const navbarMobileUtilityContainerStyles = css`
-  background-color: ${getThemedColor('neutral', 200)};
+export const navbarMobileUtilityContainerStyles = (
+  theme: NavbarProps['theme'],
+) => css`
+  background-color: ${theme === 'dark'
+    ? getThemedColor('neutral', 800)
+    : getThemedColor('neutral', 200)};
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
 
   .ds-utility-item {
