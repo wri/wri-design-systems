@@ -148,7 +148,7 @@ const NavbarMobile = ({
                   menuButtonRefs.current[menuIndex]?.focus()
                 }}
                 aria-label='Go back'
-                css={navbarMenuActionStyles}
+                css={navbarMenuActionStyles(theme)}
                 ref={backButtonRef}
               >
                 <ChevronDownIcon
@@ -165,7 +165,7 @@ const NavbarMobile = ({
                   setIsOpen(false)
                 }}
                 aria-label='Close menu'
-                css={navbarMenuActionStyles}
+                css={navbarMenuActionStyles(theme)}
               >
                 Close
                 <CloseIcon height='16px' width='16px' />

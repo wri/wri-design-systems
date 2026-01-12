@@ -174,7 +174,9 @@ export const navbarActionsContainerStyles = (divsCollided: boolean) => css`
   border-left: 1px solid ${getThemedColor('neutral', divsCollided ? 700 : 300)};
 `
 
-export const navbarMenuActionStyles = (theme: NavbarProps['theme']) => css`
+export const navbarMenuActionStyles = (
+  theme: NavbarProps['theme'] = 'light',
+) => css`
   background-color: none;
   border: none;
   cursor: pointer;

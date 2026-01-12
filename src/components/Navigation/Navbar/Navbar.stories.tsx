@@ -12,6 +12,8 @@ import Avatar from '../../Status/Avatar'
 const meta = {
   title: 'Navigation/Navbar',
   component: NavbarStory,
+  tags: ['autodocs'],
+
   parameters: {
     layout: 'fullscreen',
     docs: {
