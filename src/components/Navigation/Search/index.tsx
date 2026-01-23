@@ -34,6 +34,7 @@ const Search = ({
   const { open, onOpen, onClose } = useDisclosure()
   const [filteredResults, setFilteredResults] = useState(options)
   const [highlightedIndex, setHighlightedIndex] = useState(-1)
+  const [isFocused, setIsFocused] = useState(false)
 
   const containerRef = useRef<HTMLDivElement>(null)
   const handleOnSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,18 +115,18 @@ const Search = ({
     filteredResults.length > 0 &&
     open
 
+  let iconFillColor = getThemedColor('neutral', 500)
+  if (disabled) {
+    iconFillColor = getThemedColor('neutral', 500)
+  } else if (isFocused) {
+    iconFillColor = getThemedColor('primary', 700)
+  }
+
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
       <InputGroup
         startElement={
-          <SearchIcon
-            fill={
-              disabled
-                ? getThemedColor('neutral', 500)
-                : getThemedColor('primary', 700)
-            }
-            style={{ marginTop: '-12px' }}
-          />
+          <SearchIcon fill={iconFillColor} style={{ marginTop: '-12px' }} />
         }
         endElement={endElement}
       >
@@ -133,10 +134,13 @@ const Search = ({
           autoComplete='off'
           placeholder={placeholder || 'Filter'}
           onChange={handleOnSearch}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           value={filterText}
           label=''
           style={{
             paddingLeft: '40px',
+            borderColor: getThemedColor('neutral', 500),
           }}
           type='search'
           aria-label={placeholder || 'Search filter'}
