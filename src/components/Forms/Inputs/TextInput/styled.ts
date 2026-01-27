@@ -10,7 +10,6 @@ export const textInputContainerStyles = (size: TextInputProps['size']) => css`
   justify-content: flex-start;
   align-items: flex-start;
   gap: ${size === 'small' ? '12px' : '16px'};
-  margin-bottom: 20px;
 `
 
 export const textInputErrorBarStyles = css`

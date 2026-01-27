@@ -106,7 +106,7 @@ const Search = ({
   }, [open])
 
   const endElement = filterText.length ? (
-    <CloseButton style={{ marginTop: '-12px' }} onClick={handleOnClear} />
+    <CloseButton style={{ marginTop: '8px' }} onClick={handleOnClear} />
   ) : null
 
   const resultsVisible =
@@ -121,12 +121,17 @@ const Search = ({
   } else if (isFocused) {
     iconFillColor = getThemedColor('primary', 700)
   }
-
+  const iconSize = size === 'small' ? '16px' : '20px'
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
       <InputGroup
         startElement={
-          <SearchIcon fill={iconFillColor} style={{ marginTop: '-12px' }} />
+          <SearchIcon
+            width={iconSize}
+            height={iconSize}
+            fill={iconFillColor}
+            style={{ marginTop: '8px' }}
+          />
         }
         endElement={endElement}
       >
@@ -197,13 +202,11 @@ const Search = ({
         <Portal container={containerRef}>
           <Box
             position='absolute'
-            marginTop='-20px'
             width='100%'
             backgroundColor='white'
-            border='1px solid'
+            border={displayResults === 'custom' ? 'none' : '1px solid'}
             borderColor='gray.200'
             borderRadius='md'
-            boxShadow='md'
             zIndex={1000}
             overflowY='auto'
             maxHeight={resultsMaxHeight}
