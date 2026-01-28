@@ -111,7 +111,7 @@ const LayerGroup = ({
       <Accordion.ItemContent paddingLeft='16px' paddingRight='16px'>
         <RadioGroup
           name={label}
-          defaultValue={defaultValue}
+          value={defaultValue}
           customGap='0px'
           onChange={(name: string, selectedValue: string) =>
             handleOnChange(

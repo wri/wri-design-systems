@@ -32,7 +32,7 @@ type RadioGroupProps = Omit<
   | 'defaultValue'
 > & {
   name: string
-  value: ChakraRadioGroup.ItemProps['value']
+  value?: ChakraRadioGroup.ItemProps['value']
   horizontal?: boolean
   onChange?: (name: string, selectedValue: string) => void
   customGap?: string
