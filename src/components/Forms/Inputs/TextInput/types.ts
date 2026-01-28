@@ -11,6 +11,7 @@ export type TextInputProps = Omit<
   required?: boolean
   disabled?: boolean
   size?: 'small' | 'default'
+  noMarginBottom?: boolean
   defaultValue?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }

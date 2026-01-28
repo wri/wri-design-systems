@@ -155,6 +155,7 @@ const Search = ({
           aria-autocomplete='list'
           disabled={disabled}
           size={size}
+          noMarginBottom
           onKeyDown={(e) => {
             if (!resultsVisible) return
 

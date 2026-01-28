@@ -22,6 +22,7 @@ const TextInput = ({
   required,
   disabled,
   size = 'default',
+  noMarginBottom = false,
   defaultValue = '',
   onChange,
   ...rest
@@ -38,7 +39,7 @@ const TextInput = ({
 
   return (
     <div
-      css={textInputContainerStyles(size)}
+      css={textInputContainerStyles(size, noMarginBottom)}
       className='ds-text-input-container'
     >
       {errorMessage ? <div css={textInputErrorBarStyles} /> : null}
