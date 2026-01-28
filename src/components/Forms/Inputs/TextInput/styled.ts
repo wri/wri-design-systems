@@ -2,7 +2,10 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 import { TextInputProps } from './types'
 
-export const textInputContainerStyles = (size: TextInputProps['size']) => css`
+export const textInputContainerStyles = (
+  size: TextInputProps['size'],
+  noMarginBottom?: boolean,
+) => css`
   position: relative;
   height: 100%;
   width: 100%;
@@ -10,7 +13,7 @@ export const textInputContainerStyles = (size: TextInputProps['size']) => css`
   justify-content: flex-start;
   align-items: flex-start;
   gap: ${size === 'small' ? '12px' : '16px'};
-  margin-bottom: 20px;
+  margin-bottom: ${noMarginBottom ? '0' : '20px'};
 `
 
 export const textInputErrorBarStyles = css`

@@ -3,13 +3,15 @@ import React from 'react'
 import { Icon, IconProps } from '@chakra-ui/react'
 
 export const SearchIcon = (props: IconProps & { fill?: string }) => {
-  const { fill } = props
+  const { fill, width: widthProp, height: heightProp, ...rest } = props
   const pathFill = fill || 'currentColor'
+  const width = widthProp ?? '20'
+  const height = heightProp ?? widthProp ?? '20'
   return (
     <Icon {...props} fill={pathFill}>
       <svg
-        width='20'
-        height='20'
+        width={width as string}
+        height={height as string}
         viewBox='0 0 20 20'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
