@@ -23,10 +23,16 @@ import { RadioGroup, Radio } from '@worldresources/wri-design-systems'
 ```ts
 type RadioGroupProps = Omit<
   ChakraRadioGroup.ItemProps,
-  'size' | 'variant' | 'colorPalette' | 'value' | 'onChange' | 'children'
+  | 'size'
+  | 'variant'
+  | 'colorPalette'
+  | 'value'
+  | 'onChange'
+  | 'children'
+  | 'defaultValue'
 > & {
   name: string
-  defaultValue?: string
+  value: ChakraRadioGroup.ItemProps['value']
   horizontal?: boolean
   onChange?: (name: string, selectedValue: string) => void
   customGap?: string
@@ -47,7 +53,7 @@ type RadioProps = Omit<
 ## Default Checked
 
 ```tsx
-<RadioGroup name='radio-group' defaultValue='2'>
+<RadioGroup name='radio-group' value='2'>
   <Radio value='1'>One</Radio>
   <Radio value='2'>Two</Radio>
   <Radio value='3'>Three</Radio>
@@ -57,7 +63,7 @@ type RadioProps = Omit<
 ## Disabled
 
 ```tsx
-<RadioGroup name='radio-group' defaultValue='2'>
+<RadioGroup name='radio-group' value='2'>
   <Radio value='1'>One</Radio>
   <Radio value='2' disabled>
     Two

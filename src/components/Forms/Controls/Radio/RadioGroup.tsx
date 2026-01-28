@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
+import React from 'react'
 
 import { RadioGroup as ChakraRadioGroup, HStack } from '@chakra-ui/react'
 import { ValueChangeDetails } from '@zag-js/radio-group'
@@ -9,16 +9,12 @@ const RadioGroup = ({
   children,
   horizontal = false,
   name,
-  defaultValue,
+  value = '',
   onChange,
   customGap,
   ...rest
 }: RadioGroupProps) => {
-  const [selectedValue, setSelectedValue] = useState(defaultValue)
-
   const handleOnChange = (details: ValueChangeDetails) => {
-    setSelectedValue(details.value || '')
-
     if (onChange) {
       onChange(name, details.value || '')
     }
@@ -30,7 +26,7 @@ const RadioGroup = ({
   return (
     <ChakraRadioGroup.Root
       onValueChange={handleOnChange}
-      value={selectedValue}
+      value={value}
       {...rest}
     >
       <HStack
