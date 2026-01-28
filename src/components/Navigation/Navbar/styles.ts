@@ -19,9 +19,10 @@ export const navbarStyles = (
   return css`
     max-height: ${maxHeight};
     width: 100%;
-    background-color: ${backgroundColor || theme === 'dark'
+    background-color: ${backgroundColor ??
+    (theme === 'dark'
       ? getThemedColor('neutral', 800)
-      : getThemedColor('neutral', 100)};
+      : getThemedColor('neutral', 100))};
     position: ${fixed ? 'sticky' : 'absolute'};
     top: 0;
     left: 0;
