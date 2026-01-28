@@ -55,7 +55,7 @@ const RadioList = ({
         <div css={radioListContentListStyles}>
           <RadioGroup
             name={name}
-            defaultValue={defaultValue}
+            value={defaultValue}
             onChange={onCheckedChange}
             horizontal={horizontal && variant !== 'card'}
           >
