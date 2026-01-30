@@ -12,7 +12,6 @@ export const footerStyles = (
   bottom: 0;
   left: 0;
   background-color: ${filled ? getThemedColor('neutral', 200) : 'transparent'};
-  background-color: ${getThemedColor('neutral', filled ? 200 : 100)};
   border-top: 1px solid ${getThemedColor('neutral', 400)};
   z-index: 101;
 `
