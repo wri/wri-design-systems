@@ -41,6 +41,7 @@ jobs:
             ❌ Versioning label check failed.
 
             Please apply **exactly one** of: `major`, `minor`, `patch`, `no-bump`.
+            See the labeling guide: https://github.com/wri/wri-design-systems/blob/main/README.md#pr-label-rules
 
             Reason: **${{ steps.check.outputs.reason || 'invalid' }}**
             Current count (of allowed labels): **${{ steps.check.outputs.count }}**
