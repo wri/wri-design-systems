@@ -84,7 +84,7 @@ export const secondaryButtonStyles = (disabled?: boolean) => css`
     : `
     background-color: ${getThemedColor('neutral', 100)};
     border: 1px solid ${getThemedColor('neutral', 300)};
-    color: ${getThemedColor('secondary', 800)};
+    color: ${getThemedColor('neutral', 800)};
     box-shadow: 0px 1px 2px 0px #0000000D;
 
     &:hover {
@@ -121,7 +121,7 @@ export const borderlessButtonStyles = (disabled?: boolean) => css`
     : `
     background-color: transparent;
     border: none;
-    color: ${getThemedColor('secondary', 900)};
+    color: ${getThemedColor('neutral', 900)};
     box-shadow: none;
 
     &:hover {
