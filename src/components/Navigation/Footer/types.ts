@@ -4,4 +4,5 @@ export type FooterProps = {
   fixed?: boolean
   filled?: boolean
   maxWidth?: number
+  additionalLogos?: React.ReactNode[]
 }
