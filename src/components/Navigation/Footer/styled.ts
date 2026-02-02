@@ -62,3 +62,9 @@ export const footerLabelStyles = css`
     text-align: left;
   }
 `
+
+export const footerLogosContainerStyles = css`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`
