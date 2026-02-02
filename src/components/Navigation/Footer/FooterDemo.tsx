@@ -7,15 +7,10 @@ const FooterDemo = () => (
     fixed
     additionalLogos={[
       <img
-        src='https://placehold.co/91x32/0066CC/FFFFFF?text=Partner+1'
-        alt='Partner Logo 1'
+        src='https://placehold.co/91x32/b0b0b0/31343C?font=playfair-display&text=Partner+Logo'
+        alt='Partner Logo'
         height='32px'
-      />,
-      <img
-        src='https://placehold.co/91x32/00A86B/FFFFFF?text=Partner+2'
-        alt='Partner Logo 2'
-        height='32px'
-      />,
+      />
     ]}
   >
     <a

@@ -40,6 +40,7 @@ type FooterProps = {
   fixed?: boolean
   filled?: boolean
   maxWidth?: number
+  additionalLogos?: React.ReactNode[]
 }
 ```
 
@@ -110,6 +111,35 @@ type FooterProps = {
 
 ```tsx
 <Footer maxWidth={1440}>
+  <a
+    href='https://www.wri.org/about/privacy-policy'
+    target='_blank'
+    rel='noreferrer'
+  >
+    Privacy policy
+  </a>
+  <a
+    href='https://www.wri.org/about/wri-data-platforms-tos'
+    target='_blank'
+    rel='noreferrer'
+  >
+    Terms of service
+  </a>
+</Footer>
+```
+
+## With Additional Logos
+
+```tsx
+<Footer
+  maxWidth={1440}
+  filled
+  fixed
+  additionalLogos={[
+    <img src='/partner-logo-1.svg' alt='Partner Logo 1' height='32px' />,
+    <img src='/partner-logo-2.svg' alt='Partner Logo 2' height='32px' />,
+  ]}
+>
   <a
     href='https://www.wri.org/about/privacy-policy'
     target='_blank'
