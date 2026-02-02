@@ -17,7 +17,7 @@ const Footer = ({
   fixed,
   filled,
   maxWidth,
-  logos,
+  additionalLogos,
 }: FooterProps) => {
   const actualYear = new Date().getFullYear()
 
@@ -26,7 +26,8 @@ const Footer = ({
       <div css={footerContainerStyles(maxWidth)}>
         <div css={footerLogosContainerStyles}>
           <WriLogoBlackAndWhiteIcon height='32px' width='91px' />
-          {logos && logos.map((logo, index) => <div key={index}>{logo}</div>)}
+          {/* eslint-disable-next-line react/no-array-index-key */}
+          {additionalLogos && additionalLogos.map((logo, index) => <div key={index}>{logo}</div>)}
         </div>
         <div css={footerContentStyles}>{children}</div>
         <div>
