@@ -80,16 +80,19 @@ export const Floating: Story = {
                 }}
               >
                 {Children.map(legentItems, (child, idx) =>
-                  cloneElement(child as ReactElement, {
-                    onUpClick: () => {
-                      const items = reorder(legentItems, idx, idx - 1)
-                      setLegentItems(items)
-                    },
-                    onDownClick: () => {
-                      const items = reorder(legentItems, idx, idx + 1)
-                      setLegentItems(items)
-                    },
-                  }),
+                  cloneElement(
+                    child as ReactElement,
+                    {
+                      onUpClick: () => {
+                        const items = reorder(legentItems, idx, idx - 1)
+                        setLegentItems(items)
+                      },
+                      onDownClick: () => {
+                        const items = reorder(legentItems, idx, idx + 1)
+                        setLegentItems(items)
+                      },
+                    } as any,
+                  ),
                 )}
               </div>
             ) : null}
