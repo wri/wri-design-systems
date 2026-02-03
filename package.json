@@ -45,6 +45,7 @@
     "@chakra-ui/storybook-addon": "^5.2.5",
     "@chromatic-com/storybook": "^1.9.0",
     "@emotion/react": "^11.14.0",
+    "@floating-ui/react": "^0.27.16",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
@@ -63,19 +64,20 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.112",
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.9.0",
     "prettier": "^3.3.3",
     "prop-types": "^15.8.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-draggable": "^4.4.6",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "react-draggable": "^4.5.0",
     "react-router-dom": "^7.1.5",
     "react-scripts": "5.0.1",
+    "react-spring-bottom-sheet": "^3.4.1",
     "rollup": "^4.34.8",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -89,19 +91,13 @@
   "peerDependencies": {
     "@chakra-ui/react": "^3.14.2",
     "@emotion/react": "^11.14.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wri/wri-design-systems.git"
   },
   "author": "WRI",
-  "license": "MIT",
-  "dependencies": {
-    "@chakra-ui/charts": "^3.30.0",
-    "@floating-ui/react": "^0.27.16",
-    "react-spring-bottom-sheet": "^3.4.1",
-    "recharts": "^3.6.0"
-  }
+  "license": "MIT"
 }

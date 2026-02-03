@@ -90,8 +90,9 @@ const NavbarMobile = ({
                         key={item.label}
                         css={navbarMobileNavigationMenuStyles}
                         type='button'
-                        // eslint-disable-next-line no-return-assign
-                        ref={(el) => (menuButtonRefs.current[idx] = el)}
+                        ref={(el) => {
+                          menuButtonRefs.current[idx] = el
+                        }}
                         onClick={() => {
                           if (item.items) {
                             setSubmenu(item)

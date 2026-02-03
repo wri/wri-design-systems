@@ -2,6 +2,7 @@
 
 import { Dialog, Portal } from '@chakra-ui/react'
 import Draggable from 'react-draggable'
+import { useRef } from 'react'
 import { ModalProps } from './types'
 import {
   modalCloseButtonStyles,
@@ -21,6 +22,8 @@ const Modal = ({
   open,
   onClose,
 }: ModalProps) => {
+  const nodeRef = useRef(null)
+
   if (!open) return null
 
   return (
@@ -36,8 +39,8 @@ const Modal = ({
     >
       <Portal>
         {!draggable ? <Dialog.Backdrop /> : null}
-        <Draggable disabled={!draggable}>
-          <Dialog.Positioner>
+        <Draggable disabled={!draggable} nodeRef={nodeRef}>
+          <Dialog.Positioner ref={nodeRef}>
             <Dialog.Content css={modalContainerStyles(size)}>
               <Dialog.Header css={modalHeaderStyles}>
                 {header}

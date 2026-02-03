@@ -6,7 +6,7 @@ WRI UI Library
 
 Node: `22.14.0`
 
-React: `18.3.1`
+React: `19.0.1`
 
 ## Installation
 

@@ -4,7 +4,7 @@ export type MapPopUpProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
   /** The element that the modal/connector should point to */
-  anchorRef: React.RefObject<HTMLElement>
+  anchorRef: React.RefObject<HTMLButtonElement | null>
   header: React.ReactNode
   content: React.ReactNode
   footer?: React.ReactNode
