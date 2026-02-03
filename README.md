@@ -324,3 +324,23 @@ npm login
 ```
 npm publish
 ```
+
+## PR Label Rules
+
+Use exactly one versioning label on every PR. The label drives the npm version bump when the PR is merged into `main`.
+
+**How it works**
+
+- Open a PR and add **one** of the labels below.
+- The PR Label Guard workflow enforces that exactly one label is present.
+- On merge, the Release & Publish workflow bumps `package.json`, tags, and publishes to npm for `major`, `minor`, or `patch`.
+- `no-bump` skips all versioning and publishing.
+
+**Label guide**
+
+- `patch`: non-breaking fixes (styles, internal refactors, Storybook-only tweaks that do not change usage)
+- `minor`: backwards-compatible feature or API additions (new component/prop), or behavior changes that may affect usage but are not breaking
+- `major`: breaking changes (removed/renamed props, changed required behavior, incompatible defaults)
+- `no-bump`: documentation-only or internal changes that should not publish
+
+If you are unsure, choose `minor` and leave a note in the PR for review.
