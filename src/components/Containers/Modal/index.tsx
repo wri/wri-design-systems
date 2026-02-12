@@ -17,6 +17,9 @@ const Modal = ({
   content,
   footer,
   size = 'medium',
+  width,
+  height,
+  maxHeight,
   draggable,
   blocking,
   open,
@@ -41,7 +44,9 @@ const Modal = ({
         {!draggable ? <Dialog.Backdrop /> : null}
         <Draggable disabled={!draggable} nodeRef={nodeRef}>
           <Dialog.Positioner ref={nodeRef}>
-            <Dialog.Content css={modalContainerStyles(size)}>
+            <Dialog.Content
+              css={modalContainerStyles(size, width, height, maxHeight)}
+            >
               <Dialog.Header css={modalHeaderStyles}>
                 {header}
                 {!blocking ? (

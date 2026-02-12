@@ -1,22 +1,19 @@
 import { useState } from 'react'
 import { Button, getThemedColor, Modal } from '../..'
 import DemoWrapper from '../../UI/DemoWrapper'
+import { ModalProps } from './types'
 
 const ModalDemo = () => {
-  const [modalData, setModalData] = useState<{
-    header?: React.ReactNode
-    content?: React.ReactNode
-    footer?: React.ReactNode
-    size?: 'small' | 'medium' | 'large' | 'xlarge'
-    draggable?: boolean
-    blocking?: boolean
-  }>({})
+  const [modalData, setModalData] = useState<Partial<ModalProps>>({})
 
   const handleModalOpen = (
-    size: 'small' | 'medium' | 'large' | 'xlarge',
+    size: ModalProps['size'],
     showActions = false,
     draggable = false,
     blocking = false,
+    width = '',
+    height = '',
+    maxHeight = '',
   ) => {
     setModalData({
       header: (
@@ -50,6 +47,9 @@ const ModalDemo = () => {
       size,
       draggable,
       blocking,
+      width,
+      height,
+      maxHeight,
     })
   }
 
@@ -64,6 +64,10 @@ const ModalDemo = () => {
             maxWidth: '200px',
           }}
         >
+          <Button
+            label='Extra Small Modal'
+            onClick={() => handleModalOpen('xsmall')}
+          />
           <Button
             label='Small Modal'
             onClick={() => handleModalOpen('small')}
@@ -80,6 +84,27 @@ const ModalDemo = () => {
             label='Extra Large Modal'
             onClick={() => handleModalOpen('xlarge')}
           />
+
+          <Button
+            label='Full Width Modal'
+            onClick={() => handleModalOpen('full-width')}
+          />
+
+          <Button
+            label='Custom Size Modal'
+            onClick={() =>
+              handleModalOpen(
+                undefined,
+                false,
+                false,
+                false,
+                '400px',
+                '400px',
+                '100%',
+              )
+            }
+          />
+
           <Button
             label='Medium With Actions'
             onClick={() => handleModalOpen('medium', true)}
@@ -103,6 +128,9 @@ const ModalDemo = () => {
           onClose={() => setModalData({})}
           draggable={modalData?.draggable}
           blocking={modalData?.blocking}
+          width={modalData?.width}
+          height={modalData?.height}
+          maxHeight={modalData?.maxHeight}
         />
       </div>
     </DemoWrapper>
