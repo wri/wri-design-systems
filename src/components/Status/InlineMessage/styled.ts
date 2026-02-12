@@ -4,22 +4,31 @@ import { getThemedColor } from '../../../lib/theme'
 export const defaultInlineMessageStyles = (
   size: string,
   isButtonRight?: boolean,
-) => css`
-  width: 100%;
-  max-width: ${size === 'small' ? '234px' : '320px'};
-  border-radius: 4px;
-  padding: ${size === 'small' ? '8px 8px 12px 8px' : '8px 12px 12px 12px'};
-  display: flex;
-  align-items: ${isButtonRight ? 'center' : 'flex-start'};
-  justify-content: ${isButtonRight ? 'space-between' : 'flex-start'};
-  flex-direction: ${isButtonRight ? 'row' : 'column'};
-  gap: 8px;
-  margin-bottom: 16px;
-
-  button {
-    margin-left: ${isButtonRight ? 0 : '24px'};
+) => {
+  let maxWidth = '234px'
+  if (size === 'full-width') {
+    maxWidth = '100%'
+  } else if (size === 'large') {
+    maxWidth = '320px'
   }
-`
+
+  return css`
+    width: 100%;
+    max-width: ${maxWidth};
+    border-radius: 4px;
+    padding: ${size === 'small' ? '8px 8px 12px 8px' : '8px 12px 12px 12px'};
+    display: flex;
+    align-items: ${isButtonRight ? 'center' : 'flex-start'};
+    justify-content: ${isButtonRight ? 'space-between' : 'flex-start'};
+    flex-direction: ${isButtonRight ? 'row' : 'column'};
+    gap: 8px;
+    margin-bottom: 16px;
+
+    button {
+      margin-left: ${isButtonRight ? 0 : '24px'};
+    }
+  `
+}
 
 export const inlineMessageHeaderStyles = css`
   display: flex;
@@ -32,6 +41,7 @@ export const inlineMessageHeaderStyles = css`
 `
 
 export const inlineMessageTitleStyles = (size: string) => css`
+  max-width: 720px;
   color: ${getThemedColor('neutral', 800)};
   font-size: ${size === 'small' ? '14px' : '18px'};
   line-height: ${size === 'small' ? '20px' : '28px'};
@@ -40,6 +50,7 @@ export const inlineMessageTitleStyles = (size: string) => css`
 `
 
 export const inlineMessageCaptionStyles = (size: string) => css`
+  max-width: 720px;
   color: ${getThemedColor('neutral', 700)};
   font-size: ${size === 'small' ? '12px' : '16px'};
   line-height: ${size === 'small' ? '16px' : '24px'};
