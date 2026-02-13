@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
 import ModalStory from '.'
 import Button from '../../Forms/Actions/Button'
 import { getThemedColor } from '../../../lib/theme'
@@ -32,6 +31,38 @@ export const Modal: Story = {
       </p>
     ),
     content: <p>Content</p>,
+    open: false,
+  },
+  render: (args) => {
+    const [showModal, setShowModal] = useState(false)
+
+    return (
+      <>
+        <Button label='Show Modal' onClick={() => setShowModal(true)} />
+        <ModalStory
+          {...args}
+          open={showModal}
+          onClose={() => setShowModal(false)}
+        />
+      </>
+    )
+  },
+}
+
+export const ExtraSmall: Story = {
+  args: {
+    header: (
+      <p
+        style={{
+          fontWeight: 'bold',
+          color: getThemedColor('neutral', 800),
+        }}
+      >
+        Title
+      </p>
+    ),
+    content: <p>Content</p>,
+    size: 'xsmall',
     open: false,
   },
   render: (args) => {
@@ -128,6 +159,71 @@ export const ExtraLarge: Story = {
     ),
     content: <p>Content</p>,
     size: 'xlarge',
+    open: false,
+  },
+  render: (args) => {
+    const [showModal, setShowModal] = useState(false)
+
+    return (
+      <>
+        <Button label='Show Modal' onClick={() => setShowModal(true)} />
+        <ModalStory
+          {...args}
+          open={showModal}
+          onClose={() => setShowModal(false)}
+        />
+      </>
+    )
+  },
+}
+export const FullWidth: Story = {
+  args: {
+    header: (
+      <p
+        style={{
+          fontWeight: 'bold',
+          color: getThemedColor('neutral', 800),
+        }}
+      >
+        Title
+      </p>
+    ),
+    content: <p>Content</p>,
+    size: 'full-width',
+    open: false,
+  },
+  render: (args) => {
+    const [showModal, setShowModal] = useState(false)
+
+    return (
+      <>
+        <Button label='Show Modal' onClick={() => setShowModal(true)} />
+        <ModalStory
+          {...args}
+          open={showModal}
+          onClose={() => setShowModal(false)}
+        />
+      </>
+    )
+  },
+}
+
+export const CustomSize: Story = {
+  args: {
+    header: (
+      <p
+        style={{
+          fontWeight: 'bold',
+          color: getThemedColor('neutral', 800),
+        }}
+      >
+        Title
+      </p>
+    ),
+    content: <p>Content</p>,
+    width: '500px',
+    height: '300px',
+    maxHeight: '400px',
     open: false,
   },
   render: (args) => {
