@@ -36,6 +36,17 @@ export const InfoGrey: Story = {
   },
 }
 
+export const FullWidth: Story = {
+  args: {
+    label: 'Full Width',
+    caption:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices, nisi vel congue imperdiet, risus felis iaculis metus, sit amet accumsan justo nibh eu odio. Fusce velit augue, bibendum vestibulum elit vel, placerat iaculis dolor. Aliquam tincidunt nunc blandit, consequat magna ut, mollis mi. Morbi ac dictum nisi. Quisque leo neque, vehicula eu lorem ac, convallis pellentesque sem. Proin commodo libero quis nulla tristique, a vehicula sem consectetur. Donec id luctus orci.',
+    variant: 'info-grey',
+    actionLabel: 'Label',
+    size: 'full-width',
+  },
+}
+
 export const Success: Story = {
   args: {
     label: 'Success',
