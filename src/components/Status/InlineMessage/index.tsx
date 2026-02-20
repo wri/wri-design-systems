@@ -25,6 +25,8 @@ const InlineMessage = ({
   onActionClick,
   actionLabel,
   isButtonRight,
+  buttonLeftIcon,
+  buttonRightIcon,
 }: InlineMessageProps) => {
   let variantInlineMessageStyles = infoWhiteInlineMessageStyles
   if (variant === 'info-grey') {
@@ -50,7 +52,9 @@ const InlineMessage = ({
           {icon}
           <p css={inlineMessageTitleStyles(size)}>{label}</p>
         </div>
-        <p css={inlineMessageCaptionStyles(size)}>{caption}</p>
+        {caption && (
+          <p css={inlineMessageCaptionStyles(size, !!icon)}>{caption}</p>
+        )}
       </div>
       {actionLabel ? (
         <Button
@@ -62,6 +66,8 @@ const InlineMessage = ({
           }
           size={size === 'large' ? 'default' : 'small'}
           onClick={onActionClick}
+          leftIcon={buttonLeftIcon}
+          rightIcon={buttonRightIcon}
         />
       ) : null}
     </div>
