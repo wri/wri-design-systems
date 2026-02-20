@@ -1,4 +1,5 @@
 import { InlineMessage } from '../..'
+import { CheckIcon } from '../../icons'
 import DemoWrapper from '../../UI/DemoWrapper'
 
 const InlineMessageDemo = () => (
@@ -157,6 +158,16 @@ const InlineMessageDemo = () => (
         actionLabel='Label'
         isButtonRight
         size='small'
+      />
+      <InlineMessage
+        label='Ready to finish this factor?'
+        caption="Mark this factor as complete when you've finished reviewing the response, rationale, and strategies."
+        variant='info-grey'
+        size='full-width'
+        icon={null}
+        actionLabel='Mark complete'
+        isButtonRight
+        buttonLeftIcon={<CheckIcon height='16px' width='16px' />}
       />
     </div>
   </DemoWrapper>

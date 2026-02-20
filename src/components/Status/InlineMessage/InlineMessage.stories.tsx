@@ -4,6 +4,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import InlineMessage from '.'
+import { CheckIcon } from '../../icons'
 
 const meta = {
   title: 'Status/Inline Message',
@@ -103,5 +104,19 @@ export const SmallButtonRight: Story = {
     actionLabel: 'Label',
     size: 'small',
     isButtonRight: true,
+  },
+}
+
+export const NoIconWithButtonIcon: Story = {
+  args: {
+    label: 'Ready to finish this factor?',
+    caption:
+      "Mark this factor as complete when you've finished reviewing the response, rationale, and strategies.",
+    variant: 'info-grey',
+    size: 'full-width',
+    icon: null,
+    actionLabel: 'Mark complete',
+    isButtonRight: true,
+    buttonLeftIcon: <CheckIcon height='16px' width='16px' />,
   },
 }
