@@ -49,7 +49,10 @@ export const inlineMessageTitleStyles = (size: string) => css`
   text-align: left;
 `
 
-export const inlineMessageCaptionStyles = (size: string, hasIcon: boolean = true) => css`
+export const inlineMessageCaptionStyles = (
+  size: string,
+  hasIcon: boolean = true,
+) => css`
   max-width: 720px;
   color: ${getThemedColor('neutral', 700)};
   font-size: ${size === 'small' ? '12px' : '16px'};
