@@ -51,7 +51,7 @@ export const inlineMessageTitleStyles = (size: string) => css`
 
 export const inlineMessageCaptionStyles = (
   size: string,
-  hasIcon: boolean = true,
+  hasIcon: boolean,
 ) => css`
   max-width: 720px;
   color: ${getThemedColor('neutral', 700)};
