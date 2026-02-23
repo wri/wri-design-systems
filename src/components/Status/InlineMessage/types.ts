@@ -7,4 +7,6 @@ export type InlineMessageProps = {
   onActionClick?: VoidFunction
   actionLabel?: string
   isButtonRight?: boolean
+  buttonLeftIcon?: React.ReactNode
+  buttonRightIcon?: React.ReactNode
 }
