@@ -30,6 +30,7 @@ type PasswordProps = {
     lowercase,
     numbers,
     specialCharacters,
+    password,
   }: {
     strength: string
     length: boolean
@@ -37,6 +38,7 @@ type PasswordProps = {
     lowercase: boolean
     numbers: boolean
     specialCharacters: boolean
+    password: string
   }) => void
   disabledRules?: {
     uppercase?: boolean
