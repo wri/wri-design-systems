@@ -80,7 +80,7 @@ const Password = ({
     setPasswordStatus(newPasswordStatus)
 
     if (onChange) {
-      onChange({...newPasswordStatus, password: value})
+      onChange({ ...newPasswordStatus, password: value })
     }
   }
 
