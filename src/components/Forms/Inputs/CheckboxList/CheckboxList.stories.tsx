@@ -47,7 +47,7 @@ export const WithDefaultValue: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    defaultValue: 'checkbox-2',
+    defaultValues: ['checkbox-2'],
     checkboxes: [
       {
         children: 'Checkbox 1',
@@ -73,7 +73,7 @@ export const Horizontal: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    defaultValue: 'checkbox-2',
+    defaultValues: ['checkbox-2'],
     checkboxes: [
       {
         children: 'Checkbox 1',
@@ -100,7 +100,7 @@ export const WithErrorMessage: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    defaultValue: 'checkbox-2',
+    defaultValues: ['checkbox-2'],
     errorMessage: 'Error Message',
     checkboxes: [
       {
@@ -131,7 +131,7 @@ export const WithParentCheckbox: Story = {
   ),
   args: {
     label: { type: 'checkbox', label: 'Parent', name: 'all' },
-    defaultValue: 'checkbox-2',
+    defaultValues: ['checkbox-2'],
     checkboxes: [
       {
         children: 'Checkbox 1',
