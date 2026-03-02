@@ -12,7 +12,7 @@ export type CheckboxListProps = {
   label: CheckboxListLabel
   caption?: string
   checkboxes: CheckboxProps[]
-  defaultValue?: string
+  defaultValues?: string[]
   onCheckedChange?: (checkedValues: { [name: string]: boolean }) => void
   errorMessage?: string
   horizontal?: boolean

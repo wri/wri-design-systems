@@ -22,7 +22,7 @@ const CheckboxList = ({
   label,
   caption,
   checkboxes,
-  defaultValue,
+  defaultValues,
   onCheckedChange,
   errorMessage,
   horizontal,
@@ -32,7 +32,11 @@ const CheckboxList = ({
 }: CheckboxListProps) => {
   const [checkedValues, setCheckedValues] = useState<{
     [name: string]: boolean
-  }>(defaultValue ? { [defaultValue]: true } : {})
+  }>(
+    defaultValues
+      ? defaultValues.reduce((acc, name) => ({ ...acc, [name]: true }), {})
+      : {},
+  )
   const [isExpanded, setIsExpanded] = useState(true)
 
   const handleOnChecked = (checked: string | boolean, name?: string) => {
