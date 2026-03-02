@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
@@ -8,6 +9,7 @@ import {
   errorInlineMessageStyles,
   infoGreyInlineMessageStyles,
   infoWhiteInlineMessageStyles,
+  inlineMessageCaptionContainerStyles,
   inlineMessageCaptionStyles,
   inlineMessageHeaderStyles,
   inlineMessageTitleStyles,
@@ -52,9 +54,13 @@ const InlineMessage = ({
           {icon}
           <p css={inlineMessageTitleStyles(size)}>{label}</p>
         </div>
-        {caption && (
+        {caption && typeof caption === 'string' ? (
           <p css={inlineMessageCaptionStyles(size, !!icon)}>{caption}</p>
-        )}
+        ) : caption ? (
+          <div css={inlineMessageCaptionContainerStyles(size, !!icon)}>
+            {caption}
+          </div>
+        ) : null}
       </div>
       {actionLabel ? (
         <Button

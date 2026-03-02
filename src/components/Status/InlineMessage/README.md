@@ -26,7 +26,7 @@ import { InlineMessage } from '@worldresources/wri-design-systems'
 ```ts
 type InlineMessageProps = {
   label: string
-  caption?: string
+  caption?: string | React.ReactNode
   variant: 'info-white' | 'info-grey' | 'success' | 'warning' | 'error'
   size?: 'small' | 'large'
   icon?: React.ReactNode
