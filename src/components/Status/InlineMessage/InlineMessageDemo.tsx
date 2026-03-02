@@ -169,6 +169,16 @@ const InlineMessageDemo = () => (
         isButtonRight
         buttonLeftIcon={<CheckIcon height='16px' width='16px' />}
       />
+      <InlineMessage
+        label='Label'
+        caption={
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <p>Caption</p>
+            <p>Caption</p>
+          </div>
+        }
+        variant='error'
+      />
     </div>
   </DemoWrapper>
 )

@@ -62,6 +62,19 @@ export const inlineMessageCaptionStyles = (
   text-align: left;
 `
 
+export const inlineMessageCaptionContainerStyles = (
+  size: string,
+  hasIcon: boolean,
+) => css`
+  max-width: 720px;
+  color: ${getThemedColor('neutral', 700)};
+  font-size: ${size === 'small' ? '12px' : '16px'};
+  line-height: ${size === 'small' ? '16px' : '24px'};
+  font-weight: 400;
+  margin-left: ${hasIcon ? '24px' : '0'};
+  text-align: left;
+`
+
 export const infoWhiteInlineMessageStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
   border: 1px solid ${getThemedColor('neutral', 300)};
