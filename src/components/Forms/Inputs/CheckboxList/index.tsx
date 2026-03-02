@@ -30,12 +30,17 @@ const CheckboxList = ({
   hideCheckedCounter = false,
   hideExpandToggle = false,
 }: CheckboxListProps) => {
+  const normalizedDefaultValues = Array.isArray(defaultValues)
+    ? defaultValues
+    : []
+
   const [checkedValues, setCheckedValues] = useState<{
     [name: string]: boolean
   }>(
-    defaultValues
-      ? defaultValues.reduce((acc, name) => ({ ...acc, [name]: true }), {})
-      : {},
+    normalizedDefaultValues.reduce(
+      (acc, name) => ({ ...acc, [name]: true }),
+      {},
+    ),
   )
   const [isExpanded, setIsExpanded] = useState(true)
 
