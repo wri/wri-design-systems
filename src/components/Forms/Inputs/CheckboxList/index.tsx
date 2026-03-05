@@ -68,8 +68,8 @@ const CheckboxList = ({
             accumulator[name] =
               typeof checkbox.checked === 'boolean'
                 ? checkbox.checked
-                : previousCheckedValues[name] ??
-                  normalizedDefaultValueSet.has(name)
+                : (previousCheckedValues[name] ??
+                  normalizedDefaultValueSet.has(name))
             return accumulator
           },
           {} as Record<string, boolean>,
@@ -232,7 +232,9 @@ const CheckboxList = ({
                 key={checkbox.name}
                 css={{}}
                 checked={
-                  checkbox?.name ? !!resolvedCheckedValues[checkbox.name] : false
+                  checkbox?.name
+                    ? !!resolvedCheckedValues[checkbox.name]
+                    : false
                 }
                 onCheckedChange={({ checked }) => {
                   handleOnChecked(checked, checkbox.name)
