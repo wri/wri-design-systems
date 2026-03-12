@@ -26,6 +26,8 @@ export const modalContainerStyles = (
   }
   const computedWidth = width || widthMap[size] || '240px'
   const computedMaxHeight = maxHeight || maxHeightMap[size] || '560px'
+  const cappedMaxHeight =
+    computedMaxHeight === 'unset' ? '80vh' : `min(${computedMaxHeight}, 80vh)`
   let computedHeight = 'auto'
   if (height) {
     computedHeight = height
@@ -37,7 +39,7 @@ export const modalContainerStyles = (
     max-width: 100%;
     width: ${computedWidth};
     height: ${computedHeight};
-    max-height: ${computedMaxHeight};
+    max-height: ${cappedMaxHeight};
     background-color: ${getThemedColor('neutral', 100)};
     border: 1px solid ${getThemedColor('neutral', 300)};
     border-radius: 4px;
