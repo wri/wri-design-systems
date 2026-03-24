@@ -64,11 +64,11 @@ export type CheckboxListProps = {
 
 // CheckboxListLabels — all keys are optional when using Partial<>
 export type CheckboxListLabels = {
-  expandLabel: string        // Default: 'Expand'
-  hideLabel: string          // Default: 'Hide'
-  requiredLabel: string      // Default: 'Required.'
-  optionalLabel: string      // Default: 'Optional'
-  errorPrefix: string        // Default: 'Error:'
+  expandLabel: string // Default: 'Expand'
+  hideLabel: string // Default: 'Hide'
+  requiredLabel: string // Default: 'Required.'
+  optionalLabel: string // Default: 'Optional'
+  errorPrefix: string // Default: 'Error:'
   requiredSymbolLabel: string // Default: 'required'
 }
 ```
@@ -183,8 +183,7 @@ The component ships with English defaults for all internal UI strings. Override 
 
 ```tsx
 import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
-
-<DesignSystemLocaleProvider
+;<DesignSystemLocaleProvider
   labels={{
     CheckboxList: {
       expandLabel: 'Mostrar',
@@ -211,4 +210,3 @@ const intl = useIntl()
 ```
 
 > **Note:** The component-level `labels` prop always takes precedence over the context provider.
-

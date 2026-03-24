@@ -151,8 +151,12 @@ const CheckboxList = ({
 
   const captionText = caption ? `${caption}.` : ''
 
-  const requiredText = required ? resolvedLabels.requiredLabel : resolvedLabels.optionalLabel
-  const errorText = errorMessage ? `${resolvedLabels.errorPrefix} ${errorMessage}.` : ''
+  const requiredText = required
+    ? resolvedLabels.requiredLabel
+    : resolvedLabels.optionalLabel
+  const errorText = errorMessage
+    ? `${resolvedLabels.errorPrefix} ${errorMessage}.`
+    : ''
 
   const groupLabel = `${hasParentCheckbox ? label.label : label}. ${captionText} ${requiredText} ${errorText} `
   return (
@@ -163,7 +167,10 @@ const CheckboxList = ({
           {typeof label === 'string' ? (
             <>
               {required && (
-                <span id='required-symbol' aria-label={resolvedLabels.requiredSymbolLabel}>
+                <span
+                  id='required-symbol'
+                  aria-label={resolvedLabels.requiredSymbolLabel}
+                >
                   *
                 </span>
               )}
@@ -198,7 +205,9 @@ const CheckboxList = ({
                   aria-controls='checkbox-list'
                   css={expandButtonStyles}
                 >
-                  {isExpanded ? resolvedLabels.hideLabel : resolvedLabels.expandLabel}
+                  {isExpanded
+                    ? resolvedLabels.hideLabel
+                    : resolvedLabels.expandLabel}
                   <span aria-hidden='true'>
                     {isExpanded ? (
                       <ChevronDownIcon
