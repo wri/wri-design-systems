@@ -13,6 +13,7 @@ import {
   textInputStyles,
 } from './styled'
 import { TextInputProps } from './types'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const TextInput = ({
   label,
@@ -25,8 +26,10 @@ const TextInput = ({
   noMarginBottom = false,
   defaultValue = '',
   onChange,
+  labels,
   ...rest
 }: TextInputProps) => {
+  const l = useLabels('TextInput', labels)
   const [value, setValue] = useState(defaultValue)
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,9 +57,9 @@ const TextInput = ({
             css={fieldLabelStyles(size, disabled)}
             aria-label={label}
           >
-            <Field.RequiredIndicator aria-label='required' />
+            <Field.RequiredIndicator aria-label={l.requiredSymbolLabel} />
             {label}
-            {!required ? <span>{' (Optional)'}</span> : ''}
+            {!required ? <span>{l.optionalSuffix}</span> : ''}
           </Field.Label>
         ) : null}
         {caption ? (

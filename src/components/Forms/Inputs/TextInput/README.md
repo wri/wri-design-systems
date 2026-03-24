@@ -88,3 +88,38 @@ type TextInputProps = Omit<
   disabled
 />
 ```
+
+## Internationalization (i18n)
+
+The component ships with English defaults for all internal UI strings. Override any or all of them via the `labels` prop, or set them app-wide using `DesignSystemLocaleProvider`.
+
+### Per-component override
+
+```tsx
+<TextInput
+  label='Correo electrónico'
+  labels={{
+    requiredSymbolLabel: 'obligatorio',
+    optionalSuffix: ' (Opcional)',
+  }}
+/>
+```
+
+### App-wide via context
+
+```tsx
+import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
+
+;<DesignSystemLocaleProvider
+  labels={{
+    TextInput: {
+      requiredSymbolLabel: 'obligatoire',
+      optionalSuffix: ' (Optionnel)',
+    },
+  }}
+>
+  <App />
+</DesignSystemLocaleProvider>
+```
+
+> **Note:** The component-level `labels` prop always takes precedence over the context provider.

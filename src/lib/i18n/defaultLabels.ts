@@ -1,8 +1,13 @@
-import type { CheckboxListLabels, PasswordLabels } from './types'
+import type {
+  CheckboxListLabels,
+  PasswordLabels,
+  TextInputLabels,
+} from './types'
 
 type DefaultLabels = {
   CheckboxList: Required<CheckboxListLabels>
   Password: Required<PasswordLabels>
+  TextInput: Required<TextInputLabels>
 }
 
 /**
@@ -36,5 +41,9 @@ export const defaultLabels: DefaultLabels = {
     lowercaseRule: 'Use a lowercase letter',
     numberRule: 'Use a number',
     specialCharRule: 'Use a special character',
+  },
+  TextInput: {
+    requiredSymbolLabel: 'required',
+    optionalSuffix: ' (Optional)',
   },
 }

@@ -14,6 +14,7 @@ export type {
   DesignSystemLabels,
   CheckboxListLabels,
   PasswordLabels,
+  TextInputLabels,
 } from '../lib/i18n'
 
 // -- i18n -- //

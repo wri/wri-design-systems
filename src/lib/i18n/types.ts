@@ -59,6 +59,17 @@ export type PasswordLabels = {
 }
 
 /**
+ * Labels for TextInput internal UI strings.
+ * Override any key to provide translations.
+ */
+export type TextInputLabels = {
+  /** Accessible label for the required (*) indicator. Default: "required" */
+  requiredSymbolLabel: string
+  /** Suffix appended after the field label when the field is optional. Default: " (Optional)" */
+  optionalSuffix: string
+}
+
+/**
  * Top-level labels map for the design system.
  * Consumers can provide partial overrides for any component via
  * `DesignSystemLocaleProvider` or directly via each component's `labels` prop.
@@ -68,4 +79,5 @@ export type PasswordLabels = {
 export type DesignSystemLabels = {
   CheckboxList?: Partial<CheckboxListLabels>
   Password?: Partial<PasswordLabels>
+  TextInput?: Partial<TextInputLabels>
 }

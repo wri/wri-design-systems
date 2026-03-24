@@ -4,5 +4,6 @@ export type {
   DesignSystemLabels,
   CheckboxListLabels,
   PasswordLabels,
+  TextInputLabels,
 } from './types'
 export { defaultLabels } from './defaultLabels'
