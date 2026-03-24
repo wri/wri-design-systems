@@ -5,7 +5,8 @@ import { useState } from 'react'
 
 import TextInput from '../TextInput'
 import Button from '../../Actions/Button'
-import { PasswordProps } from './types'
+import { PasswordProps, StrengthLevel } from './types'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 import {
   passwordCaptionStyles,
   passwordContainerStyles,
@@ -26,11 +27,20 @@ const Password = ({
   onChange,
   minLength = 8,
   hideValidations,
+  labels,
 }: PasswordProps) => {
+  const l = useLabels('Password', labels)
   const [show, setShow] = useState(false)
   const [password, setPassword] = useState('')
-  const [passwordStatus, setPasswordStatus] = useState({
-    strength: 'Very weak',
+  const [passwordStatus, setPasswordStatus] = useState<{
+    strength: StrengthLevel
+    length: boolean
+    uppercase: boolean
+    lowercase: boolean
+    numbers: boolean
+    specialCharacters: boolean
+  }>({
+    strength: 'very-weak',
     length: false,
     uppercase: false,
     lowercase: false,
@@ -62,18 +72,18 @@ const Password = ({
     strengthCount += isValid ? 1 : 0
     newPasswordStatus.specialCharacters = isValid
 
-    newPasswordStatus.strength = 'Very Weak'
+    newPasswordStatus.strength = 'very-weak'
     if (value.length >= 4 && strengthCount >= 2) {
-      newPasswordStatus.strength = 'Weak'
+      newPasswordStatus.strength = 'weak'
     }
     if (value.length >= 6 && strengthCount >= 3) {
-      newPasswordStatus.strength = 'Medium'
+      newPasswordStatus.strength = 'medium'
     }
     if (value.length >= minLength && strengthCount >= 4) {
-      newPasswordStatus.strength = 'Strong'
+      newPasswordStatus.strength = 'strong'
     }
     if (value.length >= minLength + 2 && strengthCount >= 5) {
-      newPasswordStatus.strength = 'Very Strong'
+      newPasswordStatus.strength = 'very-strong'
     }
 
     setPassword(value)
@@ -82,6 +92,14 @@ const Password = ({
     if (onChange) {
       onChange({ ...newPasswordStatus, password: value })
     }
+  }
+
+  const strengthDisplay: Record<StrengthLevel, string> = {
+    'very-weak': l.strengthVeryWeak,
+    weak: l.strengthWeak,
+    medium: l.strengthMedium,
+    strong: l.strengthStrong,
+    'very-strong': l.strengthVeryStrong,
   }
 
   return (
@@ -101,10 +119,10 @@ const Password = ({
           onChange={(e) => validatePassword(e.target.value)}
         />
         <Button
-          label={show ? 'Hide' : 'Show'}
+          label={show ? l.hideLabel : l.showLabel}
           variant='secondary'
           leftIcon={show ? <HideIcon /> : <ShowIcon />}
-          aria-label={show ? 'Hide password' : 'Show password'}
+          aria-label={show ? l.hidePasswordLabel : l.showPasswordLabel}
           onClick={() => setShow(!show)}
           type='button'
         />
@@ -120,17 +138,16 @@ const Password = ({
             aria-live='polite'
             role='status'
           >
-            Password Strength: <span>{passwordStatus.strength}</span>
+            {l.strengthPrefix}{' '}
+            <span>{strengthDisplay[passwordStatus.strength]}</span>
           </p>
           <div css={passwordStrengthBarStyles(passwordStatus.strength)}>
             <div />
           </div>
           <div
             css={passwordStrengthItemStyles(passwordStatus.length)}
-            aria-label={`Use a minimum of ${minLength} characters. ${
-              passwordStatus.length
-                ? 'Requirement met.'
-                : 'Requirement not met.'
+            aria-label={`${l.minLengthRule(minLength)}. ${
+              passwordStatus.length ? l.requirementMet : l.requirementNotMet
             }`}
           >
             <div>
@@ -148,15 +165,15 @@ const Password = ({
                 />
               )}
             </div>
-            <p>Use a minimum of {minLength} characters</p>
+            <p>{l.minLengthRule(minLength)}</p>
           </div>
           {!disabledRules?.uppercase ? (
             <div
               css={passwordStrengthItemStyles(passwordStatus.uppercase)}
-              aria-label={`Use an uppercase letter. ${
+              aria-label={`${l.uppercaseRule}. ${
                 passwordStatus.uppercase
-                  ? 'Requirement met.'
-                  : 'Requirement not met.'
+                  ? l.requirementMet
+                  : l.requirementNotMet
               }`}
             >
               <div>
@@ -174,16 +191,16 @@ const Password = ({
                   />
                 )}
               </div>
-              <p>Use an uppercase letter</p>
+              <p>{l.uppercaseRule}</p>
             </div>
           ) : null}
           {!disabledRules?.lowercase ? (
             <div
               css={passwordStrengthItemStyles(passwordStatus.lowercase)}
-              aria-label={`Use a lowercase letter. ${
+              aria-label={`${l.lowercaseRule}. ${
                 passwordStatus.lowercase
-                  ? 'Requirement met.'
-                  : 'Requirement not met.'
+                  ? l.requirementMet
+                  : l.requirementNotMet
               }`}
             >
               <div>
@@ -201,16 +218,14 @@ const Password = ({
                   />
                 )}
               </div>
-              <p>Use a lowercase letter</p>
+              <p>{l.lowercaseRule}</p>
             </div>
           ) : null}
           {!disabledRules?.numbers ? (
             <div
               css={passwordStrengthItemStyles(passwordStatus.numbers)}
-              aria-label={`Use a number. ${
-                passwordStatus.numbers
-                  ? 'Requirement met.'
-                  : 'Requirement not met.'
+              aria-label={`${l.numberRule}. ${
+                passwordStatus.numbers ? l.requirementMet : l.requirementNotMet
               }`}
             >
               <div>
@@ -228,16 +243,16 @@ const Password = ({
                   />
                 )}
               </div>
-              <p>Use a number</p>
+              <p>{l.numberRule}</p>
             </div>
           ) : null}
           {!disabledRules?.specialCharacters ? (
             <div
               css={passwordStrengthItemStyles(passwordStatus.specialCharacters)}
-              aria-label={`Use a special character. ${
+              aria-label={`${l.specialCharRule}. ${
                 passwordStatus.specialCharacters
-                  ? 'Requirement met.'
-                  : 'Requirement not met.'
+                  ? l.requirementMet
+                  : l.requirementNotMet
               }`}
             >
               <div>
@@ -255,7 +270,7 @@ const Password = ({
                   />
                 )}
               </div>
-              <p>Use a special character</p>
+              <p>{l.specialCharRule}</p>
             </div>
           ) : null}
         </div>

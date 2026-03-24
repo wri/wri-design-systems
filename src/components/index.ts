@@ -13,6 +13,7 @@ export type {
   DesignSystemLocaleProviderProps,
   DesignSystemLabels,
   CheckboxListLabels,
+  PasswordLabels,
 } from '../lib/i18n'
 
 // -- i18n -- //

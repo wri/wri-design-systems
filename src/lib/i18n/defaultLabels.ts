@@ -1,7 +1,8 @@
-import type { CheckboxListLabels } from './types'
+import type { CheckboxListLabels, PasswordLabels } from './types'
 
 type DefaultLabels = {
   CheckboxList: Required<CheckboxListLabels>
+  Password: Required<PasswordLabels>
 }
 
 /**
@@ -16,5 +17,24 @@ export const defaultLabels: DefaultLabels = {
     optionalLabel: 'Optional',
     errorPrefix: 'Error:',
     requiredSymbolLabel: 'required',
+  },
+  Password: {
+    showLabel: 'Show',
+    hideLabel: 'Hide',
+    showPasswordLabel: 'Show password',
+    hidePasswordLabel: 'Hide password',
+    strengthPrefix: 'Password Strength:',
+    strengthVeryWeak: 'Very Weak',
+    strengthWeak: 'Weak',
+    strengthMedium: 'Medium',
+    strengthStrong: 'Strong',
+    strengthVeryStrong: 'Very Strong',
+    requirementMet: 'Requirement met.',
+    requirementNotMet: 'Requirement not met.',
+    minLengthRule: (min) => `Use a minimum of ${min} characters`,
+    uppercaseRule: 'Use an uppercase letter',
+    lowercaseRule: 'Use a lowercase letter',
+    numberRule: 'Use a number',
+    specialCharRule: 'Use a special character',
   },
 }
