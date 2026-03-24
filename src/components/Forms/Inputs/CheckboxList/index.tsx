@@ -4,6 +4,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Group } from '@chakra-ui/react'
 import { CheckboxListProps } from './types'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 import Checkbox from '../../Controls/Checkbox'
 import { ChevronDownIcon } from '../../../icons'
 import {
@@ -29,7 +30,9 @@ const CheckboxList = ({
   required,
   hideCheckedCounter = false,
   hideExpandToggle = false,
+  labels,
 }: CheckboxListProps) => {
+  const resolvedLabels = useLabels('CheckboxList', labels)
   const normalizedDefaultValues = Array.isArray(defaultValues)
     ? defaultValues
     : []
@@ -148,8 +151,8 @@ const CheckboxList = ({
 
   const captionText = caption ? `${caption}.` : ''
 
-  const requiredText = required ? 'Required.' : 'Optional'
-  const errorText = errorMessage ? `Error: ${errorMessage}.` : ''
+  const requiredText = required ? resolvedLabels.requiredLabel : resolvedLabels.optionalLabel
+  const errorText = errorMessage ? `${resolvedLabels.errorPrefix} ${errorMessage}.` : ''
 
   const groupLabel = `${hasParentCheckbox ? label.label : label}. ${captionText} ${requiredText} ${errorText} `
   return (
@@ -160,7 +163,7 @@ const CheckboxList = ({
           {typeof label === 'string' ? (
             <>
               {required && (
-                <span id='required-symbol' aria-label='required'>
+                <span id='required-symbol' aria-label={resolvedLabels.requiredSymbolLabel}>
                   *
                 </span>
               )}
@@ -195,7 +198,7 @@ const CheckboxList = ({
                   aria-controls='checkbox-list'
                   css={expandButtonStyles}
                 >
-                  {isExpanded ? 'Hide' : 'Expand'}
+                  {isExpanded ? resolvedLabels.hideLabel : resolvedLabels.expandLabel}
                   <span aria-hidden='true'>
                     {isExpanded ? (
                       <ChevronDownIcon
