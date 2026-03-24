@@ -109,7 +109,6 @@ The component ships with English defaults for all internal UI strings. Override 
 
 ```tsx
 import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
-
 ;<DesignSystemLocaleProvider
   labels={{
     TextInput: {
