@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 
 import { useState } from 'react'
+import type { ReactNode } from 'react'
 
 import TextInput from '../TextInput'
 import Button from '../../Actions/Button'
@@ -94,7 +95,7 @@ const Password = ({
     }
   }
 
-  const strengthDisplay: Record<StrengthLevel, string> = {
+  const strengthDisplay: Record<StrengthLevel, ReactNode> = {
     'very-weak': l.strengthVeryWeak,
     weak: l.strengthWeak,
     medium: l.strengthMedium,
