@@ -62,9 +62,9 @@ export const passwordStrengthLabelStyles = (strength: string) => css`
   span {
     font-weight: 700;
     color: ${getThemedColor(
-      strength === 'Medium'
+      strength === 'medium'
         ? 'warning'
-        : strength === 'Strong' || strength === 'Very Strong'
+        : strength === 'strong' || strength === 'very-strong'
           ? 'success'
           : 'error',
       900,
@@ -82,19 +82,19 @@ export const passwordStrengthBarStyles = (strength: string) => css`
 
   div {
     height: 100%;
-    width: ${strength === 'Weak'
+    width: ${strength === 'weak'
       ? '25%'
-      : strength === 'Medium'
+      : strength === 'medium'
         ? '50%'
-        : strength === 'Strong'
+        : strength === 'strong'
           ? '75%'
-          : strength === 'Very Strong'
+          : strength === 'very-strong'
             ? ' 100%'
             : '5%'};
     background-color: ${getThemedColor(
-      strength === 'Medium'
+      strength === 'medium'
         ? 'warning'
-        : strength === 'Strong' || strength === 'Very Strong'
+        : strength === 'strong' || strength === 'very-strong'
           ? 'success'
           : 'error',
       900,

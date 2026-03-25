@@ -6,7 +6,18 @@ export {
   getThemedColor,
 } from '../lib/theme'
 
-// -- Styles -- //
+// -- i18n -- //
+
+export { DesignSystemLocaleProvider } from '../lib/i18n'
+export type {
+  DesignSystemLocaleProviderProps,
+  DesignSystemLabels,
+  CheckboxListLabels,
+  PasswordLabels,
+  TextInputLabels,
+} from '../lib/i18n'
+
+// -- i18n -- //
 
 // -- Forms -- //
 

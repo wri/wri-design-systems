@@ -59,6 +59,17 @@ export type CheckboxListProps = {
   required?: boolean
   hideCheckedCounter?: boolean
   hideExpandToggle?: boolean
+  labels?: Partial<CheckboxListLabels>
+}
+
+// CheckboxListLabels — all keys are optional when using Partial<>
+export type CheckboxListLabels = {
+  expandLabel: string // Default: 'Expand'
+  hideLabel: string // Default: 'Hide'
+  requiredLabel: string // Default: 'Required.'
+  optionalLabel: string // Default: 'Optional'
+  errorPrefix: string // Default: 'Error:'
+  requiredSymbolLabel: string // Default: 'required'
 }
 ```
 
@@ -145,3 +156,57 @@ export type CheckboxListProps = {
   required
 />
 ```
+
+## Internationalization (i18n)
+
+The component ships with English defaults for all internal UI strings. Override any or all of them via the `labels` prop, or set them app-wide using `DesignSystemLocaleProvider`.
+
+### Per-component override
+
+```tsx
+<CheckboxList
+  label={{ type: 'checkbox', label: 'Opciones', name: 'all' }}
+  labels={{
+    expandLabel: 'Mostrar',
+    hideLabel: 'Ocultar',
+    requiredLabel: 'Obligatorio.',
+    optionalLabel: 'Opcional',
+    errorPrefix: 'Error:',
+    requiredSymbolLabel: 'obligatorio',
+  }}
+  checkboxes={[...]}
+  required
+/>
+```
+
+### App-wide via context
+
+```tsx
+import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
+;<DesignSystemLocaleProvider
+  labels={{
+    CheckboxList: {
+      expandLabel: 'Mostrar',
+      hideLabel: 'Ocultar',
+    },
+  }}
+>
+  <App />
+</DesignSystemLocaleProvider>
+```
+
+### With react-intl
+
+```tsx
+const intl = useIntl()
+
+<CheckboxList
+  labels={{
+    expandLabel: intl.formatMessage({ id: 'checkboxList.expand' }),
+    hideLabel: intl.formatMessage({ id: 'checkboxList.hide' }),
+  }}
+  checkboxes={[...]}
+/>
+```
+
+> **Note:** The component-level `labels` prop always takes precedence over the context provider.

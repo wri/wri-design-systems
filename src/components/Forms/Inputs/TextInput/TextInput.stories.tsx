@@ -3,6 +3,7 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import TextInput from '.'
+import { DesignSystemLocaleProvider } from '../../..'
 
 const meta = {
   title: 'Forms/Inputs/Text Input',
@@ -64,5 +65,41 @@ export const Disabled: Story = {
     caption: 'Caption',
     required: true,
     disabled: true,
+  },
+}
+
+/**
+ * Override specific labels via the `labels` prop for one-off translations.
+ */
+export const WithI18nLabels: Story = {
+  args: {
+    label: 'Correo electrónico',
+    caption: 'Introduce tu correo',
+    labels: {
+      requiredSymbolLabel: 'obligatorio',
+      optionalSuffix: ' (Opcional)',
+    },
+  },
+}
+
+/**
+ * Use `DesignSystemLocaleProvider` for app-wide translations.
+ */
+export const WithI18nContext: Story = {
+  render: (args) => (
+    <DesignSystemLocaleProvider
+      labels={{
+        TextInput: {
+          requiredSymbolLabel: 'obligatoire',
+          optionalSuffix: ' (Optionnel)',
+        },
+      }}
+    >
+      <TextInput {...args} />
+    </DesignSystemLocaleProvider>
+  ),
+  args: {
+    label: 'Adresse e-mail',
+    caption: 'Entrez votre adresse e-mail',
   },
 }

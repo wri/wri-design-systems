@@ -1,4 +1,7 @@
 import { CheckboxProps } from '../../Controls/Checkbox/types'
+import type { CheckboxListLabels } from '../../../../lib/i18n/types'
+
+export type { CheckboxListLabels }
 
 export type CheckboxListLabel =
   | string
@@ -19,4 +22,6 @@ export type CheckboxListProps = {
   required?: boolean
   hideCheckedCounter?: boolean
   hideExpandToggle?: boolean
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<CheckboxListLabels>
 }
