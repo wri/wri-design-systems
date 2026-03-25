@@ -1,19 +1,39 @@
+import type { ReactNode } from 'react'
+
+/**
+ * Use for label keys that are rendered as visible JSX text (children of elements).
+ * Consumers can pass strings, elements, or fragments.
+ *
+ * Keys used directly as `aria-label` / `aria-roledescription` or inside
+ * template literals fed to ARIA attributes must stay typed as `string` — the
+ * HTML spec requires those values to be plain strings.
+ */
+export type ReactNodeLabel = ReactNode
+
 /**
  * Labels for CheckboxList internal UI strings.
  * Override any key to provide translations.
  */
 export type CheckboxListLabels = {
-  /** Text on the toggle button when the list is collapsed. Default: "Expand" */
-  expandLabel: string
-  /** Text on the toggle button when the list is expanded. Default: "Hide" */
-  hideLabel: string
-  /** Appended to the group aria-label when the field is required. Default: "Required." */
+  /**
+   * Text on the toggle button when the list is collapsed.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Expand"
+   */
+  expandLabel: ReactNodeLabel
+  /**
+   * Text on the toggle button when the list is expanded.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Hide"
+   */
+  hideLabel: ReactNodeLabel
+  /** Appended to the group aria-label when the field is required. Must be string (aria-label). Default: "Required." */
   requiredLabel: string
-  /** Appended to the group aria-label when the field is optional. Default: "Optional" */
+  /** Appended to the group aria-label when the field is optional. Must be string (aria-label). Default: "Optional" */
   optionalLabel: string
-  /** Prefix prepended to error messages in the group aria-label. Default: "Error:" */
+  /** Prefix prepended to error messages in the group aria-label. Must be string (aria-label). Default: "Error:" */
   errorPrefix: string
-  /** Accessible label for the required (*) symbol. Default: "required" */
+  /** Accessible label for the required (*) symbol. Must be string (aria-label). Default: "required" */
   requiredSymbolLabel: string
 }
 
@@ -22,39 +42,46 @@ export type CheckboxListLabels = {
  * Override any key to provide translations.
  */
 export type PasswordLabels = {
-  /** Button label when password is hidden. Default: "Show" */
+  /** Button label when password is hidden. Must be string (passed to Button.label: string). Default: "Show" */
   showLabel: string
-  /** Button label when password is visible. Default: "Hide" */
+  /** Button label when password is visible. Must be string (passed to Button.label: string). Default: "Hide" */
   hideLabel: string
-  /** Aria-label for the reveal button when password is hidden. Default: "Show password" */
+  /** Aria-label for the reveal button when password is hidden. Must be string (aria-label). Default: "Show password" */
   showPasswordLabel: string
-  /** Aria-label for the reveal button when password is visible. Default: "Hide password" */
+  /** Aria-label for the reveal button when password is visible. Must be string (aria-label). Default: "Hide password" */
   hidePasswordLabel: string
-  /** Text prefix before the strength value. Default: "Password Strength:" */
-  strengthPrefix: string
-  /** Displayed label for 'very-weak' strength level. Default: "Very Weak" */
-  strengthVeryWeak: string
-  /** Displayed label for 'weak' strength level. Default: "Weak" */
-  strengthWeak: string
-  /** Displayed label for 'medium' strength level. Default: "Medium" */
-  strengthMedium: string
-  /** Displayed label for 'strong' strength level. Default: "Strong" */
-  strengthStrong: string
-  /** Displayed label for 'very-strong' strength level. Default: "Very Strong" */
-  strengthVeryStrong: string
-  /** Appended to a rule's aria-label when the rule is satisfied. Default: "Requirement met." */
+  /**
+   * Text prefix before the strength value.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Password Strength:"
+   */
+  strengthPrefix: ReactNodeLabel
+  /**
+   * Displayed label for each strength level — rendered as JSX children.
+   * All five accept ReactNode.
+   */
+  strengthVeryWeak: ReactNodeLabel
+  strengthWeak: ReactNodeLabel
+  strengthMedium: ReactNodeLabel
+  strengthStrong: ReactNodeLabel
+  strengthVeryStrong: ReactNodeLabel
+  /** Appended to a rule's aria-label when satisfied. Must be string (aria-label template). Default: "Requirement met." */
   requirementMet: string
-  /** Appended to a rule's aria-label when the rule is not yet satisfied. Default: "Requirement not met." */
+  /** Appended to a rule's aria-label when not satisfied. Must be string (aria-label template). Default: "Requirement not met." */
   requirementNotMet: string
-  /** Rule text with minLength placeholder. Receives the configured minimum as a number. Default: (min) => `Use a minimum of ${min} characters` */
+  /**
+   * Dual-use: rendered as `<p>` text AND inside an aria-label template.
+   * Must be string to satisfy the aria-label constraint.
+   * Default: (min) => `Use a minimum of ${min} characters`
+   */
   minLengthRule: (min: number) => string
-  /** Rule text for uppercase requirement. Default: "Use an uppercase letter" */
+  /** Dual-use (p + aria-label). Must be string. Default: "Use an uppercase letter" */
   uppercaseRule: string
-  /** Rule text for lowercase requirement. Default: "Use a lowercase letter" */
+  /** Dual-use (p + aria-label). Must be string. Default: "Use a lowercase letter" */
   lowercaseRule: string
-  /** Rule text for number requirement. Default: "Use a number" */
+  /** Dual-use (p + aria-label). Must be string. Default: "Use a number" */
   numberRule: string
-  /** Rule text for special character requirement. Default: "Use a special character" */
+  /** Dual-use (p + aria-label). Must be string. Default: "Use a special character" */
   specialCharRule: string
 }
 
@@ -63,10 +90,14 @@ export type PasswordLabels = {
  * Override any key to provide translations.
  */
 export type TextInputLabels = {
-  /** Accessible label for the required (*) indicator. Default: "required" */
+  /** Accessible label for the required (*) indicator. Must be string (aria-label). Default: "required" */
   requiredSymbolLabel: string
-  /** Suffix appended after the field label when the field is optional. Default: " (Optional)" */
-  optionalSuffix: string
+  /**
+   * Suffix appended after the field label when the field is optional.
+   * Rendered as JSX child inside a <span> — accepts ReactNode.
+   * Default: " (Optional)"
+   */
+  optionalSuffix: ReactNodeLabel
 }
 
 /**
