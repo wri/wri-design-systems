@@ -41,7 +41,9 @@ const Modal = ({
       defaultOpen
     >
       <Portal>
-        {!draggable ? <Dialog.Backdrop /> : null}
+        {!draggable ? (
+          <Dialog.Backdrop css={{ background: 'rgba(0, 0, 0, 0.64)' }} />
+        ) : null}
         <Draggable disabled={!draggable} nodeRef={nodeRef}>
           <Dialog.Positioner ref={nodeRef}>
             <Dialog.Content
