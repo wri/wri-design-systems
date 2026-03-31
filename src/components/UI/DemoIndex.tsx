@@ -105,6 +105,7 @@ const components = [
   'Modal',
   'Badge',
   'Inline Message',
+  'Alert Banner',
   'Progress Bar',
   'Step Progress Indicator',
   'Toast',

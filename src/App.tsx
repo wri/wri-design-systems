@@ -60,6 +60,7 @@ import SearchDemo from './components/Navigation/Search/SearchDemo'
 import AvatarDemo from './components/Status/Avatar/AvatarDemo'
 import BadgeDemo from './components/Status/Badge/BadgeDemo'
 import InlineMessageDemo from './components/Status/InlineMessage/InlineMessageDemo'
+import AlertBannerDemo from './components/Status/AlertBanner/AlertBannerDemo'
 import ProgressBarDemo from './components/Status/ProgressBar/ProgressBarDemo'
 import StepProgressIndicatorDemo from './components/Status/StepProgressIndicator/StepProgressIndicatorDemo'
 import ToastDemo from './components/Status/Toast/ToastDemo'
@@ -174,6 +175,7 @@ const App = () => (
           <AvatarDemo />
           <BadgeDemo />
           <InlineMessageDemo />
+          <AlertBannerDemo />
           <ProgressBarDemo />
           <StepProgressIndicatorDemo />
           <ToastDemo />
