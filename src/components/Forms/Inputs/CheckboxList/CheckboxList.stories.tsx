@@ -155,6 +155,37 @@ export const WithParentCheckbox: Story = {
   },
 }
 
+export const WithParentCheckboxAndErrorMessage: Story = {
+  render: (args) => (
+    <div style={{ width: '250px' }}>
+      <CheckboxListStory {...args} />
+    </div>
+  ),
+  args: {
+    label: { type: 'checkbox', label: 'Parent', name: 'all' },
+    defaultValues: ['checkbox-2'],
+    errorMessage: 'Error Message',
+    checkboxes: [
+      {
+        children: 'Checkbox 1',
+        name: 'checkbox-1',
+        value: 'checkbox-1',
+      },
+      {
+        children: 'Checkbox 2',
+        name: 'checkbox-2',
+        value: 'checkbox-2',
+      },
+      {
+        children: 'Checkbox 3',
+        name: 'checkbox-3',
+        value: 'checkbox-3',
+      },
+    ],
+
+    required: true,
+  },
+}
 /**
  * Override specific labels via the `labels` prop for one-off translations.
  * Works with any i18n library — pass pre-translated strings directly.

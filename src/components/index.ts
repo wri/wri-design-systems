@@ -32,6 +32,9 @@ export { default as Menu } from './Forms/Actions/Menu'
 export { default as MultiActionButton } from './Forms/Actions/MultiActionButton'
 export { default as Tooltip } from './Forms/Actions/Tooltip'
 
+// FormContainer
+export { default as FormContainer } from './Forms/FormContainer'
+
 // Controls
 export { default as Checkbox } from './Forms/Controls/Checkbox'
 export { default as CheckboxOptionCard } from './Forms/Controls/CheckboxOptionCard'
