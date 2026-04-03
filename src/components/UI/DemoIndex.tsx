@@ -78,6 +78,7 @@ const components = [
   'Textarea',
   'Text Input',
   'Tag',
+  'Form Container',
   'Base Map',
   'Map Marker',
   'Map Marker Presets',

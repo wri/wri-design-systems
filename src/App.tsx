@@ -22,6 +22,7 @@ import SliderInputDemo from './components/Forms/Inputs/SliderInput/SliderInputDe
 import TextareaDemo from './components/Forms/Inputs/Textarea/TextareaDemo'
 import TextInputDemo from './components/Forms/Inputs/TextInput/TextInputDemo'
 import TagDemo from './components/Forms/Tag/TagDemo'
+import FormContainerDemo from './components/Forms/FormContainer/FormContainerDemo'
 
 import BaseMapDemo from './components/Geospatial/BaseMap/BaseMapDemo'
 import MapMarkerPresetsDemo from './components/Geospatial/MapMarker/MapMarkerPresetsDemo'
@@ -115,6 +116,7 @@ const App = () => (
           <SliderInputDemo />
           <TextareaDemo />
           <TextInputDemo />
+          <FormContainerDemo />
           <TagDemo />
           <SearchDemo />
 

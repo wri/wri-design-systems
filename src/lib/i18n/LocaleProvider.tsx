@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useMemo } from 'react'
 import type { ReactNode } from 'react'
 import type { DesignSystemLabels } from './types'
 
@@ -31,9 +31,12 @@ export type DesignSystemLocaleProviderProps = {
 export const DesignSystemLocaleProvider = ({
   labels,
   children,
-}: DesignSystemLocaleProviderProps) => (
-  <LocaleContext.Provider value={{ labels }}>{children}</LocaleContext.Provider>
-)
+}: DesignSystemLocaleProviderProps) => {
+  const value = useMemo(() => ({ labels }), [labels])
+  return (
+    <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>
+  )
+}
 
 /** @internal — used by useLabels; not intended for direct consumption */
 export const useLocaleContext = () => useContext(LocaleContext)
