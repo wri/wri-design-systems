@@ -20,49 +20,51 @@ const StepProgressIndicator = ({
 }: StepProgressIndicatorProps) => {
   const l = useLabels('StepProgressIndicator', labels)
   return (
-  <div css={stepProgressIndicatorContainerStyles}>
-    {steps.map((step, idx) => (
-      <div
-        // eslint-disable-next-line react/no-array-index-key
-        key={`${step.label}-${idx}`}
-        css={stepProgressIndicatorItemStyles}
-      >
-        <button
-          css={stepProgressIndicatorItemIndicatorStyles(
-            currentStep >= idx + 1,
-            currentStep < idx + 1,
-          )}
-          type='button'
-          onClick={step.onClick}
-          aria-current={currentStep === idx + 1}
-          aria-disabled={currentStep < idx + 1}
-          disabled={currentStep < idx + 1}
-          aria-label={l.currentStepLabel(
-            idx + 1,
-            step.label || '',
-            currentStep > idx + 1,
-          )}
-          data-active={currentStep >= idx + 1}
+    <div css={stepProgressIndicatorContainerStyles}>
+      {steps.map((step, idx) => (
+        <div
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${step.label}-${idx}`}
+          css={stepProgressIndicatorItemStyles}
         >
-          {currentStep > idx + 1 ? (
-            <CheckIcon height='16px' width='16px' />
-          ) : (
-            idx + 1
-          )}
-        </button>
-        {step.label ? (
-          <p
-            css={stepProgressIndicatorItemLabelStyles(currentStep === idx + 1)}
+          <button
+            css={stepProgressIndicatorItemIndicatorStyles(
+              currentStep >= idx + 1,
+              currentStep < idx + 1,
+            )}
+            type='button'
+            onClick={step.onClick}
+            aria-current={currentStep === idx + 1}
+            aria-disabled={currentStep < idx + 1}
+            disabled={currentStep < idx + 1}
+            aria-label={l.currentStepLabel(
+              idx + 1,
+              step.label || '',
+              currentStep > idx + 1,
+            )}
+            data-active={currentStep >= idx + 1}
           >
-            {step.label}
-          </p>
-        ) : null}
+            {currentStep > idx + 1 ? (
+              <CheckIcon height='16px' width='16px' />
+            ) : (
+              idx + 1
+            )}
+          </button>
+          {step.label ? (
+            <p
+              css={stepProgressIndicatorItemLabelStyles(
+                currentStep === idx + 1,
+              )}
+            >
+              {step.label}
+            </p>
+          ) : null}
+        </div>
+      ))}
+      <div css={stepProgressIndicatorLineContainerStyles}>
+        <div css={stepProgressIndicatorLineStyles} />
       </div>
-    ))}
-    <div css={stepProgressIndicatorLineContainerStyles}>
-      <div css={stepProgressIndicatorLineStyles} />
     </div>
-  </div>
   )
 }
 

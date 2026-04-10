@@ -48,12 +48,7 @@ const QualitativeAttribute = ({
     if (isLine) {
       typeText = l.linePrefix
     }
-    return l.currentlyTemplate(
-      String(label),
-      caption,
-      typeText,
-      visibilityText,
-    )
+    return l.currentlyTemplate(String(label), caption, typeText, visibilityText)
   }, [isShown, type, label, caption, l])
 
   const handleOnClick = () => {

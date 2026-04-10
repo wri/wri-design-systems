@@ -59,7 +59,9 @@ const ItemCount = ({
         <p css={itemCountPerPageLabelStyles}>{l.perPageLabel}</p>
       </div>
       {showItemCountText ? (
-        <p css={itemCountPerPageLabelStyles}>{l.showingLabel(startItem, endItem, totalItems)}</p>
+        <p css={itemCountPerPageLabelStyles}>
+          {l.showingLabel(startItem, endItem, totalItems)}
+        </p>
       ) : null}
     </div>
   )

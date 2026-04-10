@@ -70,9 +70,7 @@ const Textarea = ({
       setShowMinLengthError(length < minLength)
       setShowMaxLengthError(false)
       setHelperText(
-        length < minLength
-          ? l.enterAtLeastChars(minLength - length)
-          : '',
+        length < minLength ? l.enterAtLeastChars(minLength - length) : '',
       )
     } else if (maxLength) {
       setShowMaxLengthError(length > maxLength)
