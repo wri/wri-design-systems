@@ -149,9 +149,7 @@ const Toolbar = ({
         {showExpandedToggle && !autoCollapse && !shouldForceCollapse && (
           <ToolbarButton
             isExpanded={isExpanded}
-            ariaLabel={
-              isExpanded ? String(l.collapseLabel) : String(l.expandLabel)
-            }
+            ariaLabel={isExpanded ? l.collapseAriaLabel : l.expandAriaLabel}
             icon={
               isExpanded ? (
                 <DoubleChevronRightIcon />

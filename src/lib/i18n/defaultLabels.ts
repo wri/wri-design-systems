@@ -22,7 +22,7 @@ import type {
   PaginationLabels,
   ItemCountLabels,
   LayerGroupLabels,
-  QualitativeAttrLabels,
+  QualitativeAttributeLabels,
   MapControlsToolbarLabels,
   StepProgressIndicatorLabels,
 } from './types'
@@ -51,7 +51,7 @@ type DefaultLabels = {
   Pagination: Required<PaginationLabels>
   ItemCount: Required<ItemCountLabels>
   LayerGroup: Required<LayerGroupLabels>
-  QualitativeAttribute: Required<QualitativeAttrLabels>
+  QualitativeAttribute: Required<QualitativeAttributeLabels>
   MapControlsToolbar: Required<MapControlsToolbarLabels>
   StepProgressIndicator: Required<StepProgressIndicatorLabels>
 }
@@ -157,6 +157,8 @@ export const defaultLabels: DefaultLabels = {
   Toolbar: {
     collapseLabel: 'Collapse',
     expandLabel: 'Expand',
+    collapseAriaLabel: 'Collapse',
+    expandAriaLabel: 'Expand',
   },
   OpacityControl: {
     opacityButtonLabel: 'Opacity',
@@ -210,13 +212,13 @@ export const defaultLabels: DefaultLabels = {
     printLabel: 'Print',
     settingsLabel: 'Settings',
     helpLabel: 'Help',
-    zoomInAriaLabel: 'zoom in',
-    zoomOutAriaLabel: 'zoom out',
-    expandAriaLabel: 'expand',
-    shareAriaLabel: 'share',
-    printAriaLabel: 'print',
-    settingsAriaLabel: 'settings',
-    helpAriaLabel: 'question',
+    zoomInAriaLabel: 'Zoom in',
+    zoomOutAriaLabel: 'Zoom out',
+    expandAriaLabel: 'Expand',
+    shareAriaLabel: 'Share',
+    printAriaLabel: 'Print',
+    settingsAriaLabel: 'Settings',
+    helpAriaLabel: 'Help',
     toolbarAriaLabel: 'Map controls toolbar',
   },
   StepProgressIndicator: {

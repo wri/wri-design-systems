@@ -38,7 +38,7 @@ export type {
   PaginationLabels,
   ItemCountLabels,
   LayerGroupLabels,
-  QualitativeAttrLabels,
+  QualitativeAttributeLabels,
   MapControlsToolbarLabels,
   StepProgressIndicatorLabels,
 } from '../lib/i18n'

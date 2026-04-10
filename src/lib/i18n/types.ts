@@ -267,17 +267,21 @@ export type LegendItemLabels = {
 /** Labels for Toolbar internal UI strings. */
 export type ToolbarLabels = {
   /**
-   * Visible text on the overflow collapse toggle button.
+   * Visible text on the collapse toggle button.
    * Rendered as JSX child — accepts ReactNode.
    * Default: "Collapse"
    */
   collapseLabel: ReactNodeLabel
   /**
-   * Visible text / aria-label on the overflow expand toggle button.
+   * Visible text on the expand toggle button.
    * Rendered as JSX child — accepts ReactNode.
    * Default: "Expand"
    */
   expandLabel: ReactNodeLabel
+  /** aria-label on the collapse toggle button. Must be string. Default: "Collapse" */
+  collapseAriaLabel: string
+  /** aria-label on the expand toggle button. Must be string. Default: "Expand" */
+  expandAriaLabel: string
 }
 
 /** Labels for OpacityControl internal UI strings. */
@@ -387,7 +391,7 @@ export type LayerGroupLabels = {
 }
 
 /** Labels for QualitativeAttribute internal UI strings. */
-export type QualitativeAttrLabels = {
+export type QualitativeAttributeLabels = {
   /**
    * Visible "Hide" button text.
    * Rendered as JSX child — accepts ReactNode.
@@ -417,21 +421,21 @@ export type QualitativeAttrLabels = {
 
 /** Labels for MapControlsToolbar internal UI strings. */
 export type MapControlsToolbarLabels = {
-  // Visible button text (ReactNodeLabel)
+  // Visible button text (string — passed to ToolbarItem.label: string)
   /** Default: "Zoom in" */
-  zoomInLabel: ReactNodeLabel
+  zoomInLabel: string
   /** Default: "Zoom out" */
-  zoomOutLabel: ReactNodeLabel
+  zoomOutLabel: string
   /** Default: "Expand" */
-  expandLabel: ReactNodeLabel
+  expandLabel: string
   /** Default: "Share" */
-  shareLabel: ReactNodeLabel
+  shareLabel: string
   /** Default: "Print" */
-  printLabel: ReactNodeLabel
+  printLabel: string
   /** Default: "Settings" */
-  settingsLabel: ReactNodeLabel
+  settingsLabel: string
   /** Default: "Help" */
-  helpLabel: ReactNodeLabel
+  helpLabel: string
   // Aria-labels (string)
   /** Default: "Zoom in" */
   zoomInAriaLabel: string
@@ -497,7 +501,7 @@ export type DesignSystemLabels = {
   Pagination?: Partial<PaginationLabels>
   ItemCount?: Partial<ItemCountLabels>
   LayerGroup?: Partial<LayerGroupLabels>
-  QualitativeAttribute?: Partial<QualitativeAttrLabels>
+  QualitativeAttribute?: Partial<QualitativeAttributeLabels>
   MapControlsToolbar?: Partial<MapControlsToolbarLabels>
   StepProgressIndicator?: Partial<StepProgressIndicatorLabels>
 }
