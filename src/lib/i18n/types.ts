@@ -152,10 +152,10 @@ export type ButtonLabels = {
 export type BaseMapLabels = {
   /**
    * Visible label text inside the active Tag badge.
-   * Rendered as JSX child — accepts ReactNode.
+   * Passed directly to Tag.label (string).
    * Default: "Active"
    */
-  activeLabel: ReactNodeLabel
+  activeLabel: string
 }
 
 /** Labels for Search internal UI strings. */
@@ -252,16 +252,16 @@ export type LegendItemLabels = {
   downLabel: string
   /**
    * Visible text on the remove button.
-   * Rendered as JSX child — accepts ReactNode.
+   * Passed directly to Button.label (string).
    * Default: "Remove"
    */
-  removeLabel: ReactNodeLabel
+  removeLabel: string
   /**
    * Visible text on the info/about-data button.
-   * Rendered as JSX child — accepts ReactNode.
+   * Passed directly to Button.label (string).
    * Default: "About data"
    */
-  aboutDataLabel: ReactNodeLabel
+  aboutDataLabel: string
 }
 
 /** Labels for Toolbar internal UI strings. */
@@ -334,16 +334,16 @@ export type TextareaLabels = {
 export type PaginationLabels = {
   /**
    * Visible "Previous" button text.
-   * Rendered as JSX child — accepts ReactNode.
+   * Passed directly to Button.label (string).
    * Default: "Previous"
    */
-  previousLabel: ReactNodeLabel
+  previousLabel: string
   /**
    * Visible "Next" button text.
-   * Rendered as JSX child — accepts ReactNode.
+   * Passed directly to Button.label (string).
    * Default: "Next"
    */
-  nextLabel: ReactNodeLabel
+  nextLabel: string
   /** aria-label on the previous icon button. Default: "Previous page" */
   previousPageLabel: string
   /** aria-label on the next icon button. Default: "Next page" */
@@ -374,10 +374,10 @@ export type ItemCountLabels = {
 export type LayerGroupLabels = {
   /**
    * Visible Tag label: "{count} Active".
-   * Rendered as JSX child — accepts ReactNode.
+   * Passed directly to Tag.label (string) — must return string.
    * Default fn provided.
    */
-  activeTagLabel: (count: number) => ReactNode
+  activeTagLabel: (count: number) => string
   /** Full aria-label builder for the group container. Default fn provided. */
   groupAriaLabel: (
     label: string,

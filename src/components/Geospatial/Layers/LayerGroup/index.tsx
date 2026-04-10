@@ -94,7 +94,7 @@ const LayerGroup = ({
           <span css={layerGroupTitleStyles}>
             {label}
             <Tag
-              label={String(l.activeTagLabel(getActiveCount))}
+              label={l.activeTagLabel(getActiveCount)}
               size='small'
               variant={getActiveCount > 0 ? 'success' : 'info-grey'}
             />

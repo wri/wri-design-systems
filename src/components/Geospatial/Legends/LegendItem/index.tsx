@@ -65,7 +65,7 @@ const LegendItem = ({
             <p css={legendItemDataUnitStyles}>{dataUnit}</p>
           </div>
           <Button
-            label={String(l.removeLabel)}
+            label={l.removeLabel}
             size='small'
             variant='secondary'
             rightIcon={<CloseIcon />}
@@ -75,7 +75,7 @@ const LegendItem = ({
         {children}
         <div css={legendItemButtonsContainerStyles}>
           <Button
-            label={String(l.aboutDataLabel)}
+            label={l.aboutDataLabel}
             size='small'
             variant='secondary'
             leftIcon={<InfoIcon />}

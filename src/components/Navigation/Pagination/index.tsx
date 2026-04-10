@@ -45,7 +45,7 @@ const Pagination = ({
             {isCompactWithButtons ? (
               <Button
                 variant='secondary'
-                label={String(l.previousLabel)}
+                label={l.previousLabel}
                 size='small'
                 leftIcon={
                   <ChevronDownIcon
@@ -80,7 +80,7 @@ const Pagination = ({
             {isCompactWithButtons ? (
               <Button
                 variant='secondary'
-                label={String(l.nextLabel)}
+                label={l.nextLabel}
                 size='small'
                 rightIcon={
                   <ChevronDownIcon

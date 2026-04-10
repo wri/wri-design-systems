@@ -49,7 +49,7 @@ const QualitativeAttribute = ({
       typeText = l.linePrefix
     }
     return l.currentlyTemplate(String(label), caption, typeText, visibilityText)
-  }, [isShown, type, label, caption, l])
+  }, [isShown, type, label, caption, ariaLabelType, l])
 
   const handleOnClick = () => {
     setIsShown((prev) => !prev)

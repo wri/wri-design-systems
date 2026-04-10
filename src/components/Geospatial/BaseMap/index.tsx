@@ -130,7 +130,7 @@ const BaseMap = ({
                       <p className='ds-base-map-title'>{option.label}</p>
                       {option.active ? (
                         <Tag
-                          label={String(l.activeLabel)}
+                          label={l.activeLabel}
                           variant='warning'
                           size='small'
                           icon={<CheckIcon />}
