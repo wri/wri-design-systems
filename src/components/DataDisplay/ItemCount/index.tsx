@@ -20,7 +20,8 @@ const ItemCount = ({
 }: ItemCountProps) => {
   const l = useLabels('ItemCount', labels)
   const startItem = totalItems === 0 ? 0 : (currentPage - 1) * pageSize + 1
-  const endItem = totalItems === 0 ? 0 : Math.min(startItem + pageSize - 1, totalItems)
+  const endItem =
+    totalItems === 0 ? 0 : Math.min(startItem + pageSize - 1, totalItems)
 
   const handleSelectChange = (value: string[]) => {
     if (onPageSizeChange) {
