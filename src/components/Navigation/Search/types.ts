@@ -1,5 +1,8 @@
 import { InputProps as ChakraInputProps } from '@chakra-ui/react'
 import { ListItemProps } from '../../DataDisplay/List/types'
+import type { SearchLabels } from '../../../lib/i18n/types'
+
+export type { SearchLabels }
 
 export type SearchProps = Omit<
   ChakraInputProps,
@@ -21,4 +24,6 @@ export type SearchProps = Omit<
     query: string
     onSelect: (id: string) => void
   }) => React.ReactNode
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<SearchLabels>
 }

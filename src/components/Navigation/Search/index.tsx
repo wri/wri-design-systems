@@ -16,6 +16,7 @@ import TextResults from './TextResults'
 import { SearchIcon } from '../../icons'
 import { SearchProps } from './types'
 import { getThemedColor } from '../../../lib/theme'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const Search = ({
   placeholder,
@@ -29,7 +30,9 @@ const Search = ({
   onQueryChange,
   onClear,
   renderResults,
+  labels,
 }: SearchProps) => {
+  const l = useLabels('Search', labels)
   const [filterText, setFilterText] = useState('')
   const { open, onOpen, onClose } = useDisclosure()
   const [filteredResults, setFilteredResults] = useState(options)
@@ -137,7 +140,7 @@ const Search = ({
       >
         <TextInput
           autoComplete='off'
-          placeholder={placeholder || 'Filter'}
+          placeholder={placeholder || l.filterPlaceholder}
           onChange={handleOnSearch}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
@@ -148,7 +151,7 @@ const Search = ({
             borderColor: getThemedColor('neutral', 500),
           }}
           type='search'
-          aria-label={placeholder || 'Search filter'}
+          aria-label={placeholder || l.filterAriaLabel}
           aria-expanded={resultsVisible}
           aria-controls={listboxId}
           role='combobox'

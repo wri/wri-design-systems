@@ -1,3 +1,7 @@
+import type { LegendItemLabels } from '../../../../lib/i18n/types'
+
+export type { LegendItemLabels }
+
 export type LegendItemProps = {
   layerName: string
   dataUnit: string
@@ -8,4 +12,6 @@ export type LegendItemProps = {
   children: React.ReactNode
   onInfoClick: VoidFunction
   onOpacityChanged: (value: number) => void
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<LegendItemLabels>
 }

@@ -18,6 +18,7 @@ import {
 import { NavbarNavigationItemsProps, NavbarProps } from './types'
 import { ChevronDownIcon, CloseIcon } from '../../icons'
 import Button from '../../Forms/Actions/Button'
+import type { NavbarLabels } from '../../../lib/i18n/types'
 
 const NavbarMobile = ({
   theme = 'light',
@@ -29,9 +30,11 @@ const NavbarMobile = ({
   isOpen,
   setIsOpen,
   pathname,
+  resolvedLabels,
 }: NavbarProps & {
   isOpen?: boolean
   setIsOpen: (isOpen: boolean) => void
+  resolvedLabels: Required<NavbarLabels>
 }) => {
   const isCondensed = variant === 'condensed'
   const [submenu, setSubmenu] = useState<
@@ -150,7 +153,7 @@ const NavbarMobile = ({
                   setMenuIndex(-1)
                   menuButtonRefs.current[menuIndex]?.focus()
                 }}
-                aria-label='Go back'
+                aria-label={resolvedLabels.goBackLabel}
                 css={navbarMenuActionStyles(theme)}
                 ref={backButtonRef}
               >
@@ -167,10 +170,10 @@ const NavbarMobile = ({
                   setMenuIndex(-1)
                   setIsOpen(false)
                 }}
-                aria-label='Close menu'
+                aria-label={resolvedLabels.closeMenuLabel}
                 css={navbarMenuActionStyles(theme)}
               >
-                Close
+                {resolvedLabels.closeButtonText}
                 <CloseIcon height='16px' width='16px' />
               </button>
             </div>

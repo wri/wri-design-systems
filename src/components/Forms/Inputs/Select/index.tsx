@@ -33,6 +33,7 @@ import {
 import { SelectItemProps, SelectProps } from './types'
 import Tag from '../../Tag'
 import Checkbox from '../../Controls/Checkbox'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const getCollectionItems = (items: SelectItemProps[]) =>
   createListCollection({ items })
@@ -99,8 +100,10 @@ const Select = ({
   onChange,
   errorMessage,
   multiple,
+  labels,
   ...rest
 }: SelectProps) => {
+  const l = useLabels('Select', labels)
   const [selectedItems, setSelectedItems] = useState<string[]>(
     rest.defaultValue || [],
   )
@@ -119,9 +122,9 @@ const Select = ({
     onChangeHandler(newItems)
   }
   const totalAriaLabel =
-    `${label || 'Select input'}${required ? ' required.' : ''}${
+    `${label || l.defaultAriaLabel}${required ? l.requiredSuffix : ''}${
       caption ? ` ${caption}.` : ''
-    }${disabled ? ' Disabled.' : ''}`.trim()
+    }${disabled ? l.disabledSuffix : ''}`.trim()
   return (
     <Group
       css={selectContainerStyles(size)}

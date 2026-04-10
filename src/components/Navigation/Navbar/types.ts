@@ -1,5 +1,8 @@
 import { ButtonProps } from '../../Forms/Actions/Button/types'
 import { MenuItemProps } from '../../Forms/Actions/Menu/types'
+import type { NavbarLabels } from '../../../lib/i18n/types'
+
+export type { NavbarLabels }
 
 export type NavbarNavigationItemsProps = {
   label: string
@@ -29,4 +32,6 @@ export type NavbarProps = {
   fixed?: boolean
   onNavbarHeightChange?: (height: number) => void
   backgroundColor?: string
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<NavbarLabels>
 }

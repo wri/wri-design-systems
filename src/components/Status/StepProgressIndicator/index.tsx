@@ -11,11 +11,15 @@ import {
   stepProgressIndicatorLineStyles,
 } from './styled'
 import { StepProgressIndicatorProps } from './types'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const StepProgressIndicator = ({
   steps,
   currentStep,
-}: StepProgressIndicatorProps) => (
+  labels,
+}: StepProgressIndicatorProps) => {
+  const l = useLabels('StepProgressIndicator', labels)
+  return (
   <div css={stepProgressIndicatorContainerStyles}>
     {steps.map((step, idx) => (
       <div
@@ -33,7 +37,11 @@ const StepProgressIndicator = ({
           aria-current={currentStep === idx + 1}
           aria-disabled={currentStep < idx + 1}
           disabled={currentStep < idx + 1}
-          aria-label={`Current Step ${idx}${step.label ? ` ${step.label}` : ''}`}
+          aria-label={l.currentStepLabel(
+            idx + 1,
+            step.label || '',
+            currentStep > idx + 1,
+          )}
           data-active={currentStep >= idx + 1}
         >
           {currentStep > idx + 1 ? (
@@ -55,6 +63,7 @@ const StepProgressIndicator = ({
       <div css={stepProgressIndicatorLineStyles} />
     </div>
   </div>
-)
+  )
+}
 
 export default StepProgressIndicator

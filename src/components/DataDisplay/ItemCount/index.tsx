@@ -8,6 +8,7 @@ import {
   itemCountPerPageLabelStyles,
 } from './styles'
 import { ItemCountProps } from './types'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const ItemCount = ({
   pageSize,
@@ -15,14 +16,11 @@ const ItemCount = ({
   totalItems,
   onPageSizeChange,
   showItemCountText,
+  labels,
 }: ItemCountProps) => {
-  const getPageInfo = () => {
-    const localPageSize = pageSize
-    const startItem = (currentPage - 1) * localPageSize + 1
-    const endItem = Math.min(startItem + localPageSize - 1, totalItems)
-
-    return `Showing ${startItem}-${endItem} of ${totalItems}`
-  }
+  const l = useLabels('ItemCount', labels)
+  const startItem = (currentPage - 1) * pageSize + 1
+  const endItem = Math.min(startItem + pageSize - 1, totalItems)
 
   const handleSelectChange = (value: string[]) => {
     if (onPageSizeChange) {
@@ -58,10 +56,10 @@ const ItemCount = ({
             required
           />
         </div>
-        <p css={itemCountPerPageLabelStyles}>Per Page</p>
+        <p css={itemCountPerPageLabelStyles}>{l.perPageLabel}</p>
       </div>
       {showItemCountText ? (
-        <p css={itemCountPerPageLabelStyles}>{getPageInfo()}</p>
+        <p css={itemCountPerPageLabelStyles}>{l.showingLabel(startItem, endItem, totalItems)}</p>
       ) : null}
     </div>
   )

@@ -23,7 +23,7 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof Toast>
 
 export default meta
 type Story = StoryObj<typeof meta>

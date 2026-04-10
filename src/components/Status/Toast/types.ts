@@ -1,3 +1,7 @@
+import type { ToastLabels } from '../../../lib/i18n/types'
+
+export type { ToastLabels }
+
 export type ToastProps = {
   label: string
   caption?: React.ReactNode
@@ -11,4 +15,9 @@ export type ToastProps = {
   }
   closable?: boolean
   closableLabel?: string
+}
+
+export type ToastComponentProps = {
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<ToastLabels>
 }

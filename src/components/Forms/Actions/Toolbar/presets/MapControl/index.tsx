@@ -9,6 +9,8 @@ import {
   SettingsIcon,
   QuestionIcon,
 } from '../../../../../icons'
+import { useLabels } from '../../../../../../lib/i18n/useLabels'
+import type { MapControlsToolbarLabels } from '../../../../../../lib/i18n/types'
 
 type MapControlsToolbarProps = {
   onZoomInClick?: () => void
@@ -22,6 +24,8 @@ type MapControlsToolbarProps = {
   expanded?: boolean
   showExpandedToggle?: boolean
   ariaLabel?: string
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<MapControlsToolbarLabels>
 }
 
 const MapControlsToolbar = ({
@@ -36,53 +40,55 @@ const MapControlsToolbar = ({
   expanded,
   showExpandedToggle,
   ariaLabel,
+  labels,
 }: MapControlsToolbarProps) => {
+  const l = useLabels('MapControlsToolbar', labels)
   const mapControlItems = [
     {
       icon: <PlusIcon />,
-      label: 'Zoom in',
-      ariaLabel: 'zoom in',
+      label: String(l.zoomInLabel),
+      ariaLabel: l.zoomInAriaLabel,
       onClick: onZoomInClick,
     },
     {
       icon: <MinusIcon />,
-      label: 'Zoom out',
-      ariaLabel: 'zoom out',
+      label: String(l.zoomOutLabel),
+      ariaLabel: l.zoomOutAriaLabel,
       onClick: onZoomOutClick,
       gap: true,
     },
     {
       icon: <ExpandIcon />,
-      label: 'Expand',
-      ariaLabel: 'expand',
+      label: String(l.expandLabel),
+      ariaLabel: l.expandAriaLabel,
       onClick: onExpandClick,
       gap: true,
     },
     {
       icon: <ShareIcon />,
-      label: 'Share',
-      ariaLabel: 'share',
+      label: String(l.shareLabel),
+      ariaLabel: l.shareAriaLabel,
       onClick: onShareClick,
       gap: true,
     },
     {
       icon: <PrintIcon />,
-      label: 'Print',
-      ariaLabel: 'print',
+      label: String(l.printLabel),
+      ariaLabel: l.printAriaLabel,
       onClick: onPrintClick,
       gap: true,
     },
     {
       icon: <SettingsIcon />,
-      label: 'Settings',
-      ariaLabel: 'settings',
+      label: String(l.settingsLabel),
+      ariaLabel: l.settingsAriaLabel,
       onClick: onSettingsClick,
       gap: true,
     },
     {
       icon: <QuestionIcon />,
-      label: 'Help',
-      ariaLabel: 'question',
+      label: String(l.helpLabel),
+      ariaLabel: l.helpAriaLabel,
       onClick: onQuestionClick,
     },
   ]
@@ -93,7 +99,7 @@ const MapControlsToolbar = ({
       vertical={vertical}
       expanded={expanded}
       showExpandedToggle={showExpandedToggle}
-      ariaLabel={ariaLabel || 'Map controls toolbar'}
+      ariaLabel={ariaLabel || l.toolbarAriaLabel}
     />
   )
 }

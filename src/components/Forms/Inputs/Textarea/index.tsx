@@ -13,6 +13,7 @@ import {
   textareaErrorBarStyles,
   textareaSyles,
 } from './styled'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const Textarea = ({
   label,
@@ -26,8 +27,10 @@ const Textarea = ({
   onChange,
   minLength,
   maxLength,
+  labels,
   ...rest
 }: TextareaProps) => {
+  const l = useLabels('Textarea', labels)
   const [value, setValue] = useState(defaultValue)
   const [showMinLengthError, setShowMinLengthError] = useState(false)
   const [showMaxLengthError, setShowMaxLengthError] = useState(false)
@@ -42,16 +45,16 @@ const Textarea = ({
     if (minLength && length < minLength && length > 0) {
       setShowMinLengthError(length < minLength)
       setShowMaxLengthError(false)
-      setHelperText(`Enter at least ${minLength - length} characters`)
+      setHelperText(l.enterAtLeastChars(minLength - length))
     } else if (minLength && length === 0) {
-      setHelperText(`Min ${minLength} characters`)
+      setHelperText(l.minChars(minLength))
     }
     if (maxLength && length > 0) {
       setShowMinLengthError(false)
       setShowMaxLengthError(length > maxLength)
-      setHelperText(`You have ${maxLength - length} characters remaining`)
+      setHelperText(l.charsRemaining(maxLength - length))
     } else if (maxLength && length === 0) {
-      setHelperText(`Max ${maxLength} characters`)
+      setHelperText(l.maxChars(maxLength))
     }
   }, [])
 
@@ -62,19 +65,19 @@ const Textarea = ({
     if (minLength && maxLength) {
       setShowMinLengthError(length < minLength)
       setShowMaxLengthError(length > maxLength)
-      setHelperText(`You have ${maxLength - length} characters remaining`)
+      setHelperText(l.charsRemaining(maxLength - length))
     } else if (minLength) {
       setShowMinLengthError(length < minLength)
       setShowMaxLengthError(false)
       setHelperText(
         length < minLength
-          ? `Enter at least ${minLength - length} characters`
+          ? l.enterAtLeastChars(minLength - length)
           : '',
       )
     } else if (maxLength) {
       setShowMaxLengthError(length > maxLength)
       setShowMinLengthError(false)
-      setHelperText(`You have ${maxLength - length} characters remaining`)
+      setHelperText(l.charsRemaining(maxLength - length))
     }
 
     if (onChange) {
@@ -107,9 +110,9 @@ const Textarea = ({
             css={fieldLabelStyles(size, disabled)}
             aria-label={label}
           >
-            <Field.RequiredIndicator aria-label='required' />
+            <Field.RequiredIndicator aria-label={l.requiredSymbolLabel} />
             {label}
-            {!required ? <span>{' (Optional)'}</span> : ''}
+            {!required ? <span>{l.optionalSuffix}</span> : ''}
           </Field.Label>
         ) : null}
 
@@ -126,7 +129,7 @@ const Textarea = ({
           <Field.ErrorText
             id={errorId}
             css={fieldErrorMessageStyles}
-            aria-label={`Error: ${errorMessage}`}
+            aria-label={`${l.errorPrefix} ${errorMessage}`}
             aria-live='polite'
           >
             {errorMessage}
@@ -153,7 +156,7 @@ const Textarea = ({
             style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
             aria-live='polite'
           >
-            You need {minLength - value.length} more characters
+            {l.needMoreChars(minLength - value.length)}
           </Field.ErrorText>
         ) : null}
 
@@ -164,7 +167,7 @@ const Textarea = ({
             style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
             aria-live='polite'
           >
-            You have {value.length - maxLength} characters too many
+            {l.tooManyChars(value.length - maxLength)}
           </Field.ErrorText>
         ) : null}
 

@@ -14,6 +14,7 @@ import Button from '../../../Forms/Actions/Button'
 import { ChevronDownIcon, CloseIcon, DotsIcon, InfoIcon } from '../../../icons'
 import IconButton from '../../../Forms/Actions/IconButton'
 import OpacityControl from '../OpacityControl'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const LegendItem = ({
   layerName,
@@ -25,12 +26,15 @@ const LegendItem = ({
   children,
   onInfoClick,
   onOpacityChanged,
-}: LegendItemProps) => (
+  labels,
+}: LegendItemProps) => {
+  const l = useLabels('LegendItem', labels)
+  return (
   <div css={legendItemContainerStyles}>
     <div css={legendItemDragAndDropActionsStyles}>
       <IconButton
         icon={<DotsIcon />}
-        aria-label='Drag and drop'
+        aria-label={l.dragAndDropLabel}
         aria-hidden
         onClick={onDrag}
         style={{ display: 'none', marginBottom: '12px' }}
@@ -44,12 +48,12 @@ const LegendItem = ({
       >
         <IconButton
           icon={<ChevronDownIcon rotate='180' />}
-          aria-label='Up'
+          aria-label={l.upLabel}
           onClick={onUpClick}
         />
         <IconButton
           icon={<ChevronDownIcon />}
-          aria-label='Down'
+          aria-label={l.downLabel}
           onClick={onDownClick}
         />
       </div>
@@ -61,7 +65,7 @@ const LegendItem = ({
           <p css={legendItemDataUnitStyles}>{dataUnit}</p>
         </div>
         <Button
-          label='Remove'
+          label={String(l.removeLabel)}
           size='small'
           variant='secondary'
           rightIcon={<CloseIcon />}
@@ -71,7 +75,7 @@ const LegendItem = ({
       {children}
       <div css={legendItemButtonsContainerStyles}>
         <Button
-          label='About data'
+          label={String(l.aboutDataLabel)}
           size='small'
           variant='secondary'
           leftIcon={<InfoIcon />}
@@ -81,6 +85,7 @@ const LegendItem = ({
       </div>
     </div>
   </div>
-)
+  )
+}
 
 export default LegendItem

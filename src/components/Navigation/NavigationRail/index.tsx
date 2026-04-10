@@ -14,6 +14,7 @@ import {
 import { NavigationRailProps } from './types'
 import { HideSidebarIcon, ShowSidebarIcon } from '../../icons'
 import { getThemedColor } from '../../../lib/theme'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const NavigationRail = ({
   tabs = [],
@@ -21,7 +22,9 @@ const NavigationRail = ({
   onTabClick,
   children,
   onOpenChange,
+  labels,
 }: NavigationRailProps) => {
+  const l = useLabels('NavigationRail', labels)
   const [hideSidebar, setHideSidebar] = useState(false)
   const [selectedTab, setSelectedTab] = useState(
     defaultValue || tabs?.[0]?.value,
@@ -142,8 +145,8 @@ const NavigationRail = ({
                 {hideSidebar ? <ShowSidebarIcon /> : <HideSidebarIcon />}
               </div>
               <div className='ds-tab-label'>
-                <p>{hideSidebar ? 'Show' : 'Hide'}</p>
-                <p>Sidebar</p>
+                <p>{hideSidebar ? l.showLabel : l.hideLabel}</p>
+                <p>{l.sidebarLabel}</p>
               </div>
             </Collapsible.Trigger>
           </Collapsible.Root>

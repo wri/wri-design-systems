@@ -16,6 +16,7 @@ import {
 } from './styled'
 import { HideIcon, PlaceholderIcon, ShowIcon } from '../../../icons'
 import Button from '../../../Forms/Actions/Button'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const QualitativeAttribute = ({
   type,
@@ -26,7 +27,9 @@ const QualitativeAttribute = ({
   showActionButton,
   pointIcon = <PlaceholderIcon color='#006D2C' />,
   ariaLabelType = '',
+  labels,
 }: QualitativeAttributeProps) => {
+  const l = useLabels('QualitativeAttribute', labels)
   const [isShown, setIsShown] = useState(true)
 
   const labelId = useId()
@@ -39,22 +42,26 @@ const QualitativeAttribute = ({
   const combinedAriaId = useId()
 
   const combinedAriaLabel = useMemo(() => {
-    const visibilityText = isShown ? 'visible' : 'hidden'
+    const visibilityText = isShown ? l.visibleText : l.hiddenText
     let typeText = ariaLabelType ?? `${ariaLabelType},`
 
     if (isLine) {
-      typeText = 'line,'
+      typeText = l.linePrefix
     }
-    const captionText = caption ? `, ${caption}` : ''
-    return `${typeText} ${label}${captionText}. Currently ${visibilityText}.`
-  }, [isShown, type, label, caption])
+    return l.currentlyTemplate(
+      String(label),
+      caption,
+      typeText,
+      visibilityText,
+    )
+  }, [isShown, type, label, caption, l])
 
   const handleOnClick = () => {
     setIsShown((prev) => !prev)
     onActionClick?.()
   }
 
-  const buttonText = isShown ? 'Hide' : 'Show'
+  const buttonText = isShown ? l.hideLabel : l.showLabel
 
   return (
     <div css={qualitativeAttributeContainerStyles}>
@@ -97,7 +104,7 @@ const QualitativeAttribute = ({
           <Button
             type='button'
             variant='borderless'
-            label={buttonText}
+            label={String(buttonText)}
             rightIcon={isShown ? <HideIcon /> : <ShowIcon />}
             aria-pressed={isShown}
             aria-labelledby={`${combinedAriaId} ${labelId}`}
