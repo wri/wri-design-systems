@@ -21,6 +21,7 @@ import Button from '../../Forms/Actions/Button'
 
 const NavbarMobile = ({
   theme = 'light',
+  variant,
   navigationSection,
   utilitySection,
   actionsSection,
@@ -32,6 +33,7 @@ const NavbarMobile = ({
   isOpen?: boolean
   setIsOpen: (isOpen: boolean) => void
 }) => {
+  const isCondensed = variant === 'condensed'
   const [submenu, setSubmenu] = useState<
     NavbarNavigationItemsProps | undefined
   >(undefined)
@@ -43,7 +45,7 @@ const NavbarMobile = ({
 
   return (
     <>
-      <div css={navbarMobileStyles(isOpen)}>
+      <div css={navbarMobileStyles(isOpen, isCondensed)}>
         {isOpen && (
           <div css={navbarMobileContainerStyles}>
             <div
