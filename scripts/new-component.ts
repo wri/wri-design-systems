@@ -17,12 +17,14 @@ const toPascalCase = (str: string) =>
     .replace(/^(.)/, (c: string) => c.toUpperCase())
 
 /** "My Component" from "MyComponent" */
-const toTitleCase = (pascal: string) =>
-  pascal.replace(/([A-Z])/g, ' $1').trim()
+const toTitleCase = (pascal: string) => pascal.replace(/([A-Z])/g, ' $1').trim()
 
 /** kebab-case from "MyComponent" */
 const toKebabCase = (pascal: string) =>
-  pascal.replace(/([A-Z])/g, '-$1').toLowerCase().replace(/^-/, '')
+  pascal
+    .replace(/([A-Z])/g, '-$1')
+    .toLowerCase()
+    .replace(/^-/, '')
 
 /** '../'.repeat(n) */
 const relUp = (n: number) => '../'.repeat(n)
@@ -44,7 +46,9 @@ const VALID_CATEGORIES = [
 
 // ---------- file templates ----------
 
-const indexTsx = (name: string) => `/* eslint-disable react/no-unknown-property */
+const indexTsx = (
+  name: string,
+) => `/* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
 import { ${name}Props } from './types'
@@ -73,7 +77,10 @@ export const ${varName} = css\`
 `
 }
 
-const storiesTsx = (name: string, category: string) => `// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const storiesTsx = (
+  name: string,
+  category: string,
+) => `// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
@@ -258,7 +265,10 @@ const updateAppTsx = (name: string, category: string) => {
 // ---------- main ----------
 
 const prompt = (question: string): Promise<string> => {
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  })
   return new Promise((resolve) => {
     rl.question(question, (answer) => {
       rl.close()
@@ -285,7 +295,7 @@ const main = async () => {
     const idx = parseInt(choice, 10)
     category = Number.isNaN(idx)
       ? choice
-      : VALID_CATEGORIES[idx - 1] ?? choice
+      : (VALID_CATEGORIES[idx - 1] ?? choice)
   }
 
   if (!VALID_CATEGORIES.includes(category)) {
@@ -306,7 +316,9 @@ const main = async () => {
   )
 
   if (fs.existsSync(componentDir)) {
-    console.error(`\n✗  Directory already exists: ${path.relative(process.cwd(), componentDir)}\n`)
+    console.error(
+      `\n✗  Directory already exists: ${path.relative(process.cwd(), componentDir)}\n`,
+    )
     process.exit(1)
   }
 
@@ -317,7 +329,10 @@ const main = async () => {
   writeFile(path.join(componentDir, 'index.tsx'), indexTsx(name))
   writeFile(path.join(componentDir, 'types.ts'), typesTs(name))
   writeFile(path.join(componentDir, 'styled.ts'), styledTs(name, depth))
-  writeFile(path.join(componentDir, `${name}.stories.tsx`), storiesTsx(name, category))
+  writeFile(
+    path.join(componentDir, `${name}.stories.tsx`),
+    storiesTsx(name, category),
+  )
   writeFile(path.join(componentDir, `${name}Demo.tsx`), demoTsx(name, depth))
   writeFile(path.join(componentDir, 'README.md'), readme(name, category))
 
@@ -329,12 +344,24 @@ const main = async () => {
 
   console.log(`\n✓  Done! Component ${name} created.\n`)
   console.log('Next steps:')
-  console.log(`  • Edit src/components/${category}/${name}/types.ts       – define your props`)
-  console.log(`  • Edit src/components/${category}/${name}/styled.ts      – add styles`)
-  console.log(`  • Edit src/components/${category}/${name}/index.tsx      – implement the component`)
-  console.log(`  • Edit src/components/${category}/${name}/${name}Demo.tsx – add a realistic demo`)
-  console.log(`  • Edit src/components/${category}/${name}/${name}.stories.tsx – add Storybook stories`)
-  console.log(`  • Verify the exports in src/components/index.ts and src/App.tsx\n`)
+  console.log(
+    `  • Edit src/components/${category}/${name}/types.ts       – define your props`,
+  )
+  console.log(
+    `  • Edit src/components/${category}/${name}/styled.ts      – add styles`,
+  )
+  console.log(
+    `  • Edit src/components/${category}/${name}/index.tsx      – implement the component`,
+  )
+  console.log(
+    `  • Edit src/components/${category}/${name}/${name}Demo.tsx – add a realistic demo`,
+  )
+  console.log(
+    `  • Edit src/components/${category}/${name}/${name}.stories.tsx – add Storybook stories`,
+  )
+  console.log(
+    `  • Verify the exports in src/components/index.ts and src/App.tsx\n`,
+  )
 }
 
 main().catch((err) => {
