@@ -67,6 +67,7 @@ const MenuItem = ({
 const Menu = ({
   theme = 'light',
   label,
+  fontSize,
   items,
   groups,
   onSelect,
@@ -80,7 +81,7 @@ const Menu = ({
       onOpenChange={({ open }) => setIsOpen(open)}
       open={isOpen}
     >
-      <ChakraMenu.Trigger css={menuStyles(theme)} asChild>
+      <ChakraMenu.Trigger css={menuStyles(theme, fontSize)} asChild>
         {customTrigger || (
           <button type='button'>
             {label}

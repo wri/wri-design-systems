@@ -1,13 +1,14 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-export const menuStyles = (theme?: 'light' | 'dark') => css`
+export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   padding: 2px 12px;
   cursor: pointer;
+  font-size: ${fontSize ?? '16px'};
   color: ${theme === 'dark' ? getThemedColor('neutral', 100) : 'default'};
   background-color: ${theme === 'dark' ? 'default' : 'transparent'};
   &:hover {

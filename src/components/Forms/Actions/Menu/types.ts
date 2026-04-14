@@ -15,6 +15,7 @@ export type MenuItemProps = {
 export type MenuProps = {
   theme?: 'light' | 'dark'
   label: string
+  fontSize?: string
   items?: MenuItemProps[]
   groups?: {
     title: string

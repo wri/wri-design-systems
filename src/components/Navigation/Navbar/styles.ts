@@ -102,8 +102,9 @@ export const navbarLeftItemsContainerStyles = (divsCollided: boolean) => css`
 export const navbarLeftLinkStyles = (
   active?: boolean,
   theme?: NavbarProps['theme'],
+  isCondensed?: boolean,
 ) => css`
-  font-size: 16px;
+  font-size: ${isCondensed ? '14px' : '16px'};
   line-height: 24px;
   font-weight: 400;
   color: ${theme === 'dark'
@@ -177,11 +178,13 @@ export const navbarActionsContainerStyles = (divsCollided: boolean) => css`
 
 export const navbarMenuActionStyles = (
   theme: NavbarProps['theme'] = 'light',
+  isCondensed?: boolean,
 ) => css`
   background-color: none;
   border: none;
   cursor: pointer;
   padding: 0px;
+  font-size: ${isCondensed ? '14px' : '16px'};
   color: ${getThemedColor('neutral', theme === 'dark' ? 100 : 800)};
   display: flex;
   justify-content: center;
@@ -206,11 +209,14 @@ export const navbarMenuActionStyles = (
   }
 `
 
-export const navbarMobileStyles = (isOpen?: boolean) => css`
+export const navbarMobileStyles = (
+  isOpen?: boolean,
+  isCondensed?: boolean,
+) => css`
   position: absolute;
-  top: 48px;
+  top: ${isCondensed ? '28px' : '48px'};
   right: 0;
-  height: calc(100vh - 48px);
+  height: calc(100vh - ${isCondensed ? '28px' : '48px'});
   width: ${isOpen ? '100%' : '0px'};
   background-color: ${getThemedColor('neutral', 100)};
   display: flex;

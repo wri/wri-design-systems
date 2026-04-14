@@ -148,7 +148,11 @@ const Navbar = ({
                     key={item.label}
                     to={item.link}
                     href={item.link}
-                    css={navbarLeftLinkStyles(pathname === item.link, theme)}
+                    css={navbarLeftLinkStyles(
+                      pathname === item.link,
+                      theme,
+                      isCondensed,
+                    )}
                   >
                     {item.label}
                   </Link>
@@ -160,6 +164,7 @@ const Navbar = ({
                   theme={theme}
                   key={item.label}
                   label={item.label}
+                  fontSize={isCondensed ? '14px' : '16px'}
                   items={item.items || []}
                 />
               )
@@ -190,13 +195,19 @@ const Navbar = ({
               type='button'
               onClick={() => setIsOpen(!isOpen)}
               aria-label='Open menu'
-              css={navbarMenuActionStyles(theme)}
+              css={navbarMenuActionStyles(theme, isCondensed)}
             >
               {isOpen ? 'Close' : 'Menu'}
               {isOpen ? (
-                <CloseIcon height='16px' width='16px' />
+                <CloseIcon
+                  height={isCondensed ? '12px' : '16px'}
+                  width={isCondensed ? '12px' : '16px'}
+                />
               ) : (
-                <MenuIcon height='16px' width='16px' />
+                <MenuIcon
+                  height={isCondensed ? '12px' : '16px'}
+                  width={isCondensed ? '12px' : '16px'}
+                />
               )}
             </button>
           )}
@@ -212,7 +223,11 @@ const Navbar = ({
                   key={item.label}
                   to={item.link}
                   href={item.link}
-                  css={navbarLeftLinkStyles(pathname === item.link, theme)}
+                  css={navbarLeftLinkStyles(
+                    pathname === item.link,
+                    theme,
+                    isCondensed,
+                  )}
                 >
                   {item.label}
                 </Link>
@@ -224,6 +239,7 @@ const Navbar = ({
                 theme={theme}
                 key={item.label}
                 label={item.label}
+                fontSize={isCondensed ? '14px' : '16px'}
                 items={item.items || []}
               />
             )
@@ -234,6 +250,7 @@ const Navbar = ({
       {isMobile ? (
         <NavbarMobile
           theme={theme}
+          variant={variant}
           navigationSection={navigationSection}
           utilitySection={utilitySection}
           actionsSection={actionsSection}

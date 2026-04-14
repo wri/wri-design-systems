@@ -22,6 +22,12 @@ const meta = {
       },
     },
   },
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['default', 'condensed'],
+    },
+  },
   decorators: [
     (Story: any) => (
       <div
@@ -45,8 +51,9 @@ export const Navbar: Story = {
   args: {
     linkRouter: Link,
     pathname: '/',
+    variant: 'default',
   },
-  render: function Render() {
+  render: function Render({ variant }) {
     const [language, setLanguage] = useState('')
     const location = useLocation()
 
@@ -63,9 +70,13 @@ export const Navbar: Story = {
 
     return (
       <NavbarStory
+        variant={variant}
         logo={
           <Link to='/'>
-            <WriLogoIcon height='32px' width='92px' />
+            <WriLogoIcon
+              height={variant === 'condensed' ? '20px' : '32px'}
+              width='92px'
+            />
           </Link>
         }
         linkRouter={Link}
@@ -165,8 +176,9 @@ export const Condensed: Story = {
   args: {
     linkRouter: Link,
     pathname: '/',
+    variant: 'condensed',
   },
-  render: function Render() {
+  render: function Render({ variant }) {
     const [language, setLanguage] = useState('')
     const location = useLocation()
 
@@ -183,11 +195,14 @@ export const Condensed: Story = {
 
     return (
       <NavbarStory
-        variant='condensed'
+        variant={variant}
         theme='dark'
         logo={
           <Link to='/'>
-            <WriLogoIcon height='20px' width='92px' />
+            <WriLogoIcon
+              height={variant === 'condensed' ? '20px' : '32px'}
+              width='92px'
+            />
           </Link>
         }
         linkRouter={Link}
