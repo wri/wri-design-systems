@@ -1,4 +1,7 @@
 import { SelectRootProps as ChakraSelectRootProps } from '@chakra-ui/react'
+import type { SelectLabels } from '../../../../lib/i18n/types'
+
+export type { SelectLabels }
 
 export type SelectItemProps = {
   label: string
@@ -28,4 +31,6 @@ export type SelectProps = Omit<
   onChange?: (value: string[]) => void
   errorMessage?: string
   multiple?: boolean
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<SelectLabels>
 }

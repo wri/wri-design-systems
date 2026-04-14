@@ -21,6 +21,7 @@ import NavbarMobile from './NavbarMobile'
 import { CloseIcon, MenuIcon } from '../../icons'
 import Button from '../../Forms/Actions/Button'
 import Menu from '../../Forms/Actions/Menu'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const MIN_INNER_WIDTH = 1023 // 1080 // 1180
 const MAX_INNER_WIDTH = 1440 // 1250
@@ -41,7 +42,9 @@ const Navbar = ({
   fixed,
   onNavbarHeightChange,
   backgroundColor,
+  labels,
 }: NavbarProps) => {
+  const l = useLabels('Navbar', labels)
   const leftRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
   const logoRef = useRef<HTMLDivElement>(null)
@@ -194,10 +197,10 @@ const Navbar = ({
             <button
               type='button'
               onClick={() => setIsOpen(!isOpen)}
-              aria-label='Open menu'
-              css={navbarMenuActionStyles(theme, isCondensed)}
+              aria-label={l.openMenuLabel}
+              css={navbarMenuActionStyles(theme)}
             >
-              {isOpen ? 'Close' : 'Menu'}
+              {isOpen ? l.closeLabel : l.menuLabel}
               {isOpen ? (
                 <CloseIcon
                   height={isCondensed ? '12px' : '16px'}
@@ -258,6 +261,7 @@ const Navbar = ({
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           pathname={pathname}
+          resolvedLabels={l}
         />
       ) : null}
     </nav>

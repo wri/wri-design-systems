@@ -19,6 +19,7 @@ import {
   baseMapOptionsItemDataContainerStyles,
 } from './styles'
 import { BaseMapProps } from './types'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const BaseMap = ({
   title,
@@ -28,7 +29,9 @@ const BaseMap = ({
   onOptionSelected,
   maxHeight = '400px',
   maxWidth = '260px',
+  labels,
 }: BaseMapProps) => {
+  const l = useLabels('BaseMap', labels)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -127,7 +130,7 @@ const BaseMap = ({
                       <p className='ds-base-map-title'>{option.label}</p>
                       {option.active ? (
                         <Tag
-                          label='Active'
+                          label={l.activeLabel}
                           variant='warning'
                           size='small'
                           icon={<CheckIcon />}

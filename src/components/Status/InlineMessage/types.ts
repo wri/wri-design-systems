@@ -1,3 +1,7 @@
+import type { InlineMessageLabels } from '../../../lib/i18n/types'
+
+export type { InlineMessageLabels }
+
 export type InlineMessageProps = {
   label: string
   caption?: string | React.ReactNode
@@ -9,4 +13,6 @@ export type InlineMessageProps = {
   isButtonRight?: boolean
   buttonLeftIcon?: React.ReactNode
   buttonRightIcon?: React.ReactNode
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<InlineMessageLabels>
 }

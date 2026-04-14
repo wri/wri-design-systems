@@ -15,11 +15,14 @@ import {
   opacityControlLabelStyles,
   opacityControlTextInputContainerStyles,
 } from './styled'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const OpacityControl = ({
   defaultValue,
   onOpacityChanged,
+  labels,
 }: OpacityControlProps) => {
+  const l = useLabels('OpacityControl', labels)
   const [opacity, setOpacity] = useState(defaultValue)
 
   const opacityChangeHandler = ({ value }: { value: number[] }) => {
@@ -48,7 +51,7 @@ const OpacityControl = ({
     <ChakraPopover.Root positioning={{ placement: 'bottom-end' }}>
       <ChakraPopover.Trigger asChild>
         <Button
-          label='Opacity'
+          label={l.opacityButtonLabel}
           size='small'
           variant='secondary'
           leftIcon={<InfoIcon />}
@@ -58,11 +61,11 @@ const OpacityControl = ({
       <ChakraPopover.Positioner>
         <ChakraPopover.Content css={opacityControlContainerStyles}>
           <ChakraPopover.Body css={opacityControlBodyStyles}>
-            <p css={opacityControlLabelStyles}>Opacity</p>
+            <p css={opacityControlLabelStyles}>{l.opacityHeading}</p>
             <div css={opacityControlTextInputContainerStyles}>
               <div style={{ position: 'relative' }}>
                 <TextInput
-                  aria-label='Opacity'
+                  aria-label={l.opacityAriaLabel}
                   min='0'
                   max='100'
                   value={opacity}
@@ -73,7 +76,7 @@ const OpacityControl = ({
                 <p
                   style={{ position: 'absolute', top: '18.5px', right: '5px' }}
                 >
-                  %
+                  {l.percentSuffix}
                 </p>
               </div>
               <Slider

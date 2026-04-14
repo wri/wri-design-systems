@@ -25,6 +25,7 @@ import {
 } from './styles'
 import CloseButton from '../../Forms/Actions/CloseButton'
 import { MapPopUpProps } from './types'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const defaultConnectorSize = 4
 
@@ -39,7 +40,9 @@ const MapPopUp = ({
   offset = 30,
   closeOnEscape = true,
   closeOnOutsideClick = false,
+  labels,
 }: MapPopUpProps) => {
+  const l = useLabels('MapPopUp', labels)
   const arrowRef = useRef<HTMLDivElement | null>(null)
 
   const {
@@ -105,7 +108,7 @@ const MapPopUp = ({
           <CloseButton
             onClick={() => onOpenChange(false)}
             className='ds-map-pop-up-close-button'
-            aria-label='Close'
+            aria-label={l.closeLabel}
           />
         </div>
 

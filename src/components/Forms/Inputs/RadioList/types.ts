@@ -1,4 +1,7 @@
 import { RadioProps } from '../../Controls/Radio/types'
+import type { RadioListLabels } from '../../../../lib/i18n/types'
+
+export type { RadioListLabels }
 
 export type RadioListProps = {
   label: string
@@ -11,4 +14,6 @@ export type RadioListProps = {
   horizontal?: boolean
   required?: boolean
   variant?: 'default' | 'card'
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<RadioListLabels>
 }

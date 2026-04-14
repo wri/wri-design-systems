@@ -17,6 +17,7 @@ import {
   warningInlineMessageStyles,
 } from './styled'
 import { InlineMessageProps } from './types'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const InlineMessage = ({
   label,
@@ -29,7 +30,9 @@ const InlineMessage = ({
   isButtonRight,
   buttonLeftIcon,
   buttonRightIcon,
+  labels,
 }: InlineMessageProps) => {
+  const l = useLabels('InlineMessage', labels)
   let variantInlineMessageStyles = infoWhiteInlineMessageStyles
   if (variant === 'info-grey') {
     variantInlineMessageStyles = infoGreyInlineMessageStyles
@@ -47,7 +50,7 @@ const InlineMessage = ({
         defaultInlineMessageStyles(size, isButtonRight),
         variantInlineMessageStyles,
       ]}
-      aria-roledescription='Note'
+      aria-roledescription={l.roleDescription}
     >
       <div>
         <div css={inlineMessageHeaderStyles}>

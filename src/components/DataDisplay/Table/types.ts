@@ -1,3 +1,7 @@
+import type { TableLabels } from '../../../lib/i18n/types'
+
+export type { TableLabels }
+
 export type TableProps = {
   columns: {
     key: string
@@ -23,4 +27,6 @@ export type TableProps = {
   onPageChange?: (page: number) => void
   onAllItemsSelected?: (checked: boolean) => void
   loading?: boolean
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<TableLabels>
 }

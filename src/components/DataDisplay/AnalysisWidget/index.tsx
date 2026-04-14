@@ -10,6 +10,7 @@ import {
 } from './styled'
 import { AnalysisWidgetProps } from './types'
 import { ChevronDownIcon } from '../../icons'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const AnalysisWidget = ({
   children,
@@ -19,7 +20,9 @@ const AnalysisWidget = ({
   collapsible = true,
   actions,
   showFooterOnCollapsed = false,
+  labels,
 }: AnalysisWidgetProps) => {
+  const l = useLabels('AnalysisWidget', labels)
   const itemValue = 'analysis-widget-item'
   const [isOpen, setIsOpen] = useState(expanded)
   const headerId = `analysis-widget-header-${itemValue}`
@@ -82,7 +85,7 @@ const AnalysisWidget = ({
                     display='flex'
                   >
                     <ChevronDownIcon
-                      aria-label='Toggle section'
+                      aria-label={l.toggleSectionLabel}
                       color='var(--chakra-colors-neutral-700)'
                       height='16px'
                       width='16px'

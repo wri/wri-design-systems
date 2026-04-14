@@ -15,6 +15,7 @@ import RadioGroup from '../../../Forms/Controls/Radio/RadioGroup'
 import { LayerItemProps } from '../LayerItem/types'
 import { ChevronDownIcon } from '../../../icons'
 import Tag from '../../../Forms/Tag'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const getDefaultValue = (layerItems: LayerItemProps[]) => {
   const defaultSelected = layerItems.find(
@@ -29,7 +30,9 @@ const LayerGroup = ({
   value,
   layerItems,
   onChangeForRadioVariant,
+  labels,
 }: LayerGroupProps) => {
+  const l = useLabels('LayerGroup', labels)
   const [activeItems, setActiveItems] = useState<{
     key?: string
     active?: boolean
@@ -73,9 +76,7 @@ const LayerGroup = ({
     (item) => item === true,
   ).length
 
-  const ariaLabel = `${label}, ${getActiveCount} Active layers on the map${
-    caption ? `, ${caption}` : ''
-  }`
+  const ariaLabel = l.groupAriaLabel(label, getActiveCount, caption)
 
   return (
     <Accordion.Item value={value} width='100%'>
@@ -93,7 +94,7 @@ const LayerGroup = ({
           <span css={layerGroupTitleStyles}>
             {label}
             <Tag
-              label={`${getActiveCount} Active`}
+              label={l.activeTagLabel(getActiveCount)}
               size='small'
               variant={getActiveCount > 0 ? 'success' : 'info-grey'}
             />

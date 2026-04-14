@@ -25,9 +25,12 @@ import {
 } from '../../icons'
 import { toasters } from './utils'
 import Button from '../../Forms/Actions/Button'
+import { useLabels } from '../../../lib/i18n/useLabels'
+import type { ToastComponentProps } from './types'
 
-const Toast: React.FC = () =>
-  Object.keys(toasters).map((toaster) => (
+const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
+  const l = useLabels('Toast', labels)
+  return Object.keys(toasters).map((toaster) => (
     <Portal key={toaster}>
       <ChakraToaster toaster={toasters[toaster]} insetInline={{ mdDown: '4' }}>
         {(toast) => (
@@ -106,7 +109,7 @@ const Toast: React.FC = () =>
                   <Button
                     css={toastCloseTriggerStyles}
                     label={toast.meta.closableLabel}
-                    aria-label={toast.meta?.closableLabel || 'Dismiss'}
+                    aria-label={toast.meta?.closableLabel || l.dismissLabel}
                     leftIcon={<CloseIcon height='10px!' width='10px!' />}
                     size='small'
                     variant='secondary'
@@ -120,5 +123,6 @@ const Toast: React.FC = () =>
       </ChakraToaster>
     </Portal>
   ))
+}
 
 export default Toast

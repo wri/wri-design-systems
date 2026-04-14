@@ -1,3 +1,7 @@
+import type { BaseMapLabels } from '../../../lib/i18n/types'
+
+export type { BaseMapLabels }
+
 type AdditionalSettingsProps = {
   label: string
   checked?: boolean
@@ -22,4 +26,6 @@ export type BaseMapProps = {
   onOptionSelected?: (option: BaseMapOptionProps) => void
   maxHeight?: string
   maxWidth?: string
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<BaseMapLabels>
 }

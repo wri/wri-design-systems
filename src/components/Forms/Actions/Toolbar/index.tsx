@@ -12,6 +12,7 @@ import ToolbarButton from './ToolbarButton'
 import { toolbarContainerStyles, overflowMenuItemStyles } from './styled'
 import { ToolbarProps } from './types'
 import { useToolbarOverflow } from './useToolbarOverflow'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const COLLAPSED_WIDTH = 48
 const EXPANDED_LABEL_WIDTH = 100
@@ -24,7 +25,9 @@ const Toolbar = ({
   autoCollapse = false,
   ariaLabel,
   defaultGaps,
+  labels,
 }: ToolbarProps) => {
+  const l = useLabels('Toolbar', labels)
   const [isExpanded, setIsExpanded] = useState(expanded)
   const { containerRef, visibleNumberOfItems, shouldForceCollapse } =
     useToolbarOverflow({
@@ -146,7 +149,7 @@ const Toolbar = ({
         {showExpandedToggle && !autoCollapse && !shouldForceCollapse && (
           <ToolbarButton
             isExpanded={isExpanded}
-            ariaLabel={isExpanded ? 'Collapse' : 'Expand'}
+            ariaLabel={isExpanded ? l.collapseAriaLabel : l.expandAriaLabel}
             icon={
               isExpanded ? (
                 <DoubleChevronRightIcon />
@@ -154,7 +157,7 @@ const Toolbar = ({
                 <DoubleChevronLeftIcon />
               )
             }
-            label='Collapse'
+            label={l.collapseLabel}
             onClick={() => setIsExpanded(!isExpanded)}
             showGap={false}
             vertical={vertical}

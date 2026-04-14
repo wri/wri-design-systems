@@ -1,3 +1,7 @@
+import type { ToolbarLabels } from '../../../../lib/i18n/types'
+
+export type { ToolbarLabels }
+
 export interface ToolbarItem {
   icon: React.ReactElement
   ariaLabel: string
@@ -16,6 +20,8 @@ export interface ToolbarProps {
   ariaLabel?: string
   defaultGaps?: boolean
   autoCollapse?: boolean
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<ToolbarLabels>
 }
 
 export interface ToolbarButtonProps {

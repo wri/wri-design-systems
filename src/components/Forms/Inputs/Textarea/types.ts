@@ -1,4 +1,7 @@
 import { TextareaProps as ChakraTextareaProps } from '@chakra-ui/react'
+import type { TextareaLabels } from '../../../../lib/i18n/types'
+
+export type { TextareaLabels }
 
 export type TextareaProps = Omit<
   ChakraTextareaProps,
@@ -15,4 +18,6 @@ export type TextareaProps = Omit<
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   minLength?: number
   maxLength?: number
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<TextareaLabels>
 }

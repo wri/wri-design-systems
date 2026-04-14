@@ -21,6 +21,7 @@ import { ChevronDownIcon } from '../../icons'
 import IconButton from '../../Forms/Actions/IconButton'
 import Checkbox from '../../Forms/Controls/Checkbox'
 import { getThemedColor } from '../../../lib/theme'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const Table = ({
   columns,
@@ -37,7 +38,9 @@ const Table = ({
   onPageChange,
   onAllItemsSelected,
   loading,
+  labels,
 }: TableProps) => {
+  const l = useLabels('Table', labels)
   const [sortColumn, setSortColumn] = useState<{ key: string; order: string }>({
     key: '',
     order: '',
@@ -114,7 +117,7 @@ const Table = ({
                           />
                         }
                         onClick={() => onSort(column.key, 'asc')}
-                        aria-label='Ascending'
+                        aria-label={l.ascendingLabel}
                       />
                       <IconButton
                         css={tableHeaderSortButtonStyles(
@@ -123,7 +126,7 @@ const Table = ({
                         )}
                         icon={<ChevronDownIcon />}
                         onClick={() => onSort(column.key, 'desc')}
-                        aria-label='Descending'
+                        aria-label={l.descendingLabel}
                       />
                     </div>
                   ) : null}

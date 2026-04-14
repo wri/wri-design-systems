@@ -10,6 +10,7 @@ import {
   borderlessButtonStyles,
   outlineButtonStyles,
 } from './styled'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -22,10 +23,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       leftIcon,
       rightIcon,
       children,
+      labels,
       ...rest
     },
     ref,
   ) => {
+    const l = useLabels('Button', labels)
     let variantButtonStyles = primaryButtonStyles
     if (variant === 'secondary') {
       variantButtonStyles = secondaryButtonStyles
@@ -39,7 +42,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       let newLabel = rest['aria-label'] || label
 
       if (loading) {
-        newLabel = 'Loading'
+        newLabel = l.loadingLabel
       }
 
       return newLabel

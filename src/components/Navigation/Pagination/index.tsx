@@ -12,6 +12,7 @@ import {
   paginationPrevNextStyles,
 } from './styles'
 import Button from '../../Forms/Actions/Button'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const Pagination = ({
   totalItems,
@@ -19,12 +20,14 @@ const Pagination = ({
   currentPage,
   variant = 'default',
   onPageChange,
+  labels,
 }: PaginationProps) => {
+  const l = useLabels('Pagination', labels)
   const isCompact = variant === 'compact' || variant === 'compact-with-buttons'
   const isCompactWithButtons = variant === 'compact-with-buttons'
 
   return (
-    <div aria-label='Pagination'>
+    <div aria-label={l.paginationLabel}>
       <ChakraPagination.Root
         count={totalItems}
         pageSize={pageSize}
@@ -42,7 +45,7 @@ const Pagination = ({
             {isCompactWithButtons ? (
               <Button
                 variant='secondary'
-                label='Previous'
+                label={l.previousLabel}
                 size='small'
                 leftIcon={
                   <ChevronDownIcon
@@ -56,7 +59,7 @@ const Pagination = ({
                 css={paginationPrevNextStyles}
                 style={{ rotate: '90deg' }}
                 icon={<ChevronDownIcon />}
-                aria-label='Previous page'
+                aria-label={l.previousPageLabel}
               />
             )}
           </ChakraPagination.PrevTrigger>
@@ -67,7 +70,7 @@ const Pagination = ({
               render={(page) => (
                 <IconButton
                   css={paginationLabelStyles}
-                  aria-label={`Page ${page.value}`}
+                  aria-label={l.pageLabel(page.value)}
                   icon={<p>{page.value}</p>}
                 />
               )}
@@ -77,7 +80,7 @@ const Pagination = ({
             {isCompactWithButtons ? (
               <Button
                 variant='secondary'
-                label='Next'
+                label={l.nextLabel}
                 size='small'
                 rightIcon={
                   <ChevronDownIcon
@@ -91,7 +94,7 @@ const Pagination = ({
                 css={paginationPrevNextStyles}
                 style={{ rotate: '270deg' }}
                 icon={<ChevronDownIcon />}
-                aria-label='Next page'
+                aria-label={l.nextPageLabel}
               />
             )}
           </ChakraPagination.NextTrigger>

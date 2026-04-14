@@ -1,4 +1,7 @@
 import { Placement } from '@floating-ui/react'
+import type { MapPopUpLabels } from '../../../lib/i18n/types'
+
+export type { MapPopUpLabels }
 
 export type MapPopUpProps = {
   open: boolean
@@ -13,4 +16,6 @@ export type MapPopUpProps = {
   offset?: number // default: 30
   closeOnEscape?: boolean // default: true
   closeOnOutsideClick?: boolean // default: false
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<MapPopUpLabels>
 }

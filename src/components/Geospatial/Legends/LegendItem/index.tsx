@@ -14,6 +14,7 @@ import Button from '../../../Forms/Actions/Button'
 import { ChevronDownIcon, CloseIcon, DotsIcon, InfoIcon } from '../../../icons'
 import IconButton from '../../../Forms/Actions/IconButton'
 import OpacityControl from '../OpacityControl'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const LegendItem = ({
   layerName,
@@ -25,62 +26,69 @@ const LegendItem = ({
   children,
   onInfoClick,
   onOpacityChanged,
-}: LegendItemProps) => (
-  <div css={legendItemContainerStyles}>
-    <div css={legendItemDragAndDropActionsStyles}>
-      <IconButton
-        icon={<DotsIcon />}
-        aria-label='Drag and drop'
-        aria-hidden
-        onClick={onDrag}
-        style={{ display: 'none', marginBottom: '12px' }}
-      />
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '12px',
-        }}
-      >
+  labels,
+}: LegendItemProps) => {
+  const l = useLabels('LegendItem', labels)
+  return (
+    <div css={legendItemContainerStyles}>
+      <div css={legendItemDragAndDropActionsStyles}>
         <IconButton
-          icon={<ChevronDownIcon rotate='180' />}
-          aria-label='Up'
-          onClick={onUpClick}
+          icon={<DotsIcon />}
+          aria-label={l.dragAndDropLabel}
+          aria-hidden
+          onClick={onDrag}
+          style={{ display: 'none', marginBottom: '12px' }}
         />
-        <IconButton
-          icon={<ChevronDownIcon />}
-          aria-label='Down'
-          onClick={onDownClick}
-        />
-      </div>
-    </div>
-    <div style={{ width: '100%' }}>
-      <div css={legendItemHeaderContainerStyles}>
-        <div>
-          <h3 css={legendItemLayerNameStyles}>{layerName}</h3>
-          <p css={legendItemDataUnitStyles}>{dataUnit}</p>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '12px',
+          }}
+        >
+          <IconButton
+            icon={<ChevronDownIcon rotate='180' />}
+            aria-label={l.upLabel}
+            onClick={onUpClick}
+          />
+          <IconButton
+            icon={<ChevronDownIcon />}
+            aria-label={l.downLabel}
+            onClick={onDownClick}
+          />
         </div>
-        <Button
-          label='Remove'
-          size='small'
-          variant='secondary'
-          rightIcon={<CloseIcon />}
-          onClick={onRemoveClick}
-        />
       </div>
-      {children}
-      <div css={legendItemButtonsContainerStyles}>
-        <Button
-          label='About data'
-          size='small'
-          variant='secondary'
-          leftIcon={<InfoIcon />}
-          onClick={onInfoClick}
-        />
-        <OpacityControl defaultValue={80} onOpacityChanged={onOpacityChanged} />
+      <div style={{ width: '100%' }}>
+        <div css={legendItemHeaderContainerStyles}>
+          <div>
+            <h3 css={legendItemLayerNameStyles}>{layerName}</h3>
+            <p css={legendItemDataUnitStyles}>{dataUnit}</p>
+          </div>
+          <Button
+            label={l.removeLabel}
+            size='small'
+            variant='secondary'
+            rightIcon={<CloseIcon />}
+            onClick={onRemoveClick}
+          />
+        </div>
+        {children}
+        <div css={legendItemButtonsContainerStyles}>
+          <Button
+            label={l.aboutDataLabel}
+            size='small'
+            variant='secondary'
+            leftIcon={<InfoIcon />}
+            onClick={onInfoClick}
+          />
+          <OpacityControl
+            defaultValue={80}
+            onOpacityChanged={onOpacityChanged}
+          />
+        </div>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default LegendItem

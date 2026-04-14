@@ -1,5 +1,8 @@
 import { Accordion } from '@chakra-ui/react'
 import { LayerItemProps } from '../LayerItem/types'
+import type { LayerGroupLabels } from '../../../../lib/i18n/types'
+
+export type { LayerGroupLabels }
 
 export type LayerGroupContainerProps = Omit<
   Accordion.RootProps,
@@ -18,4 +21,6 @@ export type LayerGroupProps = {
     checked: boolean,
     selectedValue?: string,
   ) => void
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<LayerGroupLabels>
 }

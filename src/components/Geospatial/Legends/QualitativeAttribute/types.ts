@@ -1,3 +1,7 @@
+import type { QualitativeAttributeLabels } from '../../../../lib/i18n/types'
+
+export type { QualitativeAttributeLabels }
+
 export type QualitativeAttributeProps = {
   type: 'raster' | 'line' | 'point'
   label: string | React.ReactNode
@@ -7,4 +11,6 @@ export type QualitativeAttributeProps = {
   onActionClick?: () => void
   pointIcon?: React.ReactNode
   ariaLabelType?: string
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<QualitativeAttributeLabels>
 }

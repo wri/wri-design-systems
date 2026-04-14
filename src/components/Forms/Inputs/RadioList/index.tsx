@@ -15,6 +15,7 @@ import {
   radioListLabelStyles,
 } from './styled'
 import RadioGroup from '../../Controls/Radio/RadioGroup'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const RadioList = ({
   label,
@@ -27,10 +28,12 @@ const RadioList = ({
   horizontal,
   variant = 'default',
   required,
+  labels,
 }: RadioListProps) => {
+  const l = useLabels('RadioList', labels)
   const captionText = caption ? `${caption}.` : ''
-  const requiredText = required ? 'Required.' : 'Optional.'
-  const errorText = errorMessage ? `Error: ${errorMessage}.` : ''
+  const requiredText = required ? l.requiredLabel : l.optionalLabel
+  const errorText = errorMessage ? `${l.errorPrefix} ${errorMessage}.` : ''
   const groupLabel = `${label}. ${captionText} ${requiredText} ${errorText} `
   return (
     <Group
@@ -41,7 +44,7 @@ const RadioList = ({
       {errorMessage ? <div css={radioListErrorBarStyles} /> : null}
       <div css={radioListContentStyles(!!errorMessage)}>
         <p css={radioListLabelStyles} aria-label={label}>
-          {required && <span aria-label='required'>*</span>}
+          {required && <span aria-label={l.requiredSymbolLabel}>*</span>}
           {label}
         </p>
         <p css={radioListCaptionStyles} aria-label={caption}>
