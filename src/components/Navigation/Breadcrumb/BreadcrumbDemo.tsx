@@ -16,29 +16,29 @@ const BreadcrumbDemo = () => {
   return (
     <DemoWrapper title='Breadcrumb'>
       <div>
-        <Link style={{ marginRight: '10px' }} to='/'>
+        <Link style={{ marginRight: '0.625rem' }} to='/'>
           HOME
         </Link>
-        <Link style={{ marginRight: '10px' }} to='/page1'>
+        <Link style={{ marginRight: '0.625rem' }} to='/page1'>
           PAGE1
         </Link>
-        <Link style={{ marginRight: '10px' }} to='/page1/page2'>
+        <Link style={{ marginRight: '0.625rem' }} to='/page1/page2'>
           PAGE2
         </Link>
-        <Link style={{ marginRight: '10px' }} to='/page1/page2/page3'>
+        <Link style={{ marginRight: '0.625rem' }} to='/page1/page2/page3'>
           PAGE3
         </Link>
-        <Link style={{ marginRight: '10px' }} to='/page1/page2/page3/page4'>
+        <Link style={{ marginRight: '0.625rem' }} to='/page1/page2/page3/page4'>
           PAGE4
         </Link>
         <Link
-          style={{ marginRight: '10px' }}
+          style={{ marginRight: '0.625rem' }}
           to='/page1/page2/page3/page4/page5'
         >
           PAGE5
         </Link>
         <Link
-          style={{ marginRight: '10px' }}
+          style={{ marginRight: '0.625rem' }}
           to='/page1/page2/page3/page4/page5/page6'
         >
           PAGE6

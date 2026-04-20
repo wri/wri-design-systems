@@ -167,7 +167,7 @@ const Navbar = ({
                   theme={theme}
                   key={item.label}
                   label={item.label}
-                  fontSize={isCondensed ? '14px' : '16px'}
+                  fontSize={isCondensed ? '0.875rem' : '1rem'}
                   items={item.items || []}
                 />
               )
@@ -203,13 +203,13 @@ const Navbar = ({
               {isOpen ? l.closeLabel : l.menuLabel}
               {isOpen ? (
                 <CloseIcon
-                  height={isCondensed ? '12px' : '16px'}
-                  width={isCondensed ? '12px' : '16px'}
+                  height={isCondensed ? '0.75rem' : '1rem'}
+                  width={isCondensed ? '0.75rem' : '1rem'}
                 />
               ) : (
                 <MenuIcon
-                  height={isCondensed ? '12px' : '16px'}
-                  width={isCondensed ? '12px' : '16px'}
+                  height={isCondensed ? '0.75rem' : '1rem'}
+                  width={isCondensed ? '0.75rem' : '1rem'}
                 />
               )}
             </button>
@@ -242,7 +242,7 @@ const Navbar = ({
                 theme={theme}
                 key={item.label}
                 label={item.label}
-                fontSize={isCondensed ? '14px' : '16px'}
+                fontSize={isCondensed ? '0.875rem' : '1rem'}
                 items={item.items || []}
               />
             )

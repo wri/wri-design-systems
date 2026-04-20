@@ -78,7 +78,7 @@ const TabBar = ({
                 aria-label={tab['aria-label'] || tab.label}
                 {...tab}
               >
-                <Box display='flex' alignItems='center' gap='5px'>
+                <Box display='flex' alignItems='center' gap='0.3125rem'>
                   {tab.icon}
                   {tab.label}
                 </Box>

@@ -25,7 +25,7 @@ const Footer = ({
     <footer css={footerStyles(fixed, filled)}>
       <div css={footerContainerStyles(maxWidth)}>
         <div css={footerLogosContainerStyles}>
-          <WriLogoBlackAndWhiteIcon height='32px' width='91px' />
+          <WriLogoBlackAndWhiteIcon height='2rem' width='5.6875rem' />
           {additionalLogos &&
             // eslint-disable-next-line react/no-array-index-key
             additionalLogos.map((logo, index) => <div key={index}>{logo}</div>)}

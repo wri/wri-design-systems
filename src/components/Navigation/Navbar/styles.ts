@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
+import { sizeValueToCss } from '../../../lib/sizing'
 import { NavbarProps } from './types'
 
 export const navbarStyles = (
@@ -9,11 +10,11 @@ export const navbarStyles = (
   theme?: NavbarProps['theme'],
   isCondensed?: boolean,
 ) => {
-  let maxHeight = '48px'
+  let maxHeight = '3rem'
   if (isFullHeight) {
-    maxHeight = '96px'
+    maxHeight = '6rem'
   } else if (isCondensed) {
-    maxHeight = '28px'
+    maxHeight = '1.75rem'
   }
 
   return css`
@@ -27,27 +28,27 @@ export const navbarStyles = (
     top: 0;
     left: 0;
     z-index: 102;
-    border-bottom: 1px solid ${getThemedColor('neutral', 400)};
+    border-bottom: 0.0625rem solid ${getThemedColor('neutral', 400)};
   `
 }
 export const navbarSecondBarStyles = (
   theme?: NavbarProps['theme'],
   isCondensed?: boolean,
 ) => css`
-  height: ${isCondensed ? '28px' : '48px'};
+  height: ${isCondensed ? '1.75rem' : '3rem'};
   width: 100%;
   background-color: ${theme === 'dark'
     ? getThemedColor('neutral', 800)
     : getThemedColor('neutral', 100)};
-  border-bottom: 1px solid
+  border-bottom: 0.0625rem solid
     ${theme === 'dark'
-      ? getThemedColor('neutral', 800)
-      : getThemedColor('neutral', 400)};
+    ? getThemedColor('neutral', 800)
+    : getThemedColor('neutral', 400)};
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0px;
-  padding: ${isCondensed ? '0px' : '8px 16px'};
+  gap: 0rem;
+  padding: ${isCondensed ? '0rem' : '0.5rem 1rem'};
 `
 
 export const navbarContainerStyles = (
@@ -55,16 +56,16 @@ export const navbarContainerStyles = (
   maxWidth?: NavbarProps['maxWidth'],
   isCondensed?: boolean,
 ) => css`
-  height: ${isCondensed ? '28px' : '48px'};
+  height: ${isCondensed ? '1.75rem' : '3rem'};
   width: 100%;
-  max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
+  max-width: ${maxWidth ? sizeValueToCss(maxWidth) : '100%'};
   background-color: ${isBlack ? getThemedColor('neutral', 800) : 'transparent'};
   display: flex;
   align-items: ${isCondensed ? 'start' : 'center'};
 
   justify-content: space-between;
   margin: 0 auto;
-  padding: ${isCondensed ? '0px' : '8px 16px'};
+  padding: ${isCondensed ? '0rem' : '0.5rem 1rem'};
 `
 
 export const navbarLeftContainerStyles = (
@@ -72,9 +73,9 @@ export const navbarLeftContainerStyles = (
   isCondensed: boolean,
 ) => css`
   display: flex;
-  margin: ${isCondensed ? '-1px' : '0px'};
+  margin: ${isCondensed ? '-0.0625rem' : '0rem'};
   justify-content: flex-start;
-  gap: 12px;
+  gap: 0.75rem;
   color: ${getThemedColor('neutral', isBlackBackground ? 100 : 900)};
 `
 
@@ -83,11 +84,11 @@ export const navbarLogoContainerStyles = css`
 
   a {
     &:focus-visible {
-      border-radius: 0px;
+      border-radius: 0rem;
       outline-color: ${getThemedColor('primary', 700)};
-      outline-offset: 4px;
+      outline-offset: 0.25rem;
       outline-style: solid;
-      outline-width: 2px;
+      outline-width: 0.125rem;
     }
   }
 `
@@ -96,7 +97,7 @@ export const navbarLeftItemsContainerStyles = (divsCollided: boolean) => css`
   display: ${divsCollided ? 'none' : 'flex'};
   align-items: center;
   justify-content: flex-start;
-  gap: 0px;
+  gap: 0rem;
 `
 
 export const navbarLeftLinkStyles = (
@@ -104,28 +105,28 @@ export const navbarLeftLinkStyles = (
   theme?: NavbarProps['theme'],
   isCondensed?: boolean,
 ) => css`
-  font-size: ${isCondensed ? '14px' : '16px'};
-  line-height: 24px;
+  font-size: ${isCondensed ? '0.875rem' : '1rem'};
+  line-height: 1.5rem;
   font-weight: 400;
   color: ${theme === 'dark'
     ? getThemedColor('neutral', 200)
     : getThemedColor('neutral', 900)};
-  padding: 2px 12px;
+  padding: 0.125rem 0.75rem;
 
   &:hover {
     background-color: ${theme === 'dark'
-      ? 'default'
-      : getThemedColor('neutral', 200)};
+    ? 'default'
+    : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {
     box-shadow:
-      0 0 0 2px ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 2px;
+    outline-offset: 0.125rem;
     outline-style: solid;
-    outline-width: 2px;
+    outline-width: 0.125rem;
   }
 
   ${active
@@ -137,7 +138,7 @@ export const navbarLeftLinkStyles = (
 `
 
 export const navbarRightContainerStyles = (isCondensed?: boolean) => css`
-  height: ${isCondensed ? '28px' : '48px'};
+  height: ${isCondensed ? '1.75rem' : '3rem'};
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -145,15 +146,15 @@ export const navbarRightContainerStyles = (isCondensed?: boolean) => css`
 
 export const navbarRightItemStyles = (divsCollided?: boolean) => css`
   height: 100%;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 400;
   color: ${getThemedColor('neutral', divsCollided ? 100 : 900)};
-  border-left: 1px solid ${getThemedColor('neutral', divsCollided ? 700 : 300)};
+  border-left: 0.0625rem solid ${getThemedColor('neutral', divsCollided ? 700 : 300)};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 12px;
+  padding: 0 0.75rem;
 
   ${divsCollided
     ? css`
@@ -171,9 +172,9 @@ export const navbarActionsContainerStyles = (divsCollided: boolean) => css`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
-  padding-left: 16px;
-  border-left: 1px solid ${getThemedColor('neutral', divsCollided ? 700 : 300)};
+  gap: 1.25rem;
+  padding-left: 1rem;
+  border-left: 0.0625rem solid ${getThemedColor('neutral', divsCollided ? 700 : 300)};
 `
 
 export const navbarMenuActionStyles = (
@@ -183,28 +184,28 @@ export const navbarMenuActionStyles = (
   background-color: none;
   border: none;
   cursor: pointer;
-  padding: 0px;
-  font-size: ${isCondensed ? '14px' : '16px'};
+  padding: 0rem;
+  font-size: ${isCondensed ? '0.875rem' : '1rem'};
   color: ${getThemedColor('neutral', theme === 'dark' ? 100 : 800)};
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 
   &:hover {
     background-color: ${theme === 'dark'
-      ? 'default'
-      : getThemedColor('neutral', 200)};
+    ? 'default'
+    : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {
     box-shadow:
-      0 0 0 2px ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 4px;
+    outline-offset: 0.25rem;
     outline-style: solid;
-    outline-width: 2px;
+    outline-width: 0.125rem;
     background-color: ${getThemedColor('neutral', 200)};
   }
 `
@@ -214,16 +215,16 @@ export const navbarMobileStyles = (
   isCondensed?: boolean,
 ) => css`
   position: absolute;
-  top: ${isCondensed ? '28px' : '48px'};
+  top: ${isCondensed ? '1.75rem' : '3rem'};
   right: 0;
-  height: calc(100vh - ${isCondensed ? '28px' : '48px'});
-  width: ${isOpen ? '100%' : '0px'};
+  height: calc(100vh - ${isCondensed ? '1.75rem' : '3rem'});
+  width: ${isOpen ? '100%' : '0rem'};
   background-color: ${getThemedColor('neutral', 100)};
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 16px;
+  gap: 1rem;
   transition: width 0.5s ease-in-out;
 `
 
@@ -238,22 +239,22 @@ export const navbarMobileUtilityContainerStyles = (
   background-color: ${theme === 'dark'
     ? getThemedColor('neutral', 800)
     : getThemedColor('neutral', 200)};
-  border-bottom: 1px solid ${getThemedColor('neutral', 300)};
+  border-bottom: 0.0625rem solid ${getThemedColor('neutral', 300)};
 
   .ds-utility-item {
-    padding: 12px 16px;
+    padding: 0.75rem 1rem;
     width: 100%;
-    height: 48px;
+    height: 3rem;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 
     button {
-      height: 48px;
+      height: 3rem;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      margin-left: -12px;
+      margin-left: -0.75rem;
     }
   }
 `
@@ -273,7 +274,7 @@ export const navbarMobileNavigationLinkItemContainerStyles = css``
 export const navbarMobileNavigationLinkItemStyles = (active?: boolean) => css`
   display: inline-block;
   width: 100%;
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   color: ${getThemedColor('neutral', 900)};
   text-align: left;
   cursor: pointer;
@@ -290,22 +291,22 @@ export const navbarMobileNavigationLinkItemStyles = (active?: boolean) => css`
   }
 
   &:focus-visible {
-    width: calc(100% - 4px);
-    padding: 12px 16px;
+    width: calc(100% - 0.25rem);
+    padding: 0.75rem 1rem;
     box-shadow:
-      0 0 0 2px ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 2px;
+    outline-offset: 0.125rem;
     outline-style: solid;
-    outline-width: 2px;
+    outline-width: 0.125rem;
     background-color: ${getThemedColor('neutral', 200)};
   }
 `
 
 export const navbarMobileNavigationMenuStyles = css`
   width: 100%;
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -316,25 +317,25 @@ export const navbarMobileNavigationMenuStyles = css`
   }
 
   &:focus-visible {
-    width: calc(100% - 4px);
-    padding: 12px 16px;
+    width: calc(100% - 0.25rem);
+    padding: 0.75rem 1rem;
     box-shadow:
-      0 0 0 2px ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 2px;
+    outline-offset: 0.125rem;
     outline-style: solid;
-    outline-width: 2px;
+    outline-width: 0.125rem;
     background-color: ${getThemedColor('neutral', 200)};
   }
 `
 
 export const navbarMobileSubmenuStyles = (isOpen?: boolean) => css`
   position: absolute;
-  top: 0px;
+  top: 0rem;
   right: 0;
   height: 100vh;
-  width: ${isOpen ? '100%' : '0px'};
+  width: ${isOpen ? '100%' : '0rem'};
   background-color: ${getThemedColor('neutral', 100)};
   display: flex;
   flex-direction: column;
@@ -344,13 +345,13 @@ export const navbarMobileSubmenuStyles = (isOpen?: boolean) => css`
 `
 
 export const navbarMobileSubmenuHeaderStyles = css`
-  height: 48px;
+  height: 3rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  border-bottom: 1px solid ${getThemedColor('neutral', 400)};
+  padding: 1rem;
+  border-bottom: 0.0625rem solid ${getThemedColor('neutral', 400)};
   position: relative;
   top: 0;
   left: 0;
@@ -360,15 +361,15 @@ export const navbarMobileActionsContainerStyles = css`
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 72px;
+  height: 4.5rem;
   width: 100%;
   background-color: ${getThemedColor('neutral', 200)};
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 0.75rem;
 
   button {
-    width: calc(48% - 24px);
+    width: calc(48% - 1.5rem);
   }
 `

@@ -44,7 +44,7 @@ const NavigationRail = ({
       onOpenChange(!open)
     }
   }
-  const [isMobile] = useMediaQuery(['(max-width: 768px)'])
+  const [isMobile] = useMediaQuery(['(max-width: 48rem)'])
   if (isMobile) {
     return (
       <Tabs.Root
@@ -56,8 +56,8 @@ const NavigationRail = ({
             display: 'flex',
             overflowX: 'auto',
             whiteSpace: 'nowrap',
-            padding: '8px',
-            gap: '8px',
+            padding: '0.5rem',
+            gap: '0.5rem',
           }}
         >
           {tabs.map((tab) => (
@@ -67,7 +67,7 @@ const NavigationRail = ({
               css={{
                 '--indicator-color': getThemedColor('primary', 500),
                 flexShrink: 0,
-                padding: '10px 16px',
+                padding: '0.625rem 1rem',
                 color: getThemedColor('neutral', 600),
                 '&[data-selected]': {
                   color: getThemedColor('neutral', 800),
@@ -92,9 +92,9 @@ const NavigationRail = ({
   return (
     <div
       style={{
-        height: 'calc(100vh - 48px - 56px)',
+        height: 'calc(100vh - 3rem - 3.5rem)',
         position: 'fixed',
-        top: '48px',
+        top: '3rem',
         left: 0,
         display: 'flex',
       }}
@@ -125,7 +125,7 @@ const NavigationRail = ({
                   display='flex'
                   alignItems='center'
                   flexDirection='column'
-                  gap='5px'
+                  gap='0.3125rem'
                   className='ds-tab-label'
                 >
                   {tab.icon ? (

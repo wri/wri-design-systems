@@ -104,7 +104,7 @@ export const CustomResultsRendering: Story = {
     displayResults: 'custom',
     renderResults: ({ items, query, highlightedIndex, onSelect }) => (
       <div>
-        <Box padding='6px 8px'>
+        <Box padding='0.375rem 0.5rem'>
           Recent searches
           <TextResults
             highlightedIndex={highlightedIndex}
@@ -147,7 +147,7 @@ export const MaxHeightResults: Story = {
   args: {
     options: sampleOptions,
     placeholder: 'Max Height Results',
-    resultsMaxHeight: '70px',
+    resultsMaxHeight: '4.375rem',
   },
 }
 

@@ -6,7 +6,7 @@ import DemoWrapper from '../../UI/DemoWrapper'
 
 const TabBarDemo = () => (
   <DemoWrapper title='Tab Bar'>
-    <div style={{ width: '100%', maxWidth: '300px' }}>
+    <div style={{ width: '100%', maxWidth: '18.75rem' }}>
       <TabBar
         variant='panel'
         tabs={[

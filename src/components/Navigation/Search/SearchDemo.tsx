@@ -40,7 +40,7 @@ const sampleOptions = [
 
 const SearchDemo = () => (
   <DemoWrapper title='Search'>
-    <Box display='flex' flexDirection='column' gap='20px' width='400px'>
+    <Box display='flex' flexDirection='column' gap='1.25rem' width='25rem'>
       {/* Default Search */}
       <Search
         options={sampleOptions}
@@ -63,7 +63,7 @@ const SearchDemo = () => (
         displayResults='custom'
         renderResults={({ items, query, highlightedIndex, onSelect }) => (
           <div>
-            <Box padding='6px 8px'>
+            <Box padding='0.375rem 0.5rem'>
               Recent searches
               <TextResults
                 highlightedIndex={highlightedIndex}
@@ -104,8 +104,8 @@ const SearchDemo = () => (
       {/* Max Height Results */}
       <Search
         options={sampleOptions}
-        placeholder='7. Max Height Results (70px)'
-        resultsMaxHeight='70px'
+        placeholder='7. Max Height Results (4.375rem)'
+        resultsMaxHeight='4.375rem'
         onSelect={(option) => console.log({ selected: option })}
       />
 

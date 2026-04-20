@@ -22,7 +22,7 @@ const NavbarDemo = () => {
     <Navbar
       logo={
         <Link to='/'>
-          <WriLogoIcon height='32px' width='92px' />
+          <WriLogoIcon height='2rem' width='5.75rem' />
         </Link>
       }
       linkRouter={Link}
@@ -87,10 +87,10 @@ const NavbarDemo = () => {
         },
       ]}
       utilitySection={[
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <Badge label='Notifications' notificationCount={3} />
         </div>,
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <Avatar
             name='John Doe'
             src='https://bit.ly/sage-adebayo'
@@ -110,7 +110,7 @@ const NavbarDemo = () => {
       actionsSection={[
         { ariaLabel: 'Sign in', children: 'Sign in', onClick: () => {} },
       ]}
-      maxWidth={1440}
+      maxWidth={360}
       fixed
     />
   )

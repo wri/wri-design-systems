@@ -1,6 +1,7 @@
 import { ButtonProps } from '../../Forms/Actions/Button/types'
 import { MenuItemProps } from '../../Forms/Actions/Menu/types'
 import type { NavbarLabels } from '../../../lib/i18n/types'
+import type { SizeValue } from '../../../lib/sizing'
 
 export type { NavbarLabels }
 
@@ -28,7 +29,7 @@ export type NavbarProps = {
     size?: ButtonProps['size']
     onClick?: ButtonProps['onClick']
   }[]
-  maxWidth?: number
+  maxWidth?: SizeValue
   fixed?: boolean
   onNavbarHeightChange?: (height: number) => void
   backgroundColor?: string
