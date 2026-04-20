@@ -19,7 +19,8 @@
     "build-storybook": "storybook build",
     "lint": "eslint src/**/*.ts src/**/*.tsx",
     "prettier": "prettier --write --loglevel warn .",
-    "lint-fix": "yarn lint --fix && yarn prettier"
+    "lint-fix": "yarn lint --fix && yarn prettier",
+    "new-component": "tsx scripts/new-component.ts"
   },
   "eslintConfig": {
     "extends": [
