@@ -31,8 +31,12 @@ const MobileTabBarDemo = () => (
         onTabClick={console.log}
       />
     </div>
-    <div style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}>
-      <p style={{ marginBottom: '0.625rem', fontWeight: 'bold' }}>Default Active</p>
+    <div
+      style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}
+    >
+      <p style={{ marginBottom: '0.625rem', fontWeight: 'bold' }}>
+        Default Active
+      </p>
       <MobileTabBar
         tabs={[
           { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
@@ -58,7 +62,9 @@ const MobileTabBarDemo = () => (
         defaultValue='two'
       />
     </div>
-    <div style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}>
+    <div
+      style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}
+    >
       <p style={{ marginBottom: '0.625rem', fontWeight: 'bold' }}>Disabled</p>
       <MobileTabBar
         tabs={[
@@ -85,7 +91,9 @@ const MobileTabBarDemo = () => (
         onTabClick={console.log}
       />
     </div>
-    <div style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}>
+    <div
+      style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}
+    >
       <p style={{ marginBottom: '0.625rem', fontWeight: 'bold' }}>
         With Hidden Labels
       </p>
@@ -114,7 +122,9 @@ const MobileTabBarDemo = () => (
         hideLabels
       />
     </div>
-    <div style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}>
+    <div
+      style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}
+    >
       <p style={{ marginBottom: '0.625rem', fontWeight: 'bold' }}>
         Automatic activation mode
       </p>

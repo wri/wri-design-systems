@@ -42,8 +42,8 @@ export const navbarSecondBarStyles = (
     : getThemedColor('neutral', 100)};
   border-bottom: 0.0625rem solid
     ${theme === 'dark'
-    ? getThemedColor('neutral', 800)
-    : getThemedColor('neutral', 400)};
+      ? getThemedColor('neutral', 800)
+      : getThemedColor('neutral', 400)};
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -115,8 +115,8 @@ export const navbarLeftLinkStyles = (
 
   &:hover {
     background-color: ${theme === 'dark'
-    ? 'default'
-    : getThemedColor('neutral', 200)};
+      ? 'default'
+      : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {
@@ -150,7 +150,8 @@ export const navbarRightItemStyles = (divsCollided?: boolean) => css`
   line-height: 1.5rem;
   font-weight: 400;
   color: ${getThemedColor('neutral', divsCollided ? 100 : 900)};
-  border-left: 0.0625rem solid ${getThemedColor('neutral', divsCollided ? 700 : 300)};
+  border-left: 0.0625rem solid
+    ${getThemedColor('neutral', divsCollided ? 700 : 300)};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,7 +175,8 @@ export const navbarActionsContainerStyles = (divsCollided: boolean) => css`
   justify-content: flex-end;
   gap: 1.25rem;
   padding-left: 1rem;
-  border-left: 0.0625rem solid ${getThemedColor('neutral', divsCollided ? 700 : 300)};
+  border-left: 0.0625rem solid
+    ${getThemedColor('neutral', divsCollided ? 700 : 300)};
 `
 
 export const navbarMenuActionStyles = (
@@ -194,8 +196,8 @@ export const navbarMenuActionStyles = (
 
   &:hover {
     background-color: ${theme === 'dark'
-    ? 'default'
-    : getThemedColor('neutral', 200)};
+      ? 'default'
+      : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {

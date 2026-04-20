@@ -85,9 +85,7 @@ export const Default: Story = {
   args: {
     options: sampleOptions,
     placeholder: 'Search',
-    onSelect: (option) => {
-      console.log('Selected option:', option)
-    },
+    onSelect: () => {},
   },
 }
 
@@ -115,9 +113,7 @@ export const CustomResultsRendering: Story = {
         </Box>
       </div>
     ),
-    onSelect: (option) => {
-      console.log('Selected option:', option)
-    },
+    onSelect: () => {},
   },
 }
 
