@@ -42,8 +42,8 @@ export const navbarSecondBarStyles = (
     : getThemedColor('neutral', 100)};
   border-bottom: 0.0625rem solid
     ${theme === 'dark'
-    ? getThemedColor('neutral', 800)
-    : getThemedColor('neutral', 400)};
+      ? getThemedColor('neutral', 800)
+      : getThemedColor('neutral', 400)};
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -115,8 +115,8 @@ export const navbarLeftLinkStyles = (
 
   &:hover {
     background-color: ${theme === 'dark'
-    ? 'default'
-    : getThemedColor('neutral', 200)};
+      ? 'default'
+      : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {
@@ -196,8 +196,8 @@ export const navbarMenuActionStyles = (
 
   &:hover {
     background-color: ${theme === 'dark'
-    ? 'default'
-    : getThemedColor('neutral', 200)};
+      ? 'default'
+      : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {
