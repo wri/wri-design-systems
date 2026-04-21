@@ -76,7 +76,7 @@ export const Floating: Story = {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '10px',
+                  gap: '0.625rem',
                 }}
               >
                 {Children.map(legentItems, (child, idx) =>
@@ -101,7 +101,7 @@ export const Floating: Story = {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '10px',
+                  gap: '0.625rem',
                 }}
               >
                 <AnalysisWidget
@@ -114,13 +114,13 @@ export const Floating: Story = {
                     },
                   ]}
                 >
-                  <div style={{ padding: '20px' }}>
+                  <div style={{ padding: '1.25rem' }}>
                     <p>
                       Lorem ipsum dolor <b>sit amet</b> consectetur. Vitae dolor
                       <b>tellus vel duis</b> viverra. Quisque at <b>quis</b>
                       facilisis ante.
                     </p>
-                    <div style={{ textAlign: 'center', padding: '20px' }}>
+                    <div style={{ textAlign: 'center', padding: '1.25rem' }}>
                       <PieChartIcon />
                     </div>
 

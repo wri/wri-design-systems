@@ -74,7 +74,7 @@ export const FloatingNoInformation: Story = {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '10px',
+                  gap: '0.625rem',
                 }}
               >
                 {Children.map(legentItems, (child, idx) =>
@@ -97,7 +97,7 @@ export const FloatingNoInformation: Story = {
             {selectedTabValue === 'analysis-tab' ? (
               <AnalysisWidget
                 footer={
-                  <div style={{ padding: '10px' }}>
+                  <div style={{ padding: '0.625rem' }}>
                     <Button
                       style={{ width: '100%' }}
                       label='Label'
@@ -110,15 +110,15 @@ export const FloatingNoInformation: Story = {
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '10px',
-                    height: '600px',
+                    gap: '0.625rem',
+                    height: '37.5rem',
                   }}
                 >
-                  <div style={{ padding: '20px' }}>
-                    <div style={{ textAlign: 'center', padding: '20px' }}>
+                  <div style={{ padding: '1.25rem' }}>
+                    <div style={{ textAlign: 'center', padding: '1.25rem' }}>
                       <GraphIcon />
                     </div>
-                    <h2 style={{ fontWeight: '700', fontSize: '20px' }}>
+                    <h2 style={{ fontWeight: '700', fontSize: '1.25rem' }}>
                       Select an area on the map to analyse
                     </h2>
                     <p>

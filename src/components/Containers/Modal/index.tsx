@@ -59,7 +59,7 @@ const Modal = ({
               </Dialog.Header>
               <Dialog.Body css={modalContentStyles}>{content}</Dialog.Body>
               {footer ? (
-                <Dialog.Footer padding='12px'>{footer}</Dialog.Footer>
+                <Dialog.Footer padding='0.75rem'>{footer}</Dialog.Footer>
               ) : null}
             </Dialog.Content>
           </Dialog.Positioner>

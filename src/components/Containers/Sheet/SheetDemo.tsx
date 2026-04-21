@@ -32,14 +32,14 @@ const SheetDemo = () => {
 
   return (
     <DemoWrapper title='Sheet'>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5625rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           <Sheet
             header={
               <div
                 style={{
                   width: '100%',
-                  padding: '16px',
+                  padding: '1rem',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -53,15 +53,15 @@ const SheetDemo = () => {
                 />
               </div>
             }
-            content={<div style={{ padding: '16px' }}>{content}</div>}
-            footer={<div style={{ padding: '16px' }}>Footer</div>}
+            content={<div style={{ padding: '1rem' }}>{content}</div>}
+            footer={<div style={{ padding: '1rem' }}>Footer</div>}
             defaultSnap='closed'
             open={showSheet.closed}
             onClose={handleCloseClosedSheet}
           />
 
           <Button
-            style={{ width: '200px' }}
+            style={{ width: '12.5rem' }}
             label='Show Closed Sheet'
             onClick={() =>
               setShowSheet({
@@ -72,13 +72,13 @@ const SheetDemo = () => {
           />
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           <Sheet
             className='ds-custom-sheet-styles'
             header={
               <div
                 style={{
-                  padding: '16px',
+                  padding: '1rem',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -97,14 +97,14 @@ const SheetDemo = () => {
                 />
               </div>
             }
-            content={<div style={{ padding: '16px' }}>{content}</div>}
-            footer={<div style={{ padding: '16px' }}>Footer</div>}
+            content={<div style={{ padding: '1rem' }}>{content}</div>}
+            footer={<div style={{ padding: '1rem' }}>Footer</div>}
             open={showSheet.minimized}
             onClose={() => setShowSheet({ ...showSheet, minimized: false })}
           />
 
           <Button
-            style={{ width: '200px' }}
+            style={{ width: '12.5rem' }}
             label='Show Minimized Sheet'
             onClick={() =>
               setShowSheet({
@@ -115,12 +115,12 @@ const SheetDemo = () => {
           />
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           <Sheet
             header={
               <div
                 style={{
-                  padding: '16px',
+                  padding: '1rem',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -139,15 +139,15 @@ const SheetDemo = () => {
                 />
               </div>
             }
-            content={<div style={{ padding: '16px' }}>{content}</div>}
-            footer={<div style={{ padding: '16px' }}>Footer</div>}
+            content={<div style={{ padding: '1rem' }}>{content}</div>}
+            footer={<div style={{ padding: '1rem' }}>Footer</div>}
             defaultSnap='mid'
             open={showSheet.mid}
             onClose={() => setShowSheet({ ...showSheet, mid: false })}
           />
 
           <Button
-            style={{ width: '200px' }}
+            style={{ width: '12.5rem' }}
             label='Show Mid Sheet'
             onClick={() =>
               setShowSheet({
@@ -158,12 +158,12 @@ const SheetDemo = () => {
           />
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           <Sheet
             header={
               <div
                 style={{
-                  padding: '16px',
+                  padding: '1rem',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -182,15 +182,15 @@ const SheetDemo = () => {
                 />
               </div>
             }
-            content={<div style={{ padding: '16px' }}>{content}</div>}
-            footer={<div style={{ padding: '16px' }}>Footer</div>}
+            content={<div style={{ padding: '1rem' }}>{content}</div>}
+            footer={<div style={{ padding: '1rem' }}>Footer</div>}
             defaultSnap='full'
             open={showSheet.full}
             onClose={() => setShowSheet({ ...showSheet, full: false })}
           />
 
           <Button
-            style={{ width: '200px' }}
+            style={{ width: '12.5rem' }}
             label='Show Full Sheet'
             onClick={() =>
               setShowSheet({

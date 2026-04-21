@@ -29,7 +29,7 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     (Story: any) => (
-      <div style={{ height: '800px' }}>
+      <div style={{ height: '50rem' }}>
         <Story />
       </div>
     ),

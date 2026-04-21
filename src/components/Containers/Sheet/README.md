@@ -24,7 +24,7 @@ const [isOpen, setIsOpen] = useState(false)
     <div
       style={{
         width: '100%',
-        padding: '0 16px',
+        padding: '0 1rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -38,7 +38,7 @@ const [isOpen, setIsOpen] = useState(false)
       />
     </div>
   }
-  content={<div style={{ padding: '0 16px' }}>{content}</div>}
+  content={<div style={{ padding: '0 1rem' }}>{content}</div>}
   footer={<div>Footer</div>}
   defaultSnap='closed'
   open={isOpen}
@@ -46,7 +46,7 @@ const [isOpen, setIsOpen] = useState(false)
 />
 
 <Button
-  style={{ width: '200px' }}
+  style={{ width: '12.5rem' }}
   label='Show Closed Sheet'
   onClick={() => setIsOpen(true)}
 />

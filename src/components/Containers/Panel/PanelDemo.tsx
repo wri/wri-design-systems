@@ -18,8 +18,8 @@ const content = (
 
 const PanelDemo = () => (
   <DemoWrapper title='Panel'>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-      <div style={{ height: '300px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.875rem' }}>
+      <div style={{ height: '18.75rem' }}>
         <Panel
           header={<div>Header</div>}
           content={<div>{content}</div>}
@@ -27,15 +27,15 @@ const PanelDemo = () => (
         />
       </div>
 
-      <div style={{ height: '300px' }}>
+      <div style={{ height: '18.75rem' }}>
         <Panel content={<div>{content}</div>} footer={<div>Footer</div>} />
       </div>
 
-      <div style={{ height: '300px' }}>
+      <div style={{ height: '18.75rem' }}>
         <Panel header={<div>Header</div>} content={<div>{content}</div>} />
       </div>
 
-      <div style={{ height: '300px' }}>
+      <div style={{ height: '18.75rem' }}>
         <Panel
           header={<div>Header</div>}
           content={<div>{content}</div>}

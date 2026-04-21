@@ -75,14 +75,14 @@ export const FilterPanel: Story = {
         header={
           <Box
             style={{
-              padding: '20px',
-              borderBottom: `1px solid ${getThemedColor('neutral', 300)}`,
+              padding: '1.25rem',
+              borderBottom: `0.0625rem solid ${getThemedColor('neutral', 300)}`,
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <Text style={{ fontWeight: '700' }}>Filters</Text>
               <div
-                style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+                style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}
               >
                 <Text
                   style={{
@@ -98,14 +98,14 @@ export const FilterPanel: Story = {
           </Box>
         }
         content={
-          <div style={{ maxHeight: '500px' }}>
+          <div style={{ maxHeight: '31.25rem' }}>
             <div>
               <Box
                 style={{
-                  border: `1px solid ${getThemedColor('neutral', 300)}`,
-                  padding: '15px',
-                  margin: '15px',
-                  borderRadius: '5px',
+                  border: `0.0625rem solid ${getThemedColor('neutral', 300)}`,
+                  padding: '0.9375rem',
+                  margin: '0.9375rem',
+                  borderRadius: '0.3125rem',
                 }}
               >
                 <h2 css={layerPanelTitleStyles}>Label</h2>
@@ -113,7 +113,11 @@ export const FilterPanel: Story = {
 
                 <Search options={sampleOptions} placeholder='Search' />
                 <div
-                  style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}
+                  style={{
+                    display: 'flex',
+                    gap: '0.625rem',
+                    marginBottom: '0.9375rem',
+                  }}
                 >
                   <Tag variant='info-white' label='Label' closable />
                   <Tag variant='info-white' label='Label' closable />
@@ -122,8 +126,8 @@ export const FilterPanel: Story = {
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '20px',
-                    marginBottom: '40px',
+                    gap: '1.25rem',
+                    marginBottom: '2.5rem',
                   }}
                 >
                   <Checkbox name='Checkbox' value='1' defaultChecked>
@@ -192,10 +196,10 @@ export const FilterPanel: Story = {
             <div>
               <Box
                 style={{
-                  border: `1px solid ${getThemedColor('neutral', 300)}`,
-                  padding: '15px',
-                  margin: '15px',
-                  borderRadius: '5px',
+                  border: `0.0625rem solid ${getThemedColor('neutral', 300)}`,
+                  padding: '0.9375rem',
+                  margin: '0.9375rem',
+                  borderRadius: '0.3125rem',
                 }}
               >
                 <h2 css={layerPanelTitleStyles}>Label</h2>
@@ -205,8 +209,8 @@ export const FilterPanel: Story = {
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '20px',
-                    marginBottom: '40px',
+                    gap: '1.25rem',
+                    marginBottom: '2.5rem',
                   }}
                 >
                   <Checkbox name='Checkbox' value='1' defaultChecked>
@@ -229,9 +233,9 @@ export const FilterPanel: Story = {
             style={{
               width: '100%',
               display: 'flex',
-              padding: '10px',
+              padding: '0.625rem',
               background: 'white',
-              gap: '15px',
+              gap: '0.9375rem',
             }}
           >
             <Button style={{ flex: 1 }} label='Clear All' variant='secondary' />

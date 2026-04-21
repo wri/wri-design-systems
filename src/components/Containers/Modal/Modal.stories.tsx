@@ -221,9 +221,9 @@ export const CustomSize: Story = {
       </p>
     ),
     content: <p>Content</p>,
-    width: '500px',
-    height: '300px',
-    maxHeight: '400px',
+    width: '31.25rem',
+    height: '18.75rem',
+    maxHeight: '25rem',
     open: false,
   },
   render: (args) => {
