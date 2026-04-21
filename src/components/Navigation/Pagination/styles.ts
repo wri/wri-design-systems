@@ -10,16 +10,16 @@ export const paginationPrevNextStyles = css`
 `
 
 export const paginationLabelCompactStyles = css`
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
   color: ${getThemedColor('neutral', 900)};
 `
 
 export const paginationLabelsGroupStyles = css`
   span {
-    height: 20px;
-    width: 20px;
+    height: 1.25rem;
+    width: 1.25rem;
     cursor: initial;
 
     &:hover {
@@ -29,8 +29,8 @@ export const paginationLabelsGroupStyles = css`
 `
 
 export const paginationLabelStyles = css`
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
 

@@ -6,40 +6,40 @@ export const tabBarContainerStyles = (variant: TabBarProps['variant']) => css`
   width: 100%;
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 2.5rem;
 
   ${variant === 'view' &&
   `
-    border: 1px solid ${getThemedColor('neutral', 400)};
+    border: 0.0625rem solid ${getThemedColor('neutral', 400)};
     background-color: ${getThemedColor('neutral', 200)};
-    border-radius: 4px;
-    padding: 4px;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
   `}
 
   ${variant === 'transparent' &&
   `
     border: none;
     background-color: transparent;
-    border-radius: 4px;
-    padding: 0px 16px;
+    border-radius: 0.25rem;
+    padding: 0rem 1rem;
 
     .chakra-tabs__list {
-      gap: 32px;
+      gap: 2rem;
     }
   `}
 `
 
 export const defaultTabStyles = css`
   width: 99%;
-  height: 40px;
-  padding: 8px 16px;
-  border-radius: 0px;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2px;
-  font-size: 16px;
-  line-height: 24px;
+  gap: 0.125rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 400;
 
   &:focus-visible {
@@ -62,10 +62,10 @@ export const tabBarItemPanelStyles = css`
   &:focus-visible {
     background-color: ${getThemedColor('neutral', 300)};
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 2px;
+    outline-offset: 0.125rem;
     box-shadow:
-      0 0 0 2px ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
   }
 
   &[data-selected] {
@@ -83,10 +83,10 @@ export const tabBarItemPanelStyles = css`
     &:focus-visible {
       background-color: ${getThemedColor('neutral', 100)};
       outline-color: ${getThemedColor('primary', 700)};
-      outline-offset: 2px;
+      outline-offset: 0.125rem;
       box-shadow:
-        0 0 0 2px ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     }
 
     &::before {
@@ -107,62 +107,62 @@ export const tabBarItemPanelStyles = css`
 `
 
 export const tabBarItemViewDividerStyles = css`
-  width: 4px;
-  height: 24px;
+  width: 0.25rem;
+  height: 1.5rem;
   background-color: ${getThemedColor('neutral', 400)};
 `
 
 export const tabBarItemViewStyles = css`
-  height: 32px;
-  border-radius: 2px;
+  height: 2rem;
+  border-radius: 0.125rem;
   background-color: ${getThemedColor('neutral', 200)};
   color: ${getThemedColor('neutral', 700)};
 
   &:hover {
     background-color: ${getThemedColor('neutral', 300)};
-    box-shadow: 0px 1px 2px 0px #0000000d;
+    box-shadow: 0rem 0.0625rem 0.125rem 0rem #0000000d;
   }
 
   &:active {
     background-color: ${getThemedColor('neutral', 300)};
-    box-shadow: 0px 2px 4px -2px #0000001a;
-    box-shadow: 0px 4px 6px -1px #0000001a;
+    box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 2px;
+    outline-offset: 0.125rem;
     box-shadow:
-      0 0 0 2px ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
   }
 
   &[data-selected] {
     background-color: ${getThemedColor('neutral', 100)};
-    border: 1px solid ${getThemedColor('neutral', 300)};
-    box-shadow: 0px 1px 2px 0px #0000000d;
+    border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+    box-shadow: 0rem 0.0625rem 0.125rem 0rem #0000000d;
     color: ${getThemedColor('neutral', 900)};
 
     &:hover {
       background-color: ${getThemedColor('neutral', 200)};
-      border: 1px solid ${getThemedColor('neutral', 300)};
-      box-shadow: 0px 2px 4px -2px #0000001a;
-      box-shadow: 0px 4px 6px -1px #0000001a;
+      border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+      box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
+      box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
     }
 
     &:active {
       background-color: ${getThemedColor('neutral', 300)};
-      border: 1px solid ${getThemedColor('neutral', 300)};
-      box-shadow: 0px 2px 4px -2px #0000001a;
-      box-shadow: 0px 4px 6px -1px #0000001a;
+      border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+      box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
+      box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
     }
 
     &:focus-visible {
       outline-color: ${getThemedColor('primary', 700)};
-      outline-offset: 2px;
+      outline-offset: 0.125rem;
       box-shadow:
-        0 0 0 2px ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     }
 
     &::before {
@@ -191,48 +191,48 @@ export const tabBarItemTransparentStyles = css`
   background-color: transparent;
   color: ${getThemedColor('neutral', 600)};
   width: auto;
-  padding: 0px;
+  padding: 0rem;
   justify-content: flex-start;
-  border-bottom: 2px solid transparent;
+  border-bottom: 0.125rem solid transparent;
 
   &:hover {
     background-color: ${getThemedColor('neutral', 100)};
-    border-bottom: 2px solid ${getThemedColor('primary', 500)};
+    border-bottom: 0.125rem solid ${getThemedColor('primary', 500)};
   }
 
   &:active {
     background-color: ${getThemedColor('neutral', 100)};
-    border-bottom: 2px solid ${getThemedColor('primary', 500)};
+    border-bottom: 0.125rem solid ${getThemedColor('primary', 500)};
   }
 
   &:focus-visible {
     background-color: ${getThemedColor('neutral', 100)};
-    border-bottom: 2px solid ${getThemedColor('primary', 500)};
+    border-bottom: 0.125rem solid ${getThemedColor('primary', 500)};
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 2px;
+    outline-offset: 0.125rem;
     box-shadow:
-      0 0 0 2px ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
   }
 
   &[data-selected] {
     background-color: ${getThemedColor('neutral', 100)};
-    border-bottom: 2px solid ${getThemedColor('primary', 500)};
+    border-bottom: 0.125rem solid ${getThemedColor('primary', 500)};
     color: ${getThemedColor('neutral', 800)};
 
     &:hover {
       background-color: ${getThemedColor('neutral', 100)};
-      border-bottom: 2px solid ${getThemedColor('primary', 500)};
+      border-bottom: 0.125rem solid ${getThemedColor('primary', 500)};
       color: ${getThemedColor('neutral', 800)};
     }
 
     &:focus-visible {
       background-color: ${getThemedColor('neutral', 100)};
       outline-color: ${getThemedColor('primary', 700)};
-      outline-offset: 2px;
+      outline-offset: 0.125rem;
       box-shadow:
-        0 0 0 2px ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     }
 
     &::before {
@@ -245,7 +245,7 @@ export const tabBarItemTransparentStyles = css`
     color: ${getThemedColor('neutral', 400)};
 
     &:hover {
-      border-bottom: 2px solid transparent;
+      border-bottom: 0.125rem solid transparent;
     }
 
     &[data-selected] {
@@ -254,7 +254,7 @@ export const tabBarItemTransparentStyles = css`
       opacity: 1;
 
       &:hover {
-        border-bottom: 2px solid ${getThemedColor('primary', 500)};
+        border-bottom: 0.125rem solid ${getThemedColor('primary', 500)};
       }
     }
   }

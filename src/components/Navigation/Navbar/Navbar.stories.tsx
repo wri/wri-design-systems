@@ -33,8 +33,8 @@ const meta = {
       <div
         style={{
           width: '100%',
-          maxWidth: '1440px',
-          height: '300px',
+          maxWidth: '90rem',
+          height: '18.75rem',
           margin: '0 auto',
         }}
       >
@@ -74,8 +74,8 @@ export const Navbar: Story = {
         logo={
           <Link to='/'>
             <WriLogoIcon
-              height={variant === 'condensed' ? '20px' : '32px'}
-              width='92px'
+              height={variant === 'condensed' ? '1.25rem' : '2rem'}
+              width='5.75rem'
             />
           </Link>
         }
@@ -141,11 +141,11 @@ export const Navbar: Story = {
           },
         ]}
         utilitySection={[
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             Notifications
             <Badge notificationCount={3} hasNotification />
           </div>,
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <Avatar
               name='John Doe'
               src='https://bit.ly/sage-adebayo'
@@ -165,7 +165,7 @@ export const Navbar: Story = {
         actionsSection={[
           { ariaLabel: 'Sign in', children: 'Sign in', onClick: () => {} },
         ]}
-        maxWidth={1440}
+        maxWidth={360}
         fixed
       />
     )
@@ -200,8 +200,8 @@ export const Condensed: Story = {
         logo={
           <Link to='/'>
             <WriLogoIcon
-              height={variant === 'condensed' ? '20px' : '32px'}
-              width='92px'
+              height={variant === 'condensed' ? '1.25rem' : '2rem'}
+              width='5.75rem'
             />
           </Link>
         }
@@ -268,7 +268,7 @@ export const Condensed: Story = {
         ]}
         utilitySection={[]}
         actionsSection={[]}
-        maxWidth={1440}
+        maxWidth={360}
         fixed
       />
     )

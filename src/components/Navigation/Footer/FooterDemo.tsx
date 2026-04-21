@@ -2,14 +2,14 @@ import { Footer } from '../..'
 
 const FooterDemo = () => (
   <Footer
-    maxWidth={1440}
+    maxWidth={360}
     filled
     fixed
     additionalLogos={[
       <img
         src='https://placehold.co/91x32/b0b0b0/31343C?font=playfair-display&text=Partner+Logo'
         alt='Partner Logo'
-        height='32px'
+        height='2rem'
       />,
     ]}
   >

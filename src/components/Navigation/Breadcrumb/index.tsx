@@ -29,7 +29,7 @@ const Breadcrumb = ({
 
   return (
     <ChakraBreadcrumb.Root>
-      <ChakraBreadcrumb.List gap={size === 'small' ? '6px' : '10px'}>
+      <ChakraBreadcrumb.List gap={size === 'small' ? '0.375rem' : '0.625rem'}>
         {showEllipsis ? (
           <>
             <ChakraBreadcrumb.Item css={breadcrumbItemStyles(size)}>

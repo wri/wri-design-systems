@@ -17,13 +17,14 @@ import { SearchIcon } from '../../icons'
 import { SearchProps } from './types'
 import { getThemedColor } from '../../../lib/theme'
 import { useLabels } from '../../../lib/i18n/useLabels'
+import { resolveSizeValue } from '../../../lib/sizing'
 
 const Search = ({
   placeholder,
   disabled,
   size = 'default',
   options = [],
-  resultsMaxHeight = '200px',
+  resultsMaxHeight = 50,
   isLoading = false,
   displayResults = 'text',
   onSelect,
@@ -109,7 +110,7 @@ const Search = ({
   }, [open])
 
   const endElement = filterText.length ? (
-    <CloseButton style={{ marginTop: '8px' }} onClick={handleOnClear} />
+    <CloseButton style={{ marginTop: '0.5rem' }} onClick={handleOnClear} />
   ) : null
 
   const resultsVisible =
@@ -124,7 +125,8 @@ const Search = ({
   } else if (isFocused) {
     iconFillColor = getThemedColor('primary', 700)
   }
-  const iconSize = size === 'small' ? '16px' : '20px'
+  const iconSize = size === 'small' ? '1rem' : '1.25rem'
+  const normalizedResultsMaxHeight = resolveSizeValue(resultsMaxHeight)
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
       <InputGroup
@@ -133,7 +135,7 @@ const Search = ({
             width={iconSize}
             height={iconSize}
             fill={iconFillColor}
-            style={{ marginTop: '8px' }}
+            style={{ marginTop: '0.5rem' }}
           />
         }
         endElement={endElement}
@@ -147,7 +149,7 @@ const Search = ({
           value={filterText}
           label=''
           style={{
-            paddingLeft: '40px',
+            paddingLeft: '2.5rem',
             borderColor: getThemedColor('neutral', 500),
           }}
           type='search'
@@ -208,12 +210,12 @@ const Search = ({
             position='absolute'
             width='100%'
             backgroundColor='white'
-            border={displayResults === 'custom' ? 'none' : '1px solid'}
+            border={displayResults === 'custom' ? 'none' : '0.0625rem solid'}
             borderColor='gray.200'
             borderRadius='md'
             zIndex={1000}
             overflowY='auto'
-            maxHeight={resultsMaxHeight}
+            maxHeight={normalizedResultsMaxHeight}
           >
             {isLoading && (
               <Box padding='1rem'>

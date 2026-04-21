@@ -6,7 +6,7 @@ import DemoWrapper from '../../UI/DemoWrapper'
 
 const PaginationDemo = () => (
   <DemoWrapper title='Pagination'>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       <Pagination totalItems={50} pageSize={10} currentPage={1} />
       <Pagination
         totalItems={50}

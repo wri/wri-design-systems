@@ -56,7 +56,7 @@ const NavbarMobile = ({
                 overflowY: 'scroll',
                 width: '100%',
                 height: '100%',
-                paddingBottom: '72px',
+                paddingBottom: '4.5rem',
               }}
             >
               {utilitySection ? (
@@ -174,7 +174,7 @@ const NavbarMobile = ({
                 css={navbarMenuActionStyles(theme)}
               >
                 {resolvedLabels.closeButtonText}
-                <CloseIcon height='16px' width='16px' />
+                <CloseIcon height='1rem' width='1rem' />
               </button>
             </div>
             <div css={navbarMobileNavigationLinksContainerStyles}>

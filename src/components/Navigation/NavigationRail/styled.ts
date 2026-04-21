@@ -3,10 +3,10 @@ import { getThemedColor } from '../../../lib/theme'
 import { NavigationRailProps } from './types'
 
 export const navigationRailContainerStyles = css`
-  width: 64px;
+  width: 4rem;
   height: 100%;
   z-index: 100;
-  border-right: 1px solid ${getThemedColor('neutral', 300)};
+  border-right: 0.0625rem solid ${getThemedColor('neutral', 300)};
   background-color: ${getThemedColor('neutral', 200)};
   display: flex;
   flex-direction: column;
@@ -14,16 +14,16 @@ export const navigationRailContainerStyles = css`
 `
 
 export const navigationRailTabStyles = css`
-  width: 64px;
-  height: 64px;
+  width: 4rem;
+  height: 4rem;
   background-color: ${getThemedColor('neutral', 200)};
   border-radius: initial;
   border-style: solid;
-  border-width: 1px 1px 0px 0px;
+  border-width: 0.0625rem 0.0625rem 0rem 0rem;
   border-color: ${getThemedColor('neutral', 300)};
   cursor: pointer;
-  border-left: 2px solid transparent;
-  padding: 0 5px;
+  border-left: 0.125rem solid transparent;
+  padding: 0 0.3125rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,21 +39,21 @@ export const navigationRailTabStyles = css`
   &:focus-visible {
     background-color: ${getThemedColor('neutral', 200)};
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 2px;
+    outline-offset: 0.125rem;
     box-shadow: none;
   }
 
   .ds-tab-label p {
-    font-size: 10px;
+    font-size: 0.625rem;
     font-weight: 400;
-    line-height: 14px;
+    line-height: 0.875rem;
     text-align: center;
     color: ${getThemedColor('neutral', 700)};
   }
 
   &[data-selected] {
     background-color: ${getThemedColor('neutral', 100)};
-    border-left: 2px solid ${getThemedColor('secondary', 500)};
+    border-left: 0.125rem solid ${getThemedColor('secondary', 500)};
 
     &:hover {
       background-color: ${getThemedColor('neutral', 200)};
@@ -62,7 +62,7 @@ export const navigationRailTabStyles = css`
     &:focus-visible {
       background-color: ${getThemedColor('neutral', 100)};
       outline-color: ${getThemedColor('primary', 700)};
-      outline-offset: 2px;
+      outline-offset: 0.125rem;
       box-shadow: none;
     }
 
@@ -111,8 +111,8 @@ export const navigationRailTabIconStyles = css`
   align-items: center;
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
 
     path {
       fill: ${getThemedColor('neutral', 600)};
@@ -121,21 +121,21 @@ export const navigationRailTabIconStyles = css`
 `
 
 export const navigationRailTriggerStyles = css`
-  width: 64px;
-  height: 64px;
+  width: 4rem;
+  height: 4rem;
   background-color: ${getThemedColor('neutral', 200)};
   border-radius: initial;
   border-style: solid;
-  border-width: 1px 1px 0px 0px;
+  border-width: 0.0625rem 0.0625rem 0rem 0rem;
   border-color: ${getThemedColor('neutral', 300)};
   cursor: pointer;
-  border-left: 2px solid transparent;
-  padding: 0 5px;
+  border-left: 0.125rem solid transparent;
+  padding: 0 0.3125rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.3125rem;
 
   &:hover {
     background-color: ${getThemedColor('neutral', 100)};
@@ -147,26 +147,26 @@ export const navigationRailTriggerStyles = css`
 
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 2px;
+    outline-offset: 0.125rem;
     box-shadow: none;
   }
 
   .ds-tab-label p {
-    font-size: 10px;
+    font-size: 0.625rem;
     font-weight: 400;
-    line-height: 14px;
+    line-height: 0.875rem;
     text-align: center;
     color: ${getThemedColor('neutral', 600)};
   }
 `
 
 export const navigationRailChildrenContainerStyles = css`
-  width: 320px;
+  width: 20rem;
   height: 100%;
   z-index: 100;
-  box-shadow: 2px 0px 2px 0px #0000000d;
+  box-shadow: 0.125rem 0rem 0.125rem 0rem #0000000d;
   background-color: ${getThemedColor('neutral', 100)};
   overflow-y: auto;
   overflow-x: hidden;
-  border-right: 1px solid ${getThemedColor('neutral', 300)};
+  border-right: 0.0625rem solid ${getThemedColor('neutral', 300)};
 `

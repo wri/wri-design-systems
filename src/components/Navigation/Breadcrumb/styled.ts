@@ -5,19 +5,19 @@ import { BreadcrumbProps } from './types'
 export const breadcrumbItemStyles = (size: BreadcrumbProps['size']) => css`
   a,
   p {
-    font-size: ${size === 'small' ? '12px' : '16px'};
+    font-size: ${size === 'small' ? '0.75rem' : '1rem'};
     font-weight: 400;
-    line-height: ${size === 'small' ? '16px' : '24px'};
+    line-height: ${size === 'small' ? '1rem' : '1.5rem'};
     color: ${getThemedColor('neutral', 600)};
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0.3125rem;
     text-transform: capitalize;
 
     svg {
-      height: ${size === 'small' ? '12px' : '16px'};
-      width: ${size === 'small' ? '12px' : '16px'};
+      height: ${size === 'small' ? '0.75rem' : '1rem'};
+      width: ${size === 'small' ? '0.75rem' : '1rem'};
       color: ${getThemedColor('neutral', 600)};
     }
   }
@@ -38,8 +38,8 @@ export const breadcrumbItemStyles = (size: BreadcrumbProps['size']) => css`
 
 export const breadcrumbSeparatorStyles = (size: BreadcrumbProps['size']) => css`
   svg {
-    height: ${size === 'small' ? '8px' : '12px'};
-    width: ${size === 'small' ? '8px' : '12px'};
+    height: ${size === 'small' ? '0.5rem' : '0.75rem'};
+    width: ${size === 'small' ? '0.5rem' : '0.75rem'};
     color: ${getThemedColor('neutral', 600)};
   }
 `

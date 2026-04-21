@@ -6,7 +6,7 @@ import DemoWrapper from '../../UI/DemoWrapper'
 
 const MobileTabBarDemo = () => (
   <DemoWrapper title='Mobile Tab Bar'>
-    <div style={{ width: '100%', maxWidth: '450px' }}>
+    <div style={{ width: '100%', maxWidth: '28.125rem' }}>
       <MobileTabBar
         tabs={[
           { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
@@ -31,8 +31,12 @@ const MobileTabBarDemo = () => (
         onTabClick={console.log}
       />
     </div>
-    <div style={{ width: '100%', maxWidth: '450px', margin: '25px 0' }}>
-      <p style={{ marginBottom: '10px', fontWeight: 'bold' }}>Default Active</p>
+    <div
+      style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}
+    >
+      <p style={{ marginBottom: '0.625rem', fontWeight: 'bold' }}>
+        Default Active
+      </p>
       <MobileTabBar
         tabs={[
           { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
@@ -58,8 +62,10 @@ const MobileTabBarDemo = () => (
         defaultValue='two'
       />
     </div>
-    <div style={{ width: '100%', maxWidth: '450px', margin: '25px 0' }}>
-      <p style={{ marginBottom: '10px', fontWeight: 'bold' }}>Disabled</p>
+    <div
+      style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}
+    >
+      <p style={{ marginBottom: '0.625rem', fontWeight: 'bold' }}>Disabled</p>
       <MobileTabBar
         tabs={[
           { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
@@ -85,8 +91,10 @@ const MobileTabBarDemo = () => (
         onTabClick={console.log}
       />
     </div>
-    <div style={{ width: '100%', maxWidth: '450px', margin: '25px 0' }}>
-      <p style={{ marginBottom: '10px', fontWeight: 'bold' }}>
+    <div
+      style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}
+    >
+      <p style={{ marginBottom: '0.625rem', fontWeight: 'bold' }}>
         With Hidden Labels
       </p>
       <MobileTabBar
@@ -114,8 +122,10 @@ const MobileTabBarDemo = () => (
         hideLabels
       />
     </div>
-    <div style={{ width: '100%', maxWidth: '450px', margin: '25px 0' }}>
-      <p style={{ marginBottom: '10px', fontWeight: 'bold' }}>
+    <div
+      style={{ width: '100%', maxWidth: '28.125rem', margin: '1.5625rem 0' }}
+    >
+      <p style={{ marginBottom: '0.625rem', fontWeight: 'bold' }}>
         Automatic activation mode
       </p>
       <MobileTabBar

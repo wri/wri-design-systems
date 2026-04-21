@@ -41,12 +41,12 @@ const TextResults = ({
     }
   }, [highlightedIndex])
   return (
-    <Box padding='8px'>
+    <Box padding='0.5rem'>
       {items.map((item, index) => (
         <Box
           ref={resultsRef}
           key={item.id}
-          padding='6px 8px'
+          padding='0.375rem 0.5rem'
           borderRadius='md'
           cursor='pointer'
           bg={index === highlightedIndex ? 'gray.100' : undefined}
