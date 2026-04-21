@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
-import { sizeValueToCss } from '../../../lib/sizing'
+import { resolveSizeValue } from '../../../lib/sizing'
 import { FooterProps } from './types'
 
 export const footerStyles = (
@@ -22,7 +22,7 @@ export const footerContainerStyles = (
 ) => css`
   height: 100%;
   width: 100%;
-  max-width: ${maxWidth != null ? sizeValueToCss(maxWidth) : '100%'};
+  max-width: ${maxWidth != null ? resolveSizeValue(maxWidth) : '100%'};
   display: flex;
   align-items: center;
   justify-content: space-between;

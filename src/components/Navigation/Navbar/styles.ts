@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
-import { sizeValueToCss } from '../../../lib/sizing'
+import { resolveSizeValue } from '../../../lib/sizing'
 import { NavbarProps } from './types'
 
 export const navbarStyles = (
@@ -42,8 +42,8 @@ export const navbarSecondBarStyles = (
     : getThemedColor('neutral', 100)};
   border-bottom: 0.0625rem solid
     ${theme === 'dark'
-      ? getThemedColor('neutral', 800)
-      : getThemedColor('neutral', 400)};
+    ? getThemedColor('neutral', 800)
+    : getThemedColor('neutral', 400)};
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -58,7 +58,7 @@ export const navbarContainerStyles = (
 ) => css`
   height: ${isCondensed ? '1.75rem' : '3rem'};
   width: 100%;
-  max-width: ${maxWidth ? sizeValueToCss(maxWidth) : '100%'};
+  max-width: ${maxWidth ? resolveSizeValue(maxWidth) : '100%'};
   background-color: ${isBlack ? getThemedColor('neutral', 800) : 'transparent'};
   display: flex;
   align-items: ${isCondensed ? 'start' : 'center'};
@@ -115,8 +115,8 @@ export const navbarLeftLinkStyles = (
 
   &:hover {
     background-color: ${theme === 'dark'
-      ? 'default'
-      : getThemedColor('neutral', 200)};
+    ? 'default'
+    : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {
@@ -196,8 +196,8 @@ export const navbarMenuActionStyles = (
 
   &:hover {
     background-color: ${theme === 'dark'
-      ? 'default'
-      : getThemedColor('neutral', 200)};
+    ? 'default'
+    : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {

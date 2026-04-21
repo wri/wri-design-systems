@@ -17,7 +17,7 @@ import { SearchIcon } from '../../icons'
 import { SearchProps } from './types'
 import { getThemedColor } from '../../../lib/theme'
 import { useLabels } from '../../../lib/i18n/useLabels'
-import { sizeValueToCss } from '../../../lib/sizing'
+import { resolveSizeValue } from '../../../lib/sizing'
 
 const Search = ({
   placeholder,
@@ -126,7 +126,7 @@ const Search = ({
     iconFillColor = getThemedColor('primary', 700)
   }
   const iconSize = size === 'small' ? '1rem' : '1.25rem'
-  const normalizedResultsMaxHeight = sizeValueToCss(resultsMaxHeight)
+  const normalizedResultsMaxHeight = resolveSizeValue(resultsMaxHeight)
   return (
     <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
       <InputGroup
