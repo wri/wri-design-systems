@@ -82,7 +82,11 @@ export const FilterPanel: Story = {
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <Text style={{ fontWeight: '700' }}>Filters</Text>
               <div
-                style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.625rem',
+                }}
               >
                 <Text
                   style={{

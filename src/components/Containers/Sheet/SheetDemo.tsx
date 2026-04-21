@@ -32,8 +32,12 @@ const SheetDemo = () => {
 
   return (
     <DemoWrapper title='Sheet'>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5625rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', gap: '1.5625rem' }}
+      >
+        <div
+          style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}
+        >
           <Sheet
             header={
               <div
@@ -72,7 +76,9 @@ const SheetDemo = () => {
           />
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        <div
+          style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}
+        >
           <Sheet
             className='ds-custom-sheet-styles'
             header={
@@ -115,7 +121,9 @@ const SheetDemo = () => {
           />
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        <div
+          style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}
+        >
           <Sheet
             header={
               <div
@@ -158,7 +166,9 @@ const SheetDemo = () => {
           />
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        <div
+          style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}
+        >
           <Sheet
             header={
               <div
