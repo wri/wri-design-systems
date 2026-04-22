@@ -1,3 +1,5 @@
+import { SizeValue } from '../../../lib/sizing'
+
 export type ModalProps = {
   header: React.ReactNode
   content: React.ReactNode
@@ -7,7 +9,7 @@ export type ModalProps = {
   blocking?: boolean
   open: boolean
   onClose?: () => void
-  width?: string
-  height?: string
-  maxHeight?: string
+  width?: SizeValue
+  height?: SizeValue
+  maxHeight?: SizeValue
 }

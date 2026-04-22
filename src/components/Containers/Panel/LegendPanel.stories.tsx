@@ -72,7 +72,7 @@ export const LegendPanel: Story = {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '10px',
+                  gap: '0.625rem',
                 }}
               >
                 {Children.map(legentItems, (child, idx) =>
@@ -97,7 +97,7 @@ export const LegendPanel: Story = {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '10px',
+                  gap: '0.625rem',
                 }}
               >
                 <div>analysisContent</div>

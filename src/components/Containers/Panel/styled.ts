@@ -4,33 +4,33 @@ import { PanelProps } from './types'
 
 export const panelContainerStyles = (width?: PanelProps['width']) => css`
   height: 100%;
-  width: ${width || '320px'};
+  width: ${width || '20rem'};
   background-color: ${getThemedColor('neutral', 100)};
-  box-shadow: 0px 1px 2px -1px #0000001a;
-  box-shadow: 0px 1px 3px 0px #0000001a;
+  box-shadow: 0 0.0625rem 0.125rem -0.0625rem #0000001a;
+  box-shadow: 0 0.0625rem 0.1875rem 0 #0000001a;
   position: relative;
 `
 
 export const panelFixedContainerStyles = css`
-  border-right: 1px solid ${getThemedColor('neutral', 300)};
+  border-right: 0.0625rem solid ${getThemedColor('neutral', 300)};
 `
 
 export const panelFloatingContainerStyles = css`
-  border: 1px solid ${getThemedColor('neutral', 300)};
-  border-radius: 4px;
+  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border-radius: 0.25rem;
 `
 
 export const panelHeaderContainerStyles = css`
-  min-height: 48px;
+  min-height: 3rem;
   width: 100%;
-  border-bottom: 1px solid ${getThemedColor('neutral', 300)};
+  border-bottom: 0.0625rem solid ${getThemedColor('neutral', 300)};
 `
 
 const getContentHeight = (headerHeight?: number, footerHeight?: number) => {
   if (headerHeight && footerHeight)
-    return `calc(100% - ${headerHeight + footerHeight}px)`
-  if (headerHeight) return `calc(100% - ${headerHeight}px)`
-  if (footerHeight) return `calc(100% - ${footerHeight}px)`
+    return `calc(100% - ${(headerHeight + footerHeight) / 16}rem)`
+  if (headerHeight) return `calc(100% - ${headerHeight / 16}rem)`
+  if (footerHeight) return `calc(100% - ${footerHeight / 16}rem)`
   return '100%'
 }
 
@@ -48,7 +48,7 @@ export const panelContentContainerStyles = (
 `
 
 export const panelFooterContainerStyles = css`
-  min-height: 64px;
+  min-height: 4rem;
   width: 100%;
   display: flex;
   align-items: center;
@@ -56,5 +56,5 @@ export const panelFooterContainerStyles = css`
   position: absolute;
   bottom: 0;
   left: 0;
-  border-top: 1px solid ${getThemedColor('neutral', 300)};
+  border-top: 0.0625rem solid ${getThemedColor('neutral', 300)};
 `

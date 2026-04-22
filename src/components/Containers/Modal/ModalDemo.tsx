@@ -60,8 +60,8 @@ const ModalDemo = () => {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '20px',
-            maxWidth: '200px',
+            gap: '1.25rem',
+            maxWidth: '12.5rem',
           }}
         >
           <Button
@@ -98,8 +98,8 @@ const ModalDemo = () => {
                 false,
                 false,
                 false,
-                '400px',
-                '400px',
+                '25rem',
+                '25rem',
                 '100%',
               )
             }

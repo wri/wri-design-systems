@@ -100,15 +100,19 @@ export const Fixed: Story = {
 
     return (
       <Panel
-        width='380px'
+        width='23.75rem'
         variant='fixed'
         content={
           <div>
-            <Box padding='20px'>
+            <Box padding='1.25rem'>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Text style={{ fontWeight: '700' }}>Analysis results</Text>
                 <div
-                  style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.625rem',
+                  }}
                 >
                   <Text
                     style={{
@@ -147,8 +151,8 @@ export const Fixed: Story = {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '10px',
-                  height: '200px',
+                  gap: '0.625rem',
+                  height: '12.5rem',
                 }}
               >
                 data
@@ -159,11 +163,11 @@ export const Fixed: Story = {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  margin: '20px',
-                  gap: '10px',
+                  margin: '1.25rem',
+                  gap: '0.625rem',
                   overflowY: 'auto',
-                  maxHeight: '550px',
-                  minHeight: '250px',
+                  maxHeight: '34.375rem',
+                  minHeight: '15.625rem',
                 }}
               >
                 <AnalysisWidget
@@ -194,7 +198,7 @@ export const Fixed: Story = {
                       style={{
                         display: 'flex',
                         padding: '0.5rem',
-                        marginBottom: '50px',
+                        marginBottom: '3.125rem',
                       }}
                     >
                       <Tag

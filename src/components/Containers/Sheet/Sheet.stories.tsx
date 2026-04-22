@@ -47,14 +47,14 @@ export const Sheet: Story = {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         <SheetStory
           {...args}
           header={
             <div
               style={{
                 width: '100%',
-                padding: '16px',
+                padding: '1rem',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -68,13 +68,13 @@ export const Sheet: Story = {
               />
             </div>
           }
-          content={<div style={{ padding: '16px' }}>{args.content}</div>}
-          footer={<div style={{ padding: '16px' }}>Footer</div>}
+          content={<div style={{ padding: '1rem' }}>{args.content}</div>}
+          footer={<div style={{ padding: '1rem' }}>Footer</div>}
           open={isOpen}
           onClose={handleClose}
         />
         <Button
-          style={{ width: '200px' }}
+          style={{ width: '12.5rem' }}
           label='Show Minimized Sheet'
           onClick={() => setIsOpen(true)}
         />
@@ -97,14 +97,14 @@ export const SheetMid: Story = {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         <SheetStory
           {...args}
           header={
             <div
               style={{
                 width: '100%',
-                padding: '16px',
+                padding: '1rem',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -118,13 +118,13 @@ export const SheetMid: Story = {
               />
             </div>
           }
-          content={<div style={{ padding: '16px' }}>{args.content}</div>}
-          footer={<div style={{ padding: '16px' }}>Footer</div>}
+          content={<div style={{ padding: '1rem' }}>{args.content}</div>}
+          footer={<div style={{ padding: '1rem' }}>Footer</div>}
           open={isOpen}
           onClose={handleClose}
         />
         <Button
-          style={{ width: '200px' }}
+          style={{ width: '12.5rem' }}
           label='Show Mid Sheet'
           onClick={() => setIsOpen(true)}
         />
@@ -147,14 +147,14 @@ export const SheetFull: Story = {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         <SheetStory
           {...args}
           header={
             <div
               style={{
                 width: '100%',
-                padding: '16px',
+                padding: '1rem',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -168,13 +168,13 @@ export const SheetFull: Story = {
               />
             </div>
           }
-          content={<div style={{ padding: '16px' }}>{args.content}</div>}
-          footer={<div style={{ padding: '16px' }}>Footer</div>}
+          content={<div style={{ padding: '1rem' }}>{args.content}</div>}
+          footer={<div style={{ padding: '1rem' }}>Footer</div>}
           open={isOpen}
           onClose={handleClose}
         />
         <Button
-          style={{ width: '200px' }}
+          style={{ width: '12.5rem' }}
           label='Show Full Sheet'
           onClick={() => setIsOpen(true)}
         />
@@ -197,14 +197,14 @@ export const SheetClosed: Story = {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         <SheetStory
           {...args}
           header={
             <div
               style={{
                 width: '100%',
-                padding: '16px',
+                padding: '1rem',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -218,13 +218,13 @@ export const SheetClosed: Story = {
               />
             </div>
           }
-          content={<div style={{ padding: '16px' }}>{args.content}</div>}
-          footer={<div style={{ padding: '16px' }}>Footer</div>}
+          content={<div style={{ padding: '1rem' }}>{args.content}</div>}
+          footer={<div style={{ padding: '1rem' }}>Footer</div>}
           open={isOpen}
           onClose={handleClose}
         />
         <Button
-          style={{ width: '200px' }}
+          style={{ width: '12.5rem' }}
           label='Show Closed Sheet'
           onClick={() => setIsOpen(true)}
         />
