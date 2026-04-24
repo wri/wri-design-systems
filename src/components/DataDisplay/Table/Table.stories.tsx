@@ -18,6 +18,9 @@ const meta = {
       control: { type: 'select' },
       options: ['default', 'full-width'],
     },
+    selectable: {
+      table: { disable: true },
+    },
   },
 } satisfies Meta<typeof TableStory>
 
@@ -221,7 +224,10 @@ export const Selectable = {
 
     const dataByPage = fullData.slice(startRange, endRange) as RowData[]
 
-    const selectableRenderRow = (rowData: RowData) => {
+    const selectableRenderRow = (
+      rowData: RowData,
+      rowProps?: Record<string, any>,
+    ) => {
       const handleOnRowSelected = ({ checked }: any) => {
         setSelectedRows((current = [] as RowData[]) => {
           if (checked) {
@@ -233,7 +239,7 @@ export const Selectable = {
       }
 
       return (
-        <TableRow>
+        <TableRow {...rowProps}>
           <TableCell>
             <Checkbox
               name={`checkbox-${rowData.id}`}

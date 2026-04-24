@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../lib/theme'
 
 export const paginationPrevNextStyles = css`
+  background: transparent;
   svg {
     path {
       fill: ${getThemedColor('primary', 500)};
@@ -33,7 +34,7 @@ export const paginationLabelStyles = css`
   line-height: 24px;
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
-
+  background: transparent;
   &[data-selected] {
     color: ${getThemedColor('neutral', 900)};
     font-weight: 700;

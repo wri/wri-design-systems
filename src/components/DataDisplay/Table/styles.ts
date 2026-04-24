@@ -60,8 +60,8 @@ export const tableHeaderSortButtonStyles = (selected: boolean) => css`
   svg {
     path {
       fill: ${selected
-        ? getThemedColor('primary', 600)
-        : getThemedColor('neutral', 500)} !important;
+        ? getThemedColor('accessible', 'controls-on-neutral-lights')
+        : getThemedColor('accessible', 100)} !important;
     }
   }
 `
@@ -86,6 +86,10 @@ export const tableBodyStyles = css`
 
     :hover {
       background-color: ${getThemedColor('neutral', 200)};
+    }
+
+    &.selected {
+      background-color: ${getThemedColor('primary', 100)} !important;
     }
   }
 `

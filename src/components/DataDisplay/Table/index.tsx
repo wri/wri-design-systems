@@ -137,7 +137,13 @@ const Table = ({
         </ChakraTable.Header>
         <ChakraTable.Body css={tableBodyStyles}>
           {data.map((item: any) => (
-            <React.Fragment key={item.id}>{renderRow(item)}</React.Fragment>
+            <React.Fragment key={item.id}>
+              {renderRow(item, {
+                className: selectedRows?.some((row: any) => row.id === item.id)
+                  ? 'selected'
+                  : undefined,
+              })}
+            </React.Fragment>
           ))}
         </ChakraTable.Body>
       </ChakraTable.Root>
