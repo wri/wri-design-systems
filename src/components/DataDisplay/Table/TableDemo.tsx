@@ -80,7 +80,10 @@ const TableDemo = () => {
     </TableRow>
   )
 
-  const selectableRenderRow = (rowData: RowData) => {
+  const selectableRenderRow = (
+    rowData: RowData,
+    rowProps?: Record<string, any>,
+  ) => {
     const handleOnRowSelected = ({ checked }: any) => {
       setSelectedRows((current = [] as RowData[]) => {
         if (checked) {
@@ -93,6 +96,7 @@ const TableDemo = () => {
 
     return (
       <TableRow
+        {...rowProps}
         aria-selected={selectedRows?.some((item) => item.id === rowData.id)}
       >
         <TableCell>
