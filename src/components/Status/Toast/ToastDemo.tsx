@@ -8,8 +8,8 @@ const ToastDemo = () => (
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '16px',
-        maxWidth: '200px',
+        gap: '1rem',
+        maxWidth: '12.5rem',
       }}
     >
       <Button

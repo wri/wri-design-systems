@@ -5,7 +5,7 @@ import DemoWrapper from '../../UI/DemoWrapper'
 
 const AvatarDemo = () => (
   <DemoWrapper title='Avatar'>
-    <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
       <Avatar name='John Doe' src='https://bit.ly/sage-adebayo' />
       <Avatar
         name='Michael Scott'

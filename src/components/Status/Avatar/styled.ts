@@ -3,10 +3,10 @@ import { getThemedColor } from '../../../lib/theme'
 import { AvatarProps } from './types'
 
 export const AVATAR_SIZES = {
-  small: '16px',
-  medium: '24px',
-  large: '40px',
-  default: '16px',
+  small: '1rem',
+  medium: '1.5rem',
+  large: '2.5rem',
+  default: '1rem',
 }
 function getContainerSize(size: AvatarProps['size'], customSize: string) {
   if (typeof customSize === 'string' && customSize.trim() !== '') {
@@ -44,7 +44,7 @@ export function avatarContainerStyles(
     border-radius: 50%;
     ${opacity}
     background-color: ${backgroundColor};
-    border: 1px solid ${borderColor};
+    border: 0.0625rem solid ${borderColor};
     position: relative;
 
     &[role='button'] {
@@ -52,22 +52,22 @@ export function avatarContainerStyles(
 
       &:hover {
         background-color: ${getThemedColor('primary', 500)};
-        box-shadow: 0px 2px 4px -2px #0000001a;
-        box-shadow: 0px 4px 6px -1px #0000001a;
-        outline-offset: 3px;
-        outline: 2px solid ${getThemedColor('primary', 700)};
+        box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
+        box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
+        outline-offset: 0.1875rem;
+        outline: 0.125rem solid ${getThemedColor('primary', 700)};
       }
 
       &:active {
         outline: none;
         background-color: ${getThemedColor('primary', 600)} !important;
-        border: 1px solid ${getThemedColor('primary', 700)} !important;
-        box-shadow: 0px 2px 4px -2px #0000001a;
-        box-shadow: 0px 4px 6px -1px #0000001a;
+        border: 0.0625rem solid ${getThemedColor('primary', 700)} !important;
+        box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
+        box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
       }
 
       &:focus-visible {
-        outline-offset: 3px;
+        outline-offset: 0.1875rem;
         outline-color: ${getThemedColor('primary', 700)};
         background-color: ${getThemedColor('primary', 500)};
       }
@@ -76,29 +76,29 @@ export function avatarContainerStyles(
 }
 
 export const avatarNotificationContainerStyles = (width?: string) => css`
-  width: ${width || '16px'};
+  width: ${width || '1rem'};
   position: absolute;
-  top: -8px;
-  left: 15px;
+  top: -0.5rem;
+  left: 0.9375rem;
 `
 
 export const avatarCountContainerStyles = (width?: string) => css`
-  height: 16px;
+  height: 1rem;
   width: auto;
   background-color: ${getThemedColor('error', 500)};
-  padding: 0 3px 1px 3px;
-  border-radius: 8px;
+  padding: 0 0.1875rem 0.0625rem 0.1875rem;
+  border-radius: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   color: ${getThemedColor('error', 100)};
 `
 
 export const avatarFallbackStyles = css`
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 0.75rem;
+  line-height: 1rem;
   font-weight: 700;
   color: ${getThemedColor('primary', 800)};
 `

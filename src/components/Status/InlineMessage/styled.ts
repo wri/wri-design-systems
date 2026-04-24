@@ -5,27 +5,27 @@ export const defaultInlineMessageStyles = (
   size: string,
   isButtonRight?: boolean,
 ) => {
-  let maxWidth = '234px'
+  let maxWidth = '14.625rem'
   if (size === 'full-width') {
     maxWidth = '100%'
   } else if (size === 'large') {
-    maxWidth = '320px'
+    maxWidth = '20rem'
   }
 
   return css`
     width: 100%;
     max-width: ${maxWidth};
-    border-radius: 4px;
-    padding: ${size === 'small' ? '8px 8px 12px 8px' : '8px 12px 12px 12px'};
+    border-radius: 0.25rem;
+    padding: ${size === 'small' ? '0.5rem 0.5rem 0.75rem 0.5rem' : '0.5rem 0.75rem 0.75rem 0.75rem'};
     display: flex;
     align-items: ${isButtonRight ? 'center' : 'flex-start'};
     justify-content: ${isButtonRight ? 'space-between' : 'flex-start'};
     flex-direction: ${isButtonRight ? 'row' : 'column'};
-    gap: 8px;
-    margin-bottom: 16px;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 
     button {
-      margin-left: ${isButtonRight ? 0 : '24px'};
+      margin-left: ${isButtonRight ? 0 : '1.5rem'};
     }
   `
 }
@@ -33,18 +33,18 @@ export const defaultInlineMessageStyles = (
 export const inlineMessageHeaderStyles = css`
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 0.5rem;
 
   svg {
-    margin-top: 6px;
+    margin-top: 0.375rem;
   }
 `
 
 export const inlineMessageTitleStyles = (size: string) => css`
-  max-width: 720px;
+  max-width: 45rem;
   color: ${getThemedColor('neutral', 800)};
-  font-size: ${size === 'small' ? '14px' : '18px'};
-  line-height: ${size === 'small' ? '20px' : '28px'};
+  font-size: ${size === 'small' ? '0.875rem' : '1.125rem'};
+  line-height: ${size === 'small' ? '1.25rem' : '1.75rem'};
   font-weight: 400;
   text-align: left;
 `
@@ -53,12 +53,12 @@ export const inlineMessageCaptionStyles = (
   size: string,
   hasIcon: boolean,
 ) => css`
-  max-width: 720px;
+  max-width: 45rem;
   color: ${getThemedColor('neutral', 700)};
-  font-size: ${size === 'small' ? '12px' : '16px'};
-  line-height: ${size === 'small' ? '16px' : '24px'};
+  font-size: ${size === 'small' ? '0.75rem' : '1rem'};
+  line-height: ${size === 'small' ? '1rem' : '1.5rem'};
   font-weight: 400;
-  margin-left: ${hasIcon ? '24px' : '0'};
+  margin-left: ${hasIcon ? '1.5rem' : '0'};
   text-align: left;
 `
 
@@ -66,30 +66,30 @@ export const inlineMessageCaptionContainerStyles = (
   size: string,
   hasIcon: boolean,
 ) => css`
-  max-width: 720px;
+  max-width: 45rem;
   color: ${getThemedColor('neutral', 700)};
-  font-size: ${size === 'small' ? '12px' : '16px'};
-  line-height: ${size === 'small' ? '16px' : '24px'};
+  font-size: ${size === 'small' ? '0.75rem' : '1rem'};
+  line-height: ${size === 'small' ? '1rem' : '1.5rem'};
   font-weight: 400;
-  margin-left: ${hasIcon ? '24px' : '0'};
+  margin-left: ${hasIcon ? '1.5rem' : '0'};
   text-align: left;
 `
 
 export const infoWhiteInlineMessageStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
-  border: 1px solid ${getThemedColor('neutral', 300)};
+  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
   color: ${getThemedColor('neutral', 700)};
 `
 
 export const infoGreyInlineMessageStyles = css`
   background-color: ${getThemedColor('neutral', 200)};
-  border: 1px solid ${getThemedColor('neutral', 300)};
+  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
   color: ${getThemedColor('neutral', 700)};
 `
 
 export const successInlineMessageStyles = css`
   background-color: ${getThemedColor('success', 100)};
-  border: 1px solid ${getThemedColor('success', 300)};
+  border: 0.0625rem solid ${getThemedColor('success', 300)};
   color: ${getThemedColor('success', 500)};
 
   p {
@@ -99,7 +99,7 @@ export const successInlineMessageStyles = css`
 
 export const warningInlineMessageStyles = css`
   background-color: ${getThemedColor('warning', 100)};
-  border: 1px solid ${getThemedColor('warning', 300)};
+  border: 0.0625rem solid ${getThemedColor('warning', 300)};
   color: ${getThemedColor('warning', 500)};
 
   p {
@@ -109,7 +109,7 @@ export const warningInlineMessageStyles = css`
 
 export const errorInlineMessageStyles = css`
   background-color: ${getThemedColor('error', 100)};
-  border: 1px solid ${getThemedColor('error', 300)};
+  border: 0.0625rem solid ${getThemedColor('error', 300)};
   color: ${getThemedColor('error', 500)};
 
   p {

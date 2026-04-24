@@ -7,7 +7,7 @@ const StepProgressIndicatorDemo = () => {
   const [currentStep, setCurrentStep] = useState(1)
   return (
     <DemoWrapper title='Step Progress Indicator'>
-      <div style={{ maxWidth: '400px' }}>
+      <div style={{ maxWidth: '25rem' }}>
         <StepProgressIndicator
           steps={[
             { label: 'Label', onClick: () => setCurrentStep(1) },
@@ -22,7 +22,7 @@ const StepProgressIndicatorDemo = () => {
           style={{
             display: 'flex',
             justifyContent: 'space-between',
-            marginTop: '20px',
+            marginTop: '1.25rem',
           }}
         >
           <Button

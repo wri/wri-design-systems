@@ -3,7 +3,7 @@ import { ToastProps } from './types'
 
 const commonProps = {
   pauseOnPageIdle: true,
-  offsets: '24px',
+  offsets: '1.5rem',
 }
 
 const topStartToast = createToaster({

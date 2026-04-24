@@ -3,7 +3,7 @@ import DemoWrapper from '../../UI/DemoWrapper'
 
 const BadgeDemo = () => (
   <DemoWrapper title='Badge'>
-    <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap' }}>
       <Badge />
       <Badge hasNotification />
       <Badge notificationCount={100} />
