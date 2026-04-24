@@ -1,12 +1,6 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
-const resolveFontSize = (fontSize?: string): string => {
-  if (!fontSize) return '1rem'
-  if (fontSize.includes('px')) return `${parseInt(fontSize, 10) / 16}rem`
-  return fontSize
-}
-
 export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   display: flex;
   align-items: center;
@@ -14,13 +8,13 @@ export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   gap: 0.25rem;
   padding: 0.125rem 0.75rem;
   cursor: pointer;
-  font-size: ${resolveFontSize(fontSize)};
+  font-size: ${fontSize ?? '1rem'};
   color: ${theme === 'dark' ? getThemedColor('neutral', 100) : 'default'};
   background-color: ${theme === 'dark' ? 'default' : 'transparent'};
   &:hover {
     background-color: ${theme === 'dark'
-      ? 'default'
-      : getThemedColor('neutral', 200)};
+    ? 'default'
+    : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {

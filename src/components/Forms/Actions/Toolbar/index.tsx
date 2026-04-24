@@ -14,8 +14,8 @@ import { ToolbarProps } from './types'
 import { useToolbarOverflow } from './useToolbarOverflow'
 import { useLabels } from '../../../../lib/i18n/useLabels'
 
-const COLLAPSED_WIDTH = 48
-const EXPANDED_LABEL_WIDTH = 100
+const COLLAPSED_WIDTH = '3rem'
+const EXPANDED_LABEL_WIDTH = '10rem'
 
 const Toolbar = ({
   items,
@@ -36,7 +36,7 @@ const Toolbar = ({
       isVertical: vertical,
       collapsedWidth: COLLAPSED_WIDTH,
       expandedLabelWidth: EXPANDED_LABEL_WIDTH,
-      gap: 16,
+      gap: '1rem',
       showExpandedToggle,
       autoCollapse,
     })

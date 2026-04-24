@@ -1,5 +1,18 @@
 import { useEffect, useState, useRef } from 'react'
 import { UseToolbarOverflowParams } from './types'
+import { SizeValue, resolveSizeValue } from '../../../../lib/sizing'
+
+const toPixels = (value: SizeValue): number => {
+  const resolved = resolveSizeValue(value)
+  const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize)
+  if (resolved.endsWith('rem')) {
+    return parseFloat(resolved) * rootFontSize
+  }
+  if (resolved.endsWith('px')) {
+    return parseFloat(resolved)
+  }
+  return parseFloat(resolved)
+}
 
 export function useToolbarOverflow({
   itemsCount,
@@ -37,14 +50,18 @@ export function useToolbarOverflow({
       return
     }
 
-    const toggleWidth = showExpandedToggle ? collapsedWidth + gap : 0
+    const collapsedWidthPx = toPixels(collapsedWidth)
+    const expandedLabelWidthPx = toPixels(expandedLabelWidth)
+    const gapPx = toPixels(gap)
+
+    const toggleWidth = showExpandedToggle ? collapsedWidthPx + gapPx : 0
     const availableWidth = containerWidth - toggleWidth
 
-    const itemWidthCollapsed = collapsedWidth + gap
-    const itemWidthExpanded = expandedLabelWidth + gap
+    const itemWidthCollapsed = collapsedWidthPx + gapPx
+    const itemWidthExpanded = expandedLabelWidthPx + gapPx
     const currentItemWidth = isExpanded ? itemWidthExpanded : itemWidthCollapsed
 
-    const totalWidthNeeded = itemsCount * currentItemWidth - gap
+    const totalWidthNeeded = itemsCount * currentItemWidth - gapPx
 
     const mustCollapse = totalWidthNeeded > availableWidth
     setShouldForceCollapse(mustCollapse)
