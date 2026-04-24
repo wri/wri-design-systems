@@ -119,7 +119,9 @@ const TableDemo = () => {
 
   return (
     <DemoWrapper title='Table'>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '3.125rem' }}>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', gap: '3.125rem' }}
+      >
         <div style={{ width: '100%', maxWidth: '56.25rem' }}>
           <Table
             columns={columns}
