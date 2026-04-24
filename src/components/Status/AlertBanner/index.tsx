@@ -27,7 +27,9 @@ const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
         <ChakraAlert.Indicator>{icon || defaultIcon}</ChakraAlert.Indicator>
         {children ? (
           <ChakraAlert.Content>
-            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+            <div
+              style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}
+            >
               <ChakraAlert.Title>{title}</ChakraAlert.Title>
               <ChakraAlert.Description>{children}</ChakraAlert.Description>
             </div>

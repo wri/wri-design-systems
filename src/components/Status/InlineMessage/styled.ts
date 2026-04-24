@@ -16,7 +16,9 @@ export const defaultInlineMessageStyles = (
     width: 100%;
     max-width: ${maxWidth};
     border-radius: 0.25rem;
-    padding: ${size === 'small' ? '0.5rem 0.5rem 0.75rem 0.5rem' : '0.5rem 0.75rem 0.75rem 0.75rem'};
+    padding: ${size === 'small'
+      ? '0.5rem 0.5rem 0.75rem 0.5rem'
+      : '0.5rem 0.75rem 0.75rem 0.75rem'};
     display: flex;
     align-items: ${isButtonRight ? 'center' : 'flex-start'};
     justify-content: ${isButtonRight ? 'space-between' : 'flex-start'};

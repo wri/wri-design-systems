@@ -110,7 +110,9 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
                     css={toastCloseTriggerStyles}
                     label={toast.meta.closableLabel}
                     aria-label={toast.meta?.closableLabel || l.dismissLabel}
-                    leftIcon={<CloseIcon height='0.625rem!' width='0.625rem!' />}
+                    leftIcon={
+                      <CloseIcon height='0.625rem!' width='0.625rem!' />
+                    }
                     size='small'
                     variant='secondary'
                     onClick={() => toasters[toaster].dismiss()}
