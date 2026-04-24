@@ -9,21 +9,21 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
   display: flex;
   align-items: center;
   justify-content: ${showLabel ? 'space-between' : 'center'};
-  gap: ${showLabel ? '8px' : '0'};
-  height: 48px;
-  padding: ${showLabel ? '0 0px' : '0'};
+  gap: ${showLabel ? '0.5rem' : '0'};
+  height: 3rem;
+  padding: 0;
   text-align: ${showLabel ? 'left' : 'center'};
   color: black;
-  min-width: 48px;
-  border-radius: 2px;
+  min-width: 3rem;
+  border-radius: 0.125rem;
   background-color: ${getThemedColor('neutral', 100)};
-  border: 1px solid ${getThemedColor('neutral', 300)};
-  box-shadow: 0px 4px 6px -4px #0000001a;
-  box-shadow: 0px 10px 15px -3px #0000001a;
+  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  box-shadow: 0 0.25rem 0.375rem -0.25rem #0000001a;
+  box-shadow: 0 0.625rem 0.9375rem -0.1875rem #0000001a;
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
 
     path {
       fill: ${getThemedColor('neutral', 800)};
@@ -33,8 +33,8 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
   > div {
     flex: ${showLabel ? '1 1 auto' : '0 0 auto'};
     text-align: right;
-    border-radius: 5px;
-    height: 32px;
+    border-radius: 0.3125rem;
+    height: 2rem;
     &:hover {
       background-color: ${getThemedColor('primary', 300)};
     }
@@ -48,8 +48,8 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
     outline-color: ${getThemedColor('primary', 700)};
     background-color: ${getThemedColor('neutral', 200)};
     box-shadow:
-      0 0 0 2px ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
   }
 
   &:disabled {
@@ -64,7 +64,7 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
 `
 
 export const overflowMenuItemStyles = css`
-  padding: 4px;
+  padding: 0.25rem;
   background: rgba(0, 0, 0, 0);
   border: none;
 `

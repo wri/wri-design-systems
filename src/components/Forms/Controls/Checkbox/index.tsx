@@ -25,7 +25,7 @@ const Checkbox = ({
     disabled={disabled}
     onCheckedChange={onCheckedChange}
     aria-label={undefined}
-    gap={children ? '10px' : '0'}
+    gap={children ? '0.625rem' : '0'}
     {...rest}
   >
     <ChakraCheckbox.HiddenInput />

@@ -10,13 +10,13 @@ export const tooltipTriggerStyles = css`
 
 export const tooltipContentStyles = (variant: TooltipProps['variant']) => css`
   background-color: ${getThemedColor('neutral', 800)};
-  border-radius: 4px;
-  border: 1px solid ${getThemedColor('neutral', 800)};
-  padding: 2px 8px;
-  box-shadow: 0px 1px 2px 0px #0000000d;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid ${getThemedColor('neutral', 800)};
+  padding: 0.125rem 0.5rem;
+  box-shadow: 0px 0.0625rem 0.125rem 0px #0000000d;
   color: ${getThemedColor('neutral', 200)};
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 
   .chakra-tooltip__arrowTip {
     border-color: ${getThemedColor('neutral', 800)} !important;
@@ -29,8 +29,8 @@ export const tooltipContentStyles = (variant: TooltipProps['variant']) => css`
     border: none;
     box-shadow: none;
     color: ${getThemedColor('neutral', 800)};
-    font-size: 16px;
-    line-height: 24px;
-    text-shadow: 0 0 1px ${getThemedColor('neutral', 100)};
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-shadow: 0 0 0.0625rem ${getThemedColor('neutral', 100)};
   `}
 `

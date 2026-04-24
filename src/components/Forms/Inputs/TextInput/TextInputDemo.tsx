@@ -3,7 +3,7 @@ import DemoWrapper from '../../../UI/DemoWrapper'
 
 const TextInputDemo = () => (
   <DemoWrapper title='Text Input'>
-    <div style={{ width: '290px' }}>
+    <div style={{ width: '18.125rem' }}>
       <TextInput
         label='Label'
         caption='Caption'

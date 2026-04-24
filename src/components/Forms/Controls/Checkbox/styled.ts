@@ -3,13 +3,13 @@ import { getThemedColor } from '../../../../lib/theme'
 
 export const checkboxStyles = css`
   .chakra-checkbox__control {
-    width: 20px;
-    height: 20px;
-    border: 1px solid ${getThemedColor('neutral', 700)};
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 0.0625rem solid ${getThemedColor('neutral', 700)};
     cursor: pointer;
 
     svg {
-      width: 12px;
+      width: 0.75rem;
 
       path {
         fill: transparent;
@@ -18,29 +18,29 @@ export const checkboxStyles = css`
 
     &:hover,
     &[data-hover] {
-      outline: 4px solid
+      outline: 0.25rem solid
         color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
     }
 
     &:active,
     &[data-active] {
-      outline: 4px solid
+      outline: 0.25rem solid
         color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
     }
 
     &:focus-visible,
     &[data-focus-visible] {
       box-shadow: none;
-      outline: 2px solid ${getThemedColor('primary', 700)};
-      outline-offset: 2px;
+      outline: 0.125rem solid ${getThemedColor('primary', 700)};
+      outline-offset: 0.125rem;
       box-shadow:
-        0 0 0 2px ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
     }
 
     &[data-state='checked'],
     &[data-state='indeterminate'] {
-      border: 1px solid ${getThemedColor('primary', 700)};
+      border: 0.0625rem solid ${getThemedColor('primary', 700)};
       background-color: ${getThemedColor('primary', 500)} !important;
 
       svg path {
@@ -50,7 +50,7 @@ export const checkboxStyles = css`
     }
 
     &[data-disabled] {
-      border: 1px solid ${getThemedColor('neutral', 400)};
+      border: 0.0625rem solid ${getThemedColor('neutral', 400)};
       background-color: transparent !important;
       cursor: not-allowed;
 

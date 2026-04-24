@@ -10,7 +10,7 @@ const RadioDemo = () => {
 
   return (
     <DemoWrapper title='Radio'>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         <div>
           <RadioGroup
             name='radio-group-1'
@@ -22,7 +22,7 @@ const RadioDemo = () => {
             <Radio value='3'>Three</Radio>
           </RadioGroup>
           <Button
-            style={{ marginTop: '10px', marginBottom: '20px' }}
+            style={{ marginTop: '0.625rem', marginBottom: '1.25rem' }}
             label='Clear'
             variant='primary'
             onClick={() => setValue1('')}

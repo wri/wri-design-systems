@@ -9,14 +9,14 @@ const ButtonDemo = () => (
         display: 'flex',
         alignItems: 'flex-start',
         flexDirection: 'column',
-        gap: '10px',
+        gap: '0.625rem',
       }}
     >
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '10px',
+          gap: '0.625rem',
           flexWrap: 'wrap',
         }}
       >
@@ -27,7 +27,7 @@ const ButtonDemo = () => (
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '10px',
+          gap: '0.625rem',
           flexWrap: 'wrap',
         }}
       >
@@ -38,7 +38,7 @@ const ButtonDemo = () => (
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '10px',
+          gap: '0.625rem',
           flexWrap: 'wrap',
         }}
       >
@@ -49,7 +49,7 @@ const ButtonDemo = () => (
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '10px',
+          gap: '0.625rem',
           flexWrap: 'wrap',
         }}
       >
@@ -60,7 +60,7 @@ const ButtonDemo = () => (
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '10px',
+          gap: '0.625rem',
           flexWrap: 'wrap',
         }}
       >

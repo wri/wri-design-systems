@@ -9,8 +9,8 @@ const SliderInputDemo = () => (
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
-        maxWidth: '420px',
+        gap: '1.25rem',
+        maxWidth: '26.25rem',
         width: '100%',
       }}
     >

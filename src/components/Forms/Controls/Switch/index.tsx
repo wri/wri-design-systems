@@ -35,7 +35,7 @@ const Switch = ({
         {isLabelOnLeft && children != null ? (
           <ChakraSwitch.Label>{children}</ChakraSwitch.Label>
         ) : null}
-        <ChakraSwitch.HiddenInput style={{ width: '42px', height: '26px' }} />
+        <ChakraSwitch.HiddenInput style={{ width: '2.625rem', height: '1.625rem' }} />
         <div className='chakra-switch__control-container'>
           <ChakraSwitch.Control>
             <ChakraSwitch.Thumb>

@@ -146,7 +146,7 @@ const Select = ({
         onValueChange={(details: SelectValueChangeDetails) =>
           onChangeHandler(details.value)
         }
-        style={{ marginLeft: errorMessage ? '19px' : '0px' }}
+        style={{ marginLeft: errorMessage ? '1.1875rem' : '0px' }}
         {...rest}
       >
         {label ? (

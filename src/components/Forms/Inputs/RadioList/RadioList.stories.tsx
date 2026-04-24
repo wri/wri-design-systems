@@ -15,7 +15,7 @@ const meta = {
   args: { onCheckedChange: fn() },
   decorators: [
     (Story: any) => (
-      <div style={{ width: '366px' }}>
+      <div style={{ width: '22.875rem' }}>
         <Story />
       </div>
     ),
@@ -146,7 +146,7 @@ export const CardVariant: Story = {
     required: true,
   },
   render: (args) => (
-    <div style={{ width: '366px' }}>
+    <div style={{ width: '22.875rem' }}>
       <RadioListStory {...args} />
     </div>
   ),
@@ -177,7 +177,7 @@ export const CardVariantWithErrorMessage: Story = {
     required: true,
   },
   render: (args) => (
-    <div style={{ width: '366px' }}>
+    <div style={{ width: '22.875rem' }}>
       <RadioListStory {...args} />
     </div>
   ),

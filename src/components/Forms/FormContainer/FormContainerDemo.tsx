@@ -32,7 +32,7 @@ const FormContainerDemo = () => {
         label='Select options'
         error={noneSelected ? 'Please select at least one option.' : undefined}
       >
-        <Stack align='flex-start' gap='20px'>
+        <Stack align='flex-start' gap='1.25rem'>
           <Stack align='flex-start'>
             <Checkbox
               checked={allG1}

@@ -50,7 +50,7 @@ const TextInput = ({
         required={required}
         invalid={!!errorMessage}
         gap='0'
-        style={{ marginLeft: errorMessage ? '19px' : '0px' }}
+        style={{ marginLeft: errorMessage ? '1.1875rem' : '0px' }}
       >
         {label ? (
           <Field.Label

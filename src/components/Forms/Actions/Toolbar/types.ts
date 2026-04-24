@@ -40,7 +40,7 @@ export interface UseToolbarOverflowParams {
   itemsCount: number
   isExpanded: boolean
   isVertical: boolean
-  collapsedWidth: number // 48px
+  collapsedWidth: number // 3rem
   expandedLabelWidth: number
   gap?: number
   showExpandedToggle?: boolean

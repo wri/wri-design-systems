@@ -14,7 +14,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: '300px' }}>
+      <div style={{ width: '18.75rem' }}>
         <Story />
       </div>
     ),
@@ -51,9 +51,9 @@ export const WithError: Story = {
 export const WithComponentLabel: Story = {
   args: {
     label: (
-      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+      <span style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
         Select options
-        <InfoIcon color='gray' width='14px' height='14px' />
+        <InfoIcon color='gray' width='0.875rem' height='0.875rem' />
       </span>
     ),
     children: (
@@ -94,7 +94,7 @@ export const WithMultipleCheckboxGroups: Story = {
         label='Select options'
         error={noneSelected ? 'Please select at least one option.' : undefined}
       >
-        <Stack align='flex-start' gap='20px'>
+        <Stack align='flex-start' gap='1.25rem'>
           <Stack align='flex-start'>
             <Checkbox
               checked={allG1}

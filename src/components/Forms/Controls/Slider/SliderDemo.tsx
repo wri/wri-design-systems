@@ -7,12 +7,12 @@ const SliderDemo = () => (
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
+        gap: '1.25rem',
       }}
     >
-      <Slider width='280px' min={0} max={100} value={[50]} />
+      <Slider width='17.5rem' min={0} max={100} value={[50]} />
       <Slider
-        width='280px'
+        width='17.5rem'
         min={0}
         max={100}
         value={[50]}
@@ -25,7 +25,7 @@ const SliderDemo = () => (
         ]}
       />
       <Slider
-        width='280px'
+        width='17.5rem'
         min={0}
         max={100}
         value={[50]}
@@ -38,10 +38,10 @@ const SliderDemo = () => (
         ]}
         step={25}
       />
-      <Slider width='280px' value={[20, 80]} />
-      <Slider width='280px' min={-100} max={100} value={[0]} isCentred />
+      <Slider width='17.5rem' value={[20, 80]} />
+      <Slider width='17.5rem' min={-100} max={100} value={[0]} isCentred />
       <Slider
-        width='280px'
+        width='17.5rem'
         value={[70]}
         marks={[0, 25, 50, 75, 100]}
         disabled

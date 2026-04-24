@@ -64,7 +64,7 @@ const Toolbar = ({
   }
 
   const overflowMenuTrigger = (
-    <div style={{ position: 'relative', display: 'flex', width: '48px' }}>
+    <div style={{ position: 'relative', display: 'flex', width: '3rem' }}>
       <ToolbarButton
         isExpanded={isExpanded}
         ariaLabel={isExpanded ? 'Collapse' : 'Expand'}

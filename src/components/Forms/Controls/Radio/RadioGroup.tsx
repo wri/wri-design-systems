@@ -20,7 +20,7 @@ const RadioGroup = ({
     }
   }
 
-  let gap = horizontal ? '20px' : '8px'
+  let gap = horizontal ? '1.25rem' : '0.5rem'
   gap = customGap || gap
 
   return (

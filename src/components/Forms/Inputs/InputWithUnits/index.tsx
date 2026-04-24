@@ -45,7 +45,7 @@ const InputWithUnits = ({
   return (
     <div css={inputWithUnitsStyles}>
       {errorMessage ? <div css={errorBarStyles} /> : null}
-      <div style={{ marginLeft: errorMessage ? '19px' : '0px' }}>
+      <div style={{ marginLeft: errorMessage ? '1.1875rem' : '0px' }}>
         <p css={inputWithUnitsLabelStyles(disabled)} aria-label={label}>
           {required ? <span>*</span> : null}
           {label}
