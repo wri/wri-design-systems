@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { resolveSizeValue } from '../../../lib/sizing'
 import { getThemedColor } from '../../../lib/theme'
 import { AvatarProps } from './types'
 
@@ -8,9 +9,12 @@ export const AVATAR_SIZES = {
   large: '2.5rem',
   default: '1rem',
 }
-function getContainerSize(size: AvatarProps['size'], customSize: string) {
-  if (typeof customSize === 'string' && customSize.trim() !== '') {
-    return customSize
+function getContainerSize(
+  size: AvatarProps['size'],
+  customSize?: AvatarProps['customSize'],
+) {
+  if (customSize != null && customSize !== '') {
+    return resolveSizeValue(customSize)
   }
 
   if (size && AVATAR_SIZES[size]) {
@@ -22,7 +26,7 @@ function getContainerSize(size: AvatarProps['size'], customSize: string) {
 
 export function avatarContainerStyles(
   size: AvatarProps['size'],
-  customSize: string,
+  customSize: AvatarProps['customSize'],
   disabled: boolean,
   customBackgroundColor: string,
 ) {

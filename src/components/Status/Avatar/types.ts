@@ -1,8 +1,10 @@
+import type { SizeValue } from '../../../lib/sizing'
+
 export type AvatarProps = {
   name: string
   ariaLabel?: string
   size?: 'small' | 'medium' | 'large'
-  customSize?: string
+  customSize?: SizeValue
   src?: string
   srcSet?: string
   onClick?: () => void

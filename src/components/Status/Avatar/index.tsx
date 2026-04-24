@@ -19,7 +19,7 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
       name,
       ariaLabel,
       size = 'medium',
-      customSize = '',
+      customSize,
       src,
       srcSet,
       onClick,
