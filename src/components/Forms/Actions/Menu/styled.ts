@@ -1,6 +1,12 @@
 import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
+const resolveFontSize = (fontSize?: string): string => {
+  if (!fontSize) return '1rem'
+  if (fontSize.includes('px')) return `${parseInt(fontSize, 10) / 16}rem`
+  return fontSize
+}
+
 export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   display: flex;
   align-items: center;
@@ -8,7 +14,7 @@ export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   gap: 0.25rem;
   padding: 0.125rem 0.75rem;
   cursor: pointer;
-  font-size: ${fontSize ? (fontSize.includes('px') ? `${parseInt(fontSize) / 16}rem` : fontSize) : '1rem'};
+  font-size: ${resolveFontSize(fontSize)};
   color: ${theme === 'dark' ? getThemedColor('neutral', 100) : 'default'};
   background-color: ${theme === 'dark' ? 'default' : 'transparent'};
   &:hover {

@@ -5,7 +5,11 @@ import DemoWrapper from '../../../UI/DemoWrapper'
 const TooltipDemo = () => (
   <DemoWrapper title='Tooltip'>
     <div
-      style={{ display: 'inline-flex', flexDirection: 'column', gap: '1.25rem' }}
+      style={{
+        display: 'inline-flex',
+        flexDirection: 'column',
+        gap: '1.25rem',
+      }}
     >
       <div style={{ display: 'flex', gap: '0.625rem' }}>
         <p>Pill:</p>

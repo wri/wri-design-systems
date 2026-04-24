@@ -151,7 +151,11 @@ const Textarea = ({
           <Field.ErrorText
             id={errorId}
             css={fieldErrorMessageStyles}
-            style={{ marginTop: '0.5rem', fontSize: '0.75rem', lineHeight: '1rem' }}
+            style={{
+              marginTop: '0.5rem',
+              fontSize: '0.75rem',
+              lineHeight: '1rem',
+            }}
             aria-live='polite'
           >
             {l.needMoreChars(minLength - value.length)}
@@ -162,7 +166,11 @@ const Textarea = ({
           <Field.ErrorText
             id={errorId}
             css={fieldErrorMessageStyles}
-            style={{ marginTop: '0.5rem', fontSize: '0.75rem', lineHeight: '1rem' }}
+            style={{
+              marginTop: '0.5rem',
+              fontSize: '0.75rem',
+              lineHeight: '1rem',
+            }}
             aria-live='polite'
           >
             {l.tooManyChars(value.length - maxLength)}
