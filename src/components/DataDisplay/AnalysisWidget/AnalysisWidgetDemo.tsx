@@ -9,13 +9,13 @@ import { getThemedColor } from '../../../lib/theme'
 
 const AnalysisWidgetDemo = () => (
   <DemoWrapper title='Analysis Widget'>
-    <div style={{ maxWidth: '400px' }}>
+    <div style={{ maxWidth: '25rem' }}>
       <AnalysisWidget
         header={
           <div
             style={{
               display: 'flex',
-              gap: '12px',
+              gap: '0.75rem',
               flex: '1',
               overflow: 'hidden',
               alignItems: 'center',

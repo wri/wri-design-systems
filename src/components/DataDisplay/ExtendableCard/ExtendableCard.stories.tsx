@@ -14,7 +14,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: '320px' }}>
+      <div style={{ width: '20rem' }}>
         <Story />
       </div>
     ),
@@ -29,7 +29,7 @@ const BaseHeader = () => (
   <div
     style={{
       display: 'flex',
-      gap: '12px',
+      gap: '0.75rem',
       flex: '1',
       overflow: 'hidden',
       alignItems: 'center',
@@ -51,7 +51,7 @@ const BaseHeaderWithIcon = () => (
   <div
     style={{
       display: 'flex',
-      gap: '12px',
+      gap: '0.75rem',
       flex: '1',
       overflow: 'hidden',
       alignItems: 'center',
@@ -60,8 +60,8 @@ const BaseHeaderWithIcon = () => (
   >
     <NotificationIcon
       style={{
-        width: '16px',
-        height: '16px',
+        width: '1rem',
+        height: '1rem',
       }}
     />
 

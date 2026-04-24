@@ -17,7 +17,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: '330px' }}>
+      <div style={{ width: '20.625rem' }}>
         <Story />
       </div>
     ),
@@ -84,7 +84,7 @@ const BaseHeader = () => (
   <div
     style={{
       display: 'flex',
-      gap: '12px',
+      gap: '0.75rem',
       flex: '1',
       overflow: 'hidden',
       alignItems: 'center',
@@ -115,7 +115,7 @@ const Item = ({ id, label, value }: ItemProps) => (
       id={id}
       style={{
         padding: '0.7rem 0',
-        borderBottom: `1px solid ${getThemedColor('neutral', 300)}`,
+        borderBottom: `0.0625rem solid ${getThemedColor('neutral', 300)}`,
       }}
     >
       <Flex gap={3} flex='1' overflow='hidden' alignItems='center'>
@@ -128,7 +128,7 @@ const Item = ({ id, label, value }: ItemProps) => (
         >
           {value}
         </Text>
-        <div style={{ width: '60px' }}>
+        <div style={{ width: '3.75rem' }}>
           <ProgressBar progress={100} />
         </div>
       </Flex>

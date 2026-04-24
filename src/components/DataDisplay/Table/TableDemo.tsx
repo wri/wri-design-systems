@@ -119,8 +119,8 @@ const TableDemo = () => {
 
   return (
     <DemoWrapper title='Table'>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
-        <div style={{ width: '100%', maxWidth: '900px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '3.125rem' }}>
+        <div style={{ width: '100%', maxWidth: '56.25rem' }}>
           <Table
             columns={columns}
             data={dataByPage}
@@ -137,7 +137,7 @@ const TableDemo = () => {
             }}
           />
         </div>
-        <div style={{ width: '100%', maxWidth: '900px' }}>
+        <div style={{ width: '100%', maxWidth: '56.25rem' }}>
           <Table
             columns={columns}
             renderRow={renderRow}
@@ -155,7 +155,7 @@ const TableDemo = () => {
             loading
           />
         </div>
-        <div style={{ width: '100%', maxWidth: '900px' }}>
+        <div style={{ width: '100%', maxWidth: '56.25rem' }}>
           <Table
             columns={columns}
             data={dataByPage}

@@ -4,11 +4,11 @@ import { getThemedColor } from '../../../lib/theme'
 export const tableContainerStyles = (variant: string) => css`
   border: ${variant === 'full-width'
     ? 'none'
-    : `1px solid ${getThemedColor('neutral', 300)}`};
-  border-radius: 2px;
+    : `0.0625rem solid ${getThemedColor('neutral', 300)}`};
+  border-radius: 0.125rem;
   box-shadow: ${variant === 'full-width'
     ? 'none'
-    : `0 0 0 1px ${getThemedColor('neutral', 300)}`};
+    : `0 0 0 0.0625rem ${getThemedColor('neutral', 300)}`};
 `
 
 export const tableHeaderContainerStyles = (variant: string) => css`
@@ -24,8 +24,8 @@ export const tableHeaderContainerStyles = (variant: string) => css`
 `
 
 export const tableHeaderLabelStyles = css`
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
   color: ${getThemedColor('neutral', 800)};
   display: flex;
@@ -33,22 +33,22 @@ export const tableHeaderLabelStyles = css`
 `
 
 export const tableHeaderSortContainerStyles = css`
-  height: 24px;
-  width: 10px;
+  height: 1.5rem;
+  width: 0.625rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-left: 8px;
+  margin-left: 0.5rem;
 
   button {
-    height: 10px;
-    width: 10px !important;
-    min-width: 10px !important;
+    height: 0.625rem;
+    width: 0.625rem !important;
+    min-width: 0.625rem !important;
     background-color: transparent;
     svg {
-      height: 10px;
-      width: 10px;
+      height: 0.625rem;
+      width: 0.625rem;
       path {
         fill: ${getThemedColor('neutral', 400)};
       }
@@ -67,18 +67,18 @@ export const tableHeaderSortButtonStyles = (selected: boolean) => css`
 `
 
 export const tableFooterContainerStyles = css`
-  margin-top: 12px;
+  margin-top: 0.75rem;
   display: flex;
   justify-content: space-between;
 `
 
 export const tablePaginationContainerStyles = css`
-  margin-top: 9px;
+  margin-top: 0.5625rem;
 `
 
 export const tableBodyStyles = css`
   tr {
-    height: 48px;
+    height: 3rem;
 
     td {
       border-color: ${getThemedColor('neutral', 300)};
@@ -91,7 +91,7 @@ export const tableBodyStyles = css`
 `
 
 export const tableLoaderStyles = css`
-  height: 480px;
+  height: 30rem;
   display: flex;
   align-items: center;
   justify-content: center;

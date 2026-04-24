@@ -8,18 +8,18 @@ export const itemCountContainerStyles = css`
 
 export const itemCountPerPageContainerStyles = css`
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 
   .ds-select-input-container {
-    margin-bottom: 0px;
+    margin-bottom: 0rem;
   }
 `
 
 export const itemCountPerPageLabelStyles = css`
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
 `
