@@ -85,7 +85,6 @@ export const textInputStyles = (
   width: 100%;
   border-radius: 4px;
   padding: ${size === 'small' ? '4px 8px' : '12px'};
-  margin-top: 8px;
   background-color: ${getThemedColor('neutral', 100)};
   color: ${getThemedColor('neutral', 800)};
   border: 1px solid ${getThemedColor('neutral', 400)};
