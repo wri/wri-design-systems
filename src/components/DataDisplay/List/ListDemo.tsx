@@ -37,7 +37,7 @@ const ListDemo = () => {
 
   return (
     <DemoWrapper title='List'>
-      <div style={{ width: '100%', maxWidth: '350px' }}>
+      <div style={{ width: '100%', maxWidth: '21.875rem' }}>
         <List items={items} />
       </div>
     </DemoWrapper>

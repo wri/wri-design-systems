@@ -22,7 +22,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: '330px' }}>
+      <div style={{ width: '20.625rem' }}>
         <Story />
       </div>
     ),
@@ -79,7 +79,7 @@ const BaseHeader = () => (
   <div
     style={{
       display: 'flex',
-      gap: '12px',
+      gap: '0.75rem',
       flex: '1',
       overflow: 'hidden',
       alignItems: 'center',

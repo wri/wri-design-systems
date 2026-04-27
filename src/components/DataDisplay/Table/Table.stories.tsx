@@ -90,7 +90,7 @@ export const Table = {
     )
 
     return (
-      <div style={{ width: '900px' }}>
+      <div style={{ width: '56.25rem' }}>
         <TableStory
           {...args}
           columns={columns}
@@ -163,7 +163,7 @@ export const FullWidthTable = {
     )
 
     return (
-      <div style={{ width: '900px' }}>
+      <div style={{ width: '56.25rem' }}>
         <TableStory
           {...args}
           columns={columns}
@@ -263,7 +263,7 @@ export const Selectable = {
     }
 
     return (
-      <div style={{ width: '900px' }}>
+      <div style={{ width: '56.25rem' }}>
         <TableStory
           {...args}
           columns={columns}

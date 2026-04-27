@@ -59,7 +59,7 @@ const demoFooter = (
 
 const ExtendableCardDemo = () => (
   <DemoWrapper title='Extendable Card'>
-    <div style={{ width: '100%', maxWidth: '320px' }}>
+    <div style={{ width: '100%', maxWidth: '20rem' }}>
       <ExtendableCard header={demoHeader} footer={demoFooter}>
         {demoChildren}
       </ExtendableCard>
