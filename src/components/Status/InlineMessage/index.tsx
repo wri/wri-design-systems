@@ -24,7 +24,7 @@ const InlineMessage = ({
   caption,
   variant,
   size = 'large',
-  icon = <InfoIcon height='16px' width='16px' />,
+  icon = <InfoIcon height='1rem' width='1rem' />,
   onActionClick,
   actionLabel,
   isButtonRight,

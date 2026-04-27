@@ -45,7 +45,7 @@ const StepProgressIndicator = ({
             data-active={currentStep >= idx + 1}
           >
             {currentStep > idx + 1 ? (
-              <CheckIcon height='16px' width='16px' />
+              <CheckIcon height='1rem' width='1rem' />
             ) : (
               idx + 1
             )}

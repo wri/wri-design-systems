@@ -25,7 +25,7 @@ export const StepProgressIndicator: Story = {
   render: (args) => {
     const [currentStep, setCurrentStep] = useState(args.currentStep)
     return (
-      <div style={{ width: '540px' }}>
+      <div style={{ width: '33.75rem' }}>
         <StepProgressIndicatorStory
           steps={[
             { label: 'Label', onClick: () => setCurrentStep(1) },
@@ -40,7 +40,7 @@ export const StepProgressIndicator: Story = {
           style={{
             display: 'flex',
             justifyContent: 'space-between',
-            marginTop: '20px',
+            marginTop: '1.25rem',
           }}
         >
           <Button

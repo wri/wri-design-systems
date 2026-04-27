@@ -9,7 +9,7 @@ const InlineMessageDemo = () => (
         display: 'flex',
         alignItems: 'center',
         flexWrap: 'wrap',
-        gap: '8px',
+        gap: '0.5rem',
       }}
     >
       <InlineMessage
@@ -167,7 +167,7 @@ const InlineMessageDemo = () => (
         icon={null}
         actionLabel='Mark complete'
         isButtonRight
-        buttonLeftIcon={<CheckIcon height='16px' width='16px' />}
+        buttonLeftIcon={<CheckIcon height='1rem' width='1rem' />}
       />
       <InlineMessage
         label='Label'

@@ -19,7 +19,7 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
       name,
       ariaLabel,
       size = 'medium',
-      customSize = '',
+      customSize,
       src,
       srcSet,
       onClick,
@@ -45,11 +45,11 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
 
     const notification = getNotificationCount()
 
-    let width = '16px'
+    let width = '1rem'
     if (notificationCount && notificationCount > 99) {
-      width = '28px'
+      width = '1.75rem'
     } else if (notificationCount && notificationCount > 9) {
-      width = '22px'
+      width = '1.375rem'
     }
     const hasImage = !!src || !!srcSet
     const isClickable = onClick && !disabled

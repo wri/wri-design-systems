@@ -7,9 +7,9 @@ const ProgressBarDemo = () => (
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
+        gap: '1.25rem',
         width: '100%',
-        maxWidth: '400px',
+        maxWidth: '25rem',
       }}
     >
       <ProgressBar progress={0} />

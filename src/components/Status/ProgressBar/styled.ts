@@ -3,7 +3,7 @@ import { getThemedColor } from '../../../lib/theme'
 import { ProgressBarProps } from './types'
 
 export const progressBarContainerStyles = css`
-  height: 8px;
+  height: 0.5rem;
   width: 100%;
   background-color: ${getThemedColor('neutral', 300)};
   display: flex;

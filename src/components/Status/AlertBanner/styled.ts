@@ -36,7 +36,7 @@ export const alertBannerStyles = (variant?: string) => {
     color: ${color};
     align-items: center;
     background-color: ${backgroundColor};
-    border-bottom: 1px solid ${borderColor};
+    border-bottom: 0.0625rem solid ${borderColor};
     border-radius: 0;
   `
 }

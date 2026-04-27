@@ -9,7 +9,7 @@ const AlertBannerDemo = () => (
         display: 'flex',
         alignItems: 'center',
         flexWrap: 'wrap',
-        gap: '8px',
+        gap: '0.5rem',
       }}
     >
       <AlertBanner title='General white' variant='general-white' />
