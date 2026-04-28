@@ -41,15 +41,15 @@ export const mapMarkerStyles = (
   let border = `0.25rem solid ${getThemedColor('neutral', 100)}`
 
   if (variant === 'cluster') {
-    const baseSize = 28
-    const maxSize = 96
-    const increment = 0.5
+    const baseSize = 1.75
+    const maxSize = 6
+    const increment = 0.03125
     border = `0.25rem solid ${getThemedColor('neutral', 100)}`
     if (count !== undefined && count > 1) {
       const calculatedSize = baseSize + (count - 1) * increment
-      size = `${Math.min(calculatedSize, maxSize)}px`
+      size = `${Math.min(calculatedSize, maxSize)}rem`
     } else {
-      size = `${baseSize}px`
+      size = `${baseSize}rem`
     }
   } else if (variant === 'simple-pin') {
     border = `0.25rem solid ${getThemedColor('error', 500)}`
