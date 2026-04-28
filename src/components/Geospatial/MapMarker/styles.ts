@@ -3,12 +3,12 @@ import { getThemedColor } from '../../../lib/theme'
 import { MapMarkerProps } from './types'
 
 export const mapMarkerContainerStyles = (hasIcon: boolean) => css`
-  outline: 2px solid ${getThemedColor('primary', 700)};
-  outline-offset: 2px;
+  outline: 0.125rem solid ${getThemedColor('primary', 700)};
+  outline-offset: 0.125rem;
   border-radius: 50%;
   box-shadow:
-    0 0 0 2px ${getThemedColor('neutral', 100)},
-    rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+    0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+    rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
 `
 
 const getBackgroundColor = (
@@ -37,14 +37,14 @@ export const mapMarkerStyles = (
   count: MapMarkerProps['count'],
   variant: MapMarkerProps['variant'] = 'icon',
 ) => {
-  let size = '16px'
-  let border = `4px solid ${getThemedColor('neutral', 100)}`
+  let size = '1rem'
+  let border = `0.25rem solid ${getThemedColor('neutral', 100)}`
 
   if (variant === 'cluster') {
     const baseSize = 28
     const maxSize = 96
     const increment = 0.5
-    border = `4px solid ${getThemedColor('neutral', 100)}`
+    border = `0.25rem solid ${getThemedColor('neutral', 100)}`
     if (count !== undefined && count > 1) {
       const calculatedSize = baseSize + (count - 1) * increment
       size = `${Math.min(calculatedSize, maxSize)}px`
@@ -52,11 +52,11 @@ export const mapMarkerStyles = (
       size = `${baseSize}px`
     }
   } else if (variant === 'simple-pin') {
-    border = `4px solid ${getThemedColor('error', 500)}`
-    size = '24px'
+    border = `0.25rem solid ${getThemedColor('error', 500)}`
+    size = '1.5rem'
   } else if (hasIcon) {
-    size = '28px'
-    border = `2px solid ${getThemedColor('neutral', 100)}`
+    size = '1.75rem'
+    border = `0.125rem solid ${getThemedColor('neutral', 100)}`
   }
 
   return css`
@@ -71,8 +71,8 @@ export const mapMarkerStyles = (
       : getThemedColor('neutral', 800)};
     border: ${border};
     border-radius: 50%;
-    box-shadow: 0px 2px 4px -2px #0000001a;
-    box-shadow: 0px 4px 6px -1px #0000001a;
+    box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0 0.25rem 0.375rem -1px #0000001a;
     cursor: ${hasOnClick ? 'pointer' : 'default'};
     display: flex;
     align-items: center;
@@ -84,25 +84,25 @@ export const mapMarkerStyles = (
         content: '';
         position: relative;
         top: 100%;
-        left: 2px;
+        left: 0.125rem;
         transform: translateX(-50%);
-        width: 4px;
-        height: 10px;
+        width: 0.25rem;
+        height: 0.625rem;
         background-color: ${getThemedColor('error', 500)};
         pointer-events: none;
       }
     `}
     &:focus-visible {
-      outline: 2px solid ${getThemedColor('primary', 700)};
-      outline-offset: 2px;
+      outline: 0.125rem solid ${getThemedColor('primary', 700)};
+      outline-offset: 0.125rem;
       box-shadow:
-        0 0 0 2px ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
     }
 
     svg {
-      height: 14px;
-      width: 14px;
+      height: 0.875rem;
+      width: 0.875rem;
     }
   `
 }

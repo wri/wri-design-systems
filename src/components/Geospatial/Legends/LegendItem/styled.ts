@@ -2,10 +2,10 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
 export const legendItemContainerStyles = css`
-  padding: 12px;
-  padding-bottom: 20px;
+  padding: 0.75rem;
+  padding-bottom: 1.25rem;
   display: flex;
-  gap: 12px;
+  gap: 0.75rem;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
   background-color: ${getThemedColor('neutral', 100)};
 `
@@ -25,21 +25,21 @@ export const legendItemHeaderContainerStyles = css`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 `
 
 export const legendItemLayerNameStyles = css`
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 400;
   text-align: left;
   color: ${getThemedColor('neutral', 900)};
 `
 
 export const legendItemDataUnitStyles = css`
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-weight: 400;
   text-align: left;
   color: ${getThemedColor('neutral', 700)};

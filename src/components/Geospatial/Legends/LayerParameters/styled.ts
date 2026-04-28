@@ -2,59 +2,59 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
 export const layerParametersItemStyles = css`
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   border: 1px solid ${getThemedColor('neutral', 300)};
-  border-radius: 4px;
-  box-shadow: 0px 1px 2px 0px #0000000d;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 0.125rem 0 #0000000d;
   background-color: ${getThemedColor('neutral', 100)};
 `
 
 export const layerParametersTriggerStyles = css`
-  padding: 6px 8px;
+  padding: 0.375rem 0.5rem;
   align-items: center;
   background-color: ${getThemedColor('neutral', 100)};
   cursor: pointer;
 
   &[aria-expanded='true'] {
     border-bottom: 1px solid ${getThemedColor('neutral', 300)};
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
   svg {
-    height: 10px;
-    width: 10px;
+    height: 0.625rem;
+    width: 0.625rem;
   }
 
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
     box-shadow:
-      0 0 0 2px ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
   }
 `
 
 export const layerParametersLabelStyles = css`
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
-  line-height: 16px;
+  line-height: 1rem;
   color: ${getThemedColor('neutral', 800)};
 `
 
 export const layerParametersItemContentStyles = css`
-  padding: 12px 8px;
+  padding: 0.75rem 0.5rem;
   display: flex;
   flex-direction: column;
 
   .ds-layer-parameters-item-child {
-    padding-bottom: 16px;
+    padding-bottom: 1rem;
     border-bottom: 1px solid ${getThemedColor('neutral', 300)};
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 
     &:last-child {
-      padding-bottom: 0px;
+      padding-bottom: 0;
       border-bottom: none;
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
   }
 `

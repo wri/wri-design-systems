@@ -6,10 +6,10 @@ const ScaleBarDemo = () => (
     <div
       style={{
         width: '100%',
-        maxWidth: '250px',
+        maxWidth: '15.625rem',
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
+        gap: '1.25rem',
       }}
     >
       <ScaleBar

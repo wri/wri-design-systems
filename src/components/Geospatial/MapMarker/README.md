@@ -56,7 +56,7 @@ import { MapMarkers } from '@worldresources/wri-design-systems'
 ```
 
 ```tsx
-<div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+<div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
   <MapMarkers.Paper />
   <MapMarkers.Drop />
   <MapMarkers.Plant />
@@ -69,7 +69,7 @@ import { SimpleMapPin, ClusterPoint } from '@worldresources/wri-design-systems'
 ```
 
 ```tsx
-<div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+<div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
   <ClusterPoint count={10} mode='dark' />
   <ClusterPoint count={123123} mode='light' />
   <SimpleMapPin />

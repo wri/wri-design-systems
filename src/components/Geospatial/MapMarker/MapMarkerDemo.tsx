@@ -3,7 +3,7 @@ import DemoWrapper from '../../UI/DemoWrapper'
 
 const MapMarkerDemo = () => (
   <DemoWrapper title='Map Marker'>
-    <div style={{ display: 'flex', gap: '40px', alignItems: 'center' }}>
+    <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
       <ClusterPoint count={10} mode='dark' />
       <ClusterPoint count={123123} mode='light' />
       <SimpleMapPin />

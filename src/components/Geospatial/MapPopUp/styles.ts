@@ -3,17 +3,17 @@ import { getThemedColor } from '../../../lib/theme'
 
 export const mapPopUpContainerStyles = css`
   height: auto;
-  max-height: 512px;
+  max-height: 32rem;
   width: 100%;
-  max-width: 320px;
+  max-width: 20rem;
   position: absolute;
   z-index: 1000;
   background-color: ${getThemedColor('neutral', 100)};
   border: 1px solid ${getThemedColor('neutral', 300)};
-  border-radius: 4px;
+  border-radius: 0.25rem;
   box-shadow:
-    0px 4px 6px -4px #0000001a,
-    0px 10px 15px -3px #0000001a;
+    0 0.25rem 0.375rem -0.25rem #0000001a,
+    0 0.625rem 0.9375rem -0.1875rem #0000001a;
   outline: 0;
 `
 
@@ -21,19 +21,19 @@ export const mapPopUpHeaderContainerStyles = css`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
-  padding: 8px 12px;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
-  min-height: 64px;
+  min-height: 4rem;
 
   .ds-map-pop-up-close-button {
-    margin-top: 4px;
+    margin-top: 0.25rem;
   }
 `
 
 export const mapPopUpContentContainerStyles = css`
   height: 100%;
-  max-height: 400px;
+  max-height: 25rem;
   overflow-y: auto;
 
   &:focus-visible {
@@ -42,9 +42,9 @@ export const mapPopUpContentContainerStyles = css`
 `
 
 export const mapPopUpFooterContainerStyles = css`
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
   border-top: 1px solid ${getThemedColor('neutral', 300)};
-  min-height: 44px;
+  min-height: 2.75rem;
 `
 
 export const mapPopUpConnectorStyles = (

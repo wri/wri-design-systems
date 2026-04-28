@@ -58,7 +58,7 @@ const LegendPanelDemo = () => {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '10px',
+                  gap: '0.625rem',
                 }}
               >
                 {Children.map(legentItems, (child, idx) =>
@@ -83,7 +83,7 @@ const LegendPanelDemo = () => {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '10px',
+                  gap: '0.625rem',
                 }}
               >
                 <div>analysisContent</div>
