@@ -74,7 +74,11 @@ const OpacityControl = ({
                   onClick={(e: any) => e.target.select()}
                 />
                 <p
-                  style={{ position: 'absolute', top: '1.15625rem', right: '0.3125rem' }}
+                  style={{
+                    position: 'absolute',
+                    top: '1.15625rem',
+                    right: '0.3125rem',
+                  }}
                 >
                   {l.percentSuffix}
                 </p>

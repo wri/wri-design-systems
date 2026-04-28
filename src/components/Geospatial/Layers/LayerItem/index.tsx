@@ -64,7 +64,10 @@ const LayerItem = ({
           >
             {label}
           </Radio>
-          <p style={{ marginLeft: '1.75rem' }} css={layerCaptionStyles(disabled)}>
+          <p
+            style={{ marginLeft: '1.75rem' }}
+            css={layerCaptionStyles(disabled)}
+          >
             {caption}
           </p>
         </div>
