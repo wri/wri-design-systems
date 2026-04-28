@@ -21,7 +21,7 @@ const OptionCard = ({
   onValueChange,
 }: OptionCardProps) => (
   <RadioCard.Root defaultValue={defaultValue} onValueChange={onValueChange}>
-    <HStack alignItems='flex-start' flexWrap='wrap' gap='12px'>
+    <HStack alignItems='flex-start' flexWrap='wrap' gap='0.75rem'>
       {items.map((item) => (
         <RadioCard.Item
           css={optionCardContainerStyles}

@@ -5,7 +5,7 @@ import DemoWrapper from '../../../UI/DemoWrapper'
 
 const SwitchDemo = () => (
   <DemoWrapper title='Switch'>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       <Switch name='switch' defaultChecked onChange={console.log}>
         defaultChecked
       </Switch>

@@ -6,10 +6,10 @@ const InputWithUnitsDemo = () => (
     <div
       style={{
         width: '100%',
-        maxWidth: '370px',
+        maxWidth: '23.125rem',
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
+        gap: '1.25rem',
       }}
     >
       <InputWithUnits

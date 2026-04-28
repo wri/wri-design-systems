@@ -21,14 +21,14 @@ type Story = StoryObj<typeof meta>
 export const Tooltip: Story = {
   args: {
     content: 'Tooltip content',
-    children: <InfoIcon height='20px' width='20px' />,
+    children: <InfoIcon height='1.25rem' width='1.25rem' />,
   },
 }
 
 export const TextVariant: Story = {
   args: {
     content: 'Tooltip content',
-    children: <InfoIcon height='20px' width='20px' />,
+    children: <InfoIcon height='1.25rem' width='1.25rem' />,
     variant: 'text',
   },
 }
@@ -41,21 +41,21 @@ export const AnyContent: Story = {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          gap: '5px',
+          gap: '0.3125rem',
         }}
       >
         <InfoIcon />
         This is a tooltip
       </div>
     ),
-    children: <InfoIcon height='20px' width='20px' />,
+    children: <InfoIcon height='1.25rem' width='1.25rem' />,
   },
 }
 
 export const Position: Story = {
   args: {
     content: 'Tooltip content',
-    children: <InfoIcon height='20px' width='20px' />,
+    children: <InfoIcon height='1.25rem' width='1.25rem' />,
     position: 'right',
   },
 }
@@ -63,7 +63,7 @@ export const Position: Story = {
 export const Delay: Story = {
   args: {
     content: 'Tooltip content',
-    children: <InfoIcon height='20px' width='20px' />,
+    children: <InfoIcon height='1.25rem' width='1.25rem' />,
     openDelay: 500,
     closeDelay: 2000,
   },

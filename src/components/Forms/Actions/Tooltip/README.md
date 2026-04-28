@@ -14,7 +14,7 @@ import { Tooltip } from '@worldresources/wri-design-systems'
 
 ```tsx
 <Tooltip content='This is a tooltip'>
-  <InfoIcon height='20px' width='20px' />
+  <InfoIcon height='1.25rem' width='1.25rem' />
 </Tooltip>
 ```
 
@@ -38,7 +38,7 @@ type TooltipProps = {
 
 ```tsx
 <Tooltip content='This is a tooltip'>
-  <InfoIcon height='20px' width='20px' variant='text' />
+  <InfoIcon height='1.25rem' width='1.25rem' variant='text' />
 </Tooltip>
 ```
 
@@ -52,7 +52,7 @@ type TooltipProps = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '5px',
+        gap: '0.3125rem',
       }}
     >
       <InfoIcon />
@@ -60,7 +60,7 @@ type TooltipProps = {
     </div>
   }
 >
-  <InfoIcon height='20px' width='20px' />
+  <InfoIcon height='1.25rem' width='1.25rem' />
 </Tooltip>
 ```
 
@@ -68,7 +68,7 @@ type TooltipProps = {
 
 ```tsx
 <Tooltip content='This is a tooltip' position='right'>
-  <InfoIcon height='20px' width='20px' />
+  <InfoIcon height='1.25rem' width='1.25rem' />
 </Tooltip>
 ```
 
@@ -76,6 +76,6 @@ type TooltipProps = {
 
 ```tsx
 <Tooltip content='This is a tooltip' closeDelay={2000}>
-  <InfoIcon height='20px' width='20px' />
+  <InfoIcon height='1.25rem' width='1.25rem' />
 </Tooltip>
 ```

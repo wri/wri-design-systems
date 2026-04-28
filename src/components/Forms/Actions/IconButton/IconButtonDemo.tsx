@@ -4,7 +4,7 @@ import DemoWrapper from '../../../UI/DemoWrapper'
 
 const IconButtonDemo = () => (
   <DemoWrapper title='Icon Button'>
-    <div style={{ display: 'flex', gap: '20px' }}>
+    <div style={{ display: 'flex', gap: '1.25rem' }}>
       <IconButton icon={<MenuDotsIcon />} aria-label='Menu' />
       <IconButton icon={<CheckIcon />} aria-label='Check' />
       <IconButton icon={<InfoIcon />} aria-label='Info' disabled />

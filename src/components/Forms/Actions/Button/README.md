@@ -112,7 +112,7 @@ import { SSOButtons } from '@worldresources/wri-design-systems'
 ```
 
 ```tsx
-<div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+<div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
   <SSOButtons.Google />
   <SSOButtons.Facebook />
   <SSOButtons.X />

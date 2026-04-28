@@ -155,14 +155,14 @@ const Password = ({
               {passwordStatus.length ? (
                 <CheckIcon
                   color='var(--chakra-colors-success-500)'
-                  height='8px'
-                  width='8px'
+                  height='0.5rem'
+                  width='0.5rem'
                 />
               ) : (
                 <CloseIcon
                   color='var(--chakra-colors-error-900)'
-                  height='8px'
-                  width='8px'
+                  height='0.5rem'
+                  width='0.5rem'
                 />
               )}
             </div>
@@ -181,14 +181,14 @@ const Password = ({
                 {passwordStatus.uppercase ? (
                   <CheckIcon
                     color='var(--chakra-colors-success-500)'
-                    height='8px'
-                    width='8px'
+                    height='0.5rem'
+                    width='0.5rem'
                   />
                 ) : (
                   <CloseIcon
                     color='var(--chakra-colors-error-900)'
-                    height='8px'
-                    width='8px'
+                    height='0.5rem'
+                    width='0.5rem'
                   />
                 )}
               </div>
@@ -208,14 +208,14 @@ const Password = ({
                 {passwordStatus.lowercase ? (
                   <CheckIcon
                     color='var(--chakra-colors-success-500)'
-                    height='8px'
-                    width='8px'
+                    height='0.5rem'
+                    width='0.5rem'
                   />
                 ) : (
                   <CloseIcon
                     color='var(--chakra-colors-error-900)'
-                    height='8px'
-                    width='8px'
+                    height='0.5rem'
+                    width='0.5rem'
                   />
                 )}
               </div>
@@ -233,14 +233,14 @@ const Password = ({
                 {passwordStatus.numbers ? (
                   <CheckIcon
                     color='var(--chakra-colors-success-500)'
-                    height='8px'
-                    width='8px'
+                    height='0.5rem'
+                    width='0.5rem'
                   />
                 ) : (
                   <CloseIcon
                     color='var(--chakra-colors-error-900)'
-                    height='8px'
-                    width='8px'
+                    height='0.5rem'
+                    width='0.5rem'
                   />
                 )}
               </div>
@@ -260,14 +260,14 @@ const Password = ({
                 {passwordStatus.specialCharacters ? (
                   <CheckIcon
                     color='var(--chakra-colors-success-500)'
-                    height='8px'
-                    width='8px'
+                    height='0.5rem'
+                    width='0.5rem'
                   />
                 ) : (
                   <CloseIcon
                     color='var(--chakra-colors-error-900)'
-                    height='8px'
-                    width='8px'
+                    height='0.5rem'
+                    width='0.5rem'
                   />
                 )}
               </div>

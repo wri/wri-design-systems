@@ -6,10 +6,10 @@ const PasswordDemo = () => (
     <div
       style={{
         width: '100%',
-        maxWidth: '486px',
+        maxWidth: '30.375rem',
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
+        gap: '1.25rem',
       }}
     >
       <Password label='Label' caption='Caption' required />

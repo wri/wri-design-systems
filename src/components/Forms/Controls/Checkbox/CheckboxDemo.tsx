@@ -39,15 +39,15 @@ const CheckboxDemo = () => {
         style={{
           display: 'flex',
           flexWrap: 'wrap',
-          gap: '20px',
+          gap: '1.25rem',
         }}
       >
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '20px',
-            marginBottom: '20px',
+            gap: '1.25rem',
+            marginBottom: '1.25rem',
           }}
         >
           <Checkbox name='Checkbox' value='1' defaultChecked>

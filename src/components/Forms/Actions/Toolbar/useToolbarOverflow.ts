@@ -1,5 +1,19 @@
 import { useEffect, useState, useRef } from 'react'
 import { UseToolbarOverflowParams } from './types'
+import { SizeValue, resolveSizeValue } from '../../../../lib/sizing'
+
+const toRems = (value: SizeValue): number => {
+  const resolved = resolveSizeValue(value)
+  const rootFontSize =
+    parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+  if (resolved.endsWith('px')) {
+    return parseFloat(resolved) / rootFontSize
+  }
+  if (resolved.endsWith('rem')) {
+    return parseFloat(resolved)
+  }
+  return parseFloat(resolved)
+}
 
 export function useToolbarOverflow({
   itemsCount,
@@ -21,7 +35,9 @@ export function useToolbarOverflow({
     if (!containerRef.current) return
     const observer = new ResizeObserver((entries) => {
       const entry = entries[0]
-      setContainerWidth(Math.floor(entry.contentRect.width))
+      const rootFontSize =
+        parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+      setContainerWidth(entry.contentRect.width / rootFontSize)
     })
     observer.observe(containerRef.current)
     // eslint-disable-next-line consistent-return
@@ -37,14 +53,18 @@ export function useToolbarOverflow({
       return
     }
 
-    const toggleWidth = showExpandedToggle ? collapsedWidth + gap : 0
+    const collapsedWidthRems = toRems(collapsedWidth)
+    const expandedLabelWidthRems = toRems(expandedLabelWidth)
+    const gapRems = toRems(gap)
+
+    const toggleWidth = showExpandedToggle ? collapsedWidthRems + gapRems : 0
     const availableWidth = containerWidth - toggleWidth
 
-    const itemWidthCollapsed = collapsedWidth + gap
-    const itemWidthExpanded = expandedLabelWidth + gap
+    const itemWidthCollapsed = collapsedWidthRems + gapRems
+    const itemWidthExpanded = expandedLabelWidthRems + gapRems
     const currentItemWidth = isExpanded ? itemWidthExpanded : itemWidthCollapsed
 
-    const totalWidthNeeded = itemsCount * currentItemWidth - gap
+    const totalWidthNeeded = itemsCount * currentItemWidth - gapRems
 
     const mustCollapse = totalWidthNeeded > availableWidth
     setShouldForceCollapse(mustCollapse)

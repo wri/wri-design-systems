@@ -23,8 +23,8 @@ const ToolbarButton = ({
     aria-label={ariaLabel}
     disabled={disabled}
     onClick={onClick}
-    mr={showGap && !vertical ? '16px' : '0'}
-    mb={showGap && vertical ? '16px' : '0'}
+    mr={showGap && !vertical ? '1rem' : '0'}
+    mb={showGap && vertical ? '1rem' : '0'}
   >
     <Box
       display='flex'
@@ -32,12 +32,12 @@ const ToolbarButton = ({
       style={{ justifyContent: 'flex-end', alignItems: 'center' }}
       whiteSpace='nowrap'
       transition='max-width 0.3s ease, opacity 0.2s ease, margin-left 0.3s ease'
-      maxWidth={isExpanded ? '150px' : '32px'}
-      padding='8px'
-      margin={isExpanded ? '8px' : '0'}
+      maxWidth={isExpanded ? '9.375rem' : '2rem'}
+      padding='0.5rem'
+      margin={isExpanded ? '0.5rem' : '0'}
     >
       {icon && (
-        <Box as='span' mr={icon && isExpanded ? '8px' : '0px'}>
+        <Box as='span' mr={icon && isExpanded ? '0.5rem' : '0px'}>
           <Tooltip content={tooltip} disabled={!tooltip}>
             {icon}
           </Tooltip>
@@ -48,7 +48,7 @@ const ToolbarButton = ({
         <Box
           aria-hidden={!isExpanded}
           overflow='hidden'
-          maxWidth={isExpanded ? '150px' : '0px'}
+          maxWidth={isExpanded ? '9.375rem' : '0px'}
           whiteSpace='nowrap'
           transition='max-width 0.3s ease, opacity 0.2s ease, margin-left 0.3s ease'
         >

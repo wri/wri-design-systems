@@ -1,4 +1,5 @@
 import type { ToolbarLabels } from '../../../../lib/i18n/types'
+import { SizeValue } from '../../../../lib/sizing'
 
 export type { ToolbarLabels }
 
@@ -40,9 +41,9 @@ export interface UseToolbarOverflowParams {
   itemsCount: number
   isExpanded: boolean
   isVertical: boolean
-  collapsedWidth: number // 48px
-  expandedLabelWidth: number
-  gap?: number
+  collapsedWidth: SizeValue
+  expandedLabelWidth: SizeValue
+  gap?: SizeValue
   showExpandedToggle?: boolean
   autoCollapse?: boolean
 }
