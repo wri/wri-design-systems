@@ -131,11 +131,7 @@ const Search = ({
     <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
       <InputGroup
         startElement={
-          <SearchIcon
-            width={iconSize}
-            height={iconSize}
-            fill={iconFillColor}
-          />
+          <SearchIcon width={iconSize} height={iconSize} fill={iconFillColor} />
         }
         endElement={endElement}
       >
