@@ -49,8 +49,8 @@ export const fieldLabelStyles = (
   .chakra-field__requiredIndicator {
     margin-top: 0.25rem;
     color: ${disabled
-      ? getThemedColor('neutral', 600)
-      : getThemedColor('error', 500)};
+    ? getThemedColor('neutral', 600)
+    : getThemedColor('error', 500)};
   }
 `
 
@@ -85,7 +85,6 @@ export const textInputStyles = (
   width: 100%;
   border-radius: 0.25rem;
   padding: ${size === 'small' ? '0.25rem 0.5rem' : '0.75rem'};
-  margin-top: 0.5rem;
   background-color: ${getThemedColor('neutral', 100)};
   color: ${getThemedColor('neutral', 800)};
   border: 0.0625rem solid ${getThemedColor('neutral', 400)};

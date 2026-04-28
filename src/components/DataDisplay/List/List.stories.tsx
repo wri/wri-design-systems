@@ -13,7 +13,7 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     (Story: any) => (
-      <div style={{ width: '450px' }}>
+      <div style={{ width: '28.125rem' }}>
         <Story />
       </div>
     ),

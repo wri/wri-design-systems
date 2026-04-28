@@ -46,7 +46,7 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
               {toast.type === 'loading' ? (
                 <Spinner
                   size='lg'
-                  borderWidth='3px'
+                  borderWidth='0.1875rem'
                   color='var(--chakra-colors-primary-500)'
                 />
               ) : null}
@@ -110,7 +110,9 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
                     css={toastCloseTriggerStyles}
                     label={toast.meta.closableLabel}
                     aria-label={toast.meta?.closableLabel || l.dismissLabel}
-                    leftIcon={<CloseIcon height='10px!' width='10px!' />}
+                    leftIcon={
+                      <CloseIcon height='0.625rem!' width='0.625rem!' />
+                    }
                     size='small'
                     variant='secondary'
                     onClick={() => toasters[toaster].dismiss()}

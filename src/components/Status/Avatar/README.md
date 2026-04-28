@@ -19,11 +19,13 @@ import { Avatar } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+import { SizeValue } from '@worldresources/wri-design-systems'
+
 type AvatarProps = {
   name: string
   ariaLabel?: string
   size?: 'small' | 'medium' | 'large'
-  customSize?: string
+  customSize?: SizeValue
   src?: string
   srcSet?: string
   onClick?: () => void

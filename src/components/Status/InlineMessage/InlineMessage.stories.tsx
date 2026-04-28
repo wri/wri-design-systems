@@ -117,6 +117,6 @@ export const NoIconWithButtonIcon: Story = {
     icon: null,
     actionLabel: 'Mark complete',
     isButtonRight: true,
-    buttonLeftIcon: <CheckIcon height='16px' width='16px' />,
+    buttonLeftIcon: <CheckIcon height='1rem' width='1rem' />,
   },
 }

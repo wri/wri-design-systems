@@ -45,18 +45,18 @@ const Badge = ({ hasNotification, notificationCount, label }: BadgeProps) => {
 
   const notification = getNotificationCount()
 
-  let width = '16px'
+  let width = '1rem'
   if (notificationCount && notificationCount > 99) {
-    width = '28px'
+    width = '1.75rem'
   } else if (notificationCount && notificationCount > 9) {
-    width = '22px'
+    width = '1.375rem'
   }
 
   if (isTablet) {
     return (
       <div css={badgeContainerStyles} role='status' aria-live='polite'>
         <div css={badgeNotificationContainerStyles()}>
-          <NotificationIcon color='currentColor' height='16px' width='16px' />
+          <NotificationIcon color='currentColor' height='1rem' width='1rem' />
           {hasNotification && !notificationCount && !label ? (
             <div css={badgeDotContainerStyles} aria-hidden />
           ) : null}
@@ -94,7 +94,7 @@ const Badge = ({ hasNotification, notificationCount, label }: BadgeProps) => {
         {hasNotification && !notificationCount ? (
           <div css={badgeDotContainerStyles} aria-hidden />
         ) : null}
-        <NotificationIcon color='currentColor' height='16px' width='16px' />
+        <NotificationIcon color='currentColor' height='1rem' width='1rem' />
       </div>
     </div>
   )

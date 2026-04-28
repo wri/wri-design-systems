@@ -23,7 +23,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: '320px' }}>
+      <div style={{ width: '20rem' }}>
         <Story />
       </div>
     ),
@@ -38,7 +38,7 @@ const BaseHeader = () => (
   <div
     style={{
       display: 'flex',
-      gap: '12px',
+      gap: '0.75rem',
       flex: '1',
       overflow: 'hidden',
       alignItems: 'center',
@@ -68,7 +68,7 @@ const BaseChildren = (
     <div style={{ textAlign: 'center', padding: '1rem' }}>
       <PieChartPinkIcon />
     </div>
-    <div style={{ padding: '1rem 0px 0px 0px' }}>
+    <div style={{ padding: '1rem 0 0 0' }}>
       <QualitativeAttribute
         type='raster'
         label='Highest confidence detection by multiple alert systems'
@@ -77,7 +77,7 @@ const BaseChildren = (
       />
       <b>82,026</b>
     </div>
-    <div style={{ padding: '1rem 0px 0px 0px' }}>
+    <div style={{ padding: '1rem 0 0 0' }}>
       <QualitativeAttribute
         type='raster'
         label='High confidence detection by a single alert system'
@@ -86,7 +86,7 @@ const BaseChildren = (
       />
       <b>41,114</b>
     </div>
-    <div style={{ padding: '1rem 0px' }}>
+    <div style={{ padding: '1rem 0' }}>
       <QualitativeAttribute
         type='raster'
         label='Detection by a single alert system'

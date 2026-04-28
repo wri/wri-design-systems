@@ -21,7 +21,7 @@ export const ProgressBar: Story = {
     progress: 50,
   },
   render: (args) => (
-    <div style={{ width: '400px' }}>
+    <div style={{ width: '25rem' }}>
       <ProgressBarStory {...args} />
     </div>
   ),
