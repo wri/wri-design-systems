@@ -110,7 +110,7 @@ const Search = ({
   }, [open])
 
   const endElement = filterText.length ? (
-    <CloseButton style={{ marginTop: '0.5rem' }} onClick={handleOnClear} />
+    <CloseButton onClick={handleOnClear} />
   ) : null
 
   const resultsVisible =
@@ -135,7 +135,6 @@ const Search = ({
             width={iconSize}
             height={iconSize}
             fill={iconFillColor}
-            style={{ marginTop: '0.5rem' }}
           />
         }
         endElement={endElement}
@@ -150,7 +149,6 @@ const Search = ({
           label=''
           style={{
             paddingLeft: '2.5rem',
-            borderColor: getThemedColor('neutral', 500),
           }}
           type='search'
           aria-label={placeholder || l.filterAriaLabel}

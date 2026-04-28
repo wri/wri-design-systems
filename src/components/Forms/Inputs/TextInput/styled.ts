@@ -87,24 +87,17 @@ export const textInputStyles = (
   padding: ${size === 'small' ? '4px 8px' : '12px'};
   background-color: ${getThemedColor('neutral', 100)};
   color: ${getThemedColor('neutral', 800)};
-  border: 1px solid ${getThemedColor('neutral', 400)};
+  border: 1px solid ${getThemedColor('neutral', 300)};
   box-shadow: 0px 1px 2px 0px #0000000d;
   font-size: ${size === 'small' ? '14px' : '16px'};
 
   &:focus-visible,
   &[data-focus-visible] {
-    border: 2px solid ${getThemedColor('neutral', 700)};
     outline: 2px solid ${getThemedColor('primary', 700)};
     outline-offset: 2px;
     box-shadow:
       0 0 0 2px ${getThemedColor('neutral', 100)},
       rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
-  }
-
-  &:active {
-    border: 1px solid ${getThemedColor('primary', 600)} !important;
-    outline: none !important;
-    box-shadow: 0px 1px 2px 0px #0000000d;
   }
 
   &[data-invalid] {
