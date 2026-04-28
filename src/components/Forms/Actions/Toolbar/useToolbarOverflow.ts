@@ -2,13 +2,13 @@ import { useEffect, useState, useRef } from 'react'
 import { UseToolbarOverflowParams } from './types'
 import { SizeValue, resolveSizeValue } from '../../../../lib/sizing'
 
-const toPixels = (value: SizeValue): number => {
+const toRems = (value: SizeValue): number => {
   const resolved = resolveSizeValue(value)
-  const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize)
-  if (resolved.endsWith('rem')) {
-    return parseFloat(resolved) * rootFontSize
-  }
+  const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
   if (resolved.endsWith('px')) {
+    return parseFloat(resolved) / rootFontSize
+  }
+  if (resolved.endsWith('rem')) {
     return parseFloat(resolved)
   }
   return parseFloat(resolved)
@@ -34,7 +34,8 @@ export function useToolbarOverflow({
     if (!containerRef.current) return
     const observer = new ResizeObserver((entries) => {
       const entry = entries[0]
-      setContainerWidth(Math.floor(entry.contentRect.width))
+      const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+      setContainerWidth(entry.contentRect.width / rootFontSize)
     })
     observer.observe(containerRef.current)
     // eslint-disable-next-line consistent-return
@@ -50,18 +51,18 @@ export function useToolbarOverflow({
       return
     }
 
-    const collapsedWidthPx = toPixels(collapsedWidth)
-    const expandedLabelWidthPx = toPixels(expandedLabelWidth)
-    const gapPx = toPixels(gap)
+    const collapsedWidthRems = toRems(collapsedWidth)
+    const expandedLabelWidthRems = toRems(expandedLabelWidth)
+    const gapRems = toRems(gap)
 
-    const toggleWidth = showExpandedToggle ? collapsedWidthPx + gapPx : 0
+    const toggleWidth = showExpandedToggle ? collapsedWidthRems + gapRems : 0
     const availableWidth = containerWidth - toggleWidth
 
-    const itemWidthCollapsed = collapsedWidthPx + gapPx
-    const itemWidthExpanded = expandedLabelWidthPx + gapPx
+    const itemWidthCollapsed = collapsedWidthRems + gapRems
+    const itemWidthExpanded = expandedLabelWidthRems + gapRems
     const currentItemWidth = isExpanded ? itemWidthExpanded : itemWidthCollapsed
 
-    const totalWidthNeeded = itemsCount * currentItemWidth - gapPx
+    const totalWidthNeeded = itemsCount * currentItemWidth - gapRems
 
     const mustCollapse = totalWidthNeeded > availableWidth
     setShouldForceCollapse(mustCollapse)

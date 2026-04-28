@@ -15,7 +15,7 @@ import { useToolbarOverflow } from './useToolbarOverflow'
 import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const COLLAPSED_WIDTH = '3rem'
-const EXPANDED_LABEL_WIDTH = '10rem'
+const EXPANDED_LABEL_WIDTH = '6.25rem'
 
 const Toolbar = ({
   items,

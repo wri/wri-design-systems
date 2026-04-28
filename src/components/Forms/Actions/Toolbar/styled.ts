@@ -11,7 +11,7 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
   justify-content: ${showLabel ? 'space-between' : 'center'};
   gap: ${showLabel ? '0.5rem' : '0'};
   height: 3rem;
-  padding: 0;
+  padding: ${showLabel ? '0 0px' : '0'};
   text-align: ${showLabel ? 'left' : 'center'};
   color: black;
   min-width: 3rem;
