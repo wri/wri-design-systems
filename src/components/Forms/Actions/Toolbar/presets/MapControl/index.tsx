@@ -12,7 +12,7 @@ import {
 import { useLabels } from '../../../../../../lib/i18n/useLabels'
 import type { MapControlsToolbarLabels } from '../../../../../../lib/i18n/types'
 
-type MapControlsToolbarProps = {
+export type MapControlsToolbarProps = {
   onZoomInClick?: () => void
   onZoomOutClick?: () => void
   onExpandClick?: () => void
