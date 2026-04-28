@@ -13,8 +13,8 @@ export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   background-color: ${theme === 'dark' ? 'default' : 'transparent'};
   &:hover {
     background-color: ${theme === 'dark'
-    ? 'default'
-    : getThemedColor('neutral', 200)};
+      ? 'default'
+      : getThemedColor('neutral', 200)};
   }
 
   &:focus-visible {

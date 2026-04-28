@@ -4,7 +4,8 @@ import { SizeValue, resolveSizeValue } from '../../../../lib/sizing'
 
 const toRems = (value: SizeValue): number => {
   const resolved = resolveSizeValue(value)
-  const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+  const rootFontSize =
+    parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
   if (resolved.endsWith('px')) {
     return parseFloat(resolved) / rootFontSize
   }
@@ -34,7 +35,8 @@ export function useToolbarOverflow({
     if (!containerRef.current) return
     const observer = new ResizeObserver((entries) => {
       const entry = entries[0]
-      const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+      const rootFontSize =
+        parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
       setContainerWidth(entry.contentRect.width / rootFontSize)
     })
     observer.observe(containerRef.current)

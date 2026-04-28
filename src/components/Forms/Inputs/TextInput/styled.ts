@@ -49,8 +49,8 @@ export const fieldLabelStyles = (
   .chakra-field__requiredIndicator {
     margin-top: 0.25rem;
     color: ${disabled
-    ? getThemedColor('neutral', 600)
-    : getThemedColor('error', 500)};
+      ? getThemedColor('neutral', 600)
+      : getThemedColor('error', 500)};
   }
 `
 
