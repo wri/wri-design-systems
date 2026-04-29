@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// scripts/setup-ai.js — WRI Design System AI Setup
+// agents/setup-ai.mjs — WRI Design System AI Setup
 // Distributes AGENTS.md to the correct location for each detected IDE.
-// Usage: yarn setup:ai
+// Usage: npx ds setup-ai
 
 import {
   existsSync,
