@@ -10,8 +10,8 @@ const MenuDemo = () => (
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
-        maxWidth: '180px',
+        gap: '1.25rem',
+        maxWidth: '11.25rem',
       }}
     >
       <Menu

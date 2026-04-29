@@ -9,14 +9,14 @@ const TagDemo = () => (
         display: 'flex',
         alignItems: 'flex-start',
         flexDirection: 'column',
-        gap: '10px',
+        gap: '0.625rem',
       }}
     >
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
+          gap: '0.375rem',
           flexWrap: 'wrap',
         }}
       >
@@ -52,7 +52,7 @@ const TagDemo = () => (
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
+          gap: '0.375rem',
           flexWrap: 'wrap',
         }}
       >
@@ -83,7 +83,7 @@ const TagDemo = () => (
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
+          gap: '0.375rem',
           flexWrap: 'wrap',
         }}
       >
@@ -109,7 +109,7 @@ const TagDemo = () => (
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
+          gap: '0.375rem',
           flexWrap: 'wrap',
         }}
       >
@@ -135,7 +135,7 @@ const TagDemo = () => (
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
+          gap: '0.375rem',
           flexWrap: 'wrap',
         }}
       >

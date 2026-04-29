@@ -3,7 +3,7 @@ import DemoWrapper from '../../../UI/DemoWrapper'
 
 const TextareaDemo = () => (
   <DemoWrapper title='Textarea'>
-    <div style={{ width: '290px' }}>
+    <div style={{ width: '18.125rem' }}>
       <Textarea
         label='Label'
         caption='Caption'

@@ -7,8 +7,8 @@ const SelectDemo = () => (
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
-        width: '290px',
+        gap: '1.25rem',
+        width: '18.125rem',
       }}
     >
       <Select

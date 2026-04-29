@@ -16,7 +16,7 @@ const meta = {
   args: { onChange: fn() },
   decorators: [
     (Story: any) => (
-      <div style={{ width: '480px' }}>
+      <div style={{ width: '30rem' }}>
         <Story />
       </div>
     ),

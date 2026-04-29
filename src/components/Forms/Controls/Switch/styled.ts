@@ -2,13 +2,13 @@ import { css } from '@emotion/react'
 import { getThemedColor } from '../../../../lib/theme'
 
 export const rootSwitchStyles = css`
-  --switch-height: 24px;
-  --switch-width: 40px;
+  --switch-height: 1.5rem;
+  --switch-width: 2.5rem;
 
   .chakra-switch__control-container {
-    width: 42px;
-    height: 26px;
-    border-radius: 13px;
+    width: 2.625rem;
+    height: 1.625rem;
+    border-radius: 0.8125rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,11 +31,11 @@ export const rootSwitchStyles = css`
     &:focus-visible,
     &[data-focus-visible] {
       outline: none;
-      outline: 2px solid ${getThemedColor('primary', 700)};
-      outline-offset: 3px;
+      outline: 0.125rem solid ${getThemedColor('primary', 700)};
+      outline-offset: 0.1875rem;
       box-shadow:
-        0 0 0 2px ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
     }
 
     &[data-state='checked'] {
@@ -48,12 +48,12 @@ export const rootSwitchStyles = css`
   }
 
   .chakra-switch__thumb {
-    height: 20px;
-    width: 20px;
+    height: 1.25rem;
+    width: 1.25rem;
     translate: calc((var(--switch-width) - var(--switch-height)) / 8) 0;
 
     svg {
-      width: 12px;
+      width: 0.75rem;
 
       path {
         fill: ${getThemedColor('accessible', 'controls-on-neutral-lights') ||
@@ -63,7 +63,7 @@ export const rootSwitchStyles = css`
 
     &:hover,
     &[data-hover] {
-      outline: 9px solid
+      outline: 0.5625rem solid
         color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
     }
 
@@ -73,11 +73,11 @@ export const rootSwitchStyles = css`
         [aria-checked='true'],
         [data-state='checked']
       ) {
-      translate: calc(var(--switch-width) + 2px - var(--switch-height)) 0;
+      translate: calc(var(--switch-width) + 0.125rem - var(--switch-height)) 0;
     }
 
     &[data-active] {
-      outline: 9px solid
+      outline: 0.5625rem solid
         color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
     }
 

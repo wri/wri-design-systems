@@ -126,7 +126,7 @@ export const WithErrorMessage: Story = {
 
 export const WithParentCheckbox: Story = {
   render: (args) => (
-    <div style={{ width: '250px' }}>
+    <div style={{ width: '15.625rem' }}>
       <CheckboxListStory {...args} />
     </div>
   ),
@@ -157,7 +157,7 @@ export const WithParentCheckbox: Story = {
 
 export const WithParentCheckboxAndErrorMessage: Story = {
   render: (args) => (
-    <div style={{ width: '250px' }}>
+    <div style={{ width: '15.625rem' }}>
       <CheckboxListStory {...args} />
     </div>
   ),
@@ -192,7 +192,7 @@ export const WithParentCheckboxAndErrorMessage: Story = {
  */
 export const WithI18nLabels: Story = {
   render: (args) => (
-    <div style={{ width: '250px' }}>
+    <div style={{ width: '15.625rem' }}>
       <CheckboxListStory {...args} />
     </div>
   ),
@@ -234,7 +234,7 @@ export const WithI18nContext: Story = {
         },
       }}
     >
-      <div style={{ width: '250px' }}>
+      <div style={{ width: '15.625rem' }}>
         <CheckboxListStory {...args} />
       </div>
     </DesignSystemLocaleProvider>

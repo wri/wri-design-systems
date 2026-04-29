@@ -86,10 +86,10 @@ const Menu = ({
           <button type='button'>
             {label}
             <ChevronDownIcon
-              marginLeft='6px'
+              marginLeft='0.375rem'
               rotate={isOpen ? '180' : '0'}
-              height='14px'
-              width='14px'
+              height='0.875rem'
+              width='0.875rem'
             />
           </button>
         )}

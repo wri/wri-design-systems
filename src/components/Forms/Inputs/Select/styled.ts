@@ -8,15 +8,15 @@ export const selectContainerStyles = (size: string) => css`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: ${size === 'small' ? '12px' : '16px'};
-  margin-bottom: 16px;
+  gap: ${size === 'small' ? '0.75rem' : '1rem'};
+  margin-bottom: 1rem;
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
   }
 `
 
 export const selectErrorBarStyles = css`
-  width: 3px;
+  width: 0.1875rem;
   height: 100%;
   background-color: ${getThemedColor('error', 900)};
   position: absolute;
@@ -25,15 +25,15 @@ export const selectErrorBarStyles = css`
 `
 
 export const selectLabelStyles = (size: string) => css`
-  font-size: ${size === 'small' ? '14px' : '16px'};
-  line-height: ${size === 'small' ? '20px' : '24px'};
+  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
+  line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
   font-weight: 400;
   color: ${getThemedColor('neutral', 900)};
   text-align: left;
 
   span {
     color: ${getThemedColor('error', 500)};
-    margin-right: 3px;
+    margin-right: 0.1875rem;
   }
 
   &[data-disabled] {
@@ -46,8 +46,8 @@ export const selectLabelStyles = (size: string) => css`
 `
 
 export const selectCaptionStyles = (size: string, disabled?: boolean) => css`
-  font-size: ${size === 'small' ? '12px' : '14px'};
-  line-height: ${size === 'small' ? '16px' : '20px'};
+  font-size: ${size === 'small' ? '0.75rem' : '0.875rem'};
+  line-height: ${size === 'small' ? '1rem' : '1.25rem'};
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
   text-align: left;
@@ -70,53 +70,53 @@ export const selectTriggerStyles = (
   multiple?: boolean,
 ) => css`
   .chakra-select__trigger {
-    min-height: ${size === 'small' ? '32px' : '40px'};
-    border-radius: 4px;
-    padding: 6px 8px;
-    border: 1px solid ${getTriggerBorderColor(isFilled, hasErrorMessage)};
-    box-shadow: 0px 1px 2px 0px #0000000d;
+    min-height: ${size === 'small' ? '2rem' : '2.5rem'};
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.5rem;
+    border: 0.0625rem solid ${getTriggerBorderColor(isFilled, hasErrorMessage)};
+    box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
     cursor: pointer;
     background-color: ${getThemedColor('neutral', 100)};
 
     .chakra-select__valueText {
-      font-size: ${size === 'small' ? '14px' : '16px'};
-      line-height: ${size === 'small' ? '20px' : '24px'};
+      font-size: ${size === 'small' ? '0.875rem' : '1rem'};
+      line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
       color: ${getThemedColor('neutral', 700)};
 
       ${multiple
         ? `
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 0.5rem;
       `
         : ''}
     }
 
     &[data-state='open'] {
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
       border-bottom: none;
     }
 
     &:is(:focus-visible, [data-focus-visible]) {
-      outline-offset: 2px;
-      outline-width: 2px;
+      outline-offset: 0.125rem;
+      outline-width: 0.125rem;
       outline-color: ${getThemedColor('primary', 700)};
-      border: 2px solid ${getThemedColor('neutral', 700)};
+      border: 0.125rem solid ${getThemedColor('neutral', 700)};
       box-shadow:
-        0 0 0 2px ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
     }
 
     &[data-disabled] {
-      border: 1px solid ${getThemedColor('neutral', 300)};
+      border: 0.0625rem solid ${getThemedColor('neutral', 300)};
       background-color: ${getThemedColor('neutral', 200)};
     }
   }
 
   .chakra-select__indicator {
     svg {
-      width: ${size === 'small' ? '12px' : '16px'};
+      width: ${size === 'small' ? '0.75rem' : '1rem'};
 
       path {
         fill: ${getThemedColor('neutral', 700)};
@@ -131,11 +131,11 @@ export const selectTriggerStyles = (
   }
 `
 export const selectContentStyles = css`
-  margin-top: -8px;
-  border-radius: 4px;
-  border: 1px solid ${getThemedColor('neutral', 400)};
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
+  margin-top: -0.5rem;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid ${getThemedColor('neutral', 400)};
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   border-top: none;
 `
 
@@ -148,8 +148,8 @@ export const selectItemStyles = css`
 `
 
 export const selectItemLabelStyles = (size: string, disabled?: boolean) => css`
-  font-size: ${size === 'small' ? '14px' : '16px'};
-  line-height: ${size === 'small' ? '20px' : '24px'};
+  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
+  line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
   color: ${getThemedColor('neutral', 800)};
   text-align: left;
 
@@ -160,8 +160,8 @@ export const selectItemCaptionStyles = (
   size: string,
   disabled?: boolean,
 ) => css`
-  font-size: ${size === 'small' ? '14px' : '16px'};
-  line-height: ${size === 'small' ? '20px' : '24px'};
+  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
+  line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
   color: ${getThemedColor('neutral', 700)};
   text-align: left;
 
@@ -169,8 +169,8 @@ export const selectItemCaptionStyles = (
 `
 
 export const selectErrorMessageStyles = (size: string) => css`
-  font-size: ${size === 'small' ? '12px' : '14px'};
-  line-height: ${size === 'small' ? '16px' : '20px'};
+  font-size: ${size === 'small' ? '0.75rem' : '0.875rem'};
+  line-height: ${size === 'small' ? '1rem' : '1.25rem'};
   font-weight: 700;
   color: ${getThemedColor('error', 900)};
   text-align: left;

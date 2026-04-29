@@ -7,8 +7,8 @@ const CheckboxListDemo = () => (
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
-        width: '366px',
+        gap: '1.25rem',
+        width: '22.875rem',
       }}
     >
       <CheckboxList

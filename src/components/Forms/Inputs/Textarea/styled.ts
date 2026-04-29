@@ -9,11 +9,11 @@ export const textareaContainerStyles = (size: TextareaProps['size']) => css`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: ${size === 'small' ? '12px' : '16px'};
-  margin-bottom: 16px;
+  gap: ${size === 'small' ? '0.75rem' : '1rem'};
+  margin-bottom: 1rem;
 `
 export const textareaErrorBarStyles = css`
-  width: 3px;
+  width: 0.1875rem;
   height: 100%;
   background-color: ${getThemedColor('error', 900)};
   position: absolute;
@@ -26,10 +26,10 @@ export const fieldLabelStyles = (
   disabled?: TextareaProps['disabled'],
 ) => css`
   color: ${getThemedColor('neutral', disabled ? 600 : 900)};
-  font-size: ${size === 'small' ? '14px' : '16px'};
+  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
   font-weight: 400;
-  line-height: ${size === 'small' ? '20px' : '24px'};
-  margin-bottom: 2px;
+  line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
+  margin-bottom: 0.125rem;
 
   span {
     color: ${getThemedColor('neutral', disabled ? 600 : 700)};
@@ -47,25 +47,25 @@ export const fieldCaptionStyles = (
   disabled?: TextareaProps['disabled'],
 ) => css`
   color: ${getThemedColor('neutral', disabled ? 600 : 700)};
-  font-size: ${size === 'small' ? '12px' : '14px'};
+  font-size: ${size === 'small' ? '0.75rem' : '0.875rem'};
   font-weight: 400;
-  line-height: ${size === 'small' ? '16px' : '20px'};
+  line-height: ${size === 'small' ? '1rem' : '1.25rem'};
 `
 
 export const fieldHelperTextStyles = css`
   color: ${getThemedColor('neutral', 600)};
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 400;
-  line-height: 16px;
-  margin-top: 8px;
+  line-height: 1rem;
+  margin-top: 0.5rem;
 `
 
 export const fieldErrorMessageStyles = css`
   color: ${getThemedColor('error', 900)};
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
-  line-height: 20px;
-  margin-top: 2px;
+  line-height: 1.25rem;
+  margin-top: 0.125rem;
 `
 
 export const textareaSyles = (
@@ -73,44 +73,44 @@ export const textareaSyles = (
   value?: string,
   defaultValue?: string,
 ) => css`
-  height: 104px;
+  height: 6.5rem;
   width: 100%;
-  border-radius: 4px;
-  padding: ${size === 'small' ? '8px' : '12px'};
-  margin-top: 8px;
+  border-radius: 0.25rem;
+  padding: ${size === 'small' ? '0.5rem' : '0.75rem'};
+  margin-top: 0.5rem;
   background-color: ${getThemedColor('neutral', 100)};
   color: ${getThemedColor('neutral', 800)};
-  border: 1px solid ${getThemedColor('neutral', 400)};
-  box-shadow: 0px 1px 2px 0px #0000000d;
+  border: 0.0625rem solid ${getThemedColor('neutral', 400)};
+  box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
 
   &:focus-visible,
   &[data-focus-visible] {
-    border: 2px solid ${getThemedColor('neutral', 700)};
-    outline: 2px solid ${getThemedColor('primary', 700)};
-    outline-offset: 2px;
+    border: 0.125rem solid ${getThemedColor('neutral', 700)};
+    outline: 0.125rem solid ${getThemedColor('primary', 700)};
+    outline-offset: 0.125rem;
     box-shadow:
-      0 0 0 2px ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0px 2px 2px 4px;
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
   }
 
   &:active {
-    border: 1px solid ${getThemedColor('primary', 600)} !important;
+    border: 0.0625rem solid ${getThemedColor('primary', 600)} !important;
     outline: none !important;
-    box-shadow: 0px 1px 2px 0px #0000000d;
+    box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
   }
 
   &[data-invalid] {
-    border: 1px solid ${getThemedColor('error', 900)} !important;
+    border: 0.0625rem solid ${getThemedColor('error', 900)} !important;
   }
 
   &:disabled {
     background-color: ${getThemedColor('neutral', 200)};
-    border: 1px solid ${getThemedColor('neutral', 300)} !important;
+    border: 0.0625rem solid ${getThemedColor('neutral', 300)} !important;
   }
 
   ${value || defaultValue
     ? `
-    border: 1px solid ${getThemedColor('neutral', 700)};
+    border: 0.0625rem solid ${getThemedColor('neutral', 700)};
   `
     : ''}
 `

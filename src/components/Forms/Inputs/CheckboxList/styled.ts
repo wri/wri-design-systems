@@ -11,25 +11,25 @@ export const checkboxListContainerStyles = css`
 `
 
 export const checkboxListContentStyles = (hasErrorMessage: boolean) => css`
-  margin-left: ${hasErrorMessage ? '19px' : '0px'};
+  margin-left: ${hasErrorMessage ? '1.1875rem' : '0'};
   width: 100%;
 `
 
 export const checkboxListLabelStyles = css`
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: ${getThemedColor('neutral', 900)};
   text-align: left;
   width: 100%;
   #required-symbol {
     color: ${getThemedColor('error', 500)};
-    margin-right: 3px;
+    margin-right: 0.1875rem;
   }
 `
 
 export const checkboxListCaptionStyles = css`
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   color: ${getThemedColor('neutral', 700)};
   text-align: left;
 `
@@ -38,12 +38,12 @@ export const checkboxListContentListStyles = (
   horizontal?: boolean,
   isExpanded?: boolean,
 ) => css`
-  margin-top: 12px;
+  margin-top: 0.75rem;
   display: flex;
   flex-direction: ${horizontal ? 'row' : 'column'};
   flex-wrap: wrap;
-  gap: ${horizontal ? '20px' : '12px'};
-  max-height: ${isExpanded ? '1000px' : '0'};
+  gap: ${horizontal ? '1.25rem' : '0.75rem'};
+  max-height: ${isExpanded ? '62.5rem' : '0'};
   overflow: hidden;
   opacity: ${isExpanded ? 1 : 0};
   transition:
@@ -52,7 +52,7 @@ export const checkboxListContentListStyles = (
 `
 
 export const checkboxListErrorBarStyles = css`
-  width: 3px;
+  width: 0.1875rem;
   height: 100%;
   background-color: ${getThemedColor('error', 900)};
   position: absolute;
@@ -61,8 +61,8 @@ export const checkboxListErrorBarStyles = css`
 `
 
 export const checkboxListErrorMessageStyles = css`
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-weight: 700;
   color: ${getThemedColor('error', 900)};
   text-align: left;
@@ -70,19 +70,19 @@ export const checkboxListErrorMessageStyles = css`
 
 export const checkboxCounterTextStyles = css`
   color: ${getThemedColor('neutral', 700)};
-  margin-left: 4px;
+  margin-left: 0.25rem;
 `
 
 export const expandButtonStyles = css`
   color: ${getThemedColor('neutral', 700)};
   display: flex;
   align-items: center;
-  gap: 4;
-  font-size: 14;
+  gap: 0.25rem;
+  font-size: 0.875rem;
   background: none;
   border: none;
   cursor: pointer;
   > span {
-    margin-left: 6px;
+    margin-left: 0.375rem;
   }
 `

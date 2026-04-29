@@ -20,7 +20,7 @@ const CheckboxOptionCard = ({
   onValueChange,
 }: CheckboxOptionCardProps) => (
   <CheckboxGroup defaultValue={defaultValue} onValueChange={onValueChange}>
-    <HStack alignItems='flex-start' flexWrap='wrap' gap='12px'>
+    <HStack alignItems='flex-start' flexWrap='wrap' gap='0.75rem'>
       {items.map((item) => (
         <CheckboxCard.Root
           key={`${item.label}-${item.value}`}

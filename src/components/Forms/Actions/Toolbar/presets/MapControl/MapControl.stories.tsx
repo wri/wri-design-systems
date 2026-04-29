@@ -84,7 +84,7 @@ export const Horizontal: Story = {
     vertical: false,
   },
   render: (args) => (
-    <div style={{ width: 1100, border: '1px solid #ccc', padding: 16 }}>
+    <div style={{ width: 1100, border: '0.0625rem solid #ccc', padding: 16 }}>
       <Toolbar {...args} />
     </div>
   ),
@@ -104,7 +104,7 @@ export const Vertical: Story = {
       style={{
         width: 800,
         height: 550,
-        border: '1px solid #ccc',
+        border: '0.0625rem solid #ccc',
         padding: 16,
       }}
     >

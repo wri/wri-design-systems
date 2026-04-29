@@ -4,18 +4,18 @@ import { getThemedColor } from '../../../lib/theme'
 export const formContainerStyles = css`
   position: relative;
   width: 100%;
-  padding-left: 19px;
+  padding-left: 1.1875rem;
 `
 
 export const formContainerLabelStyles = css`
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 4px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.25rem;
   color: ${getThemedColor('neutral', 900)};
 `
 
 export const formContainerErrorBarStyles = css`
-  width: 3px;
+  width: 0.1875rem;
   height: 100%;
   background-color: ${getThemedColor('error', 900)};
   position: absolute;
@@ -24,9 +24,9 @@ export const formContainerErrorBarStyles = css`
 `
 
 export const formContainerErrorMessageStyles = css`
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-weight: 700;
   color: ${getThemedColor('error', 900)};
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 `

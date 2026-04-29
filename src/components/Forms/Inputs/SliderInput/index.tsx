@@ -120,7 +120,7 @@ const SliderInput = ({
               value: `${mark.value}`,
             }))}
             placeholder=''
-            style={{ width: '90px' }}
+            style={{ width: '5.625rem' }}
             value={[`${value?.[0]}`]}
             onChange={handleSelectChanged}
           />

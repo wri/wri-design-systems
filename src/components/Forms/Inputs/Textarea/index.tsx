@@ -101,7 +101,7 @@ const Textarea = ({
         required={required}
         invalid={hasError}
         gap='0'
-        style={{ marginLeft: hasError ? '19px' : '0px' }}
+        style={{ marginLeft: hasError ? '1.1875rem' : '0px' }}
       >
         {label ? (
           <Field.Label
@@ -151,7 +151,11 @@ const Textarea = ({
           <Field.ErrorText
             id={errorId}
             css={fieldErrorMessageStyles}
-            style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
+            style={{
+              marginTop: '0.5rem',
+              fontSize: '0.75rem',
+              lineHeight: '1rem',
+            }}
             aria-live='polite'
           >
             {l.needMoreChars(minLength - value.length)}
@@ -162,7 +166,11 @@ const Textarea = ({
           <Field.ErrorText
             id={errorId}
             css={fieldErrorMessageStyles}
-            style={{ marginTop: '8px', fontSize: '12px', lineHeight: '16px' }}
+            style={{
+              marginTop: '0.5rem',
+              fontSize: '0.75rem',
+              lineHeight: '1rem',
+            }}
             aria-live='polite'
           >
             {l.tooManyChars(value.length - maxLength)}

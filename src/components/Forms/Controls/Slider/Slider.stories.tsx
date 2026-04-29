@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>
 
 export const Continuous: Story = {
   args: {
-    width: '250px',
+    width: '15.625rem',
     min: 0,
     max: 100,
     value: [50],
@@ -27,7 +27,7 @@ export const Continuous: Story = {
 
 export const Discrete: Story = {
   args: {
-    width: '250px',
+    width: '15.625rem',
     min: 0,
     max: 100,
     value: [50],
@@ -43,7 +43,7 @@ export const Discrete: Story = {
 
 export const DiscreteWithSteps: Story = {
   args: {
-    width: '250px',
+    width: '15.625rem',
     min: 0,
     max: 100,
     value: [50],
@@ -60,7 +60,7 @@ export const DiscreteWithSteps: Story = {
 
 export const Range: Story = {
   args: {
-    width: '250px',
+    width: '15.625rem',
     min: 0,
     max: 100,
     value: [20, 80],
@@ -69,7 +69,7 @@ export const Range: Story = {
 
 export const Centred: Story = {
   args: {
-    width: '250px',
+    width: '15.625rem',
     min: 0,
     max: 100,
     value: [50],
@@ -79,7 +79,7 @@ export const Centred: Story = {
 
 export const Disabled: Story = {
   args: {
-    width: '250px',
+    width: '15.625rem',
     min: 0,
     max: 100,
     value: [50],
