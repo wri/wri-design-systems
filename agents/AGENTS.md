@@ -70,9 +70,9 @@ Use it as fallback when a component is not in the WRI DS.
 ## Component Hierarchy — Never Skip a Level
 
 ```
-1. @worldresources/wri-design-systems  ^2.189.0  — always check first
-2. @chakra-ui/react                    ^3.8.1    — fallback only
-3. Custom code                                   — last resort; add justification comment
+1. @worldresources/wri-design-systems  — always check first
+2. @chakra-ui/react                    — fallback only
+3. Custom code                         — last resort; add justification comment
 ```
 
 ### Level 1 — WRI Design System
@@ -131,17 +131,17 @@ The project's `ChakraProvider` in `src/components/Providers/index.tsx` is the **
 
 **Do not invent, assume, or guess color token names or values.** The provider only extends the following palette scales:
 
-| Scale        | Defined steps                               | Notes                                     |
-| ------------ | ------------------------------------------- | ----------------------------------------- |
-| `neutral`    | 100, 200, 300, 400, 500, 600, 700, 800, 900 | Overrides Chakra defaults                 |
-| `primary`    | 100, 200, 300, 400, 500, 600, 700, 800, 900 | Overrides Chakra defaults                 |
-| `secondary`  | 100, 200, 300, 400, 500, 600, 700, 800, 900 | Overrides Chakra defaults                 |
-| `success`    | 100, 200, 300, 500, 900                     | Falls back to WRI DS `designSystemStyles` |
-| `warning`    | 100, 200, 300, 500, 900                     | Falls back to WRI DS `designSystemStyles` |
-| `error`      | 100, 200, 300, 500, 900                     | Falls back to WRI DS `designSystemStyles` |
-| `accessible` | 100, 200, 300, 500, 900                     | Falls back to WRI DS `designSystemStyles` |
+| Scale        | Defined steps / tokens                                                                                      | Notes                                                                                       |
+| ------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `neutral`    | 100, 200, 300, 400, 500, 600, 700, 800, 900                                                                 | Overrides Chakra defaults                                                                   |
+| `primary`    | 100, 200, 300, 400, 500, 600, 700, 800, 900                                                                 | Overrides Chakra defaults                                                                   |
+| `secondary`  | 100, 200, 300, 400, 500, 600, 700, 800, 900                                                                 | Overrides Chakra defaults                                                                   |
+| `success`    | 100, 200, 300, 500, 900                                                                                     | Falls back to WRI DS `designSystemStyles`                                                   |
+| `warning`    | 100, 200, 300, 500, 900                                                                                     | Falls back to WRI DS `designSystemStyles`                                                   |
+| `error`      | 100, 200, 300, 500, 900                                                                                     | Falls back to WRI DS `designSystemStyles`                                                   |
+| `accessible` | 'text-on-primary-mids', 'text-on-secondary-mids', 'controls-on-neutral-lights', 'controls-on-neutral-darks' | Use repo-defined keys (for example `text-on-primary-mids`) from WRI DS `designSystemStyles` |
 
-For scales marked as "not overridden", their values come from the WRI DS `designSystemStyles` system context — **do not guess these values**. Query the Storybook MCP to verify what values are available.
+For scales not overridden, and for named token sets such as `accessible`, values come from the WRI DS `designSystemStyles` system context — **do not guess these values**. Query the Storybook MCP to verify what values are available. In particular, do not call `getThemedColor('accessible', 100)`; use the actual string token key defined by the design system.
 
 ### How to Use Color Tokens — `getThemedColor`
 
