@@ -38,13 +38,13 @@ const BaseMapDemo = () => {
         style={{
           display: 'flex',
           alignItems: 'flex-end',
-          gap: '20px',
+          gap: '1.25rem',
           flexWrap: 'wrap',
         }}
       >
         <div
           style={{
-            height: '500px',
+            height: '31.25rem',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',
@@ -53,7 +53,7 @@ const BaseMapDemo = () => {
           <div
             ref={baseMapContainerRef}
             style={{
-              height: isOpenBaseMap ? '400px' : 0,
+              height: isOpenBaseMap ? '25rem' : 0,
               overflow: 'hidden',
               transition: 'height 0.3s ease-in-out',
             }}
@@ -177,7 +177,7 @@ const BaseMapDemo = () => {
           </div>
 
           <Button
-            style={{ width: '260px' }}
+            style={{ width: '16.25rem' }}
             variant='secondary'
             leftIcon={<MapIcon />}
             aria-label={`Base map: ${selectedOption?.label}`}
@@ -192,7 +192,7 @@ const BaseMapDemo = () => {
           >
             <p
               style={{
-                width: '200px',
+                width: '12.5rem',
                 fontWeight: 'bold',
                 textOverflow: 'ellipsis',
                 whiteSpace: 'nowrap',
@@ -210,8 +210,8 @@ const BaseMapDemo = () => {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '20px',
-            marginTop: '50px',
+            gap: '1.25rem',
+            marginTop: '3.125rem',
           }}
         >
           <Sheet
@@ -341,7 +341,7 @@ const BaseMapDemo = () => {
           />
 
           <Button
-            style={{ width: '200px' }}
+            style={{ width: '12.5rem' }}
             label='Base Map Sheet'
             onClick={() => setShowSheet(true)}
           />

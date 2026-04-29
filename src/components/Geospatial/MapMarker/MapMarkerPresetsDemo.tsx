@@ -9,7 +9,7 @@ const MapMarkerPresetsDemo = () => (
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '20px',
+        gap: '1.25rem',
         flexWrap: 'wrap',
       }}
     >

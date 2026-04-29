@@ -104,16 +104,16 @@ const LayerGroup = ({
         <Accordion.ItemIndicator display='flex'>
           <ChevronDownIcon
             color='var(--chakra-colors-neutral-700)'
-            height='16px'
-            width='16px'
+            height='1rem'
+            width='1rem'
           />
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
-      <Accordion.ItemContent paddingLeft='16px' paddingRight='16px'>
+      <Accordion.ItemContent paddingLeft='1rem' paddingRight='1rem'>
         <RadioGroup
           name={label}
           value={defaultValue}
-          customGap='0px'
+          customGap='0'
           onChange={(name: string, selectedValue: string) =>
             handleOnChange(
               name,

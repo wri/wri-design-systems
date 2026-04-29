@@ -4,7 +4,7 @@ import { LayerItemProps } from './types'
 
 export const layerItemContainerStyles = css`
   width: 100%;
-  padding: 16px 0;
+  padding: 1rem 0;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
 
   &:last-of-type {
@@ -21,18 +21,18 @@ export const switchContentStyles = css`
   flex-direction: column;
 `
 export const layerNameStyles = (disabled?: LayerItemProps['disabled']) => css`
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 1.5rem;
   text-align: left;
   color: ${getThemedColor('neutral', disabled ? 500 : 800)};
 `
 export const layerCaptionStyles = (
   disabled?: LayerItemProps['disabled'],
 ) => css`
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.25rem;
   text-align: left;
   color: ${getThemedColor('neutral', disabled ? 500 : 700)};
 `

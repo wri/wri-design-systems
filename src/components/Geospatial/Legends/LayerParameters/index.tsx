@@ -33,8 +33,8 @@ const LayerParameters = ({
           <Accordion.ItemIndicator display='flex'>
             <ChevronDownIcon
               color='var(--chakra-colors-neutral-700)'
-              height='16px'
-              width='16px'
+              height='1rem'
+              width='1rem'
             />
           </Accordion.ItemIndicator>
         </Accordion.ItemTrigger>

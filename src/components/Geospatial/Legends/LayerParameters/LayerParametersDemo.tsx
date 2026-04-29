@@ -3,7 +3,7 @@ import DemoWrapper from '../../../UI/DemoWrapper'
 
 const LayerParametersDemo = () => (
   <DemoWrapper title='Layer Parameters'>
-    <div style={{ width: '238px' }}>
+    <div style={{ width: '14.875rem' }}>
       <LayerParameters label='Adjust layer parameters'>
         <div>Component Placeholder</div>
         <div>Component Placeholder</div>

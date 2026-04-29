@@ -16,7 +16,7 @@ const meta = {
   args: { onActionClick: fn() },
   decorators: [
     (Story: any) => (
-      <div style={{ width: '238px' }}>
+      <div style={{ width: '14.875rem' }}>
         <Story />
       </div>
     ),

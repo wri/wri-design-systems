@@ -17,7 +17,7 @@ const MapPopUpDemo = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          gap: '30px',
+          gap: '1.875rem',
         }}
       >
         <div>
@@ -40,16 +40,16 @@ const MapPopUpDemo = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'flex-start',
-                    gap: '4px',
+                    gap: '0.25rem',
                   }}
                 >
                   <NotificationIcon />
                   <p
                     style={{
-                      fontSize: '16px',
-                      lineHeight: '24px',
+                      fontSize: '1rem',
+                      lineHeight: '1.5rem',
                       fontWeight: 'bold',
-                      marginBottom: '4px',
+                      marginBottom: '0.25rem',
                       color: getThemedColor('neutral', 800),
                     }}
                   >
@@ -58,8 +58,8 @@ const MapPopUpDemo = () => {
                 </div>
                 <p
                   style={{
-                    fontSize: '14px',
-                    lineHeight: '20px',
+                    fontSize: '0.875rem',
+                    lineHeight: '1.25rem',
                     color: getThemedColor('neutral', 700),
                   }}
                 >
@@ -130,16 +130,16 @@ const MapPopUpDemo = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'flex-start',
-                    gap: '4px',
+                    gap: '0.25rem',
                   }}
                 >
                   <NotificationIcon />
                   <p
                     style={{
-                      fontSize: '16px',
-                      lineHeight: '24px',
+                      fontSize: '1rem',
+                      lineHeight: '1.5rem',
                       fontWeight: 'bold',
-                      marginBottom: '4px',
+                      marginBottom: '0.25rem',
                       color: getThemedColor('neutral', 800),
                     }}
                   >
@@ -148,8 +148,8 @@ const MapPopUpDemo = () => {
                 </div>
                 <p
                   style={{
-                    fontSize: '14px',
-                    lineHeight: '20px',
+                    fontSize: '0.875rem',
+                    lineHeight: '1.25rem',
                     color: getThemedColor('neutral', 700),
                   }}
                 >

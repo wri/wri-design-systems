@@ -59,12 +59,15 @@ const LayerItem = ({
           <Radio
             value={name}
             disabled={disabled}
-            fontSize='16px'
+            fontSize='1rem'
             color='var(--chakra-colors-neutral-800)'
           >
             {label}
           </Radio>
-          <p style={{ marginLeft: '28px' }} css={layerCaptionStyles(disabled)}>
+          <p
+            style={{ marginLeft: '1.75rem' }}
+            css={layerCaptionStyles(disabled)}
+          >
             {caption}
           </p>
         </div>
@@ -73,8 +76,8 @@ const LayerItem = ({
         <Box
           display='flex'
           justifyContent='flex-start'
-          marginTop='8px'
-          marginLeft={!isSwitch ? '28px' : 0}
+          marginTop='0.5rem'
+          marginLeft={!isSwitch ? '1.75rem' : 0}
         >
           <Button
             variant='secondary'

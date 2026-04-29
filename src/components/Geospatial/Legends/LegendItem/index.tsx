@@ -37,13 +37,13 @@ const LegendItem = ({
           aria-label={l.dragAndDropLabel}
           aria-hidden
           onClick={onDrag}
-          style={{ display: 'none', marginBottom: '12px' }}
+          style={{ display: 'none', marginBottom: '0.75rem' }}
         />
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '12px',
+            gap: '0.75rem',
           }}
         >
           <IconButton

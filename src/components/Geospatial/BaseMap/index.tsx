@@ -27,8 +27,8 @@ const BaseMap = ({
   additionalSettings,
   options,
   onOptionSelected,
-  maxHeight = '400px',
-  maxWidth = '260px',
+  maxHeight = '25rem',
+  maxWidth = '16.25rem',
   labels,
 }: BaseMapProps) => {
   const l = useLabels('BaseMap', labels)

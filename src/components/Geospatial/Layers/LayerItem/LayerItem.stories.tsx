@@ -14,7 +14,7 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     (Story: any) => (
-      <div style={{ width: '320px' }}>
+      <div style={{ width: '20rem' }}>
         <RadioGroup name='radio-group'>
           <Story />
         </RadioGroup>

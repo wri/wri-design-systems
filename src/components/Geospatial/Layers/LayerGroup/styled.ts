@@ -6,28 +6,28 @@ export const layerGroupContainerStyles = css`
 `
 
 export const layerGroupBoxStyles = css`
-  padding: 16px 16px 0px 16px;
+  padding: 1rem 1rem 0 1rem;
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
   }
 `
 export const layerGroupTitleStyles = css`
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 1.5rem;
   text-align: left;
   color: ${getThemedColor('neutral', 900)};
   display: flex;
   align-items: center;
   text-align: left;
-  gap: 10px;
+  gap: 0.625rem;
 `
 
 export const layerGroupCaptionStyles = css`
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 400;
-  line-height: 16px;
+  line-height: 1rem;
   text-align: left;
   color: ${getThemedColor('neutral', 700)};
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 `

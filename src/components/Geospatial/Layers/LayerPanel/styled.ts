@@ -7,22 +7,22 @@ export const layerPanelContainerStyles = css`
 `
 
 export const layerPanelHeaderStyles = css`
-  padding: 16px 16px 20px 16px;
+  padding: 1rem 1rem 1.25rem 1rem;
   border-bottom: 1px solid ${getThemedColor('neutral', 300)};
 `
 
 export const layerPanelTitleStyles = css`
   color: ${getThemedColor('neutral', 900)};
   font-weight: 700;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   text-align: left;
 `
 
 export const layerPanelDescriptionStyles = css`
   color: ${getThemedColor('neutral', 700)};
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   text-align: left;
 `
