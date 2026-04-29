@@ -82,7 +82,6 @@ Check the [Storybook](https://wri.github.io/wri-design-systems/) or query the St
 ```tsx
 // ✅ Correct
 import { Button } from '@worldresources/wri-design-systems'
-
 ;<Button variant='primary'>Save</Button>
 ```
 
