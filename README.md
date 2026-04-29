@@ -34,6 +34,40 @@ npm i @chakra-ui/react @emotion/react
 
 ## Usage
 
+### Set up AI tooling
+
+Run the DS CLI to set up AI tooling for this design system in your project root (the directory where you run the command).
+
+```
+ds setup-ai
+```
+
+This will:
+
+- Install / update AI instruction files (these may be overwritten):
+  - `AGENTS.md` content distributed as: `CLAUDE.md`, `GEMINI.md`, `.geminirules`
+- Configure IDE integrations when detected:
+  - Cursor: writes `.cursor/rules` and creates `.cursor/mcp.json` (skips if it already exists)
+  - VS Code / GitHub Copilot: writes `.github/copilot-instructions.md` and creates `.vscode/mcp.json` (skips if it already exists)
+  - Windsurf: writes `.windsurfrules`
+  - Cline: writes `.clinerules`
+- Ensure a `.gitignore` block is present (creates `.gitignore` if missing; appends once and never duplicates):
+  - `CLAUDE.md`
+  - `.windsurfrules`
+  - `.clinerules`
+  - `.github/copilot-instructions.md`
+  - `.cursor/rules`
+  - `.cursor/mcp.json`
+  - `.vscode/mcp.json`
+  - `GEMINI.md`
+  - `.geminirules`
+
+Optional: run it against a specific path:
+
+```
+ds setup-ai /path/to/your/project
+```
+
 ### Create the Project Theme
 
 With this custom theme you can change the color scheme according to your Project Theme
@@ -315,7 +349,7 @@ yarn lint-fix
 yarn build
 ```
 
-## Publish new version
+## Publish new version (manual)
 
 ```
 npm login
