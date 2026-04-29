@@ -75,6 +75,20 @@ Use it as fallback when a component is not in the WRI DS.
 3. Custom code                         — last resort; add justification comment
 ```
 
+## Component APIs — Do Not Invent Props or Options
+
+When using any WRI DS or Chakra component, you must **confirm** the component’s API (types, props, valid options, variants, sizes, etc.) from a trusted source before coding. **Never** guess or invent prop names or allowed values.
+
+Use one (or more) of the following, in order:
+
+1. **Library `index.d.ts`** — check the exported types first (source of truth for public APIs).
+2. **Storybook MCP** — preferred for WRI DS components (authoritative props + usage patterns).
+3. **Component README** — `src/components/<Category>/<ComponentName>/README.md` for WRI DS details.
+4. **TypeScript types in this repo** — rely on exported types and TS errors as the source of truth.
+5. **Chakra MCP** — preferred for Chakra-only components and Chakra v3 migration-safe props.
+
+If you can’t confirm an API, stop and ask for clarification rather than guessing.
+
 ### Level 1 — WRI Design System
 
 Check the [Storybook](https://wri.github.io/wri-design-systems/) or query the Storybook MCP first. For detailed props and usage notes, also check the component's individual README in the [GitHub repo](https://github.com/wri/wri-design-systems) at `src/components/<Category>/<ComponentName>/README.md` — for example: [`Panel/README.md`](https://github.com/wri/wri-design-systems/blob/main/src/components/Containers/Panel/README.md).
