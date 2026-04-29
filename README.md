@@ -48,14 +48,14 @@ This will:
   - `AGENTS.md` content distributed as: `CLAUDE.md`, `GEMINI.md`, `.geminirules`
 - Configure IDE integrations when detected:
   - Cursor: writes `.cursor/rules` and creates `.cursor/mcp.json` (skips if it already exists)
-  - VS Code / GitHub Copilot: writes `copilot-instructions.md` and creates `.vscode/mcp.json` (skips if it already exists)
+  - VS Code / GitHub Copilot: writes `.github/copilot-instructions.md` and creates `.vscode/mcp.json` (skips if it already exists)
   - Windsurf: writes `.windsurfrules`
   - Cline: writes `.clinerules`
 - Ensure a `.gitignore` block is present (creates `.gitignore` if missing; appends once and never duplicates):
   - `CLAUDE.md`
   - `.windsurfrules`
   - `.clinerules`
-  - `copilot-instructions.md`
+  - `.github/copilot-instructions.md`
   - `.cursor/rules`
   - `.cursor/mcp.json`
   - `.vscode/mcp.json`
