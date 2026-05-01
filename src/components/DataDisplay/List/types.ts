@@ -7,7 +7,7 @@ export interface ListItemProps {
   label: string
   caption?: string
   icon?: ReactElement
-  value?: string
+  value?: React.ReactNode
   variant?: ListItemVariant
   isExpanded?: boolean
   onItemClick?: () => void

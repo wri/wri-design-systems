@@ -36,3 +36,7 @@ export const disabledGroupStyles = css`
     outline-color: ${getThemedColor('primary', 700)};
   }
 `
+
+export const triggerMenuButtonStyles = {
+  padding: '0.75rem',
+}
