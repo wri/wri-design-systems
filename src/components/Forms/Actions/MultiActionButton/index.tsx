@@ -11,6 +11,7 @@ import {
   menuTriggerStyles,
   menuItemStyles,
   disabledGroupStyles,
+  triggerMenuButtonStyles,
 } from './styled'
 import { getThemedColor } from '../../../../lib/theme'
 
@@ -39,6 +40,8 @@ const MultiActionButton = ({
   mainActionOnClick = () => {},
   otherActions = [],
   disabled: isDisabledProp,
+  mainActionLeftIcon,
+  mainActionRightIcon,
   ...rest
 }: MultiActionButtonProps) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -63,6 +66,8 @@ const MultiActionButton = ({
         size={size}
         onClick={mainActionOnClick}
         disabled={isDisabledProp}
+        leftIcon={mainActionLeftIcon}
+        rightIcon={mainActionRightIcon}
         {...rest}
       />
 
@@ -77,6 +82,7 @@ const MultiActionButton = ({
           asChild
         >
           <Button
+            style={triggerMenuButtonStyles}
             variant={variant}
             size={size}
             leftIcon={

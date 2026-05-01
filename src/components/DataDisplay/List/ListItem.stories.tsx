@@ -2,8 +2,9 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
-import { UserIcon, MapIcon } from '../../icons'
+import { UserIcon, MapIcon, InfoIcon } from '../../icons'
 import ListItem from './ListItem'
+import { Tag } from '../..'
 
 const meta = {
   title: 'Data Display/Lists/List Item',
@@ -60,6 +61,21 @@ export const DataWithValue: Story = {
   args: {
     label: 'Layer name',
     value: 'Value',
+    variant: 'data',
+  },
+}
+
+export const DataWithValueTag: Story = {
+  args: {
+    label: 'Layer name',
+    value: (
+      <Tag
+        icon={<InfoIcon />}
+        label='Value'
+        onClick={() => {}}
+        variant='info-grey'
+      />
+    ),
     variant: 'data',
   },
 }

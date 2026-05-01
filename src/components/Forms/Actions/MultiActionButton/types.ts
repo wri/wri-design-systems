@@ -7,6 +7,8 @@ export type MultiActionButtonProps = Omit<
 > & {
   variant?: 'primary' | 'secondary'
   size?: 'default' | 'small'
+  mainActionLeftIcon?: React.ReactNode
+  mainActionRightIcon?: React.ReactNode
   mainActionLabel: string
   mainActionOnClick: VoidFunction
   otherActions: {
