@@ -10,14 +10,14 @@ This file provides context for AI coding agents working **inside this repository
 
 ## Stack
 
-| Layer        | Technology                          |
-| ------------ | ----------------------------------- |
-| Components   | React + TypeScript                  |
-| Base UI      | Chakra UI v3 (`@chakra-ui/react`)   |
-| CSS-in-JS    | Emotion (`@emotion/react`)          |
-| Stories      | Storybook                           |
-| Build        | Rollup (`rollup.config.mjs`)        |
-| Dev app      | Create React App (`yarn start`)     |
+| Layer      | Technology                        |
+| ---------- | --------------------------------- |
+| Components | React + TypeScript                |
+| Base UI    | Chakra UI v3 (`@chakra-ui/react`) |
+| CSS-in-JS  | Emotion (`@emotion/react`)        |
+| Stories    | Storybook                         |
+| Build      | Rollup (`rollup.config.mjs`)      |
+| Dev app    | Create React App (`yarn start`)   |
 
 ---
 
@@ -60,16 +60,17 @@ Valid categories: `Forms/Actions`, `Forms/Controls`, `Forms/Inputs`, `Forms/Tag`
 
 The script generates all required files and wires them up automatically:
 
-| File generated                                       | Purpose                             |
-| ---------------------------------------------------- | ----------------------------------- |
-| `src/components/<Category>/<Name>/index.tsx`         | Component implementation            |
-| `src/components/<Category>/<Name>/types.ts`          | TypeScript prop types               |
-| `src/components/<Category>/<Name>/styled.ts`         | Emotion CSS styles                  |
-| `src/components/<Category>/<Name>/<Name>.stories.tsx`| Storybook story                     |
-| `src/components/<Category>/<Name>/<Name>Demo.tsx`    | Demo for the dev app                |
-| `src/components/<Category>/<Name>/README.md`         | Component documentation             |
+| File generated                                        | Purpose                  |
+| ----------------------------------------------------- | ------------------------ |
+| `src/components/<Category>/<Name>/index.tsx`          | Component implementation |
+| `src/components/<Category>/<Name>/types.ts`           | TypeScript prop types    |
+| `src/components/<Category>/<Name>/styled.ts`          | Emotion CSS styles       |
+| `src/components/<Category>/<Name>/<Name>.stories.tsx` | Storybook story          |
+| `src/components/<Category>/<Name>/<Name>Demo.tsx`     | Demo for the dev app     |
+| `src/components/<Category>/<Name>/README.md`          | Component documentation  |
 
 It also updates:
+
 - `src/components/index.ts` — adds the public export
 - `src/components/UI/DemoIndex.tsx` — adds the component to the index list
 - `src/App.tsx` — adds the demo to the dev app
@@ -100,11 +101,7 @@ import { ComponentName } from './types'
 import { componentStyles } from './styled'
 
 const ComponentName = ({ ...props }: ComponentNameProps) => {
-  return (
-    <div css={componentStyles}>
-      {/* implementation */}
-    </div>
-  )
+  return <div css={componentStyles}>{/* implementation */}</div>
 }
 
 export default ComponentName
@@ -114,7 +111,7 @@ export default ComponentName
 
 ```ts
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'  // adjust depth as needed
+import { getThemedColor } from '../../../../lib/theme' // adjust depth as needed
 
 export const componentStyles = css`
   color: ${getThemedColor('neutral', 800)};
@@ -131,6 +128,7 @@ The number of `../` in the `getThemedColor` import depends on the component's de
 Custom icons live in `src/components/icons/`. Each icon is a React component wrapping an SVG inside Chakra's `<Icon>`.
 
 Pattern:
+
 ```tsx
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
@@ -138,7 +136,13 @@ import { Icon, IconProps } from '@chakra-ui/react'
 
 export const MyIcon = (props: IconProps) => (
   <Icon {...props}>
-    <svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='16'
+      height='16'
+      viewBox='0 0 16 16'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path d='...' fill='currentColor' />
     </svg>
   </Icon>
@@ -213,15 +217,16 @@ Import from the local lib — **not from the package** (the package is the built
 
 ```ts
 // ✅ Correct — relative import from the local source
-import { getThemedColor } from '../../../../lib/theme'  // adjust depth
+import { getThemedColor } from '../../../../lib/theme' // adjust depth
 
 // ❌ Wrong — never import from the package when working in this repo
 import { getThemedColor } from '@worldresources/wri-design-systems'
 ```
 
 Usage:
+
 ```ts
-getThemedColor('primary', 500)   // → CSS color string
+getThemedColor('primary', 500) // → CSS color string
 getThemedColor('neutral', 100)
 getThemedColor('success', 300)
 ```
@@ -263,16 +268,16 @@ const MyWidget = () => <div style={{ color: 'red' }}>...</div>
 
 ## Quick Reference
 
-| Question                                           | Where to look                                                                |
-| -------------------------------------------------- | ---------------------------------------------------------------------------- |
-| Does a WRI DS building block already exist?        | `src/components/index.ts` or Storybook MCP                                   |
-| Detailed props for an existing WRI DS component    | `src/components/<Category>/<Name>/README.md`                                 |
-| What props does a Chakra component accept?         | Chakra MCP → `get_component_props`                                           |
-| What color tokens are available?                   | `src/lib/theme.ts` — source of truth                                         |
-| How do I use a color in a style?                   | `getThemedColor('scale', step)` from relative `../../../../lib/theme`         |
-| How do I scaffold a new component?                 | `yarn new-component <Name> <Category>`                                        |
-| Where are all custom (non-DS) components?          | "Find in Files" → `[CUSTOM COMPONENT]`                                       |
-| How do I verify the dev app?                       | `yarn start`                                                                  |
-| How do I verify Storybook?                         | `yarn storybook`                                                              |
-| How do I build the library?                        | `yarn build`                                                                  |
-| How do I distribute consumer AI context?           | `node agents/setup-ai.mjs <target-path>` or `npx ds setup-ai <target-path>`  |
+| Question                                        | Where to look                                                               |
+| ----------------------------------------------- | --------------------------------------------------------------------------- |
+| Does a WRI DS building block already exist?     | `src/components/index.ts` or Storybook MCP                                  |
+| Detailed props for an existing WRI DS component | `src/components/<Category>/<Name>/README.md`                                |
+| What props does a Chakra component accept?      | Chakra MCP → `get_component_props`                                          |
+| What color tokens are available?                | `src/lib/theme.ts` — source of truth                                        |
+| How do I use a color in a style?                | `getThemedColor('scale', step)` from relative `../../../../lib/theme`       |
+| How do I scaffold a new component?              | `yarn new-component <Name> <Category>`                                      |
+| Where are all custom (non-DS) components?       | "Find in Files" → `[CUSTOM COMPONENT]`                                      |
+| How do I verify the dev app?                    | `yarn start`                                                                |
+| How do I verify Storybook?                      | `yarn storybook`                                                            |
+| How do I build the library?                     | `yarn build`                                                                |
+| How do I distribute consumer AI context?        | `node agents/setup-ai.mjs <target-path>` or `npx ds setup-ai <target-path>` |
