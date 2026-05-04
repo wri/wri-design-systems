@@ -1,4 +1,5 @@
 import { createSystem, defaultConfig } from '@chakra-ui/react'
+import { pxToRem } from './sizing'
 
 type TokenValue = { value: string }
 type TokenScale = Record<number | string, TokenValue>
@@ -62,12 +63,6 @@ export type SpacingToken =
 export type RadiusToken = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
 
 export type BorderWidthToken = 100 | 200 | 300 | 400
-
-const formatRemValue = (value: number): string =>
-  parseFloat(value.toFixed(4)).toString()
-
-const pxToRem = (px: number, basePx = 16): string =>
-  `${formatRemValue(px / basePx)}rem`
 
 export const wriColors: ThemeColors = {
   neutral: {

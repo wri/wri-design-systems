@@ -193,6 +193,37 @@ getThemedColor(
 - For overridden scales (`neutral`, `primary`, `secondary`), valid steps are listed in the table above.
 - For non-overridden scales (`success`, `warning`, `error`, `accessible`), query the Storybook MCP before using any step — do not assume which steps are defined.
 
+### Other Theme Tokens — Spacing, Radius, Borders, and Typography
+
+Just like colors, spacing, radius, border widths, and typography must use their respective `getThemed*` functions.
+
+- **Spacing:** `getThemedSpacing(token)` (Tokens: `0`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`, `1200`, `1400`, `1600`, `2000`, `2400`, `2800`)
+- **Radius:** `getThemedRadius(token)` (Tokens: `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`)
+- **Border Width:** `getThemedBorderWidth(token)` (Tokens: `100`, `200`, `300`, `400`)
+- **Font Size:** `getThemedFontSize(token)` (Tokens: `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`)
+- **Line Height:** `getThemedLineHeight(token)` (Tokens: `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`, `1200`)
+
+```tsx
+import {
+  getThemedSpacing,
+  getThemedRadius,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight
+} from "@worldresources/wri-design-systems";
+
+// ✅ Correct
+<Box
+  p={getThemedSpacing(400)}
+  borderRadius={getThemedRadius(500)}
+  border={`${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)}`}
+>
+  <Text fontSize={getThemedFontSize(500)} lineHeight={getThemedLineHeight(600)}>Label</Text>
+</Box>
+```
+
+For full references, check `agents/spacing.md`, `agents/radius.md`, `agents/border-width.md`, and `agents/typography.md`.
+
 ---
 
 ## What NOT to Do
@@ -204,10 +235,11 @@ import { Button } from "@chakra-ui/react"  // → use WRI DS Button
 // ❌ Do not override WRI DS styles
 <Button sx={{ backgroundColor: "red" }}>Delete</Button>
 
-// ❌ Do not hardcode design values
-<Text fontSize="14px" color="#333333">Label</Text>
+// ❌ Do not hardcode design values or use raw strings for spacing, radius, etc.
+<Text fontSize="14px" color="#333333">Label</Text> // → use getThemedFontSize, getThemedColor
+<Box p="1rem" borderRadius="8px" /> // → use getThemedSpacing, getThemedRadius
 
-// ❌ Do not use raw token strings as color props — always use getThemedColor
+// ❌ Do not use raw token strings as styling props — always use getThemed* functions
 <Box bg="primary.500" />  // → use getThemedColor('primary', 500)
 
 // ❌ Do not create custom components without the searchable marker
@@ -228,8 +260,9 @@ const MyButton = () => <button style={{ background: "blue" }}>Click</button>
 | Does a WRI DS component exist?                | [Storybook](https://wri.github.io/wri-design-systems/) or Storybook MCP    |
 | Detailed props / usage for a WRI DS component | Component README in GitHub: `src/components/<Category>/<Name>/README.md`   |
 | What props does a Chakra component accept?    | Chakra MCP → `get_component_props`                                         |
-| What design tokens are available?             | Chakra MCP → `get_theme` or [Zeroheight](https://zeroheight.com/4221801da) |
+| What design tokens are available?             | `agents/*.md` files, Chakra MCP → `get_theme`, or Zeroheight |
 | Which color scales/steps are overridden here? | Read `src/components/Providers/index.tsx` — that is the source of truth    |
 | Which steps exist for non-overridden scales?  | Query Storybook MCP — do not guess                                         |
 | How do I use a color in JSX?                  | `getThemedColor('scale', step)` from `@worldresources/wri-design-systems`  |
+| How do I use spacing/radius/fonts in JSX?     | `getThemedSpacing`, `getThemedRadius`, `getThemedFontSize`, etc.           |
 | Where are all custom components in this repo? | "Find in Files" → `[CUSTOM COMPONENT]`                                     |

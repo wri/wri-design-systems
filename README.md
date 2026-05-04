@@ -140,6 +140,26 @@ export const system = createSystem(designSystemStyles._config, {
           'controls-on-neutral-lights': { value: '#855B00' }, // primary 700
           'controls-on-neutral-darks': { value: '#F5BF4F' }, // primary 400
         },
+        spacing: {
+          // Available steps: 0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1400, 1600, 2000, 2400, 2800
+          400: { value: '1rem' },
+        },
+        radii: {
+          // Available steps: 100, 200, 300, 400, 500, 600, 700, 800, 900
+          500: { value: '0.5rem' },
+        },
+        borderWidths: {
+          // Available steps: 100, 200, 300, 400
+          100: { value: '0.0625rem' },
+        },
+        fontSizes: {
+          // Available steps: 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100
+          500: { value: '1rem' },
+        },
+        lineHeights: {
+          // Available steps: 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200
+          600: { value: '1.5rem' },
+        },
       },
     },
   },
@@ -230,18 +250,102 @@ function App() {
 --color-accessible-controls-on-neutral-darks: var(
   --chakra-colors-accessible-controls-on-neutral-darks
 );
+
+/* Spacing */
+--spacing-0: var(--chakra-spacing-0);
+--spacing-50: var(--chakra-spacing-50);
+--spacing-100: var(--chakra-spacing-100);
+--spacing-200: var(--chakra-spacing-200);
+--spacing-300: var(--chakra-spacing-300);
+--spacing-400: var(--chakra-spacing-400);
+--spacing-500: var(--chakra-spacing-500);
+--spacing-600: var(--chakra-spacing-600);
+--spacing-700: var(--chakra-spacing-700);
+--spacing-800: var(--chakra-spacing-800);
+--spacing-900: var(--chakra-spacing-900);
+--spacing-1000: var(--chakra-spacing-1000);
+--spacing-1100: var(--chakra-spacing-1100);
+--spacing-1200: var(--chakra-spacing-1200);
+--spacing-1400: var(--chakra-spacing-1400);
+--spacing-1600: var(--chakra-spacing-1600);
+--spacing-2000: var(--chakra-spacing-2000);
+--spacing-2400: var(--chakra-spacing-2400);
+--spacing-2800: var(--chakra-spacing-2800);
+
+/* Radius */
+--radius-100: var(--chakra-radii-100);
+--radius-200: var(--chakra-radii-200);
+--radius-300: var(--chakra-radii-300);
+--radius-400: var(--chakra-radii-400);
+--radius-500: var(--chakra-radii-500);
+--radius-600: var(--chakra-radii-600);
+--radius-700: var(--chakra-radii-700);
+--radius-800: var(--chakra-radii-800);
+--radius-900: var(--chakra-radii-900);
+
+/* Border Widths */
+--border-width-100: var(--chakra-border-widths-100);
+--border-width-200: var(--chakra-border-widths-200);
+--border-width-300: var(--chakra-border-widths-300);
+--border-width-400: var(--chakra-border-widths-400);
+
+/* Font Sizes */
+--font-size-200: var(--chakra-font-sizes-200);
+--font-size-300: var(--chakra-font-sizes-300);
+--font-size-400: var(--chakra-font-sizes-400);
+--font-size-500: var(--chakra-font-sizes-500);
+--font-size-600: var(--chakra-font-sizes-600);
+--font-size-700: var(--chakra-font-sizes-700);
+--font-size-800: var(--chakra-font-sizes-800);
+--font-size-900: var(--chakra-font-sizes-900);
+--font-size-1000: var(--chakra-font-sizes-1000);
+--font-size-1100: var(--chakra-font-sizes-1100);
+
+/* Line Heights */
+--line-height-300: var(--chakra-line-heights-300);
+--line-height-400: var(--chakra-line-heights-400);
+--line-height-500: var(--chakra-line-heights-500);
+--line-height-600: var(--chakra-line-heights-600);
+--line-height-700: var(--chakra-line-heights-700);
+--line-height-800: var(--chakra-line-heights-800);
+--line-height-900: var(--chakra-line-heights-900);
+--line-height-1000: var(--chakra-line-heights-1000);
+--line-height-1100: var(--chakra-line-heights-1100);
+--line-height-1200: var(--chakra-line-heights-1200);
+
 ```
 
-### getThemedColor
+### Theme Token Functions
 
-Use **getThemedColor** to access your theme colors and variants.
+Use the **getThemed*** functions to access your design system tokens.
 
 ```tsx
-import { getThemedColor } from '@worldresources/wri-design-systems'
+import {
+  getThemedColor,
+  getThemedSpacing,
+  getThemedRadius,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight
+} from '@worldresources/wri-design-systems'
 ```
 
-```
-border: 1px solid ${getThemedColor('neutral', 400)};
+```css
+/* Colors */
+border-color: ${getThemedColor('neutral', 400)};
+
+/* Spacing */
+margin-bottom: ${getThemedSpacing(200)};
+
+/* Radius */
+border-radius: ${getThemedRadius(500)};
+
+/* Border Widths */
+border-width: ${getThemedBorderWidth(100)};
+
+/* Typography */
+font-size: ${getThemedFontSize(500)};
+line-height: ${getThemedLineHeight(600)};
 ```
 
 ## Components
@@ -261,6 +365,8 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Analysis Widget](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/AnalysisWidget)
 
 ## Forms
+
+- [Form Container](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/FormContainer)
 
 ### Actions
 
@@ -332,7 +438,7 @@ border: 1px solid ${getThemedColor('neutral', 400)};
 - [Badge](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Badge)
 - [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/InlineMessage)
 - [Progress Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/ProgressBar)
-- [Step Progress Indicator](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/StepProgressIndicator)
+- [Step Progress Indicator](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/StepProgressIndicator)
 - [Toast](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Toast)
 
 ## Templates
