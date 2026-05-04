@@ -1,21 +1,75 @@
 import { createSystem, defaultConfig } from '@chakra-ui/react'
 
-export type ThemeProps = {
-  [variant in
-    | 'neutral'
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'accessible']: {
-    [index: number | string]: {
-      value: string
-    }
-  }
-}
+type TokenValue = { value: string }
+type TokenScale = Record<number | string, TokenValue>
 
-export const wriTheme: ThemeProps = {
+export type ColorVariant =
+  | 'neutral'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'accessible'
+
+export type ThemeColors = Record<ColorVariant, TokenScale>
+
+export type FontSizeToken =
+  | 200
+  | 300
+  | 400
+  | 500
+  | 600
+  | 700
+  | 800
+  | 900
+  | 1000
+  | 1100
+
+export type LineHeightToken =
+  | 300
+  | 400
+  | 500
+  | 600
+  | 700
+  | 800
+  | 900
+  | 1000
+  | 1100
+  | 1200
+
+export type SpacingToken =
+  | 0
+  | 50
+  | 100
+  | 200
+  | 300
+  | 400
+  | 500
+  | 600
+  | 700
+  | 800
+  | 900
+  | 1000
+  | 1100
+  | 1200
+  | 1400
+  | 1600
+  | 2000
+  | 2400
+  | 2800
+
+export type RadiusToken = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
+
+export type BorderWidthToken = 100 | 200 | 300 | 400
+
+const formatRemValue = (value: number): string =>
+  parseFloat(value.toFixed(4)).toString()
+
+const pxToRem = (px: number, basePx = 16): string =>
+  `${formatRemValue(px / basePx)}rem`
+
+export const wriColors: ThemeColors = {
   neutral: {
     100: { value: '#FFFFFF' },
     200: { value: '#F6F6F6' },
@@ -78,12 +132,79 @@ export const wriTheme: ThemeProps = {
   },
 }
 
+export const wriFontSizes: Record<FontSizeToken, TokenValue> = {
+  200: { value: pxToRem(12) },
+  300: { value: pxToRem(14) },
+  400: { value: pxToRem(16) },
+  500: { value: pxToRem(18) },
+  600: { value: pxToRem(20) },
+  700: { value: pxToRem(24) },
+  800: { value: pxToRem(30) },
+  900: { value: pxToRem(36) },
+  1000: { value: pxToRem(48) },
+  1100: { value: pxToRem(60) },
+}
+
+export const wriSpacing: Record<SpacingToken, TokenValue> = {
+  0: { value: pxToRem(0) },
+  50: { value: pxToRem(2) },
+  100: { value: pxToRem(4) },
+  200: { value: pxToRem(8) },
+  300: { value: pxToRem(12) },
+  400: { value: pxToRem(16) },
+  500: { value: pxToRem(20) },
+  600: { value: pxToRem(24) },
+  700: { value: pxToRem(28) },
+  800: { value: pxToRem(32) },
+  900: { value: pxToRem(36) },
+  1000: { value: pxToRem(40) },
+  1100: { value: pxToRem(44) },
+  1200: { value: pxToRem(48) },
+  1400: { value: pxToRem(56) },
+  1600: { value: pxToRem(64) },
+  2000: { value: pxToRem(80) },
+  2400: { value: pxToRem(96) },
+  2800: { value: pxToRem(112) },
+}
+
+export const wriRadii: Record<RadiusToken, TokenValue> = {
+  100: { value: pxToRem(0) },
+  200: { value: pxToRem(2) },
+  300: { value: pxToRem(4) },
+  400: { value: pxToRem(6) },
+  500: { value: pxToRem(8) },
+  600: { value: pxToRem(12) },
+  700: { value: pxToRem(16) },
+  800: { value: pxToRem(24) },
+  900: { value: pxToRem(9999) },
+}
+
+export const wriBorderWidths: Record<BorderWidthToken, TokenValue> = {
+  100: { value: pxToRem(1) },
+  200: { value: pxToRem(2) },
+  300: { value: pxToRem(4) },
+  400: { value: pxToRem(6) },
+}
+
+export const wriLineHeights: Record<LineHeightToken, TokenValue> = {
+  300: { value: pxToRem(12) },
+  400: { value: pxToRem(16) },
+  500: { value: pxToRem(20) },
+  600: { value: pxToRem(24) },
+  700: { value: pxToRem(28) },
+  800: { value: pxToRem(32) },
+  900: { value: pxToRem(36) },
+  1000: { value: pxToRem(44) },
+  1100: { value: pxToRem(60) },
+  1200: { value: pxToRem(72) },
+}
+
 const createSystemWithTwFormat = (
-  theme: ThemeProps,
+  theme: ThemeColors,
 ): Record<string, string> => {
   const twFormat: Record<string, string> = {}
 
-  const colorKeys = Object.keys(theme) as (keyof ThemeProps)[]
+  const colorKeys = Object.keys(theme) as (keyof ThemeColors)[]
   colorKeys.forEach((colorKey) => {
     const colorVariants = Object.keys(theme[colorKey]) as (number | string)[]
     colorVariants.forEach((colorVariant) => {
@@ -97,25 +218,23 @@ const createSystemWithTwFormat = (
   return twFormat
 }
 
-export const designSystemStylesForTailwind = createSystemWithTwFormat(wriTheme)
+export const designSystemStylesForTailwind = createSystemWithTwFormat(wriColors)
 
 export const designSystemStyles = createSystem(defaultConfig, {
   theme: {
     tokens: {
-      colors: wriTheme,
+      colors: wriColors,
+      fontSizes: wriFontSizes,
+      lineHeights: wriLineHeights,
+      spacing: wriSpacing,
+      radii: wriRadii,
+      borderWidths: wriBorderWidths,
     },
   },
 })
 
 export const getThemedColor = (
-  variant:
-    | 'neutral'
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'accessible',
+  variant: ColorVariant,
   index:
     | 100
     | 200
@@ -132,4 +251,23 @@ export const getThemedColor = (
     | 'controls-on-neutral-darks',
 ): string =>
   designSystemStyles.tokens.getVar(`colors.${variant}.${index}`) ||
-  wriTheme?.[variant]?.[index]?.value
+  wriColors?.[variant]?.[index]?.value
+
+export const getThemedFontSize = (token: FontSizeToken): string =>
+  designSystemStyles.tokens.getVar(`fontSizes.${token}`) ||
+  wriFontSizes?.[token]?.value
+
+export const getThemedSpacing = (token: SpacingToken): string =>
+  designSystemStyles.tokens.getVar(`spacing.${token}`) ||
+  wriSpacing?.[token]?.value
+
+export const getThemedLineHeight = (token: LineHeightToken): string =>
+  designSystemStyles.tokens.getVar(`lineHeights.${token}`) ||
+  wriLineHeights?.[token]?.value
+
+export const getThemedRadius = (token: RadiusToken): string =>
+  designSystemStyles.tokens.getVar(`radii.${token}`) || wriRadii?.[token]?.value
+
+export const getThemedBorderWidth = (token: BorderWidthToken): string =>
+  designSystemStyles.tokens.getVar(`borderWidths.${token}`) ||
+  wriBorderWidths?.[token]?.value
