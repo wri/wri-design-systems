@@ -171,7 +171,7 @@ export const wriRadii: Record<RadiusToken, TokenValue> = {
   600: { value: pxToRem(12) },
   700: { value: pxToRem(16) },
   800: { value: pxToRem(24) },
-  900: { value: pxToRem(9999) },
+  900: { value: '9999px' },
 }
 
 export const wriBorderWidths: Record<BorderWidthToken, TokenValue> = {

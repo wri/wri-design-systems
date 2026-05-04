@@ -155,11 +155,11 @@ export const menuItemContainerStyles = css`
 `
 
 export const menuItemLabelAndCaptionStyles = (
-  hasSartIcon: boolean,
+  hasStartIcon: boolean,
   hasEndIcon: boolean,
 ) => css`
   width: 100%;
-  margin-left: ${hasSartIcon ? getThemedSpacing(200) : '0'};
+  margin-left: ${hasStartIcon ? getThemedSpacing(200) : '0'};
   margin-right: ${hasEndIcon ? getThemedSpacing(200) : '0'};
 `
 
