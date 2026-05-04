@@ -1,5 +1,10 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 import { resolveSizeValue, SizeValue } from '../../../lib/sizing'
 import { ModalProps } from './types'
 
@@ -46,8 +51,8 @@ export const modalContainerStyles = (
     height: ${computedHeight};
     max-height: ${cappedMaxHeight};
     background-color: ${getThemedColor('neutral', 100)};
-    border: 0.0625rem solid ${getThemedColor('neutral', 300)};
-    border-radius: 0.25rem;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+    border-radius: ${getThemedRadius(300)};
     box-shadow: 0 0.25rem 0.375rem -0.25rem #0000001a;
     box-shadow: 0 0.625rem 0.9375rem -0.1875rem #0000001a;
   `
@@ -55,18 +60,19 @@ export const modalContainerStyles = (
 
 export const modalHeaderStyles = css`
   height: 100%;
-  min-height: 2.5rem;
+  min-height: ${getThemedSpacing(1000)};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem;
-  border-bottom: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  padding: ${getThemedSpacing(200)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 `
 
 export const modalCloseButtonStyles = css`
-  top: 0.625rem;
+  top: ${getThemedSpacing(300)};
 `
 
 export const modalContentStyles = css`
-  padding: 0.75rem;
+  padding: ${getThemedSpacing(300)};
 `

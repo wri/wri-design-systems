@@ -1,5 +1,10 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 import { PanelProps } from './types'
 
 export const panelContainerStyles = (width?: PanelProps['width']) => css`
@@ -12,18 +17,20 @@ export const panelContainerStyles = (width?: PanelProps['width']) => css`
 `
 
 export const panelFixedContainerStyles = css`
-  border-right: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border-right: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 `
 
 export const panelFloatingContainerStyles = css`
-  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
-  border-radius: 0.25rem;
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-radius: ${getThemedRadius(300)};
 `
 
 export const panelHeaderContainerStyles = css`
-  min-height: 3rem;
+  min-height: ${getThemedSpacing(1200)};
   width: 100%;
-  border-bottom: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 `
 
 const getContentHeight = (headerHeight?: number, footerHeight?: number) => {
@@ -48,7 +55,7 @@ export const panelContentContainerStyles = (
 `
 
 export const panelFooterContainerStyles = css`
-  min-height: 4rem;
+  min-height: ${getThemedSpacing(1600)};
   width: 100%;
   display: flex;
   align-items: center;
@@ -56,5 +63,5 @@ export const panelFooterContainerStyles = css`
   position: absolute;
   bottom: 0;
   left: 0;
-  border-top: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border-top: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
 `
