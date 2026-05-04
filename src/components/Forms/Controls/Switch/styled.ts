@@ -1,5 +1,9 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const rootSwitchStyles = css`
   --switch-height: 1.5rem;
@@ -31,11 +35,13 @@ export const rootSwitchStyles = css`
     &:focus-visible,
     &[data-focus-visible] {
       outline: none;
-      outline: 0.125rem solid ${getThemedColor('primary', 700)};
-      outline-offset: 0.1875rem;
+      outline: ${getThemedBorderWidth(200)} solid
+        ${getThemedColor('primary', 700)};
+      outline-offset: ${getThemedSpacing(50)};
       box-shadow:
-        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
+        0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
+          ${getThemedSpacing(100)};
     }
 
     &[data-state='checked'] {
@@ -48,8 +54,8 @@ export const rootSwitchStyles = css`
   }
 
   .chakra-switch__thumb {
-    height: 1.25rem;
-    width: 1.25rem;
+    height: ${getThemedSpacing(500)};
+    width: ${getThemedSpacing(500)};
     translate: calc((var(--switch-width) - var(--switch-height)) / 8) 0;
 
     svg {

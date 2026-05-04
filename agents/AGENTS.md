@@ -209,16 +209,18 @@ import {
   getThemedRadius,
   getThemedBorderWidth,
   getThemedFontSize,
-  getThemedLineHeight
-} from "@worldresources/wri-design-systems";
+  getThemedLineHeight,
+} from '@worldresources/wri-design-systems'
 
 // ✅ Correct
-<Box
+;<Box
   p={getThemedSpacing(400)}
   borderRadius={getThemedRadius(500)}
   border={`${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)}`}
 >
-  <Text fontSize={getThemedFontSize(500)} lineHeight={getThemedLineHeight(600)}>Label</Text>
+  <Text fontSize={getThemedFontSize(500)} lineHeight={getThemedLineHeight(600)}>
+    Label
+  </Text>
 </Box>
 ```
 
@@ -255,14 +257,14 @@ const MyButton = () => <button style={{ background: "blue" }}>Click</button>
 
 ## Quick Reference
 
-| Question                                      | Where to look                                                              |
-| --------------------------------------------- | -------------------------------------------------------------------------- |
-| Does a WRI DS component exist?                | [Storybook](https://wri.github.io/wri-design-systems/) or Storybook MCP    |
-| Detailed props / usage for a WRI DS component | Component README in GitHub: `src/components/<Category>/<Name>/README.md`   |
-| What props does a Chakra component accept?    | Chakra MCP → `get_component_props`                                         |
-| What design tokens are available?             | `agents/*.md` files, Chakra MCP → `get_theme`, or Zeroheight |
-| Which color scales/steps are overridden here? | Read `src/components/Providers/index.tsx` — that is the source of truth    |
-| Which steps exist for non-overridden scales?  | Query Storybook MCP — do not guess                                         |
-| How do I use a color in JSX?                  | `getThemedColor('scale', step)` from `@worldresources/wri-design-systems`  |
-| How do I use spacing/radius/fonts in JSX?     | `getThemedSpacing`, `getThemedRadius`, `getThemedFontSize`, etc.           |
-| Where are all custom components in this repo? | "Find in Files" → `[CUSTOM COMPONENT]`                                     |
+| Question                                      | Where to look                                                             |
+| --------------------------------------------- | ------------------------------------------------------------------------- |
+| Does a WRI DS component exist?                | [Storybook](https://wri.github.io/wri-design-systems/) or Storybook MCP   |
+| Detailed props / usage for a WRI DS component | Component README in GitHub: `src/components/<Category>/<Name>/README.md`  |
+| What props does a Chakra component accept?    | Chakra MCP → `get_component_props`                                        |
+| What design tokens are available?             | `agents/*.md` files, Chakra MCP → `get_theme`, or Zeroheight              |
+| Which color scales/steps are overridden here? | Read `src/components/Providers/index.tsx` — that is the source of truth   |
+| Which steps exist for non-overridden scales?  | Query Storybook MCP — do not guess                                        |
+| How do I use a color in JSX?                  | `getThemedColor('scale', step)` from `@worldresources/wri-design-systems` |
+| How do I use spacing/radius/fonts in JSX?     | `getThemedSpacing`, `getThemedRadius`, `getThemedFontSize`, etc.          |
+| Where are all custom components in this repo? | "Find in Files" → `[CUSTOM COMPONENT]`                                    |

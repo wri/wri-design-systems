@@ -312,12 +312,11 @@ function App() {
 --line-height-1000: var(--chakra-line-heights-1000);
 --line-height-1100: var(--chakra-line-heights-1100);
 --line-height-1200: var(--chakra-line-heights-1200);
-
 ```
 
 ### Theme Token Functions
 
-Use the **getThemed*** functions to access your design system tokens.
+Use the **getThemed\*** functions to access your design system tokens.
 
 ```tsx
 import {
@@ -326,7 +325,7 @@ import {
   getThemedRadius,
   getThemedBorderWidth,
   getThemedFontSize,
-  getThemedLineHeight
+  getThemedLineHeight,
 } from '@worldresources/wri-design-systems'
 ```
 
