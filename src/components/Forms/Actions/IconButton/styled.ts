@@ -1,12 +1,16 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const iconButtonStyles = css`
-  width: 1.25rem !important;
+  width: ${getThemedSpacing(500)} !important;
   padding: 0 !important;
-  min-width: 1.25rem !important;
-  height: 1.25rem;
-  border-radius: 0.125rem;
+  min-width: ${getThemedSpacing(500)} !important;
+  height: ${getThemedSpacing(500)};
+  border-radius: ${getThemedRadius(200)};
   background-color: ${getThemedColor('neutral', 100)};
 
   svg {
@@ -41,8 +45,8 @@ export const iconButtonStyles = css`
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
     box-shadow:
-      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
+      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
   }
 
   &:disabled {

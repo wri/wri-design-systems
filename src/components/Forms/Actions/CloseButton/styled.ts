@@ -1,12 +1,17 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const closeButtonStyles = css`
-  width: 1.25rem !important;
+  width: ${getThemedSpacing(500)} !important;
   padding: 0 !important;
-  min-width: 1.25rem !important;
-  height: 1.25rem;
-  border-radius: 0.125rem;
+  min-width: ${getThemedSpacing(500)} !important;
+  height: ${getThemedSpacing(500)};
+  border-radius: ${getThemedRadius(200)};
   background-color: ${getThemedColor('neutral', 300)};
 
   svg {
@@ -20,21 +25,21 @@ export const closeButtonStyles = css`
 
   &:hover {
     background-color: ${getThemedColor('neutral', 300)};
-    box-shadow: 0 0.0625rem 0.125rem -0.0625rem #0000001a;
-    box-shadow: 0 0.0625rem 0.1875rem 0 #0000001a;
+    box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} -${getThemedBorderWidth(100)} #0000001a;
+    box-shadow: 0 ${getThemedBorderWidth(100)} 0.1875rem 0 #0000001a;
   }
 
   &:active {
     background-color: ${getThemedColor('neutral', 400)};
-    box-shadow: 0 0.0625rem 0.125rem -0.0625rem #0000001a;
-    box-shadow: 0 0.0625rem 0.1875rem 0 #0000001a;
+    box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} -${getThemedBorderWidth(100)} #0000001a;
+    box-shadow: 0 ${getThemedBorderWidth(100)} 0.1875rem 0 #0000001a;
   }
 
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
     box-shadow:
-      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
+      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
   }
 
   &:disabled {

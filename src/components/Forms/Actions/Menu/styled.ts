@@ -1,12 +1,18 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
-  padding: 0.125rem 0.75rem;
+  gap: ${getThemedSpacing(100)};
+  padding: ${getThemedSpacing(50)} ${getThemedSpacing(300)};
   cursor: pointer;
   font-size: ${fontSize ?? '1rem'};
   color: ${theme === 'dark' ? getThemedColor('neutral', 100) : 'default'};
@@ -20,32 +26,32 @@ export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   &:focus-visible {
     border-radius: 0;
     box-shadow:
-      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
+      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 0.125rem;
+    outline-offset: ${getThemedSpacing(50)};
     outline-style: solid;
-    outline-width: 0.125rem;
+    outline-width: ${getThemedBorderWidth(200)};
   }
 `
 
 export const menuContentStyles = css`
   width: 14rem;
-  border: 0.0625rem solid ${getThemedColor('neutral', 600)};
-  box-shadow: 0 0.25rem 0.375rem -0.25rem #0000001a;
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
+  box-shadow: 0 ${getThemedSpacing(100)} 0.375rem -${getThemedSpacing(100)} #0000001a;
   box-shadow: 0 0.625rem 0.9375rem -0.1875rem #0000001a;
-  padding: 0.75rem;
+  padding: ${getThemedSpacing(300)};
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: ${getThemedSpacing(200)};
 `
 
 export const menuSubmenuTriggerStyles = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 900)};
 
@@ -76,8 +82,8 @@ export const menuSubmenuTriggerStyles = css`
       background-color: ${getThemedColor('neutral', 100)};
       outline-color: ${getThemedColor('success', 500)};
       box-shadow:
-        0 0 0 0.125rem ${getThemedColor('neutral', 700)},
-        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
+        0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 700)},
+        rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
     }
 
     &[aria-expanded='true'] {
@@ -102,11 +108,7 @@ export const menuItemContainerStyles = css`
     height: 1rem;
     width: 1rem;
     color: ${getThemedColor('neutral', 700)};
-    margin-top: 0.25rem;
-  }
-
-  &:hover {
-    background-color: color-mix(
+    margin-top: ${getThemedSpacing(100)};
       in srgb,
       ${getThemedColor('primary', 500)} 20%,
       transparent
@@ -132,8 +134,8 @@ export const menuItemContainerStyles = css`
       background-color: ${getThemedColor('neutral', 100)};
       outline-color: ${getThemedColor('primary', 700)};
       box-shadow:
-        0 0 0 0.125rem ${getThemedColor('primary', 700)},
-        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
+        0 0 0 ${getThemedSpacing(50)} ${getThemedColor('primary', 700)},
+        rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
     }
   }
 
@@ -155,8 +157,8 @@ export const menuItemLabelAndCaptionStyles = (
   hasEndIcon: boolean,
 ) => css`
   width: 100%;
-  margin-left: ${hasSartIcon ? '0.5rem' : '0'};
-  margin-right: ${hasEndIcon ? '0.5rem' : '0'};
+  margin-left: ${hasSartIcon ? getThemedSpacing(200) : '0'};
+  margin-right: ${hasEndIcon ? getThemedSpacing(200) : '0'};
 `
 
 export const menuItemLabelContentStyles = css`
@@ -167,23 +169,23 @@ export const menuItemLabelContentStyles = css`
   width: 100%;
 
   .ds-menu-item-label {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: ${getThemedFontSize(400)};
+    line-height: ${getThemedLineHeight(600)};
     font-weight: 400;
     color: ${getThemedColor('neutral', 900)};
   }
 
   .ds-menu-item-caption {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-size: ${getThemedFontSize(300)};
+    line-height: ${getThemedLineHeight(500)};
     font-weight: 400;
     color: ${getThemedColor('neutral', 700)};
   }
 `
 
 export const menuItemGroupLabelStyles = css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   font-weight: 700;
   color: ${getThemedColor('neutral', 900)};
 `

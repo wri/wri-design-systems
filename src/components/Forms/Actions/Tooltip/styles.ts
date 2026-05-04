@@ -1,5 +1,12 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 import { TooltipProps } from './types'
 
 export const tooltipTriggerStyles = css`
@@ -10,13 +17,13 @@ export const tooltipTriggerStyles = css`
 
 export const tooltipContentStyles = (variant: TooltipProps['variant']) => css`
   background-color: ${getThemedColor('neutral', 800)};
-  border-radius: 0.25rem;
-  border: 0.0625rem solid ${getThemedColor('neutral', 800)};
-  padding: 0.125rem 0.5rem;
-  box-shadow: 0px 0.0625rem 0.125rem 0px #0000000d;
+  border-radius: ${getThemedRadius(300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 800)};
+  padding: ${getThemedSpacing(50)} ${getThemedSpacing(200)};
+  box-shadow: 0px ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0px #0000000d;
   color: ${getThemedColor('neutral', 200)};
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
 
   .chakra-tooltip__arrowTip {
     border-color: ${getThemedColor('neutral', 800)} !important;
@@ -29,8 +36,8 @@ export const tooltipContentStyles = (variant: TooltipProps['variant']) => css`
     border: none;
     box-shadow: none;
     color: ${getThemedColor('neutral', 800)};
-    font-size: 1rem;
-    line-height: 1.5rem;
-    text-shadow: 0 0 0.0625rem ${getThemedColor('neutral', 100)};
+    font-size: ${getThemedFontSize(400)};
+    line-height: ${getThemedLineHeight(600)};
+    text-shadow: 0 0 ${getThemedBorderWidth(100)} ${getThemedColor('neutral', 100)};
   `}
 `
