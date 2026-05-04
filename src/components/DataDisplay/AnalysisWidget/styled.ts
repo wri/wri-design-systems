@@ -12,17 +12,23 @@ export const analysisWidgetContainerStyles = css`
 export const analysisWidgetHeaderStyles = css`
   padding: ${getThemedSpacing(400)};
   cursor: pointer;
-  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
   > div {
     overflow: visible;
   }
   &:focus-visible {
     outline-offset: -${getThemedSpacing(50)};
-    outline: ${getThemedBorderWidth(200)} solid ${getThemedColor('primary', 700)};
+    outline: ${getThemedBorderWidth(200)} solid
+      ${getThemedColor('primary', 700)};
   }
   &:hover {
-    box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(50)} #0000001a;
-    box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(100)} #0000001a;
+    box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
+        50,
+      )} #0000001a;
+    box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(
+        100,
+      )} #0000001a;
     background-color: color-mix(
       in srgb,
       ${getThemedColor('primary', 500)} 20%,
@@ -54,5 +60,6 @@ export const analysisWidgetContentStyles = css`
 `
 
 export const analysisWidgetFooterStyles = css`
-  border-top: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-top: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 `

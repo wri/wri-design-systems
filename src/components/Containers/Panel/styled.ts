@@ -63,5 +63,6 @@ export const panelFooterContainerStyles = css`
   position: absolute;
   bottom: 0;
   left: 0;
-  border-top: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-top: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 `

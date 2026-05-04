@@ -46,7 +46,8 @@ export const iconButtonStyles = css`
     outline-color: ${getThemedColor('primary', 700)};
     box-shadow:
       0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
+      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
+        ${getThemedSpacing(100)};
   }
 
   &:disabled {

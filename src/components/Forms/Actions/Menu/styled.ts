@@ -27,7 +27,8 @@ export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
     border-radius: 0;
     box-shadow:
       0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
+      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
+        ${getThemedSpacing(100)};
     outline-color: ${getThemedColor('primary', 700)};
     outline-offset: ${getThemedSpacing(50)};
     outline-style: solid;
@@ -83,7 +84,8 @@ export const menuSubmenuTriggerStyles = css`
       outline-color: ${getThemedColor('success', 500)};
       box-shadow:
         0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 700)},
-        rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
+        rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
+          ${getThemedSpacing(100)};
     }
 
     &[aria-expanded='true'] {

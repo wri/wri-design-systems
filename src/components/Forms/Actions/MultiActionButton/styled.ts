@@ -28,8 +28,12 @@ export const menuTriggerStyles = (
 `
 
 export const menuItemStyles = (size: MultiActionButtonProps['size']) => css`
-  font-size: ${size === 'small' ? getThemedFontSize(300) : getThemedFontSize(400)};
-  line-height: ${size === 'small' ? getThemedLineHeight(500) : getThemedLineHeight(600)};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(300)
+    : getThemedFontSize(400)};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(500)
+    : getThemedLineHeight(600)};
   color: ${getThemedColor('neutral', 800)};
   padding: ${getThemedSpacing(100)};
   cursor: pointer;

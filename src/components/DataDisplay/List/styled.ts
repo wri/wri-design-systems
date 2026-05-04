@@ -54,7 +54,8 @@ export const listItemDataStyles = css`
   justify-content: space-between;
   padding: ${getThemedSpacing(300)} ${getThemedSpacing(400)};
   background-color: white;
-  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 200)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 200)};
   width: 100%;
   text-align: left;
 `
@@ -65,23 +66,31 @@ export const listItemNavigationStyles = css`
   justify-content: space-between;
   padding: ${getThemedSpacing(300)} ${getThemedSpacing(400)};
   background-color: white;
-  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 200)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 200)};
   width: 100%;
   text-align: left;
 
   &:hover:not(:disabled) {
     cursor: pointer;
     background-color: ${getThemedColor('neutral', 200)};
-    border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+    border-bottom: ${getThemedBorderWidth(100)} solid
+      ${getThemedColor('neutral', 300)};
   }
 
   &:focus-visible {
-    outline: ${getThemedBorderWidth(200)} solid ${getThemedColor('primary', 700)};
-    box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(50)} #0000001a;
-    box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(100)} #0000001a;
+    outline: ${getThemedBorderWidth(200)} solid
+      ${getThemedColor('primary', 700)};
+    box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
+        50,
+      )} #0000001a;
+    box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(
+        100,
+      )} #0000001a;
     box-shadow:
       0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0rem ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
+      rgba(0, 0, 0, 0.05) 0rem ${getThemedSpacing(50)} ${getThemedSpacing(50)}
+        ${getThemedSpacing(100)};
   }
 
   &:active:not(:disabled) {

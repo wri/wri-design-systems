@@ -23,8 +23,7 @@ export const baseButtonStyles = (size: ButtonProps['size']) => css`
     ? `0.375rem ${getThemedSpacing(200)}`
     : `${getThemedSpacing(200)} ${getThemedSpacing(400)}`};
   border-radius: ${getThemedRadius(300)};
-  box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0
-    #0000000d;
+  box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0 #0000000d;
   cursor: pointer;
   gap: 0;
 

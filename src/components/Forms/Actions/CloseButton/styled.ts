@@ -25,13 +25,17 @@ export const closeButtonStyles = css`
 
   &:hover {
     background-color: ${getThemedColor('neutral', 300)};
-    box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} -${getThemedBorderWidth(100)} #0000001a;
+    box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} -${getThemedBorderWidth(
+        100,
+      )} #0000001a;
     box-shadow: 0 ${getThemedBorderWidth(100)} 0.1875rem 0 #0000001a;
   }
 
   &:active {
     background-color: ${getThemedColor('neutral', 400)};
-    box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} -${getThemedBorderWidth(100)} #0000001a;
+    box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} -${getThemedBorderWidth(
+        100,
+      )} #0000001a;
     box-shadow: 0 ${getThemedBorderWidth(100)} 0.1875rem 0 #0000001a;
   }
 
@@ -39,7 +43,8 @@ export const closeButtonStyles = css`
     outline-color: ${getThemedColor('primary', 700)};
     box-shadow:
       0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
+      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
+        ${getThemedSpacing(100)};
   }
 
   &:disabled {

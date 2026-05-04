@@ -63,7 +63,9 @@ export function avatarContainerStyles(
 
       &:hover {
         background-color: ${getThemedColor('primary', 500)};
-        box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(50)} #0000001a;
+        box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
+            50,
+          )} #0000001a;
         box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -0.0625rem #0000001a;
         outline-offset: 0.1875rem;
         outline: ${getThemedSpacing(50)} solid ${getThemedColor('primary', 700)};
@@ -72,8 +74,11 @@ export function avatarContainerStyles(
       &:active {
         outline: none;
         background-color: ${getThemedColor('primary', 600)} !important;
-        border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)} !important;
-        box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(50)} #0000001a;
+        border: ${getThemedBorderWidth(100)} solid
+          ${getThemedColor('primary', 700)} !important;
+        box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
+            50,
+          )} #0000001a;
         box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -0.0625rem #0000001a;
       }
 
