@@ -1,5 +1,12 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 export const defaultInlineMessageStyles = (
   size: string,
@@ -15,19 +22,19 @@ export const defaultInlineMessageStyles = (
   return css`
     width: 100%;
     max-width: ${maxWidth};
-    border-radius: 0.25rem;
+    border-radius: ${getThemedRadius(300)};
     padding: ${size === 'small'
-      ? '0.5rem 0.5rem 0.75rem 0.5rem'
-      : '0.5rem 0.75rem 0.75rem 0.75rem'};
+      ? `${getThemedSpacing(200)} ${getThemedSpacing(200)} ${getThemedSpacing(300)} ${getThemedSpacing(200)}`
+      : `${getThemedSpacing(200)} ${getThemedSpacing(300)} ${getThemedSpacing(300)} ${getThemedSpacing(300)}`};
     display: flex;
     align-items: ${isButtonRight ? 'center' : 'flex-start'};
     justify-content: ${isButtonRight ? 'space-between' : 'flex-start'};
     flex-direction: ${isButtonRight ? 'row' : 'column'};
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: ${getThemedSpacing(200)};
+    margin-bottom: ${getThemedSpacing(400)};
 
     button {
-      margin-left: ${isButtonRight ? 0 : '1.5rem'};
+      margin-left: ${isButtonRight ? 0 : getThemedSpacing(600)};
     }
   `
 }
@@ -35,7 +42,7 @@ export const defaultInlineMessageStyles = (
 export const inlineMessageHeaderStyles = css`
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: ${getThemedSpacing(200)};
 
   svg {
     margin-top: 0.375rem;
@@ -45,8 +52,12 @@ export const inlineMessageHeaderStyles = css`
 export const inlineMessageTitleStyles = (size: string) => css`
   max-width: 45rem;
   color: ${getThemedColor('neutral', 800)};
-  font-size: ${size === 'small' ? '0.875rem' : '1.125rem'};
-  line-height: ${size === 'small' ? '1.25rem' : '1.75rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(300)
+    : getThemedFontSize(500)};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(500)
+    : getThemedLineHeight(700)};
   font-weight: 400;
   text-align: left;
 `
@@ -57,10 +68,14 @@ export const inlineMessageCaptionStyles = (
 ) => css`
   max-width: 45rem;
   color: ${getThemedColor('neutral', 700)};
-  font-size: ${size === 'small' ? '0.75rem' : '1rem'};
-  line-height: ${size === 'small' ? '1rem' : '1.5rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(200)
+    : getThemedFontSize(400)};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(400)
+    : getThemedLineHeight(600)};
   font-weight: 400;
-  margin-left: ${hasIcon ? '1.5rem' : '0'};
+  margin-left: ${hasIcon ? getThemedSpacing(600) : '0'};
   text-align: left;
 `
 
@@ -70,28 +85,32 @@ export const inlineMessageCaptionContainerStyles = (
 ) => css`
   max-width: 45rem;
   color: ${getThemedColor('neutral', 700)};
-  font-size: ${size === 'small' ? '0.75rem' : '1rem'};
-  line-height: ${size === 'small' ? '1rem' : '1.5rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(200)
+    : getThemedFontSize(400)};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(400)
+    : getThemedLineHeight(600)};
   font-weight: 400;
-  margin-left: ${hasIcon ? '1.5rem' : '0'};
+  margin-left: ${hasIcon ? getThemedSpacing(600) : '0'};
   text-align: left;
 `
 
 export const infoWhiteInlineMessageStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
-  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   color: ${getThemedColor('neutral', 700)};
 `
 
 export const infoGreyInlineMessageStyles = css`
   background-color: ${getThemedColor('neutral', 200)};
-  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   color: ${getThemedColor('neutral', 700)};
 `
 
 export const successInlineMessageStyles = css`
   background-color: ${getThemedColor('success', 100)};
-  border: 0.0625rem solid ${getThemedColor('success', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('success', 300)};
   color: ${getThemedColor('success', 500)};
 
   p {
@@ -101,7 +120,7 @@ export const successInlineMessageStyles = css`
 
 export const warningInlineMessageStyles = css`
   background-color: ${getThemedColor('warning', 100)};
-  border: 0.0625rem solid ${getThemedColor('warning', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('warning', 300)};
   color: ${getThemedColor('warning', 500)};
 
   p {
@@ -111,7 +130,7 @@ export const warningInlineMessageStyles = css`
 
 export const errorInlineMessageStyles = css`
   background-color: ${getThemedColor('error', 100)};
-  border: 0.0625rem solid ${getThemedColor('error', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('error', 300)};
   color: ${getThemedColor('error', 500)};
 
   p {

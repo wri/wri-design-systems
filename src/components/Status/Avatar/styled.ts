@@ -1,13 +1,20 @@
 import { css } from '@emotion/react'
 import { resolveSizeValue } from '../../../lib/sizing'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 import { AvatarProps } from './types'
 
 export const AVATAR_SIZES = {
-  small: '1rem',
-  medium: '1.5rem',
-  large: '2.5rem',
-  default: '1rem',
+  small: getThemedSpacing(400),
+  medium: getThemedSpacing(600),
+  large: getThemedSpacing(1000),
+  default: getThemedSpacing(400),
 }
 function getContainerSize(
   size: AvatarProps['size'],
@@ -48,7 +55,7 @@ export function avatarContainerStyles(
     border-radius: 50%;
     ${opacity}
     background-color: ${backgroundColor};
-    border: 0.0625rem solid ${borderColor};
+    border: ${getThemedBorderWidth(100)} solid ${borderColor};
     position: relative;
 
     &[role='button'] {
@@ -56,18 +63,18 @@ export function avatarContainerStyles(
 
       &:hover {
         background-color: ${getThemedColor('primary', 500)};
-        box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
-        box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
+        box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(50)} #0000001a;
+        box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -0.0625rem #0000001a;
         outline-offset: 0.1875rem;
-        outline: 0.125rem solid ${getThemedColor('primary', 700)};
+        outline: ${getThemedSpacing(50)} solid ${getThemedColor('primary', 700)};
       }
 
       &:active {
         outline: none;
         background-color: ${getThemedColor('primary', 600)} !important;
-        border: 0.0625rem solid ${getThemedColor('primary', 700)} !important;
-        box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
-        box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
+        border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)} !important;
+        box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(50)} #0000001a;
+        box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -0.0625rem #0000001a;
       }
 
       &:focus-visible {
@@ -80,29 +87,30 @@ export function avatarContainerStyles(
 }
 
 export const avatarNotificationContainerStyles = (width?: string) => css`
-  width: ${width || '1rem'};
+  width: ${width || getThemedSpacing(400)};
   position: absolute;
-  top: -0.5rem;
+  top: -${getThemedSpacing(200)};
   left: 0.9375rem;
 `
 
 export const avatarCountContainerStyles = (width?: string) => css`
-  height: 1rem;
+  height: ${getThemedSpacing(400)};
   width: auto;
   background-color: ${getThemedColor('error', 500)};
   padding: 0 0.1875rem 0.0625rem 0.1875rem;
-  border-radius: 0.5rem;
+  border-radius: ${getThemedRadius(500)};
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.75rem;
+  font-size: ${getThemedFontSize(200)};
+  line-height: ${getThemedLineHeight(400)};
   font-weight: 700;
   color: ${getThemedColor('error', 100)};
 `
 
 export const avatarFallbackStyles = css`
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font-size: ${getThemedFontSize(200)};
+  line-height: ${getThemedLineHeight(400)};
   font-weight: 700;
   color: ${getThemedColor('primary', 800)};
 `

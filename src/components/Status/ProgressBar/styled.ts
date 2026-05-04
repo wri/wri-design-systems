@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor, getThemedSpacing } from '../../../lib/theme'
 import { ProgressBarProps } from './types'
 
 export const progressBarContainerStyles = css`
-  height: 0.5rem;
+  height: ${getThemedSpacing(200)};
   width: 100%;
   background-color: ${getThemedColor('neutral', 300)};
   display: flex;
