@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor, getThemedBorderWidth, getThemedFontSize, getThemedLineHeight, getThemedRadius, getThemedSpacing } from '../../../lib/theme'
 
 export const baseMapContainerStyles = (
   maxHeight?: string,
@@ -7,9 +7,9 @@ export const baseMapContainerStyles = (
 ) => css`
   height: ${maxHeight};
   width: ${maxWidth};
-  border: 1px solid ${getThemedColor('neutral', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   border-bottom: none;
-  border-radius: 0.25rem;
+  border-radius: ${getThemedRadius(300)};
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   background-color: ${getThemedColor('neutral', 100)};
@@ -21,16 +21,16 @@ export const baseMapContainerStyles = (
 `
 
 export const baseMapHeaderContainerStyles = css`
-  padding: 1rem 0.75rem;
-  border-bottom: 1px solid ${getThemedColor('neutral', 300)};
+  padding: ${getThemedSpacing(400)} ${getThemedSpacing(300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
 
   .ds-base-map-header-title {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    font-size: ${getThemedFontSize(500)};
+    line-height: ${getThemedLineHeight(700)};
     font-weight: 700;
     color: ${getThemedColor('neutral', 900)};
     text-align: left;
-    margin-bottom: 0.25rem;
+    margin-bottom: ${getThemedSpacing(100)};
 
     &:focus-visible {
       outline: none;
@@ -38,7 +38,7 @@ export const baseMapHeaderContainerStyles = css`
   }
 
   .ds-base-map-header-caption {
-    font-size: 0.875rem;
+    font-size: ${getThemedFontSize(300)};
     line-height: 20x;
     color: ${getThemedColor('neutral', 700)};
     text-align: left;
@@ -50,23 +50,23 @@ export const baseMapContentContainerStyles = css``
 export const baseMapAdditionalSettingsContainerStyles = css`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  border-bottom: 1px solid ${getThemedColor('neutral', 300)};
+  gap: ${getThemedSpacing(300)};
+  padding: ${getThemedSpacing(300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
 `
 
 export const baseMapAdditionalSettingsChildrenContainerStyles = css`
-  padding-top: 0.75rem;
-  padding-left: 0.5rem;
+  padding-top: ${getThemedSpacing(300)};
+  padding-left: ${getThemedSpacing(200)};
 `
 
 export const baseMapOptionsContainerStyles = css``
 
 export const baseMapOptionsItemContainerStyles = (active?: boolean) => css`
   display: flex;
-  gap: 0.75rem;
-  padding: 0.75rem 0.5rem;
-  border-bottom: 1px solid ${getThemedColor('neutral', 300)};
+  gap: ${getThemedSpacing(300)};
+  padding: ${getThemedSpacing(300)} ${getThemedSpacing(200)};
+  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   cursor: pointer;
 
   ${active &&
@@ -90,10 +90,10 @@ export const baseMapOptionsItemContainerStyles = (active?: boolean) => css`
 `
 
 export const baseMapOptionsItemImageStyles = (imageUrl: string) => css`
-  height: 2rem;
-  width: 2rem;
-  border: 1px solid ${getThemedColor('neutral', 300)};
-  border-radius: 0.25rem;
+  height: ${getThemedSpacing(800)};
+  width: ${getThemedSpacing(800)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-radius: ${getThemedRadius(300)};
   background-image: url(${imageUrl});
   background-size: cover;
   background-position: center;
@@ -111,17 +111,17 @@ export const baseMapOptionsItemDataContainerStyles = css`
   }
 
   .ds-base-map-title {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-size: ${getThemedFontSize(300)};
+    line-height: ${getThemedLineHeight(500)};
     font-weight: 700;
     color: ${getThemedColor('neutral', 900)};
     text-align: left;
-    margin-bottom: 0.125rem;
+    margin-bottom: ${getThemedSpacing(50)};
   }
 
   .ds-base-map-caption {
-    font-size: 0.75rem;
-    line-height: 1rem;
+    font-size: ${getThemedFontSize(200)};
+    line-height: ${getThemedLineHeight(400)};
     font-weight: 400;
     color: ${getThemedColor('neutral', 700)};
     text-align: left;

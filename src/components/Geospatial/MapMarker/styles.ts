@@ -1,10 +1,10 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor, getThemedBorderWidth, getThemedSpacing } from '../../../lib/theme'
 import { MapMarkerProps } from './types'
 
 export const mapMarkerContainerStyles = (hasIcon: boolean) => css`
-  outline: 0.125rem solid ${getThemedColor('primary', 700)};
-  outline-offset: 0.125rem;
+  outline: ${getThemedBorderWidth(200)} solid ${getThemedColor('primary', 700)};
+  outline-offset: ${getThemedSpacing(50)};
   border-radius: 50%;
   box-shadow:
     0 0 0 0.125rem ${getThemedColor('neutral', 100)},
@@ -38,13 +38,13 @@ export const mapMarkerStyles = (
   variant: MapMarkerProps['variant'] = 'icon',
 ) => {
   let size = '1rem'
-  let border = `0.25rem solid ${getThemedColor('neutral', 100)}`
+  let border = `${getThemedBorderWidth(300)} solid ${getThemedColor('neutral', 100)}`
 
   if (variant === 'cluster') {
     const baseSize = 1.75
     const maxSize = 6
     const increment = 0.03125
-    border = `0.25rem solid ${getThemedColor('neutral', 100)}`
+    border = `${getThemedBorderWidth(300)} solid ${getThemedColor('neutral', 100)}`
     if (count !== undefined && count > 1) {
       const calculatedSize = baseSize + (count - 1) * increment
       size = `${Math.min(calculatedSize, maxSize)}rem`
@@ -52,11 +52,11 @@ export const mapMarkerStyles = (
       size = `${baseSize}rem`
     }
   } else if (variant === 'simple-pin') {
-    border = `0.25rem solid ${getThemedColor('error', 500)}`
+    border = `${getThemedBorderWidth(300)} solid ${getThemedColor('error', 500)}`
     size = '1.5rem'
   } else if (hasIcon) {
     size = '1.75rem'
-    border = `0.125rem solid ${getThemedColor('neutral', 100)}`
+    border = `${getThemedBorderWidth(200)} solid ${getThemedColor('neutral', 100)}`
   }
 
   return css`
@@ -84,17 +84,17 @@ export const mapMarkerStyles = (
         content: '';
         position: relative;
         top: 100%;
-        left: 0.125rem;
+        left: ${getThemedSpacing(50)};
         transform: translateX(-50%);
-        width: 0.25rem;
+        width: ${getThemedSpacing(100)};
         height: 0.625rem;
         background-color: ${getThemedColor('error', 500)};
         pointer-events: none;
       }
     `}
     &:focus-visible {
-      outline: 0.125rem solid ${getThemedColor('primary', 700)};
-      outline-offset: 0.125rem;
+      outline: ${getThemedBorderWidth(200)} solid ${getThemedColor('primary', 700)};
+      outline-offset: ${getThemedSpacing(50)};
       box-shadow:
         0 0 0 0.125rem ${getThemedColor('neutral', 100)},
         rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;

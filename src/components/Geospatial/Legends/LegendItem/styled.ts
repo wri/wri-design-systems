@@ -1,12 +1,12 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import { getThemedColor, getThemedBorderWidth, getThemedFontSize, getThemedLineHeight, getThemedSpacing } from '../../../../lib/theme'
 
 export const legendItemContainerStyles = css`
-  padding: 0.75rem;
-  padding-bottom: 1.25rem;
+  padding: ${getThemedSpacing(300)};
+  padding-bottom: ${getThemedSpacing(500)};
   display: flex;
-  gap: 0.75rem;
-  border-bottom: 1px solid ${getThemedColor('neutral', 300)};
+  gap: ${getThemedSpacing(300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   background-color: ${getThemedColor('neutral', 100)};
 `
 
@@ -25,21 +25,21 @@ export const legendItemHeaderContainerStyles = css`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: ${getThemedSpacing(300)};
+  margin-bottom: ${getThemedSpacing(400)};
 `
 
 export const legendItemLayerNameStyles = css`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   font-weight: 400;
   text-align: left;
   color: ${getThemedColor('neutral', 900)};
 `
 
 export const legendItemDataUnitStyles = css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   font-weight: 400;
   text-align: left;
   color: ${getThemedColor('neutral', 700)};
