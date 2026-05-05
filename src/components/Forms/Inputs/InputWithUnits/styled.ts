@@ -1,5 +1,11 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 import { InputWithUnitsProps } from './types'
 
 export const inputWithUnitsStyles = css`
@@ -11,8 +17,8 @@ export const inputWithUnitsStyles = css`
 export const inputWithUnitsLabelStyles = (
   disabled?: InputWithUnitsProps['disabled'],
 ) => css`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   font-weight: 400;
   color: ${getThemedColor('neutral', disabled ? 600 : 900)};
   text-align: left;
@@ -28,8 +34,8 @@ export const inputWithUnitsLabelStyles = (
 export const inputWithUnitsCaptionStyles = (
   disabled?: InputWithUnitsProps['disabled'],
 ) => css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   font-weight: 400;
   color: ${getThemedColor('neutral', disabled ? 600 : 700)};
   text-align: left;
@@ -45,8 +51,8 @@ export const errorBarStyles = css`
 `
 
 export const inputWithUnitsErrorMessageStyles = css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   font-weight: 700;
   color: ${getThemedColor('error', 900)};
   text-align: left;
@@ -57,7 +63,7 @@ export const inputWithUnitsContainerStyles = (
   unitsPosition?: InputWithUnitsProps['unitsPosition'],
 ) => css`
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: ${getThemedSpacing(200)};
 
   .ds-text-input-container {
     margin-bottom: 0;
@@ -71,7 +77,7 @@ export const inputWithUnitsContainerStyles = (
           ${
             hasError
               ? `
-            border: 0.0625rem solid ${getThemedColor('error', 900)};
+            border: ${getThemedBorderWidth(100)} solid ${getThemedColor('error', 900)};
             border-left: none;
           `
               : ''
@@ -83,7 +89,7 @@ export const inputWithUnitsContainerStyles = (
           ${
             hasError
               ? `
-            border: 0.0625rem solid ${getThemedColor('error', 900)};
+            border: ${getThemedBorderWidth(100)} solid ${getThemedColor('error', 900)};
             border-right: none;
           `
               : ''
@@ -97,7 +103,7 @@ export const inputWithUnitsContainerStyles = (
     margin-bottom: 0;
 
     .chakra-select__trigger {
-      padding: 0.375rem 0.25rem;
+      padding: ${getThemedSpacing(50)} ${getThemedSpacing(100)};
       background-color: ${getThemedColor('neutral', 300)};
 
       ${unitsPosition === 'start'
@@ -107,7 +113,7 @@ export const inputWithUnitsContainerStyles = (
           ${
             hasError
               ? `
-            border: 0.0625rem solid ${getThemedColor('error', 900)};
+            border: ${getThemedBorderWidth(100)} solid ${getThemedColor('error', 900)};
             border-right: none;
           `
               : ''
@@ -119,7 +125,7 @@ export const inputWithUnitsContainerStyles = (
           ${
             hasError
               ? `
-            border: 0.0625rem solid ${getThemedColor('error', 900)};
+            border: ${getThemedBorderWidth(100)} solid ${getThemedColor('error', 900)};
             border-left: none;
           `
               : ''
@@ -136,7 +142,7 @@ export const inputWithUnitsContainerStyles = (
     }
 
     .chakra-select__indicatorGroup {
-      padding: 0 0.25rem;
+      padding: 0 ${getThemedSpacing(100)};
     }
   }
 `

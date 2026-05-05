@@ -1,5 +1,12 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const selectContainerStyles = (size: string) => css`
   position: relative;
@@ -8,8 +15,8 @@ export const selectContainerStyles = (size: string) => css`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: ${size === 'small' ? '0.75rem' : '1rem'};
-  margin-bottom: 1rem;
+  gap: ${size === 'small' ? getThemedSpacing(300) : getThemedSpacing(400)};
+  margin-bottom: ${getThemedSpacing(400)};
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
   }
@@ -25,8 +32,12 @@ export const selectErrorBarStyles = css`
 `
 
 export const selectLabelStyles = (size: string) => css`
-  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
-  line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(300)
+    : getThemedFontSize(400)};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(500)
+    : getThemedLineHeight(600)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 900)};
   text-align: left;
@@ -46,8 +57,12 @@ export const selectLabelStyles = (size: string) => css`
 `
 
 export const selectCaptionStyles = (size: string, disabled?: boolean) => css`
-  font-size: ${size === 'small' ? '0.75rem' : '0.875rem'};
-  line-height: ${size === 'small' ? '1rem' : '1.25rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(200)
+    : getThemedFontSize(300)};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(400)
+    : getThemedLineHeight(500)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
   text-align: left;
@@ -70,24 +85,32 @@ export const selectTriggerStyles = (
   multiple?: boolean,
 ) => css`
   .chakra-select__trigger {
-    min-height: ${size === 'small' ? '2rem' : '2.5rem'};
-    border-radius: 0.25rem;
-    padding: 0.375rem 0.5rem;
-    border: 0.0625rem solid ${getTriggerBorderColor(isFilled, hasErrorMessage)};
-    box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
+    min-height: ${size === 'small'
+      ? getThemedSpacing(800)
+      : getThemedSpacing(1000)};
+    border-radius: ${getThemedRadius(300)};
+    padding: ${getThemedSpacing(50)} ${getThemedSpacing(200)};
+    border: ${getThemedBorderWidth(100)} solid
+      ${getTriggerBorderColor(isFilled, hasErrorMessage)};
+    box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0
+      #0000000d;
     cursor: pointer;
     background-color: ${getThemedColor('neutral', 100)};
 
     .chakra-select__valueText {
-      font-size: ${size === 'small' ? '0.875rem' : '1rem'};
-      line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
+      font-size: ${size === 'small'
+        ? getThemedFontSize(300)
+        : getThemedFontSize(400)};
+      line-height: ${size === 'small'
+        ? getThemedLineHeight(500)
+        : getThemedLineHeight(600)};
       color: ${getThemedColor('neutral', 700)};
 
       ${multiple
         ? `
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: ${getThemedSpacing(200)};
       `
         : ''}
     }
@@ -99,24 +122,29 @@ export const selectTriggerStyles = (
     }
 
     &:is(:focus-visible, [data-focus-visible]) {
-      outline-offset: 0.125rem;
-      outline-width: 0.125rem;
+      outline-offset: ${getThemedSpacing(50)};
+      outline-width: ${getThemedBorderWidth(200)};
       outline-color: ${getThemedColor('primary', 700)};
-      border: 0.125rem solid ${getThemedColor('neutral', 700)};
+      border: ${getThemedBorderWidth(200)} solid
+        ${getThemedColor('neutral', 700)};
       box-shadow:
-        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
+        0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
+          ${getThemedSpacing(100)};
     }
 
     &[data-disabled] {
-      border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+      border: ${getThemedBorderWidth(100)} solid
+        ${getThemedColor('neutral', 300)};
       background-color: ${getThemedColor('neutral', 200)};
     }
   }
 
   .chakra-select__indicator {
     svg {
-      width: ${size === 'small' ? '0.75rem' : '1rem'};
+      width: ${size === 'small'
+        ? getThemedSpacing(300)
+        : getThemedSpacing(400)};
 
       path {
         fill: ${getThemedColor('neutral', 700)};
@@ -131,9 +159,9 @@ export const selectTriggerStyles = (
   }
 `
 export const selectContentStyles = css`
-  margin-top: -0.5rem;
-  border-radius: 0.25rem;
-  border: 0.0625rem solid ${getThemedColor('neutral', 400)};
+  margin-top: -${getThemedSpacing(200)};
+  border-radius: ${getThemedRadius(300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-top: none;
@@ -148,8 +176,12 @@ export const selectItemStyles = css`
 `
 
 export const selectItemLabelStyles = (size: string, disabled?: boolean) => css`
-  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
-  line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(300)
+    : getThemedFontSize(400)};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(500)
+    : getThemedLineHeight(600)};
   color: ${getThemedColor('neutral', 800)};
   text-align: left;
 
@@ -160,8 +192,12 @@ export const selectItemCaptionStyles = (
   size: string,
   disabled?: boolean,
 ) => css`
-  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
-  line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(300)
+    : getThemedFontSize(400)};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(500)
+    : getThemedLineHeight(600)};
   color: ${getThemedColor('neutral', 700)};
   text-align: left;
 
@@ -169,8 +205,12 @@ export const selectItemCaptionStyles = (
 `
 
 export const selectErrorMessageStyles = (size: string) => css`
-  font-size: ${size === 'small' ? '0.75rem' : '0.875rem'};
-  line-height: ${size === 'small' ? '1rem' : '1.25rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(200)
+    : getThemedFontSize(300)};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(400)
+    : getThemedLineHeight(500)};
   font-weight: 700;
   color: ${getThemedColor('error', 900)};
   text-align: left;

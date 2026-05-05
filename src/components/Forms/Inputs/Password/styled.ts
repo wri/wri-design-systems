@@ -1,6 +1,12 @@
 /* eslint-disable no-nested-ternary */
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const passwordContainerStyles = css`
   width: 100%;
@@ -8,8 +14,8 @@ export const passwordContainerStyles = css`
 `
 
 export const passwordLabelStyles = css`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 900)};
   text-align: left;
@@ -21,8 +27,8 @@ export const passwordLabelStyles = css`
 `
 
 export const passwordCaptionStyles = css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
   text-align: left;
@@ -32,8 +38,8 @@ export const passwordContentStyles = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  gap: ${getThemedSpacing(200)};
+  margin-top: ${getThemedSpacing(200)};
 
   .ds-text-input-container {
     margin-bottom: 0;
@@ -49,12 +55,12 @@ export const passwordContentStyles = css`
 `
 
 export const passwordStrengthContainerStyles = css`
-  margin-top: 0.75rem;
+  margin-top: ${getThemedSpacing(300)};
 `
 
 export const passwordStrengthLabelStyles = (strength: string) => css`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 800)};
   text-align: left;
@@ -73,12 +79,12 @@ export const passwordStrengthLabelStyles = (strength: string) => css`
 `
 
 export const passwordStrengthBarStyles = (strength: string) => css`
-  height: 0.5rem;
+  height: ${getThemedSpacing(200)};
   width: 100%;
   background-color: ${getThemedColor('neutral', 300)};
-  margin-top: 0.5rem;
-  margin-bottom: 0.75rem;
-  border-radius: 0.5rem;
+  margin-top: ${getThemedSpacing(200)};
+  margin-bottom: ${getThemedSpacing(300)};
+  border-radius: ${getThemedRadius(500)};
 
   div {
     height: 100%;
@@ -99,22 +105,22 @@ export const passwordStrengthBarStyles = (strength: string) => css`
           : 'error',
       900,
     )};
-    border-radius: 0.5rem;
+    border-radius: ${getThemedRadius(500)};
   }
 `
 
 export const passwordStrengthItemStyles = (isValid: boolean) => css`
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  gap: ${getThemedSpacing(100)};
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
 
   div {
-    height: 1rem;
-    width: 1rem;
+    height: ${getThemedSpacing(400)};
+    width: ${getThemedSpacing(400)};
     background-color: ${getThemedColor(isValid ? 'success' : 'error', 100)};
     display: flex;
     justify-content: center;

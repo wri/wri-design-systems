@@ -1,5 +1,12 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const radioListContainerStyles = css`
   position: relative;
@@ -14,8 +21,8 @@ export const radioListContentStyles = (hasErrorMessage: boolean) => css`
 `
 
 export const radioListLabelStyles = css`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   color: ${getThemedColor('neutral', 900)};
   text-align: left;
 
@@ -26,14 +33,14 @@ export const radioListLabelStyles = css`
 `
 
 export const radioListCaptionStyles = css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   color: ${getThemedColor('neutral', 700)};
   text-align: left;
 `
 
 export const radioListContentListStyles = css`
-  margin-top: 0.75rem;
+  margin-top: ${getThemedSpacing(300)};
 `
 
 export const radioListErrorBarStyles = css`
@@ -46,8 +53,8 @@ export const radioListErrorBarStyles = css`
 `
 
 export const radioListErrorMessageStyles = css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   font-weight: 700;
   color: ${getThemedColor('error', 900)};
   text-align: left;
@@ -58,8 +65,8 @@ export const radioListItemStyles = css`
   min-height: 3rem;
   width: 100%;
   max-width: 22.875rem;
-  border: 0.0625rem solid ${getThemedColor('neutral', 400)};
-  border-radius: 0.25rem;
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
+  border-radius: ${getThemedRadius(300)};
   background-color: ${getThemedColor('neutral', 100)};
-  padding: 0.75rem;
+  padding: ${getThemedSpacing(300)};
 `

@@ -1,5 +1,10 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 export const formContainerStyles = css`
   position: relative;
@@ -8,9 +13,9 @@ export const formContainerStyles = css`
 `
 
 export const formContainerLabelStyles = css`
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-bottom: 0.25rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
+  margin-bottom: ${getThemedSpacing(100)};
   color: ${getThemedColor('neutral', 900)};
 `
 
@@ -24,9 +29,9 @@ export const formContainerErrorBarStyles = css`
 `
 
 export const formContainerErrorMessageStyles = css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   font-weight: 700;
   color: ${getThemedColor('error', 900)};
-  margin-bottom: 0.5rem;
+  margin-bottom: ${getThemedSpacing(200)};
 `

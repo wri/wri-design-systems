@@ -1,5 +1,10 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const checkboxListContainerStyles = css`
   position: relative;
@@ -16,8 +21,8 @@ export const checkboxListContentStyles = (hasErrorMessage: boolean) => css`
 `
 
 export const checkboxListLabelStyles = css`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   color: ${getThemedColor('neutral', 900)};
   text-align: left;
   width: 100%;
@@ -28,8 +33,8 @@ export const checkboxListLabelStyles = css`
 `
 
 export const checkboxListCaptionStyles = css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   color: ${getThemedColor('neutral', 700)};
   text-align: left;
 `
@@ -38,11 +43,11 @@ export const checkboxListContentListStyles = (
   horizontal?: boolean,
   isExpanded?: boolean,
 ) => css`
-  margin-top: 0.75rem;
+  margin-top: ${getThemedSpacing(300)};
   display: flex;
   flex-direction: ${horizontal ? 'row' : 'column'};
   flex-wrap: wrap;
-  gap: ${horizontal ? '1.25rem' : '0.75rem'};
+  gap: ${horizontal ? getThemedSpacing(500) : getThemedSpacing(300)};
   max-height: ${isExpanded ? '62.5rem' : '0'};
   overflow: hidden;
   opacity: ${isExpanded ? 1 : 0};
@@ -61,8 +66,8 @@ export const checkboxListErrorBarStyles = css`
 `
 
 export const checkboxListErrorMessageStyles = css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   font-weight: 700;
   color: ${getThemedColor('error', 900)};
   text-align: left;
@@ -70,15 +75,15 @@ export const checkboxListErrorMessageStyles = css`
 
 export const checkboxCounterTextStyles = css`
   color: ${getThemedColor('neutral', 700)};
-  margin-left: 0.25rem;
+  margin-left: ${getThemedSpacing(100)};
 `
 
 export const expandButtonStyles = css`
   color: ${getThemedColor('neutral', 700)};
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  font-size: 0.875rem;
+  gap: ${getThemedSpacing(100)};
+  font-size: ${getThemedFontSize(300)};
   background: none;
   border: none;
   cursor: pointer;
