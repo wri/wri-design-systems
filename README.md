@@ -140,26 +140,26 @@ export const system = createSystem(designSystemStyles._config, {
           'controls-on-neutral-lights': { value: '#855B00' }, // primary 700
           'controls-on-neutral-darks': { value: '#F5BF4F' }, // primary 400
         },
-        spacing: {
-          // Available steps: 0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1400, 1600, 2000, 2400, 2800
-          400: { value: '1rem' },
-        },
-        radii: {
-          // Available steps: 100, 200, 300, 400, 500, 600, 700, 800, 900
-          500: { value: '0.5rem' },
-        },
-        borderWidths: {
-          // Available steps: 100, 200, 300, 400
-          100: { value: '0.0625rem' },
-        },
-        fontSizes: {
-          // Available steps: 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100
-          500: { value: '1rem' },
-        },
-        lineHeights: {
-          // Available steps: 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200
-          600: { value: '1.5rem' },
-        },
+      },
+      spacing: {
+        // Available steps: 0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1400, 1600, 2000, 2400, 2800
+        400: { value: '1rem' },
+      },
+      radii: {
+        // Available steps: 100, 200, 300, 400, 500, 600, 700, 800, 900
+        500: { value: '0.5rem' },
+      },
+      borderWidths: {
+        // Available steps: 100, 200, 300, 400
+        100: { value: '0.0625rem' },
+      },
+      fontSizes: {
+        // Available steps: 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100
+        500: { value: '1rem' },
+      },
+      lineHeights: {
+        // Available steps: 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200
+        600: { value: '1.5rem' },
       },
     },
   },

@@ -125,7 +125,7 @@ export const mobileTabBarItemBadgeStyles = css`
   border-radius: ${getThemedRadius(400)};
   background-color: ${getThemedColor('error', 500)};
   font-weight: 700;
-  font-size: ${getThemedSpacing(200)};
+  font-size: 0.5rem;
   line-height: 0.625rem;
   color: ${getThemedColor('neutral', 100)};
   display: flex;

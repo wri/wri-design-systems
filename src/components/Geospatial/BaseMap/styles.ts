@@ -47,7 +47,7 @@ export const baseMapHeaderContainerStyles = css`
 
   .ds-base-map-header-caption {
     font-size: ${getThemedFontSize(300)};
-    line-height: 20x;
+    line-height: ${getThemedLineHeight(500)};
     color: ${getThemedColor('neutral', 700)};
     text-align: left;
   }
