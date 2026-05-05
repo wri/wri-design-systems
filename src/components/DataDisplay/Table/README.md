@@ -123,6 +123,8 @@ type TableProps = {
   onPageChange?: (page: number) => void
   onAllItemsSelected?: (checked: boolean) => void
   loading?: boolean
+  /** When set, the table scrolls vertically within this height and horizontally within the containers width while pagination stays fixed */
+  height?: string
 }
 ```
 
@@ -146,5 +148,24 @@ type TableProps = {
   onAllItemsSelected={onAllItemsSelected}
   selectedRows={selectedRows}
   selectable
+/>
+```
+
+## Scrollable
+
+When `height` is set, the table body becomes scrollable (horizontally and vertically) within the given height, while the pagination and item count remain fixed below the table.
+
+```tsx
+<Table
+  columns={columns}
+  data={dataByPage}
+  renderRow={renderRow}
+  height='400px'
+  pagination={{
+    totalItems,
+    currentPage,
+    pageSize,
+    showItemCount: true,
+  }}
 />
 ```

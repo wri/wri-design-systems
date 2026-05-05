@@ -389,6 +389,7 @@ line-height: ${getThemedLineHeight(600)};
 ### Inputs
 
 - [Checkbox List](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/CheckboxList)
+- [Combobox](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Combobox)
 - [Input With Units](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/InputWithUnits)
 - [Password](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Password)
 - [Radio List](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/RadioList)
@@ -401,10 +402,14 @@ line-height: ${getThemedLineHeight(600)};
 
 - [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Tag)
 
+### Form Container
+
+- [Form Container](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/FormContainer)
+
 ## Geospatial
 
 - [Base Map](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/BaseMap)
-- [Icon Marker](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/IconMarker)
+- [Map Marker](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/MapMarker)
 - [Map Pop Up](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/MapPopUp)
 
 ### Layers
@@ -418,6 +423,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Layer Parameters](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/LayerParameters)
 - [Legend Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/LegendItem)
 - [Legend Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/LegendPanel)
+- [Opacity Control](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/OpacityControl)
 - [Qualitative Attribute](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/QualitativeAttribute)
 - [Scale Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/ScaleBar)
 
@@ -429,10 +435,12 @@ line-height: ${getThemedLineHeight(600)};
 - [Navbar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Navbar)
 - [Navigation Rail](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/NavigationRail)
 - [Pagination](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Pagination)
+- [Search](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Search)
 - [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
 
 ## Status
 
+- [Alert Banner](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/AlertBanner)
 - [Avatar](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Avatar)
 - [Badge](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Badge)
 - [Inline Message](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/InlineMessage)

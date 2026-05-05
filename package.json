@@ -1,6 +1,6 @@
 {
   "name": "@worldresources/wri-design-systems",
-  "version": "2.191.11",
+  "version": "2.191.12",
   "description": "WRI UI Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -25,7 +25,9 @@
     "lint": "eslint src/**/*.ts src/**/*.tsx",
     "prettier": "prettier --write --loglevel warn .",
     "lint-fix": "yarn lint --fix && yarn prettier",
-    "new-component": "tsx scripts/new-component.ts"
+    "new-component": "tsx scripts/new-component.ts",
+    "setup-ai": "node contributor-ai/setup-ai.mjs",
+    "postinstall": "node contributor-ai/setup-ai.mjs"
   },
   "eslintConfig": {
     "extends": [
