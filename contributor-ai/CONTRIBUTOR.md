@@ -237,6 +237,39 @@ Valid variants: `neutral`, `primary`, `secondary`, `success`, `warning`, `error`
 Valid steps: `100, 200, 300, 400, 500, 600, 700, 800, 900` (and named string keys for `accessible`).
 Only use combinations confirmed in `src/lib/theme.ts`.
 
+### Other Theme Tokens — Spacing, Radius, Borders, and Typography
+
+Just like colors, spacing, radius, border widths, and typography must use their respective `getThemed*` functions.
+
+- **Spacing:** `getThemedSpacing(token)` (Tokens: `0`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`, `1200`, `1400`, `1600`, `2000`, `2400`, `2800`)
+- **Radius:** `getThemedRadius(token)` (Tokens: `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`)
+- **Border Width:** `getThemedBorderWidth(token)` (Tokens: `100`, `200`, `300`, `400`)
+- **Font Size:** `getThemedFontSize(token)` (Tokens: `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`)
+- **Line Height:** `getThemedLineHeight(token)` (Tokens: `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`, `1200`)
+
+```tsx
+import {
+  getThemedSpacing,
+  getThemedRadius,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight,
+} from '@worldresources/wri-design-systems'
+
+// ✅ Correct
+;<Box
+  p={getThemedSpacing(400)}
+  borderRadius={getThemedRadius(500)}
+  border={`${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)}`}
+>
+  <Text fontSize={getThemedFontSize(500)} lineHeight={getThemedLineHeight(600)}>
+    Label
+  </Text>
+</Box>
+```
+
+For full references, check `agents/spacing.md`, `agents/radius.md`, `agents/border-width.md`, and `agents/typography.md`.
+
 ---
 
 ## What NOT to Do
@@ -250,10 +283,21 @@ import { Button } from '@chakra-ui/react'  // → use src/components/Forms/Actio
 
 // ❌ Do not hardcode hex or pixel values when a token exists
 <Box bg="#2C7D6E" />          // → use getThemedColor(...)
-<Text fontSize="14px" />      // → use Chakra size tokens
+<Text fontSize="14px" />      // → use getThemedFontSize(...)
+<Box p="1rem" borderRadius="8px" /> // → use getThemedSpacing, getThemedRadius
 
-// ❌ Do not import getThemedColor from the package in this repo
-import { getThemedColor } from '@worldresources/wri-design-systems'  // → use relative lib path
+// ❌ Do not use raw token strings as styling props — always use getThemed* functions
+<Box bg="primary.500" />  // → use getThemedColor('primary', 500)
+
+// ❌ Do not import getThemed*Color* from the package in this repo
+import {
+  getThemedColor,
+  getThemedSpacing,
+  getThemedRadius,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight,
+} from '@worldresources/wri-design-systems'  // → use relative lib path
 
 // ❌ Do not create component files from scratch — always run yarn new-component first
 
@@ -270,16 +314,17 @@ const MyWidget = () => <div style={{ color: 'red' }}>...</div>
 
 ## Quick Reference
 
-| Question                                        | Where to look                                                                                |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Does a WRI DS building block already exist?     | `src/components/index.ts` or Storybook MCP                                                   |
-| Detailed props for an existing WRI DS component | `src/components/<Category>/<Name>/README.md`                                                 |
-| What props does a Chakra component accept?      | Chakra MCP → `get_component_props`                                                           |
-| What color tokens are available?                | `src/lib/theme.ts` — source of truth                                                         |
-| How do I use a color in a style?                | `getThemedColor('scale', step)` from relative `../../../../lib/theme`                        |
-| How do I scaffold a new component?              | `yarn new-component <Name> <Category>` — updates index.ts, DemoIndex, App.tsx, and README.md |
-| Where are all custom (non-DS) components?       | "Find in Files" → `[CUSTOM COMPONENT]`                                                       |
-| How do I verify the dev app?                    | `yarn start`                                                                                 |
-| How do I verify Storybook?                      | `yarn storybook`                                                                             |
-| How do I build the library?                     | `yarn build`                                                                                 |
-| How do I distribute consumer AI context?        | `node agents/setup-ai.mjs <target-path>` or `npx ds setup-ai <target-path>`                  |
+| Question                                        | Where to look                                                                                              |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Does a WRI DS building block already exist?     | `src/components/index.ts` or Storybook MCP                                                                 |
+| Detailed props for an existing WRI DS component | `src/components/<Category>/<Name>/README.md`                                                               |
+| What props does a Chakra component accept?      | Chakra MCP → `get_component_props`                                                                         |
+| What color tokens are available?                | `src/lib/theme.ts` — source of truth                                                                       |
+| How do I use a color in a style?                | `getThemedColor('scale', step)` from relative `../../../../lib/theme`                                      |
+| How do I use spacing/radius/border/fonts?       | `getThemedSpacing`, `getThemedRadius`, `getThemedBorderWidth`, `getThemedFontSize`, `getThemedLineHeight`. |
+| How do I scaffold a new component?              | `yarn new-component <Name> <Category>` — updates index.ts, DemoIndex, App.tsx, and README.md               |
+| Where are all custom (non-DS) components?       | "Find in Files" → `[CUSTOM COMPONENT]`                                                                     |
+| How do I verify the dev app?                    | `yarn start`                                                                                               |
+| How do I verify Storybook?                      | `yarn storybook`                                                                                           |
+| How do I build the library?                     | `yarn build`                                                                                               |
+| How do I distribute consumer AI context?        | `node agents/setup-ai.mjs <target-path>` or `npx ds setup-ai <target-path>`                                |

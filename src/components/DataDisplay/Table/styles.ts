@@ -26,7 +26,7 @@ export const tableHeaderContainerStyles = (variant: string) => css`
 
     th {
       border-bottom: none !important;
-      box-shadow: inset 0 -1px 0 ${getThemedColor('neutral', 300)};
+      box-shadow: inset 0 -0.0625rem 0 ${getThemedColor('neutral', 300)};
     }
   }
 `
@@ -98,7 +98,7 @@ export const tableBodyStyles = css`
 
     &.selected {
       background-color: ${getThemedColor('primary', 100)} !important;
-      border-bottom: 2px solid ${getThemedColor('primary', 700)} !important;
+      border-bottom: 0.125rem solid ${getThemedColor('primary', 700)} !important;
     }
   }
 `
