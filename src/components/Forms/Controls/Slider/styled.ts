@@ -1,22 +1,29 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const sliderRootStyles = css`
   height: 3.75rem;
-  padding: 2.5rem 0.75rem;
+  padding: ${getThemedSpacing(1000)} ${getThemedSpacing(300)};
 `
 
 export const sliderThumbStyles = css`
-  height: 1.25rem;
-  width: 1.25rem;
+  height: ${getThemedSpacing(500)};
+  width: ${getThemedSpacing(500)};
   background-color: ${getThemedColor('primary', 500)};
-  border: 0.125rem solid ${getThemedColor('primary', 700)};
+  border: ${getThemedBorderWidth(200)} solid ${getThemedColor('primary', 700)};
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
   cursor: pointer;
 
   &:hover,
   &[data-hover] {
-    outline: 0.25rem solid
+    outline: ${getThemedSpacing(100)} solid
       color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
 
     .ds-slider-value-preview {
@@ -25,7 +32,7 @@ export const sliderThumbStyles = css`
   }
 
   &[data-dragging] {
-    outline: 0.25rem solid
+    outline: ${getThemedSpacing(100)} solid
       color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
 
     div {
@@ -35,8 +42,9 @@ export const sliderThumbStyles = css`
 
   &:focus-visible,
   &[data-focus-visible] {
-    outline: 0.125rem solid ${getThemedColor('primary', 700)};
-    outline-offset: 0.125rem;
+    outline: ${getThemedBorderWidth(200)} solid
+      ${getThemedColor('primary', 700)};
+    outline-offset: ${getThemedSpacing(50)};
     box-shadow:
       0 0 0 0.125rem ${getThemedColor('neutral', 100)},
       rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
@@ -56,14 +64,14 @@ export const sliderThumbStyles = css`
 `
 
 export const sliderThumbLabelStyles = css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   color: ${getThemedColor('neutral', 800)};
   height: 1.75rem;
   background-color: ${getThemedColor('neutral', 100)};
-  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
-  border-radius: 0.5rem;
-  padding: 0 0.5rem;
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-radius: ${getThemedRadius(500)};
+  padding: 0 ${getThemedSpacing(200)};
   display: none;
   justify-content: center;
   align-items: center;
@@ -79,8 +87,8 @@ export const sliderTrackStyles = css`
 
 export const sliderRangeStyles = css`
   background-color: ${getThemedColor('primary', 500)};
-  border: 0.0625rem solid ${getThemedColor('primary', 700)};
-  border-radius: 0.5rem;
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)};
+  border-radius: ${getThemedRadius(500)};
 
   &:disabled,
   &[disabled],
@@ -96,8 +104,8 @@ export const sliderMarkerStyles = (
   isCentred?: boolean,
   isMiddleMark?: boolean,
 ) => css`
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font-size: ${getThemedFontSize(200)};
+  line-height: ${getThemedLineHeight(400)};
   color: ${getThemedColor('neutral', 800)};
 
   p {

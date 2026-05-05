@@ -1,11 +1,15 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 export const extendableCardContainerStyles = css`
-  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
 `
 export const extendableCardItemTriggerStyles = css`
-  padding: 1rem;
+  padding: ${getThemedSpacing(400)};
   cursor: pointer;
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};

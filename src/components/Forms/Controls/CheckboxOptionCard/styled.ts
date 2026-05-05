@@ -1,14 +1,21 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 import { CheckboxOptionCardItemProps } from './types'
 
 export const checkboxOptionCardContainerStyles = css`
   width: 15.0625rem;
   min-height: 4.375rem;
-  padding: 0.75rem;
+  padding: ${getThemedSpacing(300)};
   background-color: ${getThemedColor('neutral', 100)};
-  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
-  border-radius: 0.25rem;
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-radius: ${getThemedRadius(300)};
   cursor: pointer;
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
   flex: none;
@@ -20,8 +27,9 @@ export const checkboxOptionCardContainerStyles = css`
 
   &:focus-visible,
   &[data-focus-visible] {
-    outline: 0.125rem solid ${getThemedColor('primary', 700)};
-    outline-offset: 0.125rem;
+    outline: ${getThemedBorderWidth(200)} solid
+      ${getThemedColor('primary', 700)};
+    outline-offset: ${getThemedSpacing(50)};
     box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
     box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
     box-shadow:
@@ -31,13 +39,13 @@ export const checkboxOptionCardContainerStyles = css`
 
   &[data-state='checked'] {
     background-color: ${getThemedColor('primary', 100)};
-    border: 0.0625rem solid ${getThemedColor('primary', 700)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)};
   }
 
   &[data-disabled] {
     outline: none;
     box-shadow: none;
-    border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
     background-color: ${getThemedColor('neutral', 100)};
     color: ${getThemedColor('neutral', 600)};
     cursor: not-allowed;
@@ -63,7 +71,7 @@ export const checkboxOptionCardContentStyles = (
   display: flex;
   flex-direction: ${variant === 'centered' ? 'column' : 'row'};
   align-items: center;
-  gap: 0.75rem;
+  gap: ${getThemedSpacing(300)};
 `
 
 export const checkboxOptionCardIconContainerStyles = css`
@@ -77,8 +85,8 @@ export const checkboxOptionCardLabelStyles = (
   variant: CheckboxOptionCardItemProps['variant'],
   disabled?: CheckboxOptionCardItemProps['disabled'],
 ) => css`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   font-weight: 400;
   color: ${getThemedColor('neutral', disabled ? 600 : 900)};
   text-align: ${variant === 'centered' ? 'center' : 'left'};
@@ -89,8 +97,8 @@ export const checkboxOptionCardCaptionStyles = (
   variant: CheckboxOptionCardItemProps['variant'],
   disabled?: CheckboxOptionCardItemProps['disabled'],
 ) => css`
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: ${getThemedFontSize(300)};
+  line-height: ${getThemedLineHeight(500)};
   font-weight: 400;
   color: ${getThemedColor('neutral', disabled ? 600 : 700)};
   text-align: ${variant === 'centered' ? 'center' : 'left'};
@@ -102,26 +110,27 @@ export const checkboxOptionCardIndicatorStyles = (
   position: ${variant === 'centered' ? 'absolute' : 'relative'};
   top: 0;
   right: 0;
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 0.0625rem solid ${getThemedColor('neutral', 700)};
+  width: ${getThemedSpacing(500)};
+  height: ${getThemedSpacing(500)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 700)};
   cursor: pointer;
 
   &[data-state='checked'] {
-    border: 0.0625rem solid ${getThemedColor('primary', 700)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)};
     background-color: ${getThemedColor('primary', 500)};
     stroke: ${getThemedColor('accessible', 'text-on-primary-mids') ||
     getThemedColor('primary', 900)};
 
     &[data-disabled] {
-      border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+      border: ${getThemedBorderWidth(100)} solid
+        ${getThemedColor('neutral', 300)};
       background-color: ${getThemedColor('neutral', 300)};
       stroke: ${getThemedColor('neutral', 500)};
     }
   }
 
   &[data-disabled] {
-    border: 0.0625rem solid ${getThemedColor('neutral', 400)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
     cursor: not-allowed;
   }
 `
@@ -131,8 +140,8 @@ export const checkboxOptionCardExpandedContainerStyles = (
 ) => css`
   width: 100%;
   border-color: ${getThemedColor('neutral', 300)};
-  margin-top: 0.75rem;
+  margin-top: ${getThemedSpacing(300)};
   padding: 0;
-  padding-top: 0.5rem;
+  padding-top: ${getThemedSpacing(200)};
   color: ${disabled ? getThemedColor('neutral', 500) : 'inherit'};
 `

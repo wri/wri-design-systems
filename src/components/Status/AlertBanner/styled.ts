@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedBorderWidth, getThemedColor } from '../../../lib/theme'
 
 export const alertBannerStyles = (variant?: string) => {
   let backgroundColor = ''
@@ -36,7 +36,7 @@ export const alertBannerStyles = (variant?: string) => {
     color: ${color};
     align-items: center;
     background-color: ${backgroundColor};
-    border-bottom: 0.0625rem solid ${borderColor};
+    border-bottom: ${getThemedBorderWidth(100)} solid ${borderColor};
     border-radius: 0;
   `
 }

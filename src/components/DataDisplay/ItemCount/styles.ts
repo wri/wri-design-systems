@@ -1,5 +1,10 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 export const itemCountContainerStyles = css`
   display: flex;
@@ -8,9 +13,9 @@ export const itemCountContainerStyles = css`
 
 export const itemCountPerPageContainerStyles = css`
   display: flex;
-  gap: 1rem;
+  gap: ${getThemedSpacing(400)};
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: ${getThemedSpacing(600)};
 
   .ds-select-input-container {
     margin-bottom: 0rem;
@@ -18,8 +23,8 @@ export const itemCountPerPageContainerStyles = css`
 `
 
 export const itemCountPerPageLabelStyles = css`
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: ${getThemedFontSize(500)};
+  line-height: ${getThemedLineHeight(700)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
 `

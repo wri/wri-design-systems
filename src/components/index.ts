@@ -4,6 +4,11 @@ export {
   designSystemStyles,
   designSystemStylesForTailwind,
   getThemedColor,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
 } from '../lib/theme'
 
 // -- i18n -- //

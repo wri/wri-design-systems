@@ -1,5 +1,12 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 import { TagProps } from './types'
 
 export const baseTagStyles = (size: TagProps['size']) => css`
@@ -8,15 +15,15 @@ export const baseTagStyles = (size: TagProps['size']) => css`
   justify-content: center;
   align-items: center;
   gap: 0;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
+  padding: ${getThemedSpacing(100)} ${getThemedSpacing(200)};
+  border-radius: ${getThemedRadius(300)};
   font-weight: 700;
   color: ${getThemedColor('neutral', 700)};
   box-shadow: none;
 
-  height: 1.5rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
+  height: ${getThemedSpacing(600)};
+  font-size: ${getThemedFontSize(200)};
+  line-height: ${getThemedLineHeight(400)};
 
   .chakra-tag__startElement {
     width: 0.875rem;
@@ -26,7 +33,7 @@ export const baseTagStyles = (size: TagProps['size']) => css`
   svg {
     width: 0.625rem;
     height: 0.625rem;
-    margin-right: 0.25rem;
+    margin-right: ${getThemedSpacing(100)};
   }
 
   .chakra-tag__endElement {
@@ -35,7 +42,7 @@ export const baseTagStyles = (size: TagProps['size']) => css`
   }
 
   .chakra-tag__closeTrigger {
-    margin-left: 0.5rem;
+    margin-left: ${getThemedSpacing(200)};
 
     svg {
       margin-right: 0;
@@ -44,20 +51,20 @@ export const baseTagStyles = (size: TagProps['size']) => css`
 
   ${size === 'small'
     ? `
-    height: 1rem;
+    height: ${getThemedSpacing(400)};
     border: none !important;
     font-size: 0.625rem;
-    line-height: 0.75rem;
+    line-height: ${getThemedLineHeight(300)};
 
     .chakra-tag__startElement {
-      width: 0.75rem;
-      height: 0.5rem;
+      width: ${getThemedSpacing(300)};
+      height: ${getThemedSpacing(200)};
     }
 
     svg {
-      width: 0.5rem;
-      height: 0.5rem;
-      margin-right: 0.25rem;
+      width: ${getThemedSpacing(200)};
+      height: ${getThemedSpacing(200)};
+      margin-right: ${getThemedSpacing(100)};
     }
 
     .chakra-tag__closeTrigger {
@@ -72,28 +79,28 @@ export const baseTagStyles = (size: TagProps['size']) => css`
 
   ${size === 'large'
     ? `
-    height: 2rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    height: ${getThemedSpacing(800)};
+    font-size: ${getThemedFontSize(400)};
+    line-height: ${getThemedLineHeight(600)};
 
     .chakra-tag__startElement {
       width: 1.125rem;
-      height: 0.75rem;
+      height: ${getThemedSpacing(300)};
     }
 
     svg {
-      width: 0.75rem;
-      height: 0.75rem;
+      width: ${getThemedSpacing(300)};
+      height: ${getThemedSpacing(300)};
       margin-right: 0.375rem;
     }
 
     .chakra-tag__endElement {
       width: 1.375rem;
-      height: 0.75rem;
+      height: ${getThemedSpacing(300)};
     }
 
     .chakra-tag__closeTrigger {
-      margin-left: 0.75rem;
+      margin-left: ${getThemedSpacing(300)};
 
       svg {
         margin-right: 0;
@@ -119,14 +126,15 @@ export const baseTagStyles = (size: TagProps['size']) => css`
     cursor: pointer;
 
     &:focus-visible {
-      outline-offset: 0.125rem;
-      outline: 0.125rem solid ${getThemedColor('primary', 700)};
+      outline-offset: ${getThemedSpacing(50)};
+      outline: ${getThemedBorderWidth(200)} solid
+        ${getThemedColor('primary', 700)};
       outline-style: auto;
     }
   }
 
   &[data-disabled='true'] {
-    border: 0.0625rem solid ${getThemedColor('neutral', 400)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
     background-color: ${getThemedColor('neutral', 300)};
     color: ${getThemedColor('neutral', 600)};
   }
@@ -134,28 +142,28 @@ export const baseTagStyles = (size: TagProps['size']) => css`
 
 export const infoWhiteTagStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
-  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
 `
 
 export const infoGreyTagStyles = css`
   background-color: ${getThemedColor('neutral', 200)};
-  border: 0.0625rem solid ${getThemedColor('neutral', 400)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
 `
 
 export const successTagStyles = css`
   background-color: ${getThemedColor('success', 100)};
-  border: 0.0625rem solid ${getThemedColor('success', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('success', 300)};
   color: ${getThemedColor('success', 900)};
 `
 
 export const warningTagStyles = css`
   background-color: ${getThemedColor('warning', 100)};
-  border: 0.0625rem solid ${getThemedColor('warning', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('warning', 300)};
   color: ${getThemedColor('warning', 900)};
 `
 
 export const errorTagStyles = css`
   background-color: ${getThemedColor('error', 100)};
-  border: 0.0625rem solid ${getThemedColor('error', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('error', 300)};
   color: ${getThemedColor('error', 900)};
 `

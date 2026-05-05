@@ -1,12 +1,17 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedBorderWidth,
+  getThemedSpacing,
+} from '../../../lib/theme'
 import { NavigationRailProps } from './types'
 
 export const navigationRailContainerStyles = css`
-  width: 4rem;
+  width: ${getThemedSpacing(1600)};
   height: 100%;
   z-index: 100;
-  border-right: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border-right: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
   background-color: ${getThemedColor('neutral', 200)};
   display: flex;
   flex-direction: column;
@@ -14,15 +19,15 @@ export const navigationRailContainerStyles = css`
 `
 
 export const navigationRailTabStyles = css`
-  width: 4rem;
-  height: 4rem;
+  width: ${getThemedSpacing(1600)};
+  height: ${getThemedSpacing(1600)};
   background-color: ${getThemedColor('neutral', 200)};
   border-radius: initial;
   border-style: solid;
-  border-width: 0.0625rem 0.0625rem 0rem 0rem;
+  border-width: ${getThemedBorderWidth(100)} ${getThemedBorderWidth(100)} 0 0;
   border-color: ${getThemedColor('neutral', 300)};
   cursor: pointer;
-  border-left: 0.125rem solid transparent;
+  border-left: ${getThemedBorderWidth(200)} solid transparent;
   padding: 0 0.3125rem;
   display: flex;
   align-items: center;
@@ -39,7 +44,7 @@ export const navigationRailTabStyles = css`
   &:focus-visible {
     background-color: ${getThemedColor('neutral', 200)};
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 0.125rem;
+    outline-offset: ${getThemedSpacing(50)};
     box-shadow: none;
   }
 
@@ -53,7 +58,8 @@ export const navigationRailTabStyles = css`
 
   &[data-selected] {
     background-color: ${getThemedColor('neutral', 100)};
-    border-left: 0.125rem solid ${getThemedColor('secondary', 500)};
+    border-left: ${getThemedBorderWidth(200)} solid
+      ${getThemedColor('secondary', 500)};
 
     &:hover {
       background-color: ${getThemedColor('neutral', 200)};
@@ -62,7 +68,7 @@ export const navigationRailTabStyles = css`
     &:focus-visible {
       background-color: ${getThemedColor('neutral', 100)};
       outline-color: ${getThemedColor('primary', 700)};
-      outline-offset: 0.125rem;
+      outline-offset: ${getThemedSpacing(50)};
       box-shadow: none;
     }
 
@@ -111,8 +117,8 @@ export const navigationRailTabIconStyles = css`
   align-items: center;
 
   svg {
-    width: 1rem;
-    height: 1rem;
+    width: ${getThemedSpacing(400)};
+    height: ${getThemedSpacing(400)};
 
     path {
       fill: ${getThemedColor('neutral', 600)};
@@ -121,15 +127,15 @@ export const navigationRailTabIconStyles = css`
 `
 
 export const navigationRailTriggerStyles = css`
-  width: 4rem;
-  height: 4rem;
+  width: ${getThemedSpacing(1600)};
+  height: ${getThemedSpacing(1600)};
   background-color: ${getThemedColor('neutral', 200)};
   border-radius: initial;
   border-style: solid;
-  border-width: 0.0625rem 0.0625rem 0rem 0rem;
+  border-width: ${getThemedBorderWidth(100)} ${getThemedBorderWidth(100)} 0 0;
   border-color: ${getThemedColor('neutral', 300)};
   cursor: pointer;
-  border-left: 0.125rem solid transparent;
+  border-left: ${getThemedBorderWidth(200)} solid transparent;
   padding: 0 0.3125rem;
   display: flex;
   align-items: center;
@@ -147,7 +153,7 @@ export const navigationRailTriggerStyles = css`
 
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
-    outline-offset: 0.125rem;
+    outline-offset: ${getThemedSpacing(50)};
     box-shadow: none;
   }
 
@@ -168,5 +174,6 @@ export const navigationRailChildrenContainerStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
   overflow-y: auto;
   overflow-x: hidden;
-  border-right: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border-right: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 `

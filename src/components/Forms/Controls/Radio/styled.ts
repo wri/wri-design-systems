@@ -1,11 +1,15 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const radioGroupItemStyles = css`
   .ds-radio-item-indicator {
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 0.0625rem solid ${getThemedColor('neutral', 700)};
+    width: ${getThemedSpacing(500)};
+    height: ${getThemedSpacing(500)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 700)};
     cursor: pointer;
 
     .dot {
@@ -15,38 +19,39 @@ export const radioGroupItemStyles = css`
     }
 
     &:hover {
-      outline: 0.25rem solid
+      outline: ${getThemedSpacing(100)} solid
         color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
     }
 
     &:active {
-      outline: 0.25rem solid
+      outline: ${getThemedSpacing(100)} solid
         color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
     }
 
     &:focus-visible,
     &[data-focus-visible] {
-      outline: 0.125rem solid
+      outline: ${getThemedBorderWidth(200)} solid
         ${getThemedColor('accessible', 'controls-on-neutral-lights') ||
         getThemedColor('primary', 700)};
-      outline-offset: 0.125rem;
+      outline-offset: ${getThemedSpacing(50)};
       box-shadow:
         0 0 0 0.125rem ${getThemedColor('neutral', 100)},
         rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
 
       &[data-checked] {
-        border: 0.125rem solid
+        border: ${getThemedBorderWidth(200)} solid
           ${getThemedColor('accessible', 'controls-on-neutral-lights') ||
           getThemedColor('primary', 700)};
 
         &[data-disabled] {
-          border: 0.125rem solid ${getThemedColor('neutral', 400)};
+          border: ${getThemedBorderWidth(200)} solid
+            ${getThemedColor('neutral', 400)};
         }
       }
     }
 
     &[data-checked] {
-      border: 0.0625rem solid
+      border: ${getThemedBorderWidth(100)} solid
         ${getThemedColor('accessible', 'controls-on-neutral-lights') ||
         getThemedColor('primary', 700)};
       background-color: ${getThemedColor('neutral', 100)} !important;
@@ -54,14 +59,16 @@ export const radioGroupItemStyles = css`
       getThemedColor('primary', 700)};
 
       &[data-disabled] {
-        border: 0.0625rem solid ${getThemedColor('neutral', 400)};
+        border: ${getThemedBorderWidth(100)} solid
+          ${getThemedColor('neutral', 400)};
         color: ${getThemedColor('neutral', 400)};
         cursor: not-allowed;
       }
     }
 
     &[data-disabled] {
-      border: 0.0625rem solid ${getThemedColor('neutral', 400)} !important;
+      border: ${getThemedBorderWidth(100)} solid
+        ${getThemedColor('neutral', 400)} !important;
       background-color: ${getThemedColor('neutral', 100)} !important;
       cursor: not-allowed;
 
@@ -83,6 +90,6 @@ export const radioGroupItemTextStyles = css`
 `
 export const radioGroupHiddenInputStyles = css`
   margin: 0 !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
+  width: ${getThemedSpacing(500)} !important;
+  height: ${getThemedSpacing(500)} !important;
 `

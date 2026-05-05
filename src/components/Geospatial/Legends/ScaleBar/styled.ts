@@ -1,28 +1,35 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const scaleBarContainerStyles = css`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: ${getThemedSpacing(400)};
 `
 
 export const scaleBarGradientBarStyles = (gradient: string) => css`
-  height: 1.25rem;
+  height: ${getThemedSpacing(500)};
   width: 100%;
-  margin-bottom: 0.5rem;
-  border: 1px solid ${getThemedColor('neutral', 300)};
-  border-radius: 0.25rem;
+  margin-bottom: ${getThemedSpacing(200)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-radius: ${getThemedRadius(300)};
   ${gradient ? `background: ${gradient};` : ''}
 `
 
 export const scaleBarBarStyles = css`
-  height: 1.25rem;
+  height: ${getThemedSpacing(500)};
   width: 100%;
-  margin-bottom: 0.5rem;
-  border: 1px solid ${getThemedColor('neutral', 300)};
-  border-radius: 0.25rem;
+  margin-bottom: ${getThemedSpacing(200)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-radius: ${getThemedRadius(300)};
   display: flex;
   align-items: center;
 
@@ -45,16 +52,16 @@ export const scaleBarLabelContainerStyles = css`
 
 export const scaleBarValueStyles = css`
   width: 100%;
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font-size: ${getThemedFontSize(200)};
+  line-height: ${getThemedLineHeight(400)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 800)};
   text-align: center;
 `
 
 export const scaleBarSubLabelsStyles = css`
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font-size: ${getThemedFontSize(200)};
+  line-height: ${getThemedLineHeight(400)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
   text-align: center;

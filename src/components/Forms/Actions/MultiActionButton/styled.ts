@@ -1,12 +1,19 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 import { MultiActionButtonProps } from './types'
 
 export const menuContentStyles = css`
   width: 12.5rem;
-  border: 0.0625rem solid ${getThemedColor('neutral', 600)};
-  border-radius: 0.25rem;
-  padding: 0.5rem;
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
+  border-radius: ${getThemedRadius(300)};
+  padding: ${getThemedSpacing(200)};
 `
 
 export const menuTriggerStyles = (
@@ -16,15 +23,19 @@ export const menuTriggerStyles = (
     background-color: ${variant === 'primary'
       ? getThemedColor('primary', 600)
       : getThemedColor('neutral', 200)} !important;
-    border: 0.0625rem solid ${getThemedColor('primary', 800)} !important;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 800)} !important;
   }
 `
 
 export const menuItemStyles = (size: MultiActionButtonProps['size']) => css`
-  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
-  line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(300)
+    : getThemedFontSize(400)};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(500)
+    : getThemedLineHeight(600)};
   color: ${getThemedColor('neutral', 800)};
-  padding: 0.25rem;
+  padding: ${getThemedSpacing(100)};
   cursor: pointer;
 
   &[data-highlighted] {
@@ -38,5 +49,5 @@ export const disabledGroupStyles = css`
 `
 
 export const triggerMenuButtonStyles = {
-  padding: '0.75rem',
+  padding: getThemedSpacing(300),
 }

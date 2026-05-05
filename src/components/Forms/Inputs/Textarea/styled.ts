@@ -1,5 +1,12 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 import { TextareaProps } from './types'
 
 export const textareaContainerStyles = (size: TextareaProps['size']) => css`
@@ -9,8 +16,8 @@ export const textareaContainerStyles = (size: TextareaProps['size']) => css`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: ${size === 'small' ? '0.75rem' : '1rem'};
-  margin-bottom: 1rem;
+  gap: ${size === 'small' ? getThemedSpacing(300) : getThemedSpacing(400)};
+  margin-bottom: ${getThemedSpacing(400)};
 `
 export const textareaErrorBarStyles = css`
   width: 0.1875rem;
@@ -26,10 +33,14 @@ export const fieldLabelStyles = (
   disabled?: TextareaProps['disabled'],
 ) => css`
   color: ${getThemedColor('neutral', disabled ? 600 : 900)};
-  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(300)
+    : getThemedFontSize(400)};
   font-weight: 400;
-  line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
-  margin-bottom: 0.125rem;
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(500)
+    : getThemedLineHeight(600)};
+  margin-bottom: ${getThemedSpacing(50)};
 
   span {
     color: ${getThemedColor('neutral', disabled ? 600 : 700)};
@@ -47,25 +58,29 @@ export const fieldCaptionStyles = (
   disabled?: TextareaProps['disabled'],
 ) => css`
   color: ${getThemedColor('neutral', disabled ? 600 : 700)};
-  font-size: ${size === 'small' ? '0.75rem' : '0.875rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(200)
+    : getThemedFontSize(300)};
   font-weight: 400;
-  line-height: ${size === 'small' ? '1rem' : '1.25rem'};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(400)
+    : getThemedLineHeight(500)};
 `
 
 export const fieldHelperTextStyles = css`
   color: ${getThemedColor('neutral', 600)};
-  font-size: 0.75rem;
+  font-size: ${getThemedFontSize(200)};
   font-weight: 400;
-  line-height: 1rem;
-  margin-top: 0.5rem;
+  line-height: ${getThemedLineHeight(400)};
+  margin-top: ${getThemedSpacing(200)};
 `
 
 export const fieldErrorMessageStyles = css`
   color: ${getThemedColor('error', 900)};
-  font-size: 0.875rem;
+  font-size: ${getThemedFontSize(300)};
   font-weight: 700;
-  line-height: 1.25rem;
-  margin-top: 0.125rem;
+  line-height: ${getThemedLineHeight(500)};
+  margin-top: ${getThemedSpacing(50)};
 `
 
 export const textareaSyles = (
@@ -75,42 +90,43 @@ export const textareaSyles = (
 ) => css`
   height: 6.5rem;
   width: 100%;
-  border-radius: 0.25rem;
-  padding: ${size === 'small' ? '0.5rem' : '0.75rem'};
-  margin-top: 0.5rem;
+  border-radius: ${getThemedRadius(300)};
+  padding: ${size === 'small' ? getThemedSpacing(200) : getThemedSpacing(300)};
+  margin-top: ${getThemedSpacing(200)};
   background-color: ${getThemedColor('neutral', 100)};
   color: ${getThemedColor('neutral', 800)};
-  border: 0.0625rem solid ${getThemedColor('neutral', 400)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
 
   &:focus-visible,
   &[data-focus-visible] {
-    border: 0.125rem solid ${getThemedColor('neutral', 700)};
-    outline: 0.125rem solid ${getThemedColor('primary', 700)};
-    outline-offset: 0.125rem;
+    border: ${getThemedBorderWidth(200)} solid ${getThemedColor('neutral', 700)};
+    outline: ${getThemedBorderWidth(200)} solid
+      ${getThemedColor('primary', 700)};
+    outline-offset: ${getThemedSpacing(50)};
     box-shadow:
       0 0 0 0.125rem ${getThemedColor('neutral', 100)},
       rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
   }
 
   &:active {
-    border: 0.0625rem solid ${getThemedColor('primary', 600)} !important;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 600)} !important;
     outline: none !important;
     box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
   }
 
   &[data-invalid] {
-    border: 0.0625rem solid ${getThemedColor('error', 900)} !important;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('error', 900)} !important;
   }
 
   &:disabled {
     background-color: ${getThemedColor('neutral', 200)};
-    border: 0.0625rem solid ${getThemedColor('neutral', 300)} !important;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)} !important;
   }
 
   ${value || defaultValue
     ? `
-    border: 0.0625rem solid ${getThemedColor('neutral', 700)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 700)};
   `
     : ''}
 `

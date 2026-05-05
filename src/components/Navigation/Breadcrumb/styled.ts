@@ -1,13 +1,22 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../lib/theme'
 import { BreadcrumbProps } from './types'
 
 export const breadcrumbItemStyles = (size: BreadcrumbProps['size']) => css`
   a,
   p {
-    font-size: ${size === 'small' ? '0.75rem' : '1rem'};
+    font-size: ${size === 'small'
+      ? getThemedFontSize(200)
+      : getThemedFontSize(400)};
     font-weight: 400;
-    line-height: ${size === 'small' ? '1rem' : '1.5rem'};
+    line-height: ${size === 'small'
+      ? getThemedLineHeight(400)
+      : getThemedLineHeight(600)};
     color: ${getThemedColor('neutral', 600)};
     display: flex;
     align-items: center;
@@ -16,8 +25,12 @@ export const breadcrumbItemStyles = (size: BreadcrumbProps['size']) => css`
     text-transform: capitalize;
 
     svg {
-      height: ${size === 'small' ? '0.75rem' : '1rem'};
-      width: ${size === 'small' ? '0.75rem' : '1rem'};
+      height: ${size === 'small'
+        ? getThemedSpacing(300)
+        : getThemedSpacing(400)};
+      width: ${size === 'small'
+        ? getThemedSpacing(300)
+        : getThemedSpacing(400)};
       color: ${getThemedColor('neutral', 600)};
     }
   }
@@ -38,8 +51,8 @@ export const breadcrumbItemStyles = (size: BreadcrumbProps['size']) => css`
 
 export const breadcrumbSeparatorStyles = (size: BreadcrumbProps['size']) => css`
   svg {
-    height: ${size === 'small' ? '0.5rem' : '0.75rem'};
-    width: ${size === 'small' ? '0.5rem' : '0.75rem'};
+    height: ${size === 'small' ? getThemedSpacing(200) : getThemedSpacing(300)};
+    width: ${size === 'small' ? getThemedSpacing(200) : getThemedSpacing(300)};
     color: ${getThemedColor('neutral', 600)};
   }
 `

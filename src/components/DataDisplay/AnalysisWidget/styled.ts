@@ -1,20 +1,26 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 export const analysisWidgetContainerStyles = css`
-  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
 `
 
 export const analysisWidgetHeaderStyles = css`
-  padding: 1rem;
+  padding: ${getThemedSpacing(400)};
   cursor: pointer;
-  border-bottom: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
   > div {
     overflow: visible;
   }
   &:focus-visible {
-    outline-offset: -0.125rem;
-    outline: 0.125rem solid ${getThemedColor('primary', 700)};
+    outline-offset: -${getThemedSpacing(50)};
+    outline: ${getThemedBorderWidth(200)} solid
+      ${getThemedColor('primary', 700)};
   }
   &:hover {
     box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
@@ -50,5 +56,6 @@ export const analysisWidgetContentStyles = css`
 `
 
 export const analysisWidgetFooterStyles = css`
-  border-top: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border-top: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 `

@@ -1,24 +1,30 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 export const badgeContainerStyles = css`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.5rem;
+  gap: ${getThemedSpacing(200)};
 `
 
 export const badgeNotificationContainerStyles = (width?: string) => css`
-  width: ${width || '1rem'};
+  width: ${width || getThemedSpacing(400)};
   position: relative;
   display: flex;
 `
 
 export const badgeDotContainerStyles = css`
-  height: 0.25rem;
-  width: 0.25rem;
+  height: ${getThemedSpacing(100)};
+  width: ${getThemedSpacing(100)};
   background-color: ${getThemedColor('error', 500)};
-  border-radius: 0.25rem;
+  border-radius: ${getThemedRadius(300)};
   position: absolute;
   top: 0rem;
   right: 0rem;
@@ -28,34 +34,36 @@ export const badgeCountContainerStyles = css`
   height: 0.625rem;
   background-color: ${getThemedColor('error', 500)};
   padding: 0 0.1875rem 0.0625rem 0.1875rem;
-  border-radius: 0.5rem;
+  border-radius: ${getThemedRadius(500)};
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -0.125rem;
+  top: -${getThemedSpacing(50)};
   left: 0.5625rem;
 `
 
 export const badgeCountStyles = css`
-  font-size: 0.5625rem;
+  font-size: ${getThemedFontSize(200)};
+  line-height: ${getThemedLineHeight(400)};
   font-weight: 700;
   color: ${getThemedColor('error', 100)};
 `
 
 export const badgeMobileCountContainerStyles = css`
-  height: 1rem;
-  min-width: 1rem;
+  height: ${getThemedSpacing(400)};
+  min-width: ${getThemedSpacing(400)};
   background-color: ${getThemedColor('error', 500)};
-  border-radius: 1rem;
+  border-radius: ${getThemedRadius(700)};
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0rem 0.25rem 0.0625rem 0.25rem;
+  padding: 0rem ${getThemedSpacing(100)} 0.0625rem ${getThemedSpacing(100)};
 `
 
 export const badgeMobileCountStyles = css`
-  font-size: 1rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   font-weight: 700;
   color: ${getThemedColor('error', 100)};
 `

@@ -1,11 +1,18 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 export const tableContainerStyles = (variant: string) => css`
   border: ${variant === 'full-width'
     ? 'none'
-    : `0.0625rem solid ${getThemedColor('neutral', 300)}`};
-  border-radius: 0.125rem;
+    : `${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)}`};
+  border-radius: ${getThemedRadius(200)};
   box-shadow: ${variant === 'full-width'
     ? 'none'
     : `0 0 0 0.0625rem ${getThemedColor('neutral', 300)}`};
@@ -19,14 +26,14 @@ export const tableHeaderContainerStyles = (variant: string) => css`
 
     th {
       border-bottom: none !important;
-      box-shadow: inset 0 -1px 0 ${getThemedColor('neutral', 300)};
+      box-shadow: inset 0 -0.0625rem 0 ${getThemedColor('neutral', 300)};
     }
   }
 `
 
 export const tableHeaderLabelStyles = css`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   font-weight: 700;
   color: ${getThemedColor('neutral', 800)};
   display: flex;
@@ -34,13 +41,13 @@ export const tableHeaderLabelStyles = css`
 `
 
 export const tableHeaderSortContainerStyles = css`
-  height: 1.5rem;
+  height: ${getThemedLineHeight(600)};
   width: 0.625rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-left: 0.5rem;
+  margin-left: ${getThemedSpacing(200)};
 
   button {
     height: 0.625rem;
@@ -68,7 +75,7 @@ export const tableHeaderSortButtonStyles = (selected: boolean) => css`
 `
 
 export const tableFooterContainerStyles = css`
-  margin-top: 0.75rem;
+  margin-top: ${getThemedSpacing(300)};
   display: flex;
   justify-content: space-between;
 `
@@ -79,7 +86,7 @@ export const tablePaginationContainerStyles = css`
 
 export const tableBodyStyles = css`
   tr {
-    height: 3rem;
+    height: ${getThemedSpacing(1200)};
 
     td {
       border-color: ${getThemedColor('neutral', 300)};
@@ -91,7 +98,7 @@ export const tableBodyStyles = css`
 
     &.selected {
       background-color: ${getThemedColor('primary', 100)} !important;
-      border-bottom: 2px solid ${getThemedColor('primary', 700)} !important;
+      border-bottom: 0.125rem solid ${getThemedColor('primary', 700)} !important;
     }
   }
 `

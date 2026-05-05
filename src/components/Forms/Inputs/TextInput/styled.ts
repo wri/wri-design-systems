@@ -1,5 +1,12 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 import { TextInputProps } from './types'
 
 export const textInputContainerStyles = (
@@ -12,8 +19,8 @@ export const textInputContainerStyles = (
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: ${size === 'small' ? '0.75rem' : '1rem'};
-  margin-bottom: ${noMarginBottom ? '0' : '1.25rem'};
+  gap: ${size === 'small' ? getThemedSpacing(300) : getThemedSpacing(400)};
+  margin-bottom: ${noMarginBottom ? '0' : getThemedSpacing(500)};
 `
 
 export const textInputErrorBarStyles = css`
@@ -30,10 +37,14 @@ export const fieldLabelStyles = (
   disabled?: TextInputProps['disabled'],
 ) => css`
   color: ${getThemedColor('neutral', disabled ? 600 : 900)};
-  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(300)
+    : getThemedFontSize(400)};
   font-weight: 400;
-  line-height: ${size === 'small' ? '1.25rem' : '1.5rem'};
-  margin-bottom: 0.125rem;
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(500)
+    : getThemedLineHeight(600)};
+  margin-bottom: ${getThemedSpacing(50)};
   display: flex;
   align-items: flex-start;
   -webkit-user-select: text;
@@ -47,7 +58,7 @@ export const fieldLabelStyles = (
   }
 
   .chakra-field__requiredIndicator {
-    margin-top: 0.25rem;
+    margin-top: ${getThemedSpacing(100)};
     color: ${disabled
       ? getThemedColor('neutral', 600)
       : getThemedColor('error', 500)};
@@ -59,9 +70,13 @@ export const fieldCaptionStyles = (
   disabled?: TextInputProps['disabled'],
 ) => css`
   color: ${getThemedColor('neutral', disabled ? 600 : 700)};
-  font-size: ${size === 'small' ? '0.75rem' : '0.875rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(200)
+    : getThemedFontSize(300)};
   font-weight: 400;
-  line-height: ${size === 'small' ? '1rem' : '1.25rem'};
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(400)
+    : getThemedLineHeight(500)};
 
   &:first-letter {
     text-transform: uppercase;
@@ -70,10 +85,14 @@ export const fieldCaptionStyles = (
 
 export const fieldErrorMessageStyles = (size: TextInputProps['size']) => css`
   color: ${getThemedColor('error', 900)};
-  font-size: ${size === 'small' ? '0.75rem' : '0.875rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(200)
+    : getThemedFontSize(300)};
   font-weight: 700;
-  line-height: ${size === 'small' ? '1rem' : '1.25rem'};
-  margin-top: 0.125rem;
+  line-height: ${size === 'small'
+    ? getThemedLineHeight(400)
+    : getThemedLineHeight(500)};
+  margin-top: ${getThemedSpacing(50)};
 `
 
 export const textInputStyles = (
@@ -81,37 +100,42 @@ export const textInputStyles = (
   value?: string,
   defaultValue?: string,
 ) => css`
-  height: ${size === 'small' ? '1.75rem' : '2.5rem'};
+  height: ${size === 'small' ? getThemedSpacing(700) : getThemedSpacing(1000)};
   width: 100%;
-  border-radius: 0.25rem;
-  padding: ${size === 'small' ? '0.25rem 0.5rem' : '0.75rem'};
+  border-radius: ${getThemedRadius(300)};
+  padding: ${size === 'small'
+    ? `${getThemedSpacing(100)} ${getThemedSpacing(200)}`
+    : getThemedSpacing(300)};
   background-color: ${getThemedColor('neutral', 100)};
   color: ${getThemedColor('neutral', 800)};
-  border: 0.0625rem solid ${getThemedColor('neutral', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
-  font-size: ${size === 'small' ? '0.875rem' : '1rem'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(300)
+    : getThemedFontSize(400)};
 
   &:focus-visible,
   &[data-focus-visible] {
-    outline: 0.125rem solid ${getThemedColor('primary', 700)};
-    outline-offset: 0.125rem;
+    outline: ${getThemedBorderWidth(200)} solid
+      ${getThemedColor('primary', 700)};
+    outline-offset: ${getThemedSpacing(50)};
     box-shadow:
       0 0 0 0.125rem ${getThemedColor('neutral', 100)},
       rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
   }
 
   &[data-invalid] {
-    border: 0.0625rem solid ${getThemedColor('error', 900)} !important;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('error', 900)} !important;
   }
 
   &:disabled {
     background-color: ${getThemedColor('neutral', 200)};
-    border: 0.0625rem solid ${getThemedColor('neutral', 300)} !important;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)} !important;
   }
 
   ${value || defaultValue
     ? `
-    border: 0.0625rem solid ${getThemedColor('neutral', 700)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 700)};
   `
     : ''}
 `

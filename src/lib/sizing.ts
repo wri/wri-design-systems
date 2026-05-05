@@ -11,3 +11,6 @@ export const resolveSizeValue = (value: SizeValue): string => {
   }
   return value
 }
+
+export const pxToRem = (px: number, basePx = 16): string =>
+  `${formatRemValue(px / basePx)}rem`

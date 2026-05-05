@@ -1,12 +1,16 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const iconButtonStyles = css`
-  width: 1.25rem !important;
+  width: ${getThemedSpacing(500)} !important;
   padding: 0 !important;
-  min-width: 1.25rem !important;
-  height: 1.25rem;
-  border-radius: 0.125rem;
+  min-width: ${getThemedSpacing(500)} !important;
+  height: ${getThemedSpacing(500)};
+  border-radius: ${getThemedRadius(200)};
   background-color: ${getThemedColor('neutral', 100)};
 
   svg {

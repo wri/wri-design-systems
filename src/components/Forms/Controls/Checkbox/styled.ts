@@ -1,11 +1,15 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const checkboxStyles = css`
   .chakra-checkbox__control {
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 0.0625rem solid ${getThemedColor('neutral', 700)};
+    width: ${getThemedSpacing(500)};
+    height: ${getThemedSpacing(500)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 700)};
     cursor: pointer;
 
     svg {
@@ -18,21 +22,22 @@ export const checkboxStyles = css`
 
     &:hover,
     &[data-hover] {
-      outline: 0.25rem solid
+      outline: ${getThemedSpacing(100)} solid
         color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
     }
 
     &:active,
     &[data-active] {
-      outline: 0.25rem solid
+      outline: ${getThemedSpacing(100)} solid
         color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
     }
 
     &:focus-visible,
     &[data-focus-visible] {
       box-shadow: none;
-      outline: 0.125rem solid ${getThemedColor('primary', 700)};
-      outline-offset: 0.125rem;
+      outline: ${getThemedBorderWidth(200)} solid
+        ${getThemedColor('primary', 700)};
+      outline-offset: ${getThemedSpacing(50)};
       box-shadow:
         0 0 0 0.125rem ${getThemedColor('neutral', 100)},
         rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
@@ -40,7 +45,8 @@ export const checkboxStyles = css`
 
     &[data-state='checked'],
     &[data-state='indeterminate'] {
-      border: 0.0625rem solid ${getThemedColor('primary', 700)};
+      border: ${getThemedBorderWidth(100)} solid
+        ${getThemedColor('primary', 700)};
       background-color: ${getThemedColor('primary', 500)} !important;
 
       svg path {
@@ -50,7 +56,8 @@ export const checkboxStyles = css`
     }
 
     &[data-disabled] {
-      border: 0.0625rem solid ${getThemedColor('neutral', 400)};
+      border: ${getThemedBorderWidth(100)} solid
+        ${getThemedColor('neutral', 400)};
       background-color: transparent !important;
       cursor: not-allowed;
 
