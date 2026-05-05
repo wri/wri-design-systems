@@ -44,6 +44,23 @@ const VALID_CATEGORIES = [
   'Status',
 ]
 
+// Maps a component category to the README.md section header under which
+// the new component entry should be appended.
+const README_SECTION_MAP: Record<string, string> = {
+  Containers: '## Containers',
+  DataDisplay: '## Data Display',
+  'Forms/Actions': '### Actions',
+  'Forms/Controls': '### Controls',
+  'Forms/Inputs': '### Inputs',
+  'Forms/Tag': '### Tags',
+  'Forms/FormContainer': '### Form Container',
+  Geospatial: '## Geospatial',
+  'Geospatial/Layers': '### Layers',
+  'Geospatial/Legends': '### Legends',
+  Navigation: '## Navigation',
+  Status: '## Status',
+}
+
 // ---------- file templates ----------
 
 const indexTsx = (
@@ -262,6 +279,60 @@ const updateAppTsx = (name: string, category: string) => {
   console.log('  updated  src/App.tsx')
 }
 
+// ---------- README.md ----------
+
+const updateMainReadme = (name: string, category: string) => {
+  const readmePath = path.join(process.cwd(), 'README.md')
+  const title = toTitleCase(name)
+  const githubLink = `https://github.com/wri/wri-design-systems/tree/main/src/components/${category}/${name}`
+  const newEntry = `- [${title}](${githubLink})`
+
+  const content = fs.readFileSync(readmePath, 'utf-8')
+
+  if (content.includes(githubLink)) {
+    console.log('  skipped  README.md (already listed)')
+    return
+  }
+
+  const sectionMarker = README_SECTION_MAP[category]
+
+  if (!sectionMarker) {
+    console.log(
+      `  warning  README.md: no section mapping for "${category}" — add entry manually`,
+    )
+    return
+  }
+
+  const lines = content.split('\n')
+  const sectionIdx = lines.findIndex((l) => l.trim() === sectionMarker)
+
+  if (sectionIdx === -1) {
+    console.log(
+      `  warning  README.md: section "${sectionMarker}" not found — add entry manually`,
+    )
+    return
+  }
+
+  // Find the end of this section (next ## or ### heading, or EOF)
+  let sectionEnd = lines.length
+  for (let i = sectionIdx + 1; i < lines.length; i++) {
+    if (lines[i].match(/^#{2,3} /)) {
+      sectionEnd = i
+      break
+    }
+  }
+
+  // Insert after the last bullet in the section
+  let insertAfter = sectionIdx
+  for (let i = sectionIdx + 1; i < sectionEnd; i++) {
+    if (lines[i].startsWith('- [')) insertAfter = i
+  }
+
+  lines.splice(insertAfter + 1, 0, newEntry)
+  fs.writeFileSync(readmePath, lines.join('\n'), 'utf-8')
+  console.log('  updated  README.md')
+}
+
 // ---------- main ----------
 
 const prompt = (question: string): Promise<string> => {
@@ -341,6 +412,7 @@ const main = async () => {
   updateComponentsIndex(name, category)
   updateDemoIndex(name)
   updateAppTsx(name, category)
+  updateMainReadme(name, category)
 
   console.log(`\n✓  Done! Component ${name} created.\n`)
   console.log('Next steps:')

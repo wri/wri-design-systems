@@ -74,6 +74,7 @@ It also updates:
 - `src/components/index.ts` — adds the public export
 - `src/components/UI/DemoIndex.tsx` — adds the component to the index list
 - `src/App.tsx` — adds the demo to the dev app
+- `README.md` — adds the component to the Components section
 
 ### After Running the Script
 
@@ -81,8 +82,9 @@ It also updates:
 2. Define TypeScript types in `types.ts`.
 3. Add Emotion styles in `styled.ts` using `getThemedColor` (see Color Tokens below).
 4. Export any additional types from `src/components/index.ts` if needed.
-5. Verify the Storybook story renders: `yarn storybook`.
-6. Verify the dev app demo renders: `yarn start`.
+5. Check `README.md` — the script adds the entry automatically, but verify it landed in the right section.
+6. Verify the Storybook story renders: `yarn storybook`.
+7. Verify the dev app demo renders: `yarn start`.
 
 ---
 
@@ -275,7 +277,7 @@ const MyWidget = () => <div style={{ color: 'red' }}>...</div>
 | What props does a Chakra component accept?      | Chakra MCP → `get_component_props`                                          |
 | What color tokens are available?                | `src/lib/theme.ts` — source of truth                                        |
 | How do I use a color in a style?                | `getThemedColor('scale', step)` from relative `../../../../lib/theme`       |
-| How do I scaffold a new component?              | `yarn new-component <Name> <Category>`                                      |
+| How do I scaffold a new component?                 | `yarn new-component <Name> <Category>` — updates index.ts, DemoIndex, App.tsx, and README.md |
 | Where are all custom (non-DS) components?       | "Find in Files" → `[CUSTOM COMPONENT]`                                      |
 | How do I verify the dev app?                    | `yarn start`                                                                |
 | How do I verify Storybook?                      | `yarn storybook`                                                            |
