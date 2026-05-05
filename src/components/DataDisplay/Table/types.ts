@@ -27,6 +27,8 @@ export type TableProps = {
   onPageChange?: (page: number) => void
   onAllItemsSelected?: (checked: boolean) => void
   loading?: boolean
+  /** When set, the table scrolls vertically within this height and horizontally when it overflows its container (e.g. '400px', '60vh'). */
+  height?: string
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<TableLabels>
 }
