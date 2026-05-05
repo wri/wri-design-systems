@@ -15,6 +15,7 @@ import {
   tablePaginationContainerStyles,
   tableBodyStyles,
   tableLoaderStyles,
+  tableScrollContainerStyles,
 } from './styles'
 import ItemCount from '../ItemCount'
 import { ChevronDownIcon } from '../../icons'
@@ -38,6 +39,7 @@ const Table = ({
   onPageChange,
   onAllItemsSelected,
   loading,
+  height,
   labels,
 }: TableProps) => {
   const l = useLabels('Table', labels)
@@ -67,86 +69,90 @@ const Table = ({
 
   return (
     <div>
-      <ChakraTable.Root
-        css={tableContainerStyles(variant)}
-        striped={striped}
-        stickyHeader={stickyHeader}
-        interactive
-      >
-        <ChakraTable.Header css={tableHeaderContainerStyles(variant)}>
-          <ChakraTable.Row>
-            {selectable ? (
-              <ChakraTable.ColumnHeader>
-                <Checkbox
-                  name='header-checkbox'
-                  checked={allChecked}
-                  indeterminate={indeterminate}
-                  onCheckedChange={({ checked }: any) => {
-                    if (onAllItemsSelected) {
-                      onAllItemsSelected(checked)
-                    }
-                  }}
-                />
-              </ChakraTable.ColumnHeader>
-            ) : null}
-            {columns.map((column) => (
-              <ChakraTable.ColumnHeader
-                key={column.key}
-                role={column.sortable ? 'columnheader' : undefined}
-                aria-sort={
-                  // eslint-disable-next-line no-nested-ternary
-                  column.sortable && sortColumn.order === 'asc'
-                    ? 'ascending'
-                    : column.sortable && sortColumn.order === 'desc'
-                      ? 'descending'
-                      : undefined
-                }
-              >
-                <div css={tableHeaderLabelStyles}>
-                  {column.label}
-                  {column.sortable ? (
-                    <div css={tableHeaderSortContainerStyles}>
-                      <IconButton
-                        css={tableHeaderSortButtonStyles(
-                          sortColumn.key === column.key &&
-                            sortColumn.order === 'asc',
-                        )}
-                        icon={
-                          <ChevronDownIcon
-                            style={{ transform: 'rotate(180deg)' }}
-                          />
-                        }
-                        onClick={() => onSort(column.key, 'asc')}
-                        aria-label={l.ascendingLabel}
-                      />
-                      <IconButton
-                        css={tableHeaderSortButtonStyles(
-                          sortColumn.key === column.key &&
-                            sortColumn.order === 'desc',
-                        )}
-                        icon={<ChevronDownIcon />}
-                        onClick={() => onSort(column.key, 'desc')}
-                        aria-label={l.descendingLabel}
-                      />
-                    </div>
-                  ) : null}
-                </div>
-              </ChakraTable.ColumnHeader>
+      <div css={height ? tableScrollContainerStyles(height) : undefined}>
+        <ChakraTable.Root
+          css={tableContainerStyles(variant)}
+          striped={striped}
+          stickyHeader={stickyHeader}
+          interactive
+        >
+          <ChakraTable.Header css={tableHeaderContainerStyles(variant)}>
+            <ChakraTable.Row>
+              {selectable ? (
+                <ChakraTable.ColumnHeader>
+                  <Checkbox
+                    name='header-checkbox'
+                    checked={allChecked}
+                    indeterminate={indeterminate}
+                    onCheckedChange={({ checked }: any) => {
+                      if (onAllItemsSelected) {
+                        onAllItemsSelected(checked)
+                      }
+                    }}
+                  />
+                </ChakraTable.ColumnHeader>
+              ) : null}
+              {columns.map((column) => (
+                <ChakraTable.ColumnHeader
+                  key={column.key}
+                  role={column.sortable ? 'columnheader' : undefined}
+                  aria-sort={
+                    // eslint-disable-next-line no-nested-ternary
+                    column.sortable && sortColumn.order === 'asc'
+                      ? 'ascending'
+                      : column.sortable && sortColumn.order === 'desc'
+                        ? 'descending'
+                        : undefined
+                  }
+                >
+                  <div css={tableHeaderLabelStyles}>
+                    {column.label}
+                    {column.sortable ? (
+                      <div css={tableHeaderSortContainerStyles}>
+                        <IconButton
+                          css={tableHeaderSortButtonStyles(
+                            sortColumn.key === column.key &&
+                              sortColumn.order === 'asc',
+                          )}
+                          icon={
+                            <ChevronDownIcon
+                              style={{ transform: 'rotate(180deg)' }}
+                            />
+                          }
+                          onClick={() => onSort(column.key, 'asc')}
+                          aria-label={l.ascendingLabel}
+                        />
+                        <IconButton
+                          css={tableHeaderSortButtonStyles(
+                            sortColumn.key === column.key &&
+                              sortColumn.order === 'desc',
+                          )}
+                          icon={<ChevronDownIcon />}
+                          onClick={() => onSort(column.key, 'desc')}
+                          aria-label={l.descendingLabel}
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                </ChakraTable.ColumnHeader>
+              ))}
+            </ChakraTable.Row>
+          </ChakraTable.Header>
+          <ChakraTable.Body css={tableBodyStyles}>
+            {data.map((item: any) => (
+              <React.Fragment key={item.id}>
+                {renderRow(item, {
+                  className: selectedRows?.some(
+                    (row: any) => row.id === item.id,
+                  )
+                    ? 'selected'
+                    : undefined,
+                })}
+              </React.Fragment>
             ))}
-          </ChakraTable.Row>
-        </ChakraTable.Header>
-        <ChakraTable.Body css={tableBodyStyles}>
-          {data.map((item: any) => (
-            <React.Fragment key={item.id}>
-              {renderRow(item, {
-                className: selectedRows?.some((row: any) => row.id === item.id)
-                  ? 'selected'
-                  : undefined,
-              })}
-            </React.Fragment>
-          ))}
-        </ChakraTable.Body>
-      </ChakraTable.Root>
+          </ChakraTable.Body>
+        </ChakraTable.Root>
+      </div>
       {loading ? (
         <div css={tableLoaderStyles}>
           <Spinner size='lg' color={getThemedColor('primary', 500)} />

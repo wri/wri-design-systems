@@ -18,7 +18,8 @@ export const tableHeaderContainerStyles = (variant: string) => css`
       : getThemedColor('neutral', 200)};
 
     th {
-      border-color: ${getThemedColor('neutral', 300)};
+      border-bottom: none !important;
+      box-shadow: inset 0 -1px 0 ${getThemedColor('neutral', 300)};
     }
   }
 `
@@ -90,8 +91,15 @@ export const tableBodyStyles = css`
 
     &.selected {
       background-color: ${getThemedColor('primary', 100)} !important;
+      border-bottom: 2px solid ${getThemedColor('primary', 700)} !important;
     }
   }
+`
+
+export const tableScrollContainerStyles = (height: string) => css`
+  overflow: auto;
+  height: ${height};
+  width: 100%;
 `
 
 export const tableLoaderStyles = css`
