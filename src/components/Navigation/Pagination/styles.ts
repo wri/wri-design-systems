@@ -1,5 +1,10 @@
 import { css } from '@emotion/react'
-import { getThemedColor } from '../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 export const paginationPrevNextStyles = css`
   background: transparent;
@@ -11,16 +16,16 @@ export const paginationPrevNextStyles = css`
 `
 
 export const paginationLabelCompactStyles = css`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   font-weight: 700;
   color: ${getThemedColor('neutral', 900)};
 `
 
 export const paginationLabelsGroupStyles = css`
   span {
-    height: 1.25rem;
-    width: 1.25rem;
+    height: ${getThemedSpacing(500)};
+    width: ${getThemedSpacing(500)};
     cursor: initial;
 
     &:hover {
@@ -30,8 +35,8 @@ export const paginationLabelsGroupStyles = css`
 `
 
 export const paginationLabelStyles = css`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
   background: transparent;
