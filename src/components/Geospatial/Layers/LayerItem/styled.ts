@@ -1,11 +1,18 @@
 import { css } from '@emotion/react'
-import { getThemedColor, getThemedBorderWidth, getThemedFontSize, getThemedLineHeight, getThemedSpacing } from '../../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 import { LayerItemProps } from './types'
 
 export const layerItemContainerStyles = css`
   width: 100%;
   padding: ${getThemedSpacing(400)} 0;
-  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 
   &:last-of-type {
     border-bottom: none;

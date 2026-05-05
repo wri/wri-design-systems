@@ -1,5 +1,11 @@
 import { css } from '@emotion/react'
-import { getThemedColor, getThemedBorderWidth, getThemedFontSize, getThemedLineHeight, getThemedSpacing } from '../../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const layerPanelContainerStyles = css`
   width: 100%;
@@ -7,8 +13,10 @@ export const layerPanelContainerStyles = css`
 `
 
 export const layerPanelHeaderStyles = css`
-  padding: ${getThemedSpacing(400)} ${getThemedSpacing(400)} ${getThemedSpacing(500)} ${getThemedSpacing(400)};
-  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  padding: ${getThemedSpacing(400)} ${getThemedSpacing(400)}
+    ${getThemedSpacing(500)} ${getThemedSpacing(400)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 `
 
 export const layerPanelTitleStyles = css`

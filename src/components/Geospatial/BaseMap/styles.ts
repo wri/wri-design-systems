@@ -1,5 +1,12 @@
 import { css } from '@emotion/react'
-import { getThemedColor, getThemedBorderWidth, getThemedFontSize, getThemedLineHeight, getThemedRadius, getThemedSpacing } from '../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 export const baseMapContainerStyles = (
   maxHeight?: string,
@@ -22,7 +29,8 @@ export const baseMapContainerStyles = (
 
 export const baseMapHeaderContainerStyles = css`
   padding: ${getThemedSpacing(400)} ${getThemedSpacing(300)};
-  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 
   .ds-base-map-header-title {
     font-size: ${getThemedFontSize(500)};
@@ -52,7 +60,8 @@ export const baseMapAdditionalSettingsContainerStyles = css`
   flex-direction: column;
   gap: ${getThemedSpacing(300)};
   padding: ${getThemedSpacing(300)};
-  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
 `
 
 export const baseMapAdditionalSettingsChildrenContainerStyles = css`
@@ -66,7 +75,8 @@ export const baseMapOptionsItemContainerStyles = (active?: boolean) => css`
   display: flex;
   gap: ${getThemedSpacing(300)};
   padding: ${getThemedSpacing(300)} ${getThemedSpacing(200)};
-  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
   cursor: pointer;
 
   ${active &&

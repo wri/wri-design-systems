@@ -1,12 +1,18 @@
 import { css } from '@emotion/react'
-import { getThemedColor, getThemedFontSize, getThemedLineHeight, getThemedSpacing } from '../../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const layerGroupContainerStyles = css`
   background-color: ${getThemedColor('neutral', 100)};
 `
 
 export const layerGroupBoxStyles = css`
-  padding: ${getThemedSpacing(400)} ${getThemedSpacing(400)} 0 ${getThemedSpacing(400)};
+  padding: ${getThemedSpacing(400)} ${getThemedSpacing(400)} 0
+    ${getThemedSpacing(400)};
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
   }

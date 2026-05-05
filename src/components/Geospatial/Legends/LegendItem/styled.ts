@@ -1,12 +1,19 @@
 import { css } from '@emotion/react'
-import { getThemedColor, getThemedBorderWidth, getThemedFontSize, getThemedLineHeight, getThemedSpacing } from '../../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const legendItemContainerStyles = css`
   padding: ${getThemedSpacing(300)};
   padding-bottom: ${getThemedSpacing(500)};
   display: flex;
   gap: ${getThemedSpacing(300)};
-  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
   background-color: ${getThemedColor('neutral', 100)};
 `
 

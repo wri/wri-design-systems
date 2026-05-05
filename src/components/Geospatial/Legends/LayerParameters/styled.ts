@@ -1,5 +1,12 @@
 import { css } from '@emotion/react'
-import { getThemedColor, getThemedBorderWidth, getThemedFontSize, getThemedLineHeight, getThemedRadius, getThemedSpacing } from '../../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedBorderWidth,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../../lib/theme'
 
 export const layerParametersItemStyles = css`
   margin-bottom: ${getThemedSpacing(400)};
@@ -16,7 +23,8 @@ export const layerParametersTriggerStyles = css`
   cursor: pointer;
 
   &[aria-expanded='true'] {
-    border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+    border-bottom: ${getThemedBorderWidth(100)} solid
+      ${getThemedColor('neutral', 300)};
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -48,7 +56,8 @@ export const layerParametersItemContentStyles = css`
 
   .ds-layer-parameters-item-child {
     padding-bottom: ${getThemedSpacing(400)};
-    border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+    border-bottom: ${getThemedBorderWidth(100)} solid
+      ${getThemedColor('neutral', 300)};
     margin-bottom: ${getThemedSpacing(400)};
 
     &:last-child {

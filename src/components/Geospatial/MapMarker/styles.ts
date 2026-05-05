@@ -1,5 +1,9 @@
 import { css } from '@emotion/react'
-import { getThemedColor, getThemedBorderWidth, getThemedSpacing } from '../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedBorderWidth,
+  getThemedSpacing,
+} from '../../../lib/theme'
 import { MapMarkerProps } from './types'
 
 export const mapMarkerContainerStyles = (hasIcon: boolean) => css`
@@ -93,7 +97,8 @@ export const mapMarkerStyles = (
       }
     `}
     &:focus-visible {
-      outline: ${getThemedBorderWidth(200)} solid ${getThemedColor('primary', 700)};
+      outline: ${getThemedBorderWidth(200)} solid
+        ${getThemedColor('primary', 700)};
       outline-offset: ${getThemedSpacing(50)};
       box-shadow:
         0 0 0 0.125rem ${getThemedColor('neutral', 100)},

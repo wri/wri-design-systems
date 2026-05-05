@@ -1,5 +1,10 @@
 import { css } from '@emotion/react'
-import { getThemedColor, getThemedBorderWidth, getThemedRadius, getThemedSpacing } from '../../../lib/theme'
+import {
+  getThemedColor,
+  getThemedBorderWidth,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 export const mapPopUpContainerStyles = css`
   height: auto;
@@ -23,7 +28,8 @@ export const mapPopUpHeaderContainerStyles = css`
   justify-content: space-between;
   gap: ${getThemedSpacing(300)};
   padding: ${getThemedSpacing(200)} ${getThemedSpacing(300)};
-  border-bottom: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-bottom: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
   min-height: ${getThemedSpacing(1600)};
 
   .ds-map-pop-up-close-button {
@@ -43,7 +49,8 @@ export const mapPopUpContentContainerStyles = css`
 
 export const mapPopUpFooterContainerStyles = css`
   padding: ${getThemedSpacing(200)} ${getThemedSpacing(300)};
-  border-top: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border-top: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 300)};
   min-height: 2.75rem;
 `
 
