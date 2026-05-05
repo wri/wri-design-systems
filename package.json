@@ -25,7 +25,9 @@
     "lint": "eslint src/**/*.ts src/**/*.tsx",
     "prettier": "prettier --write --loglevel warn .",
     "lint-fix": "yarn lint --fix && yarn prettier",
-    "new-component": "tsx scripts/new-component.ts"
+    "new-component": "tsx scripts/new-component.ts",
+    "setup-ai": "node contributor-ai/setup-ai.mjs",
+    "postinstall": "node contributor-ai/setup-ai.mjs"
   },
   "eslintConfig": {
     "extends": [
