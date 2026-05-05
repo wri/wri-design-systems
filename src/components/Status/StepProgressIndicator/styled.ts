@@ -47,41 +47,29 @@ export const stepProgressIndicatorItemIndicatorStyles = (
 	    background-color: ${getThemedColor('primary', 100)};
 	    color: ${getThemedColor('primary', 800)};
 	    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 400)};
-	    box-shadow: 0rem ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} -${getThemedBorderWidth(100)} #0000001A;
-	    box-shadow: 0rem 0.0625rem 0.1875rem 0rem #0000001A;
+	    box-shadow: 0rem 0.0625rem 0.125rem -0.0625rem #0000001A;
+      box-shadow: 0rem 0.0625rem 0.1875rem 0rem #0000001A;
 	    cursor: pointer;
 	  `
     : ''}
 
   &:hover {
     background-color: ${getThemedColor('primary', 200)};
-    box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
-        50,
-      )} #0000001a;
-    box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(
-        100,
-      )} #0000001a;
+    box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
   &:active {
     background-color: ${getThemedColor('primary', 300)};
-    box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
-        50,
-      )} #0000001a;
-    box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(
-        100,
-      )} #0000001a;
+    box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
   &:focus-visible {
     outline-color: ${getThemedColor('primary', 700)};
     outline-offset: 0.1875rem;
-    box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
-        50,
-      )} #0000001a;
-    box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(
-        100,
-      )} #0000001a;
+    box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
   ${disabled

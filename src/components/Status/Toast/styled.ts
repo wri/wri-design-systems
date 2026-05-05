@@ -16,7 +16,7 @@ export const toastContainerStyles = css`
   padding: ${getThemedSpacing(200)} ${getThemedSpacing(300)};
   background-color: ${getThemedColor('neutral', 100)};
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
-  box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -${getThemedSpacing(100)} #0000001a;
+  box-shadow: 0rem 0.25rem 0.375rem -0.25rem #0000001a;
   box-shadow: 0rem 0.625rem 0.9375rem -0.1875rem #0000001a;
 
   .ds-toast-icon-container svg {

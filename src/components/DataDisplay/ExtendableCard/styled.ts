@@ -15,12 +15,8 @@ export const extendableCardItemTriggerStyles = css`
     outline-color: ${getThemedColor('primary', 700)};
   }
   &:hover {
-    box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
-        50,
-      )} #0000001a;
-    box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(
-        100,
-      )} #0000001a;
+    box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
     background-color: color-mix(
       in srgb,
       ${getThemedColor('primary', 500)} 20%,

@@ -132,9 +132,8 @@ export const navbarLeftLinkStyles = (
 
   &:focus-visible {
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0rem ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     outline-color: ${getThemedColor('primary', 700)};
     outline-offset: ${getThemedSpacing(50)};
     outline-style: solid;
@@ -214,9 +213,8 @@ export const navbarMenuActionStyles = (
 
   &:focus-visible {
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0rem ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     outline-color: ${getThemedColor('primary', 700)};
     outline-offset: ${getThemedSpacing(100)};
     outline-style: solid;
@@ -312,9 +310,8 @@ export const navbarMobileNavigationLinkItemStyles = (active?: boolean) => css`
     width: calc(100% - ${getThemedSpacing(100)});
     padding: ${getThemedSpacing(300)} ${getThemedSpacing(400)};
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0rem ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     outline-color: ${getThemedColor('primary', 700)};
     outline-offset: ${getThemedSpacing(50)};
     outline-style: solid;
@@ -339,9 +336,8 @@ export const navbarMobileNavigationMenuStyles = css`
     width: calc(100% - ${getThemedSpacing(100)});
     padding: ${getThemedSpacing(300)} ${getThemedSpacing(400)};
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0rem ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
     outline-color: ${getThemedColor('primary', 700)};
     outline-offset: ${getThemedSpacing(50)};
     outline-style: solid;

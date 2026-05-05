@@ -39,9 +39,8 @@ export const checkboxStyles = css`
         ${getThemedColor('primary', 700)};
       outline-offset: ${getThemedSpacing(50)};
       box-shadow:
-        0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-          ${getThemedSpacing(100)};
+        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
     }
 
     &[data-state='checked'],

@@ -23,7 +23,7 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
   border-radius: ${getThemedRadius(200)};
   background-color: ${getThemedColor('neutral', 100)};
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
-  box-shadow: 0 ${getThemedSpacing(100)} 0.375rem -${getThemedSpacing(100)} #0000001a;
+  box-shadow: 0 0.25rem 0.375rem -0.25rem #0000001a;
   box-shadow: 0 0.625rem 0.9375rem -0.1875rem #0000001a;
 
   svg {
@@ -53,9 +53,8 @@ export const toolbarBaseStyles = (showLabel: boolean) => css`
     outline-color: ${getThemedColor('primary', 700)};
     background-color: ${getThemedColor('neutral', 200)};
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
   }
 
   &:disabled {

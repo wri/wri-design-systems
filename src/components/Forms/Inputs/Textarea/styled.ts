@@ -96,7 +96,7 @@ export const textareaSyles = (
   background-color: ${getThemedColor('neutral', 100)};
   color: ${getThemedColor('neutral', 800)};
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
-  box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0 #0000000d;
+  box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
 
   &:focus-visible,
   &[data-focus-visible] {
@@ -105,16 +105,14 @@ export const textareaSyles = (
       ${getThemedColor('primary', 700)};
     outline-offset: ${getThemedSpacing(50)};
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
   }
 
   &:active {
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 600)} !important;
     outline: none !important;
-    box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0
-      #0000000d;
+    box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
   }
 
   &[data-invalid] {

@@ -15,7 +15,7 @@ export const tableContainerStyles = (variant: string) => css`
   border-radius: ${getThemedRadius(200)};
   box-shadow: ${variant === 'full-width'
     ? 'none'
-    : `0 0 0 ${getThemedBorderWidth(100)} ${getThemedColor('neutral', 300)}`};
+    : `0 0 0 0.0625rem ${getThemedColor('neutral', 300)}`};
 `
 
 export const tableHeaderContainerStyles = (variant: string) => css`

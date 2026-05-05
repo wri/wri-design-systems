@@ -81,16 +81,11 @@ export const listItemNavigationStyles = css`
   &:focus-visible {
     outline: ${getThemedBorderWidth(200)} solid
       ${getThemedColor('primary', 700)};
-    box-shadow: 0rem ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
-        50,
-      )} #0000001a;
-    box-shadow: 0rem ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(
-        100,
-      )} #0000001a;
+    box-shadow: 0rem 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0rem 0.25rem 0.375rem -0.0625rem #0000001a;
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0rem ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0rem 0.125rem 0.125rem 0.25rem;
   }
 
   &:active:not(:disabled) {

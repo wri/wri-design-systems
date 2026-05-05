@@ -17,16 +17,12 @@ export const checkboxOptionCardContainerStyles = css`
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   border-radius: ${getThemedRadius(300)};
   cursor: pointer;
-  box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0 #0000000d;
+  box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
   flex: none;
 
   &:hover {
-    box-shadow: 0 ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
-        50,
-      )} #0000001a;
-    box-shadow: 0 ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(
-        100,
-      )} #0000001a;
+    box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
   &:focus-visible,
@@ -34,16 +30,11 @@ export const checkboxOptionCardContainerStyles = css`
     outline: ${getThemedBorderWidth(200)} solid
       ${getThemedColor('primary', 700)};
     outline-offset: ${getThemedSpacing(50)};
-    box-shadow: 0 ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(
-        50,
-      )} #0000001a;
-    box-shadow: 0 ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(
-        100,
-      )} #0000001a;
+    box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
   }
 
   &[data-state='checked'] {

@@ -20,8 +20,7 @@ export const tooltipContentStyles = (variant: TooltipProps['variant']) => css`
   border-radius: ${getThemedRadius(300)};
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 800)};
   padding: ${getThemedSpacing(50)} ${getThemedSpacing(200)};
-  box-shadow: 0px ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0px
-    #0000000d;
+  box-shadow: 0px 0.0625rem 0.125rem 0px #0000000d;
   color: ${getThemedColor('neutral', 200)};
   font-size: ${getThemedFontSize(300)};
   line-height: ${getThemedLineHeight(500)};

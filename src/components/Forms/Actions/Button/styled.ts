@@ -23,15 +23,14 @@ export const baseButtonStyles = (size: ButtonProps['size']) => css`
     ? `0.375rem ${getThemedSpacing(200)}`
     : `${getThemedSpacing(200)} ${getThemedSpacing(400)}`};
   border-radius: ${getThemedRadius(300)};
-  box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0 #0000000d;
+  box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
   cursor: pointer;
   gap: 0;
 
   &:focus-visible {
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
   }
 
   svg {
@@ -60,20 +59,20 @@ export const primaryButtonStyles = (disabled?: boolean) => css`
     background-color: ${getThemedColor('primary', 500)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 600)};
     color: ${getThemedColor('accessible', 'text-on-primary-mids') || getThemedColor('primary', 900)};
-    box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0 #0000000D;
+    box-shadow: 0 0.0625rem 0.125rem 0 #0000000D;
 
     &:hover {
       background-color: ${getThemedColor('primary', 500)};
-      box-shadow: 0 ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(50)} #0000001A;
-      box-shadow: 0 ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(100)} #0000001A;
+      box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001A;
+      box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001A;
     }
 
     &:active {
       outline: none;
       background-color: ${getThemedColor('primary', 600)} !important;
       border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)} !important;
-      box-shadow: 0 ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(50)} #0000001A;
-      box-shadow: 0 ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(100)} #0000001A;
+      box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001A;
+      box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001A;
     }
 
     &:focus-visible {
@@ -99,20 +98,20 @@ export const secondaryButtonStyles = (disabled?: boolean) => css`
     background-color: ${getThemedColor('neutral', 100)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
     color: ${getThemedColor('neutral', 800)};
-    box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0 #0000000D;
+    box-shadow: 0 0.0625rem 0.125rem 0 #0000000D;
 
     &:hover {
       background-color: ${getThemedColor('neutral', 100)};
-      box-shadow: 0 ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(50)} #0000001A;
-      box-shadow: 0 ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(100)} #0000001A;
+      box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001A;
+      box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001A;
     }
 
     &:active {
       outline: none;
       background-color: ${getThemedColor('neutral', 200)} !important;
       border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)} !important;
-      box-shadow: 0 ${getThemedSpacing(50)} ${getThemedSpacing(100)} -${getThemedSpacing(50)} #0000001A;
-      box-shadow: 0 ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(100)} #0000001A;
+      box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001A;
+      box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001A;
     }
 
     &:focus-visible {
@@ -145,7 +144,7 @@ export const borderlessButtonStyles = (disabled?: boolean) => css`
     &:active {
       outline: none;
       background-color: color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
-      box-shadow: 0 ${getThemedSpacing(100)} 0.375rem -${getThemedBorderWidth(100)} #0000001A;
+      box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001A;
     }
 
     &:focus-visible {

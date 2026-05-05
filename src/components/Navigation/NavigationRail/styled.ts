@@ -170,8 +170,7 @@ export const navigationRailChildrenContainerStyles = css`
   width: 20rem;
   height: 100%;
   z-index: 100;
-  box-shadow: ${getThemedSpacing(50)} 0rem ${getThemedSpacing(50)} 0rem
-    #0000000d;
+  box-shadow: 0.125rem 0rem 0.125rem 0rem #0000000d;
   background-color: ${getThemedColor('neutral', 100)};
   overflow-y: auto;
   overflow-x: hidden;

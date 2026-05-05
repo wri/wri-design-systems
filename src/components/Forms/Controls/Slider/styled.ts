@@ -18,7 +18,7 @@ export const sliderThumbStyles = css`
   width: ${getThemedSpacing(500)};
   background-color: ${getThemedColor('primary', 500)};
   border: ${getThemedBorderWidth(200)} solid ${getThemedColor('primary', 700)};
-  box-shadow: 0 ${getThemedBorderWidth(100)} ${getThemedSpacing(50)} 0 #0000000d;
+  box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
   cursor: pointer;
 
   &:hover,
@@ -46,9 +46,8 @@ export const sliderThumbStyles = css`
       ${getThemedColor('primary', 700)};
     outline-offset: ${getThemedSpacing(50)};
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
 
     .ds-slider-value-preview {
       display: flex;

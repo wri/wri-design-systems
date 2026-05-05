@@ -26,9 +26,8 @@ export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   &:focus-visible {
     border-radius: 0;
     box-shadow:
-      0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 100)},
-      rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-        ${getThemedSpacing(100)};
+      0 0 0 0.125rem ${getThemedColor('neutral', 100)},
+      rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
     outline-color: ${getThemedColor('primary', 700)};
     outline-offset: ${getThemedSpacing(50)};
     outline-style: solid;
@@ -39,7 +38,7 @@ export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
 export const menuContentStyles = css`
   width: 14rem;
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
-  box-shadow: 0 ${getThemedSpacing(100)} 0.375rem -${getThemedSpacing(100)} #0000001a;
+  box-shadow: 0 0.25rem 0.375rem -0.25rem #0000001a;
   box-shadow: 0 0.625rem 0.9375rem -0.1875rem #0000001a;
   padding: ${getThemedSpacing(300)};
   display: flex;
@@ -83,9 +82,8 @@ export const menuSubmenuTriggerStyles = css`
       background-color: ${getThemedColor('neutral', 100)};
       outline-color: ${getThemedColor('success', 500)};
       box-shadow:
-        0 0 0 ${getThemedSpacing(50)} ${getThemedColor('neutral', 700)},
-        rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)}
-          ${getThemedSpacing(100)};
+        0 0 0 0.125rem ${getThemedColor('neutral', 700)},
+        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
     }
 
     &[aria-expanded='true'] {
@@ -136,8 +134,8 @@ export const menuItemContainerStyles = css`
       background-color: ${getThemedColor('neutral', 100)};
       outline-color: ${getThemedColor('primary', 700)};
       box-shadow:
-        0 0 0 ${getThemedSpacing(50)} ${getThemedColor('primary', 700)},
-        rgba(0, 0, 0, 0.05) 0 ${getThemedSpacing(50)} ${getThemedSpacing(50)} ${getThemedSpacing(100)};
+        0 0 0 0.125rem ${getThemedColor('primary', 700)},
+        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
     }
   }
 
