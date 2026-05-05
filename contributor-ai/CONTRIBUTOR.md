@@ -270,16 +270,16 @@ const MyWidget = () => <div style={{ color: 'red' }}>...</div>
 
 ## Quick Reference
 
-| Question                                        | Where to look                                                               |
-| ----------------------------------------------- | --------------------------------------------------------------------------- |
-| Does a WRI DS building block already exist?     | `src/components/index.ts` or Storybook MCP                                  |
-| Detailed props for an existing WRI DS component | `src/components/<Category>/<Name>/README.md`                                |
-| What props does a Chakra component accept?      | Chakra MCP → `get_component_props`                                          |
-| What color tokens are available?                | `src/lib/theme.ts` — source of truth                                        |
-| How do I use a color in a style?                | `getThemedColor('scale', step)` from relative `../../../../lib/theme`       |
-| How do I scaffold a new component?                 | `yarn new-component <Name> <Category>` — updates index.ts, DemoIndex, App.tsx, and README.md |
-| Where are all custom (non-DS) components?       | "Find in Files" → `[CUSTOM COMPONENT]`                                      |
-| How do I verify the dev app?                    | `yarn start`                                                                |
-| How do I verify Storybook?                      | `yarn storybook`                                                            |
-| How do I build the library?                     | `yarn build`                                                                |
-| How do I distribute consumer AI context?        | `node agents/setup-ai.mjs <target-path>` or `npx ds setup-ai <target-path>` |
+| Question                                        | Where to look                                                                                |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Does a WRI DS building block already exist?     | `src/components/index.ts` or Storybook MCP                                                   |
+| Detailed props for an existing WRI DS component | `src/components/<Category>/<Name>/README.md`                                                 |
+| What props does a Chakra component accept?      | Chakra MCP → `get_component_props`                                                           |
+| What color tokens are available?                | `src/lib/theme.ts` — source of truth                                                         |
+| How do I use a color in a style?                | `getThemedColor('scale', step)` from relative `../../../../lib/theme`                        |
+| How do I scaffold a new component?              | `yarn new-component <Name> <Category>` — updates index.ts, DemoIndex, App.tsx, and README.md |
+| Where are all custom (non-DS) components?       | "Find in Files" → `[CUSTOM COMPONENT]`                                                       |
+| How do I verify the dev app?                    | `yarn start`                                                                                 |
+| How do I verify Storybook?                      | `yarn storybook`                                                                             |
+| How do I build the library?                     | `yarn build`                                                                                 |
+| How do I distribute consumer AI context?        | `node agents/setup-ai.mjs <target-path>` or `npx ds setup-ai <target-path>`                  |
