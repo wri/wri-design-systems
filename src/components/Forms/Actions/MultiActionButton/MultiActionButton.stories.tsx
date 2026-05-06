@@ -11,9 +11,49 @@ const meta = {
   component: MultiActionButton,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Button that reveals a dropdown of additional actions on click.',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onClick: fn() },
+  argTypes: {
+    variant: {
+      description: 'Visual style of the button',
+      control: { type: 'select' },
+      options: ['primary', 'secondary'],
+    },
+    size: {
+      description: 'Size variant',
+      control: { type: 'select' },
+      options: ['default', 'small'],
+    },
+    mainActionLabel: {
+      description: 'Label for the primary action',
+      control: 'text',
+    },
+    mainActionLeftIcon: {
+      description: 'Icon to the left of the main action label',
+      control: false,
+    },
+    mainActionRightIcon: {
+      description: 'Icon to the right of the main action label',
+      control: false,
+    },
+    mainActionOnClick: {
+      description: 'Handler for the primary action click',
+      control: false,
+    },
+    otherActions: {
+      description: 'List of secondary action items',
+      control: false,
+    },
+    disabled: { description: 'Disables the button', control: 'boolean' },
+  },
 } satisfies Meta<typeof MultiActionButton>
 
 export default meta

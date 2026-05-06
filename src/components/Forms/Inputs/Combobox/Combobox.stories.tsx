@@ -17,8 +17,39 @@ const meta = {
   component: Combobox,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Searchable select input combining a text field with a dropdown. Use when the list is long or users may type to filter.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    initialItems: { description: '`initialItems` value', control: false },
+    label: { description: '`label` text', control: 'text' },
+    required: { description: '`required` flag', control: 'boolean' },
+    caption: { description: '`caption` text', control: 'text' },
+    errorMessage: { description: '`errorMessage` text', control: 'text' },
+    size: {
+      description: '`size` variant',
+      control: { type: 'select' },
+      options: ['small', 'default'],
+    },
+    disabled: { description: '`disabled` flag', control: 'boolean' },
+    placeholder: { description: '`placeholder` text', control: 'text' },
+    labels: { description: '`labels` value', control: false },
+    noMarginBottom: {
+      description: '`noMarginBottom` flag',
+      control: 'boolean',
+    },
+    multiple: { description: '`multiple` flag', control: 'boolean' },
+    showSelectedItems: {
+      description: '`showSelectedItems` flag',
+      control: 'boolean',
+    },
+  },
 } satisfies Meta<typeof Combobox>
 
 export default meta

@@ -11,6 +11,13 @@ const meta = {
   component: FormContainer,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Wrapper for form field groups. Provides a shared label and validation error message for a set of related controls.',
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -20,6 +27,11 @@ const meta = {
     ),
   ],
   tags: ['autodocs'],
+  argTypes: {
+    label: { description: '`label` content', control: false },
+    error: { description: '`error` text', control: 'text' },
+    children: { description: '`children` content', control: false },
+  },
 } satisfies Meta<typeof FormContainer>
 
 export default meta

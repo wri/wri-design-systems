@@ -16,6 +16,42 @@ const meta = {
   component: Toolbar,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Pre-composed map toolbar with zoom and navigation controls. Use inside a BaseMap layout.',
+      },
+    },
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    items: { description: 'List of toolbar button items', control: false },
+    vertical: { description: 'Stack buttons vertically', control: 'boolean' },
+    expanded: {
+      description: 'Whether the toolbar is expanded to show labels',
+      control: 'boolean',
+    },
+    showExpandedToggle: {
+      description: 'Show the expand/collapse toggle button',
+      control: 'boolean',
+    },
+    ariaLabel: {
+      description: 'Accessible label for the toolbar',
+      control: 'text',
+    },
+    defaultGaps: {
+      description: 'Apply default spacing between items',
+      control: 'boolean',
+    },
+    autoCollapse: {
+      description: 'Automatically collapse when screen width is insufficient',
+      control: 'boolean',
+    },
+    labels: {
+      description: 'Override internal UI labels for i18n',
+      control: false,
+    },
   },
 } satisfies Meta<typeof Toolbar>
 

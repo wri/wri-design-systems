@@ -11,6 +11,13 @@ const meta = {
   component: ExtendableCard,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Expandable card container. Use `isExpanded` to control open/closed state.',
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -20,6 +27,11 @@ const meta = {
     ),
   ],
   tags: ['autodocs'],
+  argTypes: {
+    children: { description: '`children` content', control: false },
+    header: { description: '`header` content', control: false },
+    footer: { description: '`footer` content', control: false },
+  },
 } satisfies Meta<typeof ExtendableCard>
 
 export default meta

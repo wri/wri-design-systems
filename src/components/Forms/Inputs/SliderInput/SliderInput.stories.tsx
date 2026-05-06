@@ -10,6 +10,13 @@ const meta = {
   component: SliderInput,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Combination of a numeric input and a slider for selecting values within a range.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -19,6 +26,18 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    label: { description: '`label` text', control: 'text' },
+    caption: { description: '`caption` text', control: 'text' },
+    size: {
+      description: '`size` variant',
+      control: { type: 'select' },
+      options: ['default', 'small'],
+    },
+    sliderItem: { description: '`sliderItem` value', control: false },
+    required: { description: '`required` flag', control: 'boolean' },
+    onChange: { description: '`onChange` handler', control: false },
+  },
 } satisfies Meta<typeof SliderInput>
 
 export default meta

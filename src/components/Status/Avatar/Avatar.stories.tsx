@@ -11,6 +11,13 @@ const meta = {
   component: AvatarStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'User avatar with fallback initials or image. Use `size` to control dimensions.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {

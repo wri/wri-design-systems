@@ -8,8 +8,27 @@ const meta = {
   title: 'Forms/Actions/Button/Preset/SSO Buttons',
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Pre-composed SSO login buttons for Google, Microsoft, and Facebook. Use in authentication screens to provide one-click social login.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    ariaLabel: {
+      description: 'Accessible label for the SSO button',
+      control: 'text',
+    },
+    size: {
+      description: 'Size variant',
+      control: { type: 'select' },
+      options: ['default', 'small'],
+    },
+    onClick: { description: 'Click handler', control: false },
+  },
 } satisfies Meta
 
 export default meta

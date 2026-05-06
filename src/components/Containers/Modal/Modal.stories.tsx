@@ -11,8 +11,32 @@ const meta = {
   component: ModalStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Dialog overlay. Use `blocking=true` to prevent closing on backdrop click. Use `draggable=true` to allow repositioning. Control visibility with the `open` prop.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    header: { description: '`header` content', control: false },
+    content: { description: '`content` content', control: false },
+    footer: { description: '`footer` content', control: false },
+    size: {
+      description: '`size` variant',
+      control: { type: 'select' },
+      options: ['xsmall', 'small', 'medium', 'large', 'xlarge', 'full-width'],
+    },
+    draggable: { description: '`draggable` flag', control: 'boolean' },
+    blocking: { description: '`blocking` flag', control: 'boolean' },
+    open: { description: '`open` flag', control: 'boolean' },
+    onClose: { description: '`onClose` handler', control: false },
+    width: { description: '`width` value', control: false },
+    height: { description: '`height` value', control: false },
+    maxHeight: { description: '`maxHeight` value', control: false },
+  },
 } satisfies Meta<typeof ModalStory>
 
 export default meta

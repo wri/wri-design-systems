@@ -11,8 +11,19 @@ const meta = {
   component: RadioGroup,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Radio button control. Use inside a radio group for mutually exclusive selection.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    value: { description: 'Value of the radio option', control: 'text' },
+    disabled: { description: 'Disables the radio button', control: 'boolean' },
+  },
 } satisfies Meta<typeof RadioGroup>
 
 export default meta

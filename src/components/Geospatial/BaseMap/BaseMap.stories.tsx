@@ -14,8 +14,43 @@ const meta = {
   component: BaseMapStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Mapbox-based map container. Provides the map context for layer and legend components.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    title: { description: 'Panel title', control: 'text' },
+    caption: {
+      description: 'Description shown below the title',
+      control: 'text',
+    },
+    additionalSettings: {
+      description: 'Extra toggle settings shown in the panel',
+      control: false,
+    },
+    options: { description: 'Available base map options', control: false },
+    onOptionSelected: {
+      description: 'Callback fired when a base map option is selected',
+      control: false,
+    },
+    maxHeight: {
+      description: 'Maximum panel height (CSS value)',
+      control: 'text',
+    },
+    maxWidth: {
+      description: 'Maximum panel width (CSS value)',
+      control: 'text',
+    },
+    labels: {
+      description: 'Override internal UI labels for i18n',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof BaseMapStory>
 
 export default meta

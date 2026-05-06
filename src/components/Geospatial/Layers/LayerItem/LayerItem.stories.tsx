@@ -10,6 +10,13 @@ const meta = {
   component: LayerItem,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Individual layer row in the layer panel. Supports visibility toggle and opacity control.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -21,6 +28,28 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    name: { description: '`name` text', control: 'text' },
+    label: { description: '`label` text', control: 'text' },
+    caption: { description: '`caption` text', control: 'text' },
+    showInfoButton: {
+      description: '`showInfoButton` flag',
+      control: 'boolean',
+    },
+    infoButtonLabel: { description: '`infoButtonLabel` text', control: 'text' },
+    variant: {
+      description: '`variant` variant',
+      control: { type: 'select' },
+      options: ['switch', 'radio'],
+    },
+    disabled: { description: '`disabled` flag', control: 'boolean' },
+    onInfoClick: { description: '`onInfoClick` handler', control: false },
+    isDefaultSelected: {
+      description: '`isDefaultSelected` flag',
+      control: 'boolean',
+    },
+    onChange: { description: '`onChange` handler', control: false },
+  },
 } satisfies Meta<typeof LayerItem>
 
 export default meta

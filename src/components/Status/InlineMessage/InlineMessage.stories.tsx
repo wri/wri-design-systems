@@ -11,9 +11,40 @@ const meta = {
   component: InlineMessage,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Inline feedback message for form fields or section-level feedback. Use `type` to set severity.',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onActionClick: fn() },
+  argTypes: {
+    label: { description: '`label` text', control: 'text' },
+    caption: { description: '`caption` content', control: false },
+    variant: {
+      description: '`variant` variant',
+      control: { type: 'select' },
+      options: ['info-white', 'info-grey', 'success', 'warning', 'error'],
+    },
+    size: {
+      description: '`size` variant',
+      control: { type: 'select' },
+      options: ['small', 'large', 'full-width'],
+    },
+    icon: { description: '`icon` content', control: false },
+    onActionClick: { description: '`onActionClick` handler', control: false },
+    actionLabel: { description: '`actionLabel` text', control: 'text' },
+    isButtonRight: { description: '`isButtonRight` flag', control: 'boolean' },
+    buttonLeftIcon: { description: '`buttonLeftIcon` content', control: false },
+    buttonRightIcon: {
+      description: '`buttonRightIcon` content',
+      control: false,
+    },
+    labels: { description: '`labels` value', control: false },
+  },
 } satisfies Meta<typeof InlineMessage>
 
 export default meta

@@ -9,6 +9,13 @@ const meta = {
   component: SelectStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Dropdown select input. Use `multiple` for multi-select. Provide `items` as `{ label, value }` objects. Use `onChange` to handle selection.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -18,6 +25,11 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    label: { description: '`label` text', control: 'text' },
+    caption: { description: '`caption` text', control: 'text' },
+    value: { description: '`value` text', control: 'text' },
+  },
 } satisfies Meta<typeof SelectStory>
 
 export default meta

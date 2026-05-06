@@ -11,8 +11,55 @@ const meta = {
   component: Search,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Search input with debounced onChange. Use `onSearch` to handle the search action.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    placeholder: { description: 'Placeholder text', control: 'text' },
+    disabled: { description: 'Disables the search input', control: 'boolean' },
+    size: {
+      description: 'Size variant',
+      control: { type: 'select' },
+      options: ['default', 'small'],
+    },
+    isLoading: { description: 'Shows a loading indicator', control: 'boolean' },
+    displayResults: {
+      description: 'How to display search results',
+      control: { type: 'select' },
+      options: ['none', 'text', 'list', 'custom'],
+    },
+    options: { description: 'List of selectable result items', control: false },
+    resultsMaxHeight: {
+      description: 'Maximum height of the results dropdown',
+      control: false,
+    },
+    onSelect: {
+      description: 'Handler called when a result is selected',
+      control: false,
+    },
+    onQueryChange: {
+      description: 'Handler called when the query string changes',
+      control: false,
+    },
+    onClear: {
+      description: 'Handler called when the input is cleared',
+      control: false,
+    },
+    renderResults: {
+      description: 'Custom render function for results',
+      control: false,
+    },
+    labels: {
+      description: 'Override internal UI labels for i18n',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof Search>
 
 export default meta

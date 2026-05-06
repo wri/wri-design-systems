@@ -15,6 +15,13 @@ const meta = {
   component: MapPopUpStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Popup overlay anchored to a map coordinate. Triggered on marker click.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -32,6 +39,22 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    open: { description: '`open` flag', control: 'boolean' },
+    onOpenChange: { description: '`onOpenChange` handler', control: false },
+    anchorRef: { description: '`anchorRef` value', control: false },
+    header: { description: '`header` content', control: false },
+    content: { description: '`content` content', control: false },
+    footer: { description: '`footer` content', control: false },
+    placement: { description: '`placement` value', control: false },
+    offset: { description: '`offset` value', control: false },
+    closeOnEscape: { description: '`closeOnEscape` value', control: false },
+    closeOnOutsideClick: {
+      description: '`closeOnOutsideClick` value',
+      control: false,
+    },
+    labels: { description: '`labels` value', control: false },
+  },
 } satisfies Meta<typeof MapPopUpStory>
 
 export default meta

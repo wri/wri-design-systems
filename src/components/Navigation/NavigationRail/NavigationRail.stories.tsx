@@ -16,10 +16,23 @@ const meta = {
         inline: false,
         iframeHeight: 600,
       },
+
+      description: {
+        component:
+          'Vertical icon-based navigation for desktop layouts. Each item has an icon and an optional label.',
+      },
     },
   },
   tags: ['autodocs'],
   args: { onTabClick: fn() },
+  argTypes: {
+    tabs: { description: '`tabs` value', control: false },
+    defaultValue: { description: '`defaultValue` text', control: 'text' },
+    onTabClick: { description: '`onTabClick` handler', control: false },
+    children: { description: '`children` content', control: false },
+    onOpenChange: { description: '`onOpenChange` handler', control: false },
+    labels: { description: '`labels` value', control: false },
+  },
 } satisfies Meta<typeof NavigationRail>
 
 export default meta

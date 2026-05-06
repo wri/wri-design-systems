@@ -11,6 +11,13 @@ const meta = {
   component: PasswordStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Password input with show/hide toggle. Wraps TextInput with password-specific behavior.',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onChange: fn() },
@@ -21,6 +28,31 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    label: { description: 'Input label', control: 'text' },
+    caption: { description: 'Helper text below the input', control: 'text' },
+    required: { description: 'Mark field as required', control: 'boolean' },
+    onChange: {
+      description: 'Callback fired on value change with strength analysis',
+      control: false,
+    },
+    disabledRules: {
+      description: 'Disable specific strength validation rules',
+      control: false,
+    },
+    minLength: {
+      description: 'Minimum password length for strength validation',
+      control: 'number',
+    },
+    hideValidations: {
+      description: 'Hide the password strength validation indicators',
+      control: 'boolean',
+    },
+    labels: {
+      description: 'Override internal UI labels for i18n',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof PasswordStory>
 
 export default meta

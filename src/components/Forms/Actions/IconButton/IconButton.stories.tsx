@@ -11,9 +11,27 @@ const meta = {
   component: IconButton,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Icon-only action button. Use when a label is not needed and the icon is self-explanatory. Wrap in `Tooltip` to provide accessible context.',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onClick: fn() },
+  argTypes: {
+    icon: {
+      description: 'Icon element to render inside the button',
+      control: false,
+    },
+    disabled: {
+      description: 'Disables the button and prevents interaction',
+      control: 'boolean',
+    },
+    onClick: { description: 'Click handler', control: false },
+  },
 } satisfies Meta<typeof IconButton>
 
 export default meta

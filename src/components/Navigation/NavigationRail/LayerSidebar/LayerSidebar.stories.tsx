@@ -15,9 +15,22 @@ const meta = {
         inline: false,
         iframeHeight: 700,
       },
+
+      description: {
+        component:
+          'Pre-composed sidebar combining NavigationRail with a collapsible layer panel.',
+      },
     },
   },
   tags: ['autodocs'],
+  argTypes: {
+    tabs: { description: '`tabs` value', control: false },
+    defaultValue: { description: '`defaultValue` text', control: 'text' },
+    onTabClick: { description: '`onTabClick` handler', control: false },
+    children: { description: '`children` content', control: false },
+    onOpenChange: { description: '`onOpenChange` handler', control: false },
+    labels: { description: '`labels` value', control: false },
+  },
 } satisfies Meta<typeof NavigationRail>
 
 export default meta

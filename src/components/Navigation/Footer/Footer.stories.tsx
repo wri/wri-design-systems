@@ -14,6 +14,23 @@ const meta = {
         inline: false,
         iframeHeight: 350,
       },
+
+      description: {
+        component:
+          'Site footer for WRI applications. Contains links, social icons, and legal text.',
+      },
+    },
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    children: { description: '`children` content', control: false },
+    label: { description: '`label` text', control: 'text' },
+    fixed: { description: '`fixed` flag', control: 'boolean' },
+    filled: { description: '`filled` flag', control: 'boolean' },
+    maxWidth: { description: '`maxWidth` value', control: false },
+    additionalLogos: {
+      description: '`additionalLogos` content',
+      control: false,
     },
   },
 } satisfies Meta<typeof FooterStory>

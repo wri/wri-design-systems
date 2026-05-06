@@ -11,6 +11,13 @@ const meta = {
   component: TableStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Data table with sortable columns, pagination, and row selection support.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
