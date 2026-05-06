@@ -27,7 +27,7 @@
     "lint-fix": "yarn lint --fix && yarn prettier",
     "new-component": "tsx scripts/new-component.ts",
     "setup-ai": "node contributor-ai/setup-ai.mjs",
-    "postinstall": "node contributor-ai/setup-ai.mjs"
+    "postinstall": "node -e \"const{existsSync}=require('fs');if(existsSync('contributor-ai/setup-ai.mjs')){require('child_process').execSync('node contributor-ai/setup-ai.mjs',{stdio:'inherit'})}\""
   },
   "eslintConfig": {
     "extends": [
