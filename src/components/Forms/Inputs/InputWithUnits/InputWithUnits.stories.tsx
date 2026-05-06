@@ -10,6 +10,12 @@ const meta = {
   component: InputWithUnitsStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component: 'Text input with an attached unit selector (e.g. km, mi).',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onChange: fn() },
@@ -20,6 +26,22 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    label: { description: '`label` text', control: 'text' },
+    caption: { description: '`caption` text', control: 'text' },
+    errorMessage: { description: '`errorMessage` text', control: 'text' },
+    units: { description: '`units` value', control: false },
+    unitsPosition: {
+      description: '`unitsPosition` variant',
+      control: { type: 'select' },
+      options: ['start', 'end'],
+    },
+    defaultValue: { description: '`defaultValue` text', control: 'text' },
+    defaultUnit: { description: '`defaultUnit` text', control: 'text' },
+    onChange: { description: '`onChange` handler', control: false },
+    required: { description: '`required` flag', control: 'boolean' },
+    disabled: { description: '`disabled` flag', control: 'boolean' },
+  },
 } satisfies Meta<typeof InputWithUnitsStory>
 
 export default meta

@@ -14,6 +14,12 @@ const meta = {
   component: LegendItemStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component: 'Single legend entry showing a color swatch and label.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -23,6 +29,21 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    layerName: { description: '`layerName` text', control: 'text' },
+    dataUnit: { description: '`dataUnit` text', control: 'text' },
+    onDrag: { description: '`onDrag` handler', control: false },
+    onUpClick: { description: '`onUpClick` handler', control: false },
+    onDownClick: { description: '`onDownClick` handler', control: false },
+    onRemoveClick: { description: '`onRemoveClick` handler', control: false },
+    children: { description: '`children` content', control: false },
+    onInfoClick: { description: '`onInfoClick` handler', control: false },
+    onOpacityChanged: {
+      description: '`onOpacityChanged` handler',
+      control: false,
+    },
+    labels: { description: '`labels` value', control: false },
+  },
 } satisfies Meta<typeof LegendItemStory>
 
 export default meta

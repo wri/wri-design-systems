@@ -11,8 +11,26 @@ const meta = {
   component: CheckboxOptionCard,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Card-style checkbox for option selection with richer visual treatment.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    defaultValue: { description: 'Initially selected values', control: false },
+    items: {
+      description: 'List of checkbox option card items',
+      control: false,
+    },
+    onValueChange: {
+      description: 'Callback fired when selection changes',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof CheckboxOptionCard>
 
 export default meta

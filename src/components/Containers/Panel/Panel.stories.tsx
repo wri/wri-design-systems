@@ -11,6 +11,13 @@ const meta = {
   component: PanelStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          "Side panel container with fixed or floating variants. Use `variant='fixed'` for persistent sidebars and `variant='floating'` for overlays.",
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -20,6 +27,17 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    header: { description: '`header` content', control: false },
+    content: { description: '`content` content', control: false },
+    footer: { description: '`footer` content', control: false },
+    width: { description: '`width` value', control: false },
+    variant: {
+      description: '`variant` variant',
+      control: { type: 'select' },
+      options: ['fixed', 'floating'],
+    },
+  },
 } satisfies Meta<typeof PanelStory>
 
 export default meta

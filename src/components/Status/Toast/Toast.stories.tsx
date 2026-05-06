@@ -13,6 +13,13 @@ const meta = {
   component: Toast,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Transient notification message. Use `showToast()` utility to trigger it programmatically. Choose `type` to convey intent: success, warning, error, info, or loading.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -23,6 +30,12 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    labels: {
+      description: 'Override internal UI labels for i18n',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof Toast>
 
 export default meta

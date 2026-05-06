@@ -9,6 +9,13 @@ const meta = {
   component: LayerParametersStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Displays layer configuration parameters in the legend panel.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -18,6 +25,14 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    label: { description: '`label` text', control: 'text' },
+    children: { description: '`children` content', control: false },
+    openedByDefault: {
+      description: '`openedByDefault` flag',
+      control: 'boolean',
+    },
+  },
 } satisfies Meta<typeof LayerParametersStory>
 
 export default meta

@@ -11,8 +11,26 @@ const meta = {
   component: BreadcrumbStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          "Navigation trail showing the current page's location in the hierarchy. Use `items` to define each level.",
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    links: { description: '`links` content', control: false },
+    separator: { description: '`separator` content', control: false },
+    maxItems: { description: '`maxItems` value', control: 'number' },
+    linkRouter: { description: '`linkRouter` value', control: false },
+    size: {
+      description: '`size` variant',
+      control: { type: 'select' },
+      options: ['small', 'default'],
+    },
+  },
 } satisfies Meta<typeof BreadcrumbStory>
 
 export default meta

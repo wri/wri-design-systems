@@ -20,6 +20,11 @@ const meta = {
       story: {
         iframeHeight: 600,
       },
+
+      description: {
+        component:
+          'Top navigation bar for WRI applications. Contains the WRI logo, primary navigation links, and user actions.',
+      },
     },
   },
   argTypes: {

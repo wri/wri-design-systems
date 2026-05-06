@@ -9,8 +9,18 @@ const meta = {
   component: Slider,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component: 'Range slider for selecting a value within a range.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    marks: { description: '`marks` content', control: false },
+    isCentred: { description: '`isCentred` flag', control: 'boolean' },
+  },
 } satisfies Meta<typeof Slider>
 
 export default meta

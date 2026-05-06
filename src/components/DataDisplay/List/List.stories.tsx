@@ -9,6 +9,13 @@ const meta = {
   component: List,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Structured list component with optional icons, actions, and nested items.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [

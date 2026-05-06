@@ -10,8 +10,50 @@ const meta = {
   component: TextInput,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Single-line text input with label, caption, and validation support. Use `errorMessage` to display validation errors. Use `required` to mark mandatory fields.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    label: { description: 'Field label', control: 'text' },
+    placeholder: { description: 'Placeholder text', control: 'text' },
+    caption: {
+      description: 'Helper text shown below the input',
+      control: 'text',
+    },
+    errorMessage: {
+      description: 'Validation error message — shown when set',
+      control: 'text',
+    },
+    defaultValue: {
+      description: 'Default value (uncontrolled)',
+      control: 'text',
+    },
+    required: {
+      description: 'Marks the field as required',
+      control: 'boolean',
+    },
+    disabled: { description: 'Disables the input', control: 'boolean' },
+    size: {
+      description: 'Size variant',
+      control: { type: 'select' },
+      options: ['default', 'small'],
+    },
+    noMarginBottom: {
+      description: 'Removes bottom margin from the field',
+      control: 'boolean',
+    },
+    onChange: { description: 'Change handler', control: false },
+    labels: {
+      description: 'Override internal UI labels for i18n',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof TextInput>
 
 export default meta

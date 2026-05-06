@@ -9,8 +9,18 @@ const meta = {
   component: ProgressBarStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Linear progress indicator. Use `value` (0–100) to set completion.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    progress: { description: '`progress` value', control: 'number' },
+  },
 } satisfies Meta<typeof ProgressBarStory>
 
 export default meta

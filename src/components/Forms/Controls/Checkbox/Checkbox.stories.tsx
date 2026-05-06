@@ -11,9 +11,34 @@ const meta = {
   component: Checkbox,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Checkbox control. Supports `indeterminate` state for parent checkboxes in a tree. Use `onCheckedChange` to handle state changes.',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onChange: fn() },
+  argTypes: {
+    name: { description: 'Input name attribute', control: 'text' },
+    value: { description: 'Value of the checkbox', control: 'text' },
+    checked: { description: 'Controlled checked state', control: 'boolean' },
+    defaultChecked: {
+      description: 'Default checked state (uncontrolled)',
+      control: 'boolean',
+    },
+    disabled: { description: 'Disables the checkbox', control: 'boolean' },
+    indeterminate: {
+      description: 'Renders the checkbox in indeterminate state',
+      control: 'boolean',
+    },
+    onCheckedChange: {
+      description: 'Handler called when checked state changes',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof Checkbox>
 
 export default meta

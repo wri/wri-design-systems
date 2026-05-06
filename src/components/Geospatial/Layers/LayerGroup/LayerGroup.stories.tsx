@@ -10,6 +10,13 @@ const meta = {
   component: LayerGroupContainer,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Groups multiple layer items under a collapsible header in the layer panel.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -19,6 +26,12 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    defaultValue: {
+      description: 'Initially expanded group values',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof LayerGroupContainer>
 
 export default meta

@@ -9,8 +9,26 @@ const meta = {
   component: Badge,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Notification badge to wrap interactive elements. Shows a dot (`hasNotification`) or a numeric count (`notificationCount`).',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    hasNotification: {
+      description: '`hasNotification` flag',
+      control: 'boolean',
+    },
+    notificationCount: {
+      description: '`notificationCount` value',
+      control: 'number',
+    },
+    label: { description: '`label` text', control: 'text' },
+  },
 } satisfies Meta<typeof Badge>
 
 export default meta

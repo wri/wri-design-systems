@@ -11,8 +11,22 @@ const meta = {
   component: OptionCard,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component: 'Selectable card used as a radio-style option.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    defaultValue: { description: 'Initially selected value', control: false },
+    items: { description: 'List of option card items', control: false },
+    onValueChange: {
+      description: 'Callback fired when selection changes',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof OptionCard>
 
 export default meta

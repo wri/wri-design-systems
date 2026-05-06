@@ -13,6 +13,13 @@ const meta = {
   component: AnalysisWidget,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Data widget card for displaying analysis results. Contains a title, metric value, and optional chart or list.',
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -22,6 +29,19 @@ const meta = {
     ),
   ],
   tags: ['autodocs'],
+  argTypes: {
+    children: { description: '`children` content', control: false },
+    header: { description: '`header` content', control: false },
+    footer: { description: '`footer` content', control: false },
+    expanded: { description: '`expanded` flag', control: 'boolean' },
+    collapsible: { description: '`collapsible` flag', control: 'boolean' },
+    actions: { description: '`actions` value', control: false },
+    showFooterOnCollapsed: {
+      description: '`showFooterOnCollapsed` flag',
+      control: 'boolean',
+    },
+    labels: { description: '`labels` value', control: false },
+  },
 } satisfies Meta<typeof AnalysisWidget>
 
 export default meta

@@ -14,9 +14,34 @@ const meta = {
   component: SheetStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Bottom or side sheet overlay. Use for mobile-friendly panel patterns.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [(Story: any) => <Story />],
+  argTypes: {
+    header: { description: '`header` content', control: false },
+    content: { description: '`content` content', control: false },
+    footer: { description: '`footer` content', control: false },
+    open: { description: '`open` flag', control: 'boolean' },
+    onClose: { description: '`onClose` handler', control: false },
+    minimizedHeight: { description: '`minimizedHeight` value', control: false },
+    midHeight: { description: '`midHeight` value', control: false },
+    maxFullHeight: { description: '`maxFullHeight` value', control: false },
+    defaultSnap: {
+      description: '`defaultSnap` variant',
+      control: { type: 'select' },
+      options: ['closed', 'minimized', 'mid', 'full'],
+    },
+    className: { description: '`className` text', control: 'text' },
+    blocking: { description: '`blocking` flag', control: 'boolean' },
+    zIndex: { description: '`zIndex` value', control: false },
+  },
 } satisfies Meta<typeof SheetStory>
 
 export default meta

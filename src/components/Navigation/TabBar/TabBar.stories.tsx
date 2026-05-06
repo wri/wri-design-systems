@@ -10,8 +10,30 @@ const meta = {
   component: TabBar,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Horizontal tab navigation. Use `tabs` to define tab items and `onChange` to handle tab switches.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      description: '`variant` variant',
+      control: { type: 'select' },
+      options: ['panel', 'view', 'transparent'],
+    },
+    defaultValue: { description: '`defaultValue` text', control: 'text' },
+    tabs: { description: '`tabs` value', control: false },
+    onTabClick: { description: '`onTabClick` handler', control: false },
+    activationMode: {
+      description: '`activationMode` variant',
+      control: { type: 'select' },
+      options: ['automatic', 'manual', 'manual'],
+    },
+  },
 } satisfies Meta<typeof TabBar>
 
 export default meta

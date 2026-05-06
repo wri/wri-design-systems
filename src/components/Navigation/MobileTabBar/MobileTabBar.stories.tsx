@@ -10,6 +10,12 @@ const meta = {
   component: MobileTabBarStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component: 'Bottom navigation bar optimized for mobile viewports.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -19,6 +25,17 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    defaultValue: { description: '`defaultValue` text', control: 'text' },
+    tabs: { description: '`tabs` value', control: false },
+    onTabClick: { description: '`onTabClick` handler', control: false },
+    hideLabels: { description: '`hideLabels` flag', control: 'boolean' },
+    activationMode: {
+      description: '`activationMode` variant',
+      control: { type: 'select' },
+      options: ['automatic', 'manual', 'manual'],
+    },
+  },
 } satisfies Meta<typeof MobileTabBarStory>
 
 export default meta

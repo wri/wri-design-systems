@@ -11,9 +11,42 @@ const meta = {
   component: Tag,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Label chip for categorizing or tagging content. Supports dismissible and colored variants.',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onClick: fn() },
+  argTypes: {
+    label: { description: 'Tag label text', control: 'text' },
+    variant: {
+      description: 'Color/semantic variant',
+      control: { type: 'select' },
+      options: ['info-white', 'info-grey', 'success', 'warning', 'error'],
+    },
+    size: {
+      description: 'Size variant',
+      control: { type: 'select' },
+      options: ['small', 'default', 'large'],
+    },
+    disabled: { description: 'Disables the tag', control: 'boolean' },
+    closable: {
+      description: 'Shows a close/dismiss button',
+      control: 'boolean',
+    },
+    icon: {
+      description: 'Optional icon displayed inside the tag',
+      control: false,
+    },
+    onClose: {
+      description: 'Handler called when the close button is clicked',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof Tag>
 
 export default meta

@@ -9,8 +9,48 @@ const meta = {
   component: Textarea,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Multi-line text input. Use `rows` to set the initial height.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    label: { description: 'Field label', control: 'text' },
+    placeholder: { description: 'Placeholder text', control: 'text' },
+    caption: {
+      description: 'Helper text shown below the textarea',
+      control: 'text',
+    },
+    errorMessage: {
+      description: 'Validation error message — shown when set',
+      control: 'text',
+    },
+    defaultValue: {
+      description: 'Default value (uncontrolled)',
+      control: 'text',
+    },
+    required: {
+      description: 'Marks the field as required',
+      control: 'boolean',
+    },
+    disabled: { description: 'Disables the textarea', control: 'boolean' },
+    size: {
+      description: 'Size variant',
+      control: { type: 'select' },
+      options: ['default', 'small'],
+    },
+    minLength: { description: 'Minimum character count', control: 'number' },
+    maxLength: { description: 'Maximum character count', control: 'number' },
+    onChange: { description: 'Change handler', control: false },
+    labels: {
+      description: 'Override internal UI labels for i18n',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof Textarea>
 
 export default meta

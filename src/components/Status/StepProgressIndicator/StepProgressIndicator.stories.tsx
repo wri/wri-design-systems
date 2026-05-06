@@ -10,8 +10,30 @@ const meta = {
   component: StepProgressIndicatorStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Multi-step progress indicator. Use `steps` and `currentStep` to control state.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    steps: {
+      description:
+        'Array of step items, each with an optional label and onClick handler',
+      control: false,
+    },
+    currentStep: {
+      description: 'Index of the currently active step (1-based)',
+      control: 'number',
+    },
+    labels: {
+      description: 'Override internal UI labels for i18n',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof StepProgressIndicatorStory>
 
 export default meta

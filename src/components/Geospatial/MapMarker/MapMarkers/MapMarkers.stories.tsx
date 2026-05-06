@@ -15,6 +15,12 @@ const meta = {
   title: 'Geospatial/Map Marker',
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component: 'Pre-composed set of map markers for common use cases.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {

@@ -10,6 +10,13 @@ const meta = {
   component: AlertBanner,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Full-width informational or warning banner. Use `type` to set severity.',
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -19,6 +26,29 @@ const meta = {
     ),
   ],
   tags: ['autodocs'],
+  argTypes: {
+    title: { description: 'Banner title content', control: false },
+    variant: {
+      description: 'Semantic variant — sets color and icon',
+      control: { type: 'select' },
+      options: [
+        'general-white',
+        'general-grey',
+        'information',
+        'success',
+        'warning',
+        'error',
+      ],
+    },
+    icon: {
+      description: 'Custom icon element (overrides variant default)',
+      control: false,
+    },
+    onClose: {
+      description: 'Handler for dismiss button — shows button when set',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof AlertBanner>
 
 export default meta

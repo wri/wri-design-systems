@@ -10,9 +10,27 @@ const meta = {
   component: CloseButton,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Icon button specifically styled for closing dialogs, panels, or banners.',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onClick: fn() },
+  argTypes: {
+    disabled: {
+      description: 'Disables the button and prevents interaction',
+      control: 'boolean',
+    },
+    onClick: { description: 'Click handler', control: false },
+    labels: {
+      description: 'Override internal UI labels for i18n',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof CloseButton>
 
 export default meta

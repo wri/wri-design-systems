@@ -9,6 +9,13 @@ const meta = {
   component: ScaleBar,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Map scale reference bar. Renders the current map scale in real-world units.',
+      },
+    },
   },
   tags: ['autodocs'],
   decorators: [
@@ -18,6 +25,12 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    colors: { description: '`colors` value', control: false },
+    values: { description: '`values` value', control: false },
+    subLabels: { description: '`subLabels` value', control: false },
+    isGradient: { description: '`isGradient` flag', control: 'boolean' },
+  },
 } satisfies Meta<typeof ScaleBar>
 
 export default meta

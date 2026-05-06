@@ -9,8 +9,29 @@ const meta = {
   component: ItemCountStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Displays a count with a label. Use in list headers or data summaries.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    pageSize: { description: '`pageSize` value', control: 'number' },
+    currentPage: { description: '`currentPage` value', control: 'number' },
+    totalItems: { description: '`totalItems` value', control: 'number' },
+    onPageSizeChange: {
+      description: '`onPageSizeChange` handler',
+      control: false,
+    },
+    showItemCountText: {
+      description: '`showItemCountText` flag',
+      control: 'boolean',
+    },
+    labels: { description: '`labels` value', control: false },
+  },
 } satisfies Meta<typeof ItemCountStory>
 
 export default meta

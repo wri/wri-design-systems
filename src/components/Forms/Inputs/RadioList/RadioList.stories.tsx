@@ -10,6 +10,13 @@ const meta = {
   component: RadioListStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Pre-composed list of radio options. Use `items` to define options.',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onCheckedChange: fn() },
@@ -20,6 +27,26 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    label: { description: '`label` text', control: 'text' },
+    caption: { description: '`caption` text', control: 'text' },
+    name: { description: '`name` text', control: 'text' },
+    radios: { description: '`radios` value', control: false },
+    defaultValue: { description: '`defaultValue` text', control: 'text' },
+    onCheckedChange: {
+      description: '`onCheckedChange` handler',
+      control: false,
+    },
+    errorMessage: { description: '`errorMessage` text', control: 'text' },
+    horizontal: { description: '`horizontal` flag', control: 'boolean' },
+    required: { description: '`required` flag', control: 'boolean' },
+    variant: {
+      description: '`variant` variant',
+      control: { type: 'select' },
+      options: ['default', 'card'],
+    },
+    labels: { description: '`labels` value', control: false },
+  },
 } satisfies Meta<typeof RadioListStory>
 
 export default meta

@@ -11,6 +11,12 @@ const meta = {
   component: QualitativeAttribute,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component: 'Legend entry for qualitative (categorical) map data.',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onActionClick: fn() },
@@ -21,6 +27,19 @@ const meta = {
       </div>
     ),
   ],
+  argTypes: {
+    label: { description: '`label` content', control: false },
+    caption: { description: '`caption` text', control: 'text' },
+    color: { description: '`color` text', control: 'text' },
+    showActionButton: {
+      description: '`showActionButton` flag',
+      control: 'boolean',
+    },
+    onActionClick: { description: '`onActionClick` handler', control: false },
+    pointIcon: { description: '`pointIcon` content', control: false },
+    ariaLabelType: { description: '`ariaLabelType` text', control: 'text' },
+    labels: { description: '`labels` value', control: false },
+  },
 } satisfies Meta<typeof QualitativeAttribute>
 
 export default meta

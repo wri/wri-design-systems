@@ -11,8 +11,37 @@ const meta = {
   component: MenuStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Dropdown menu with selectable items. Use `items` to define the menu options.',
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    theme: {
+      description: 'Visual theme',
+      control: { type: 'select' },
+      options: ['light', 'dark'],
+    },
+    label: { description: 'Trigger button label', control: 'text' },
+    fontSize: { description: 'Font size for menu items', control: 'text' },
+    items: { description: 'Flat list of menu items', control: false },
+    groups: {
+      description: 'Grouped menu items with section titles',
+      control: false,
+    },
+    onSelect: {
+      description: 'Callback fired when an item is selected',
+      control: false,
+    },
+    customTrigger: {
+      description: 'Custom trigger element instead of the default button',
+      control: false,
+    },
+  },
 } satisfies Meta<typeof MenuStory>
 
 export default meta

@@ -11,9 +11,38 @@ const meta = {
   component: CheckboxListStory,
   parameters: {
     layout: 'centered',
+
+    docs: {
+      description: {
+        component:
+          'Pre-composed list of checkbox options. Use `items` to define options and `onChange` for state.',
+      },
+    },
   },
   tags: ['autodocs'],
   args: { onCheckedChange: fn() },
+  argTypes: {
+    label: { description: '`label` value', control: false },
+    caption: { description: '`caption` text', control: 'text' },
+    checkboxes: { description: '`checkboxes` value', control: false },
+    defaultValues: { description: '`defaultValues` value', control: false },
+    onCheckedChange: {
+      description: '`onCheckedChange` handler',
+      control: false,
+    },
+    errorMessage: { description: '`errorMessage` text', control: 'text' },
+    horizontal: { description: '`horizontal` flag', control: 'boolean' },
+    required: { description: '`required` flag', control: 'boolean' },
+    hideCheckedCounter: {
+      description: '`hideCheckedCounter` flag',
+      control: 'boolean',
+    },
+    hideExpandToggle: {
+      description: '`hideExpandToggle` flag',
+      control: 'boolean',
+    },
+    labels: { description: '`labels` value', control: false },
+  },
 } satisfies Meta<typeof CheckboxListStory>
 
 export default meta
