@@ -1,6 +1,5 @@
 import React from 'react'
 import { Global, css } from '@emotion/react'
-import '../src/fonts.css'
 import { MemoryRouter } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import type { Preview } from '@storybook/react'
