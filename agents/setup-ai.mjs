@@ -115,6 +115,10 @@ const MCP_STORYBOOK_URL = 'https://wri.github.io/wri-design-systems/index.json'
 
 const mcpCursor = {
   mcpServers: {
+    figma: {
+      url: 'https://mcp.figma.com/mcp',
+      type: 'http',
+    },
     'wri-storybook': {
       command: 'npx',
       args: ['-y', 'storybook-mcp@latest'],
@@ -129,6 +133,10 @@ const mcpCursor = {
 
 const mcpVSCode = {
   servers: {
+    figma: {
+      type: 'http',
+      url: 'https://mcp.figma.com/mcp',
+    },
     'wri-storybook': {
       type: 'stdio',
       command: 'npx',
