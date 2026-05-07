@@ -13,7 +13,6 @@ const config: StorybookConfig = {
     name: '@storybook/react-webpack5',
     options: {},
   },
-  // staticDirs: ['../public'],
   staticDirs: ['../public'],
   refs: {
     '@chakra-ui/react': {
