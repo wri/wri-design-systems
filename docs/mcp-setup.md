@@ -2,7 +2,15 @@
 
 This guide explains how to set up and use the MCP (Model Context Protocol) servers for the WRI Design System in your AI coding tools.
 
-MCP servers give your AI agent (GitHub Copilot, Cursor, Claude, etc.) live access to WRI DS component APIs and Chakra UI docs — so it generates correct code instead of guessing.
+MCP servers give your AI agent (GitHub Copilot, Cursor, Claude, etc.) live access to WRI DS component APIs, Figma designs, and Chakra UI docs — so it generates correct code instead of guessing.
+
+## Available MCP Servers
+
+| Server                              | Purpose                                              |
+| ----------------------------------- | ---------------------------------------------------- |
+| **Figma** (`figma`)                 | Read Figma designs and translate them to WRI DS code |
+| **WRI Storybook** (`wri-storybook`) | Query live component props, variants, and stories    |
+| **Chakra UI** (`chakra-ui`)         | Verify Chakra v3 primitive APIs as a fallback        |
 
 ---
 
@@ -27,6 +35,10 @@ That's it — no manual config needed.
 ```json
 {
   "servers": {
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
+    },
     "wri-storybook": {
       "type": "stdio",
       "command": "npx",
@@ -49,6 +61,10 @@ That's it — no manual config needed.
 ```json
 {
   "mcpServers": {
+    "figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "type": "http"
+    },
     "wri-storybook": {
       "command": "npx",
       "args": ["-y", "storybook-mcp@latest"],
@@ -97,6 +113,32 @@ A working MCP returns the live component list. If the agent guesses instead of q
 ---
 
 ## What Each Server Does
+
+### Figma MCP (`figma`)
+
+Connects your AI agent directly to the Figma API.
+
+**Requirements:** You need a Figma account and must authenticate via the Figma MCP OAuth flow the first time.
+
+**Use it to:**
+
+- Translate a Figma design URL into WRI DS component code
+- Extract colors, spacing, and layout from a design as a reference
+- Check design tokens and map them to `getThemedColor()` values
+
+**Example queries for your agent:**
+
+```
+"Implement this Figma component using WRI DS: https://figma.com/design/..."
+"What WRI DS components match this Figma design?"
+"Extract the color tokens from this Figma frame"
+```
+
+**Important:** The Figma MCP returns a screenshot and reference code — treat it as a **visual spec only**. Always adapt its output to WRI DS conventions (use existing components, Emotion CSS, `getThemedColor`, etc.). Never paste Figma MCP output directly.
+
+**Authentication:** The first time you use the Figma MCP, your agent will prompt you to authenticate. Follow the OAuth link it provides and grant access.
+
+---
 
 ### Storybook MCP (`wri-storybook`)
 
