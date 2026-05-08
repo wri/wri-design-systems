@@ -18,6 +18,12 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 // SOURCE is the contributor instructions in this folder
 const SOURCE = join(__dirname, 'CONTRIBUTOR.md')
+const SOURCE_COMPONENT_INSTRUCTIONS = join(
+  __dirname,
+  'component.instructions.md',
+)
+const SOURCE_ICONS_INSTRUCTIONS = join(__dirname, 'icons.instructions.md')
+const SOURCE_AGENT = join(__dirname, 'wri-component-builder.agent.md')
 // ROOT is the repo root (one level up from contributor/)
 const ROOT = resolve(__dirname, '..')
 const HOME = homedir()
@@ -38,9 +44,9 @@ if (!existsSync(SOURCE)) {
 
 // ── Helpers ──────────────────────────────────────────────────────
 
-function installFile(dest, label) {
+function installFile(dest, label, src = SOURCE) {
   mkdirSync(dirname(dest), { recursive: true })
-  copyFileSync(SOURCE, dest)
+  copyFileSync(src, dest)
   installed.push(`${label} → ${relative(ROOT, dest)}`)
 }
 
@@ -150,6 +156,21 @@ if (hasVSCode) {
   installFile(
     join(ROOT, '.github', 'copilot-instructions.md'),
     'GitHub Copilot',
+  )
+  installFile(
+    join(ROOT, '.github', 'instructions', 'component.instructions.md'),
+    'GitHub Copilot (component instructions)',
+    SOURCE_COMPONENT_INSTRUCTIONS,
+  )
+  installFile(
+    join(ROOT, '.github', 'instructions', 'icons.instructions.md'),
+    'GitHub Copilot (icon instructions)',
+    SOURCE_ICONS_INSTRUCTIONS,
+  )
+  installFile(
+    join(ROOT, '.github', 'agents', 'wri-component-builder.agent.md'),
+    'GitHub Copilot (component builder agent)',
+    SOURCE_AGENT,
   )
   writeJSON(join(ROOT, '.vscode', 'mcp.json'), 'VS Code MCP config', mcpVSCode)
 } else {

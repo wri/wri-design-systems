@@ -35,3 +35,5 @@ GEMINI.md
 .cursor/mcp.json
 .vscode/mcp.json
 .github/copilot-instructions.md
+.github/instructions/
+.github/agents/
