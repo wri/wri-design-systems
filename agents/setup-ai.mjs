@@ -18,6 +18,7 @@ import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const SOURCE = join(__dirname, 'AGENTS.md')
+const SOURCE_COMPONENT_INSTRUCTIONS = join(__dirname, 'wri-ds.instructions.md')
 // Where we write the setup files.
 // Default is the repo root you're currently in when you run the CLI.
 // You can optionally pass a target directory as argv[2].
@@ -37,9 +38,9 @@ if (!existsSync(SOURCE)) {
 
 // ── Helpers ──────────────────────────────────────────────────────
 
-function installFile(dest, label) {
+function installFile(dest, label, src = SOURCE) {
   mkdirSync(dirname(dest), { recursive: true })
-  copyFileSync(SOURCE, dest)
+  copyFileSync(src, dest)
   installed.push(`${label} → ${relative(ROOT, dest)}`)
 }
 
@@ -184,6 +185,13 @@ if (hasVSCode) {
     join(ROOT, '.github', 'copilot-instructions.md'),
     'GitHub Copilot',
   )
+  if (existsSync(SOURCE_COMPONENT_INSTRUCTIONS)) {
+    installFile(
+      join(ROOT, '.github', 'instructions', 'wri-ds.instructions.md'),
+      'GitHub Copilot (component instructions)',
+      SOURCE_COMPONENT_INSTRUCTIONS,
+    )
+  }
   writeJSON(join(ROOT, '.vscode', 'mcp.json'), 'VS Code MCP config', mcpVSCode)
 } else {
   skipped.push('GitHub Copilot / VS Code (not detected)')
