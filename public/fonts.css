@@ -1,0 +1,17 @@
+/* Acumin Pro — development & Storybook only. NOT included in the lib bundle. */
+
+@font-face {
+  font-family: 'Acumin Pro';
+  src: url('fonts/Acumin-Pro-Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Acumin Pro';
+  src: url('fonts/Acumin-Pro-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

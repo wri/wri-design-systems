@@ -1,4 +1,5 @@
 import React from 'react'
+import { Global, css } from '@emotion/react'
 import { MemoryRouter } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import type { Preview } from '@storybook/react'
@@ -16,6 +17,13 @@ const preview: Preview = {
   decorators: [
     (Story: any) => (
       <ChakraProvider value={designSystemStyles}>
+        <Global
+          styles={css`
+            body {
+              font-family: 'Acumin Pro', sans-serif;
+            }
+          `}
+        />
         <MemoryRouter>
           <Story />
         </MemoryRouter>
