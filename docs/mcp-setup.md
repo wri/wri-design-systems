@@ -220,19 +220,6 @@ npx ds setup-ai
 2. Restart the IDE after creating the config
 3. Ask explicitly: _"Using the wri-storybook MCP, list available components"_
 
-### The config exists, but the agent still cannot access Figma / Storybook
-
-This is usually a **session wiring** problem, not a JSON syntax problem.
-
-Check the following:
-
-1. The MCP server is started in the IDE for the current session
-2. The agent runtime you are using actually reads that IDE's MCP config format
-3. Figma OAuth was completed for that runtime, not just for a different tool
-4. The agent can list the MCP tools/resources before you ask it to implement from Figma
-
-In other words: having `.vscode/mcp.json` in the repo is necessary for VS Code/Copilot, but it does **not** guarantee that a separate CLI or hosted agent session can read Figma automatically.
-
 ### `npx ds setup-ai` says "command not found"
 
 Install the package first:
