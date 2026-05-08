@@ -13,7 +13,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-webpack5',
     options: {},
   },
-  staticDirs: ['../public'],
+  staticDirs: ['../public/fonts'],
   refs: {
     '@chakra-ui/react': {
       disable: true,
