@@ -13,6 +13,26 @@ applyTo: 'src/components/**'
 4. **Scaffold first** — run `yarn new-component <Name> <Category>` before creating any file.
 5. **Tokens only** — all visual values via `getThemed*` from relative `../../../../lib/theme`. No hardcoded hex/rem/px.
 6. **Element-level check (MANDATORY, repeat for every native element)** — before writing each `<button>`, `<input>`, `<select>`, or `<textarea>`, stop and explicitly ask: "does a WRI DS component cover this element?" The initial check at step 2 is **not sufficient** — every sub-element inside the component being built requires an individual check.
+7. **Accessibility check** — confirm that semantic HTML, `aria-*` props, and keyboard navigation considerations are baked into the component by default.
+
+## Accessibility (A11y) — Mandatory
+
+When building components, accessibility is not optional. Every component must be accessible by default.
+1. **Semantic HTML:** Use semantic tags (`<nav>`, `<main>`, `<aside>`, `<section>`, etc.) instead of generic `<div css={...}>` where applicable.
+2. **Keyboard Navigation:** All interactive elements must be focusable (using native tags like `<button>` or `<a href>` when wrapped, or `tabIndex={0}`). Ensure `onKeyDown` handles `Enter` and `Space` if it's a custom interactive element.
+3. **ARIA Attributes:**
+   - Define necessary `aria-*` props in the component's `types.ts` and pass them to the underlying DOM element.
+   - Use `aria-hidden="true"` on purely decorative icons.
+   - Provide default or required `aria-label` props for icon-only buttons.
+4. **Focus Management:** For modals, drawers, and popovers, ensure focus is trapped and correctly returned when closed. Use WRI DS / Chakra utilities for this.
+
+### Accessibility in Stories/Demos (Required)
+
+Examples are part of the public API surface. Every `*.stories.tsx`, `*Demo.tsx`, and README snippet must demonstrate correct a11y usage:
+
+- Icon-only actions: always include `aria-label` (localized if applicable).
+- Form fields: show proper labeling and error/helper text wiring using the component’s props (do not hand-roll `aria-describedby` unless the component lacks support).
+- Interactive patterns (Menu/Modal/Sheet): ensure keyboard interactions work in the example and that close/dismiss actions are reachable and labeled.
 
 ## Component Hierarchy (never skip a level)
 
@@ -125,6 +145,7 @@ Full tables: `agents/spacing.md`, `agents/radius.md`, `agents/border-width.md`, 
 
 Generated code is **INVALID** if any of the following are true:
 
+- Fails to provide or forward accessibility props (e.g., missing `aria-label` for icon-only buttons, missing `tabIndex`, or non-semantic HTML for interactive elements)
 - Uses raw `<button>`, `<input>`, `<select>`, `<textarea>` when a WRI DS wrapper exists
 - Defines an SVG inline inside a component file (even a small one)
 - Contains hardcoded `#hex`, `rgb(...)`, `rgba(...)` color values

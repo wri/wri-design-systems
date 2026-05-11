@@ -49,6 +49,7 @@ Key rules (full details in the instructions file):
 3. **Icons in `src/components/icons/`** — never define SVG inline in a component file.
 4. **Scaffold with the script** — `yarn new-component <Name> <Category>` before writing any file.
 5. **Design tokens only** — all values via `getThemed*` from relative `lib/theme`. No hardcoded `#hex`, `rem`, `px`.
+6. **Accessibility first** — component logic must include support for `aria-*` props, explicit semantic tags, and keyboard focus states.
 
 ## Design Tokens — Source of Truth
 

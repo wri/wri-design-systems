@@ -12,6 +12,40 @@ applyTo: '**/*.tsx'
 3. **No style overrides** — do not use `sx`, `css`, `style`, or `className` to override WRI DS component styles.
 4. **Tokens only** — all values via `getThemed*` from `@worldresources/wri-design-systems`. No hardcoded `#hex`, `rem`, `px`.
 5. **No Chakra v2 API** — verify props via Chakra MCP before using any Chakra component.
+6. **Accessibility check** — confirm that necessary `aria-*` props, roles, and keyboard navigation considerations are explicitly added.
+
+## Accessibility (A11y) — Mandatory
+
+When consuming WRI DS components, always ensure that accessibility context is preserved and passed correctly.
+1. **Name every control:** If a control has no visible text label (icon-only, or label is visually hidden), you **must** provide an accessible name via `aria-label` (or `aria-labelledby`).
+2. **Connect helper/error text:** When there is helper text or validation errors, connect it using `aria-describedby` (and `aria-errormessage` if the component supports it). Prefer the component’s built-in props for this (verify via Storybook MCP) instead of custom DOM glue.
+3. **State must be announced:** For toggles/menus/expanders, reflect state with `aria-expanded`, `aria-controls`, `aria-pressed`, `aria-selected` as appropriate (again: verify the DS component API first).
+4. **Keyboard support is non‑negotiable:** Any custom wrapper around DS components must preserve focusability and keyboard activation (Enter/Space for buttons; Arrow keys where applicable). Do not remove focus outlines.
+5. **Tables and lists:** Provide structure (`caption`, correct header cells, sort state announcements like `aria-sort`) when using tabular components. If you can’t confirm the right props, stop and query Storybook MCP.
+
+### A11y Defaults When Using Common DS Components
+
+These rules apply when consuming components; **do not invent prop names**—verify each component’s actual a11y-related props with Storybook MCP.
+
+- **`Button`, `IconButton`, `CloseButton`**
+  - Icon-only actions: require `aria-label` (localized).
+  - Destructive actions: ensure the visible label is explicit (“Delete”, “Remove”, etc.) and confirm focus/disabled states still announce correctly.
+- **`Tooltip`**
+  - Tooltip is not a label replacement. Keep `aria-label`/visible label on the trigger when the action is otherwise unlabeled.
+- **`Menu` (trigger + items)**
+  - Icon-only trigger: require `aria-label`.
+  - If the trigger opens/closes, ensure state is represented (often `aria-expanded` is handled by the component—verify).
+- **`Modal` / `Sheet`**
+  - Provide a clear, unique title and ensure it is announced (typically via `aria-labelledby` or a `title` prop depending on the DS API).
+  - Ensure close action is reachable and labeled (`aria-label` on close icon buttons).
+- **Form controls (`TextInput`, `Select`, `Textarea`, `Checkbox`, `Radio`, etc.)**
+  - Prefer the DS `label` prop (or label slot) for accessible naming.
+  - If a field is required/invalid/disabled, ensure the correct state is exposed via props (verify which props exist).
+- **`Table`**
+  - Sortable headers must communicate sort state (`aria-sort` or DS equivalent). Do not rely on icon color alone.
+  - Provide row selection announcements where selection exists.
+- **`Toast`, `InlineMessage`, `AlertBanner`**
+  - Status messages must be announced appropriately (`role="status"` / `role="alert"` behavior). Prefer DS defaults; if composing custom status UI, add the correct roles and `aria-live` semantics.
 
 ## Component Hierarchy (never skip a level)
 

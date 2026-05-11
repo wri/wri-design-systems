@@ -22,7 +22,8 @@ Before generating a single line of JSX, you MUST execute these steps in order. S
 5. **Scaffold** — run `yarn new-component <Name> <Category>`. Never create files manually.
 6. **Implement** — using WRI DS and Chakra primitives only. Never raw HTML when a wrapper exists.
 7. **Element-level check (MANDATORY, repeat for every native element)** — before writing each `<button>`, `<input>`, `<select>`, or `<textarea>`, stop and explicitly ask: "does a WRI DS component cover this specific element?" Call `mcp_wri-storybook_getComponentsProps` if unsure. The initial Storybook query at step 1 is **not sufficient** — sub-elements within the component being built also require an individual check.
-8. **Verify** — run `get_errors` on every file touched. Fix all TypeScript errors before responding.
+8. **Accessibility (A11y)** — explicitly handle semantic HTML, `aria-*` props, and keyboard events for all interactive components.
+9. **Verify** — run `get_errors` on every file touched. Fix all TypeScript errors before responding.
 
 If MCP was not queried before implementation, the result is considered incorrect.
 
@@ -32,6 +33,7 @@ If MCP was not queried before implementation, the result is considered incorrect
 
 Generated code is **INVALID** if any of the following are true:
 
+- Fails to provide or forward accessibility props (e.g., missing `aria-label` for icon-only buttons, missing `tabIndex`, or non-semantic HTML for interactive elements)
 - Uses raw `<button>`, `<input>`, `<select>`, `<textarea>` when a WRI DS wrapper exists
 - Defines an SVG inline inside a component file (even a small one)
 - Contains hardcoded `#hex`, `rgb(...)`, `rgba(...)` color values
@@ -180,6 +182,7 @@ Before returning any code, verify each item:
 - [ ] Chakra v3 API only
 - [ ] `yarn new-component` was run before any file was created
 - [ ] TypeScript errors checked and resolved
+- [ ] Semantic HTML and accessibility props (`aria-*`, `role`, `tabIndex`) are correctly applied and forwarded
 
 ---
 
