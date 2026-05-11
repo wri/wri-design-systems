@@ -32,13 +32,13 @@ const LegendItem = ({
   return (
     <div css={legendItemContainerStyles}>
       <div css={legendItemDragAndDropActionsStyles}>
-        <IconButton
+        {/* <IconButton
           icon={<DotsIcon />}
           aria-label={l.dragAndDropLabel}
           aria-hidden
           onClick={onDrag}
           style={{ display: 'none', marginBottom: '0.75rem' }}
-        />
+        /> */}
         <div
           style={{
             display: 'flex',

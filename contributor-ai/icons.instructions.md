@@ -41,6 +41,24 @@ Add the export to `src/components/icons/index.ts`:
 export * from './MyIcon'
 ```
 
+## Accessibility
+
+| Use case | What to do |
+| --- | --- |
+| Icon next to a visible text label | Add `aria-hidden="true"` to the `<Icon>` — the label already provides the accessible name |
+| Icon as the only content of a `<button>` or `<a>` | Add `aria-hidden="true"` to the `<Icon>`; the `aria-label` goes on the parent element, not the icon |
+| Icon conveying standalone meaning with no surrounding label | Add `role="img"` and `aria-label` on the `<Icon>` element |
+
+```tsx
+// ✅ Decorative — parent Button carries the accessible name
+<IconButton icon={<SaveIcon aria-hidden="true" />} aria-label="Save" />
+
+// ✅ Standalone semantic icon
+<InfoIcon role="img" aria-label="Information" />
+```
+
+**Never** define `aria-label` on an icon that is already described by a visible sibling label — it creates duplicate announcements for screen readers.
+
 ## Forbidden
 
 - SVG defined inline inside a component — always a separate file in `icons/`

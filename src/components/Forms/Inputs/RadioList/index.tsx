@@ -38,6 +38,7 @@ const RadioList = ({
   return (
     <Group
       css={radioListContainerStyles}
+      role='group'
       aria-roledescription='group'
       aria-label={groupLabel}
     >

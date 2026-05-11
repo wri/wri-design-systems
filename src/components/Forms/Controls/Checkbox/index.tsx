@@ -24,7 +24,6 @@ const Checkbox = ({
     defaultChecked={defaultChecked}
     disabled={disabled}
     onCheckedChange={onCheckedChange}
-    aria-label={undefined}
     gap={children ? '0.625rem' : '0'}
     {...rest}
   >
