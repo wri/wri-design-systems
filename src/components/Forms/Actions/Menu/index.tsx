@@ -169,11 +169,7 @@ const Menu = ({
                     {group.title}
                   </ChakraMenu.ItemGroupLabel>
                   {group.items?.map((groupItem) => (
-                    <MenuItem
-                      key={groupItem.value}
-                      item={groupItem}
-                      isLast={groups.length - 1 === idx}
-                    />
+                    <MenuItem key={groupItem.value} item={groupItem} isLast />
                   ))}
                 </ChakraMenu.ItemGroup>
                 {idx !== groups.length - 1 ? (
