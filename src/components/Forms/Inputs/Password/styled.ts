@@ -50,7 +50,7 @@ export const passwordContentStyles = css`
   }
 
   button {
-    width: 6.125rem;
+    min-width: 6.125rem;
   }
 `
 
