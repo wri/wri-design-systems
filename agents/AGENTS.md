@@ -68,10 +68,3 @@ Full token tables: `agents/spacing.md`, `agents/radius.md`, `agents/border-width
 
 - **Storybook MCP** — WRI DS components, props, and usage patterns
 - **Chakra UI MCP** — Chakra v3 component props and migration guidance
-
-## MCP Session Caveat
-
-The setup command writes IDE-specific MCP config files such as `.vscode/mcp.json` and `.cursor/mcp.json`.
-Those files help supported editors attach MCP servers, but they do **not** guarantee that every agent runtime or terminal session will automatically inherit those tools.
-
-If an agent cannot access Figma or Storybook in a given session, verify the MCP tools are actually exposed in that session before assuming the repo config is broken.

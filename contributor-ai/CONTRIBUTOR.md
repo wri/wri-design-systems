@@ -35,20 +35,10 @@ This repo can write `.vscode/mcp.json` and `.cursor/mcp.json`, but those files o
 - If you are using Cursor, the Cursor MCP config must be the one being read
 - If you are using a different agent runtime, it may need separate MCP registration
 
-Do not assume that the presence of `.vscode/mcp.json` alone means every AI session can already query Figma.
-
 ## Component Rules — Read Before Implementing Anything
 
 **Before writing a single line of JSX, read `.github/instructions/component.instructions.md`.**
 It contains the mandatory pre-implementation checklist, hierarchy rules, scaffold steps, file conventions, and forbidden patterns.
-
-Key rules (full details in the instructions file):
-
-1. **Chakra first** — if Chakra UI v3 already has the component, wrap it. Never rebuild from scratch.
-2. **WRI DS wrappers first** — check `src/components/index.ts`. Use existing `Button`, `IconButton`, `Select`, etc. Never use raw `<button>`, `<input>`, `<select>` when a WRI DS wrapper exists.
-3. **Icons in `src/components/icons/`** — never define SVG inline in a component file.
-4. **Scaffold with the script** — `yarn new-component <Name> <Category>` before writing any file.
-5. **Design tokens only** — all values via `getThemed*` from relative `lib/theme`. No hardcoded `#hex`, `rem`, `px`.
 
 ## Design Tokens — Source of Truth
 
