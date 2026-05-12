@@ -19,7 +19,7 @@ const preview: Preview = {
       // 'error' - Surfaces violations in the panel and fails storybook test runs in CI
       // 'off' - to disable
       test: 'error',
-    }
+    },
   },
   decorators: [
     (Story: any) => (
