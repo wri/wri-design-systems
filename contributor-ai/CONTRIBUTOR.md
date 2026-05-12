@@ -35,8 +35,6 @@ This repo can write `.vscode/mcp.json` and `.cursor/mcp.json`, but those files o
 - If you are using Cursor, the Cursor MCP config must be the one being read
 - If you are using a different agent runtime, it may need separate MCP registration
 
-Do not assume that the presence of `.vscode/mcp.json` alone means every AI session can already query Figma.
-
 ## Component Rules — Read Before Implementing Anything
 
 **Before writing a single line of JSX, read `.github/instructions/component.instructions.md`.**
