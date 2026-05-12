@@ -2578,6 +2578,14 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@storybook/addon-a11y@8.4.4":
+  version "8.4.4"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-8.4.4.tgz#4506067cbe4d0366d3c3f8e96ddf641a651c9816"
+  integrity sha512-xXNOG4Bw/v8rg2Zq/ZJnZSLWfpfkfnZjn0sQVLOe5JcDxavkh5o+WvQ6Tc2w/kK/ophCd7nbTotywrtdQYGNKw==
+  dependencies:
+    "@storybook/addon-highlight" "8.4.4"
+    axe-core "^4.2.0"
+
 "@storybook/addon-actions@8.4.4":
   version "8.4.4"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-8.4.4.tgz#905f14e37eaf53196cf70245994d7bb083378b10"
@@ -5168,6 +5176,11 @@ axe-core@^4.10.0:
   version "4.10.0"
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.10.0.tgz"
   integrity sha512-Mr2ZakwQ7XUAjp7pAwQWRhhK8mQQ6JAaNWSjmjxil0R8BPioMtQsTLOolGYkji1rcL++3dCqZA3zWqpT+9Ew6g==
+
+axe-core@^4.2.0:
+  version "4.11.4"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.11.4.tgz#5b535e381ff1e61ffdd615e5483d16186d3b46a5"
+  integrity sha512-KunSNx+TVpkAw/6ULfhnx+HWRecjqZGTOyquAoWHYLRSdK1tB5Ihce1ZW+UY3fj33bYAFWPu7W/GRSmmrCGuxA==
 
 axobject-query@^4.1.0:
   version "4.1.0"

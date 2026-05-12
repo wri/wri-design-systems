@@ -35,7 +35,6 @@ const LegendItem = ({
         {/* <IconButton
           icon={<DotsIcon />}
           aria-label={l.dragAndDropLabel}
-          aria-hidden
           onClick={onDrag}
           style={{ display: 'none', marginBottom: '0.75rem' }}
         /> */}
