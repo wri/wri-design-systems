@@ -38,6 +38,8 @@ npm i @chakra-ui/react @emotion/react
 
 Run the DS CLI to set up AI tooling for this design system in your project root (the directory where you run the command).
 
+For the full setup guide see [docs/ai-tooling.md](docs/ai-tooling.md).
+
 ```
 ds setup-ai
 ```

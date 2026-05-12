@@ -7,8 +7,8 @@ applyTo: 'src/components/**'
 
 ## Pre-Implementation Checklist (MANDATORY — run in order before writing any JSX)
 
-1. **Check Chakra UI first** — call `mcp_chakra-ui_list_components` or `mcp_chakra-ui_get_component_props`. If Chakra already has it, **wrap it, do not rebuild**.
-2. **Check WRI DS building blocks** — read `src/components/index.ts`. If `IconButton`, `Button`, `Select`, etc. already exist, **use them**. Never use raw HTML or raw Chakra when a WRI DS wrapper exists.
+1. **Check WRI DS building blocks first** — read `src/components/index.ts`. If `IconButton`, `Button`, `Select`, etc. already exist, **use them**. Never use raw HTML or raw Chakra when a WRI DS wrapper exists.
+2. **Check Chakra UI** — call `mcp_chakra-ui_list_components` or `mcp_chakra-ui_get_component_props`. If Chakra already has it, **wrap it, do not rebuild**.
 3. **Check icons** — read `src/components/icons/index.ts`. Missing icons go in `src/components/icons/<Name>.tsx`. Never define SVG inline in a component file.
 4. **Scaffold first** — run `yarn new-component <Name> <Category>` before creating any file.
 5. **Tokens only** — all visual values via `getThemed*` from relative `../../../../lib/theme`. No hardcoded hex/rem/px.
