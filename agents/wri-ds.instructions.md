@@ -17,6 +17,7 @@ applyTo: '**/*.tsx'
 ## Accessibility (A11y) — Mandatory
 
 When consuming WRI DS components, always ensure that accessibility context is preserved and passed correctly.
+
 1. **Name every control:** If a control has no visible text label (icon-only, or label is visually hidden), you **must** provide an accessible name via `aria-label` (or `aria-labelledby`).
 2. **Connect helper/error text:** When there is helper text or validation errors, connect it using `aria-describedby` (and `aria-errormessage` if the component supports it). Prefer the component’s built-in props for this (verify via Storybook MCP) instead of custom DOM glue.
 3. **State must be announced:** For toggles/menus/expanders, reflect state with `aria-expanded`, `aria-controls`, `aria-pressed`, `aria-selected` as appropriate (again: verify the DS component API first).

@@ -43,11 +43,11 @@ export * from './MyIcon'
 
 ## Accessibility
 
-| Use case | What to do |
-| --- | --- |
-| Icon next to a visible text label | Add `aria-hidden="true"` to the `<Icon>` — the label already provides the accessible name |
-| Icon as the only content of a `<button>` or `<a>` | Add `aria-hidden="true"` to the `<Icon>`; the `aria-label` goes on the parent element, not the icon |
-| Icon conveying standalone meaning with no surrounding label | Add `role="img"` and `aria-label` on the `<Icon>` element |
+| Use case                                                    | What to do                                                                                          |
+| ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Icon next to a visible text label                           | Add `aria-hidden="true"` to the `<Icon>` — the label already provides the accessible name           |
+| Icon as the only content of a `<button>` or `<a>`           | Add `aria-hidden="true"` to the `<Icon>`; the `aria-label` goes on the parent element, not the icon |
+| Icon conveying standalone meaning with no surrounding label | Add `role="img"` and `aria-label` on the `<Icon>` element                                           |
 
 ```tsx
 // ✅ Decorative — parent Button carries the accessible name

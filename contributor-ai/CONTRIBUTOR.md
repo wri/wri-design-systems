@@ -88,20 +88,20 @@ Accessibility is not optional. Every component must be accessible by default. Fu
 
 ### Per-Component Quick Reference
 
-| Component type | Required a11y |
-| --- | --- |
-| `IconButton`, `CloseButton` (icon-only) | `aria-label` required; `aria-hidden="true"` on the icon |
-| Toggle buttons | `aria-pressed={isPressed}` |
-| Disclosure triggers | `aria-expanded={isOpen}` + `aria-controls="<id>"` |
+| Component type                                       | Required a11y                                                                                                    |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `IconButton`, `CloseButton` (icon-only)              | `aria-label` required; `aria-hidden="true"` on the icon                                                          |
+| Toggle buttons                                       | `aria-pressed={isPressed}`                                                                                       |
+| Disclosure triggers                                  | `aria-expanded={isOpen}` + `aria-controls="<id>"`                                                                |
 | `TextInput`, `Select`, `Checkbox`, `Radio`, `Switch` | Visible label or `aria-label`/`aria-labelledby`; `aria-required`; `aria-invalid` + `aria-describedby` for errors |
-| Grouped controls | `<fieldset>` + `<legend>` |
-| `Modal`, `Panel`, `Sheet` | `role="dialog"`, `aria-modal="true"`, `aria-labelledby` or `aria-label`; focus trap; focus return |
-| `Navbar`, `Footer`, nav regions | `<nav aria-label="...">`, `aria-current="page"` |
-| `TabBar`, `MobileTabBar`, `NavigationRail` | `role="tablist"`, `role="tab"`, `aria-selected`, `role="tabpanel"` |
-| `Table` | `<thead>`, `<th scope="col">`, `<caption>` or `aria-label`; `aria-sort` for sortable columns |
-| `AlertBanner`, `Toast`, `InlineMessage` | `role="alert"` + `aria-live="assertive"` (critical) or `role="status"` + `aria-live="polite"` (informational) |
-| Decorative icons | `aria-hidden="true"` |
-| Semantic standalone icons | `role="img"` + `aria-label` |
+| Grouped controls                                     | `<fieldset>` + `<legend>`                                                                                        |
+| `Modal`, `Panel`, `Sheet`                            | `role="dialog"`, `aria-modal="true"`, `aria-labelledby` or `aria-label`; focus trap; focus return                |
+| `Navbar`, `Footer`, nav regions                      | `<nav aria-label="...">`, `aria-current="page"`                                                                  |
+| `TabBar`, `MobileTabBar`, `NavigationRail`           | `role="tablist"`, `role="tab"`, `aria-selected`, `role="tabpanel"`                                               |
+| `Table`                                              | `<thead>`, `<th scope="col">`, `<caption>` or `aria-label`; `aria-sort` for sortable columns                     |
+| `AlertBanner`, `Toast`, `InlineMessage`              | `role="alert"` + `aria-live="assertive"` (critical) or `role="status"` + `aria-live="polite"` (informational)    |
+| Decorative icons                                     | `aria-hidden="true"`                                                                                             |
+| Semantic standalone icons                            | `role="img"` + `aria-label`                                                                                      |
 
 ### What NOT to Do
 
@@ -130,4 +130,3 @@ Accessibility is not optional. Every component must be accessible by default. Fu
 // ✅
 <nav aria-label="Main navigation">{links}</nav>
 ```
-

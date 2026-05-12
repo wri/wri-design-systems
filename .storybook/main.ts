@@ -6,6 +6,7 @@ const config: StorybookConfig = {
     '@storybook/addon-webpack5-compiler-swc',
     '@storybook/addon-onboarding',
     '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
   ],

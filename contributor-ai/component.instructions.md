@@ -18,6 +18,7 @@ applyTo: 'src/components/**'
 ## Accessibility (A11y) — Mandatory
 
 When building components, accessibility is not optional. Every component must be accessible by default.
+
 1. **Semantic HTML:** Use semantic tags (`<nav>`, `<main>`, `<aside>`, `<section>`, etc.) instead of generic `<div css={...}>` where applicable.
 2. **Keyboard Navigation:** All interactive elements must be focusable (using native tags like `<button>` or `<a href>` when wrapped, or `tabIndex={0}`). Ensure `onKeyDown` handles `Enter` and `Space` for custom interactive elements. `Escape` must dismiss modals, menus, and popovers.
 3. **ARIA Attributes:**
@@ -30,12 +31,14 @@ When building components, accessibility is not optional. Every component must be
 ### Per-Component Type Rules
 
 #### Buttons (`Button`, `IconButton`, `CloseButton`, `MultiActionButton`)
+
 - Icon-only buttons **always** require `aria-label` — expose it in `types.ts` and mark it required.
 - Toggle buttons: expose and forward `aria-pressed={isPressed}`.
 - Buttons that control disclosure: `aria-expanded={isOpen}` and `aria-controls="<panel-id>"`.
 - Disabled state: use the component's `disabled` prop — never manually remove an element from the tab order.
 
 #### Form Controls (`TextInput`, `Textarea`, `Password`, `Select`, `CheckboxList`, `RadioList`, `SliderInput`, `InputWithUnits`, `Checkbox`, `Radio`, `Switch`, `Slider`)
+
 - Every field must pair with a visible label or receive `aria-label`/`aria-labelledby` via props forwarded to the input.
 - Required fields: forward `aria-required={true}` to the underlying input element.
 - Validation errors: set `aria-invalid={true}` and `aria-describedby` pointing to the error message container's `id`.
@@ -43,6 +46,7 @@ When building components, accessibility is not optional. Every component must be
 - Grouped controls sharing a group label: wrap in `<fieldset>` with `<legend>`.
 
 #### Modals, Panels, Sheets (`Modal`, `Panel`, `Sheet`)
+
 - The dialog container must have `role="dialog"` and `aria-modal="true"`.
 - Visible title: reference with `aria-labelledby="<title-id>"`.
 - No visible title: provide `aria-label` describing the dialog's purpose.
@@ -50,23 +54,27 @@ When building components, accessibility is not optional. Every component must be
 - The close/dismiss action must carry `aria-label` (e.g. `aria-label="Close dialog"`).
 
 #### Navigation (`Navbar`, `Footer`, `TabBar`, `MobileTabBar`, `NavigationRail`, `Breadcrumb`, `Pagination`)
+
 - Wrap navigation regions in `<nav>` with `aria-label` to distinguish multiple nav landmarks (e.g. `aria-label="Main navigation"`, `aria-label="Breadcrumb"`).
 - Active/current page: `aria-current="page"` on the active link or item.
 - Tab components: `role="tablist"` on the list, `role="tab"` + `aria-selected={isSelected}` on each tab, `role="tabpanel"` on each panel.
 - Pagination: expose `aria-label` on the nav wrapper and `aria-current="page"` on the active page button.
 
 #### Data Display (`Table`, `List`)
+
 - Tables: use semantic `<table>`, `<thead>`, `<tbody>`, `<th scope="col">` (or `scope="row"` for row headers).
 - Provide a `<caption>` child or `aria-label` on the `<table>` element.
 - Sortable columns: `aria-sort="ascending" | "descending" | "none"` on the `<th>`.
 - Lists: prefer `<ul>/<li>` or `<ol>/<li>` over generic `<div>` stacks.
 
 #### Status and Alerts (`AlertBanner`, `Toast`, `InlineMessage`, `Badge`)
+
 - Polite notifications (informational): `role="status"` and `aria-live="polite"`.
 - Critical alerts requiring immediate attention: `role="alert"` and `aria-live="assertive"`.
 - Do not use `aria-live="assertive"` for non-critical messages — it interrupts screen readers mid-sentence.
 
 #### Icons (decorative vs. informative)
+
 - Decorative icon next to visible text: `aria-hidden="true"` on the icon.
 - Icon as the sole content of a button/link: `aria-hidden="true"` on the icon, `aria-label` on the parent element.
 - Icon conveying standalone meaning with no surrounding label: `role="img"` and `aria-label` on the icon element.

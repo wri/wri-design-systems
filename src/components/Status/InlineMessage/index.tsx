@@ -43,7 +43,8 @@ const InlineMessage = ({
   } else if (variant === 'error') {
     variantInlineMessageStyles = errorInlineMessageStyles
   }
-  const liveRole = variant === 'error' || variant === 'warning' ? 'alert' : 'status'
+  const liveRole =
+    variant === 'error' || variant === 'warning' ? 'alert' : 'status'
   const livePoliteness = liveRole === 'alert' ? 'assertive' : 'polite'
 
   return (
