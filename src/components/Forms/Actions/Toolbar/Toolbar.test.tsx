@@ -6,7 +6,7 @@ import { axe } from 'jest-axe'
 import Toolbar from '.'
 
 jest.mock('@chakra-ui/react', () =>
-  jest.requireActual('../../testUtils').createChakraMock(),
+  jest.requireActual('../../../testUtils').createChakraMock(),
 )
 
 // ResizeObserver is not available in jsdom — polyfill it for this test

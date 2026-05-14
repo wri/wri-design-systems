@@ -1,20 +1,19 @@
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
-import FormContainerDemo from './FormContainerDemo'
+import BadgeDemo from './BadgeDemo'
 
 jest.mock('../..', () => ({
-  Checkbox: jest.requireActual('../Controls/Checkbox').default,
-  FormContainer: jest.requireActual('.').default,
+  Badge: jest.requireActual('.').default,
 }))
 
 jest.mock('@chakra-ui/react', () =>
   jest.requireActual('../../testUtils').createChakraMock(),
 )
 
-describe('FormContainerDemo — accessibility', () => {
+describe('BadgeDemo — accessibility', () => {
   it('has no violations', async () => {
-    const { container } = render(<FormContainerDemo />)
+    const { container } = render(<BadgeDemo />)
     expect(await axe(container)).toHaveNoViolations()
   })
 })

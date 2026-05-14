@@ -4,7 +4,7 @@ import { axe } from 'jest-axe'
 import CheckboxList from '.'
 
 jest.mock('@chakra-ui/react', () =>
-  jest.requireActual('../../testUtils').createChakraMock(),
+  jest.requireActual('../../../testUtils').createChakraMock(),
 )
 
 describe('CheckboxList — accessibility', () => {

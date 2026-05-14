@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { StepProgressIndicator, Button } from '../..'
 import DemoWrapper from '../../UI/DemoWrapper'
-import { MaxWidth } from '../../Navigation/Footer/Footer.stories'
 
 const StepProgressIndicatorDemo = () => {
   const [currentStep, setCurrentStep] = useState(1)

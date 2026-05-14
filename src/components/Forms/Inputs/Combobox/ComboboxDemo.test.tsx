@@ -8,7 +8,7 @@ jest.mock('../../..', () => ({
 }))
 
 jest.mock('@chakra-ui/react', () =>
-  jest.requireActual('../../testUtils').createChakraMock(),
+  jest.requireActual('../../../testUtils').createChakraMock(),
 )
 
 describe('ComboboxDemo — accessibility', () => {

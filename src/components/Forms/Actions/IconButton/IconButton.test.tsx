@@ -4,7 +4,7 @@ import { axe } from 'jest-axe'
 import IconButton from '.'
 
 jest.mock('@chakra-ui/react', () =>
-  jest.requireActual('../../testUtils').createChakraMock(),
+  jest.requireActual('../../../testUtils').createChakraMock(),
 )
 
 const MockIcon = () => (

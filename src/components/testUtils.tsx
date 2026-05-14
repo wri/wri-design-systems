@@ -22,6 +22,7 @@ const allowedProps = new Set([
   'disabled',
   'tabIndex',
   'className',
+  'alt',
   'name',
   'value',
   'onChange',
@@ -74,6 +75,7 @@ export const createChakraMock = () => {
     Portal: ({ children }: any) => React.createElement(Fragment, {}, children),
     Spinner: el('span', { role: 'status' }),
     Button: React.forwardRef(el('button', { type: 'button' })),
+    CloseButton: React.forwardRef(el('button', { type: 'button' })),
     Icon: React.forwardRef(el('span', { 'aria-hidden': true })),
     Tag: {
       Root: React.forwardRef(el('span')),
@@ -82,6 +84,18 @@ export const createChakraMock = () => {
       EndElement: el('span'),
     },
     Input: React.forwardRef(el('input', { type: 'text' })),
+    Avatar: {
+      Root: React.forwardRef(el('div')),
+      Image: React.forwardRef(el('img')),
+      Fallback: el('span'),
+    },
+    Alert: {
+      Root: React.forwardRef(el('div')),
+      Indicator: el('span', { 'aria-hidden': true }),
+      Content: el('div'),
+      Title: el('p'),
+      Description: el('div'),
+    },
     Textarea: React.forwardRef(el('textarea')),
     Field: {
       Root: el('fieldset'),

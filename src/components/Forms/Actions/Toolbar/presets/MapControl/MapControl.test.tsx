@@ -6,7 +6,7 @@ import { axe } from 'jest-axe'
 import MapControlsToolbar from '.'
 
 jest.mock('@chakra-ui/react', () =>
-  jest.requireActual('../../../../testUtils').createChakraMock(),
+  jest.requireActual('../../../../../testUtils').createChakraMock(),
 )
 
 global.ResizeObserver = class ResizeObserver

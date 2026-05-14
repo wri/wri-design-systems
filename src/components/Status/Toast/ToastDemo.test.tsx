@@ -1,20 +1,22 @@
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
-import FormContainerDemo from './FormContainerDemo'
+import ToastDemo from './ToastDemo'
+
+const mockShowToast = jest.fn()
 
 jest.mock('../..', () => ({
-  Checkbox: jest.requireActual('../Controls/Checkbox').default,
-  FormContainer: jest.requireActual('.').default,
+  Button: jest.requireActual('../../Forms/Actions/Button').default,
+  showToast: (...args: any[]) => mockShowToast(...args),
 }))
 
 jest.mock('@chakra-ui/react', () =>
   jest.requireActual('../../testUtils').createChakraMock(),
 )
 
-describe('FormContainerDemo — accessibility', () => {
+describe('ToastDemo — accessibility', () => {
   it('has no violations', async () => {
-    const { container } = render(<FormContainerDemo />)
+    const { container } = render(<ToastDemo />)
     expect(await axe(container)).toHaveNoViolations()
   })
 })
