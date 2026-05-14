@@ -65,6 +65,7 @@ const InputWithUnits = ({
           {unitsPosition === 'start' ? (
             <Select
               placeholder=''
+              aria-label={`${label} unit`}
               value={selectValue}
               items={units}
               disabled={disabled}
@@ -76,6 +77,7 @@ const InputWithUnits = ({
           ) : null}
           <TextInput
             type='number'
+            aria-label={`${label} value`}
             value={inputValue}
             disabled={disabled}
             onChange={(e) => {
@@ -86,6 +88,7 @@ const InputWithUnits = ({
           {unitsPosition === 'end' ? (
             <Select
               placeholder=''
+              aria-label={`${label} unit`}
               value={selectValue}
               items={units}
               disabled={disabled}

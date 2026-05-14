@@ -14,7 +14,13 @@ const TooltipDemo = () => (
       <div style={{ display: 'flex', gap: '0.625rem' }}>
         <p>Pill:</p>
         <Tooltip content='This is a tooltip'>
-          <InfoIcon height='1.25rem' width='1.25rem' />
+          <button
+            type='button'
+            aria-label='Show basic tooltip'
+            style={{ display: 'inline-flex' }}
+          >
+            <InfoIcon height='1.25rem' width='1.25rem' />
+          </button>
         </Tooltip>
       </div>
       <div style={{ display: 'flex', gap: '0.625rem' }}>
@@ -28,7 +34,13 @@ const TooltipDemo = () => (
       <div style={{ display: 'flex', gap: '0.625rem' }}>
         <p>Text:</p>
         <Tooltip content='This is a tooltip' variant='text'>
-          <InfoIcon height='1.25rem' width='1.25rem' />
+          <button
+            type='button'
+            aria-label='Show text tooltip'
+            style={{ display: 'inline-flex' }}
+          >
+            <InfoIcon height='1.25rem' width='1.25rem' />
+          </button>
         </Tooltip>
       </div>
       <div style={{ display: 'flex', gap: '0.625rem' }}>
@@ -48,19 +60,37 @@ const TooltipDemo = () => (
             </div>
           }
         >
-          <InfoIcon height='1.25rem' width='1.25rem' />
+          <button
+            type='button'
+            aria-label='Show tooltip with icon content'
+            style={{ display: 'inline-flex' }}
+          >
+            <InfoIcon height='1.25rem' width='1.25rem' />
+          </button>
         </Tooltip>
       </div>
       <div style={{ display: 'flex', gap: '0.625rem' }}>
         <p>Right position:</p>
         <Tooltip content='This is a tooltip' position='right'>
-          <InfoIcon height='1.25rem' width='1.25rem' />
+          <button
+            type='button'
+            aria-label='Show tooltip on right'
+            style={{ display: 'inline-flex' }}
+          >
+            <InfoIcon height='1.25rem' width='1.25rem' />
+          </button>
         </Tooltip>
       </div>
       <div style={{ display: 'flex', gap: '0.625rem' }}>
         <p>Delay:</p>
         <Tooltip content='This is a tooltip' closeDelay={2000}>
-          <InfoIcon height='1.25rem' width='1.25rem' />
+          <button
+            type='button'
+            aria-label='Show delayed tooltip'
+            style={{ display: 'inline-flex' }}
+          >
+            <InfoIcon height='1.25rem' width='1.25rem' />
+          </button>
         </Tooltip>
       </div>
     </div>

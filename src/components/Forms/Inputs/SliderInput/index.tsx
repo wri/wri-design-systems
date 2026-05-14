@@ -141,6 +141,11 @@ const SliderInput = ({
           css={{}}
           {...sliderItem}
           value={value}
+          aria-label={
+            value?.length === 2
+              ? [`${label} minimum`, `${label} maximum`]
+              : [label]
+          }
           onValueChangeEnd={handleSliderChanged}
         />
         {value?.length === 2 ? (

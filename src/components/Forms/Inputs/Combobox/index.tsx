@@ -106,10 +106,11 @@ const Combobox = ({
               placeholder={placeholder}
               css={textInputStyles(size)}
               disabled={disabled}
+              aria-label={label || placeholder || 'Combobox input'}
             />
             <ChakraCombobox.IndicatorGroup>
-              <ChakraCombobox.ClearTrigger />
-              <ChakraCombobox.Trigger />
+              <ChakraCombobox.ClearTrigger aria-label='Clear selection' />
+              <ChakraCombobox.Trigger aria-label='Toggle options' />
             </ChakraCombobox.IndicatorGroup>
           </ChakraCombobox.Control>
           <Portal>

@@ -140,6 +140,7 @@ const Textarea = ({
           css={textareaSyles(size, value, defaultValue)}
           onChange={handleOnChange}
           value={value}
+          aria-label={label || placeholder}
           aria-describedby={describedByIds}
           _placeholder={{
             color: 'var(--chakra-colors-neutral-500)',

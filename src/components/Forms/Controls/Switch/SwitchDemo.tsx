@@ -16,8 +16,8 @@ const SwitchDemo = () => (
       <Switch name='switch 4' disabled>
         disabled
       </Switch>
-      <Switch name='switch 4' disabled checked>
-        disabled cheked
+      <Switch name='switch 5' disabled checked>
+        disabled checked
       </Switch>
     </div>
   </DemoWrapper>

@@ -8,9 +8,12 @@ export const SelectTrigger = React.forwardRef<
   ChakraSelect.ControlProps
 >((props, ref) => {
   const { children, ...rest } = props
+  const { 'aria-label': triggerAriaLabel, ...controlProps } = rest
   return (
-    <ChakraSelect.Control {...rest}>
-      <ChakraSelect.Trigger ref={ref}>{children}</ChakraSelect.Trigger>
+    <ChakraSelect.Control {...controlProps}>
+      <ChakraSelect.Trigger ref={ref} aria-label={triggerAriaLabel}>
+        {children}
+      </ChakraSelect.Trigger>
       <ChakraSelect.IndicatorGroup>
         <ChakraSelect.Indicator>
           <ChevronDownIcon />
