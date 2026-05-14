@@ -43,10 +43,33 @@ const allowedProps = new Set([
   'style',
 ])
 
+const domEventProps = new Set([
+  'onClick',
+  'onKeyDown',
+  'onKeyUp',
+  'onKeyPress',
+  'onFocus',
+  'onBlur',
+  'onChange',
+  'onInput',
+  'onSubmit',
+  'onMouseEnter',
+  'onMouseLeave',
+  'onMouseDown',
+  'onMouseUp',
+  'onPointerDown',
+  'onPointerUp',
+  'onTouchStart',
+  'onTouchEnd',
+])
+
 const cleanProps = (props: Record<string, unknown>) =>
   Object.fromEntries(
     Object.entries(props).filter(
-      ([key]) => allowedProps.has(key) || key.startsWith('data-'),
+      ([key]) =>
+        allowedProps.has(key) ||
+        key.startsWith('data-') ||
+        domEventProps.has(key),
     ),
   )
 
@@ -69,6 +92,8 @@ export const createChakraMock = () => {
     createSystem: () => ({ tokens: { getVar: () => '' } }),
     defaultConfig: {},
     Box: React.forwardRef(el('div')),
+    Flex: React.forwardRef(el('div')),
+    Text: React.forwardRef(el('p')),
     Group: React.forwardRef(el('div', { role: 'group' })),
     Stack: React.forwardRef(el('div')),
     HStack: React.forwardRef(el('div')),
@@ -268,6 +293,21 @@ export const createChakraMock = () => {
       IndicatorGroup: el('div'),
       Control: el('div'),
     },
+    Accordion: {
+      Root: el('div'),
+      Item: el('div'),
+      ItemTrigger: React.forwardRef(el('button', { type: 'button' })),
+      ItemIndicator: el('span', { 'aria-hidden': true }),
+      ItemContent: el('div'),
+    },
+    Table: {
+      Root: el('table'),
+      Header: el('thead'),
+      Body: el('tbody'),
+      Row: el('tr'),
+      ColumnHeader: el('th'),
+      Cell: el('td'),
+    },
     For: ({ each, children }: any) =>
       React.createElement(
         React.Fragment,
@@ -275,6 +315,19 @@ export const createChakraMock = () => {
         (each || []).map((item: any, index: number) => children(item, index)),
       ),
     createListCollection: ({ items }: any) => ({ items }),
+    createToaster: () => ({ add: jest.fn(), dismiss: jest.fn(), subscribe: jest.fn(() => () => {}) }),
+    Toaster: () => null,
+    Toast: {
+      Root: el('div', { role: 'status', 'aria-live': 'polite' }),
+      Title: el('span'),
+      Description: el('p'),
+      CloseTrigger: el('button', { type: 'button' }),
+      ActionTrigger: el('button', { type: 'button' }),
+    },
+    chakra: {
+      div: React.forwardRef(el('div')),
+      button: React.forwardRef(el('button', { type: 'button' })),
+    },
     useFilter: () => ({ contains: () => true }),
     useListCollection: ({ initialItems }: any) => ({
       collection: { items: initialItems },

@@ -32,6 +32,7 @@ const ListItem = ({
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (!isClickable) return
     if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
       onItemClick?.()
     }
   }
@@ -56,7 +57,8 @@ const ListItem = ({
       aria-expanded={isClickable ? isExpanded : undefined}
       aria-label={computedAriaLabel}
       disabled={disabled}
-      aria-selected={isHighlighted}
+      data-selected={isHighlighted || undefined}
+      data-highlighted={isHighlighted || undefined}
     >
       <Flex gap={3} flex='1' overflow='hidden'>
         {icon}

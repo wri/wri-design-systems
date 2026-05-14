@@ -1,0 +1,28 @@
+import { render } from '@testing-library/react'
+import { axe } from 'jest-axe'
+
+import AnalysisWidget from '.'
+import { InfoIcon } from '../../icons'
+
+jest.mock('@chakra-ui/react', () =>
+  jest.requireActual('../../testUtils').createChakraMock(),
+)
+
+describe('AnalysisWidget — accessibility', () => {
+  it('renders collapsible widget with actions and has no violations', async () => {
+    const { container } = render(
+      <AnalysisWidget
+        header={<div>Widget header</div>}
+        footer={<div>Widget footer</div>}
+        actions={[
+          { label: 'About', onClick: () => {}, icon: <InfoIcon /> },
+          { label: 'Refresh', onClick: () => {} },
+        ]}
+      >
+        <div>Widget content</div>
+      </AnalysisWidget>,
+    )
+
+    expect(await axe(container)).toHaveNoViolations()
+  })
+})
