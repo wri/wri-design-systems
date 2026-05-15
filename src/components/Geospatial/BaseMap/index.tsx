@@ -116,10 +116,12 @@ const BaseMap = ({
                   key={option.label}
                   css={baseMapOptionsItemContainerStyles(option.active)}
                   role='button'
+                  aria-label={`${option.label}${option.caption ? `, ${option.caption}` : ''}`}
                   onClick={() => onOptionSelected?.(option)}
                   tabIndex={0}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
                       onOptionSelected?.(option)
                     }
                   }}

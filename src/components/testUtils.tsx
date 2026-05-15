@@ -97,7 +97,10 @@ export const createChakraMock = () => {
     Group: React.forwardRef(el('div', { role: 'group' })),
     Stack: React.forwardRef(el('div')),
     HStack: React.forwardRef(el('div')),
+    VisuallyHidden: el('span'),
     Portal: ({ children }: any) => React.createElement(Fragment, {}, children),
+    InputGroup: el('div'),
+    ButtonGroup: el('div'),
     Spinner: el('span', { role: 'status' }),
     Button: React.forwardRef(el('button', { type: 'button' })),
     CloseButton: React.forwardRef(el('button', { type: 'button' })),
@@ -120,6 +123,25 @@ export const createChakraMock = () => {
       Content: el('div'),
       Title: el('p'),
       Description: el('div'),
+    },
+    Dialog: {
+      Root: el('div'),
+      Backdrop: el('div'),
+      Positioner: React.forwardRef(el('div')),
+      Content: el('div', { role: 'dialog', 'aria-modal': true }),
+      Header: el('div'),
+      Body: el('div'),
+      Footer: el('div'),
+      CloseTrigger: React.forwardRef(
+        ({ children, asChild, ...rest }: any, ref: any) =>
+          asChild
+            ? React.createElement(React.Fragment, {}, children)
+            : React.createElement(
+                'button',
+                { ref, type: 'button', ...cleanProps(rest) },
+                children,
+              ),
+      ),
     },
     Textarea: React.forwardRef(el('textarea')),
     Field: {
@@ -259,6 +281,25 @@ export const createChakraMock = () => {
         React.createElement(React.Fragment, {}, children),
       ArrowTip: () => null,
     },
+    Popover: {
+      Root: el('div'),
+      Trigger: React.forwardRef(
+        ({ children, asChild, ...rest }: any, ref: any) =>
+          asChild
+            ? React.createElement(React.Fragment, {}, children)
+            : React.createElement(
+                'button',
+                { ref, type: 'button', ...cleanProps(rest) },
+                children,
+              ),
+      ),
+      Positioner: el('div'),
+      Content: el('div'),
+      Body: el('div'),
+      Arrow: ({ children }: any) =>
+        React.createElement(React.Fragment, {}, children),
+      ArrowTip: () => null,
+    },
     Select: {
       Root: el('div'),
       Label: el('label'),
@@ -293,6 +334,43 @@ export const createChakraMock = () => {
       IndicatorGroup: el('div'),
       Control: el('div'),
     },
+    Tabs: {
+      Root: el('div'),
+      List: el('div', { role: 'tablist' }),
+      Trigger: React.forwardRef(el('button', { type: 'button', role: 'tab' })),
+      Content: el('div', { role: 'tabpanel' }),
+    },
+    Breadcrumb: {
+      Root: el('nav', { 'aria-label': 'Breadcrumb' }),
+      List: el('ol'),
+      Item: el('li'),
+      Separator: el('span', { 'aria-hidden': true }),
+    },
+    Collapsible: {
+      Root: el('div'),
+      Trigger: React.forwardRef(el('button', { type: 'button' })),
+      Content: el('div'),
+    },
+    Pagination: {
+      Root: el('nav', { 'aria-label': 'Pagination' }),
+      PrevTrigger: ({ children }: any) =>
+        React.createElement(React.Fragment, {}, children),
+      NextTrigger: ({ children }: any) =>
+        React.createElement(React.Fragment, {}, children),
+      Items: ({ render }: any) =>
+        React.createElement(
+          React.Fragment,
+          {},
+          [1, 2, 3].map((value) =>
+            React.createElement(
+              React.Fragment,
+              { key: `page-${value}` },
+              render({ value }),
+            ),
+          ),
+        ),
+      PageText: el('span'),
+    },
     Accordion: {
       Root: el('div'),
       Item: el('div'),
@@ -315,7 +393,11 @@ export const createChakraMock = () => {
         (each || []).map((item: any, index: number) => children(item, index)),
       ),
     createListCollection: ({ items }: any) => ({ items }),
-    createToaster: () => ({ add: jest.fn(), dismiss: jest.fn(), subscribe: jest.fn(() => () => {}) }),
+    createToaster: () => ({
+      add: jest.fn(),
+      dismiss: jest.fn(),
+      subscribe: jest.fn(() => () => {}),
+    }),
     Toaster: () => null,
     Toast: {
       Root: el('div', { role: 'status', 'aria-live': 'polite' }),
@@ -329,6 +411,12 @@ export const createChakraMock = () => {
       button: React.forwardRef(el('button', { type: 'button' })),
     },
     useFilter: () => ({ contains: () => true }),
+    useMediaQuery: () => [false],
+    useDisclosure: () => ({
+      open: false,
+      onOpen: jest.fn(),
+      onClose: jest.fn(),
+    }),
     useListCollection: ({ initialItems }: any) => ({
       collection: { items: initialItems },
       filter: () => undefined,

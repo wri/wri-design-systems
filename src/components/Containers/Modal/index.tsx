@@ -47,6 +47,7 @@ const Modal = ({
         <Draggable disabled={!draggable} nodeRef={nodeRef}>
           <Dialog.Positioner ref={nodeRef}>
             <Dialog.Content
+              aria-label='Modal dialog'
               css={modalContainerStyles(size, width, height, maxHeight)}
             >
               <Dialog.Header css={modalHeaderStyles}>
