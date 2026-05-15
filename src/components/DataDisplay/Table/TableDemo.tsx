@@ -102,6 +102,7 @@ const TableDemo = () => {
         <TableCell>
           <Checkbox
             name={`checkbox-${rowData.id}`}
+            aria-label={`Select row ${rowData.name}`}
             onCheckedChange={handleOnRowSelected}
             checked={selectedRows?.some((item) => item.id === rowData.id)}
           />

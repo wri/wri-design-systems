@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 /* eslint-disable react/no-unknown-property */
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import {
   panelContainerStyles,
   panelContentContainerStyles,
@@ -19,6 +19,7 @@ const Panel = ({
   variant = 'fixed',
   width,
 }: PanelProps) => {
+  const headerId = useId()
   const [headerHeight, setHeaderHeight] = useState<number | undefined>(
     undefined,
   )
@@ -35,6 +36,8 @@ const Panel = ({
 
   const panel = (
     <div
+      role='region'
+      aria-labelledby={header ? headerId : undefined}
       css={[
         panelContainerStyles(width),
         variant === 'fixed'
@@ -43,7 +46,7 @@ const Panel = ({
       ]}
     >
       {header ? (
-        <div css={panelHeaderContainerStyles} ref={headerRef}>
+        <div id={headerId} css={panelHeaderContainerStyles} ref={headerRef}>
           {header}
         </div>
       ) : null}

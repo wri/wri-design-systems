@@ -51,7 +51,6 @@ const LayerItem = ({
             disabled={disabled}
             defaultChecked={isDefaultSelected}
             onChange={onChange}
-            role='switch'
           />
         </div>
       ) : (

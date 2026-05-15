@@ -1,6 +1,5 @@
 import React from 'react'
 import { Icon, Box, Flex, Text } from '@chakra-ui/react'
-import { fn } from '@storybook/test'
 import ExtendableCard from '.'
 import List from '../List'
 import Tag from '../../Forms/Tag'
@@ -26,13 +25,13 @@ const demoChildren = (
         caption: 'Configure options',
         variant: 'navigation',
         icon: <MapIcon />,
-        onItemClick: fn(),
+        onItemClick: () => {},
       },
       {
         id: 'nav-2',
         label: 'Profile',
         variant: 'navigation',
-        onItemClick: fn(),
+        onItemClick: () => {},
       },
       {
         id: 'data-1',

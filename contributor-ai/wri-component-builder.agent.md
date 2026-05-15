@@ -22,7 +22,16 @@ Before generating a single line of JSX, you MUST execute these steps in order. S
 5. **Scaffold** — run `yarn new-component <Name> <Category>`. Never create files manually.
 6. **Implement** — using WRI DS and Chakra primitives only. Never raw HTML when a wrapper exists.
 7. **Element-level check (MANDATORY, repeat for every native element)** — before writing each `<button>`, `<input>`, `<select>`, or `<textarea>`, stop and explicitly ask: "does a WRI DS component cover this specific element?" Call `mcp_wri-storybook_getComponentsProps` if unsure. The initial Storybook query at step 1 is **not sufficient** — sub-elements within the component being built also require an individual check.
-8. **Verify** — run `get_errors` on every file touched. Fix all TypeScript errors before responding.
+8. **Accessibility (A11y)** — for every interactive component, explicitly verify:
+   - Semantic HTML is used (correct element for the role).
+   - All `aria-*` props needed by the component type are defined in `types.ts` and forwarded to the DOM.
+   - Icon-only buttons have a required `aria-label`.
+   - Form fields pair with a visible label or `aria-label`/`aria-labelledby`; error states use `aria-invalid` + `aria-describedby`.
+   - Modals/panels have `role="dialog"`, `aria-modal="true"`, and `aria-labelledby` or `aria-label`.
+   - Navigation uses `<nav aria-label="...">` and `aria-current="page"` for the active item.
+   - Status/alert components have the correct `role` and `aria-live` value.
+   - Decorative icons have `aria-hidden="true"`; icon-only interactive parents have `aria-label`.
+9. **Verify** — run `get_errors` on every file touched. Fix all TypeScript errors before responding.
 
 If MCP was not queried before implementation, the result is considered incorrect.
 
@@ -32,6 +41,7 @@ If MCP was not queried before implementation, the result is considered incorrect
 
 Generated code is **INVALID** if any of the following are true:
 
+- Fails to provide or forward accessibility props (e.g., missing `aria-label` for icon-only buttons, missing `tabIndex`, or non-semantic HTML for interactive elements)
 - Uses raw `<button>`, `<input>`, `<select>`, `<textarea>` when a WRI DS wrapper exists
 - Defines an SVG inline inside a component file (even a small one)
 - Contains hardcoded `#hex`, `rgb(...)`, `rgba(...)` color values
@@ -67,6 +77,41 @@ A component that uses WRI DS correctly but differs slightly from the Figma layou
 ---
 
 ## BAD vs GOOD
+
+### Accessibility
+
+```tsx
+// ❌ BAD — icon-only button with no accessible name
+<button onClick={fn}>
+  <CloseIcon />
+</button>
+
+// ✅ GOOD — aria-label on the button, icon hidden from assistive tech
+<IconButton icon={<CloseIcon aria-hidden="true" />} aria-label="Close dialog" onClick={fn} />
+
+// ❌ BAD — form field with no label association
+<TextInput placeholder="Email" />
+
+// ✅ GOOD — visible label + error state wired up
+<TextInput
+  label="Email address"
+  aria-required={true}
+  aria-invalid={hasError}
+  aria-describedby={hasError ? 'email-error' : undefined}
+/>
+<p id="email-error" role="alert">{errorMessage}</p>
+
+// ❌ BAD — modal missing role and focus trap
+<div css={overlayStyles}>
+  <button onClick={onClose}>X</button>
+  {children}
+</div>
+
+// ✅ GOOD — use WRI DS Modal which handles role, aria-modal, and focus trap
+<Modal isOpen={isOpen} onClose={onClose} title="Confirm action">
+  {children}
+</Modal>
+```
 
 ### Spacing / Colors
 
@@ -180,6 +225,7 @@ Before returning any code, verify each item:
 - [ ] Chakra v3 API only
 - [ ] `yarn new-component` was run before any file was created
 - [ ] TypeScript errors checked and resolved
+- [ ] Semantic HTML and accessibility props (`aria-*`, `role`, `tabIndex`) are correctly applied and forwarded
 
 ---
 

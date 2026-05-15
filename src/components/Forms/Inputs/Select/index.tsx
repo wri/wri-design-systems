@@ -168,6 +168,7 @@ const Select = ({
             !!errorMessage,
             multiple,
           )}
+          aria-label={rest['aria-label'] || label || l.defaultAriaLabel}
         >
           {multiple ? (
             <SelectMultipleValueItem
@@ -195,6 +196,7 @@ const Select = ({
                   checked={selectedItems.some(
                     (selectItem) => selectItem === item.value,
                   )}
+                  aria-label={`Select ${item.label}`}
                 />
               ) : null}
             </SelectItem>

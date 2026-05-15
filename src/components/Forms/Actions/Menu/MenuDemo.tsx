@@ -151,7 +151,13 @@ const MenuDemo = () => (
           },
         ]}
         onSelect={(value) => console.log('onSelect', value)}
-        customTrigger={<Button label='Open Menu' variant='secondary' />}
+        customTrigger={
+          <Button
+            label='Open Menu'
+            aria-label='Open custom trigger menu'
+            variant='secondary'
+          />
+        }
       />
     </div>
   </DemoWrapper>

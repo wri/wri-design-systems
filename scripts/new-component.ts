@@ -120,6 +120,27 @@ export const Default: Story = {
 }
 `
 
+const testTsx = (name: string, category: string) => {
+  const relToComponents = '../'.repeat(category.split('/').length + 1)
+  return `import { render } from '@testing-library/react'
+import { axe } from 'jest-axe'
+
+import ${name} from '.'
+
+jest.mock('@chakra-ui/react', () =>
+  jest.requireActual('${relToComponents}testUtils').createChakraMock(),
+)
+
+describe('${name} — accessibility', () => {
+  it('renders with no a11y violations', async () => {
+    const { container } = render(<${name} />)
+
+    expect(await axe(container)).toHaveNoViolations()
+  })
+})
+`
+}
+
 const demoTsx = (name: string, depth: number) => {
   const importFrom = relUp(depth).replace(/\/$/, '') || '.'
   const title = toTitleCase(name)
@@ -404,6 +425,10 @@ const main = async () => {
     path.join(componentDir, `${name}.stories.tsx`),
     storiesTsx(name, category),
   )
+  writeFile(
+    path.join(componentDir, `${name}.test.tsx`),
+    testTsx(name, category),
+  )
   writeFile(path.join(componentDir, `${name}Demo.tsx`), demoTsx(name, depth))
   writeFile(path.join(componentDir, 'README.md'), readme(name, category))
 
@@ -430,6 +455,9 @@ const main = async () => {
   )
   console.log(
     `  • Edit src/components/${category}/${name}/${name}.stories.tsx – add Storybook stories`,
+  )
+  console.log(
+    `  • Edit src/components/${category}/${name}/${name}.test.tsx – add meaningful tests`,
   )
   console.log(
     `  • Verify the exports in src/components/index.ts and src/App.tsx\n`,

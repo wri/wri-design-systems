@@ -46,9 +46,7 @@ const AnalysisWidget = ({
           {header && (
             <Accordion.ItemTrigger
               id={headerId}
-              role='button'
               aria-expanded={isOpen}
-              tabIndex={0}
               css={analysisWidgetHeaderStyles}
               pointerEvents={collapsible ? 'auto' : 'none'}
               onClick={collapsible ? handleToggle : undefined}
@@ -85,7 +83,7 @@ const AnalysisWidget = ({
                     display='flex'
                   >
                     <ChevronDownIcon
-                      aria-label={l.toggleSectionLabel}
+                      aria-hidden='true'
                       color='var(--chakra-colors-neutral-700)'
                       height='1rem'
                       width='1rem'

@@ -107,7 +107,6 @@ const NavigationRail = ({
           onValueChange={({ value }) => {
             handleOnTabClick(value)
           }}
-          role='tablist'
         >
           <Tabs.List
             alignItems='center'

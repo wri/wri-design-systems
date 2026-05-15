@@ -222,6 +222,7 @@ What it enforces:
 - query Chakra MCP only if no WRI DS component exists
 - read component and icon instructions before editing
 - run `yarn new-component <Name> <Category>` before creating component files
+  - scaffold now includes `index.tsx`, `types.ts`, `styled.ts`, `*.stories.tsx`, `*.test.tsx`, `*Demo.tsx`, and `README.md`
 - use WRI DS wrappers and design tokens instead of raw HTML and hardcoded values
 
 This agent is the best starting point for anything inside `src/components/`.

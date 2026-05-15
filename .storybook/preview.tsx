@@ -13,6 +13,13 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    a11y: {
+      // 'todo' - Marks a11y checks as pending — violations are noted but not highlighted
+      // 'warn' -	Shows violations in the A11y panel without failing the Storybook test runner
+      // 'error' - Surfaces violations in the panel and fails storybook test runs in CI
+      // 'off' - to disable
+      test: 'error',
+    },
   },
   decorators: [
     (Story: any) => (

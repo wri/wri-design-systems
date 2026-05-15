@@ -41,6 +41,11 @@ Add the export to `src/components/icons/index.ts`:
 export * from './MyIcon'
 ```
 
+## Accessibility
+
+> Full icon a11y rules are in `contributor-ai/a11y.instructions.md` (auto-attached for `src/components/**`).
+> Rule: `aria-hidden="true"` on decorative icons; `role="img"` + `aria-label` only when the icon conveys standalone meaning.
+
 ## Forbidden
 
 - SVG defined inline inside a component — always a separate file in `icons/`

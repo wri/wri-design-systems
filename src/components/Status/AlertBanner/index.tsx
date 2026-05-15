@@ -8,7 +8,7 @@ import { AlertProps } from './types'
 import { alertBannerStyles } from './styled'
 
 const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
-  ({ title, children, icon, variant, onClose }) => {
+  ({ title, children, icon, variant, onClose }, _ref) => {
     const [visible, setVisible] = React.useState(true)
 
     const defaultIcon =
@@ -39,6 +39,7 @@ const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
         )}
 
         <CloseButton
+          aria-label='Close alert'
           pos='absolute'
           insetEnd='2'
           _hover={{ bg: 'gray.200' }}

@@ -40,6 +40,15 @@ This repo can write `.vscode/mcp.json` and `.cursor/mcp.json`, but those files o
 **Before writing a single line of JSX, read `.github/instructions/component.instructions.md`.**
 It contains the mandatory pre-implementation checklist, hierarchy rules, scaffold steps, file conventions, and forbidden patterns.
 
+Key rules (full details in the instructions file):
+
+1. **Chakra first** — if Chakra UI v3 already has the component, wrap it. Never rebuild from scratch.
+2. **WRI DS wrappers first** — check `src/components/index.ts`. Use existing `Button`, `IconButton`, `Select`, etc. Never use raw `<button>`, `<input>`, `<select>` when a WRI DS wrapper exists.
+3. **Icons in `src/components/icons/`** — never define SVG inline in a component file.
+4. **Scaffold with the script** — `yarn new-component <Name> <Category>` before writing any file.
+5. **Design tokens only** — all values via `getThemed*` from relative `lib/theme`. No hardcoded `#hex`, `rem`, `px`.
+6. **Accessibility first** — component logic must include support for `aria-*` props, explicit semantic tags, and keyboard focus states.
+
 ## Design Tokens — Source of Truth
 
 `src/lib/theme.ts` is the only source. Import from it, never from the package:
@@ -62,3 +71,11 @@ import { getThemedColor } from '@worldresources/wri-design-systems'
 | `getThemedLineHeight(token)`    | `300 400 500 600 700 800 900 1000 1100 1200`                             |
 
 Full token tables: `agents/spacing.md`, `agents/radius.md`, `agents/border-width.md`, `agents/typography.md`.
+
+## Accessibility — Mandatory for Every Component
+
+Accessibility is not optional. Every component must be accessible by default.
+
+Full rules, per-component type guides, and BAD vs GOOD examples live in `contributor-ai/a11y.instructions.md` — auto-attached by VS Code Copilot whenever you edit `src/components/**`.
+
+Core: define `aria-*` props in `types.ts`, forward them to the DOM, never convey state through color alone, and verify in every story/demo.

@@ -5,7 +5,7 @@ export type { LegendItemLabels }
 export type LegendItemProps = {
   layerName: string
   dataUnit: string
-  onDrag: VoidFunction
+  onDrag?: VoidFunction
   onUpClick: VoidFunction
   onDownClick: VoidFunction
   onRemoveClick: VoidFunction

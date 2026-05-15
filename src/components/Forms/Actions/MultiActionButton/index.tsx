@@ -83,6 +83,9 @@ const MultiActionButton = ({
         >
           <Button
             style={triggerMenuButtonStyles}
+            aria-label={`Open ${mainActionLabel} options`}
+            aria-haspopup='menu'
+            aria-expanded={isOpen}
             variant={variant}
             size={size}
             leftIcon={

@@ -115,6 +115,7 @@ const Password = ({
       <div css={passwordContentStyles}>
         <TextInput
           type={show ? 'text' : 'password'}
+          aria-label={label}
           value={password}
           aria-describedby='password-guidelines'
           onChange={(e) => validatePassword(e.target.value)}

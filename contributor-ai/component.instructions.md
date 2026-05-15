@@ -13,6 +13,12 @@ applyTo: 'src/components/**'
 4. **Scaffold first** — run `yarn new-component <Name> <Category>` before creating any file.
 5. **Tokens only** — all visual values via `getThemed*` from relative `../../../../lib/theme`. No hardcoded hex/rem/px.
 6. **Element-level check (MANDATORY, repeat for every native element)** — before writing each `<button>`, `<input>`, `<select>`, or `<textarea>`, stop and explicitly ask: "does a WRI DS component cover this element?" The initial check at step 2 is **not sufficient** — every sub-element inside the component being built requires an individual check.
+7. **Accessibility check** — confirm that semantic HTML, `aria-*` props, and keyboard navigation considerations are baked into the component by default.
+
+## Accessibility (A11y)
+
+> Full rules are in `contributor-ai/a11y.instructions.md` (auto-attached for `src/components/**`).
+> Key point: always define `aria-*` props in `types.ts`, forward them to the DOM, and verify in your story/demo.
 
 ## Component Hierarchy (never skip a level)
 
@@ -56,7 +62,7 @@ yarn new-component <ComponentName> <Category>
 #   Forms/FormContainer, Geospatial, DataDisplay, Containers, Navigation, Status
 ```
 
-The script creates `index.tsx`, `types.ts`, `styled.ts`, `*.stories.tsx`, `*Demo.tsx`, `README.md`
+The script creates `index.tsx`, `types.ts`, `styled.ts`, `*.stories.tsx`, `*.test.tsx`, `*Demo.tsx`, `README.md`
 and updates `src/components/index.ts`, `DemoIndex.tsx`, `App.tsx`, `README.md`.
 
 ## File Conventions
@@ -125,6 +131,7 @@ Full tables: `agents/spacing.md`, `agents/radius.md`, `agents/border-width.md`, 
 
 Generated code is **INVALID** if any of the following are true:
 
+- Fails to provide or forward accessibility props (e.g., missing `aria-label` for icon-only buttons, missing `tabIndex`, or non-semantic HTML for interactive elements)
 - Uses raw `<button>`, `<input>`, `<select>`, `<textarea>` when a WRI DS wrapper exists
 - Defines an SVG inline inside a component file (even a small one)
 - Contains hardcoded `#hex`, `rgb(...)`, `rgba(...)` color values

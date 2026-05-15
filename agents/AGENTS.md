@@ -37,6 +37,7 @@ Key rules (full details in the instructions file):
 3. **No style overrides** — do not use `sx`, `css`, or inline styles to override WRI DS component styles.
 4. **Tokens only** — use `getThemed*` from `@worldresources/wri-design-systems`. No hardcoded `#hex`, `rem`, `px`.
 5. **No Chakra v2 API** — v3 has breaking changes. Verify props via Chakra MCP.
+6. **Accessibility first** — always provide `aria-*` props (like `aria-label` or `aria-describedby`), explicit `role` attributes, and ensure keyboard focus navigation context when consuming components.
 
 ## Design Tokens — Source of Truth
 

@@ -40,7 +40,7 @@ const Tag = ({
       {...rest}
     >
       {icon ? (
-        <ChakraTag.StartElement aria-label={`${label} tag icon`}>
+        <ChakraTag.StartElement aria-hidden='true'>
           {icon}
         </ChakraTag.StartElement>
       ) : null}
@@ -54,6 +54,7 @@ const Tag = ({
             onClick={onClose}
             onKeyDown={(event) => {
               if (onClose && (event.key === 'Enter' || event.key === ' ')) {
+                event.preventDefault()
                 onClose()
               }
             }}

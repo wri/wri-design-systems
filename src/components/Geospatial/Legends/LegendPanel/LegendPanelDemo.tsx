@@ -20,9 +20,9 @@ const defaultTabValue = 'legend-tab'
 const LegendPanelDemo = () => {
   const [selectedTabValue, setSelectedTabValue] = useState(defaultTabValue)
   const [legentItems, setLegentItems] = useState([
-    <LegendItemDemo />,
-    <LegendItemDemo2 />,
-    <LegendItemDemo3 />,
+    <LegendItemDemo key={1} />,
+    <LegendItemDemo2 key={2} />,
+    <LegendItemDemo3 key={3} />,
   ])
 
   const handleOnTabClick = (tabValue: string) => {

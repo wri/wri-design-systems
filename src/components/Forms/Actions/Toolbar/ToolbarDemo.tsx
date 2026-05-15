@@ -64,8 +64,17 @@ const mapControlItems = [
 
 const MapControlDemo = () => (
   <DemoWrapper title='Map Controls Toolbar'>
-    <Toolbar items={mapControlItems} vertical showExpandedToggle />
-    <Toolbar items={mapControlItems} showExpandedToggle />
+    <Toolbar
+      items={mapControlItems}
+      vertical
+      showExpandedToggle
+      ariaLabel='Vertical map controls'
+    />
+    <Toolbar
+      items={mapControlItems}
+      showExpandedToggle
+      ariaLabel='Horizontal map controls'
+    />
   </DemoWrapper>
 )
 export default MapControlDemo

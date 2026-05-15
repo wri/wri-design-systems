@@ -65,15 +65,22 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
         )}
         onClick={handleClick}
         onKeyDown={(e) => {
-          if (!disabled && e.key === 'Enter') {
+          if (!disabled && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault()
             handleClick()
           }
         }}
-        role={isClickable ? 'button' : undefined}
+        role={isClickable ? 'button' : 'img'}
         tabIndex={isClickable ? 0 : undefined}
-        aria-disabled={disabled}
+        aria-disabled={isClickable ? disabled : undefined}
       >
-        {hasImage && <ChakraAvatar.Image src={src} srcSet={srcSet} />}
+        {hasImage && (
+          <ChakraAvatar.Image
+            src={src}
+            srcSet={srcSet}
+            alt={ariaLabel || name || 'Avatar image'}
+          />
+        )}
         {!hasImage && name && (
           <ChakraAvatar.Fallback name={name} css={avatarFallbackStyles} />
         )}

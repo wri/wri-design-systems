@@ -82,6 +82,7 @@ const Table = ({
                 <ChakraTable.ColumnHeader>
                   <Checkbox
                     name='header-checkbox'
+                    aria-label='Select all rows'
                     checked={allChecked}
                     indeterminate={indeterminate}
                     onCheckedChange={({ checked }: any) => {
