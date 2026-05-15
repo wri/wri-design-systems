@@ -62,7 +62,7 @@ yarn new-component <ComponentName> <Category>
 #   Forms/FormContainer, Geospatial, DataDisplay, Containers, Navigation, Status
 ```
 
-The script creates `index.tsx`, `types.ts`, `styled.ts`, `*.stories.tsx`, `*Demo.tsx`, `README.md`
+The script creates `index.tsx`, `types.ts`, `styled.ts`, `*.stories.tsx`, `*.test.tsx`, `*Demo.tsx`, `README.md`
 and updates `src/components/index.ts`, `DemoIndex.tsx`, `App.tsx`, `README.md`.
 
 ## File Conventions

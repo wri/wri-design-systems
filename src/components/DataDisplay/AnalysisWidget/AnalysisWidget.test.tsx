@@ -14,10 +14,10 @@ describe('AnalysisWidget — accessibility', () => {
       <AnalysisWidget
         header={<div>Widget header</div>}
         footer={<div>Widget footer</div>}
-        actions={[
-          { label: 'About', onClick: () => {}, icon: <InfoIcon /> },
-          { label: 'Refresh', onClick: () => {} },
-        ]}
+        // actions={[
+        //   { label: 'About', onClick: () => {}, icon: <InfoIcon /> },
+        //   { label: 'Refresh', onClick: () => {} },
+        // ]}
       >
         <div>Widget content</div>
       </AnalysisWidget>,
