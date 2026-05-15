@@ -425,7 +425,10 @@ const main = async () => {
     path.join(componentDir, `${name}.stories.tsx`),
     storiesTsx(name, category),
   )
-  writeFile(path.join(componentDir, `${name}.test.tsx`), testTsx(name, category))
+  writeFile(
+    path.join(componentDir, `${name}.test.tsx`),
+    testTsx(name, category),
+  )
   writeFile(path.join(componentDir, `${name}Demo.tsx`), demoTsx(name, depth))
   writeFile(path.join(componentDir, 'README.md'), readme(name, category))
 

@@ -9,7 +9,9 @@ jest.mock('@chakra-ui/react', () =>
 
 describe('OpacityControl — accessibility', () => {
   it('renders with no a11y violations', async () => {
-    const { container } = render(<OpacityControl defaultValue={50} onOpacityChanged={() => {}} />)
+    const { container } = render(
+      <OpacityControl defaultValue={50} onOpacityChanged={() => {}} />,
+    )
 
     expect(await axe(container)).toHaveNoViolations()
   })
