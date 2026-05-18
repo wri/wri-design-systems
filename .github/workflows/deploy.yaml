@@ -32,24 +32,32 @@ jobs:
             const { owner, repo } = context.repo;
             const commitSha = context.sha;
 
-            const pulls = await github.request(
-              'GET /repos/{owner}/{repo}/commits/{commit_sha}/pulls',
-              {
-                owner,
-                repo,
-                commit_sha: commitSha,
-                mediaType: { previews: ['groot'] }
-              }
-            );
+            let skip = 'false';
 
-            const pr = (pulls.data || [])[0];
-            if (!pr) {
-              core.setOutput('skip', 'false');
-              return;
+            try {
+              const pulls = await github.request(
+                'GET /repos/{owner}/{repo}/commits/{commit_sha}/pulls',
+                {
+                  owner,
+                  repo,
+                  commit_sha: commitSha,
+                  mediaType: { previews: ['groot'] }
+                }
+              );
+
+              const pr = (pulls.data || [])[0];
+              if (!pr) {
+                core.setOutput('skip', skip);
+                return;
+              }
+
+              const labels = (pr.labels || []).map((l) => String(l.name).toLowerCase());
+              skip = labels.includes('auto-release') ? 'true' : 'false';
+            } catch (error) {
+              core.warning(`Unable to detect auto-release label for commit ${commitSha}: ${error.message}`);
             }
 
-            const labels = (pr.labels || []).map((l) => String(l.name).toLowerCase());
-            core.setOutput('skip', labels.includes('auto-release') ? 'true' : 'false');
+            core.setOutput('skip', skip);
 
   build:
     needs: detect_auto_release
