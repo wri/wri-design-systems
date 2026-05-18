@@ -499,9 +499,9 @@ If you are unsure, choose `minor` and leave a note in the PR for review.
 To get a solid PR description quickly, use the `pr-documentation` skill in your AI-enabled editor.
 
 1. Ensure your branch is up to date and run:
-`git diff main...HEAD`
+   `git diff main...HEAD`
 2. Ask the assistant to use `pr-documentation` and summarize the current PR changes. Or ask "create a pr description for my changes"
 3. Paste the generated result into the PR description using this structure:
-`## What`, `## Why`, `## Changes`.
+   `## What`, `## Why`, `## Changes`.
 
 The `pr-documentation` skill is defined at `[.gemini or .claude]/skills/pr-documentation/SKILL.md` and is tailored for this repository workflow.
