@@ -4,15 +4,13 @@ on:
   pull_request:
     branches: [main]
     types:
-      [
-        opened,
-        labeled,
-        unlabeled,
-        synchronize,
-        reopened,
-        edited,
-        ready_for_review,
-      ]
+      - opened
+      - labeled
+      - unlabeled
+      - synchronize
+      - reopened
+      - edited
+      - ready_for_review
 
 permissions:
   pull-requests: write
