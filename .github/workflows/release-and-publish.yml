@@ -14,8 +14,7 @@ jobs:
     name: Create release PR
     if: >
       github.event.pull_request.merged == true &&
-      !startsWith(github.event.pull_request.head.ref, 'chore/release-v') &&
-      !startsWith(github.event.pull_request.title, 'chore(release):') &&
+      !contains(join(github.event.pull_request.labels.*.name, ','), 'auto-release') &&
       (
         contains(join(github.event.pull_request.labels.*.name, ','), 'patch') ||
         contains(join(github.event.pull_request.labels.*.name, ','), 'minor') ||
@@ -83,16 +82,14 @@ jobs:
 
             After merge, publish from this commit/tag.
           labels: |
+            auto-release
             ${{ steps.bump.outputs.bump }}
 
   publish_release:
     name: Tag, Publish & Create GitHub Release
     if: >
       github.event.pull_request.merged == true &&
-      (
-        startsWith(github.event.pull_request.head.ref, 'chore/release-v') ||
-        startsWith(github.event.pull_request.title, 'chore(release):')
-      )
+      contains(join(github.event.pull_request.labels.*.name, ','), 'auto-release')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -161,7 +158,7 @@ jobs:
     name: Skip release (no-bump)
     if: >
       github.event.pull_request.merged == true &&
-      !startsWith(github.event.pull_request.head.ref, 'chore/release-v') &&
+      !contains(join(github.event.pull_request.labels.*.name, ','), 'auto-release') &&
       contains(join(github.event.pull_request.labels.*.name, ','), 'no-bump')
     runs-on: ubuntu-latest
     permissions:
