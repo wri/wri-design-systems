@@ -94,17 +94,32 @@ jobs:
             const pull_number = Number('${{ steps.create_pr.outputs.pull-request-number }}');
             const { owner, repo } = context.repo;
             const pr = await github.rest.pulls.get({ owner, repo, pull_number });
-            await github.graphql(
-              `mutation($pullRequestId: ID!) {
-                enablePullRequestAutoMerge(input: {
-                  pullRequestId: $pullRequestId,
-                  mergeMethod: SQUASH
-                }) {
-                  pullRequest { number }
-                }
-              }`,
-              { pullRequestId: pr.data.node_id }
-            );
+
+            try {
+              await github.graphql(
+                `mutation($pullRequestId: ID!) {
+                  enablePullRequestAutoMerge(input: {
+                    pullRequestId: $pullRequestId,
+                    mergeMethod: SQUASH
+                  }) {
+                    pullRequest { number }
+                  }
+                }`,
+                { pullRequestId: pr.data.node_id }
+              );
+            } catch (error) {
+              const message = String(error?.message || '');
+              const ignorable =
+                message.includes('Pull request is in clean status') ||
+                message.includes('auto-merge is already enabled') ||
+                message.includes('was already merged');
+
+              if (ignorable) {
+                core.warning(`Skipping auto-merge enable for #${pull_number}: ${message}`);
+              } else {
+                throw error;
+              }
+            }
 
   publish_release:
     name: Tag, Publish & Create GitHub Release
