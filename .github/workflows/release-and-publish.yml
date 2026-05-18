@@ -10,10 +10,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  release:
-    name: Bump, Tag, Publish & Release
+  create_release_pr:
+    name: Create release PR
     if: >
       github.event.pull_request.merged == true &&
+      !startsWith(github.event.pull_request.head.ref, 'chore/release-v') &&
+      !startsWith(github.event.pull_request.title, 'chore(release):') &&
       (
         contains(join(github.event.pull_request.labels.*.name, ','), 'patch') ||
         contains(join(github.event.pull_request.labels.*.name, ','), 'minor') ||
@@ -22,8 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: read
-      id-token: write
+      pull-requests: write
 
     steps:
       - name: Checkout repository
@@ -32,27 +33,10 @@ jobs:
           fetch-depth: 0
           ref: main
 
-      - name: Sync with origin/main
-        run: |
-          git fetch origin --prune
-          git checkout main
-          git pull --rebase origin main
-
       - name: Use Node
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'yarn'
-
-      - name: Install deps
-        run: yarn install --frozen-lockfile
-
-      - name: Lint & fix
-        run: yarn lint-fix
-
-      - name: Build
-        run: yarn build
 
       - name: Determine version bump from PR label
         id: bump
@@ -68,14 +52,13 @@ jobs:
               core.setOutput('bump', found);
             }
 
-      - name: Git config (bot user)
+      - name: Configure Git user
         run: |
-          git config user.name  "ds-wri-bot"
+          git config user.name "ds-wri-bot"
           git config user.email "ds-bot@wri.org"
 
-      - name: Bump version & create tag
-        run: |
-          npm version ${{ steps.bump.outputs.bump }} -m 'release: %s'
+      - name: Bump version (no tag)
+        run: npm version ${{ steps.bump.outputs.bump }} --no-git-tag-version
 
       - name: Read new version
         id: ver
@@ -83,16 +66,91 @@ jobs:
           VERSION=$(node -p "require('./package.json').version")
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
-      - name: Push commit & tags
+      - name: Create release PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/release-v${{ steps.ver.outputs.version }}
+          base: main
+          commit-message: 'chore(release): v${{ steps.ver.outputs.version }}'
+          title: 'chore(release): v${{ steps.ver.outputs.version }}'
+          body: |
+            Automated release PR.
+
+            - Source PR: #${{ github.event.pull_request.number }}
+            - Version bump: `${{ steps.bump.outputs.bump }}`
+            - New version: `${{ steps.ver.outputs.version }}`
+
+            After merge, publish from this commit/tag.
+          labels: |
+            patch
+
+  publish_release:
+    name: Tag, Publish & Create GitHub Release
+    if: >
+      github.event.pull_request.merged == true &&
+      (
+        startsWith(github.event.pull_request.head.ref, 'chore/release-v') ||
+        startsWith(github.event.pull_request.title, 'chore(release):')
+      )
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
+
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Read version
+        id: ver
         run: |
-          git push origin main --follow-tags
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Configure Git user
+        run: |
+          git config user.name "ds-wri-bot"
+          git config user.email "ds-bot@wri.org"
+
+      - name: Create and push tag
+        id: tag
+        run: |
+          TAG="v${{ steps.ver.outputs.version }}"
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists. Skipping tag creation."
+            echo "should_publish=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git tag -a "$TAG" -m "release: $TAG"
+          git push origin "$TAG"
+          echo "should_publish=true" >> "$GITHUB_OUTPUT"
 
       - name: Publish to npm
+        if: steps.tag.outputs.should_publish == 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
 
       - name: Create GitHub Release (auto-notes)
+        if: steps.tag.outputs.should_publish == 'true'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.ver.outputs.version }}
@@ -103,6 +161,7 @@ jobs:
     name: Skip release (no-bump)
     if: >
       github.event.pull_request.merged == true &&
+      !startsWith(github.event.pull_request.head.ref, 'chore/release-v') &&
       contains(join(github.event.pull_request.labels.*.name, ','), 'no-bump')
     runs-on: ubuntu-latest
     permissions:
@@ -110,4 +169,4 @@ jobs:
     steps:
       - uses: mshick/add-pr-comment@v2
         with:
-          message: '🚨 Release skipped: PR labeled **no-bump**. No version bump, tag, or publish.'
+          message: '🚨 Release skipped: PR labeled **no-bump**. No version bump PR was created.'
