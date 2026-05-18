@@ -19,7 +19,7 @@ permissions:
 jobs:
   validate:
     name: Validate versioning label
-    if: ${{ !contains(join(github.event.pull_request.labels.*.name, ','), 'auto-release') }}
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'auto-release') }}
     runs-on: ubuntu-latest
 
     steps:
