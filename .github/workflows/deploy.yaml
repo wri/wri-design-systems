@@ -19,7 +19,49 @@ env:
   PUBLISH_DIR: public
 
 jobs:
+  detect_auto_release:
+    runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.detect.outputs.skip }}
+    steps:
+      - name: Detect auto-release label on merged PR
+        id: detect
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const commitSha = context.sha;
+
+            let skip = 'false';
+
+            try {
+              const pulls = await github.request(
+                'GET /repos/{owner}/{repo}/commits/{commit_sha}/pulls',
+                {
+                  owner,
+                  repo,
+                  commit_sha: commitSha,
+                  mediaType: { previews: ['groot'] }
+                }
+              );
+
+              const pr = (pulls.data || [])[0];
+              if (!pr) {
+                core.setOutput('skip', skip);
+                return;
+              }
+
+              const labels = (pr.labels || []).map((l) => String(l.name).toLowerCase());
+              skip = labels.includes('auto-release') ? 'true' : 'false';
+            } catch (error) {
+              core.warning(`Unable to detect auto-release label for commit ${commitSha}: ${error.message}`);
+            }
+
+            core.setOutput('skip', skip);
+
   build:
+    needs: detect_auto_release
+    if: ${{ needs.detect_auto_release.outputs.skip != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -61,10 +103,11 @@ jobs:
           path: ${{ env.PUBLISH_DIR }}
 
   deploy:
+    needs: [detect_auto_release, build]
+    if: ${{ needs.detect_auto_release.outputs.skip != 'true' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages

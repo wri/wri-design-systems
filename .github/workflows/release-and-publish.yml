@@ -69,10 +69,10 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: chore/release-v${{ steps.ver.outputs.version }}
+          branch: release-v${{ steps.ver.outputs.version }}
           base: main
-          commit-message: 'chore(release): v${{ steps.ver.outputs.version }}'
-          title: 'chore(release): v${{ steps.ver.outputs.version }}'
+          commit-message: 'release: v${{ steps.ver.outputs.version }}'
+          title: 'release: v${{ steps.ver.outputs.version }}'
           body: |
             Automated release PR.
 
