@@ -3,7 +3,14 @@ name: PR Label Guard
 on:
   pull_request:
     branches: [main]
-    types: [opened, labeled, unlabeled, synchronize, reopened, edited]
+    types:
+      - opened
+      - labeled
+      - unlabeled
+      - synchronize
+      - reopened
+      - edited
+      - ready_for_review
 
 permissions:
   pull-requests: write
@@ -12,6 +19,7 @@ permissions:
 jobs:
   validate:
     name: Validate versioning label
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'auto-release') }}
     runs-on: ubuntu-latest
 
     steps:

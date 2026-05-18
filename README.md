@@ -476,14 +476,18 @@ npm publish
 
 ## PR Label Rules
 
-Use exactly one versioning label on every PR. The label drives the npm version bump when the PR is merged into `main`.
+Use exactly one versioning label on every contributor PR. The label drives the npm version bump workflow when the PR is merged into `main`.
 
 **How it works**
 
 - Open a PR and add **one** of the labels below.
 - The PR Label Guard workflow enforces that exactly one label is present.
-- On merge, the Release & Publish workflow bumps `package.json`, tags, and publishes to npm for `major`, `minor`, or `patch`.
+- On merge, the Release & Publish workflow opens an automated release PR with labels:
+  - `auto-release`
+  - the same bump label from the merged PR (`major`, `minor`, or `patch`)
+- Merge that release PR to trigger tag creation, npm publish, and GitHub release notes.
 - `no-bump` skips all versioning and publishing.
+- PR checks (`test`, `lint`, `pr-label-check`) are skipped for PRs labeled `auto-release`.
 
 **Label guide**
 
@@ -491,5 +495,18 @@ Use exactly one versioning label on every PR. The label drives the npm version b
 - `minor`: backwards-compatible feature or API additions (new component/prop), or behavior changes that may affect usage but are not breaking
 - `major`: breaking changes (removed/renamed props, changed required behavior, incompatible defaults)
 - `no-bump`: documentation-only or internal changes that should not publish
+- `auto-release`: internal automation label for generated release PRs (do not use manually on regular PRs)
 
 If you are unsure, choose `minor` and leave a note in the PR for review.
+
+## PR Description With AI Skill
+
+To get a solid PR description quickly, use the `pr-documentation` skill in your AI-enabled editor.
+
+1. Ensure your branch is up to date and run:
+   `git diff main...HEAD`
+2. Ask the assistant to use `pr-documentation` and summarize the current PR changes. Or ask "create a PR description for my changes"
+3. Paste the generated result into the PR description using this structure:
+   `## What`, `## Why`, `## Changes`.
+
+The `pr-documentation` skill is defined at [`.gemini/skills/pr-documentation/SKILL.md`](.gemini/skills/pr-documentation/SKILL.md) and [`.claude/skills/pr-documentation/SKILL.md`](.claude/skills/pr-documentation/SKILL.md) and is tailored for this repository workflow.
