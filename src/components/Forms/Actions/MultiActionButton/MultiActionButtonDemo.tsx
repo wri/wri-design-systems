@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { MultiActionButton } from '../../..'
+import { InfoIcon } from '../../../icons'
 import DemoWrapper from '../../../UI/DemoWrapper'
 
 const MultiActionButtonDemo = () => (
@@ -75,6 +76,42 @@ const MultiActionButtonDemo = () => (
           variant='secondary'
           size='small'
           mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+        />
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.625rem',
+          flexWrap: 'wrap',
+        }}
+      >
+        <MultiActionButton
+          variant='primary'
+          mainActionLeftIcon={<InfoIcon />}
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+        />
+        <MultiActionButton
+          variant='secondary'
+          size='small'
+          mainActionLabel='First Action'
+          mainActionRightIcon={<InfoIcon />}
           mainActionOnClick={() => console.log('first action')}
           otherActions={[
             {

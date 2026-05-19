@@ -5,6 +5,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import MultiActionButton from '.'
+import { InfoIcon } from '../../../icons'
 
 const meta = {
   title: 'Forms/Actions/Multi Action Button',
@@ -159,5 +160,47 @@ export const Disabled: Story = {
       },
     ],
     disabled: true,
+  },
+}
+
+export const WithLeftIcon: Story = {
+  args: {
+    variant: 'primary',
+    mainActionLabel: 'First Action',
+    mainActionLeftIcon: <InfoIcon />,
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+      },
+    ],
+  },
+}
+
+export const WithRightIcon: Story = {
+  args: {
+    variant: 'secondary',
+    mainActionLabel: 'First Action',
+    mainActionRightIcon: <InfoIcon />,
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+      },
+    ],
   },
 }
