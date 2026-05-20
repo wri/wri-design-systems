@@ -134,6 +134,7 @@ All WRI DS components render English by default — no setup required for Englis
 To provide translated strings, use one of two opt-in approaches:
 
 **Provider** (recommended when multiple components or screens need translations):
+
 ```tsx
 import { DesignSystemLocaleProvider, type DesignSystemLabels } from '@worldresources/wri-design-systems'
 
@@ -145,8 +146,11 @@ const labels: DesignSystemLabels = {
 ```
 
 **Per-component `labels` prop** (for isolated instances):
+
 ```tsx
-<Password labels={{ showLabel: t('password.show'), hideLabel: t('password.hide') }} />
+<Password
+  labels={{ showLabel: t('password.show'), hideLabel: t('password.hide') }}
+/>
 ```
 
 Pass pre-resolved strings only — never hardcoded English literals in `labels` props. Always route through your app's translation function.

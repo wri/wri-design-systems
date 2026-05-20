@@ -43,7 +43,7 @@ The most specific value wins. All keys are optional — any key not provided fal
 >   fr: { expand: 'Développer', hide: 'Masquer' },
 > }
 > const t = translations[activeLocale] // e.g. 'es' → { expand: 'Expandir', hide: 'Ocultar' }
-> 
+>
 > <DesignSystemLocaleProvider
 >   labels={{ CheckboxList: { expandLabel: t.expand, hideLabel: t.hide } }}
 > >
@@ -71,12 +71,12 @@ All exports are re-exported from the package root via `src/components/index.ts`.
 
 ## 3. Public API
 
-| Export | Kind | Purpose |
-|---|---|---|
-| `DesignSystemLocaleProvider` | Component | Wraps the app root to provide translations to all child components |
-| `DesignSystemLabels` | Type | Type for the `labels` prop on the provider |
-| `CheckboxListLabels`, `PasswordLabels`, `TextInputLabels`, … | Types | Type individual component `labels` props |
-| `defaultLabels` | Object | Reference or extend English defaults |
+| Export                                                       | Kind      | Purpose                                                            |
+| ------------------------------------------------------------ | --------- | ------------------------------------------------------------------ |
+| `DesignSystemLocaleProvider`                                 | Component | Wraps the app root to provide translations to all child components |
+| `DesignSystemLabels`                                         | Type      | Type for the `labels` prop on the provider                         |
+| `CheckboxListLabels`, `PasswordLabels`, `TextInputLabels`, … | Types     | Type individual component `labels` props                           |
+| `defaultLabels`                                              | Object    | Reference or extend English defaults                               |
 
 **Not exported** (internal): `useLabels`, `useLocaleContext`.
 
@@ -123,7 +123,10 @@ function App({ t }: { t: (key: string) => string }) {
 Every migrated component accepts a `labels` prop typed as `Partial<XxxLabels>`. This is the highest-priority tier and is useful when a single component instance needs different text from the rest of the application.
 
 ```tsx
-import { Password, type PasswordLabels } from '@worldresources/wri-design-systems'
+import {
+  Password,
+  type PasswordLabels,
+} from '@worldresources/wri-design-systems'
 
 function LoginForm({ t }: { t: (key: string) => string }) {
   const labels: Partial<PasswordLabels> = {
@@ -143,7 +146,9 @@ function LoginForm({ t }: { t: (key: string) => string }) {
 Provider and prop labels can coexist. The prop takes precedence for any key it defines; the provider handles the rest.
 
 ```tsx
-<DesignSystemLocaleProvider labels={{ TextInput: { optionalSuffix: t('common.optional') } }}>
+<DesignSystemLocaleProvider
+  labels={{ TextInput: { optionalSuffix: t('common.optional') } }}
+>
   {/* This instance overrides one additional key at the prop level */}
   <TextInput
     label={t('form.name')}
@@ -159,43 +164,43 @@ Provider and prop labels can coexist. The prop takes precedence for any key it d
 
 Each type follows one of four classification rules:
 
-| Category | TypeScript type | Rule |
-|---|---|---|
-| **Visual-only** — rendered as JSX children | `ReactNodeLabel` | Accepts strings, elements, or fragments |
-| **A11y-only** — `aria-label`, `aria-roledescription`, `placeholder` | `string` | HTML spec requires plain strings |
-| **Dual-use** — rendered as text *and* inside an aria template | `string` | The stricter constraint (string) wins |
-| **Interpolated** — contains dynamic values | `(...args) => string \| ReactNode` | Return type follows visual/a11y rule |
+| Category                                                            | TypeScript type                    | Rule                                    |
+| ------------------------------------------------------------------- | ---------------------------------- | --------------------------------------- |
+| **Visual-only** — rendered as JSX children                          | `ReactNodeLabel`                   | Accepts strings, elements, or fragments |
+| **A11y-only** — `aria-label`, `aria-roledescription`, `placeholder` | `string`                           | HTML spec requires plain strings        |
+| **Dual-use** — rendered as text _and_ inside an aria template       | `string`                           | The stricter constraint (string) wins   |
+| **Interpolated** — contains dynamic values                          | `(...args) => string \| ReactNode` | Return type follows visual/a11y rule    |
 
 **Supported components and their label types:**
 
-| Component | Label type | Keys |
-|---|---|---|
-| `AnalysisWidget` | `AnalysisWidgetLabels` | `toggleSectionLabel` |
-| `BaseMap` | `BaseMapLabels` | `activeLabel` |
-| `Button` | `ButtonLabels` | `loadingLabel` |
-| `CheckboxList` | `CheckboxListLabels` | `expandLabel`, `hideLabel`, `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel` |
-| `CloseButton` | `CloseButtonLabels` | `closeLabel` |
-| `InlineMessage` | `InlineMessageLabels` | `roleDescription` |
-| `ItemCount` | `ItemCountLabels` | `perPageLabel`, `showingLabel` |
-| `LayerGroup` | `LayerGroupLabels` | `activeTagLabel`, `groupAriaLabel` |
-| `LegendItem` | `LegendItemLabels` | `dragAndDropLabel`, `upLabel`, `downLabel`, `removeLabel`, `aboutDataLabel` |
-| `MapControlsToolbar` | `MapControlsToolbarLabels` | 15 keys (7 visible labels + 7 aria-labels + 1 toolbar aria-label) |
-| `MapPopUp` | `MapPopUpLabels` | `closeLabel` |
-| `Navbar` | `NavbarLabels` | `openMenuLabel`, `closeLabel`, `menuLabel`, `goBackLabel`, `closeMenuLabel`, `closeButtonText` |
-| `NavigationRail` | `NavigationRailLabels` | `showLabel`, `hideLabel`, `sidebarLabel` |
-| `OpacityControl` | `OpacityControlLabels` | `opacityButtonLabel`, `opacityHeading`, `opacityAriaLabel`, `percentSuffix` |
-| `Pagination` | `PaginationLabels` | `previousLabel`, `nextLabel`, `previousPageLabel`, `nextPageLabel`, `paginationLabel`, `pageLabel` |
-| `Password` | `PasswordLabels` | 17 keys (strength levels, validation rules, show/hide labels) |
-| `QualitativeAttribute` | `QualitativeAttributeLabels` | `hideLabel`, `showLabel`, `visibleText`, `hiddenText`, `linePrefix`, `currentlyTemplate` |
-| `RadioList` | `RadioListLabels` | `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel` |
-| `Search` | `SearchLabels` | `filterPlaceholder`, `filterAriaLabel` |
-| `Select` | `SelectLabels` | `defaultAriaLabel`, `requiredSuffix`, `disabledSuffix` |
-| `StepProgressIndicator` | `StepProgressIndicatorLabels` | `currentStepLabel` |
-| `Table` | `TableLabels` | `ascendingLabel`, `descendingLabel` |
-| `Textarea` | `TextareaLabels` | 9 keys (character count messages + required/optional indicators) |
-| `TextInput` | `TextInputLabels` | `requiredSymbolLabel`, `optionalSuffix` |
-| `Toast` | `ToastLabels` | `dismissLabel` |
-| `Toolbar` | `ToolbarLabels` | `collapseLabel`, `expandLabel` |
+| Component               | Label type                    | Keys                                                                                               |
+| ----------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------- |
+| `AnalysisWidget`        | `AnalysisWidgetLabels`        | `toggleSectionLabel`                                                                               |
+| `BaseMap`               | `BaseMapLabels`               | `activeLabel`                                                                                      |
+| `Button`                | `ButtonLabels`                | `loadingLabel`                                                                                     |
+| `CheckboxList`          | `CheckboxListLabels`          | `expandLabel`, `hideLabel`, `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel` |
+| `CloseButton`           | `CloseButtonLabels`           | `closeLabel`                                                                                       |
+| `InlineMessage`         | `InlineMessageLabels`         | `roleDescription`                                                                                  |
+| `ItemCount`             | `ItemCountLabels`             | `perPageLabel`, `showingLabel`                                                                     |
+| `LayerGroup`            | `LayerGroupLabels`            | `activeTagLabel`, `groupAriaLabel`                                                                 |
+| `LegendItem`            | `LegendItemLabels`            | `dragAndDropLabel`, `upLabel`, `downLabel`, `removeLabel`, `aboutDataLabel`                        |
+| `MapControlsToolbar`    | `MapControlsToolbarLabels`    | 15 keys (7 visible labels + 7 aria-labels + 1 toolbar aria-label)                                  |
+| `MapPopUp`              | `MapPopUpLabels`              | `closeLabel`                                                                                       |
+| `Navbar`                | `NavbarLabels`                | `openMenuLabel`, `closeLabel`, `menuLabel`, `goBackLabel`, `closeMenuLabel`, `closeButtonText`     |
+| `NavigationRail`        | `NavigationRailLabels`        | `showLabel`, `hideLabel`, `sidebarLabel`                                                           |
+| `OpacityControl`        | `OpacityControlLabels`        | `opacityButtonLabel`, `opacityHeading`, `opacityAriaLabel`, `percentSuffix`                        |
+| `Pagination`            | `PaginationLabels`            | `previousLabel`, `nextLabel`, `previousPageLabel`, `nextPageLabel`, `paginationLabel`, `pageLabel` |
+| `Password`              | `PasswordLabels`              | 17 keys (strength levels, validation rules, show/hide labels)                                      |
+| `QualitativeAttribute`  | `QualitativeAttributeLabels`  | `hideLabel`, `showLabel`, `visibleText`, `hiddenText`, `linePrefix`, `currentlyTemplate`           |
+| `RadioList`             | `RadioListLabels`             | `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel`                             |
+| `Search`                | `SearchLabels`                | `filterPlaceholder`, `filterAriaLabel`                                                             |
+| `Select`                | `SelectLabels`                | `defaultAriaLabel`, `requiredSuffix`, `disabledSuffix`                                             |
+| `StepProgressIndicator` | `StepProgressIndicatorLabels` | `currentStepLabel`                                                                                 |
+| `Table`                 | `TableLabels`                 | `ascendingLabel`, `descendingLabel`                                                                |
+| `Textarea`              | `TextareaLabels`              | 9 keys (character count messages + required/optional indicators)                                   |
+| `TextInput`             | `TextInputLabels`             | `requiredSymbolLabel`, `optionalSuffix`                                                            |
+| `Toast`                 | `ToastLabels`                 | `dismissLabel`                                                                                     |
+| `Toolbar`               | `ToolbarLabels`               | `collapseLabel`, `expandLabel`                                                                     |
 
 ---
 
@@ -273,15 +278,21 @@ return (
   <DesignSystemLocaleProvider
     labels={{
       CheckboxList: {
-        errorPrefix:         t('scoping.ecosystems.checkboxListI18nLabels.errorPrefix'),
-        expandLabel:         t('scoping.ecosystems.checkboxListI18nLabels.expandLabel'),
-        hideLabel:           t('scoping.ecosystems.checkboxListI18nLabels.hideLabel'),
-        optionalLabel:       t('scoping.ecosystems.checkboxListI18nLabels.optionalLabel'),
-        requiredLabel:       t('scoping.ecosystems.checkboxListI18nLabels.requiredLabel'),
-        requiredSymbolLabel: t('scoping.ecosystems.checkboxListI18nLabels.requiredSymbolLabel'),
+        errorPrefix: t('scoping.ecosystems.checkboxListI18nLabels.errorPrefix'),
+        expandLabel: t('scoping.ecosystems.checkboxListI18nLabels.expandLabel'),
+        hideLabel: t('scoping.ecosystems.checkboxListI18nLabels.hideLabel'),
+        optionalLabel: t(
+          'scoping.ecosystems.checkboxListI18nLabels.optionalLabel',
+        ),
+        requiredLabel: t(
+          'scoping.ecosystems.checkboxListI18nLabels.requiredLabel',
+        ),
+        requiredSymbolLabel: t(
+          'scoping.ecosystems.checkboxListI18nLabels.requiredSymbolLabel',
+        ),
       },
       TextInput: {
-        optionalSuffix:      t('common.optional'),
+        optionalSuffix: t('common.optional'),
         requiredSymbolLabel: t('common.required'),
       },
     }}
@@ -336,10 +347,10 @@ The translation keys are grouped under a dedicated `passwordPrompt.passwordI18nL
 
 ### Pattern summary
 
-| Pattern | When to use |
-|---|---|
-| Provider — single component type | Simple screens or modals with one translated component |
-| Provider — multiple component types | Forms and pages mixing several design system components |
-| Per-component `labels` prop | Isolated instances, or when a component is used in only one place |
+| Pattern                             | When to use                                                       |
+| ----------------------------------- | ----------------------------------------------------------------- |
+| Provider — single component type    | Simple screens or modals with one translated component            |
+| Provider — multiple component types | Forms and pages mixing several design system components           |
+| Per-component `labels` prop         | Isolated instances, or when a component is used in only one place |
 
 All three patterns are compatible with any translation function. The design system requires only pre-resolved strings — it has no dependency on `useTranslations`, `react-intl`, `react-i18next`, or any other runtime.

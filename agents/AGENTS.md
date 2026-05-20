@@ -48,9 +48,14 @@ If your application supports multiple languages, override internal component str
 ```tsx
 import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
 
-<DesignSystemLocaleProvider labels={{
-  TextInput: { optionalSuffix: t('common.optional'), requiredSymbolLabel: t('common.required') },
-}}>
+;<DesignSystemLocaleProvider
+  labels={{
+    TextInput: {
+      optionalSuffix: t('common.optional'),
+      requiredSymbolLabel: t('common.required'),
+    },
+  }}
+>
   <App />
 </DesignSystemLocaleProvider>
 ```
