@@ -47,7 +47,6 @@ If your application supports multiple languages, override internal component str
 
 ```tsx
 import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
-
 ;<DesignSystemLocaleProvider
   labels={{
     TextInput: {
