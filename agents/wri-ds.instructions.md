@@ -126,3 +126,33 @@ import {
 | Raw token strings: `<Box bg="primary.500" />`                        | `getThemedColor('primary', 500)`                              |
 | Inventing prop names without checking MCP                            | Query Storybook MCP first                                     |
 | Chakra v2 API (`colorScheme`, `variant` on v2 components)            | Verify via Chakra MCP                                         |
+
+## Internationalization (i18n)
+
+All WRI DS components render English by default — no setup required for English-only apps.
+
+To provide translated strings, use one of two opt-in approaches:
+
+**Provider** (recommended when multiple components or screens need translations):
+
+```tsx
+import { DesignSystemLocaleProvider, type DesignSystemLabels } from '@worldresources/wri-design-systems'
+
+const labels: DesignSystemLabels = {
+  CheckboxList: { expandLabel: t('ds.expand'), hideLabel: t('ds.hide') },
+  TextInput: { optionalSuffix: t('common.optional'), requiredSymbolLabel: t('common.required') },
+}
+<DesignSystemLocaleProvider labels={labels}><App /></DesignSystemLocaleProvider>
+```
+
+**Per-component `labels` prop** (for isolated instances):
+
+```tsx
+<Password
+  labels={{ showLabel: t('password.show'), hideLabel: t('password.hide') }}
+/>
+```
+
+Pass pre-resolved strings only — never hardcoded English literals in `labels` props. Always route through your app's translation function.
+
+Full reference — all supported components, label types, and patterns: `docs/i18n/README.md`.
