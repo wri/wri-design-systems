@@ -14,11 +14,26 @@ applyTo: 'src/components/**'
 5. **Tokens only** — all visual values via `getThemed*` from relative `../../../../lib/theme`. No hardcoded hex/rem/px.
 6. **Element-level check (MANDATORY, repeat for every native element)** — before writing each `<button>`, `<input>`, `<select>`, or `<textarea>`, stop and explicitly ask: "does a WRI DS component cover this element?" The initial check at step 2 is **not sufficient** — every sub-element inside the component being built requires an individual check.
 7. **Accessibility check** — confirm that semantic HTML, `aria-*` props, and keyboard navigation considerations are baked into the component by default.
+8. **Internationalization (optional)** — if the component contains any hardcoded visible or ARIA strings, consider exposing them via a `labels` prop so consumers can translate them. The library ships English defaults; this step is only needed if the component has internal strings. See [Internationalization (i18n)](#internationalization-i18n) below.
 
 ## Accessibility (A11y)
 
 > Full rules are in `contributor-ai/a11y.instructions.md` (auto-attached for `src/components/**`).
 > Key point: always define `aria-*` props in `types.ts`, forward them to the DOM, and verify in your story/demo.
+
+## Internationalization (i18n)
+
+Optional — only relevant when a component contains hardcoded strings. The library always falls back to English defaults, so English-only consumers need no configuration.
+
+If a component has internal strings a consumer might need to translate:
+
+1. Classify each string: **Visual-only** → `ReactNodeLabel`; **A11y-only** (`aria-label`, `placeholder`) → `string`; **Dual-use** or inside a template → `string`; **Interpolated** → `(...args) => string | ReactNode`.
+2. Define `export type XxxLabels = { ... }` in `src/lib/i18n/types.ts` and add `Xxx?: Partial<XxxLabels>` to `DesignSystemLabels`.
+3. Add English defaults to `src/lib/i18n/defaultLabels.ts`.
+4. Add `labels?: Partial<XxxLabels>` to the component's `types.ts` and wire it with `const l = useLabels('Xxx', labels)` at the top of the component.
+5. Export `XxxLabels` from `src/lib/i18n/index.ts` and `src/components/index.ts`.
+
+Full procedure and type classification rules: `docs/i18n/README.md`.
 
 ## Component Hierarchy (never skip a level)
 

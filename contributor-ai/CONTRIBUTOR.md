@@ -79,3 +79,7 @@ Accessibility is not optional. Every component must be accessible by default.
 Full rules, per-component type guides, and BAD vs GOOD examples live in `contributor-ai/a11y.instructions.md` — auto-attached by VS Code Copilot whenever you edit `src/components/**`.
 
 Core: define `aria-*` props in `types.ts`, forward them to the DOM, never convey state through color alone, and verify in every story/demo.
+
+## Internationalization (i18n) — Optional
+
+Components ship English defaults — no i18n setup is required for English-only consumers. If a component contains internal strings a consumer might need to translate, expose them via a `labels` prop backed by `useLabels()`. Full procedure in `docs/i18n/README.md` and `contributor-ai/component.instructions.md`.

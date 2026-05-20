@@ -31,7 +31,8 @@ Before generating a single line of JSX, you MUST execute these steps in order. S
    - Navigation uses `<nav aria-label="...">` and `aria-current="page"` for the active item.
    - Status/alert components have the correct `role` and `aria-live` value.
    - Decorative icons have `aria-hidden="true"`; icon-only interactive parents have `aria-label`.
-9. **Verify** — run `get_errors` on every file touched. Fix all TypeScript errors before responding.
+9. **Internationalization (optional)** — if the component contains any hardcoded visible text or ARIA strings, expose them via a `labels` prop and `useLabels()`. Skip this step if the component has no internal strings. The library always falls back to English defaults — this is opt-in. Full classification and procedure: `docs/i18n/README.md`.
+10. **Verify** — run `get_errors` on every file touched. Fix all TypeScript errors before responding.
 
 If MCP was not queried before implementation, the result is considered incorrect.
 
@@ -226,6 +227,7 @@ Before returning any code, verify each item:
 - [ ] `yarn new-component` was run before any file was created
 - [ ] TypeScript errors checked and resolved
 - [ ] Semantic HTML and accessibility props (`aria-*`, `role`, `tabIndex`) are correctly applied and forwarded
+- [ ] If the component has internal strings: `XxxLabels` type defined, defaults added, `useLabels` wired, type exported (skip if no internal strings)
 
 ---
 

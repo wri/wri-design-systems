@@ -39,6 +39,24 @@ Key rules (full details in the instructions file):
 5. **No Chakra v2 API** — v3 has breaking changes. Verify props via Chakra MCP.
 6. **Accessibility first** — always provide `aria-*` props (like `aria-label` or `aria-describedby`), explicit `role` attributes, and ensure keyboard focus navigation context when consuming components.
 
+## Internationalization (i18n) — Optional
+
+All WRI DS components ship with English defaults. No i18n setup is needed for English-only apps.
+
+If your application supports multiple languages, override internal component strings by passing pre-translated values via `DesignSystemLocaleProvider` (app-wide) or the component's `labels` prop (per-instance). The library has no runtime i18n dependency — pass strings from your own stack (react-intl, react-i18next, etc.).
+
+```tsx
+import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
+
+<DesignSystemLocaleProvider labels={{
+  TextInput: { optionalSuffix: t('common.optional'), requiredSymbolLabel: t('common.required') },
+}}>
+  <App />
+</DesignSystemLocaleProvider>
+```
+
+Full reference — supported components, label types, and usage patterns: `docs/i18n/README.md`.
+
 ## Design Tokens — Source of Truth
 
 All token functions are imported from the **package**:
