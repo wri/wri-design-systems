@@ -108,8 +108,8 @@ export const WithI18nLabels: Story = {
     caption: 'Introduce tu contraseña',
     required: true,
     labels: {
-      showLabel: 'Mostrar',
-      hideLabel: 'Ocultar',
+      showLabel: 'Mostrar contraseña',
+      hideLabel: 'Ocultar contraseña',
       showPasswordLabel: 'Mostrar contraseña',
       hidePasswordLabel: 'Ocultar contraseña',
       strengthPrefix: 'Seguridad:',
