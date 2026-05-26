@@ -19,6 +19,13 @@ const meta = {
     },
   },
   tags: ['autodocs'],
+  decorators: [
+    (Story: any) => (
+      <div style={{ width: '15.625rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     label: { description: 'Field label', control: 'text' },
     placeholder: { description: 'Placeholder text', control: 'text' },
