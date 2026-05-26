@@ -21,6 +21,13 @@ const meta = {
   },
   tags: ['autodocs'],
   args: { onActionClick: fn() },
+  decorators: [
+    (Story: any) => (
+      <div style={{ width: '31.25rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     label: { description: '`label` text', control: 'text' },
     caption: { description: '`caption` content', control: false },

@@ -20,6 +20,13 @@ const meta = {
     },
   },
   tags: ['autodocs'],
+  decorators: [
+    (Story: any) => (
+      <div style={{ width: '15.625rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     placeholder: { description: 'Placeholder text', control: 'text' },
     disabled: { description: 'Disables the search input', control: 'boolean' },
