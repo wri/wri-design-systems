@@ -5,19 +5,6 @@
 
 import { Editor } from '@tiptap/react'
 import * as React from 'react'
-import {
-  LuBold,
-  LuCode,
-  LuImage,
-  LuItalic,
-  LuLink,
-  LuList,
-  LuListOrdered,
-  LuRedo2,
-  LuStrikethrough,
-  LuUnderline,
-  LuUndo2,
-} from 'react-icons/lu'
 import { Box } from '@chakra-ui/react'
 import type { IconButtonProps } from '../../Actions/IconButton/types'
 import type { ButtonProps } from '../../Actions/Button/types'
@@ -25,7 +12,20 @@ import Button from '../../Actions/Button'
 import IconButton from '../../Actions/IconButton'
 import Menu from '../../Actions/Menu'
 import Tooltip from '../../Actions/Tooltip'
-import { ChevronDownIcon } from '../../../icons'
+import {
+  ChevronDownIcon,
+  RteBoldIcon,
+  RteBulletListIcon,
+  RteCodeIcon,
+  RteImageIcon,
+  RteItalicIcon,
+  RteLinkIcon,
+  RteOrderedListIcon,
+  RteRedoIcon,
+  RteStrikethroughIcon,
+  RteUnderlineIcon,
+  RteUndoIcon,
+} from '../../../icons'
 import { getThemedColor } from '../../../../lib/theme'
 import { useRichTextEditorContext } from './rich-text-editor-context'
 
@@ -183,60 +183,58 @@ export const FontSize = createOptionControl({
   },
 })
 
-const BoldIcon = () => <LuBold strokeWidth={3} />
-
 export const Bold = createBooleanControl({
   label: 'Bold',
-  icon: BoldIcon,
+  icon: RteBoldIcon,
   command: (editor) => editor.chain().focus().toggleBold().run(),
   isActive: (editor) => editor.isActive('bold'),
 })
 
 export const Italic = createBooleanControl({
   label: 'Italic',
-  icon: LuItalic,
+  icon: RteItalicIcon,
   command: (editor) => editor.chain().focus().toggleItalic().run(),
   isActive: (editor) => editor.isActive('italic'),
 })
 
 export const Underline = createBooleanControl({
   label: 'Underline',
-  icon: LuUnderline,
+  icon: RteUnderlineIcon,
   command: (editor) => editor.chain().focus().toggleUnderline().run(),
   isActive: (editor) => editor.isActive('underline'),
 })
 
 export const Strikethrough = createBooleanControl({
   label: 'Strikethrough',
-  icon: LuStrikethrough,
+  icon: RteStrikethroughIcon,
   command: (editor) => editor.chain().focus().toggleStrike().run(),
   isActive: (editor) => editor.isActive('strike'),
 })
 
 export const Code = createBooleanControl({
   label: 'Code',
-  icon: LuCode,
+  icon: RteCodeIcon,
   command: (editor) => editor.chain().focus().toggleCode().run(),
   isActive: (editor) => editor.isActive('code'),
 })
 
 export const BulletList = createBooleanControl({
   label: 'Bullet List',
-  icon: LuList,
+  icon: RteBulletListIcon,
   command: (editor) => editor.chain().focus().toggleBulletList().run(),
   isActive: (editor) => editor.isActive('bulletList'),
 })
 
 export const OrderedList = createBooleanControl({
   label: 'Ordered List',
-  icon: LuListOrdered,
+  icon: RteOrderedListIcon,
   command: (editor) => editor.chain().focus().toggleOrderedList().run(),
   isActive: (editor) => editor.isActive('orderedList'),
 })
 
 export const Link = createBooleanControl({
   label: 'Link',
-  icon: LuLink,
+  icon: RteLinkIcon,
   command: (editor) => {
     if (editor.isActive('link')) {
       editor.chain().focus().unsetLink().run()
@@ -268,7 +266,7 @@ export const Link = createBooleanControl({
 
 export const Image = createBooleanControl({
   label: 'Image',
-  icon: LuImage,
+  icon: RteImageIcon,
   command: (editor) => {
     if (typeof document === 'undefined') return
 
@@ -302,14 +300,14 @@ export const Image = createBooleanControl({
 
 export const Undo = createBooleanControl({
   label: 'Undo',
-  icon: LuUndo2,
+  icon: RteUndoIcon,
   command: (editor) => editor.chain().focus().undo().run(),
   isDisabled: (editor) => !editor.can().undo(),
 })
 
 export const Redo = createBooleanControl({
   label: 'Redo',
-  icon: LuRedo2,
+  icon: RteRedoIcon,
   command: (editor) => editor.chain().focus().redo().run(),
   isDisabled: (editor) => !editor.can().redo(),
 })

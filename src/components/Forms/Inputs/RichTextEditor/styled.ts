@@ -26,14 +26,6 @@ export const richTextEditorContainerStyles: SystemStyleObject = {
     display: 'inline-flex',
     color: getThemedColor('neutral', 800),
   },
-  '& [data-rte-icon="true"] svg path': {
-    fill: 'none !important',
-    stroke: 'currentColor !important',
-  },
-  '& [data-rte-icon="true"] svg line, & [data-rte-icon="true"] svg polyline, & [data-rte-icon="true"] svg rect, & [data-rte-icon="true"] svg circle, & [data-rte-icon="true"] svg ellipse':
-    {
-      stroke: 'currentColor !important',
-    },
   '&[data-disabled] .ProseMirror': {
     pointerEvents: 'none',
     opacity: 0.6,

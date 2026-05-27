@@ -69,21 +69,12 @@ const RichTextEditor = ({
         <RichTextEditorPrimitives.ControlGroup>
           <Control.Undo />
           <Control.Redo />
-        </RichTextEditorPrimitives.ControlGroup>
-        <RichTextEditorPrimitives.ControlGroup>
           <Control.FontFamily />
           <Control.FontSize />
-        </RichTextEditorPrimitives.ControlGroup>
-
-        <RichTextEditorPrimitives.ControlGroup>
           <Control.Bold />
           <Control.Italic />
           <Control.Underline />
           <Control.Strikethrough />
-          <Control.Code />
-        </RichTextEditorPrimitives.ControlGroup>
-
-        <RichTextEditorPrimitives.ControlGroup>
           <Control.BulletList />
           <Control.OrderedList />
           <Control.Link />
