@@ -68,6 +68,7 @@ import StepProgressIndicatorDemo from './components/Status/StepProgressIndicator
 import ToastDemo from './components/Status/Toast/ToastDemo'
 import { Toast } from './components'
 import DemoWrapper from './components/UI/DemoWrapper'
+import RichTextEditorDemo from './components/Forms/Inputs/RichTextEditor/RichTextEditorDemo'
 
 const App = () => (
   <div className='App'>
@@ -114,6 +115,7 @@ const App = () => (
           <PasswordDemo />
           <RadioListDemo />
           <SelectDemo />
+          <RichTextEditorDemo />
           <SliderInputDemo />
           <TextareaDemo />
           <TextInputDemo />

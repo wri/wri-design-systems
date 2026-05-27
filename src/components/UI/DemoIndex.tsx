@@ -112,6 +112,7 @@ const components = [
   'Toast',
   'Search',
   'Combobox',
+  'Rich Text Editor',
 ]
 
 const DemoIndex = () => {

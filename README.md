@@ -399,6 +399,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Slider Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/SliderInput)
 - [Text Area](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Textarea)
 - [Text Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/TextInput)
+- [Rich Text Editor](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/RichTextEditor)
 
 ### Tags
 

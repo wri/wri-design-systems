@@ -50,6 +50,8 @@ export type {
 
 // -- i18n -- //
 
+export { default as RichTextEditor } from './Forms/Inputs/RichTextEditor'
+
 // -- Forms -- //
 
 // Actions
