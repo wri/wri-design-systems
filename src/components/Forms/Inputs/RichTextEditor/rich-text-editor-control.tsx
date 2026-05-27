@@ -78,21 +78,26 @@ export interface OptionControlConfig {
 export function createBooleanControl(config: BooleanControlConfig) {
   const { label, icon: Icon, isDisabled, isActive, command } = config
 
-  const BooleanControl = (props: Omit<IconButtonProps, 'icon'>) => {
+  const BooleanControl = (
+    props: Omit<IconButtonProps, 'icon'> & { label?: string },
+  ) => {
     const { editor } = useRichTextEditorContext()
     if (!editor) return null
+
+    const { label: customLabel, ...rest } = props
+    const resolvedLabel = customLabel || label
 
     const disabled = isDisabled ? isDisabled(editor) : false
     const active = isActive ? isActive(editor) : false
 
     return (
       <ButtonControl
-        label={label}
+        label={resolvedLabel}
         icon={<Icon />}
         active={active}
         onClick={() => command(editor)}
         disabled={disabled}
-        {...props}
+        {...rest}
       />
     )
   }
@@ -104,9 +109,11 @@ export function createBooleanControl(config: BooleanControlConfig) {
 export function createOptionControl(config: OptionControlConfig) {
   const { label, options, getValue, command, isDisabled } = config
 
-  const OptionControl = () => {
+  const OptionControl = ({ label: customLabel }: { label?: string } = {}) => {
     const { editor } = useRichTextEditorContext()
     if (!editor) return null
+
+    const resolvedLabel = customLabel || label
 
     const value = getValue(editor)
     const disabled = isDisabled ? isDisabled(editor) : false
@@ -114,7 +121,7 @@ export function createOptionControl(config: OptionControlConfig) {
 
     return (
       <Menu
-        label={label}
+        label={resolvedLabel}
         items={options.map((option) => ({
           label: option.label,
           value: option.value,
@@ -131,8 +138,8 @@ export function createOptionControl(config: OptionControlConfig) {
               variant='secondary'
               size='small'
               disabled={disabled}
-              label={currentOption?.label || label}
-              aria-label={`${label}: ${currentOption?.label || label}`}
+              label={currentOption?.label || resolvedLabel}
+              aria-label={`${resolvedLabel}: ${currentOption?.label || resolvedLabel}`}
               rightIcon={<ChevronDownIcon width='0.875rem' height='0.875rem' />}
               {...({
                 borderColor: getThemedColor('neutral', 400),

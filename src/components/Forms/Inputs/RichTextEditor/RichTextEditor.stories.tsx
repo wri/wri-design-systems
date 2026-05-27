@@ -5,6 +5,7 @@ import { Box, Text, VStack } from '@chakra-ui/react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import RichTextEditor from '.'
+import { getThemedSpacing } from '../../../../lib/theme'
 
 const RichTextEditorWithPreview = ({
   defaultValue,
@@ -42,6 +43,30 @@ const meta = {
     layout: 'padded',
   },
   tags: ['autodocs'],
+  argTypes: {
+    minHeight: {
+      control: 'text',
+      description:
+        'Custom CSS min-height for the editable area. Leave empty to use container-based sizing.',
+    },
+    visibleControls: {
+      control: 'check',
+      options: [
+        'undo',
+        'redo',
+        'fontFamily',
+        'fontSize',
+        'bold',
+        'italic',
+        'underline',
+        'strikethrough',
+        'bulletList',
+        'orderedList',
+        'link',
+        'image',
+      ],
+    },
+  },
 } satisfies Meta<typeof RichTextEditor>
 
 export default meta
@@ -51,23 +76,119 @@ export const Default: Story = {
   render: (args) => <RichTextEditorWithPreview {...args} />,
   args: {
     ariaLabel: 'Rich text editor default',
+    placeholder: 'Write your content...',
   },
 }
 
-export const WithInitialContent: Story = {
+export const CustomSizePlayground: Story = {
   render: (args) => <RichTextEditorWithPreview {...args} />,
   args: {
-    ariaLabel: 'Rich text editor with initial content',
-    defaultValue:
-      '<p><strong>Hello!</strong> This is the initial content for the editor.</p>',
+    ariaLabel: 'Rich text editor with custom size',
+    placeholder: 'Use the minHeight control to set a custom min-height',
+    minHeight: getThemedSpacing(1600),
   },
 }
 
-export const Disabled: Story = {
+export const SizeVariants: Story = {
+  render: () => (
+    <VStack align='stretch' gap='6' w='full' maxW='2xl'>
+      <Box
+        borderWidth='1px'
+        borderRadius='md'
+        p='3'
+        bg='gray.50'
+        maxH='200px'
+        overflow='auto'
+      >
+        <Text fontWeight='bold' mb='2'>
+          Container based (no minHeight)
+        </Text>
+        <RichTextEditor ariaLabel='Rich text editor container based size' />
+      </Box>
+      <Box
+        borderWidth='1px'
+        borderRadius='md'
+        p='3'
+        bg='gray.50'
+        h={{ base: '500px' }}
+        overflow='auto'
+        display='flex'
+        flexDirection='column'
+      >
+        <Text fontWeight='bold' mb='2'>
+          minHeight = 400px
+        </Text>
+        <Box flex='1 1 0' display='flex' flexDirection='column'>
+          <RichTextEditor
+            ariaLabel='Rich text editor custom min-height 400px'
+            minHeight='400px'
+          />
+        </Box>
+      </Box>
+      <Box
+        borderWidth='1px'
+        borderRadius='md'
+        p='3'
+        bg='gray.50'
+        h={{ base: '700px' }}
+        overflow='auto'
+        display='flex'
+        flexDirection='column'
+      >
+        <Text fontWeight='bold' mb='2'>
+          minHeight = 600px
+        </Text>
+        <Box flex='1 1 0' display='flex' flexDirection='column'>
+          <RichTextEditor
+            ariaLabel='Rich text editor custom min-height 600px'
+            minHeight='600px'
+          />
+        </Box>
+      </Box>
+      <Box
+        borderWidth='1px'
+        borderRadius='md'
+        p='3'
+        bg='gray.50'
+        h={{ base: '900px' }}
+        overflow='auto'
+        display='flex'
+        flexDirection='column'
+      >
+        <Text fontWeight='bold' mb='2'>
+          minHeight = 800px
+        </Text>
+        <Box flex='1 1 0' display='flex' flexDirection='column'>
+          <RichTextEditor
+            ariaLabel='Rich text editor custom min-height 800px'
+            minHeight='800px'
+          />
+        </Box>
+      </Box>
+    </VStack>
+  ),
+}
+
+export const TranslatedTooltips: Story = {
   render: (args) => <RichTextEditorWithPreview {...args} />,
   args: {
-    ariaLabel: 'Disabled rich text editor',
-    defaultValue: '<p>This editor is disabled.</p>',
-    disabled: true,
+    ariaLabel: 'Editor de texto enriquecido',
+    placeholder: 'Escribe tu contenido...',
+    labels: {
+      editorAriaLabel: 'Editor de texto enriquecido',
+      placeholder: 'Escribe tu contenido...',
+      undoTooltip: 'Deshacer',
+      redoTooltip: 'Rehacer',
+      fontFamilyTooltip: 'Familia tipografica',
+      fontSizeTooltip: 'Tamano de fuente',
+      boldTooltip: 'Negrita (N)',
+      italicTooltip: 'Cursiva (K)',
+      underlineTooltip: 'Subrayado (S)',
+      strikethroughTooltip: 'Tachado',
+      bulletListTooltip: 'Lista con vietas',
+      orderedListTooltip: 'Lista numerada',
+      linkTooltip: 'Enlace',
+      imageTooltip: 'Imagen',
+    },
   },
 }

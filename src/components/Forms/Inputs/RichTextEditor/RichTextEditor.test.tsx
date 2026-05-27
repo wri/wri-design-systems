@@ -47,6 +47,13 @@ jest.mock('@tiptap/extension-image', () => ({
   default: {},
 }))
 
+jest.mock('@tiptap/extension-placeholder', () => ({
+  __esModule: true,
+  default: {
+    configure: () => ({}),
+  },
+}))
+
 jest.mock('@tiptap/react', () => ({
   __esModule: true,
   EditorContent: () => null,

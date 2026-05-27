@@ -25,6 +25,7 @@ import type {
   QualitativeAttributeLabels,
   MapControlsToolbarLabels,
   StepProgressIndicatorLabels,
+  RichTextEditorLabels,
 } from './types'
 
 type DefaultLabels = {
@@ -54,6 +55,7 @@ type DefaultLabels = {
   QualitativeAttribute: Required<QualitativeAttributeLabels>
   MapControlsToolbar: Required<MapControlsToolbarLabels>
   StepProgressIndicator: Required<StepProgressIndicatorLabels>
+  RichTextEditor: Required<RichTextEditorLabels>
 }
 
 /**
@@ -224,5 +226,21 @@ export const defaultLabels: DefaultLabels = {
   StepProgressIndicator: {
     currentStepLabel: (step, label, isCompleted) =>
       `Current Step ${step}${label ? ` ${label}` : ''}${isCompleted ? '. Completed' : ''}`,
+  },
+  RichTextEditor: {
+    editorAriaLabel: 'Rich text editor',
+    placeholder: 'Start typing...',
+    undoTooltip: 'Undo',
+    redoTooltip: 'Redo',
+    fontFamilyTooltip: 'Font Family',
+    fontSizeTooltip: 'Font Size',
+    boldTooltip: 'Bold (B)',
+    italicTooltip: 'Italic (I)',
+    underlineTooltip: 'Underline (U)',
+    strikethroughTooltip: 'Strikethrough',
+    bulletListTooltip: 'Bullet List',
+    orderedListTooltip: 'Ordered List',
+    linkTooltip: 'Link',
+    imageTooltip: 'Image',
   },
 }

@@ -18,6 +18,17 @@ export const richTextEditorContainerStyles: SystemStyleObject = {
     outline: 'none',
     minHeight: getThemedSpacing(1600),
     padding: getThemedSpacing(400),
+    '&:focus-visible': {
+      boxShadow: `inset 0 0 0 ${getThemedBorderWidth(200)} ${getThemedColor('primary', 600)}`,
+      borderRadius: getThemedRadius(100),
+    },
+    '& p.is-editor-empty:first-of-type::before': {
+      content: 'attr(data-placeholder)',
+      color: getThemedColor('neutral', 500),
+      pointerEvents: 'none',
+      float: 'left',
+      height: '0',
+    },
   },
   '& .ProseMirror > * + *': {
     marginTop: getThemedSpacing(300),

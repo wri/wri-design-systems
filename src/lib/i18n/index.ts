@@ -31,5 +31,6 @@ export type {
   QualitativeAttributeLabels,
   MapControlsToolbarLabels,
   StepProgressIndicatorLabels,
+  RichTextEditorLabels,
 } from './types'
 export { defaultLabels } from './defaultLabels'
