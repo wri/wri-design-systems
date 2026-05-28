@@ -2,12 +2,13 @@
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Menu as ChakraMenu, Portal } from '@chakra-ui/react'
 import { MenuItemProps, MenuProps } from './types'
 import {
   menuStyles,
   menuContentStyles,
+  menuArrowStyles,
   menuItemContainerStyles,
   menuItemGroupLabelStyles,
   menuItemLabelAndCaptionStyles,
@@ -74,6 +75,23 @@ const Menu = ({
   customTrigger,
 }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const triggerRef = useRef<HTMLButtonElement | null>(null)
+
+  // Closes menu when trigger is out of viewport
+  useEffect(() => {
+    if (!isOpen || !triggerRef.current) return
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) setIsOpen(false)
+      },
+      { threshold: 0.01 },
+    )
+    observer.observe(triggerRef.current)
+    // eslint-disable-next-line consistent-return
+    return () => {
+      observer.disconnect()
+    }
+  }, [isOpen])
 
   return (
     <ChakraMenu.Root
@@ -83,7 +101,7 @@ const Menu = ({
     >
       <ChakraMenu.Trigger css={menuStyles(theme, fontSize)} asChild>
         {customTrigger || (
-          <button type='button'>
+          <button type='button' ref={triggerRef}>
             {label}
             <ChevronDownIcon
               marginLeft='0.375rem'
@@ -101,6 +119,7 @@ const Menu = ({
             role='menu'
             aria-label={label || 'Menu'}
           >
+            <div css={menuArrowStyles} />
             {items?.map((item, idx) => {
               if (item.submenu) {
                 const [submenuOpen, setSubmenuOpen] = useState(false)
