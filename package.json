@@ -111,5 +111,18 @@
     "url": "git+https://github.com/wri/wri-design-systems.git"
   },
   "author": "WRI",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@tiptap/core": "^3.23.6",
+    "@tiptap/extension-image": "^3.23.6",
+    "@tiptap/extension-link": "^3.23.6",
+    "@tiptap/extension-placeholder": "^3.23.6",
+    "@tiptap/extension-subscript": "^3.23.6",
+    "@tiptap/extension-superscript": "^3.23.6",
+    "@tiptap/extension-text-align": "^3.23.6",
+    "@tiptap/extension-text-style": "^3.23.6",
+    "@tiptap/pm": "^3.23.6",
+    "@tiptap/react": "^3.23.6",
+    "@tiptap/starter-kit": "^3.23.6"
+  }
 }

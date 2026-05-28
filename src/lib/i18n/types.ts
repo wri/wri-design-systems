@@ -466,6 +466,27 @@ export type StepProgressIndicatorLabels = {
   ) => string
 }
 
+/** Labels for RichTextEditor internal UI strings. */
+export type RichTextEditorLabels = {
+  /** Default aria-label for the editor content region. */
+  editorAriaLabel: string
+  /** Default placeholder shown when editor is empty. */
+  placeholder: string
+  /** Tooltip / aria labels for controls. */
+  undoTooltip: string
+  redoTooltip: string
+  fontFamilyTooltip: string
+  fontSizeTooltip: string
+  boldTooltip: string
+  italicTooltip: string
+  underlineTooltip: string
+  strikethroughTooltip: string
+  bulletListTooltip: string
+  orderedListTooltip: string
+  linkTooltip: string
+  imageTooltip: string
+}
+
 /**
  * Top-level labels map for the design system.
  * Consumers can provide partial overrides for any component via
@@ -504,4 +525,5 @@ export type DesignSystemLabels = {
   QualitativeAttribute?: Partial<QualitativeAttributeLabels>
   MapControlsToolbar?: Partial<MapControlsToolbarLabels>
   StepProgressIndicator?: Partial<StepProgressIndicatorLabels>
+  RichTextEditor?: Partial<RichTextEditorLabels>
 }

@@ -46,9 +46,17 @@ export type {
   QualitativeAttributeLabels,
   MapControlsToolbarLabels,
   StepProgressIndicatorLabels,
+  RichTextEditorLabels,
 } from '../lib/i18n'
 
 // -- i18n -- //
+
+export { default as RichTextEditor } from './Forms/Inputs/RichTextEditor'
+export type {
+  RichTextEditorControlKey,
+  RichTextEditorProps,
+  RichTextEditorSize,
+} from './Forms/Inputs/RichTextEditor/types'
 
 // -- Forms -- //
 
