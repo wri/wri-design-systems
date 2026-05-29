@@ -6,7 +6,13 @@ export type ToastProps = {
   label: string
   caption?: React.ReactNode
   type: 'success' | 'warning' | 'error' | 'info' | 'loading'
-  placement: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end'
+  placement:
+    | 'top-start'
+    | 'top'
+    | 'top-end'
+    | 'bottom-start'
+    | 'bottom'
+    | 'bottom-end'
   duration?: number
   icon?: React.ReactNode
   action?: {
@@ -15,6 +21,7 @@ export type ToastProps = {
   }
   closable?: boolean
   closableLabel?: string
+  onClose?: () => void
 }
 
 export type ToastComponentProps = {

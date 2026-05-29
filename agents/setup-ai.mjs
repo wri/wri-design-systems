@@ -85,6 +85,7 @@ function ensureGitignoreBlock() {
     '.windsurfrules',
     '.clinerules',
     '.github/copilot-instructions.md',
+    '.github/instructions/wri-ds.instructions.md',
     '.cursor/rules',
     '.cursor/mcp.json',
     '.vscode/mcp.json',

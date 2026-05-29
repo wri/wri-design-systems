@@ -31,7 +31,6 @@ export const defaultInlineMessageStyles = (
     justify-content: ${isButtonRight ? 'space-between' : 'flex-start'};
     flex-direction: ${isButtonRight ? 'row' : 'column'};
     gap: ${getThemedSpacing(200)};
-    margin-bottom: ${getThemedSpacing(400)};
 
     button {
       margin-left: ${isButtonRight ? 0 : getThemedSpacing(600)};

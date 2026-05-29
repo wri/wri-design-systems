@@ -31,6 +31,19 @@ const ToastDemo = () => (
         }
       />
       <Button
+        label='Info - Top Center'
+        variant='primary'
+        onClick={() =>
+          showToast({
+            label: 'Label',
+            caption: 'Caption',
+            type: 'info',
+            placement: 'top',
+            closable: true,
+          })
+        }
+      />
+      <Button
         label='Success - Top Right'
         variant='primary'
         onClick={() =>
@@ -56,6 +69,20 @@ const ToastDemo = () => (
             caption: 'Caption',
             type: 'warning',
             placement: 'bottom-start',
+          })
+        }
+      />
+      <Button
+        label='Info - Bottom Center'
+        variant='primary'
+        onClick={() =>
+          showToast({
+            label: 'Label',
+            caption: 'Caption',
+            type: 'info',
+            placement: 'bottom',
+            closable: true,
+            onClose: () => console.log('Closed'),
           })
         }
       />

@@ -11,6 +11,11 @@ const topStartToast = createToaster({
   ...commonProps,
 })
 
+const topToast = createToaster({
+  placement: 'top',
+  ...commonProps,
+})
+
 const topEndToast = createToaster({
   placement: 'top-end',
   ...commonProps,
@@ -21,6 +26,11 @@ const bottomStartToast = createToaster({
   ...commonProps,
 })
 
+const bottomToast = createToaster({
+  placement: 'bottom',
+  ...commonProps,
+})
+
 const bottomEndToast = createToaster({
   placement: 'bottom-end',
   ...commonProps,
@@ -28,8 +38,10 @@ const bottomEndToast = createToaster({
 
 export const toasters: { [key: string]: CreateToasterReturn } = {
   'top-start': topStartToast,
+  top: topToast,
   'top-end': topEndToast,
   'bottom-start': bottomStartToast,
+  bottom: bottomToast,
   'bottom-end': bottomEndToast,
 }
 
@@ -44,6 +56,7 @@ export const showToast = (props: ToastProps) => {
       closable: props.closable,
       icon: props.icon,
       closableLabel: props.closableLabel,
+      onClose: props.onClose,
     },
     ...props,
   })

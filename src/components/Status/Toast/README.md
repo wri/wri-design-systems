@@ -34,6 +34,7 @@ showToast({
   },
   closable: true,
   closableLabel: 'Dismiss',
+  onClose: () => console.log('Closed'),
 })
 ```
 
@@ -44,7 +45,13 @@ type ToastProps = {
   label: string
   caption?: React.ReactNode
   type: 'success' | 'warning' | 'error' | 'info' | 'loading'
-  placement: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end'
+  placement:
+    | 'top-start'
+    | 'top'
+    | 'top-end'
+    | 'bottom-start'
+    | 'bottom'
+    | 'bottom-end'
   duration?: number
   icon?: React.ReactNode
   action?: {
@@ -53,6 +60,7 @@ type ToastProps = {
   }
   closable?: boolean
   closableLabel?: string
+  onClose?: () => void
 }
 ```
 
@@ -188,6 +196,17 @@ showToast({
 })
 ```
 
+### Top Center
+
+```tsx
+showToast({
+  label: 'Label',
+  caption: 'Caption',
+  type: 'success',
+  placement: 'top',
+})
+```
+
 ### Top End
 
 ```tsx
@@ -210,6 +229,17 @@ showToast({
 })
 ```
 
+### Bottom Center
+
+```tsx
+showToast({
+  label: 'Label',
+  caption: 'Caption',
+  type: 'success',
+  placement: 'bottom',
+})
+```
+
 ### Bottom End
 
 ```tsx
@@ -218,5 +248,18 @@ showToast({
   caption: 'Caption',
   type: 'success',
   placement: 'bottom-end',
+})
+```
+
+### OnClose
+
+```tsx
+showToast({
+  label: 'Label',
+  caption: 'Caption',
+  type: 'success',
+  placement: 'bottom-end',
+  closable: true,
+  onClose: () => console.log('Closed'),
 })
 ```

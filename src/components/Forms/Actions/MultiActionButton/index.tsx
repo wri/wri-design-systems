@@ -90,6 +90,7 @@ const MultiActionButton = ({
             size={size}
             leftIcon={
               <ChevronDownIcon
+                aria-hidden='true'
                 rotate={isOpen ? '180' : '0'}
                 color={
                   getThemedColor('accessible', 'text-on-primary-mids') ||

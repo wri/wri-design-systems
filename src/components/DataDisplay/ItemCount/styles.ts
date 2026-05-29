@@ -15,7 +15,7 @@ export const itemCountPerPageContainerStyles = css`
   display: flex;
   gap: ${getThemedSpacing(400)};
   align-items: center;
-  margin-bottom: ${getThemedSpacing(600)};
+  margin-bottom: ${getThemedSpacing(300)};
 
   .ds-select-input-container {
     margin-bottom: 0rem;
