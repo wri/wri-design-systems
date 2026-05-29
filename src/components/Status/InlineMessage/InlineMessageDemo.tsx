@@ -9,7 +9,7 @@ const InlineMessageDemo = () => (
         display: 'flex',
         alignItems: 'center',
         flexWrap: 'wrap',
-        gap: '0.5rem',
+        gap: '1.25rem',
       }}
     >
       <InlineMessage

@@ -12,6 +12,7 @@ const ItemCountDemo = () => {
         currentPage={1}
         totalItems={100}
         onPageSizeChange={setPageSize}
+        showItemCountText
       />
     </DemoWrapper>
   )

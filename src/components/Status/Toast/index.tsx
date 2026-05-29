@@ -115,7 +115,13 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
                     }
                     size='small'
                     variant='secondary'
-                    onClick={() => toasters[toaster].dismiss()}
+                    onClick={() => {
+                      if (toast.meta?.onClose) {
+                        toast.meta.onClose()
+                      }
+
+                      toasters[toaster].dismiss()
+                    }}
                   />
                 ) : null}
               </Stack>

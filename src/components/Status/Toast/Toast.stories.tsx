@@ -260,6 +260,25 @@ export const TopLeft: Story = {
   ],
 }
 
+export const TopCenter: Story = {
+  decorators: [
+    () => (
+      <Button
+        label='Show Toast'
+        variant='primary'
+        onClick={() =>
+          showToast({
+            label: 'Label',
+            caption: 'Caption',
+            type: 'success',
+            placement: 'top',
+          })
+        }
+      />
+    ),
+  ],
+}
+
 export const TopRight: Story = {
   decorators: [
     () => (
@@ -298,6 +317,25 @@ export const BottomLeft: Story = {
   ],
 }
 
+export const BottomCenter: Story = {
+  decorators: [
+    () => (
+      <Button
+        label='Show Toast'
+        variant='primary'
+        onClick={() =>
+          showToast({
+            label: 'Label',
+            caption: 'Caption',
+            type: 'success',
+            placement: 'bottom',
+          })
+        }
+      />
+    ),
+  ],
+}
+
 export const BottomRight: Story = {
   decorators: [
     () => (
@@ -310,6 +348,27 @@ export const BottomRight: Story = {
             caption: 'Caption',
             type: 'success',
             placement: 'bottom-end',
+          })
+        }
+      />
+    ),
+  ],
+}
+
+export const OnClose: Story = {
+  decorators: [
+    () => (
+      <Button
+        label='Show Toast'
+        variant='primary'
+        onClick={() =>
+          showToast({
+            label: 'Label',
+            caption: 'Caption',
+            type: 'success',
+            placement: 'bottom-end',
+            closable: true,
+            onClose: () => console.log('Closed'),
           })
         }
       />
