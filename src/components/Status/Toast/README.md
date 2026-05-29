@@ -259,6 +259,7 @@ showToast({
   caption: 'Caption',
   type: 'success',
   placement: 'bottom-end',
+  closable: true,
   onClose: () => console.log('Closed'),
 })
 ```
