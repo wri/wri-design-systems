@@ -35,6 +35,36 @@ export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   }
 `
 
+export const menuArrowStyles = css`
+  position: absolute;
+  left: 1rem;
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  transform: rotate(45deg);
+  z-index: 2;
+
+  border-left: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 600)};
+  border-top: ${getThemedBorderWidth(100)} solid
+    ${getThemedColor('neutral', 600)};
+
+  top: -0.5rem;
+
+  [data-placement*='top'] & {
+    top: auto;
+    bottom: -0.5rem;
+
+    border-top: none;
+    border-left: none;
+
+    border-right: ${getThemedBorderWidth(100)} solid
+      ${getThemedColor('neutral', 600)};
+    border-bottom: ${getThemedBorderWidth(100)} solid
+      ${getThemedColor('neutral', 600)};
+  }
+`
+
 export const menuContentStyles = css`
   width: 14rem;
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
@@ -181,6 +211,10 @@ export const menuItemLabelContentStyles = css`
     font-weight: 400;
     color: ${getThemedColor('neutral', 700)};
   }
+`
+
+export const menuItemLabelCheckedStyles = css`
+  font-weight: 700;
 `
 
 export const menuItemGroupLabelStyles = css`

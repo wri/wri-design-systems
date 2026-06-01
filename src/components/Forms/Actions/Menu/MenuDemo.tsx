@@ -125,6 +125,31 @@ const MenuDemo = () => (
       />
 
       <Menu
+        label='Language (multiple)'
+        selectionMode='multiple'
+        defaultSelectedValues={['label-5-1']}
+        items={[
+          { label: 'English', value: 'label-5-1' },
+          { label: 'Spanish', value: 'label-5-2' },
+          { label: 'French', value: 'label-5-3' },
+          { label: 'German', value: 'label-5-4', disabled: true },
+        ]}
+        onSelect={(value) => console.log('onSelect', value)}
+      />
+
+      <Menu
+        label='View mode (radio)'
+        selectionMode='radio'
+        defaultSelectedValues={['label-6-1']}
+        items={[
+          { label: 'Map', value: 'label-6-1' },
+          { label: 'Table', value: 'label-6-2' },
+          { label: 'Chart', value: 'label-6-3' },
+        ]}
+        onSelect={(value) => console.log('onSelect', value)}
+      />
+
+      <Menu
         label='With Custom Trigger'
         items={[
           {
