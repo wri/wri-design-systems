@@ -12,11 +12,11 @@ export const defaultInlineMessageStyles = (
   size: string,
   isButtonRight?: boolean,
 ) => {
-  let maxWidth = '14.625rem'
+  let maxWidth = '14.875rem'
   if (size === 'full-width') {
     maxWidth = '100%'
   } else if (size === 'large') {
-    maxWidth = '20rem'
+    maxWidth = '22.875rem'
   }
 
   return css`
@@ -44,7 +44,7 @@ export const inlineMessageHeaderStyles = css`
   gap: ${getThemedSpacing(200)};
 
   svg {
-    margin-top: 0.375rem;
+    margin-top: 0.1875rem;
   }
 `
 

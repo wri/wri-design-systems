@@ -368,7 +368,8 @@ export const OnClose: Story = {
             type: 'success',
             placement: 'bottom-end',
             closable: true,
-            onClose: () => console.log('Closed'),
+            // eslint-disable-next-line no-alert
+            onClose: () => alert('Closed'),
           })
         }
       />

@@ -11,11 +11,13 @@ export const itemCountContainerStyles = css`
   flex-direction: column;
 `
 
-export const itemCountPerPageContainerStyles = css`
+export const itemCountPerPageContainerStyles = (
+  showItemCountText?: boolean,
+) => css`
   display: flex;
   gap: ${getThemedSpacing(400)};
   align-items: center;
-  margin-bottom: ${getThemedSpacing(300)};
+  margin-bottom: ${showItemCountText ? getThemedSpacing(300) : 0};
 
   .ds-select-input-container {
     margin-bottom: 0rem;
