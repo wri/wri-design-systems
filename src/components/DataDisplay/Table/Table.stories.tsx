@@ -313,6 +313,10 @@ type WideRowData = RowData & {
   status: string
 }
 
+type RenderRowContext = {
+  getCellProps?: (columnKey: string) => Record<string, any>
+}
+
 const wideData: WideRowData[] = Array(100)
   .fill(0)
   .map((_, i) => ({
@@ -326,6 +330,17 @@ const wideData: WideRowData[] = Array(100)
     department: ['Engineering', 'Design', 'Product', 'Marketing'][i % 4],
     status: ['Active', 'Inactive', 'Pending'][i % 3],
   }))
+
+const stickyWideColumns = [
+  { key: 'name', label: 'Name', sortable: true, sticky: true },
+  { key: 'email', label: 'Email', sortable: true, sticky: false },
+  { key: 'age', label: 'Age', sortable: true },
+  { key: 'country', label: 'Country', sortable: true },
+  { key: 'city', label: 'City', sortable: true },
+  { key: 'role', label: 'Role', sortable: true },
+  { key: 'department', label: 'Department', sortable: true },
+  { key: 'status', label: 'Status', sortable: true },
+]
 
 export const ScrollableTable = {
   args: {
@@ -411,4 +426,93 @@ export const ScrollableTable = {
       </div>
     )
   },
+}
+
+const makeStickyStoryRender =
+  (withStickyHeader: boolean) =>
+  (args: StoryObj<typeof TableStory>['args']) => {
+    const totalItems = 100
+    const [currentPage, setCurrentPage] = useState(1)
+    const [pageSize, setPageSize] = useState(10)
+    const [sortColumn, setSortColumn] = useState<{
+      key: string
+      order: string
+    }>({ key: '', order: '' })
+
+    const startRange = (currentPage - 1) * pageSize
+    const endRange = startRange + pageSize
+
+    let fullData = [...wideData]
+
+    if (sortColumn && sortColumn.key !== '') {
+      const { key, order } = sortColumn
+      const isDesc = order === 'desc'
+
+      fullData = fullData.sort((a, b) => {
+        const aVal = (a as any)[key]
+        const bVal = (b as any)[key]
+
+        if (typeof aVal === 'string' && typeof bVal === 'string') {
+          return isDesc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal)
+        }
+
+        return isDesc
+          ? (aVal as number) - (bVal as number)
+          : (bVal as number) - (aVal as number)
+      })
+    }
+
+    const dataByPage = fullData.slice(startRange, endRange)
+
+    const renderRow = (rowData: WideRowData, context?: RenderRowContext) => (
+      <TableRow>
+        <TableCell {...context?.getCellProps?.('name')}>
+          {rowData.name}
+        </TableCell>
+        <TableCell {...context?.getCellProps?.('email')}>
+          {rowData.email}
+        </TableCell>
+        <TableCell>{rowData.age}</TableCell>
+        <TableCell>{rowData.country}</TableCell>
+        <TableCell>{rowData.city}</TableCell>
+        <TableCell>{rowData.role}</TableCell>
+        <TableCell>{rowData.department}</TableCell>
+        <TableCell>{rowData.status}</TableCell>
+      </TableRow>
+    )
+
+    return (
+      <div style={{ padding: '1.5rem', maxWidth: '800px' }}>
+        <TableStory
+          {...args}
+          columns={stickyWideColumns}
+          data={dataByPage}
+          renderRow={renderRow}
+          onSortColumn={setSortColumn}
+          onPageSizeChange={setPageSize}
+          onPageChange={setCurrentPage}
+          stickyHeader={withStickyHeader}
+          pagination={{
+            totalItems,
+            currentPage,
+            pageSize,
+            showItemCount: true,
+          }}
+        />
+      </div>
+    )
+  }
+
+export const StickyColumns = {
+  name: 'Sticky Columns',
+  args: { height: '300px' },
+  parameters: { layout: 'fullscreen' },
+  render: makeStickyStoryRender(false),
+}
+
+export const StickyColumnsAndHeader = {
+  name: 'Sticky Columns + Sticky Header',
+  args: { height: '300px', stickyHeader: true },
+  parameters: { layout: 'fullscreen' },
+  render: makeStickyStoryRender(true),
 }

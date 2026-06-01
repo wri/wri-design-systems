@@ -20,11 +20,13 @@ const columns = [
     key: 'name',
     label: 'Name',
     sortable: true,
+    sticky: true,
   },
   {
     key: 'email',
     label: 'Email',
     sortable: true,
+    sticky: true,
   },
   {
     key: 'age',
@@ -37,10 +39,13 @@ const columns = [
 ### Render Row
 
 ```tsx
-const renderRow = (rowData: RowData) => (
+const renderRow = (
+  rowData: RowData,
+  context?: { getCellProps?: (columnKey: string) => Record<string, any> },
+) => (
   <TableRow>
-    <TableCell>{rowData.name}</TableCell>
-    <TableCell>{rowData.email}</TableCell>
+    <TableCell {...context?.getCellProps?.('name')}>{rowData.name}</TableCell>
+    <TableCell {...context?.getCellProps?.('email')}>{rowData.email}</TableCell>
     <TableCell>{rowData.age}</TableCell>
   </TableRow>
 )
@@ -103,9 +108,16 @@ type TableProps = {
     key: string
     label: string
     sortable?: boolean
+    sticky?: boolean | 'start' | 'end'
   }[]
   data?: any
-  renderRow: any
+  renderRow: (
+    row: any,
+    context?: {
+      className?: string
+      getCellProps: (columnKey: string) => Record<string, any>
+    },
+  ) => ReactNode
   striped?: boolean
   stickyHeader?: boolean
   selectable?: boolean
@@ -126,6 +138,31 @@ type TableProps = {
   /** When set, the table scrolls vertically within this height and horizontally within the containers width while pagination stays fixed */
   height?: string
 }
+```
+
+## Sticky columns
+
+Mark one or more columns with `sticky` and use `context.getCellProps(columnKey)` in `renderRow` for matching body cells.
+
+```tsx
+const columns = [
+  { key: 'name', label: 'Name', sticky: true },
+  { key: 'email', label: 'Email', sticky: true },
+  { key: 'age', label: 'Age' },
+  { key: 'country', label: 'Country' },
+]
+
+const renderRow = (
+  rowData: RowData,
+  context?: { getCellProps?: (columnKey: string) => Record<string, any> },
+) => (
+  <TableRow>
+    <TableCell {...context?.getCellProps?.('name')}>{rowData.name}</TableCell>
+    <TableCell {...context?.getCellProps?.('email')}>{rowData.email}</TableCell>
+    <TableCell>{rowData.age}</TableCell>
+    <TableCell>{rowData.country}</TableCell>
+  </TableRow>
+)
 ```
 
 ## Selectable
