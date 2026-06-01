@@ -8,7 +8,10 @@ import {
   getThemedSpacing,
 } from '../../../lib/theme'
 
-export const tableContainerStyles = (variant: string) => css`
+export const tableContainerStyles = (
+  variant: string,
+  stickyHeader?: boolean,
+) => css`
   border: ${variant === 'full-width'
     ? 'none'
     : `${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)}`};
@@ -16,6 +19,53 @@ export const tableContainerStyles = (variant: string) => css`
   box-shadow: ${variant === 'full-width'
     ? 'none'
     : `0 0 0 0.0625rem ${getThemedColor('neutral', 300)}`};
+
+  [data-sticky] {
+    position: sticky;
+    background-color: ${getThemedColor('neutral', 100)};
+
+    &::after {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      top: 0;
+      bottom: -0.0625rem;
+      width: ${getThemedSpacing(800)};
+    }
+  }
+
+  th[data-sticky] {
+    background-color: ${variant === 'full-width'
+      ? getThemedColor('neutral', 100)
+      : getThemedColor('neutral', 200)};
+    z-index: ${stickyHeader ? 4 : 2};
+    top: ${stickyHeader ? '0' : 'auto'};
+  }
+
+  thead {
+    z-index: ${stickyHeader ? 3 : 'auto'};
+  }
+
+  [data-sticky='start']::after {
+    content: none;
+  }
+
+  [data-sticky-last='true']::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    bottom: -0.0625rem;
+    inset-inline-end: 0;
+    translate: 100% 0;
+    width: 0.0625rem;
+    background: ${getThemedColor('neutral', 400)};
+    box-shadow: 0.0625rem 0 0.125rem 0 rgba(0, 0, 0, 0.2);
+  }
+
+  [data-sticky-last='true'] {
+    border-inline-end: 0.0625rem solid ${getThemedColor('neutral', 400)};
+  }
 `
 
 export const tableHeaderContainerStyles = (variant: string) => css`
@@ -94,11 +144,19 @@ export const tableBodyStyles = css`
 
     :hover {
       background-color: ${getThemedColor('neutral', 200)};
+
+      td[data-sticky] {
+        background-color: ${getThemedColor('neutral', 200)};
+      }
     }
 
     &.selected {
       background-color: ${getThemedColor('primary', 100)} !important;
       border-bottom: 0.125rem solid ${getThemedColor('primary', 700)} !important;
+
+      td[data-sticky] {
+        background-color: ${getThemedColor('primary', 100)};
+      }
     }
   }
 `

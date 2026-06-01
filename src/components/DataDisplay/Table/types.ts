@@ -1,15 +1,26 @@
+import type { ReactNode } from 'react'
 import type { TableLabels } from '../../../lib/i18n/types'
 
 export type { TableLabels }
 
+export type TableColumn = {
+  key: string
+  label: string
+  sortable?: boolean
+  width?: string
+  /** When true, this column sticks to the left during horizontal scroll. */
+  sticky?: boolean
+}
+
+export type TableRenderRowContext = {
+  className?: string
+  getCellProps: (columnKey: string) => Record<string, any>
+}
+
 export type TableProps = {
-  columns: {
-    key: string
-    label: string
-    sortable?: boolean
-  }[]
+  columns: TableColumn[]
   data?: any
-  renderRow: any
+  renderRow: (row: any, context?: TableRenderRowContext) => ReactNode
   striped?: boolean
   stickyHeader?: boolean
   selectable?: boolean

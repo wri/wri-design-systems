@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Table as ChakraTable, Spinner } from '@chakra-ui/react'
-import { TableProps } from './types'
+import { TableColumn, TableProps } from './types'
 import Pagination from '../../Navigation/Pagination'
 import {
   tableContainerStyles,
@@ -47,6 +47,8 @@ const Table = ({
     key: '',
     order: '',
   })
+  const headerCellRefs = useRef<Record<string, HTMLTableCellElement | null>>({})
+  const [stickyOffsets, setStickyOffsets] = useState<Record<string, number>>({})
 
   const {
     totalItems = data.length,
@@ -66,12 +68,92 @@ const Table = ({
 
   const allChecked = selectedRows?.length === data?.length
   const indeterminate = selectedRows && selectedRows.length > 0 && !allChecked
+  const columnsByKey = useMemo(
+    () =>
+      columns.reduce<Record<string, TableColumn>>((acc, column) => {
+        acc[column.key] = column
+        return acc
+      }, {}),
+    [columns],
+  )
+  const stickyColumnKeys = columns
+    .filter((column) => column.sticky)
+    .map((column) => column.key)
+  const lastStickyColumnKey =
+    stickyColumnKeys.length > 0
+      ? stickyColumnKeys[stickyColumnKeys.length - 1]
+      : undefined
+
+  const calculateStickyPositions = useCallback(() => {
+    const nextOffsets: Record<string, number> = {}
+    let offset = 0
+    columns
+      .filter((column) => column.sticky)
+      .forEach((column) => {
+        nextOffsets[column.key] = offset
+        offset += headerCellRefs.current[column.key]?.offsetWidth || 0
+      })
+    setStickyOffsets(nextOffsets)
+  }, [columns])
+
+  useEffect(() => {
+    calculateStickyPositions()
+  }, [calculateStickyPositions, data.length])
+
+  useEffect(() => {
+    const onResize = () => {
+      calculateStickyPositions()
+    }
+
+    window.addEventListener('resize', onResize)
+
+    return () => {
+      window.removeEventListener('resize', onResize)
+    }
+  }, [calculateStickyPositions])
+
+  const getColumnWidthProps = (columnKey: string) => {
+    const width = columnsByKey[columnKey]?.width
+
+    if (!width) {
+      return {}
+    }
+
+    return {
+      width,
+      minWidth: width,
+    }
+  }
+
+  const getStickyProps = (column: TableColumn) => {
+    const offset = stickyOffsets[column.key]
+    if (offset === undefined) return {}
+    return {
+      'data-sticky': 'start',
+      'data-sticky-last':
+        column.key === lastStickyColumnKey ? 'true' : undefined,
+      left: `${offset}px`,
+    }
+  }
+
+  const getCellProps = (columnKey: string) => {
+    const widthProps = getColumnWidthProps(columnKey)
+    const offset = stickyOffsets[columnKey]
+    if (offset === undefined) return widthProps
+    return {
+      ...widthProps,
+      'data-sticky': 'start',
+      'data-sticky-last':
+        columnKey === lastStickyColumnKey ? 'true' : undefined,
+      left: `${offset}px`,
+    }
+  }
 
   return (
     <div>
       <div css={height ? tableScrollContainerStyles(height) : undefined}>
         <ChakraTable.Root
-          css={tableContainerStyles(variant)}
+          css={tableContainerStyles(variant, stickyHeader)}
           striped={striped}
           stickyHeader={stickyHeader}
           interactive
@@ -96,6 +178,10 @@ const Table = ({
               {columns.map((column) => (
                 <ChakraTable.ColumnHeader
                   key={column.key}
+                  ref={(node: HTMLTableCellElement | null) => {
+                    headerCellRefs.current[column.key] = node
+                  }}
+                  {...getColumnWidthProps(column.key)}
                   role={column.sortable ? 'columnheader' : undefined}
                   aria-sort={
                     // eslint-disable-next-line no-nested-ternary
@@ -105,6 +191,7 @@ const Table = ({
                         ? 'descending'
                         : undefined
                   }
+                  {...getStickyProps(column)}
                 >
                   <div css={tableHeaderLabelStyles}>
                     {column.label}
@@ -148,6 +235,7 @@ const Table = ({
                   )
                     ? 'selected'
                     : undefined,
+                  getCellProps,
                 })}
               </React.Fragment>
             ))}
