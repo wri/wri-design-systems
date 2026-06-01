@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Table as ChakraTable, Spinner } from '@chakra-ui/react'
 import { TableColumn, TableProps } from './types'
 import Pagination from '../../Navigation/Pagination'
@@ -68,6 +68,14 @@ const Table = ({
 
   const allChecked = selectedRows?.length === data?.length
   const indeterminate = selectedRows && selectedRows.length > 0 && !allChecked
+  const columnsByKey = useMemo(
+    () =>
+      columns.reduce<Record<string, TableColumn>>((acc, column) => {
+        acc[column.key] = column
+        return acc
+      }, {}),
+    [columns],
+  )
   const stickyColumnKeys = columns
     .filter((column) => column.sticky)
     .map((column) => column.key)
@@ -104,22 +112,39 @@ const Table = ({
     }
   }, [calculateStickyPositions])
 
+  const getColumnWidthProps = (columnKey: string) => {
+    const width = columnsByKey[columnKey]?.width
+
+    if (!width) {
+      return {}
+    }
+
+    return {
+      width,
+      minWidth: width,
+    }
+  }
+
   const getStickyProps = (column: TableColumn) => {
     const offset = stickyOffsets[column.key]
     if (offset === undefined) return {}
     return {
       'data-sticky': 'start',
-      'data-sticky-last': column.key === lastStickyColumnKey ? 'true' : undefined,
+      'data-sticky-last':
+        column.key === lastStickyColumnKey ? 'true' : undefined,
       left: `${offset}px`,
     }
   }
 
   const getCellProps = (columnKey: string) => {
+    const widthProps = getColumnWidthProps(columnKey)
     const offset = stickyOffsets[columnKey]
-    if (offset === undefined) return {}
+    if (offset === undefined) return widthProps
     return {
+      ...widthProps,
       'data-sticky': 'start',
-      'data-sticky-last': columnKey === lastStickyColumnKey ? 'true' : undefined,
+      'data-sticky-last':
+        columnKey === lastStickyColumnKey ? 'true' : undefined,
       left: `${offset}px`,
     }
   }
@@ -156,6 +181,7 @@ const Table = ({
                   ref={(node: HTMLTableCellElement | null) => {
                     headerCellRefs.current[column.key] = node
                   }}
+                  {...getColumnWidthProps(column.key)}
                   role={column.sortable ? 'columnheader' : undefined}
                   aria-sort={
                     // eslint-disable-next-line no-nested-ternary
@@ -164,8 +190,8 @@ const Table = ({
                       : column.sortable && sortColumn.order === 'desc'
                         ? 'descending'
                         : undefined
-                    }
-                    {...getStickyProps(column)}
+                  }
+                  {...getStickyProps(column)}
                 >
                   <div css={tableHeaderLabelStyles}>
                     {column.label}

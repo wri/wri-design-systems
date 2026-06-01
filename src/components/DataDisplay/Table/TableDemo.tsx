@@ -161,10 +161,15 @@ const TableDemo = () => {
     }
   }
 
-  const stickyRenderRow = (rowData: StickyRowData, context?: RenderRowContext) => (
+  const stickyRenderRow = (
+    rowData: StickyRowData,
+    context?: RenderRowContext,
+  ) => (
     <TableRow>
       <TableCell {...context?.getCellProps?.('name')}>{rowData.name}</TableCell>
-      <TableCell {...context?.getCellProps?.('email')}>{rowData.email}</TableCell>
+      <TableCell {...context?.getCellProps?.('email')}>
+        {rowData.email}
+      </TableCell>
       <TableCell>{rowData.age}</TableCell>
       <TableCell>{rowData.country}</TableCell>
       <TableCell>{rowData.city}</TableCell>

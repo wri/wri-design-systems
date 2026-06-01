@@ -7,6 +7,7 @@ export type TableColumn = {
   key: string
   label: string
   sortable?: boolean
+  width?: string
   /** When true, this column sticks to the left during horizontal scroll. */
   sticky?: boolean
 }

@@ -19,12 +19,14 @@ const columns = [
   {
     key: 'name',
     label: 'Name',
+    width: '12rem',
     sortable: true,
     sticky: true,
   },
   {
     key: 'email',
     label: 'Email',
+    width: '18rem',
     sortable: true,
     sticky: true,
   },
@@ -108,7 +110,8 @@ type TableProps = {
     key: string
     label: string
     sortable?: boolean
-    sticky?: boolean | 'start' | 'end'
+    width?: string
+    sticky?: boolean
   }[]
   data?: any
   renderRow: (
@@ -146,8 +149,8 @@ Mark one or more columns with `sticky` and use `context.getCellProps(columnKey)`
 
 ```tsx
 const columns = [
-  { key: 'name', label: 'Name', sticky: true },
-  { key: 'email', label: 'Email', sticky: true },
+  { key: 'name', label: 'Name', width: '12rem', sticky: true },
+  { key: 'email', label: 'Email', width: '18rem', sticky: true },
   { key: 'age', label: 'Age' },
   { key: 'country', label: 'Country' },
 ]
