@@ -118,6 +118,33 @@ import { Navbar } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type NavbarLabels = {
+  /** aria-label on the hamburger/open-menu button. Default: "Open menu" */
+  openMenuLabel: string
+  /**
+   * Visible button text for the close state of the hamburger toggle.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Close"
+   */
+  closeLabel: ReactNodeLabel
+  /**
+   * Visible button text for the menu state of the hamburger toggle.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Menu"
+   */
+  menuLabel: ReactNodeLabel
+  /** aria-label on the back button in NavbarMobile. Default: "Go back" */
+  goBackLabel: string
+  /** aria-label on the close button in NavbarMobile submenu. Default: "Close menu" */
+  closeMenuLabel: string
+  /**
+   * Visible "Close" text inside the mobile close button.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Close"
+   */
+  closeButtonText: ReactNodeLabel
+}
+
 type NavbarNavigationItemsProps = {
   label: string
   link?: string
@@ -128,6 +155,8 @@ type NavbarNavigationItemsProps = {
 }
 
 type NavbarProps = {
+  variant?: 'default' | 'condensed'
+  theme?: 'light' | 'dark'
   logo?: React.ReactNode
   linkRouter: any // Link from react router or next.js
   pathname: string // Pathname from react router or next.js
@@ -140,9 +169,11 @@ type NavbarProps = {
     size?: ButtonProps['size']
     onClick?: ButtonProps['onClick']
   }[]
-  maxWidth?: number
+  maxWidth?: SizeValue
   fixed?: boolean
   onNavbarHeightChange?: (height: number) => void
   backgroundColor?: string
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<NavbarLabels>
 }
 ```

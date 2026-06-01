@@ -42,11 +42,9 @@ const cardFooter = (
 ## Props
 
 ```ts
-import { ReactNode } from 'react'
-
-export interface ExtendableCardProps {
-  header: ReactNode
-  children: ReactNode
-  footer?: ReactNode
+interface ExtendableCardProps {
+  children: React.ReactNode
+  header: React.ReactNode
+  footer?: React.ReactNode
 }
 ```

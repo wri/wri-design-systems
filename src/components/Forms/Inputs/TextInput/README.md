@@ -19,6 +19,17 @@ import { TextInput } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type TextInputLabels = {
+  /** Accessible label for the required (*) indicator. Must be string (aria-label). Default: "required" */
+  requiredSymbolLabel: string
+  /**
+   * Suffix appended after the field label when the field is optional.
+   * Rendered as JSX child inside a <span> — accepts ReactNode.
+   * Default: " (Optional)"
+   */
+  optionalSuffix: ReactNodeLabel
+}
+
 type TextInputProps = Omit<
   ChakraInputProps,
   'size' | 'variant' | 'colorPalette' | 'defaultChecked'
@@ -30,8 +41,11 @@ type TextInputProps = Omit<
   required?: boolean
   disabled?: boolean
   size?: 'small' | 'default'
+  noMarginBottom?: boolean
   defaultValue?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<TextInputLabels>
 }
 ```
 

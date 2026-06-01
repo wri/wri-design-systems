@@ -41,7 +41,14 @@ const sampleOptions = [
 ## Props
 
 ```ts
-export type SearchProps = Omit<
+type SearchLabels = {
+  /** placeholder attribute on the filter input. Default: "Filter" */
+  filterPlaceholder: string
+  /** aria-label on the filter input. Default: "Search filter" */
+  filterAriaLabel: string
+}
+
+type SearchProps = Omit<
   ChakraInputProps,
   'variant' | 'colorPalette' | 'defaultChecked'
 > & {
@@ -49,7 +56,7 @@ export type SearchProps = Omit<
   disabled?: boolean
   size?: 'small' | 'default'
   options: ListItemProps[]
-  resultsMaxHeight?: string
+  resultsMaxHeight?: SizeValue
   isLoading?: boolean
   displayResults?: 'none' | 'text' | 'list' | 'custom'
   onSelect?: (selectedOption: ListItemProps) => void
@@ -61,5 +68,7 @@ export type SearchProps = Omit<
     query: string
     onSelect: (id: string) => void
   }) => React.ReactNode
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<SearchLabels>
 }
 ```

@@ -18,6 +18,42 @@ import { RichTextEditor } from '@worldresources/wri-design-systems'
 
 ## Props
 
+```ts
+type RichTextEditorControlKey =
+  | 'undo'
+  | 'redo'
+  | 'fontFamily'
+  | 'fontSize'
+  | 'bold'
+  | 'italic'
+  | 'underline'
+  | 'strikethrough'
+  | 'bulletList'
+  | 'orderedList'
+  | 'link'
+  | 'image'
+
+type RichTextEditorSize = string
+
+type RichTextEditorProps = {
+  defaultValue?: string
+  disabled?: boolean
+  ariaLabel?: string
+  placeholder?: string
+  /**
+   * Custom minimum height for the editor content area.
+   * If omitted, the component size is defined by its container.
+   */
+  minHeight?: string
+  visibleControls?: RichTextEditorControlKey[]
+  onChange?: (value: string) => void
+  /** Override internal labels for i18n. */
+  labels?: Partial<RichTextEditorLabels>
+}
+```
+
+## Props
+
 | Prop              | Type                            | Default                  | Description                                                                                                                                     |
 | ----------------- | ------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | `defaultValue`    | `string`                        | `''`                     | Initial HTML content.                                                                                                                           |

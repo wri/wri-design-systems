@@ -26,8 +26,8 @@ type GenericMapMarkersProps = {
   onClick?: () => void
   triggerRef?: React.Ref<HTMLButtonElement>
   showFocusState?: boolean
-  count?: number
-  mode?: 'dark' | 'light'
+  count?: MapMarkerProps['count'] // number
+  mode?: MapMarkerProps['mode'] // 'dark' | 'light'
   variant?: MapMarkerProps['variant']
 }
 ```

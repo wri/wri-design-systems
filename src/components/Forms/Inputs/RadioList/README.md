@@ -13,6 +13,17 @@ import { RadioList } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type RadioListLabels = {
+  /** " Required." appended to the group aria-label. Default: "Required." */
+  requiredLabel: string
+  /** " Optional." appended to the group aria-label. Default: "Optional." */
+  optionalLabel: string
+  /** "Error:" prefix prepended to error in group aria-label. Default: "Error:" */
+  errorPrefix: string
+  /** aria-label on the required (*) indicator. Default: "required" */
+  requiredSymbolLabel: string
+}
+
 type RadioListProps = {
   label: string
   caption?: string
@@ -24,6 +35,8 @@ type RadioListProps = {
   horizontal?: boolean
   required?: boolean
   variant?: 'default' | 'card'
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<RadioListLabels>
 }
 ```
 

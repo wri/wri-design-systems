@@ -19,6 +19,15 @@ import { Slider } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type SliderMarksProps = {
+  marks?: Array<number | { value: number; label: React.ReactNode }>
+  isCentred?: boolean
+}
+
+type ValueChangeDetails = {
+  value: number[]
+}
+
 type SliderProps = Omit<
   ChakraSliderRootProps,
   | 'size'

@@ -23,11 +23,30 @@ import { ItemCount } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type ReactNodeLabel = ReactNode
+
+type ItemCountLabels = {
+  /**
+   * Visible "Per Page" label text.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Per Page"
+   */
+  perPageLabel: ReactNodeLabel
+  /**
+   * Visible "Showing X-Y of Z" text.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default fn provided.
+   */
+  showingLabel: (start: number, end: number, total: number) => ReactNode
+}
+
 type ItemCountProps = {
   pageSize: number
   currentPage: number
   totalItems: number
   onPageSizeChange?: (pageSize: number) => void
   showItemCountText?: boolean
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<ItemCountLabels>
 }
 ```

@@ -41,6 +41,11 @@ showToast({
 ## Props
 
 ```ts
+type ToastLabels = {
+  /** aria-label on the dismiss button. Default: "Dismiss" */
+  dismissLabel: string
+}
+
 type ToastProps = {
   label: string
   caption?: React.ReactNode
@@ -61,6 +66,11 @@ type ToastProps = {
   closable?: boolean
   closableLabel?: string
   onClose?: () => void
+}
+
+type ToastComponentProps = {
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<ToastLabels>
 }
 ```
 

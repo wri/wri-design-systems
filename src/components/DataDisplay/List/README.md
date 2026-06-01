@@ -38,9 +38,9 @@ const items = [
 ## Props
 
 ```ts
-export type ListItemVariant = 'data' | 'navigation' | 'select'
+type ListItemVariant = 'data' | 'navigation' | 'select'
 
-export interface ListItemProps {
+interface ListItemProps {
   id?: string
   label: string
   caption?: string
@@ -54,7 +54,7 @@ export interface ListItemProps {
   isHighlighted?: boolean
 }
 
-export interface ListProps {
+interface ListProps {
   items: ListItemProps[]
   noBorder?: boolean
   highlightedIndex?: number

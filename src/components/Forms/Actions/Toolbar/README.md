@@ -30,20 +30,47 @@ import { Toolbar } from '@worldresources/wri-design-systems'
 ```ts
 interface ToolbarItem {
   icon: React.ReactElement
-  label?: string
-  onClick?: () => void
-  disabled?: boolean
   ariaLabel: string
-  gap?: boolean // If true, adds spacing after this item (used for grouping)
+  label?: string
+  disabled?: boolean
+  onClick?: () => void
+  gap?: boolean
+  tooltip?: string
 }
 
 interface ToolbarProps {
   items: ToolbarItem[]
   vertical?: boolean
-  expanded?: boolean // Controls the visibility of item labels (default is false/icons only)
-  showExpandedToggle?: boolean // Renders an expand/collapse button when combined with 'expanded'
-  ariaLabel?: string // Main accessibility label for the toolbar container
-  defaultGaps?: boolean // If true, adds gaps between all items by default
+  expanded?: boolean
+  showExpandedToggle?: boolean
+  ariaLabel?: string
+  defaultGaps?: boolean
+  autoCollapse?: boolean
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<ToolbarLabels>
+}
+
+interface ToolbarButtonProps {
+  isExpanded: boolean
+  ariaLabel: string
+  icon?: React.ReactNode
+  label?: React.ReactNode
+  tooltip?: string
+  disabled?: boolean
+  onClick?: () => void
+  showGap?: boolean
+  vertical?: boolean
+}
+
+interface UseToolbarOverflowParams {
+  itemsCount: number
+  isExpanded: boolean
+  isVertical: boolean
+  collapsedWidth: SizeValue
+  expandedLabelWidth: SizeValue
+  gap?: SizeValue
+  showExpandedToggle?: boolean
+  autoCollapse?: boolean
 }
 ```
 

@@ -42,10 +42,45 @@ import { Select } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type SelectLabels = {
+  /** Fallback aria-label when no label prop is provided. Default: "Select input" */
+  defaultAriaLabel: string
+  /** " required." appended to aria-label when required. Default: " required." */
+  requiredSuffix: string
+  /** " Disabled." appended to aria-label when disabled. Default: " Disabled." */
+  disabledSuffix: string
+}
+
 type SelectItemProps = {
   label: string
   caption?: string
   value: string
+}
+
+type SelectProps = Omit<
+  ChakraSelectRootProps,
+  | 'collection'
+  | 'size'
+  | 'colorPalette'
+  | 'variant'
+  | 'onValueChange'
+  | 'onChange'
+  | 'defaultChecked'
+  | 'invalid'
+> & {
+  label?: string
+  caption?: string
+  placeholder?: string
+  defaultValue?: string[]
+  items: SelectItemProps[]
+  size?: 'default' | 'small'
+  required?: boolean
+  disabled?: boolean
+  onChange?: (value: string[]) => void
+  errorMessage?: string
+  multiple?: boolean
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<SelectLabels>
 }
 ```
 

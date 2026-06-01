@@ -34,6 +34,27 @@ import { NavigationRail } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type NavigationRailLabels = {
+  /**
+   * Visible toggle button text when sidebar is hidden.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Show"
+   */
+  showLabel: ReactNodeLabel
+  /**
+   * Visible toggle button text when sidebar is visible.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Hide"
+   */
+  hideLabel: ReactNodeLabel
+  /**
+   * Visible sidebar text label.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Sidebar"
+   */
+  sidebarLabel: ReactNodeLabel
+}
+
 type NavigationRailTabProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
   label: string
   value: string
@@ -47,6 +68,8 @@ type NavigationRailProps = {
   onTabClick?: (selectedValue: string) => void
   children?: React.ReactNode
   onOpenChange?: (open: boolean) => void
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<NavigationRailLabels>
 }
 ```
 

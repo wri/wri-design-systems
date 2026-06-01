@@ -66,15 +66,38 @@ import {
 ## Props
 
 ```ts
+type LegendItemLabels = {
+  /** aria-label on the drag handle icon button. Default: "Drag and drop" */
+  dragAndDropLabel: string
+  /** aria-label on the move-up icon button. Default: "Up" */
+  upLabel: string
+  /** aria-label on the move-down icon button. Default: "Down" */
+  downLabel: string
+  /**
+   * Visible text on the remove button.
+   * Passed directly to Button.label (string).
+   * Default: "Remove"
+   */
+  removeLabel: string
+  /**
+   * Visible text on the info/about-data button.
+   * Passed directly to Button.label (string).
+   * Default: "About data"
+   */
+  aboutDataLabel: string
+}
+
 type LegendItemProps = {
   layerName: string
   dataUnit: string
-  onDrag: VoidFunction
+  onDrag?: VoidFunction
   onUpClick: VoidFunction
   onDownClick: VoidFunction
   onRemoveClick: VoidFunction
   children: React.ReactNode
   onInfoClick: VoidFunction
   onOpacityChanged: (value: number) => void
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<LegendItemLabels>
 }
 ```

@@ -133,6 +133,15 @@ import { BaseMap } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type BaseMapLabels = {
+  /**
+   * Visible label text inside the active Tag badge.
+   * Passed directly to Tag.label (string).
+   * Default: "Active"
+   */
+  activeLabel: string
+}
+
 type AdditionalSettingsProps = {
   label: string
   checked?: boolean
@@ -157,5 +166,7 @@ type BaseMapProps = {
   onOptionSelected?: (option: BaseMapOptionProps) => void
   maxHeight?: string
   maxWidth?: string
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<BaseMapLabels>
 }
 ```

@@ -25,11 +25,12 @@ type CheckboxProps = Omit<
   ChakraCheckbox.RootProps,
   | 'size'
   | 'variant'
-  | 'colorScheme'
+  | 'colorPalette'
   | 'icon'
   | 'iconColor'
   | 'iconSize'
   | 'spacing'
+  | 'invalid'
 > & {
   name?: string
   value?: string

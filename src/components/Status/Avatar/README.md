@@ -19,8 +19,6 @@ import { Avatar } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
-import { SizeValue } from '@worldresources/wri-design-systems'
-
 type AvatarProps = {
   name: string
   ariaLabel?: string

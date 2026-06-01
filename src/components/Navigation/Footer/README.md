@@ -34,12 +34,14 @@ import { Footer } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type SizeValue = number | string
+
 type FooterProps = {
   children: React.ReactNode
   label?: string
   fixed?: boolean
   filled?: boolean
-  maxWidth?: number
+  maxWidth?: SizeValue
   additionalLogos?: React.ReactNode[]
 }
 ```

@@ -40,7 +40,30 @@ import { CheckboxList } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
-export type CheckboxListLabel =
+type CheckboxListLabels = {
+  /**
+   * Text on the toggle button when the list is collapsed.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Expand"
+   */
+  expandLabel: ReactNodeLabel
+  /**
+   * Text on the toggle button when the list is expanded.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Hide"
+   */
+  hideLabel: ReactNodeLabel
+  /** Appended to the group aria-label when the field is required. Must be string (aria-label). Default: "Required." */
+  requiredLabel: string
+  /** Appended to the group aria-label when the field is optional. Must be string (aria-label). Default: "Optional" */
+  optionalLabel: string
+  /** Prefix prepended to error messages in the group aria-label. Must be string (aria-label). Default: "Error:" */
+  errorPrefix: string
+  /** Accessible label for the required (*) symbol. Must be string (aria-label). Default: "required" */
+  requiredSymbolLabel: string
+}
+
+type CheckboxListLabel =
   | string
   | {
       type: 'checkbox'
@@ -48,7 +71,7 @@ export type CheckboxListLabel =
       name: string
     }
 
-export type CheckboxListProps = {
+type CheckboxListProps = {
   label: CheckboxListLabel
   caption?: string
   checkboxes: CheckboxProps[]
@@ -59,17 +82,8 @@ export type CheckboxListProps = {
   required?: boolean
   hideCheckedCounter?: boolean
   hideExpandToggle?: boolean
+  /** Override internal UI labels for internationalization support. */
   labels?: Partial<CheckboxListLabels>
-}
-
-// CheckboxListLabels — all keys are optional when using Partial<>
-export type CheckboxListLabels = {
-  expandLabel: string // Default: 'Expand'
-  hideLabel: string // Default: 'Hide'
-  requiredLabel: string // Default: 'Required.'
-  optionalLabel: string // Default: 'Optional'
-  errorPrefix: string // Default: 'Error:'
-  requiredSymbolLabel: string // Default: 'required'
 }
 ```
 
