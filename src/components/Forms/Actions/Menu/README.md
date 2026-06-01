@@ -28,7 +28,9 @@ type MenuItemProps = {
 }
 
 type MenuProps = {
+  theme?: 'light' | 'dark'
   label: string
+  fontSize?: string
   items?: MenuItemProps[]
   groups?: {
     title: string
@@ -36,6 +38,10 @@ type MenuProps = {
   }[]
   onSelect?: (value: string) => void
   customTrigger?: React.ReactNode
+  /** When set, enables checkable items. 'multiple' allows many items checked at once; 'radio' allows only one. Omit (default) for a non-selectable menu. */
+  selectionMode?: 'multiple' | 'radio'
+  /** Values that are checked by default on first render. */
+  defaultSelectedValues?: string[]
 }
 ```
 

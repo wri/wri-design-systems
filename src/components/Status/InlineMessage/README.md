@@ -24,15 +24,24 @@ import { InlineMessage } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type InlineMessageLabels = {
+  /** aria-roledescription on the root element. Default: "Note" */
+  roleDescription: string
+}
+
 type InlineMessageProps = {
   label: string
   caption?: string | React.ReactNode
   variant: 'info-white' | 'info-grey' | 'success' | 'warning' | 'error'
-  size?: 'small' | 'large'
+  size?: 'small' | 'large' | 'full-width'
   icon?: React.ReactNode
   onActionClick?: VoidFunction
   actionLabel?: string
   isButtonRight?: boolean
+  buttonLeftIcon?: React.ReactNode
+  buttonRightIcon?: React.ReactNode
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<InlineMessageLabels>
 }
 ```
 

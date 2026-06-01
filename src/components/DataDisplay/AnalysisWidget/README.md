@@ -47,20 +47,26 @@ const widgetFooter = (
 ## Props
 
 ```ts
-import { ReactNode } from 'react'
+type AnalysisWidgetLabels = {
+  /** aria-label on the collapsible section trigger. Default: "Toggle section" */
+  toggleSectionLabel: string
+}
 
-export interface AnalysisWidgetProps {
-  children: ReactNode
-  header: ReactNode
-  footer?: ReactNode
+interface AnalysisWidgetProps {
+  children: React.ReactNode
+  header?: React.ReactNode
+  footer?: React.ReactNode
   expanded?: boolean
   collapsible?: boolean
   actions?: AnalysisWidgetActionsProps[]
+  showFooterOnCollapsed?: boolean
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<AnalysisWidgetLabels>
 }
 
-export interface AnalysisWidgetActionsProps {
+interface AnalysisWidgetActionsProps {
   label: string
   onClick: () => void
-  icon?: ReactNode
+  icon?: React.ReactNode
 }
 ```

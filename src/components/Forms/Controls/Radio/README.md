@@ -21,6 +21,14 @@ import { RadioGroup, Radio } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type RadioProps = Omit<
+  ChakraRadioGroup.ItemProps,
+  'size' | 'variant' | 'colorPalette' | 'name' | 'defaultChecked' | 'onChange'
+> & {
+  value: string
+  disabled?: boolean
+}
+
 type RadioGroupProps = Omit<
   ChakraRadioGroup.ItemProps,
   | 'size'

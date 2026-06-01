@@ -43,11 +43,40 @@ Add as many LayerGroups as you need, read the [LayerItem](https://github.com/wri
 ## Props
 
 ```ts
+type LayerGroupLabels = {
+  /**
+   * Visible Tag label: "{count} Active".
+   * Passed directly to Tag.label (string) — must return string.
+   * Default fn provided.
+   */
+  activeTagLabel: (count: number) => string
+  /** Full aria-label builder for the group container. Default fn provided. */
+  groupAriaLabel: (
+    label: string,
+    activeCount: number,
+    caption?: string,
+  ) => string
+}
+
 type LayerGroupContainerProps = Omit<
   Accordion.RootProps,
   'onChange' | 'colorPalette' | 'variant' | 'size' | 'multiple' | 'collapsible'
 > & {
   defaultValue?: string[]
+}
+
+type LayerGroupProps = {
+  label: string
+  caption: string
+  value: string
+  layerItems: LayerItemProps[]
+  onChangeForRadioVariant?: (
+    name: string,
+    checked: boolean,
+    selectedValue?: string,
+  ) => void
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<LayerGroupLabels>
 }
 ```
 

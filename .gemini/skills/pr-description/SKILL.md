@@ -1,6 +1,6 @@
 ---
-name: pr-documentation
-description: Guidelines for writing PR documentation. Covers required content, formatting, and examples. Use when the user asks to summarize changes for a PR.
+name: pr-description
+description: Guidelines for writing PR description. Covers required content, formatting, and examples. Use when the user asks to summarize changes for a PR or create a PR description.
 ---
 
 When writing a PR description:

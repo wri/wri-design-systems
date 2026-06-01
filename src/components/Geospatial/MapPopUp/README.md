@@ -114,11 +114,16 @@ const triggerPlantRef = useRef<HTMLButtonElement>(null)
 ## Props
 
 ```ts
+type MapPopUpLabels = {
+  /** aria-label on the close button. Default: "Close" */
+  closeLabel: string
+}
+
 type MapPopUpProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
   /** The element that the modal/connector should point to */
-  anchorRef: React.RefObject<HTMLElement>
+  anchorRef: React.RefObject<HTMLButtonElement | null>
   header: React.ReactNode
   content: React.ReactNode
   footer?: React.ReactNode
@@ -127,5 +132,7 @@ type MapPopUpProps = {
   offset?: number // default: 30
   closeOnEscape?: boolean // default: true
   closeOnOutsideClick?: boolean // default: false
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<MapPopUpLabels>
 }
 ```

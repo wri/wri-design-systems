@@ -25,6 +25,31 @@ import { Textarea } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type TextareaLabels = {
+  /** aria-label on the required (*) indicator. Default: "required" */
+  requiredSymbolLabel: string
+  /**
+   * Visible "(Optional)" suffix appended to the label.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: " (Optional)"
+   */
+  optionalSuffix: ReactNodeLabel
+  /** "Error:" prefix in aria-label of error text. Default: "Error:" */
+  errorPrefix: string
+  /** Helper text: "Enter at least {n} characters". Default fn provided. */
+  enterAtLeastChars: (n: number) => string
+  /** Helper text: "{n} characters minimum". Default fn provided. */
+  minChars: (n: number) => string
+  /** Helper text: "{n} characters remaining". Default fn provided. */
+  charsRemaining: (n: number) => string
+  /** Helper text: "Max {n} characters". Default fn provided. */
+  maxChars: (n: number) => string
+  /** Error text when too few chars: "Need {n} more characters". Default fn provided. */
+  needMoreChars: (n: number) => string
+  /** Error text when too many chars: "{n} characters too many". Default fn provided. */
+  tooManyChars: (n: number) => string
+}
+
 type TextareaProps = Omit<
   ChakraTextareaProps,
   'size' | 'variant' | 'colorPalette' | 'defaultChecked'
@@ -40,6 +65,8 @@ type TextareaProps = Omit<
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   minLength?: number
   maxLength?: number
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<TextareaLabels>
 }
 ```
 

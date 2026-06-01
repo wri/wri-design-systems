@@ -19,6 +19,11 @@ import { Button } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type ButtonLabels = {
+  /** aria-label applied to the button during loading state. Default: "Loading" */
+  loadingLabel: string
+}
+
 type ButtonProps = Omit<
   ChakraButtonProps,
   'size' | 'variant' | 'colorPalette' | 'children'
@@ -30,6 +35,9 @@ type ButtonProps = Omit<
   disabled?: boolean
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
+  children?: React.ReactNode // use instead of label
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<ButtonLabels>
 }
 ```
 

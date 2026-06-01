@@ -31,6 +31,7 @@ type TabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
   value: string
   icon?: React.ReactNode
   disabled?: boolean
+  ref?: Ref<HTMLButtonElement>
 }
 
 type TabBarProps = {

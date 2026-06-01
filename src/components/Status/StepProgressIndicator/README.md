@@ -28,11 +28,22 @@ import { StepProgressIndicator } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type StepProgressIndicatorLabels = {
+  /** Builds the aria-label per step. Default fn provided. */
+  currentStepLabel: (
+    step: number,
+    label: string,
+    isCompleted: boolean,
+  ) => string
+}
+
 type StepProgressIndicatorProps = {
   steps: {
     label?: string
     onClick?: () => void
   }[]
   currentStep: number
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<StepProgressIndicatorLabels>
 }
 ```

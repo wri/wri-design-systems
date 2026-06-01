@@ -20,10 +20,27 @@ import { OpacityControl } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type OpacityControlLabels = {
+  /** Button.label prop — must be string. Default: "Opacity" */
+  opacityButtonLabel: string
+  /**
+   * Visible heading in the popover.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Opacity"
+   */
+  opacityHeading: ReactNodeLabel
+  /** aria-label on the slider/input. Default: "Opacity" */
+  opacityAriaLabel: string
+  /**
+   * Visible "%" suffix next to the value.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "%"
+   */
+  percentSuffix: ReactNodeLabel
+}
+
 type OpacityControlProps = {
-  /** Initial opacity value (0–100). */
   defaultValue: number
-  /** Callback fired when the opacity value changes. */
   onOpacityChanged: (value: number) => void
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<OpacityControlLabels>

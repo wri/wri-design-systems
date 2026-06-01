@@ -23,7 +23,7 @@ import { FormContainer } from '@worldresources/wri-design-systems'
 
 ```ts
 type FormContainerProps = {
-  label?: string
+  label?: ReactNode
   error?: string
   children: ReactNode
 }

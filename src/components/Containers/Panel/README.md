@@ -23,11 +23,13 @@ import { Panel } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type SizeValue = number | string
+
 type PanelProps = {
   header?: React.ReactNode
   content: React.ReactNode
   footer?: React.ReactNode
-  width?: string // 15rem - 35rem, default 20rem
+  width?: SizeValue // 15rem - 35rem, default 20rem
   variant?: 'fixed' | 'floating'
 }
 ```

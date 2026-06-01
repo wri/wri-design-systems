@@ -105,22 +105,31 @@ const selectableRenderRow = (rowData: RowData) => {
 ## Props
 
 ```ts
+type TableLabels = {
+  /** aria-label on the ascending sort icon button. Default: "Ascending" */
+  ascendingLabel: string
+  /** aria-label on the descending sort icon button. Default: "Descending" */
+  descendingLabel: string
+}
+
+type TableColumn = {
+  key: string
+  label: string
+  sortable?: boolean
+  width?: string
+  /** When true, this column sticks to the left during horizontal scroll. */
+  sticky?: boolean
+}
+
+type TableRenderRowContext = {
+  className?: string
+  getCellProps: (columnKey: string) => Record<string, any>
+}
+
 type TableProps = {
-  columns: {
-    key: string
-    label: string
-    sortable?: boolean
-    width?: string
-    sticky?: boolean
-  }[]
+  columns: TableColumn[]
   data?: any
-  renderRow: (
-    row: any,
-    context?: {
-      className?: string
-      getCellProps: (columnKey: string) => Record<string, any>
-    },
-  ) => ReactNode
+  renderRow: (row: any, context?: TableRenderRowContext) => ReactNode
   striped?: boolean
   stickyHeader?: boolean
   selectable?: boolean
@@ -138,8 +147,10 @@ type TableProps = {
   onPageChange?: (page: number) => void
   onAllItemsSelected?: (checked: boolean) => void
   loading?: boolean
-  /** When set, the table scrolls vertically within this height and horizontally within the containers width while pagination stays fixed */
+  /** When set, the table scrolls vertically within this height and horizontally when it overflows its container (e.g. '400px', '60vh'). */
   height?: string
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<TableLabels>
 }
 ```
 

@@ -26,14 +26,45 @@ import { QualitativeAttribute } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type QualitativeAttributeLabels = {
+  /**
+   * Visible "Hide" button text.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Hide"
+   */
+  hideLabel: ReactNodeLabel
+  /**
+   * Visible "Show" button text.
+   * Rendered as JSX child — accepts ReactNode.
+   * Default: "Show"
+   */
+  showLabel: ReactNodeLabel
+  /** "visible" — used inside aria-label. Default: "visible" */
+  visibleText: string
+  /** "hidden" — used inside aria-label. Default: "hidden" */
+  hiddenText: string
+  /** "line," — type prefix in aria-label. Default: "line," */
+  linePrefix: string
+  /** Full aria-label builder. Default fn provided. */
+  currentlyTemplate: (
+    label: string,
+    caption: string | undefined,
+    typeText: string,
+    visibilityText: string,
+  ) => string
+}
+
 type QualitativeAttributeProps = {
   type: 'raster' | 'line' | 'point'
-  label: string
+  label: string | React.ReactNode
   caption?: string
   color: string
   showActionButton?: boolean
   onActionClick?: () => void
   pointIcon?: React.ReactNode
+  ariaLabelType?: string
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<QualitativeAttributeLabels>
 }
 ```
 
