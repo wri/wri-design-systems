@@ -31,7 +31,7 @@ const ItemCount = ({
 
   return (
     <div css={itemCountContainerStyles}>
-      <div css={itemCountPerPageContainerStyles}>
+      <div css={itemCountPerPageContainerStyles(showItemCountText)}>
         <div style={{ width: '5rem' }}>
           <Select
             defaultValue={[`${pageSize}`]}
