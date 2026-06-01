@@ -41,6 +41,16 @@ const meta = {
       description: 'Custom trigger element instead of the default button',
       control: false,
     },
+    selectionMode: {
+      description:
+        'Selection behaviour. "multiple" (default) allows many items checked at once; "radio" allows only one.',
+      control: { type: 'select' },
+      options: ['multiple', 'radio'],
+    },
+    defaultSelectedValues: {
+      description: 'Values checked by default on first render',
+      control: false,
+    },
   },
 } satisfies Meta<typeof MenuStory>
 
@@ -169,6 +179,33 @@ export const WithSubmenu: Story = {
           },
         ],
       },
+    ],
+  },
+}
+
+export const MultipleSelection: Story = {
+  args: {
+    label: 'Language',
+    selectionMode: 'multiple',
+    defaultSelectedValues: ['value-sel-2'],
+    items: [
+      { label: 'English', value: 'value-sel-1' },
+      { label: 'Spanish', value: 'value-sel-2' },
+      { label: 'French', value: 'value-sel-3' },
+      { label: 'German', value: 'value-sel-4' },
+    ],
+  },
+}
+
+export const RadioSelection: Story = {
+  args: {
+    label: 'View mode',
+    selectionMode: 'radio',
+    defaultSelectedValues: ['value-radio-1'],
+    items: [
+      { label: 'Map', value: 'value-radio-1' },
+      { label: 'Table', value: 'value-radio-2' },
+      { label: 'Chart', value: 'value-radio-3' },
     ],
   },
 }

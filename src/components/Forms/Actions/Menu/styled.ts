@@ -213,6 +213,10 @@ export const menuItemLabelContentStyles = css`
   }
 `
 
+export const menuItemLabelCheckedStyles = css`
+  font-weight: 700;
+`
+
 export const menuItemGroupLabelStyles = css`
   font-size: ${getThemedFontSize(300)};
   line-height: ${getThemedLineHeight(500)};

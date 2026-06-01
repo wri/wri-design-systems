@@ -4,66 +4,16 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import { Menu as ChakraMenu, Portal } from '@chakra-ui/react'
-import { MenuItemProps, MenuProps } from './types'
+import MenuItem from './MenuItem'
+import { MenuProps } from './types'
 import {
   menuStyles,
   menuContentStyles,
   menuArrowStyles,
-  menuItemContainerStyles,
   menuItemGroupLabelStyles,
-  menuItemLabelAndCaptionStyles,
-  menuItemLabelContentStyles,
   menuSubmenuTriggerStyles,
 } from './styled'
 import { ChevronDownIcon } from '../../../icons'
-
-const MenuItem = ({
-  item,
-  isLast,
-}: {
-  item: MenuItemProps
-  isLast: boolean
-}) => (
-  <>
-    <ChakraMenu.Item
-      css={menuItemContainerStyles}
-      value={item.value || item.label || ''}
-      disabled={item.disabled}
-      role='menuitem'
-      aria-label={item.label}
-    >
-      {item.children ? (
-        item.children
-      ) : (
-        <>
-          {item.startIcon}
-          <div
-            css={menuItemLabelAndCaptionStyles(
-              !!item.startIcon,
-              !!item.endIcon,
-            )}
-          >
-            <div css={menuItemLabelContentStyles}>
-              <p className='ds-menu-item-label'>{item.label}</p>
-              {item.command ? (
-                <ChakraMenu.ItemCommand aria-label={`Shortcut ${item.command}`}>
-                  {item.command}
-                </ChakraMenu.ItemCommand>
-              ) : null}
-            </div>
-            {item.caption ? (
-              <p className='ds-menu-item-caption'>{item.caption}</p>
-            ) : null}
-          </div>
-          {item.endIcon}
-        </>
-      )}
-    </ChakraMenu.Item>
-    {!isLast ? (
-      <ChakraMenu.Separator borderColor='var(--chakra-colors-neutral-300)' />
-    ) : null}
-  </>
-)
 
 const Menu = ({
   theme = 'light',
@@ -73,8 +23,13 @@ const Menu = ({
   groups,
   onSelect,
   customTrigger,
+  selectionMode,
+  defaultSelectedValues = [],
 }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [selectedValues, setSelectedValues] = useState<Set<string>>(
+    new Set(defaultSelectedValues),
+  )
   const triggerRef = useRef<HTMLButtonElement | null>(null)
 
   // Closes menu when trigger is out of viewport
@@ -95,7 +50,21 @@ const Menu = ({
 
   return (
     <ChakraMenu.Root
-      onSelect={({ value }) => onSelect && onSelect(value)}
+      onSelect={({ value }) => {
+        setSelectedValues((prev) => {
+          const next = new Set(prev)
+          if (selectionMode === 'radio') {
+            next.clear()
+            next.add(value)
+          } else if (next.has(value)) {
+            next.delete(value)
+          } else {
+            next.add(value)
+          }
+          return next
+        })
+        if (onSelect) onSelect(value)
+      }}
       onOpenChange={({ open }) => setIsOpen(open)}
       open={isOpen}
     >
@@ -171,6 +140,10 @@ const Menu = ({
                   key={`${item.value}-${idx}`}
                   item={item}
                   isLast={idx === items.length - 1}
+                  isChecked={
+                    !!selectionMode &&
+                    selectedValues.has(item.value || item.label || '')
+                  }
                 />
               )
             })}
@@ -188,7 +161,17 @@ const Menu = ({
                     {group.title}
                   </ChakraMenu.ItemGroupLabel>
                   {group.items?.map((groupItem) => (
-                    <MenuItem key={groupItem.value} item={groupItem} isLast />
+                    <MenuItem
+                      key={groupItem.value}
+                      item={groupItem}
+                      isLast
+                      isChecked={
+                        !!selectionMode &&
+                        selectedValues.has(
+                          groupItem.value || groupItem.label || '',
+                        )
+                      }
+                    />
                   ))}
                 </ChakraMenu.ItemGroup>
                 {idx !== groups.length - 1 ? (
