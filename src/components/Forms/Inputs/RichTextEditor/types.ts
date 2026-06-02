@@ -5,6 +5,7 @@ export type RichTextEditorControlKey =
   | 'redo'
   | 'fontFamily'
   | 'fontSize'
+  | 'alignment'
   | 'bold'
   | 'italic'
   | 'underline'

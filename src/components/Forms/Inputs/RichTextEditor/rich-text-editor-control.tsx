@@ -5,16 +5,21 @@
 
 import { Editor } from '@tiptap/react'
 import * as React from 'react'
-import { Box } from '@chakra-ui/react'
+import { Box, Popover as ChakraPopover, Text } from '@chakra-ui/react'
 import type { IconButtonProps } from '../../Actions/IconButton/types'
 import type { ButtonProps } from '../../Actions/Button/types'
 import Button from '../../Actions/Button'
 import IconButton from '../../Actions/IconButton'
 import Menu from '../../Actions/Menu'
 import Tooltip from '../../Actions/Tooltip'
+import TextInput from '../TextInput'
 import {
   ChevronDownIcon,
   RteBoldIcon,
+  RteAlignCenterIcon,
+  RteAlignJustifyIcon,
+  RteAlignLeftIcon,
+  RteAlignRightIcon,
   RteBulletListIcon,
   RteCodeIcon,
   RteImageIcon,
@@ -26,7 +31,7 @@ import {
   RteUnderlineIcon,
   RteUndoIcon,
 } from '../../../icons'
-import { getThemedColor } from '../../../../lib/theme'
+import { getThemedColor, getThemedSpacing } from '../../../../lib/theme'
 import { useRichTextEditorContext } from './rich-text-editor-context'
 
 export interface BaseControlConfig {
@@ -52,10 +57,39 @@ export const ButtonControl = (props: ButtonControlProps) => {
         icon={<span data-rte-icon='true'>{icon}</span>}
         aria-label={label}
         aria-pressed={active}
+        onMouseDown={(event) => {
+          // Keep editor selection while clicking toolbar controls.
+          event.preventDefault()
+        }}
         {...rest}
       />
     </Tooltip>
   )
+}
+
+function normalizeHref(rawValue: string) {
+  const value = rawValue.trim()
+
+  if (!value) return ''
+
+  if (/^(https?:\/\/|mailto:|tel:)/i.test(value)) {
+    return value
+  }
+
+  return `http://${value}`
+}
+
+function isValidHref(href: string) {
+  if (/^(mailto:|tel:)/i.test(href)) {
+    return true
+  }
+
+  try {
+    const parsedUrl = new URL(href)
+    return parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:'
+  } catch {
+    return false
+  }
 }
 
 export interface BooleanControlConfig extends BaseControlConfig {
@@ -79,12 +113,15 @@ export function createBooleanControl(config: BooleanControlConfig) {
   const { label, icon: Icon, isDisabled, isActive, command } = config
 
   const BooleanControl = (
-    props: Omit<IconButtonProps, 'icon'> & { label?: string },
+    props: Omit<IconButtonProps, 'icon'> & {
+      label?: string
+      icon?: React.ReactNode
+    },
   ) => {
     const { editor } = useRichTextEditorContext()
     if (!editor) return null
 
-    const { label: customLabel, ...rest } = props
+    const { label: customLabel, icon: customIcon, ...rest } = props
     const resolvedLabel = customLabel || label
 
     const disabled = isDisabled ? isDisabled(editor) : false
@@ -93,7 +130,7 @@ export function createBooleanControl(config: BooleanControlConfig) {
     return (
       <ButtonControl
         label={resolvedLabel}
-        icon={<Icon />}
+        icon={customIcon || <Icon />}
         active={active}
         onClick={() => command(editor)}
         disabled={disabled}
@@ -122,6 +159,7 @@ export function createOptionControl(config: OptionControlConfig) {
     return (
       <Menu
         label={resolvedLabel}
+        hideArrow
         items={options.map((option) => ({
           label: option.label,
           value: option.value,
@@ -156,22 +194,53 @@ export function createOptionControl(config: OptionControlConfig) {
 }
 
 export const FontFamily = createOptionControl({
-  label: 'Font Family',
+  label: 'Text Type',
   options: [
-    { value: 'default', label: 'Default' },
-    { value: 'Arial', label: 'Arial' },
-    { value: 'Georgia', label: 'Georgia' },
-    { value: 'monospace', label: 'Monospace' },
+    { value: 'normalText', label: 'Normal text' },
+    { value: 'heading1', label: 'Heading 1' },
+    { value: 'heading2', label: 'Heading 2' },
+    { value: 'heading3', label: 'Heading 3' },
+    { value: 'blockquote', label: 'Quote' },
+    { value: 'divider', label: 'Divider' },
   ],
-  getValue: (editor) =>
-    (editor.getAttributes('textStyle')?.fontFamily as string) || 'default',
+  getValue: (editor) => {
+    if (editor.isActive('heading', { level: 1 })) return 'heading1'
+    if (editor.isActive('heading', { level: 2 })) return 'heading2'
+    if (editor.isActive('heading', { level: 3 })) return 'heading3'
+    if (editor.isActive('blockquote')) return 'blockquote'
+    return 'normalText'
+  },
   command: (editor, value) => {
-    if (value === 'default') {
-      editor.chain().focus().unsetFontFamily().run()
+    if (value === 'normalText') {
+      editor.chain().focus().setParagraph().run()
       return
     }
 
-    editor.chain().focus().setFontFamily(value).run()
+    if (value === 'heading1') {
+      editor.chain().focus().setHeading({ level: 1 }).run()
+      return
+    }
+
+    if (value === 'heading2') {
+      editor.chain().focus().setHeading({ level: 2 }).run()
+      return
+    }
+
+    if (value === 'heading3') {
+      editor.chain().focus().setHeading({ level: 3 }).run()
+      return
+    }
+
+    if (value === 'blockquote') {
+      if (!editor.isActive('blockquote')) {
+        editor.chain().focus().toggleBlockquote().run()
+      }
+      return
+    }
+
+    if (value === 'divider') {
+      editor.chain().focus().setHorizontalRule().run()
+    }
   },
 })
 
@@ -189,6 +258,103 @@ export const FontSize = createOptionControl({
     editor.chain().focus().setFontSize(value).run()
   },
 })
+
+const getCurrentAlignment = (editor: Editor) => {
+  if (editor.isActive({ textAlign: 'center' })) return 'center'
+  if (editor.isActive({ textAlign: 'right' })) return 'right'
+  if (editor.isActive({ textAlign: 'justify' })) return 'justify'
+  return 'left'
+}
+
+const alignmentIconMap: Record<string, React.ElementType> = {
+  left: RteAlignLeftIcon,
+  center: RteAlignCenterIcon,
+  right: RteAlignRightIcon,
+  justify: RteAlignJustifyIcon,
+}
+
+export const Alignment = (
+  props: Omit<IconButtonProps, 'icon'> & {
+    label?: string
+    alignLeftLabel?: string
+    alignCenterLabel?: string
+    alignRightLabel?: string
+    alignJustifyLabel?: string
+  },
+) => {
+  const { editor } = useRichTextEditorContext()
+  if (!editor) return null
+
+  const {
+    label = 'Alignment',
+    alignLeftLabel = 'Align left',
+    alignCenterLabel = 'Align center',
+    alignRightLabel = 'Align right',
+    alignJustifyLabel = 'Justify',
+    ...rest
+  } = props
+
+  const currentAlignment = getCurrentAlignment(editor)
+  const CurrentAlignmentIcon = alignmentIconMap[currentAlignment]
+
+  return (
+    <Menu
+      label={label}
+      hideArrow
+      items={[
+        {
+          label: alignLeftLabel,
+          value: 'left',
+          startIcon: <RteAlignLeftIcon />,
+        },
+        {
+          label: alignCenterLabel,
+          value: 'center',
+          startIcon: <RteAlignCenterIcon />,
+        },
+        {
+          label: alignRightLabel,
+          value: 'right',
+          startIcon: <RteAlignRightIcon />,
+        },
+        {
+          label: alignJustifyLabel,
+          value: 'justify',
+          startIcon: <RteAlignJustifyIcon />,
+        },
+      ]}
+      onSelect={(value) => {
+        editor.chain().focus().setTextAlign(value).run()
+      }}
+      customTrigger={
+        <Box>
+          <Tooltip content={label}>
+            <IconButton
+              icon={
+                <span
+                  data-rte-icon='true'
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: getThemedSpacing(100),
+                  }}
+                >
+                  <CurrentAlignmentIcon />
+                  <ChevronDownIcon width='0.75rem' height='0.75rem' />
+                </span>
+              }
+              aria-label={label}
+              onMouseDown={(event) => {
+                event.preventDefault()
+              }}
+              {...rest}
+            />
+          </Tooltip>
+        </Box>
+      }
+    />
+  )
+}
 
 export const Bold = createBooleanControl({
   label: 'Bold',
@@ -239,37 +405,218 @@ export const OrderedList = createBooleanControl({
   isActive: (editor) => editor.isActive('orderedList'),
 })
 
-export const Link = createBooleanControl({
-  label: 'Link',
-  icon: RteLinkIcon,
-  command: (editor) => {
-    if (editor.isActive('link')) {
-      editor.chain().focus().unsetLink().run()
-      return
-    }
+export const Link = (
+  props: Omit<IconButtonProps, 'icon'> & {
+    label?: string
+    urlPlaceholder?: string
+    labelPlaceholder?: string
+    labelInputAriaLabel?: string
+    applyLabel?: string
+    removeLabel?: string
+    invalidUrlMessage?: string
+  },
+) => {
+  const { editor } = useRichTextEditorContext()
+  const [open, setOpen] = React.useState(false)
+  const [urlValue, setUrlValue] = React.useState('')
+  const [linkLabelValue, setLinkLabelValue] = React.useState('')
+  const [errorMessage, setErrorMessage] = React.useState('')
+  const selectionRef = React.useRef<{
+    from: number
+    to: number
+    empty: boolean
+    selectedText: string
+  } | null>(null)
 
+  if (!editor) return null
+
+  const {
+    label = 'Link',
+    urlPlaceholder = 'http://example.org',
+    labelPlaceholder = 'Label (optional)',
+    labelInputAriaLabel = 'Link label',
+    applyLabel = 'Apply',
+    removeLabel = 'Remove',
+    invalidUrlMessage = 'Please enter a valid URL',
+    ...rest
+  } = props
+  const active = editor.isActive('link')
+
+  const syncFromEditorState = () => {
     const { from, to, empty } = editor.state.selection
     const selectedText = editor.state.doc.textBetween(from, to, ' ').trim()
-    const hasProtocol = /^https?:\/\//i.test(selectedText)
-    let href = 'https://'
+    selectionRef.current = { from, to, empty, selectedText }
+    const initialValue =
+      editor.getAttributes('link')?.href || selectedText || ''
+    setUrlValue(initialValue || 'http://')
+    setLinkLabelValue(selectedText)
+    setErrorMessage('')
+  }
 
-    if (selectedText) {
-      href = hasProtocol ? selectedText : `https://${selectedText}`
-    }
+  const restoreSelection = () => {
+    if (!selectionRef.current) return editor.chain().focus()
 
-    if (empty) {
-      editor
-        .chain()
-        .focus()
-        .insertContent(`<a href="${href}">${href}</a>`)
-        .run()
+    return editor.chain().focus().setTextSelection({
+      from: selectionRef.current.from,
+      to: selectionRef.current.to,
+    })
+  }
+
+  const applyLink = () => {
+    const href = normalizeHref(urlValue)
+    const labelValue = linkLabelValue.trim()
+
+    if (!href || !isValidHref(href)) {
+      setErrorMessage(invalidUrlMessage)
       return
     }
 
-    editor.chain().focus().extendMarkRange('link').setLink({ href }).run()
-  },
-  isActive: (editor) => editor.isActive('link'),
-})
+    const chain = restoreSelection()
+    const selection = selectionRef.current
+
+    if (selection?.empty) {
+      const text = labelValue || href
+      chain
+        .insertContent({
+          type: 'text',
+          text,
+          marks: [{ type: 'link', attrs: { href } }],
+        })
+        .run()
+    } else if (labelValue && labelValue !== selection?.selectedText) {
+      chain
+        .insertContent({
+          type: 'text',
+          text: labelValue,
+          marks: [{ type: 'link', attrs: { href } }],
+        })
+        .run()
+    } else {
+      chain.extendMarkRange('link').setLink({ href }).run()
+    }
+
+    setOpen(false)
+  }
+
+  const removeLink = () => {
+    restoreSelection().unsetLink().run()
+    setOpen(false)
+  }
+
+  return (
+    <ChakraPopover.Root
+      open={open}
+      onOpenChange={({ open: isOpen }) => {
+        setOpen(isOpen)
+        if (isOpen) {
+          syncFromEditorState()
+        }
+      }}
+      positioning={{ placement: 'bottom-start' }}
+    >
+      <ChakraPopover.Trigger asChild>
+        <Box>
+          <Tooltip content={label}>
+            <IconButton
+              icon={
+                <span data-rte-icon='true'>
+                  <RteLinkIcon />
+                </span>
+              }
+              aria-label={label}
+              aria-pressed={active || open}
+              onMouseDown={(event) => {
+                // Keep editor selection while opening the popover.
+                event.preventDefault()
+              }}
+              onClick={() => setOpen((currentOpen) => !currentOpen)}
+              {...rest}
+            />
+          </Tooltip>
+        </Box>
+      </ChakraPopover.Trigger>
+
+      <ChakraPopover.Positioner>
+        <ChakraPopover.Content
+          css={{
+            padding: getThemedSpacing(300),
+            borderColor: getThemedColor('neutral', 300),
+            width: `calc(( ${getThemedSpacing(2800)} + ${getThemedSpacing(2000)} ) * 2)`,
+            maxWidth: '90vw',
+          }}
+        >
+          <ChakraPopover.Body>
+            <Box
+              css={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: getThemedSpacing(300),
+              }}
+            >
+              <TextInput
+                aria-label={label}
+                placeholder={urlPlaceholder}
+                noMarginBottom
+                value={urlValue}
+                onChange={(event) => {
+                  setUrlValue(event.target.value)
+                  if (errorMessage) {
+                    setErrorMessage('')
+                  }
+                }}
+              />
+
+              <TextInput
+                aria-label={labelInputAriaLabel}
+                placeholder={labelPlaceholder}
+                noMarginBottom
+                value={linkLabelValue}
+                onChange={(event) => {
+                  setLinkLabelValue(event.target.value)
+                }}
+              />
+
+              {errorMessage ? (
+                <Text
+                  css={{
+                    color: getThemedColor('error', 700),
+                  }}
+                >
+                  {errorMessage}
+                </Text>
+              ) : null}
+
+              <Box
+                css={{
+                  display: 'flex',
+                  gap: getThemedSpacing(200),
+                  justifyContent: 'flex-end',
+                }}
+              >
+                {active ? (
+                  <Button
+                    variant='borderless'
+                    size='small'
+                    label={removeLabel}
+                    onMouseDown={(event) => event.preventDefault()}
+                    onClick={removeLink}
+                  />
+                ) : null}
+                <Button
+                  variant='secondary'
+                  size='small'
+                  label={applyLabel}
+                  onMouseDown={(event) => event.preventDefault()}
+                  onClick={applyLink}
+                />
+              </Box>
+            </Box>
+          </ChakraPopover.Body>
+        </ChakraPopover.Content>
+      </ChakraPopover.Positioner>
+    </ChakraPopover.Root>
+  )
+}
 
 export const Image = createBooleanControl({
   label: 'Image',

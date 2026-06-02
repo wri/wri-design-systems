@@ -20,6 +20,7 @@ import {
   useRichTextEditorContext,
 } from './rich-text-editor'
 import { useLabels } from '../../../../lib/i18n/useLabels'
+import { getThemedFontSize } from '../../../../lib/theme'
 import { RichTextEditorControlKey, RichTextEditorProps } from './types'
 
 const DEFAULT_VISIBLE_CONTROLS: RichTextEditorControlKey[] = [
@@ -27,6 +28,7 @@ const DEFAULT_VISIBLE_CONTROLS: RichTextEditorControlKey[] = [
   'redo',
   'fontFamily',
   'fontSize',
+  'alignment',
   'bold',
   'italic',
   'underline',
@@ -120,8 +122,29 @@ const RichTextEditor = ({
           {visibleControls.includes('fontSize') ? (
             <Control.FontSize label={l.fontSizeTooltip} />
           ) : null}
+          {visibleControls.includes('alignment') ? (
+            <Control.Alignment
+              label={l.alignmentTooltip}
+              alignLeftLabel={l.alignLeftOptionLabel}
+              alignCenterLabel={l.alignCenterOptionLabel}
+              alignRightLabel={l.alignRightOptionLabel}
+              alignJustifyLabel={l.alignJustifyOptionLabel}
+            />
+          ) : null}
           {visibleControls.includes('bold') ? (
-            <Control.Bold label={l.boldTooltip} />
+            <Control.Bold
+              label={l.boldTooltip}
+              icon={
+                <strong
+                  css={{
+                    fontSize: getThemedFontSize(600),
+                    lineHeight: 1,
+                  }}
+                >
+                  {l.boldIconText}
+                </strong>
+              }
+            />
           ) : null}
           {visibleControls.includes('italic') ? (
             <Control.Italic label={l.italicTooltip} />
@@ -139,7 +162,15 @@ const RichTextEditor = ({
             <Control.OrderedList label={l.orderedListTooltip} />
           ) : null}
           {visibleControls.includes('link') ? (
-            <Control.Link label={l.linkTooltip} />
+            <Control.Link
+              label={l.linkTooltip}
+              urlPlaceholder={l.linkUrlPlaceholder}
+              labelPlaceholder={l.linkLabelPlaceholder}
+              labelInputAriaLabel={l.linkLabelAriaLabel}
+              applyLabel={l.linkApplyLabel}
+              removeLabel={l.linkRemoveLabel}
+              invalidUrlMessage={l.linkInvalidUrlMessage}
+            />
           ) : null}
           {visibleControls.includes('image') ? (
             <Control.Image label={l.imageTooltip} />

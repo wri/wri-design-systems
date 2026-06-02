@@ -477,7 +477,14 @@ export type RichTextEditorLabels = {
   redoTooltip: string
   fontFamilyTooltip: string
   fontSizeTooltip: string
+  alignmentTooltip: string
+  alignLeftOptionLabel: string
+  alignCenterOptionLabel: string
+  alignRightOptionLabel: string
+  alignJustifyOptionLabel: string
   boldTooltip: string
+  /** Short text rendered inside the bold control icon button (for example: B, N). */
+  boldIconText: string
   italicTooltip: string
   underlineTooltip: string
   strikethroughTooltip: string
@@ -485,6 +492,18 @@ export type RichTextEditorLabels = {
   orderedListTooltip: string
   linkTooltip: string
   imageTooltip: string
+  /** Placeholder text for link URL input in the link popover. */
+  linkUrlPlaceholder: string
+  /** Placeholder text for link label input in the link popover. */
+  linkLabelPlaceholder: string
+  /** Aria-label for link label input in the link popover. */
+  linkLabelAriaLabel: string
+  /** Label for apply action in link popover. */
+  linkApplyLabel: string
+  /** Label for remove action in link popover. */
+  linkRemoveLabel: string
+  /** Validation message when URL is invalid in link popover. */
+  linkInvalidUrlMessage: string
 }
 
 /**
