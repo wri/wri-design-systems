@@ -23,7 +23,7 @@ type RichTextEditorControlKey =
   | 'undo'
   | 'redo'
   // Text type dropdown (Normal text, H1, H2, H3, Quote, Divider)
-  | 'fontFamily'
+  | 'textType'
   | 'fontSize'
   // Alignment dropdown (icon trigger)
   | 'alignment'
@@ -70,7 +70,7 @@ type RichTextEditorProps = {
 
 ## Toolbar Controls
 
-- `fontFamily`: Text type dropdown with these block options:
+- `textType`: Text type dropdown with these block options:
   - `Normal text`
   - `Heading 1`
   - `Heading 2`

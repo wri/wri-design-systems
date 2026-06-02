@@ -26,7 +26,7 @@ import { RichTextEditorControlKey, RichTextEditorProps } from './types'
 const DEFAULT_VISIBLE_CONTROLS: RichTextEditorControlKey[] = [
   'undo',
   'redo',
-  'fontFamily',
+  'textType',
   'fontSize',
   'alignment',
   'bold',
@@ -116,8 +116,8 @@ const RichTextEditor = ({
           {visibleControls.includes('redo') ? (
             <Control.Redo label={l.redoTooltip} />
           ) : null}
-          {visibleControls.includes('fontFamily') ? (
-            <Control.FontFamily label={l.fontFamilyTooltip} />
+          {visibleControls.includes('textType') ? (
+            <Control.FontFamily label={l.textTypeTooltip} />
           ) : null}
           {visibleControls.includes('fontSize') ? (
             <Control.FontSize label={l.fontSizeTooltip} />

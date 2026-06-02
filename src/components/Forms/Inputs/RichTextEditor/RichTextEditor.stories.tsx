@@ -60,7 +60,7 @@ const meta = {
       options: [
         'undo',
         'redo',
-        'fontFamily',
+        'textType',
         'fontSize',
         'alignment',
         'bold',
@@ -186,7 +186,7 @@ export const TranslatedTooltips: Story = {
       placeholder: 'Escribe tu contenido...',
       undoTooltip: 'Deshacer',
       redoTooltip: 'Rehacer',
-      fontFamilyTooltip: 'Familia tipografica',
+      textTypeTooltip: 'Tipo de texto',
       fontSizeTooltip: 'Tamano de fuente',
       alignmentTooltip: 'Alineacion',
       alignLeftOptionLabel: 'Alinear a la izquierda',

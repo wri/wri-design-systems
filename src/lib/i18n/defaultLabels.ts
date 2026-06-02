@@ -232,7 +232,7 @@ export const defaultLabels: DefaultLabels = {
     placeholder: 'Start typing...',
     undoTooltip: 'Undo',
     redoTooltip: 'Redo',
-    fontFamilyTooltip: 'Font Family',
+    textTypeTooltip: 'Text Type',
     fontSizeTooltip: 'Font Size',
     alignmentTooltip: 'Alignment',
     alignLeftOptionLabel: 'Align left',

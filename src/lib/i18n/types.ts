@@ -475,7 +475,7 @@ export type RichTextEditorLabels = {
   /** Tooltip / aria labels for controls. */
   undoTooltip: string
   redoTooltip: string
-  fontFamilyTooltip: string
+  textTypeTooltip: string
   fontSizeTooltip: string
   alignmentTooltip: string
   alignLeftOptionLabel: string

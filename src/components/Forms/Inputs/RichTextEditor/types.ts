@@ -3,7 +3,7 @@ import type { RichTextEditorLabels } from '../../../../lib/i18n/types'
 export type RichTextEditorControlKey =
   | 'undo'
   | 'redo'
-  | 'fontFamily'
+  | 'textType'
   | 'fontSize'
   | 'alignment'
   | 'bold'
