@@ -50,6 +50,7 @@ const Menu = ({
 
   return (
     <ChakraMenu.Root
+      closeOnSelect={selectionMode !== 'multiple'}
       onSelect={({ value }) => {
         setSelectedValues((prev) => {
           const next = new Set(prev)
