@@ -8,6 +8,8 @@ export type TableColumn = {
   label: string
   sortable?: boolean
   width?: string
+  /** Optional custom renderer for this column cell. */
+  cell?: (row: any) => ReactNode
   /** When true, this column sticks to the left during horizontal scroll. */
   sticky?: boolean
 }
@@ -20,7 +22,7 @@ export type TableRenderRowContext = {
 export type TableProps = {
   columns: TableColumn[]
   data?: any
-  renderRow: (row: any, context?: TableRenderRowContext) => ReactNode
+  renderRow?: (row: any, context?: TableRenderRowContext) => ReactNode
   striped?: boolean
   stickyHeader?: boolean
   selectable?: boolean
@@ -37,6 +39,7 @@ export type TableProps = {
   onPageSizeChange?: (pageSize: number) => void
   onPageChange?: (page: number) => void
   onAllItemsSelected?: (checked: boolean) => void
+  onRowSelected?: (row: any, checked: boolean) => void
   loading?: boolean
   /** When set, the table scrolls vertically within this height and horizontally when it overflows its container (e.g. '400px', '60vh'). */
   height?: string

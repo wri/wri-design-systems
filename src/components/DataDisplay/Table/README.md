@@ -12,6 +12,78 @@ import { Table } from '@worldresources/wri-design-systems'
 
 ## Usage
 
+### Simple (No `renderRow`)
+
+`Table` now renders rows by default from `columns + data`.
+Sorting is `auto` by default:
+
+- with `onSortColumn` => external sorting (parent controls data order)
+- without `onSortColumn` => internal sorting (Table sorts received data)
+
+```tsx
+const columns = [
+  { key: 'name', label: 'Name', sortable: true, width: '12rem', sticky: true },
+  { key: 'email', label: 'Email', sortable: true, width: '18rem' },
+  { key: 'age', label: 'Age', sortable: true, width: '8rem' },
+]
+
+<Table
+  columns={columns}
+  data={dataByPage}
+  onPageSizeChange={setPageSize}
+  onPageChange={setCurrentPage}
+  pagination={{
+    totalItems,
+    currentPage,
+    pageSize,
+    showItemCount: true,
+  }}
+/>
+```
+
+### Override `onSortColumn` (External Sorting)
+
+Use `onSortColumn` when the parent must decide sort behavior (for example: server-side sorting, custom comparator rules, or coordinated sorting across views).
+
+```tsx
+const [sortColumn, setSortColumn] = useState<{ key: string; order: string }>({
+  key: '',
+  order: '',
+})
+
+const sortedData = useMemo(() => {
+  if (!sortColumn.key) return data
+
+  const { key, order } = sortColumn
+  const isAsc = order === 'asc'
+
+  return [...data].sort((a, b) => {
+    const aVal = a[key]
+    const bVal = b[key]
+
+    if (typeof aVal === 'string' && typeof bVal === 'string') {
+      return isAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal)
+    }
+
+    return isAsc ? (aVal as number) - (bVal as number) : (bVal as number) - (aVal as number)
+  })
+}, [data, sortColumn])
+
+<Table
+  columns={columns}
+  data={sortedData}
+  onSortColumn={setSortColumn}
+  onPageSizeChange={setPageSize}
+  onPageChange={setCurrentPage}
+  pagination={{
+    totalItems,
+    currentPage,
+    pageSize,
+    showItemCount: true,
+  }}
+/>
+```
+
 ### Columns
 
 ```tsx
@@ -40,6 +112,8 @@ const columns = [
 
 ### Render Row
 
+`renderRow` is optional and intended for advanced cases where you need full control of the row markup.
+
 ```tsx
 const renderRow = (
   rowData: RowData,
@@ -53,35 +127,20 @@ const renderRow = (
 )
 ```
 
+### Column Cell Overrides
+
+For lighter customization, prefer `columns[i].cell` over a full `renderRow`.
+
 ```tsx
-const selectableRenderRow = (rowData: RowData) => {
-  const handleOnRowSelected = ({ checked }: any) => {
-    setSelectedRows((current = [] as RowData[]) => {
-      if (checked) {
-        return [...current, rowData]
-      }
-
-      return current.filter((item) => item.id !== rowData.id)
-    })
-  }
-
-  return (
-    <TableRow
-      aria-selected={selectedRows?.some((item) => item.id === rowData.id)}
-    >
-      <TableCell>
-        <Checkbox
-          name={`checkbox-${rowData.id}`}
-          onCheckedChange={handleOnRowSelected}
-          checked={selectedRows?.some((item) => item.id === rowData.id)}
-        />
-      </TableCell>
-      <TableCell>{rowData.name}</TableCell>
-      <TableCell>{rowData.email}</TableCell>
-      <TableCell>{rowData.age}</TableCell>
-    </TableRow>
-  )
-}
+const columns = [
+  { key: 'name', label: 'Name', sortable: true, sticky: true },
+  {
+    key: 'age',
+    label: 'Age',
+    sortable: true,
+    cell: (row: RowData) => `${row.age} yrs`,
+  },
+]
 ```
 
 ```tsx
@@ -89,7 +148,6 @@ const selectableRenderRow = (rowData: RowData) => {
   columns={columns}
   data={dataByPage}
   renderRow={renderRow}
-  onSortColumn={setSortColumn}
   onPageSizeChange={setPageSize}
   onPageChange={setCurrentPage}
   pagination={{
@@ -117,6 +175,8 @@ type TableColumn = {
   label: string
   sortable?: boolean
   width?: string
+  /** Optional custom renderer for this column cell. */
+  cell?: (row: any) => ReactNode
   /** When true, this column sticks to the left during horizontal scroll. */
   sticky?: boolean
 }
@@ -129,7 +189,7 @@ type TableRenderRowContext = {
 type TableProps = {
   columns: TableColumn[]
   data?: any
-  renderRow: (row: any, context?: TableRenderRowContext) => ReactNode
+  renderRow?: (row: any, context?: TableRenderRowContext) => ReactNode
   striped?: boolean
   stickyHeader?: boolean
   selectable?: boolean
@@ -142,10 +202,12 @@ type TableProps = {
     showItemCount?: boolean
     showItemCountText?: boolean
   }
+  /** Optional override for external sorting mode. If omitted, Table sorts internally. */
   onSortColumn?: (sortColumn: { key: string; order: string }) => void
   onPageSizeChange?: (pageSize: number) => void
   onPageChange?: (page: number) => void
   onAllItemsSelected?: (checked: boolean) => void
+  onRowSelected?: (row: any, checked: boolean) => void
   loading?: boolean
   /** When set, the table scrolls vertically within this height and horizontally when it overflows its container (e.g. '400px', '60vh'). */
   height?: string
@@ -181,12 +243,12 @@ const renderRow = (
 
 ## Selectable
 
+With `selectable`, the default renderer automatically adds row checkboxes. Custom `renderRow` is not required.
+
 ```tsx
 <Table
   columns={columns}
   data={dataByPage}
-  renderRow={selectableRenderRow}
-  onSortColumn={setSortColumn}
   onPageSizeChange={setPageSize}
   onPageChange={setCurrentPage}
   pagination={{
@@ -196,8 +258,6 @@ const renderRow = (
     showItemCount: true,
     showItemCountText: true,
   }}
-  onAllItemsSelected={onAllItemsSelected}
-  selectedRows={selectedRows}
   selectable
 />
 ```
@@ -210,7 +270,6 @@ When `height` is set, the table body becomes scrollable (horizontally and vertic
 <Table
   columns={columns}
   data={dataByPage}
-  renderRow={renderRow}
   height='400px'
   pagination={{
     totalItems,

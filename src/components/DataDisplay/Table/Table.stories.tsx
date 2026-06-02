@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import TableStory, { TableCell, TableRow } from '.'
 import { columns } from './TableDemo'
-import Checkbox from '../../Forms/Controls/Checkbox'
 
 const meta = {
   title: 'Data Display/Table',
@@ -54,47 +53,10 @@ export const Table = {
     const totalItems = 100
     const [currentPage, setCurrentPage] = useState(1)
     const [pageSize, setPageSize] = useState(10)
-    const [sortColumn, setSortColumn] = useState<{
-      key: string
-      order: string
-    }>({
-      key: '',
-      order: '',
-    })
 
     const startRange = (currentPage - 1) * pageSize
     const endRange = startRange + pageSize
-
-    let fullData = [...data]
-
-    if (sortColumn && sortColumn.key !== '') {
-      const { key, order } = sortColumn
-      const isDesc = order === 'desc'
-
-      fullData = fullData.sort((a, b) => {
-        if (typeof a[key] === 'string' && typeof b[key] === 'string') {
-          const newA = a[key]
-          const newB = b[key]
-
-          return isDesc ? newA.localeCompare(newB) : newB.localeCompare(newA)
-        }
-
-        const newA = a[key] as number
-        const newB = b[key] as number
-
-        return isDesc ? newA - newB : newB - newA
-      })
-    }
-
-    const dataByPage = fullData.slice(startRange, endRange) as RowData[]
-
-    const renderRow = (rowData: RowData) => (
-      <TableRow>
-        <TableCell>{rowData.name}</TableCell>
-        <TableCell>{rowData.email}</TableCell>
-        <TableCell>{rowData.age}</TableCell>
-      </TableRow>
-    )
+    const dataByPage = data.slice(startRange, endRange) as RowData[]
 
     return (
       <div style={{ width: '56.25rem' }}>
@@ -102,8 +64,6 @@ export const Table = {
           {...args}
           columns={columns}
           data={dataByPage}
-          renderRow={renderRow}
-          onSortColumn={setSortColumn}
           onPageSizeChange={setPageSize}
           onPageChange={setCurrentPage}
           pagination={{
@@ -127,47 +87,10 @@ export const FullWidthTable = {
     const totalItems = 100
     const [currentPage, setCurrentPage] = useState(1)
     const [pageSize, setPageSize] = useState(10)
-    const [sortColumn, setSortColumn] = useState<{
-      key: string
-      order: string
-    }>({
-      key: '',
-      order: '',
-    })
 
     const startRange = (currentPage - 1) * pageSize
     const endRange = startRange + pageSize
-
-    let fullData = [...data]
-
-    if (sortColumn && sortColumn.key !== '') {
-      const { key, order } = sortColumn
-      const isDesc = order === 'desc'
-
-      fullData = fullData.sort((a, b) => {
-        if (typeof a[key] === 'string' && typeof b[key] === 'string') {
-          const newA = a[key]
-          const newB = b[key]
-
-          return isDesc ? newA.localeCompare(newB) : newB.localeCompare(newA)
-        }
-
-        const newA = a[key] as number
-        const newB = b[key] as number
-
-        return isDesc ? newA - newB : newB - newA
-      })
-    }
-
-    const dataByPage = fullData.slice(startRange, endRange) as RowData[]
-
-    const renderRow = (rowData: RowData) => (
-      <TableRow>
-        <TableCell>{rowData.name}</TableCell>
-        <TableCell>{rowData.email}</TableCell>
-        <TableCell>{rowData.age}</TableCell>
-      </TableRow>
-    )
+    const dataByPage = data.slice(startRange, endRange) as RowData[]
 
     return (
       <div style={{ width: '56.25rem' }}>
@@ -175,8 +98,6 @@ export const FullWidthTable = {
           {...args}
           columns={columns}
           data={dataByPage}
-          renderRow={renderRow}
-          onSortColumn={setSortColumn}
           onPageSizeChange={setPageSize}
           onPageChange={setCurrentPage}
           pagination={{
@@ -196,78 +117,10 @@ export const Selectable = {
     const totalItems = 100
     const [currentPage, setCurrentPage] = useState(1)
     const [pageSize, setPageSize] = useState(10)
-    const [sortColumn, setSortColumn] = useState<{
-      key: string
-      order: string
-    }>({
-      key: '',
-      order: '',
-    })
-    const [selectedRows, setSelectedRows] = useState<RowData[]>()
 
     const startRange = (currentPage - 1) * pageSize
     const endRange = startRange + pageSize
-
-    let fullData = [...data]
-
-    if (sortColumn && sortColumn.key !== '') {
-      const { key, order } = sortColumn
-      const isDesc = order === 'desc'
-
-      fullData = fullData.sort((a, b) => {
-        if (typeof a[key] === 'string' && typeof b[key] === 'string') {
-          const newA = a[key]
-          const newB = b[key]
-
-          return isDesc ? newA.localeCompare(newB) : newB.localeCompare(newA)
-        }
-
-        const newA = a[key] as number
-        const newB = b[key] as number
-
-        return isDesc ? newA - newB : newB - newA
-      })
-    }
-
-    const dataByPage = fullData.slice(startRange, endRange) as RowData[]
-
-    const selectableRenderRow = (
-      rowData: RowData,
-      rowProps?: Record<string, any>,
-    ) => {
-      const handleOnRowSelected = ({ checked }: any) => {
-        setSelectedRows((current = [] as RowData[]) => {
-          if (checked) {
-            return [...current, rowData]
-          }
-
-          return current.filter((item) => item.id !== rowData.id)
-        })
-      }
-
-      return (
-        <TableRow {...rowProps}>
-          <TableCell>
-            <Checkbox
-              name={`checkbox-${rowData.id}`}
-              onCheckedChange={handleOnRowSelected}
-              checked={selectedRows?.some((item) => item.id === rowData.id)}
-            />
-          </TableCell>
-          <TableCell>{rowData.name}</TableCell>
-          <TableCell>{rowData.email}</TableCell>
-          <TableCell>{rowData.age}</TableCell>
-        </TableRow>
-      )
-    }
-
-    const onAllItemsSelected = (checked: boolean) => {
-      if (checked) {
-        setSelectedRows(dataByPage)
-      } else {
-        setSelectedRows([])
-      }
-    }
+    const dataByPage = data.slice(startRange, endRange) as RowData[]
 
     return (
       <div style={{ width: '56.25rem' }}>
@@ -275,8 +128,6 @@ export const Selectable = {
           {...args}
           columns={columns}
           data={dataByPage}
-          renderRow={selectableRenderRow}
-          onSortColumn={setSortColumn}
           onPageSizeChange={setPageSize}
           onPageChange={setCurrentPage}
           pagination={{
@@ -285,8 +136,6 @@ export const Selectable = {
             pageSize,
             showItemCount: true,
           }}
-          onAllItemsSelected={onAllItemsSelected}
-          selectedRows={selectedRows}
           selectable
         />
       </div>
@@ -311,10 +160,6 @@ type WideRowData = RowData & {
   role: string
   department: string
   status: string
-}
-
-type RenderRowContext = {
-  getCellProps?: (columnKey: string) => Record<string, any>
 }
 
 const wideData: WideRowData[] = Array(100)
@@ -360,51 +205,10 @@ export const ScrollableTable = {
     const totalItems = 100
     const [currentPage, setCurrentPage] = useState(1)
     const [pageSize, setPageSize] = useState(10)
-    const [sortColumn, setSortColumn] = useState<{
-      key: string
-      order: string
-    }>({
-      key: '',
-      order: '',
-    })
 
     const startRange = (currentPage - 1) * pageSize
     const endRange = startRange + pageSize
-
-    let fullData = [...wideData]
-
-    if (sortColumn && sortColumn.key !== '') {
-      const { key, order } = sortColumn
-      const isDesc = order === 'desc'
-
-      fullData = fullData.sort((a, b) => {
-        const aVal = (a as any)[key]
-        const bVal = (b as any)[key]
-
-        if (typeof aVal === 'string' && typeof bVal === 'string') {
-          return isDesc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal)
-        }
-
-        return isDesc
-          ? (aVal as number) - (bVal as number)
-          : (bVal as number) - (aVal as number)
-      })
-    }
-
-    const dataByPage = fullData.slice(startRange, endRange)
-
-    const renderRow = (rowData: WideRowData) => (
-      <TableRow>
-        <TableCell>{rowData.name}</TableCell>
-        <TableCell>{rowData.email}</TableCell>
-        <TableCell>{rowData.age}</TableCell>
-        <TableCell>{rowData.country}</TableCell>
-        <TableCell>{rowData.city}</TableCell>
-        <TableCell>{rowData.role}</TableCell>
-        <TableCell>{rowData.department}</TableCell>
-        <TableCell>{rowData.status}</TableCell>
-      </TableRow>
-    )
+    const dataByPage = wideData.slice(startRange, endRange)
 
     return (
       <div style={{ padding: '1.5rem', maxWidth: '800px' }}>
@@ -412,8 +216,6 @@ export const ScrollableTable = {
           {...args}
           columns={wideColumns}
           data={dataByPage}
-          renderRow={renderRow}
-          onSortColumn={setSortColumn}
           onPageSizeChange={setPageSize}
           onPageChange={setCurrentPage}
           pagination={{
@@ -428,57 +230,15 @@ export const ScrollableTable = {
   },
 }
 
-const makeStickyStoryRender =
-  () => (args: StoryObj<typeof TableStory>['args']) => {
+function makeStickyStoryRender() {
+  return function StickyStoryRender(args: StoryObj<typeof TableStory>['args']) {
     const totalItems = 100
     const [currentPage, setCurrentPage] = useState(1)
     const [pageSize, setPageSize] = useState(10)
-    const [sortColumn, setSortColumn] = useState<{
-      key: string
-      order: string
-    }>({ key: '', order: '' })
 
     const startRange = (currentPage - 1) * pageSize
     const endRange = startRange + pageSize
-
-    let fullData = [...wideData]
-
-    if (sortColumn && sortColumn.key !== '') {
-      const { key, order } = sortColumn
-      const isDesc = order === 'desc'
-
-      fullData = fullData.sort((a, b) => {
-        const aVal = (a as any)[key]
-        const bVal = (b as any)[key]
-
-        if (typeof aVal === 'string' && typeof bVal === 'string') {
-          return isDesc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal)
-        }
-
-        return isDesc
-          ? (aVal as number) - (bVal as number)
-          : (bVal as number) - (aVal as number)
-      })
-    }
-
-    const dataByPage = fullData.slice(startRange, endRange)
-
-    const renderRow = (rowData: WideRowData, context?: RenderRowContext) => (
-      <TableRow>
-        <TableCell {...context?.getCellProps?.('name')}>
-          {rowData.name}
-        </TableCell>
-        <TableCell {...context?.getCellProps?.('email')}>
-          {rowData.email}
-        </TableCell>
-        <TableCell>{rowData.age}</TableCell>
-        <TableCell>{rowData.country}</TableCell>
-        <TableCell>{rowData.city}</TableCell>
-        <TableCell>{rowData.role}</TableCell>
-        <TableCell>{rowData.department}</TableCell>
-        <TableCell>{rowData.status}</TableCell>
-      </TableRow>
-    )
+    const dataByPage = wideData.slice(startRange, endRange)
 
     return (
       <div style={{ padding: '1.5rem', maxWidth: '800px' }}>
@@ -486,8 +246,6 @@ const makeStickyStoryRender =
           {...args}
           columns={stickyWideColumns}
           data={dataByPage}
-          renderRow={renderRow}
-          onSortColumn={setSortColumn}
           onPageSizeChange={setPageSize}
           onPageChange={setCurrentPage}
           pagination={{
@@ -500,6 +258,7 @@ const makeStickyStoryRender =
       </div>
     )
   }
+}
 
 export const StickyColumns = {
   name: 'Sticky Columns',
@@ -582,35 +341,10 @@ export const CustomizableColumnWidths = {
     const totalItems = 100
     const [currentPage, setCurrentPage] = useState(1)
     const [pageSize, setPageSize] = useState(10)
-    const [sortColumn, setSortColumn] = useState<{
-      key: string
-      order: string
-    }>({ key: '', order: '' })
 
     const startRange = (currentPage - 1) * pageSize
     const endRange = startRange + pageSize
-
-    let fullData = [...wideData]
-
-    if (sortColumn && sortColumn.key !== '') {
-      const { key, order } = sortColumn
-      const isDesc = order === 'desc'
-
-      fullData = fullData.sort((a, b) => {
-        const aVal = (a as any)[key]
-        const bVal = (b as any)[key]
-
-        if (typeof aVal === 'string' && typeof bVal === 'string') {
-          return isDesc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal)
-        }
-
-        return isDesc
-          ? (aVal as number) - (bVal as number)
-          : (bVal as number) - (aVal as number)
-      })
-    }
-
-    const dataByPage = fullData.slice(startRange, endRange)
+    const dataByPage = wideData.slice(startRange, endRange)
 
     const columnsWithControls = [
       {
@@ -635,31 +369,165 @@ export const CustomizableColumnWidths = {
       { key: 'status', label: 'Status', sortable: true },
     ]
 
-    const renderRow = (rowData: WideRowData, context?: RenderRowContext) => (
-      <TableRow>
-        <TableCell {...context?.getCellProps?.('name')}>
-          {rowData.name}
-        </TableCell>
-        <TableCell {...context?.getCellProps?.('email')}>
-          {rowData.email}
-        </TableCell>
-        <TableCell {...context?.getCellProps?.('age')}>{rowData.age}</TableCell>
-        <TableCell>{rowData.country}</TableCell>
-        <TableCell>{rowData.city}</TableCell>
-        <TableCell>{rowData.role}</TableCell>
-        <TableCell>{rowData.department}</TableCell>
-        <TableCell>{rowData.status}</TableCell>
-      </TableRow>
-    )
-
     return (
       <div style={{ padding: '1.5rem', maxWidth: '900px' }}>
         <TableStory
           {...tableArgs}
           columns={columnsWithControls}
           data={dataByPage}
+          onPageSizeChange={setPageSize}
+          onPageChange={setCurrentPage}
+          pagination={{
+            totalItems,
+            currentPage,
+            pageSize,
+            showItemCount: true,
+          }}
+        />
+      </div>
+    )
+  },
+}
+
+export const ColumnCellOverrides = {
+  name: 'Column Cell Overrides',
+  args: {
+    height: '300px',
+    stickyHeader: true,
+  },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        story:
+          'Shows per-column custom cell rendering via columns[i].cell, without writing a full renderRow.',
+      },
+    },
+  },
+  render: (args: StoryObj<typeof TableStory>['args']) => {
+    const totalItems = 100
+    const [currentPage, setCurrentPage] = useState(1)
+    const [pageSize, setPageSize] = useState(10)
+
+    const startRange = (currentPage - 1) * pageSize
+    const endRange = startRange + pageSize
+    const dataByPage = wideData.slice(startRange, endRange)
+
+    const overrideColumns = [
+      {
+        key: 'name',
+        label: 'Name',
+        sortable: true,
+        width: '12rem',
+        sticky: true,
+      },
+      {
+        key: 'email',
+        label: 'Email',
+        sortable: true,
+        width: '18rem',
+        cell: (row: WideRowData) => row.email.toLowerCase(),
+      },
+      {
+        key: 'age',
+        label: 'Age',
+        sortable: true,
+        width: '8rem',
+        cell: (row: WideRowData) => `${row.age} yrs`,
+      },
+      {
+        key: 'status',
+        label: 'Status',
+        sortable: true,
+        cell: (row: WideRowData) =>
+          row.status === 'Active' ? 'Active' : 'Review',
+      },
+      { key: 'country', label: 'Country', sortable: true },
+      { key: 'city', label: 'City', sortable: true },
+      { key: 'role', label: 'Role', sortable: true },
+      { key: 'department', label: 'Department', sortable: true },
+    ]
+
+    return (
+      <div style={{ padding: '1.5rem', maxWidth: '900px' }}>
+        <TableStory
+          {...args}
+          columns={overrideColumns}
+          data={dataByPage}
+          onPageSizeChange={setPageSize}
+          onPageChange={setCurrentPage}
+          pagination={{
+            totalItems,
+            currentPage,
+            pageSize,
+            showItemCount: true,
+          }}
+        />
+      </div>
+    )
+  },
+}
+
+export const CustomRowRenderer = {
+  name: 'Custom Row Renderer',
+  args: {
+    height: '300px',
+    stickyHeader: true,
+  },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        story:
+          'Use renderRow when row structure must change dynamically (for example, review queues where some rows collapse details into a merged cell with colSpan and custom actions).',
+      },
+    },
+  },
+  render: (args: StoryObj<typeof TableStory>['args']) => {
+    const totalItems = 100
+    const [currentPage, setCurrentPage] = useState(1)
+    const [pageSize, setPageSize] = useState(10)
+
+    const startRange = (currentPage - 1) * pageSize
+    const endRange = startRange + pageSize
+    const dataByPage = wideData.slice(startRange, endRange)
+
+    const renderRow = (rowData: WideRowData) => {
+      const needsReview = rowData.status !== 'Active'
+
+      if (needsReview) {
+        return (
+          <TableRow>
+            <TableCell>{rowData.name}</TableCell>
+            <TableCell>{rowData.email}</TableCell>
+            <TableCell colSpan={6}>
+              Requires compliance review before activation
+            </TableCell>
+          </TableRow>
+        )
+      }
+
+      return (
+        <TableRow>
+          <TableCell>{rowData.name}</TableCell>
+          <TableCell>{rowData.email}</TableCell>
+          <TableCell>{`${rowData.age} years`}</TableCell>
+          <TableCell>{rowData.country}</TableCell>
+          <TableCell>{rowData.city}</TableCell>
+          <TableCell>{rowData.role}</TableCell>
+          <TableCell>{rowData.department}</TableCell>
+          <TableCell>View details</TableCell>
+        </TableRow>
+      )
+    }
+
+    return (
+      <div style={{ padding: '1.5rem', maxWidth: '900px' }}>
+        <TableStory
+          {...args}
+          columns={wideColumns}
+          data={dataByPage}
           renderRow={renderRow}
-          onSortColumn={setSortColumn}
           onPageSizeChange={setPageSize}
           onPageChange={setCurrentPage}
           pagination={{
