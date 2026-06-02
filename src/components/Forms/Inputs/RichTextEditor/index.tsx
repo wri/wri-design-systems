@@ -27,8 +27,8 @@ const DEFAULT_VISIBLE_CONTROLS: RichTextEditorControlKey[] = [
   'undo',
   'redo',
   'textType',
-  'fontSize',
   'alignment',
+  'fontSize',
   'bold',
   'italic',
   'underline',
@@ -119,9 +119,6 @@ const RichTextEditor = ({
           {visibleControls.includes('textType') ? (
             <Control.FontFamily label={l.textTypeTooltip} />
           ) : null}
-          {visibleControls.includes('fontSize') ? (
-            <Control.FontSize label={l.fontSizeTooltip} />
-          ) : null}
           {visibleControls.includes('alignment') ? (
             <Control.Alignment
               label={l.alignmentTooltip}
@@ -130,6 +127,9 @@ const RichTextEditor = ({
               alignRightLabel={l.alignRightOptionLabel}
               alignJustifyLabel={l.alignJustifyOptionLabel}
             />
+          ) : null}
+          {visibleControls.includes('fontSize') ? (
+            <Control.FontSize label={l.fontSizeTooltip} />
           ) : null}
           {visibleControls.includes('bold') ? (
             <Control.Bold
