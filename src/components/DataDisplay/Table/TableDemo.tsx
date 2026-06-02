@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Table, TableRow, TableCell, Checkbox } from '../..'
+import { Table, TableRow, TableCell } from '../..'
 import DemoWrapper from '../../UI/DemoWrapper'
 
 export const columns = [
@@ -69,115 +69,45 @@ const stickyData: StickyRowData[] = Array(100)
     status: ['Active', 'Inactive', 'Pending'][i % 3],
   }))
 
-type RenderRowContext = {
-  className?: string
-  getCellProps?: (columnKey: string) => Record<string, any>
-}
-
 const TableDemo = () => {
   const totalItems = 100
   const [currentPage, setCurrentPage] = useState(1)
   const [pageSize, setPageSize] = useState(10)
-  const [sortColumn, setSortColumn] = useState<{ key: string; order: string }>({
-    key: '',
-    order: '',
-  })
-  const [selectedRows, setSelectedRows] = useState<RowData[]>()
 
   const startRange = (currentPage - 1) * pageSize
   const endRange = startRange + pageSize
 
-  let fullData = [...data]
-
-  if (sortColumn && sortColumn.key !== '') {
-    const { key, order } = sortColumn
-    const isDesc = order === 'desc'
-
-    fullData = fullData.sort((a, b) => {
-      if (typeof a[key] === 'string' && typeof b[key] === 'string') {
-        const newA = a[key]
-        const newB = b[key]
-
-        return isDesc ? newA.localeCompare(newB) : newB.localeCompare(newA)
-      }
-
-      const newA = a[key] as number
-      const newB = b[key] as number
-
-      return isDesc ? newA - newB : newB - newA
-    })
-  }
-
-  const dataByPage = fullData.slice(startRange, endRange) as RowData[]
+  const dataByPage = data.slice(startRange, endRange) as RowData[]
   const stickyDataByPage = stickyData.slice(startRange, endRange)
 
-  const renderRow = (rowData: RowData) => (
-    <TableRow>
-      <TableCell>{rowData.name}</TableCell>
-      <TableCell>{rowData.email}</TableCell>
-      <TableCell>{rowData.age}</TableCell>
-    </TableRow>
-  )
+  const customRenderRow = (rowData: StickyRowData) => {
+    const needsReview = rowData.status !== 'Active'
 
-  const selectableRenderRow = (
-    rowData: RowData,
-    rowProps?: Record<string, any>,
-  ) => {
-    const handleOnRowSelected = ({ checked }: any) => {
-      setSelectedRows((current = [] as RowData[]) => {
-        if (checked) {
-          return [...current, rowData]
-        }
-
-        return current.filter((item) => item.id !== rowData.id)
-      })
+    if (needsReview) {
+      return (
+        <TableRow>
+          <TableCell>{rowData.name}</TableCell>
+          <TableCell>{rowData.email}</TableCell>
+          <TableCell colSpan={6}>
+            Requires compliance review before activation
+          </TableCell>
+        </TableRow>
+      )
     }
 
     return (
-      <TableRow
-        {...rowProps}
-        aria-selected={selectedRows?.some((item) => item.id === rowData.id)}
-      >
-        <TableCell>
-          <Checkbox
-            name={`checkbox-${rowData.id}`}
-            aria-label={`Select row ${rowData.name}`}
-            onCheckedChange={handleOnRowSelected}
-            checked={selectedRows?.some((item) => item.id === rowData.id)}
-          />
-        </TableCell>
+      <TableRow>
         <TableCell>{rowData.name}</TableCell>
         <TableCell>{rowData.email}</TableCell>
-        <TableCell>{rowData.age}</TableCell>
+        <TableCell>{`${rowData.age} years`}</TableCell>
+        <TableCell>{rowData.country}</TableCell>
+        <TableCell>{rowData.city}</TableCell>
+        <TableCell>{rowData.role}</TableCell>
+        <TableCell>{rowData.department}</TableCell>
+        <TableCell>View details</TableCell>
       </TableRow>
     )
   }
-
-  const onAllItemsSelected = (checked: boolean) => {
-    if (checked) {
-      setSelectedRows(dataByPage)
-    } else {
-      setSelectedRows([])
-    }
-  }
-
-  const stickyRenderRow = (
-    rowData: StickyRowData,
-    context?: RenderRowContext,
-  ) => (
-    <TableRow>
-      <TableCell {...context?.getCellProps?.('name')}>{rowData.name}</TableCell>
-      <TableCell {...context?.getCellProps?.('email')}>
-        {rowData.email}
-      </TableCell>
-      <TableCell>{rowData.age}</TableCell>
-      <TableCell>{rowData.country}</TableCell>
-      <TableCell>{rowData.city}</TableCell>
-      <TableCell>{rowData.role}</TableCell>
-      <TableCell>{rowData.department}</TableCell>
-      <TableCell>{rowData.status}</TableCell>
-    </TableRow>
-  )
 
   return (
     <DemoWrapper title='Table'>
@@ -188,8 +118,6 @@ const TableDemo = () => {
           <Table
             columns={columns}
             data={dataByPage}
-            renderRow={renderRow}
-            onSortColumn={setSortColumn}
             onPageSizeChange={setPageSize}
             onPageChange={setCurrentPage}
             pagination={{
@@ -204,8 +132,6 @@ const TableDemo = () => {
         <div style={{ width: '100%', maxWidth: '56.25rem' }}>
           <Table
             columns={columns}
-            renderRow={renderRow}
-            onSortColumn={setSortColumn}
             onPageSizeChange={setPageSize}
             onPageChange={setCurrentPage}
             pagination={{
@@ -223,8 +149,6 @@ const TableDemo = () => {
           <Table
             columns={columns}
             data={dataByPage}
-            renderRow={selectableRenderRow}
-            onSortColumn={setSortColumn}
             onPageSizeChange={setPageSize}
             onPageChange={setCurrentPage}
             pagination={{
@@ -233,8 +157,6 @@ const TableDemo = () => {
               pageSize,
               showItemCount: true,
             }}
-            onAllItemsSelected={onAllItemsSelected}
-            selectedRows={selectedRows}
             selectable
           />
         </div>
@@ -245,8 +167,6 @@ const TableDemo = () => {
           <Table
             columns={stickyColumns}
             data={stickyDataByPage}
-            renderRow={stickyRenderRow}
-            onSortColumn={setSortColumn}
             onPageSizeChange={setPageSize}
             onPageChange={setCurrentPage}
             pagination={{
@@ -265,8 +185,6 @@ const TableDemo = () => {
           <Table
             columns={stickyColumns}
             data={stickyDataByPage}
-            renderRow={stickyRenderRow}
-            onSortColumn={setSortColumn}
             onPageSizeChange={setPageSize}
             onPageChange={setCurrentPage}
             pagination={{
@@ -277,6 +195,24 @@ const TableDemo = () => {
             }}
             stickyHeader
             height='18.75rem'
+          />
+        </div>
+        <div style={{ width: '100%', maxWidth: '56.25rem' }}>
+          <p style={{ marginBottom: '0.5rem', fontWeight: 600 }}>
+            Custom Row Renderer
+          </p>
+          <Table
+            columns={stickyColumns}
+            data={stickyDataByPage}
+            renderRow={customRenderRow}
+            onPageSizeChange={setPageSize}
+            onPageChange={setCurrentPage}
+            pagination={{
+              totalItems,
+              currentPage,
+              pageSize,
+              showItemCount: true,
+            }}
           />
         </div>
       </div>

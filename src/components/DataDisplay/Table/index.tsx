@@ -23,6 +23,20 @@ import IconButton from '../../Forms/Actions/IconButton'
 import Checkbox from '../../Forms/Controls/Checkbox'
 import { getThemedColor } from '../../../lib/theme'
 import { useLabels } from '../../../lib/i18n/useLabels'
+import {
+  calculateStickyOffsets,
+  createColumnsByKey,
+  getCellProps as getCellPropsHelper,
+  getColumnWidthProps as getColumnWidthPropsHelper,
+  getLastStickyColumnKey,
+  getSortedDisplayData,
+  getStickyColumnKeys,
+  getStickyProps as getStickyPropsHelper,
+  isRowSelected as isRowSelectedHelper,
+  keepSelectedRowsInCurrentData,
+  toggleSelectedRow,
+} from './utils'
+import { createDefaultRowRenderer } from './defaultRenderRow'
 
 const Table = ({
   columns,
@@ -38,6 +52,7 @@ const Table = ({
   onPageSizeChange,
   onPageChange,
   onAllItemsSelected,
+  onRowSelected,
   loading,
   height,
   labels,
@@ -49,6 +64,7 @@ const Table = ({
   })
   const headerCellRefs = useRef<Record<string, HTMLTableCellElement | null>>({})
   const [stickyOffsets, setStickyOffsets] = useState<Record<string, number>>({})
+  const [internalSelectedRows, setInternalSelectedRows] = useState<any[]>([])
 
   const {
     totalItems = data.length,
@@ -57,6 +73,12 @@ const Table = ({
     showItemCount,
     showItemCountText,
   } = pagination || {}
+  const hasExternalSortHandler = Boolean(onSortColumn)
+
+  const displayData = useMemo(
+    () => getSortedDisplayData(data, sortColumn, hasExternalSortHandler),
+    [data, hasExternalSortHandler, sortColumn],
+  )
 
   const onSort = (columnKey: string, order: string) => {
     setSortColumn({ key: columnKey, order })
@@ -66,33 +88,22 @@ const Table = ({
     }
   }
 
-  const allChecked = selectedRows?.length === data?.length
-  const indeterminate = selectedRows && selectedRows.length > 0 && !allChecked
-  const columnsByKey = useMemo(
-    () =>
-      columns.reduce<Record<string, TableColumn>>((acc, column) => {
-        acc[column.key] = column
-        return acc
-      }, {}),
+  const effectiveSelectedRows = selectedRows ?? internalSelectedRows
+  const allChecked =
+    displayData.length > 0 &&
+    effectiveSelectedRows.length === displayData.length
+  const indeterminate =
+    effectiveSelectedRows.length > 0 &&
+    effectiveSelectedRows.length < displayData.length
+  const columnsByKey = useMemo(() => createColumnsByKey(columns), [columns])
+  const stickyColumnKeys = useMemo(
+    () => getStickyColumnKeys(columns),
     [columns],
   )
-  const stickyColumnKeys = columns
-    .filter((column) => column.sticky)
-    .map((column) => column.key)
-  const lastStickyColumnKey =
-    stickyColumnKeys.length > 0
-      ? stickyColumnKeys[stickyColumnKeys.length - 1]
-      : undefined
+  const lastStickyColumnKey = getLastStickyColumnKey(stickyColumnKeys)
 
   const calculateStickyPositions = useCallback(() => {
-    const nextOffsets: Record<string, number> = {}
-    let offset = 0
-    columns
-      .filter((column) => column.sticky)
-      .forEach((column) => {
-        nextOffsets[column.key] = offset
-        offset += headerCellRefs.current[column.key]?.offsetWidth || 0
-      })
+    const nextOffsets = calculateStickyOffsets(columns, headerCellRefs.current)
     setStickyOffsets(nextOffsets)
   }, [columns])
 
@@ -112,42 +123,53 @@ const Table = ({
     }
   }, [calculateStickyPositions])
 
-  const getColumnWidthProps = (columnKey: string) => {
-    const width = columnsByKey[columnKey]?.width
-
-    if (!width) {
-      return {}
+  useEffect(() => {
+    if (selectedRows !== undefined) {
+      return
     }
 
-    return {
-      width,
-      minWidth: width,
+    setInternalSelectedRows((current) =>
+      keepSelectedRowsInCurrentData(current, data),
+    )
+  }, [data, selectedRows])
+
+  const getColumnWidthProps = (columnKey: string) =>
+    getColumnWidthPropsHelper(columnsByKey, columnKey)
+
+  const getStickyProps = (column: TableColumn) =>
+    getStickyPropsHelper(stickyOffsets, column.key, lastStickyColumnKey)
+
+  const getCellProps = (columnKey: string) =>
+    getCellPropsHelper(
+      columnsByKey,
+      stickyOffsets,
+      columnKey,
+      lastStickyColumnKey,
+    )
+
+  const isRowSelected = (rowData: any) =>
+    isRowSelectedHelper(effectiveSelectedRows, rowData)
+
+  const handleRowSelected = (rowData: any, checked: boolean) => {
+    if (selectedRows === undefined) {
+      setInternalSelectedRows((current) =>
+        toggleSelectedRow(current, rowData, checked),
+      )
+    }
+
+    if (onRowSelected) {
+      onRowSelected(rowData, checked)
     }
   }
 
-  const getStickyProps = (column: TableColumn) => {
-    const offset = stickyOffsets[column.key]
-    if (offset === undefined) return {}
-    return {
-      'data-sticky': 'start',
-      'data-sticky-last':
-        column.key === lastStickyColumnKey ? 'true' : undefined,
-      left: `${offset}px`,
-    }
-  }
+  const defaultRenderRow = createDefaultRowRenderer({
+    columns,
+    selectable,
+    isRowSelected,
+    onRowSelected: handleRowSelected,
+  })
 
-  const getCellProps = (columnKey: string) => {
-    const widthProps = getColumnWidthProps(columnKey)
-    const offset = stickyOffsets[columnKey]
-    if (offset === undefined) return widthProps
-    return {
-      ...widthProps,
-      'data-sticky': 'start',
-      'data-sticky-last':
-        columnKey === lastStickyColumnKey ? 'true' : undefined,
-      left: `${offset}px`,
-    }
-  }
+  const rowRenderer = renderRow || defaultRenderRow
 
   return (
     <div>
@@ -168,6 +190,10 @@ const Table = ({
                     checked={allChecked}
                     indeterminate={indeterminate}
                     onCheckedChange={({ checked }: any) => {
+                      if (selectedRows === undefined) {
+                        setInternalSelectedRows(checked ? displayData : [])
+                      }
+
                       if (onAllItemsSelected) {
                         onAllItemsSelected(checked)
                       }
@@ -227,14 +253,10 @@ const Table = ({
             </ChakraTable.Row>
           </ChakraTable.Header>
           <ChakraTable.Body css={tableBodyStyles}>
-            {data.map((item: any) => (
+            {displayData.map((item: any) => (
               <React.Fragment key={item.id}>
-                {renderRow(item, {
-                  className: selectedRows?.some(
-                    (row: any) => row.id === item.id,
-                  )
-                    ? 'selected'
-                    : undefined,
+                {rowRenderer(item, {
+                  className: isRowSelected(item) ? 'selected' : undefined,
                   getCellProps,
                 })}
               </React.Fragment>
