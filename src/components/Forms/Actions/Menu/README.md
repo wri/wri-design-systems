@@ -30,6 +30,8 @@ type MenuItemProps = {
 type MenuProps = {
   theme?: 'light' | 'dark'
   label: string
+  /** Hides the decorative arrow on the menu content. Default: false. */
+  hideArrow?: boolean
   fontSize?: string
   items?: MenuItemProps[]
   groups?: {
@@ -215,5 +217,19 @@ type MenuProps = {
   ]}
   onSelect={(value) => console.log('onSelect', value)}
   customTrigger={<Button label='Open Menu' variant='secondary' />}
+/>
+```
+
+### Hide Arrow
+
+```tsx
+<Menu
+  label='Formatting menu'
+  hideArrow
+  items={[
+    { label: 'Heading 1', value: 'h1' },
+    { label: 'Heading 2', value: 'h2' },
+    { label: 'Paragraph', value: 'p' },
+  ]}
 />
 ```

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
-import { Box, Text, VStack } from '@chakra-ui/react'
+import { Box, Text, Textarea, VStack } from '@chakra-ui/react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import RichTextEditor from '.'
@@ -28,9 +28,15 @@ const RichTextEditorWithPreview = ({
         <Text fontWeight='bold' mb='2'>
           HTML output
         </Text>
-        <Text fontSize='sm' whiteSpace='pre-wrap'>
-          {html || '(empty)'}
-        </Text>
+        <Textarea
+          aria-label='HTML output preview'
+          value={html || '(empty)'}
+          readOnly
+          size='sm'
+          minH='180px'
+          fontFamily='monospace'
+          whiteSpace='pre'
+        />
       </Box>
     </VStack>
   )
@@ -54,8 +60,9 @@ const meta = {
       options: [
         'undo',
         'redo',
-        'fontFamily',
+        'textType',
         'fontSize',
+        'alignment',
         'bold',
         'italic',
         'underline',
@@ -179,9 +186,15 @@ export const TranslatedTooltips: Story = {
       placeholder: 'Escribe tu contenido...',
       undoTooltip: 'Deshacer',
       redoTooltip: 'Rehacer',
-      fontFamilyTooltip: 'Familia tipografica',
+      textTypeTooltip: 'Tipo de texto',
       fontSizeTooltip: 'Tamano de fuente',
+      alignmentTooltip: 'Alineacion',
+      alignLeftOptionLabel: 'Alinear a la izquierda',
+      alignCenterOptionLabel: 'Alinear al centro',
+      alignRightOptionLabel: 'Alinear a la derecha',
+      alignJustifyOptionLabel: 'Justificar',
       boldTooltip: 'Negrita (N)',
+      boldIconText: 'N',
       italicTooltip: 'Cursiva (K)',
       underlineTooltip: 'Subrayado (S)',
       strikethroughTooltip: 'Tachado',
@@ -189,6 +202,12 @@ export const TranslatedTooltips: Story = {
       orderedListTooltip: 'Lista numerada',
       linkTooltip: 'Enlace',
       imageTooltip: 'Imagen',
+      linkUrlPlaceholder: 'http://ejemplo.org',
+      linkLabelPlaceholder: 'Etiqueta (opcional)',
+      linkLabelAriaLabel: 'Etiqueta del enlace',
+      linkApplyLabel: 'Aplicar',
+      linkRemoveLabel: 'Quitar',
+      linkInvalidUrlMessage: 'Ingresa una URL valida',
     },
   },
 }

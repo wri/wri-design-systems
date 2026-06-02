@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box, Text, VStack } from '@chakra-ui/react'
+import { Box, Text, Textarea, VStack } from '@chakra-ui/react'
 
 import { RichTextEditor } from '../../..'
 import DemoWrapper from '../../../UI/DemoWrapper'
@@ -19,9 +19,15 @@ const RichTextEditorDemo = () => {
           <Text fontWeight='bold' mb='2'>
             HTML output
           </Text>
-          <Text fontSize='sm' whiteSpace='pre-wrap'>
-            {html}
-          </Text>
+          <Textarea
+            aria-label='HTML output preview'
+            value={html}
+            readOnly
+            size='sm'
+            minH='180px'
+            fontFamily='monospace'
+            whiteSpace='pre'
+          />
         </Box>
       </VStack>
     </DemoWrapper>

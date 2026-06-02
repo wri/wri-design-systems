@@ -15,6 +15,8 @@ export type MenuItemProps = {
 export type MenuProps = {
   theme?: 'light' | 'dark'
   label: string
+  /** Hides the decorative arrow on the menu content. Default: false. */
+  hideArrow?: boolean
   fontSize?: string
   items?: MenuItemProps[]
   groups?: {

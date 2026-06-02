@@ -18,6 +18,7 @@ import { ChevronDownIcon } from '../../../icons'
 const Menu = ({
   theme = 'light',
   label,
+  hideArrow = false,
   fontSize,
   items,
   groups,
@@ -89,7 +90,7 @@ const Menu = ({
             role='menu'
             aria-label={label || 'Menu'}
           >
-            <div css={menuArrowStyles} />
+            {hideArrow ? null : <div css={menuArrowStyles} />}
             {items?.map((item, idx) => {
               if (item.submenu) {
                 const [submenuOpen, setSubmenuOpen] = useState(false)
