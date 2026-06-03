@@ -4,7 +4,14 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import OptionCard from '.'
-import { InfoIcon } from '../../../icons'
+import {
+  InfoIcon,
+  CheckCircleIcon,
+  IndeterminateIcon,
+  DisallowedIcon,
+  NotApplicableIcon,
+} from '../../../icons'
+import { getThemedColor } from '../../..'
 
 const meta = {
   title: 'Forms/Controls/Option Card',
@@ -64,24 +71,22 @@ export const Centered: Story = {
         label: 'Label',
         caption: 'Caption',
         icon: <InfoIcon />,
-        variant: 'centered',
         value: 'value-1',
       },
       {
         label: 'Label',
         caption: 'Caption',
         icon: <InfoIcon />,
-        variant: 'centered',
         value: 'value-2',
       },
       {
         label: 'Label',
         caption: 'Caption',
         icon: <InfoIcon />,
-        variant: 'centered',
         value: 'value-3',
       },
     ],
+    variant: 'centered',
   },
 }
 
@@ -92,7 +97,6 @@ export const Expanded: Story = {
         label: 'Label',
         caption: 'Caption',
         icon: <InfoIcon />,
-        variant: 'expanded',
         value: 'value-1',
         children: (
           <>
@@ -106,7 +110,6 @@ export const Expanded: Story = {
         label: 'Label',
         caption: 'Caption',
         icon: <InfoIcon />,
-        variant: 'expanded',
         value: 'value-2',
         children: (
           <>
@@ -120,7 +123,6 @@ export const Expanded: Story = {
         label: 'Label',
         caption: 'Caption',
         icon: <InfoIcon />,
-        variant: 'expanded',
         value: 'value-3',
         children: (
           <>
@@ -131,6 +133,7 @@ export const Expanded: Story = {
         ),
       },
     ],
+    variant: 'expanded',
   },
 }
 
@@ -184,5 +187,101 @@ export const Disabled: Story = {
         value: 'value-3',
       },
     ],
+  },
+}
+
+export const HideControl: Story = {
+  args: {
+    defaultValue: 'value-2',
+    items: [
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-1',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-2',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-3',
+      },
+    ],
+    hideControl: true,
+  },
+}
+
+export const CustomItemWidth: Story = {
+  args: {
+    items: [
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-1',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-2',
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <InfoIcon />,
+        value: 'value-3',
+      },
+    ],
+    itemWidth: '8.875rem',
+    hideControl: true,
+  },
+}
+
+export const CustomColors: Story = {
+  args: {
+    items: [
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <CheckCircleIcon />,
+        value: 'value-1',
+        selectedColor: getThemedColor('success', 500),
+        selectedBackgroundColor: getThemedColor('success', 100),
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <IndeterminateIcon />,
+        value: 'value-2',
+        selectedColor: getThemedColor('warning', 500),
+        selectedBackgroundColor: getThemedColor('warning', 100),
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <DisallowedIcon />,
+        value: 'value-3',
+        selectedColor: getThemedColor('error', 500),
+        selectedBackgroundColor: getThemedColor('error', 100),
+      },
+      {
+        label: 'Label',
+        caption: 'Caption',
+        icon: <NotApplicableIcon />,
+        value: 'value-4',
+        selectedColor: getThemedColor('neutral', 800),
+        selectedBackgroundColor: getThemedColor('neutral', 100),
+      },
+    ],
+    variant: 'centered',
+    itemWidth: '8.875rem',
+    hideControl: true,
   },
 }

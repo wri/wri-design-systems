@@ -7,10 +7,14 @@ import {
   getThemedRadius,
   getThemedSpacing,
 } from '../../../../lib/theme'
-import { OptionCardItemProps } from './types'
+import { OptionCardProps, OptionCardItemProps } from './types'
 
-export const optionCardContainerStyles = css`
-  width: 15.0625rem;
+export const optionCardContainerStyles = (
+  width?: string,
+  selectedColor?: string,
+  selectedBackgroundColor?: string,
+) => css`
+  width: ${width || '15.0625rem'};
   min-height: 4.375rem;
   padding: ${getThemedSpacing(300)};
   background-color: ${getThemedColor('neutral', 100)};
@@ -38,8 +42,14 @@ export const optionCardContainerStyles = css`
   }
 
   &[data-state='checked'] {
-    background-color: ${getThemedColor('primary', 100)};
-    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)};
+    background-color: ${selectedBackgroundColor ||
+    getThemedColor('primary', 100)};
+    border: ${getThemedBorderWidth(100)} solid
+      ${selectedColor || getThemedColor('primary', 700)};
+
+    .option-card-icon-container svg {
+      color: ${selectedColor || getThemedColor('neutral', 900)};
+    }
   }
 
   &[data-disabled] {
@@ -49,6 +59,10 @@ export const optionCardContainerStyles = css`
     background-color: ${getThemedColor('neutral', 100)};
     color: ${getThemedColor('neutral', 600)};
     cursor: not-allowed;
+
+    .option-card-icon-container svg {
+      color: ${getThemedColor('neutral', 400)};
+    }
   }
 `
 
@@ -65,7 +79,7 @@ export const optionCardControlStyles = css`
 `
 
 export const optionCardHeaderStyles = (
-  variant: OptionCardItemProps['variant'],
+  variant: OptionCardProps['variant'],
 ) => css`
   width: 100%;
   display: flex;
@@ -78,11 +92,12 @@ export const optionCardIconContainerStyles = css`
   svg {
     height: 2rem;
     width: 2rem;
+    color: ${getThemedColor('neutral', 400)};
   }
 `
 
 export const optionCardHeaderLabelStyles = (
-  variant: OptionCardItemProps['variant'],
+  variant: OptionCardProps['variant'],
   disabled?: OptionCardItemProps['disabled'],
 ) => css`
   font-size: ${getThemedFontSize(400)};
@@ -93,7 +108,7 @@ export const optionCardHeaderLabelStyles = (
 `
 
 export const optionCardHeaderCaptionStyles = (
-  variant: OptionCardItemProps['variant'],
+  variant: OptionCardProps['variant'],
   disabled?: OptionCardItemProps['disabled'],
 ) => css`
   font-size: ${getThemedFontSize(300)};
@@ -104,7 +119,7 @@ export const optionCardHeaderCaptionStyles = (
 `
 
 export const optionCardItemIndicatorStyles = (
-  variant: OptionCardItemProps['variant'],
+  variant: OptionCardProps['variant'],
 ) => css`
   position: ${variant === 'centered' ? 'absolute' : 'relative'};
   top: 0;

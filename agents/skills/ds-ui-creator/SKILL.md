@@ -6,6 +6,7 @@ description: Guidelines for building user interfaces and components in applicati
 When building components and user interfaces in an application consuming the WRI Design System, developers and AI coding agents must follow these guidelines:
 
 ## 1. Component Hierarchy (Golden Rule)
+
 Always evaluate and build UI elements using the following hierarchy. Never skip a level:
 
 ```
@@ -15,17 +16,20 @@ Always evaluate and build UI elements using the following hierarchy. Never skip 
 ```
 
 ### Level 1: WRI Design System (`@worldresources/wri-design-systems`)
+
 - **First Choice**: Check Storybook, Zeroheight style guide, or README files to verify if a component exists in the design system.
 - **Do Not Rebuild**: Never use raw elements (e.g. `<button>`, `<input>`, `<select>`) or raw Chakra equivalents when a WRI DS wrapper exists (e.g. `Button`, `IconButton`, `Select`, `TextInput`).
 - **No Style Overrides**: Do NOT use `sx`, `css`, `style`, or `className` to override design system component styles. Use them exactly as-is to preserve visual consistency.
 - **Query MCP**: Use the Storybook MCP server to check component listings (`mcp_wri-storybook_getComponentList`) and verify exact prop signatures (`mcp_wri-storybook_getComponentsProps`).
 
 ### Level 2: Chakra UI v3 (`@chakra-ui/react`)
+
 - **Use as Fallback**: If there is no corresponding WRI DS component, use standard Chakra UI v3 primitives (e.g., `<Box>`, `<Flex>`, `<Grid>`).
 - **Chakra v3 API Only**: Do not use legacy Chakra v2 properties (like `colorScheme`, `isDisabled`, or `leftIcon`). Verify all props using the Chakra MCP server (`mcp_chakra-ui_get_component_props`).
 - **Theme Integration**: Apply styling using the themed token functions rather than passing raw non-token values.
 
 ### Level 3: Custom Code (Last Resort)
+
 - **Required Marker**: If custom CSS or custom HTML is absolutely necessary because neither WRI DS nor Chakra v3 has the capabilities needed, comment it clearly with:
   `// [CUSTOM COMPONENT] — <detailed reason explaining why Level 1 & 2 were bypassed>`
 - **No Hardcoding**: Custom components must still use design token functions for sizes, colors, margins, and borders. Never write raw hex colors, px, or rem.
@@ -33,10 +37,13 @@ Always evaluate and build UI elements using the following hierarchy. Never skip 
 ---
 
 ## 2. Design Tokens & Theme API (Strict Token Enforcement)
+
 All values (colors, spacing, typography, borders, radii) must resolve through the design system token functions. Never hardcode literal values like `#2C7D6E`, `1rem`, `16px`, etc.
 
 ### Token Helper Imports
+
 Import the themed helpers directly from the `@worldresources/wri-design-systems` package:
+
 ```typescript
 import {
   getThemedColor,
@@ -50,14 +57,14 @@ import {
 
 ### Reference Tables
 
-| Category | Function | Valid Values / Steps / Tokens | Example |
-| :--- | :--- | :--- | :--- |
-| **Colors** | `getThemedColor(variant, step)` | **Variants**: `neutral`, `primary`, `secondary`, `success`, `warning`, `error`, `accessible`<br>**Steps**: `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` | `getThemedColor('primary', 500)` |
-| **Spacing** | `getThemedSpacing(token)` | `0`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`, `1200`, `1400`, `1600`, `2000`, `2400`, `2800` | `getThemedSpacing(400)` (1rem) |
-| **Radius** | `getThemedRadius(token)` | `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` | `getThemedRadius(500)` (0.5rem) |
-| **Border Width** | `getThemedBorderWidth(token)` | `100`, `200`, `300`, `400` | `getThemedBorderWidth(100)` (0.0625rem) |
-| **Font Size** | `getThemedFontSize(token)` | `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100` | `getThemedFontSize(700)` (1.5rem) |
-| **Line Height** | `getThemedLineHeight(token)` | `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`, `1200` | `getThemedLineHeight(400)` (1rem) |
+| Category         | Function                        | Valid Values / Steps / Tokens                                                                                                                                            | Example                                 |
+| :--------------- | :------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------- |
+| **Colors**       | `getThemedColor(variant, step)` | **Variants**: `neutral`, `primary`, `secondary`, `success`, `warning`, `error`, `accessible`<br>**Steps**: `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` | `getThemedColor('primary', 500)`        |
+| **Spacing**      | `getThemedSpacing(token)`       | `0`, `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`, `1200`, `1400`, `1600`, `2000`, `2400`, `2800`                                 | `getThemedSpacing(400)` (1rem)          |
+| **Radius**       | `getThemedRadius(token)`        | `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`                                                                                                            | `getThemedRadius(500)` (0.5rem)         |
+| **Border Width** | `getThemedBorderWidth(token)`   | `100`, `200`, `300`, `400`                                                                                                                                               | `getThemedBorderWidth(100)` (0.0625rem) |
+| **Font Size**    | `getThemedFontSize(token)`      | `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`                                                                                                   | `getThemedFontSize(700)` (1.5rem)       |
+| **Line Height**  | `getThemedLineHeight(token)`    | `300`, `400`, `500`, `600`, `700`, `800`, `900`, `1000`, `1100`, `1200`                                                                                                  | `getThemedLineHeight(400)` (1rem)       |
 
 ### Code Examples
 
@@ -84,6 +91,7 @@ import {
 ---
 
 ## 3. Accessibility (A11y) Requirements
+
 Accessibility must be verified at every call site. Components provide internally sound accessible states, but they require proper configurations from developers:
 
 1. **Accessible Control Names**:
@@ -104,9 +112,11 @@ Accessibility must be verified at every call site. Components provide internally
 ---
 
 ## 4. Internationalization (i18n)
+
 All WRI DS components ship with English defaults. To localize UI strings for other languages, follow one of these patterns:
 
 - **Global/Provider Context**: Wrap the application with `DesignSystemLocaleProvider` to pass common translations (e.g., optional field suffixes, required markers, list expand/hide actions).
+
   ```tsx
   import { DesignSystemLocaleProvider, type DesignSystemLabels } from '@worldresources/wri-design-systems'
 
@@ -125,6 +135,7 @@ All WRI DS components ship with English defaults. To localize UI strings for oth
     <App />
   </DesignSystemLocaleProvider>
   ```
+
 - **Component-Level Override**: Pass translated values directly to the component using its `labels` prop. Never hardcode English literals in the `labels` prop; always route strings through the translation framework.
   ```tsx
   <Password
@@ -138,6 +149,7 @@ All WRI DS components ship with English defaults. To localize UI strings for oth
 ---
 
 ## 5. Forbidden Patterns
+
 - **Importing Raw Chakra Primitives when WRI DS Wrappers Exist**: Do not do `import { Button } from '@chakra-ui/react'` when WRI DS has `Button`.
 - **Applying Style Overrides on WRI DS Components**: Bypassing design consistency with `sx={{...}}`, `style={{...}}`, or inline style blocks is forbidden.
 - **Passing Raw Strings for Tokens**: Do not use `<Box bg="primary.500" />`. Use the exact helper call instead: `<Box bg={getThemedColor('primary', 500)} />`.
