@@ -179,7 +179,20 @@ const RichTextEditor = ({
             />
           ) : null}
           {visibleControls.includes('strikethrough') ? (
-            <Control.Strikethrough label={l.strikethroughTooltip} />
+            <Control.Strikethrough
+              label={l.strikethroughTooltip}
+              icon={
+                <span
+                  css={{
+                    fontSize: getThemedFontSize(600),
+                    lineHeight: 1,
+                    textDecoration: 'line-through',
+                  }}
+                >
+                  {l.strikethroughIconText}
+                </span>
+              }
+            />
           ) : null}
           {visibleControls.includes('bulletList') ? (
             <Control.BulletList label={l.bulletListTooltip} />

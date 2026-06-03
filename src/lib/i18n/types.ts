@@ -492,6 +492,7 @@ export type RichTextEditorLabels = {
   /** Short text rendered inside the underline control icon button (for example: U, S). */
   underlineIconText: string
   strikethroughTooltip: string
+  strikethroughIconText: string
   bulletListTooltip: string
   orderedListTooltip: string
   linkTooltip: string

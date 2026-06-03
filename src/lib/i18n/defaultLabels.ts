@@ -246,6 +246,7 @@ export const defaultLabels: DefaultLabels = {
     underlineTooltip: 'Underline (U)',
     underlineIconText: 'U',
     strikethroughTooltip: 'Strikethrough',
+    strikethroughIconText: 'S',
     bulletListTooltip: 'Bullet List',
     orderedListTooltip: 'Ordered List',
     linkTooltip: 'Link',
