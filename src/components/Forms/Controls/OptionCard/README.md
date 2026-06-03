@@ -14,13 +14,14 @@ import { OptionCard } from '@worldresources/wri-design-systems'
 
 ```ts
 type OptionCardItemProps = {
-  label: string
+  label?: string
   caption?: string
   icon?: React.ReactNode
-  variant?: 'default' | 'centered' | 'expanded'
   disabled?: boolean
   children?: React.ReactNode
   value: string
+  selectedColor?: string
+  selectedBackgroundColor?: string
 }
 
 type OptionCardProps = Omit<
@@ -36,6 +37,9 @@ type OptionCardProps = Omit<
   defaultValue?: string
   items: OptionCardItemProps[]
   onValueChange?: ({ value }: { value: string }) => void
+  variant?: 'default' | 'centered' | 'expanded'
+  itemWidth?: string
+  hideControl?: boolean
 }
 ```
 
@@ -75,24 +79,22 @@ type OptionCardProps = Omit<
       label: 'Label',
       caption: 'Caption',
       icon: <InfoIcon />,
-      variant: 'centered',
       value: 'value-1',
     },
     {
       label: 'Label',
       caption: 'Caption',
       icon: <InfoIcon />,
-      variant: 'centered',
       value: 'value-2',
     },
     {
       label: 'Label',
       caption: 'Caption',
       icon: <InfoIcon />,
-      variant: 'centered',
       value: 'value-3',
     },
   ]}
+  variant='centered'
 />
 ```
 
@@ -105,7 +107,6 @@ type OptionCardProps = Omit<
       label: 'Label',
       caption: 'Caption',
       icon: <InfoIcon />,
-      variant: 'expanded',
       value: 'value-1',
       children: (
         <>
@@ -119,7 +120,6 @@ type OptionCardProps = Omit<
       label: 'Label',
       caption: 'Caption',
       icon: <InfoIcon />,
-      variant: 'expanded',
       value: 'value-2',
       children: (
         <>
@@ -133,7 +133,6 @@ type OptionCardProps = Omit<
       label: 'Label',
       caption: 'Caption',
       icon: <InfoIcon />,
-      variant: 'expanded',
       value: 'value-3',
       children: (
         <>
@@ -144,6 +143,7 @@ type OptionCardProps = Omit<
       ),
     },
   ]}
+  variant='expanded'
 />
 ```
 
@@ -199,6 +199,118 @@ type OptionCardProps = Omit<
       caption: 'Caption',
       icon: <InfoIcon />,
       value: 'value-3',
+    },
+  ]}
+/>
+```
+
+## Hide Control
+
+```tsx
+<OptionCard
+  defaultValue='value-2'
+  items={[
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-1',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-2',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-3',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-4',
+    },
+  ]}
+  hideControl
+/>
+```
+
+## Custom Item Width
+
+```tsx
+<OptionCard
+  defaultValue='value-2'
+  items={[
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-1',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-2',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-3',
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <InfoIcon />,
+      value: 'value-4',
+    },
+  ]}
+  itemWidth='8.875rem'
+/>
+```
+
+## Custom Colors
+
+```tsx
+<OptionCard
+  defaultValue='value-2'
+  items={[
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <CheckCircleIcon />,
+      value: 'value-1',
+      selectedColor: getThemedColor('success', 500),
+      selectedBackgroundColor: getThemedColor('success', 100),
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <IndeterminateIcon />,
+      value: 'value-2',
+      selectedColor: getThemedColor('warning', 500),
+      selectedBackgroundColor: getThemedColor('warning', 100),
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <DisallowedIcon />,
+      value: 'value-3',
+      selectedColor: getThemedColor('error', 500),
+      selectedBackgroundColor: getThemedColor('error', 100),
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <NotApplicableIcon />,
+      value: 'value-4',
+      selectedColor: getThemedColor('neutral', 500),
+      selectedBackgroundColor: getThemedColor('neutral', 100),
     },
   ]}
 />
