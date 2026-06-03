@@ -200,6 +200,7 @@ export const TranslatedTooltips: Story = {
       underlineTooltip: 'Subrayado (S)',
       underlineIconText: 'S',
       strikethroughTooltip: 'Tachado',
+      strikethroughIconText: 'T',
       bulletListTooltip: 'Lista con vietas',
       orderedListTooltip: 'Lista numerada',
       linkTooltip: 'Enlace',
