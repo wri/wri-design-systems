@@ -78,7 +78,7 @@ type RichTextEditorProps = {
   - `Quote`
   - `Divider`
 - `alignment`: Icon-based alignment dropdown (left, center, right, justify).
-- `bold`: Supports localized icon text via `labels.boldIconText` (for example `B` or `N`).
+- `bold`, `italic`, `underline`: Support localized icon text via `labels.boldIconText`, `labels.italicIconText`, and `labels.underlineIconText` (for example `B`/`N`, `I`/`K`, `U`/`S`).
 - `link`: Opens an inline popover with URL and optional label inputs instead of browser `prompt`.
 
 ## Notes

@@ -75,13 +75,13 @@ export function createBooleanControl(config: BooleanControlConfig) {
       icon?: React.ReactNode
     },
   ) => {
-    const { editor } = useRichTextEditorContext()
+    const { editor, disabled: editorDisabled } = useRichTextEditorContext()
     if (!editor) return null
 
     const { label: customLabel, icon: customIcon, ...rest } = props
     const resolvedLabel = customLabel || label
 
-    const disabled = isDisabled ? isDisabled(editor) : false
+    const disabled = editorDisabled || (isDisabled ? isDisabled(editor) : false)
     const active = isActive ? isActive(editor) : false
 
     return (
@@ -104,13 +104,13 @@ export function createOptionControl(config: OptionControlConfig) {
   const { label, options, getValue, command, isDisabled } = config
 
   const OptionControl = ({ label: customLabel }: { label?: string } = {}) => {
-    const { editor } = useRichTextEditorContext()
+    const { editor, disabled: editorDisabled } = useRichTextEditorContext()
     if (!editor) return null
 
     const resolvedLabel = customLabel || label
 
     const value = getValue(editor)
-    const disabled = isDisabled ? isDisabled(editor) : false
+    const disabled = editorDisabled || (isDisabled ? isDisabled(editor) : false)
     const currentOption = options.find((option) => option.value === value)
 
     return (
@@ -120,8 +120,13 @@ export function createOptionControl(config: OptionControlConfig) {
         items={options.map((option) => ({
           label: option.label,
           value: option.value,
+          disabled,
         }))}
-        onSelect={(selectedValue) => command(editor, selectedValue)}
+        onSelect={(selectedValue) => {
+          if (!disabled) {
+            command(editor, selectedValue)
+          }
+        }}
         customTrigger={
           <Box
             css={{

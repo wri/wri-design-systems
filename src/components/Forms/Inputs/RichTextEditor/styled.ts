@@ -37,6 +37,7 @@ export const richTextEditorContainerStyles: SystemStyleObject = {
     '& a': {
       color: getThemedColor('primary', 700),
       textDecoration: 'underline',
+      cursor: 'pointer',
     },
     '& h1': {
       fontSize: getThemedFontSize(900),

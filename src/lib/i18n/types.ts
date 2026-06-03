@@ -486,7 +486,11 @@ export type RichTextEditorLabels = {
   /** Short text rendered inside the bold control icon button (for example: B, N). */
   boldIconText: string
   italicTooltip: string
+  /** Short text rendered inside the italic control icon button (for example: I, K). */
+  italicIconText: string
   underlineTooltip: string
+  /** Short text rendered inside the underline control icon button (for example: U, S). */
+  underlineIconText: string
   strikethroughTooltip: string
   bulletListTooltip: string
   orderedListTooltip: string

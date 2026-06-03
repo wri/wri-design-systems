@@ -43,7 +43,7 @@ export const Alignment = (
     alignJustifyLabel?: string
   },
 ) => {
-  const { editor } = useRichTextEditorContext()
+  const { editor, disabled } = useRichTextEditorContext()
   if (!editor) return null
 
   const {
@@ -87,9 +87,11 @@ export const Alignment = (
     <Menu
       label={label}
       hideArrow
-      items={options}
+      items={options.map((option) => ({ ...option, disabled }))}
       onSelect={(value) => {
-        editor.chain().focus().setTextAlign(value).run()
+        if (!disabled) {
+          editor.chain().focus().setTextAlign(value).run()
+        }
       }}
       customTrigger={
         <Box
@@ -101,6 +103,7 @@ export const Alignment = (
           <Button
             variant='secondary'
             size='small'
+            disabled={disabled}
             label=''
             aria-label={`${label}: ${currentOption?.label || label}`}
             leftIcon={

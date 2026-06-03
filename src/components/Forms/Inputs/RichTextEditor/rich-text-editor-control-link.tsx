@@ -29,7 +29,7 @@ export const Link = (
     invalidUrlMessage?: string
   },
 ) => {
-  const { editor } = useRichTextEditorContext()
+  const { editor, disabled } = useRichTextEditorContext()
   const [open, setOpen] = React.useState(false)
   const [urlValue, setUrlValue] = React.useState('')
   const [linkLabelValue, setLinkLabelValue] = React.useState('')
@@ -40,6 +40,12 @@ export const Link = (
     empty: boolean
     selectedText: string
   } | null>(null)
+
+  React.useEffect(() => {
+    if (disabled) {
+      setOpen(false)
+    }
+  }, [disabled])
 
   if (!editor) return null
 
@@ -120,6 +126,11 @@ export const Link = (
     <ChakraPopover.Root
       open={open}
       onOpenChange={({ open: isOpen }) => {
+        if (disabled) {
+          setOpen(false)
+          return
+        }
+
         setOpen(isOpen)
         if (isOpen) {
           syncFromEditorState()
@@ -138,11 +149,16 @@ export const Link = (
               }
               aria-label={label}
               aria-pressed={active || open}
+              disabled={disabled}
               onMouseDown={(event) => {
                 // Keep editor selection while opening the popover.
                 event.preventDefault()
               }}
-              onClick={() => setOpen((currentOpen) => !currentOpen)}
+              onClick={() => {
+                if (!disabled) {
+                  setOpen((currentOpen) => !currentOpen)
+                }
+              }}
               {...rest}
             />
           </Tooltip>
@@ -169,6 +185,7 @@ export const Link = (
               <TextInput
                 aria-label={label}
                 placeholder={urlPlaceholder}
+                disabled={disabled}
                 noMarginBottom
                 value={urlValue}
                 onChange={(event) => {
@@ -182,6 +199,7 @@ export const Link = (
               <TextInput
                 aria-label={labelInputAriaLabel}
                 placeholder={labelPlaceholder}
+                disabled={disabled}
                 noMarginBottom
                 value={linkLabelValue}
                 onChange={(event) => {
@@ -211,6 +229,7 @@ export const Link = (
                     variant='borderless'
                     size='small'
                     label={removeLabel}
+                    disabled={disabled}
                     onMouseDown={(event) => event.preventDefault()}
                     onClick={removeLink}
                   />
@@ -219,6 +238,7 @@ export const Link = (
                   variant='secondary'
                   size='small'
                   label={applyLabel}
+                  disabled={disabled}
                   onMouseDown={(event) => event.preventDefault()}
                   onClick={applyLink}
                 />
