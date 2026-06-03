@@ -6,7 +6,7 @@ description: Guidelines for writing PR description. Covers required content, for
 When writing a PR description:
 
 1. Run `git diff main...HEAD` to see all changes on this branch
-2. Write a description following this format:
+2. Write a description following this format, in markdown:
 
 ## What
 

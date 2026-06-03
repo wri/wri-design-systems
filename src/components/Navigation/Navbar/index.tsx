@@ -197,7 +197,8 @@ const Navbar = ({
             <button
               type='button'
               onClick={() => setIsOpen(!isOpen)}
-              aria-label={l.openMenuLabel}
+              aria-label={isOpen ? l.closeMenuLabel : l.openMenuLabel}
+              aria-expanded={isOpen}
               css={navbarMenuActionStyles(theme)}
             >
               {isOpen ? l.closeLabel : l.menuLabel}

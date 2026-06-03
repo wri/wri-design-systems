@@ -70,6 +70,19 @@ Optional: run it against a specific path:
 ds setup-ai /path/to/your/project
 ```
 
+### Available Skills
+
+Copy the `SKILL.md` file you want into the matching skills folder in your own project:
+
+- Skills repo path: `agents/skills/<skill-name>/SKILL.md`
+- Copy the folder into the agent-specific skills directory your project uses.
+
+| Skill | What it does |
+| --- | --- |
+| [`a11y-checker`](agents/skills/a11y-checker/SKILL.md) | Reviews components, stories, and docs for accessibility issues and suggests or applies fixes. |
+| [`ds-ui-creator`](agents/skills/ds-ui-creator/SKILL.md) | Guides UI creation with the WRI Design System first, Chakra UI second, and custom code last. |
+| [`pr-description`](agents/skills/pr-description/SKILL.md) | Generates a PR description from the branch diff in a consistent markdown format. |
+
 ### Create the Project Theme
 
 With this custom theme you can change the color scheme according to your Project Theme

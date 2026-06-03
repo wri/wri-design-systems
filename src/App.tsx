@@ -77,7 +77,7 @@ const App = () => (
     <div style={{ display: 'flex' }}>
       <LayerSidebarDemo />
 
-      <div className='ds-app-container'>
+      <main className='ds-app-container'>
         <h1
           style={{
             fontSize: '30px',
@@ -187,7 +187,7 @@ const App = () => (
           <StepProgressIndicatorDemo />
           <ToastDemo />
         </div>
-      </div>
+      </main>
     </div>
     <FooterDemo />
     <Toast />
