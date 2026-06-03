@@ -20,7 +20,10 @@ export const RichTextEditorRoot = React.forwardRef<
   RichTextEditorRootProps
 >((props, ref) => {
   const { editor, children, css, disabled, ...rest } = props
-  const contextValue = React.useMemo(() => ({ editor }), [editor])
+  const contextValue = React.useMemo(
+    () => ({ editor, disabled: Boolean(disabled) }),
+    [editor, disabled],
+  )
 
   return (
     <RichTextEditorContext.Provider value={contextValue}>

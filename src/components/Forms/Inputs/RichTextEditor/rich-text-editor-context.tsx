@@ -5,6 +5,7 @@ import * as React from 'react'
 
 export interface RichTextEditorContextValue {
   editor: Editor | null
+  disabled: boolean
 }
 
 export const RichTextEditorContext =

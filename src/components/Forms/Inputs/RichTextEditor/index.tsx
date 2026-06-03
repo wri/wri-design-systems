@@ -61,7 +61,7 @@ const RichTextEditor = ({
           link: false,
         }),
         Link.configure({
-          openOnClick: false,
+          openOnClick: true,
           autolink: true,
           defaultProtocol: 'https',
         }),
@@ -147,10 +147,36 @@ const RichTextEditor = ({
             />
           ) : null}
           {visibleControls.includes('italic') ? (
-            <Control.Italic label={l.italicTooltip} />
+            <Control.Italic
+              label={l.italicTooltip}
+              icon={
+                <em
+                  css={{
+                    fontStyle: 'italic',
+                    fontSize: getThemedFontSize(600),
+                    lineHeight: 1,
+                  }}
+                >
+                  {l.italicIconText}
+                </em>
+              }
+            />
           ) : null}
           {visibleControls.includes('underline') ? (
-            <Control.Underline label={l.underlineTooltip} />
+            <Control.Underline
+              label={l.underlineTooltip}
+              icon={
+                <span
+                  css={{
+                    fontSize: getThemedFontSize(600),
+                    lineHeight: 1,
+                    textDecoration: 'underline',
+                  }}
+                >
+                  {l.underlineIconText}
+                </span>
+              }
+            />
           ) : null}
           {visibleControls.includes('strikethrough') ? (
             <Control.Strikethrough label={l.strikethroughTooltip} />
