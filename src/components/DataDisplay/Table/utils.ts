@@ -89,9 +89,17 @@ export const getCellProps = (
   }
 }
 
-export const keepSelectedRowsInCurrentData = (selected: any[], data: any[]) =>
-  selected.filter((row) => data.some((item) => item.id === row.id))
+export const keepSelectedRowsInCurrentData = (selected: any[], data: any[]) => {
+  const filtered = selected.filter((row) =>
+    data.some((item) => item.id === row.id),
+  )
 
+  const unchanged =
+    filtered.length === selected.length &&
+    filtered.every((row, index) => row.id === selected[index]?.id)
+
+  return unchanged ? selected : filtered
+}
 export const toggleSelectedRow = (
   current: any[],
   rowData: any,
