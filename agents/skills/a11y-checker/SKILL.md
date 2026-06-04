@@ -1,13 +1,13 @@
 ---
 name: a11y-checker
-description: Reviews UI code (HTML, JSX, TSX, Vue, etc.) for accessibility (a11y) compliance across both library development (WRI Design System) and generic web applications, providing concrete guidelines and code-level fixes.
+description: Reviews UI code (HTML, JSX, TSX, etc.) for accessibility (a11y) compliance across both library development (WRI Design System) and generic web applications, providing concrete guidelines and code-level fixes.
 ---
 
 When running the accessibility checker on any codebase, follow this multi-tiered guide to ensure compliance with universal WCAG standards as well as library-specific rules.
 
 ## 1. Universal Accessibility Standards (Any Web Project)
 
-Apply these rules to any kind of project (plain HTML, native React, Vue, Angular, or other UI libraries):
+Apply these rules to any kind of project (plain HTML, native React, or other UI libraries):
 
 ### Accessible Names & Interactive Elements
 

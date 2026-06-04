@@ -29,15 +29,6 @@ install_file() {
   INSTALLED+=("$label → $dest")
 }
 
-# ── Claude Code / Codex ────────────────────────────────────────
-# AGENTS.md is already the source file in this directory — no copy needed.
-# CLAUDE.md is a copy for Claude Code (reads both AGENTS.md and CLAUDE.md).
-install_file "$SCRIPT_DIR/CLAUDE.md" "Claude Code (CLAUDE.md)"
-
-# ── Gemini ─────────────────────────────────────────────────────
-install_file "$SCRIPT_DIR/GEMINI.md" "Gemini"
-install_file "$SCRIPT_DIR/.geminirules" "Gemini (rules)"
-
 
 # ── Cursor ─────────────────────────────────────────────────────
 if [ -d "$HOME/.cursor" ] || [ -d "/Applications/Cursor.app" ] || command -v cursor &>/dev/null; then
@@ -123,6 +114,20 @@ EOF
   else
     SKIPPED+=("MCP .cursor/mcp.json (already exists — skipped to avoid overwrite)")
   fi
+fi
+
+# ── Skills ─────────────────────────────────────────────────────
+SKILL_SRC="$SCRIPT_DIR/skills/ds-ui-creator"
+if [ -d "$SKILL_SRC" ]; then
+  mkdir -p "$SCRIPT_DIR/.gemini/skills/ds-ui-creator"
+  cp -R "$SKILL_SRC/" "$SCRIPT_DIR/.gemini/skills/ds-ui-creator/"
+  INSTALLED+=("Gemini Skill: ds-ui-creator → .gemini/skills/ds-ui-creator")
+
+  mkdir -p "$SCRIPT_DIR/.claude/skills/ds-ui-creator"
+  cp -R "$SKILL_SRC/" "$SCRIPT_DIR/.claude/skills/ds-ui-creator/"
+  INSTALLED+=("Claude Skill: ds-ui-creator → .claude/skills/ds-ui-creator")
+else
+  SKIPPED+=("Skill ds-ui-creator (source not found)")
 fi
 
 # ── Summary ────────────────────────────────────────────────────
