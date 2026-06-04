@@ -69,6 +69,7 @@ import ToastDemo from './components/Status/Toast/ToastDemo'
 import { Toast } from './components'
 import DemoWrapper from './components/UI/DemoWrapper'
 import RichTextEditorDemo from './components/Forms/Inputs/RichTextEditor/RichTextEditorDemo'
+import MobileSearchDemo from './components/Navigation/MobileSearch/MobileSearchDemo'
 
 const App = () => (
   <div className='App'>
@@ -124,6 +125,7 @@ const App = () => (
           <FormContainerDemo />
           <TagDemo />
           <SearchDemo />
+          <MobileSearchDemo />
 
           <BaseMapDemo />
           <MapMarkerDemo />

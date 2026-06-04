@@ -166,6 +166,20 @@ export type SearchLabels = {
   filterAriaLabel: string
 }
 
+/** Labels for MobileSearch internal UI strings. */
+export type MobileSearchLabels = {
+  /** aria-label on the search input. Must be string (aria-label). Default: "Search" */
+  inputAriaLabel: string
+  /** Label on the cancel button. Passed to Button.label (string). Default: "Cancel" */
+  cancelLabel: string
+  /** Heading shown above the list when no query is typed. Default: "Recent searches" */
+  recentSearchesTitle: string
+  /** Heading template shown when there are filtered results. (count) => string. Default: (n) => `Showing ${n} matching results` */
+  matchingResultsTitle: (count: number) => string
+  /** Label text inside the InlineMessage shown when no query. Default: "Label" */
+  infoLabel: string
+}
+
 // ---------------------------------------------------------------------------
 // Tier B — Medium Components
 // ---------------------------------------------------------------------------
@@ -533,6 +547,7 @@ export type DesignSystemLabels = {
   Button?: Partial<ButtonLabels>
   BaseMap?: Partial<BaseMapLabels>
   Search?: Partial<SearchLabels>
+  MobileSearch?: Partial<MobileSearchLabels>
   // Tier B
   RadioList?: Partial<RadioListLabels>
   Select?: Partial<SelectLabels>

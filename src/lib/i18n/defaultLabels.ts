@@ -11,6 +11,7 @@ import type {
   ButtonLabels,
   BaseMapLabels,
   SearchLabels,
+  MobileSearchLabels,
   RadioListLabels,
   SelectLabels,
   NavigationRailLabels,
@@ -41,6 +42,7 @@ type DefaultLabels = {
   Button: Required<ButtonLabels>
   BaseMap: Required<BaseMapLabels>
   Search: Required<SearchLabels>
+  MobileSearch: Required<MobileSearchLabels>
   RadioList: Required<RadioListLabels>
   Select: Required<SelectLabels>
   NavigationRail: Required<NavigationRailLabels>
@@ -123,6 +125,13 @@ export const defaultLabels: DefaultLabels = {
   Search: {
     filterPlaceholder: 'Filter',
     filterAriaLabel: 'Search filter',
+  },
+  MobileSearch: {
+    inputAriaLabel: 'Search',
+    cancelLabel: 'Cancel',
+    recentSearchesTitle: 'Recent searches',
+    matchingResultsTitle: (n) => `Showing ${n} matching results`,
+    infoLabel: 'Label',
   },
   // Tier B
   RadioList: {

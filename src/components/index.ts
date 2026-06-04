@@ -212,6 +212,12 @@ export type { SheetProps } from './Containers/Sheet/types'
 
 // -- Containers -- //
 
+export { default as MobileSearch } from './Navigation/MobileSearch'
+export type {
+  MobileSearchProps,
+  MobileSearchLabels,
+} from './Navigation/MobileSearch/types'
+
 // -- Navigation -- //
 
 export { default as Breadcrumb } from './Navigation/Breadcrumb'

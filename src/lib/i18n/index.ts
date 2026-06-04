@@ -15,6 +15,7 @@ export type {
   ButtonLabels,
   BaseMapLabels,
   SearchLabels,
+  MobileSearchLabels,
   // Tier B
   RadioListLabels,
   SelectLabels,
