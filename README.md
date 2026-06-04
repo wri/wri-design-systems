@@ -453,6 +453,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Pagination](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Pagination)
 - [Search](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Search)
 - [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
+- [Mobile Search](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/MobileSearch)
 
 ## Status
 
