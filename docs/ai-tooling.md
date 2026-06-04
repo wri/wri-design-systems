@@ -69,17 +69,17 @@ ds setup-ai /path/to/your/project
 
 ## 3. What Gets Installed Automatically
 
-Depending on the detected IDE, `setup-ai` writes some or all of these files:
+Depending on the detected IDE, `setup-ai` writes some or all of these files and directories:
 
-- `CLAUDE.md`
-- `GEMINI.md`
-- `.geminirules`
-- `.github/copilot-instructions.md`
-- `.cursor/rules`
-- `.windsurfrules`
-- `.clinerules`
-- `.vscode/mcp.json`
-- `.cursor/mcp.json`
+- `.cursor/rules` (Cursor agent rules)
+- `.github/copilot-instructions.md` (GitHub Copilot workspace instructions)
+- `.github/instructions/wri-ds.instructions.md` (detailed component instructions, if available)
+- `.windsurfrules` (Windsurf agent rules)
+- `.clinerules` (Cline agent rules)
+- `.vscode/mcp.json` (VS Code MCP config)
+- `.cursor/mcp.json` (Cursor MCP config)
+- `.gemini/skills/ds-ui-creator/` (copied `ds-ui-creator` skill for Gemini/Antigravity)
+- `.claude/skills/ds-ui-creator/` (copied `ds-ui-creator` skill for Claude Code)
 
 The setup also ensures the repo `.gitignore` contains the generated AI files and MCP configs.
 

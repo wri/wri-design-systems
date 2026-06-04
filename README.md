@@ -46,23 +46,21 @@ ds setup-ai
 
 This will:
 
-- Install / update AI instruction files (these may be overwritten):
-  - `AGENTS.md` content distributed as: `CLAUDE.md`, `GEMINI.md`, `.geminirules`
 - Configure IDE integrations when detected:
   - Cursor: writes `.cursor/rules` and creates `.cursor/mcp.json` (skips if it already exists)
-  - VS Code / GitHub Copilot: writes `.github/copilot-instructions.md` and creates `.vscode/mcp.json` (skips if it already exists)
+  - VS Code / GitHub Copilot: writes `.github/copilot-instructions.md`, `.github/instructions/wri-ds.instructions.md` (if available), and creates `.vscode/mcp.json` (skips if it already exists)
   - Windsurf: writes `.windsurfrules`
   - Cline: writes `.clinerules`
+- Automatically install helper skills:
+  - Copies the `ds-ui-creator` skill into `.gemini/skills/ds-ui-creator` and `.claude/skills/ds-ui-creator`
 - Ensure a `.gitignore` block is present (creates `.gitignore` if missing; appends once and never duplicates):
-  - `CLAUDE.md`
   - `.windsurfrules`
   - `.clinerules`
   - `.github/copilot-instructions.md`
+  - `.github/instructions/wri-ds.instructions.md`
   - `.cursor/rules`
   - `.cursor/mcp.json`
   - `.vscode/mcp.json`
-  - `GEMINI.md`
-  - `.geminirules`
 
 Optional: run it against a specific path:
 
@@ -516,12 +514,10 @@ If you are unsure, choose `minor` and leave a note in the PR for review.
 
 ## PR Description With AI Skill
 
-To get a solid PR description quickly, use the `pr-documentation` skill in your AI-enabled editor.
+To get a solid PR description quickly, use the [`pr-description`](agents/skills/pr-description/SKILL.md) skill in your AI-enabled editor.
 
 1. Ensure your branch is up to date and run:
    `git diff main...HEAD`
-2. Ask the assistant to use `pr-documentation` and summarize the current PR changes. Or ask "create a PR description for my changes"
+2. Ask the assistant to use `pr-description` and summarize the current PR changes. Or ask "create a PR description for my changes"
 3. Paste the generated result into the PR description using this structure:
    `## What`, `## Why`, `## Changes`.
-
-The `pr-documentation` skill is defined at [`.gemini/skills/pr-documentation/SKILL.md`](.gemini/skills/pr-documentation/SKILL.md) and [`.claude/skills/pr-documentation/SKILL.md`](.claude/skills/pr-documentation/SKILL.md) and is tailored for this repository workflow.
