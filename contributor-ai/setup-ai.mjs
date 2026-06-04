@@ -93,13 +93,17 @@ function installSkill(skillName) {
   const destGeminiDir = join(ROOT, '.gemini', 'skills', skillName)
   mkdirSync(destGeminiDir, { recursive: true })
   cpSync(srcDir, destGeminiDir, { recursive: true })
-  installed.push(`Gemini Skill: ${skillName} → ${relative(ROOT, destGeminiDir)}`)
+  installed.push(
+    `Gemini Skill: ${skillName} → ${relative(ROOT, destGeminiDir)}`,
+  )
 
   // Install for Claude
   const destClaudeDir = join(ROOT, '.claude', 'skills', skillName)
   mkdirSync(destClaudeDir, { recursive: true })
   cpSync(srcDir, destClaudeDir, { recursive: true })
-  installed.push(`Claude Skill: ${skillName} → ${relative(ROOT, destClaudeDir)}`)
+  installed.push(
+    `Claude Skill: ${skillName} → ${relative(ROOT, destClaudeDir)}`,
+  )
 }
 
 // ── MCP config objects ────────────────────────────────────────────
