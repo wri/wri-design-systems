@@ -9,6 +9,7 @@ import {
   copyFileSync,
   writeFileSync,
   readdirSync,
+  cpSync,
 } from 'fs'
 import { join, dirname, relative, resolve } from 'path'
 import { execSync } from 'child_process'
@@ -81,6 +82,26 @@ function writeJSON(dest, label, content) {
   installed.push(`${label} → ${relative(ROOT, dest)}`)
 }
 
+function installSkill(skillName) {
+  const srcDir = join(ROOT, 'agents', 'skills', skillName)
+  if (!existsSync(srcDir)) {
+    skipped.push(`Skill ${skillName} (source not found)`)
+    return
+  }
+
+  // Install for Gemini/Antigravity
+  const destGeminiDir = join(ROOT, '.gemini', 'skills', skillName)
+  mkdirSync(destGeminiDir, { recursive: true })
+  cpSync(srcDir, destGeminiDir, { recursive: true })
+  installed.push(`Gemini Skill: ${skillName} → ${relative(ROOT, destGeminiDir)}`)
+
+  // Install for Claude
+  const destClaudeDir = join(ROOT, '.claude', 'skills', skillName)
+  mkdirSync(destClaudeDir, { recursive: true })
+  cpSync(srcDir, destClaudeDir, { recursive: true })
+  installed.push(`Claude Skill: ${skillName} → ${relative(ROOT, destClaudeDir)}`)
+}
+
 // ── MCP config objects ────────────────────────────────────────────
 // Contributors get all three MCPs: Figma + Storybook + Chakra UI
 
@@ -123,15 +144,6 @@ const mcpVSCode = {
     },
   },
 }
-
-// ── IDE detection & file installation ────────────────────────────
-
-// Claude Code — reads CLAUDE.md (and AGENTS.md natively)
-installFile(join(ROOT, 'CLAUDE.md'), 'Claude Code')
-
-// Gemini
-installFile(join(ROOT, 'GEMINI.md'), 'Gemini')
-installFile(join(ROOT, '.geminirules'), 'Gemini (rules)')
 
 // Cursor
 const hasCursor =
@@ -197,6 +209,9 @@ if (hasCline) {
 } else {
   skipped.push('Cline (not detected)')
 }
+
+// Skills
+installSkill('ds-ui-creator')
 
 // ── Summary ───────────────────────────────────────────────────────
 
