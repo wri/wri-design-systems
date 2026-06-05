@@ -10,7 +10,8 @@ import {
 import { MultiActionButtonProps } from './types'
 
 export const menuContentStyles = css`
-  width: 12.5rem;
+  width: 100%;
+  max-width: 12.5rem;
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
   border-radius: ${getThemedRadius(300)};
   padding: ${getThemedSpacing(200)};
