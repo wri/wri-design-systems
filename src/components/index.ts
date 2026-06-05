@@ -264,6 +264,6 @@ export { default as StepProgressIndicator } from './Status/StepProgressIndicator
 export type { StepProgressIndicatorProps } from './Status/StepProgressIndicator/types'
 export { default as Toast } from './Status/Toast'
 export type { ToastComponentProps, ToastProps } from './Status/Toast/types'
-export { showToast } from './Status/Toast/utils'
+export { showToast, closeToast } from './Status/Toast/utils'
 
 // -- Status -- //

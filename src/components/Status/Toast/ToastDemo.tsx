@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { Button, showToast } from '../..'
+import { Button, showToast, closeToast } from '../..'
 import DemoWrapper from '../../UI/DemoWrapper'
 
 const ToastDemo = () => (
@@ -111,6 +111,26 @@ const ToastDemo = () => (
           })
         }
       />
+      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <Button
+          label='Show'
+          variant='primary'
+          onClick={() =>
+            showToast({
+              id: 'show-toast-id',
+              label: 'Validating Polygons...',
+              type: 'loading',
+              placement: 'bottom',
+              maxWidth: '15.625rem', // 250px
+            })
+          }
+        />
+        <Button
+          label='Close'
+          variant='secondary'
+          onClick={() => closeToast('show-toast-id')}
+        />
+      </div>
     </div>
   </DemoWrapper>
 )

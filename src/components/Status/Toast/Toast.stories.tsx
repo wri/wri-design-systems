@@ -5,7 +5,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import Button from '../../Forms/Actions/Button'
 import Toast from '.'
-import { showToast } from './utils'
+import { closeToast, showToast } from './utils'
 import { CheckIcon } from '../../icons'
 
 const meta = {
@@ -370,6 +370,52 @@ export const OnClose: Story = {
             closable: true,
             // eslint-disable-next-line no-alert
             onClose: () => alert('Closed'),
+          })
+        }
+      />
+    ),
+  ],
+}
+
+export const ManualClose: Story = {
+  decorators: [
+    () => (
+      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <Button
+          label='Show'
+          variant='primary'
+          onClick={() =>
+            showToast({
+              id: 'show-toast-id',
+              label: 'Label',
+              caption: 'Caption',
+              type: 'loading',
+              placement: 'bottom',
+            })
+          }
+        />
+        <Button
+          label='Close'
+          variant='secondary'
+          onClick={() => closeToast('show-toast-id')}
+        />
+      </div>
+    ),
+  ],
+}
+
+export const CustomWidth: Story = {
+  decorators: [
+    () => (
+      <Button
+        label='Show'
+        variant='primary'
+        onClick={() =>
+          showToast({
+            label: 'Validating Polygons...',
+            type: 'info',
+            placement: 'bottom',
+            maxWidth: '15.625rem', // 250px
           })
         }
       />

@@ -57,7 +57,14 @@ export const showToast = (props: ToastProps) => {
       icon: props.icon,
       closableLabel: props.closableLabel,
       onClose: props.onClose,
+      maxWidth: props.maxWidth,
     },
     ...props,
+  })
+}
+
+export const closeToast = (id?: string) => {
+  Object.values(toasters).forEach((toaster) => {
+    toaster.dismiss(id)
   })
 }
