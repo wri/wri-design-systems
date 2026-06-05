@@ -280,7 +280,7 @@ showToast({
 
 ```tsx
 showToast({
-  label: 'Validating Polygons...',
+  label: 'Label',
   type: 'info',
   placement: 'bottom',
   maxWidth: '15.625rem', // 250px
@@ -289,10 +289,27 @@ showToast({
 
 ### Manual Close
 
+#### Close all toasts at once
+
 ```tsx
+showToast({
+  label: 'Label',
+  type: 'loading',
+  placement: 'bottom',
+})
+
 closeToast()
 ```
 
+#### Close a specific toast
+
 ```tsx
-closeToast(toastId)
+showToast({
+  id: 'toast-id',
+  label: 'Label',
+  type: 'loading',
+  placement: 'bottom',
+})
+
+closeToast('toast-id')
 ```
