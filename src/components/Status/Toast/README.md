@@ -47,6 +47,7 @@ type ToastLabels = {
 }
 
 type ToastProps = {
+  id?: string // Optional ID for the toast, useful for programmatically closing it
   label: string
   caption?: React.ReactNode
   type: 'success' | 'warning' | 'error' | 'info' | 'loading'
@@ -66,6 +67,7 @@ type ToastProps = {
   closable?: boolean
   closableLabel?: string
   onClose?: () => void
+  maxWidth?: string
 }
 
 type ToastComponentProps = {
@@ -272,4 +274,25 @@ showToast({
   closable: true,
   onClose: () => console.log('Closed'),
 })
+```
+
+### Custom Width
+
+```tsx
+showToast({
+  label: 'Validating Polygons...',
+  type: 'info',
+  placement: 'bottom',
+  maxWidth: '15.625rem', // 250px
+})
+```
+
+### Manual Close
+
+```tsx
+closeToast()
+```
+
+```tsx
+closeToast(toastId)
 ```

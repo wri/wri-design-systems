@@ -3,6 +3,7 @@ import type { ToastLabels } from '../../../lib/i18n/types'
 export type { ToastLabels }
 
 export type ToastProps = {
+  id?: string // Optional ID for the toast, useful for programmatically closing it
   label: string
   caption?: React.ReactNode
   type: 'success' | 'warning' | 'error' | 'info' | 'loading'
@@ -22,6 +23,7 @@ export type ToastProps = {
   closable?: boolean
   closableLabel?: string
   onClose?: () => void
+  maxWidth?: string
 }
 
 export type ToastComponentProps = {

@@ -8,7 +8,7 @@ import {
   getThemedSpacing,
 } from '../../../lib/theme'
 
-export const toastContainerStyles = css`
+export const toastContainerStyles = (maxWidth?: string) => css`
   justify-content: space-between;
   align-items: center;
   gap: ${getThemedSpacing(200)};
@@ -18,6 +18,7 @@ export const toastContainerStyles = css`
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   box-shadow: 0rem 0.25rem 0.375rem -0.25rem #0000001a;
   box-shadow: 0rem 0.625rem 0.9375rem -0.1875rem #0000001a;
+  width: ${maxWidth ? `${maxWidth} !important` : '100%'};
 
   .ds-toast-icon-container svg {
     width: ${getThemedSpacing(500)};

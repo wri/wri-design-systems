@@ -34,8 +34,15 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
     <Portal key={toaster}>
       <ChakraToaster toaster={toasters[toaster]} insetInline={{ mdDown: '4' }}>
         {(toast) => (
-          <ChakraToast.Root css={toastContainerStyles} width={{ md: 'sm' }}>
-            <Stack flexDirection='row' className='ds-toast-icon-container'>
+          <ChakraToast.Root
+            css={toastContainerStyles(toast.meta?.maxWidth)}
+            width={{ md: 'sm' }}
+          >
+            <Stack
+              flexDirection='row'
+              className='ds-toast-icon-container'
+              alignItems={toast.description ? 'flex-start' : 'center'}
+            >
               {toast.type === 'info' ? (
                 toast.meta?.icon ? (
                   toast.meta.icon
