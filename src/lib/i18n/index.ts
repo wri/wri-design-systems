@@ -16,6 +16,8 @@ export type {
   BaseMapLabels,
   SearchLabels,
   MobileSearchLabels,
+  ModalLabels,
+  SheetLabels,
   // Tier B
   RadioListLabels,
   SelectLabels,

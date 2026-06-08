@@ -12,6 +12,8 @@ import type {
   BaseMapLabels,
   SearchLabels,
   MobileSearchLabels,
+  ModalLabels,
+  SheetLabels,
   RadioListLabels,
   SelectLabels,
   NavigationRailLabels,
@@ -43,6 +45,8 @@ type DefaultLabels = {
   BaseMap: Required<BaseMapLabels>
   Search: Required<SearchLabels>
   MobileSearch: Required<MobileSearchLabels>
+  Modal: Required<ModalLabels>
+  Sheet: Required<SheetLabels>
   RadioList: Required<RadioListLabels>
   Select: Required<SelectLabels>
   NavigationRail: Required<NavigationRailLabels>
@@ -132,6 +136,14 @@ export const defaultLabels: DefaultLabels = {
     recentSearchesTitle: 'Recent searches',
     matchingResultsTitle: (n) => `Showing ${n} matching results`,
     infoLabel: 'Label',
+  },
+  Modal: {
+    dialogAriaLabel: 'Modal dialog',
+  },
+  Sheet: {
+    expandSheetLabel: 'Expand sheet',
+    makeFullScreenLabel: 'Make full screen',
+    expandedSheetLabel: 'Expanded sheet',
   },
   // Tier B
   RadioList: {

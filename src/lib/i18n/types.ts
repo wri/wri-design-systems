@@ -180,6 +180,22 @@ export type MobileSearchLabels = {
   infoLabel: string
 }
 
+/** Labels for Modal internal UI strings. */
+export type ModalLabels = {
+  /** aria-label on the dialog content. Default: "Modal dialog" */
+  dialogAriaLabel: string
+}
+
+/** Labels for Sheet internal UI strings. */
+export type SheetLabels = {
+  /** aria-label for the grabber button when collapsed/minimized. Default: "Expand sheet" */
+  expandSheetLabel: string
+  /** aria-label for the grabber button at intermediate snap points. Default: "Make full screen" */
+  makeFullScreenLabel: string
+  /** aria-label for the grabber button when fully expanded. Default: "Expanded sheet" */
+  expandedSheetLabel: string
+}
+
 // ---------------------------------------------------------------------------
 // Tier B — Medium Components
 // ---------------------------------------------------------------------------
@@ -548,6 +564,8 @@ export type DesignSystemLabels = {
   BaseMap?: Partial<BaseMapLabels>
   Search?: Partial<SearchLabels>
   MobileSearch?: Partial<MobileSearchLabels>
+  Modal?: Partial<ModalLabels>
+  Sheet?: Partial<SheetLabels>
   // Tier B
   RadioList?: Partial<RadioListLabels>
   Select?: Partial<SelectLabels>

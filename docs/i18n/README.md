@@ -186,6 +186,7 @@ Each type follows one of four classification rules:
 | `LegendItem`            | `LegendItemLabels`            | `dragAndDropLabel`, `upLabel`, `downLabel`, `removeLabel`, `aboutDataLabel`                        |
 | `MapControlsToolbar`    | `MapControlsToolbarLabels`    | 15 keys (7 visible labels + 7 aria-labels + 1 toolbar aria-label)                                  |
 | `MapPopUp`              | `MapPopUpLabels`              | `closeLabel`                                                                                       |
+| `Modal`                 | `ModalLabels`                 | `dialogAriaLabel`                                                                                  |
 | `Navbar`                | `NavbarLabels`                | `openMenuLabel`, `closeLabel`, `menuLabel`, `goBackLabel`, `closeMenuLabel`, `closeButtonText`     |
 | `NavigationRail`        | `NavigationRailLabels`        | `showLabel`, `hideLabel`, `sidebarLabel`                                                           |
 | `OpacityControl`        | `OpacityControlLabels`        | `opacityButtonLabel`, `opacityHeading`, `opacityAriaLabel`, `percentSuffix`                        |
@@ -194,6 +195,7 @@ Each type follows one of four classification rules:
 | `QualitativeAttribute`  | `QualitativeAttributeLabels`  | `hideLabel`, `showLabel`, `visibleText`, `hiddenText`, `linePrefix`, `currentlyTemplate`           |
 | `RadioList`             | `RadioListLabels`             | `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel`                             |
 | `Search`                | `SearchLabels`                | `filterPlaceholder`, `filterAriaLabel`                                                             |
+| `Sheet`                 | `SheetLabels`                 | `expandSheetLabel`, `makeFullScreenLabel`, `expandedSheetLabel`                                   |
 | `Select`                | `SelectLabels`                | `defaultAriaLabel`, `requiredSuffix`, `disabledSuffix`                                             |
 | `StepProgressIndicator` | `StepProgressIndicatorLabels` | `currentStepLabel`                                                                                 |
 | `Table`                 | `TableLabels`                 | `ascendingLabel`, `descendingLabel`                                                                |
