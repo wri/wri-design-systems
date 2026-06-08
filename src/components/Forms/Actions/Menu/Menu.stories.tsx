@@ -226,3 +226,39 @@ export const CustomTrigger: Story = {
     customTrigger: <Button label='Open Menu' variant='secondary' />,
   },
 }
+
+export const CustomWidth: Story = {
+  args: {
+    label: 'Open Menu',
+    menuWidth: '20rem',
+    items: [
+      {
+        label: 'Label',
+        value: 'label-7-1',
+      },
+      {
+        label: 'Label',
+        value: 'value-7-2',
+      },
+      {
+        label: 'Label',
+        value: 'value-5-2',
+        menuWidth: 'content',
+        submenu: [
+          {
+            label: 'Label',
+            caption: 'Caption',
+            startIcon: <PlaceholderIcon />,
+            value: 'value-3-2',
+          },
+          {
+            label: 'Label',
+            caption: 'Caption',
+            startIcon: <PlaceholderIcon />,
+            value: 'value-3-3',
+          },
+        ],
+      },
+    ],
+  },
+}

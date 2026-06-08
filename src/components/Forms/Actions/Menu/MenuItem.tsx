@@ -13,11 +13,9 @@ import {
 
 const MenuItem = ({
   item,
-  isLast,
   isChecked = false,
 }: {
   item: MenuItemProps
-  isLast: boolean
   isChecked?: boolean
 }) => (
   <ChakraMenu.Item
