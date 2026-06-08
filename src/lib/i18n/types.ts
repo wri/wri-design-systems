@@ -184,6 +184,12 @@ export type MobileSearchLabels = {
   infoLabel: string
 }
 
+/** Labels for Switch internal UI strings. */
+export type SwitchLabels = {
+  /** Fallback aria-label when no aria-label prop is provided. Default: (name) => name */
+  defaultAriaLabel: (name: string) => string
+}
+
 /** Labels for Menu internal UI strings. */
 export type MenuLabels = {
   /** Fallback aria-label for the menu content when no trigger label is provided. Default: "Menu" */
@@ -578,6 +584,7 @@ export type DesignSystemLabels = {
   BaseMap?: Partial<BaseMapLabels>
   Search?: Partial<SearchLabels>
   MobileSearch?: Partial<MobileSearchLabels>
+  Switch?: Partial<SwitchLabels>
   Menu?: Partial<MenuLabels>
   Modal?: Partial<ModalLabels>
   Sheet?: Partial<SheetLabels>

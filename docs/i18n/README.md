@@ -199,6 +199,7 @@ Each type follows one of four classification rules:
 | `Sheet`                 | `SheetLabels`                 | `expandSheetLabel`, `makeFullScreenLabel`, `expandedSheetLabel`                                    |
 | `Select`                | `SelectLabels`                | `defaultAriaLabel`, `requiredSuffix`, `disabledSuffix`                                             |
 | `StepProgressIndicator` | `StepProgressIndicatorLabels` | `currentStepLabel`                                                                                 |
+| `Switch`                | `SwitchLabels`                | `defaultAriaLabel`                                                                                 |
 | `Table`                 | `TableLabels`                 | `ascendingLabel`, `descendingLabel`, `selectAllRowsLabel`, `selectRowLabel`                        |
 | `Textarea`              | `TextareaLabels`              | 9 keys (character count messages + required/optional indicators)                                   |
 | `TextInput`             | `TextInputLabels`             | `requiredSymbolLabel`, `optionalSuffix`                                                            |

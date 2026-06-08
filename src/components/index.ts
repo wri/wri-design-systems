@@ -30,6 +30,7 @@ export type {
   ButtonLabels,
   BaseMapLabels,
   SearchLabels,
+  SwitchLabels,
   MenuLabels,
   ModalLabels,
   SheetLabels,

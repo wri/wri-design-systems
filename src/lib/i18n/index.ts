@@ -16,6 +16,7 @@ export type {
   BaseMapLabels,
   SearchLabels,
   MobileSearchLabels,
+  SwitchLabels,
   MenuLabels,
   ModalLabels,
   SheetLabels,
