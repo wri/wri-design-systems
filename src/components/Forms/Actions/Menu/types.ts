@@ -10,6 +10,7 @@ export type MenuItemProps = {
   submenu?: MenuItemProps[]
   onClick?: () => void
   link?: string
+  menuWidth?: string | 'content'
 }
 
 export type MenuProps = {
@@ -29,4 +30,5 @@ export type MenuProps = {
   selectionMode?: 'multiple' | 'radio'
   /** Values that are checked by default on first render. */
   defaultSelectedValues?: string[]
+  menuWidth?: string | 'content'
 }

@@ -65,8 +65,8 @@ export const menuArrowStyles = css`
   }
 `
 
-export const menuContentStyles = css`
-  width: 14rem;
+export const menuContentStyles = (width: string | 'content' = '14rem') => css`
+  width: ${width === 'content' ? 'max-content' : width};
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
   box-shadow: 0 0.25rem 0.375rem -0.25rem #0000001a;
   box-shadow: 0 0.625rem 0.9375rem -0.1875rem #0000001a;

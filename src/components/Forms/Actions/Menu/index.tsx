@@ -26,6 +26,7 @@ const Menu = ({
   customTrigger,
   selectionMode,
   defaultSelectedValues = [],
+  menuWidth = '14rem',
 }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedValues, setSelectedValues] = useState<Set<string>>(
@@ -86,7 +87,7 @@ const Menu = ({
       <Portal>
         <ChakraMenu.Positioner>
           <ChakraMenu.Content
-            css={menuContentStyles}
+            css={menuContentStyles(menuWidth)}
             role='menu'
             aria-label={label || 'Menu'}
           >
@@ -117,7 +118,7 @@ const Menu = ({
                     <Portal>
                       <ChakraMenu.Positioner>
                         <ChakraMenu.Content
-                          css={menuContentStyles}
+                          css={menuContentStyles(item.menuWidth)}
                           role='menu'
                           aria-label={`${item.label} submenu`}
                         >
@@ -125,9 +126,6 @@ const Menu = ({
                             <MenuItem
                               key={submenuItem.value}
                               item={submenuItem}
-                              isLast={
-                                submenuIdx === (item.submenu?.length || 0) - 1
-                              }
                             />
                           ))}
                         </ChakraMenu.Content>
@@ -141,7 +139,6 @@ const Menu = ({
                 <MenuItem
                   key={`${item.value}-${idx}`}
                   item={item}
-                  isLast={idx === items.length - 1}
                   isChecked={
                     !!selectionMode &&
                     selectedValues.has(item.value || item.label || '')
@@ -166,7 +163,6 @@ const Menu = ({
                     <MenuItem
                       key={groupItem.value}
                       item={groupItem}
-                      isLast
                       isChecked={
                         !!selectionMode &&
                         selectedValues.has(
