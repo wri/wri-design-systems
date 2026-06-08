@@ -140,13 +140,13 @@ export type AlertBannerLabels = {
 
 /** Labels for Badge internal UI strings. */
 export type BadgeLabels = {
-  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread message` */
+  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread ${count === 1 ? 'message' : 'messages'}` */
   unreadMessagesLabel: (count: number) => string
 }
 
 /** Labels for Avatar internal UI strings. */
 export type AvatarLabels = {
-  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread message` */
+  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread ${count === 1 ? 'message' : 'messages'}` */
   unreadMessagesLabel: (count: number) => string
 }
 

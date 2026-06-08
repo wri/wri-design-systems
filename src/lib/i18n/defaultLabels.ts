@@ -141,10 +141,12 @@ export const defaultLabels: DefaultLabels = {
     closeAlertLabel: 'Close alert',
   },
   Badge: {
-    unreadMessagesLabel: (count) => `${count} unread message`,
+    unreadMessagesLabel: (count) =>
+      `${count} unread ${count === 1 ? 'message' : 'messages'}`,
   },
   Avatar: {
-    unreadMessagesLabel: (count) => `${count} unread message`,
+    unreadMessagesLabel: (count) =>
+      `${count} unread ${count === 1 ? 'message' : 'messages'}`,
   },
   ProgressBar: {
     progressAriaLabel: (progress) => `Progress: ${progress}%`,

@@ -20,7 +20,7 @@ import { Avatar } from '@worldresources/wri-design-systems'
 
 ```ts
 type AvatarLabels = {
-  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread message` */
+  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread ${count === 1 ? 'message' : 'messages'}` */
   unreadMessagesLabel: (count: number) => string
 }
 

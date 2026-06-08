@@ -83,7 +83,7 @@ const LayerItem = ({
         >
           <Button
             variant='secondary'
-            label={infoButtonLabel || l.aboutDataLabel}
+            label={infoButtonLabel ?? l.aboutDataLabel}
             rightIcon={<InfoIcon />}
             size='small'
             onClick={onInfoClick}
