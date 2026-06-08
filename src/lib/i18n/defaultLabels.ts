@@ -7,6 +7,7 @@ import type {
   ToastLabels,
   InlineMessageLabels,
   MapPopUpLabels,
+  MapMarkerLabels,
   AnalysisWidgetLabels,
   TableLabels,
   ButtonLabels,
@@ -29,6 +30,7 @@ import type {
   PaginationLabels,
   ItemCountLabels,
   LayerGroupLabels,
+  LayerItemLabels,
   QualitativeAttributeLabels,
   MapControlsToolbarLabels,
   StepProgressIndicatorLabels,
@@ -44,6 +46,7 @@ type DefaultLabels = {
   Toast: Required<ToastLabels>
   InlineMessage: Required<InlineMessageLabels>
   MapPopUp: Required<MapPopUpLabels>
+  MapMarker: Required<MapMarkerLabels>
   AnalysisWidget: Required<AnalysisWidgetLabels>
   Table: Required<TableLabels>
   Button: Required<ButtonLabels>
@@ -66,6 +69,7 @@ type DefaultLabels = {
   Pagination: Required<PaginationLabels>
   ItemCount: Required<ItemCountLabels>
   LayerGroup: Required<LayerGroupLabels>
+  LayerItem: Required<LayerItemLabels>
   QualitativeAttribute: Required<QualitativeAttributeLabels>
   MapControlsToolbar: Required<MapControlsToolbarLabels>
   StepProgressIndicator: Required<StepProgressIndicatorLabels>
@@ -127,7 +131,13 @@ export const defaultLabels: DefaultLabels = {
     roleDescription: 'Note',
   },
   MapPopUp: {
+    dialogAriaLabel: 'Map popup dialog',
     closeLabel: 'Close',
+  },
+  MapMarker: {
+    clusterAriaLabel: (count) => `Cluster of ${count} locations`,
+    pinAriaLabel: 'Map pin location',
+    pointAriaLabel: 'Map point',
   },
   AnalysisWidget: {
     toggleSectionLabel: 'Toggle section',
@@ -136,9 +146,11 @@ export const defaultLabels: DefaultLabels = {
     ascendingLabel: 'Ascending',
     descendingLabel: 'Descending',
     selectAllRowsLabel: 'Select all rows',
-    selectRowLabel: (name?: string, id?: string) => {
-      const key = name || id
-      return key ? `Select row ${key}` : 'Select row'
+    selectRowLabel: (name?: string, id?: string | number) => {
+      const key = name ?? id
+      return key !== undefined && key !== null && `${key}` !== ''
+        ? `Select row ${key}`
+        : 'Select row'
     },
   },
   Button: {
@@ -249,6 +261,9 @@ export const defaultLabels: DefaultLabels = {
     activeTagLabel: (count) => `${count} Active`,
     groupAriaLabel: (label, activeCount, caption) =>
       `${label}, ${activeCount} Active layers on the map${caption ? `, ${caption}` : ''}`,
+  },
+  LayerItem: {
+    aboutDataLabel: 'About data',
   },
   QualitativeAttribute: {
     hideLabel: 'Hide',

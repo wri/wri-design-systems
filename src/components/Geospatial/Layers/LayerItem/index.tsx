@@ -14,19 +14,22 @@ import {
   switchContentStyles,
 } from './styled'
 import { InfoIcon } from '../../../icons'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const LayerItem = ({
   name,
   label,
   caption,
   showInfoButton = true,
-  infoButtonLabel = 'About data',
+  infoButtonLabel,
   variant = 'switch',
   disabled,
   onInfoClick,
   isDefaultSelected = false,
   onChange,
+  labels,
 }: LayerItemProps) => {
+  const l = useLabels('LayerItem', labels)
   const isSwitch = variant === 'switch'
 
   return (
@@ -80,7 +83,7 @@ const LayerItem = ({
         >
           <Button
             variant='secondary'
-            label={infoButtonLabel}
+            label={infoButtonLabel || l.aboutDataLabel}
             rightIcon={<InfoIcon />}
             size='small'
             onClick={onInfoClick}

@@ -140,8 +140,20 @@ export type InlineMessageLabels = {
 
 /** Labels for MapPopUp internal UI strings. */
 export type MapPopUpLabels = {
+  /** aria-label on the popup dialog container. Default: "Map popup dialog" */
+  dialogAriaLabel: string
   /** aria-label on the close button. Default: "Close" */
   closeLabel: string
+}
+
+/** Labels for MapMarker internal UI strings. */
+export type MapMarkerLabels = {
+  /** aria-label builder for cluster markers when count is provided. Default: (count) => `Cluster of ${count} locations` */
+  clusterAriaLabel: (count: number) => string
+  /** aria-label for simple pin marker variant. Default: "Map pin location" */
+  pinAriaLabel: string
+  /** fallback aria-label for non-pin markers. Default: "Map point" */
+  pointAriaLabel: string
 }
 
 /** Labels for AnalysisWidget internal UI strings. */
@@ -462,6 +474,12 @@ export type LayerGroupLabels = {
   ) => string
 }
 
+/** Labels for LayerItem internal UI strings. */
+export type LayerItemLabels = {
+  /** Default label on the optional info button. Default: "About data" */
+  aboutDataLabel: string
+}
+
 /** Labels for QualitativeAttribute internal UI strings. */
 export type QualitativeAttributeLabels = {
   /**
@@ -601,6 +619,7 @@ export type DesignSystemLabels = {
   Toast?: Partial<ToastLabels>
   InlineMessage?: Partial<InlineMessageLabels>
   MapPopUp?: Partial<MapPopUpLabels>
+  MapMarker?: Partial<MapMarkerLabels>
   AnalysisWidget?: Partial<AnalysisWidgetLabels>
   Table?: Partial<TableLabels>
   Button?: Partial<ButtonLabels>
@@ -625,6 +644,7 @@ export type DesignSystemLabels = {
   Pagination?: Partial<PaginationLabels>
   ItemCount?: Partial<ItemCountLabels>
   LayerGroup?: Partial<LayerGroupLabels>
+  LayerItem?: Partial<LayerItemLabels>
   QualitativeAttribute?: Partial<QualitativeAttributeLabels>
   MapControlsToolbar?: Partial<MapControlsToolbarLabels>
   StepProgressIndicator?: Partial<StepProgressIndicatorLabels>

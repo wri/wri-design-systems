@@ -123,7 +123,9 @@ const Menu = ({
                         <ChakraMenu.Content
                           css={menuContentStyles(item.menuWidth)}
                           role='menu'
-                          aria-label={l.submenuAriaLabel(item.label || '')}
+                          aria-label={l.submenuAriaLabel(
+                            item.label || `${item.label} submenu`,
+                          )}
                         >
                           {item.submenu.map((submenuItem, submenuIdx) => (
                             <MenuItem

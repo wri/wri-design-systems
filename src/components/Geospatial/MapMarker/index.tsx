@@ -4,6 +4,7 @@
 import { forwardRef } from 'react'
 import { MapMarkerProps } from './types'
 import { mapMarkerContainerStyles, mapMarkerStyles } from './styles'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const MapMarker = forwardRef<HTMLButtonElement, MapMarkerProps>(
   (
@@ -16,9 +17,12 @@ const MapMarker = forwardRef<HTMLButtonElement, MapMarkerProps>(
       count,
       mode,
       variant = 'icon',
+      labels,
     },
     ref,
   ) => {
+    const l = useLabels('MapMarker', labels)
+
     const formatCount = (num: number): string => {
       if (num >= 100000000) {
         return '99M+'
@@ -40,14 +44,14 @@ const MapMarker = forwardRef<HTMLButtonElement, MapMarkerProps>(
       }
 
       if (count) {
-        return `Cluster of ${count} locations`
+        return l.clusterAriaLabel(count)
       }
 
       if (variant === 'simple-pin') {
-        return 'Map pin location'
+        return l.pinAriaLabel
       }
 
-      return 'Map point'
+      return l.pointAriaLabel
     }
 
     return (
