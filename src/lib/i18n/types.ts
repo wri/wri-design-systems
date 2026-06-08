@@ -100,6 +100,22 @@ export type TextInputLabels = {
   optionalSuffix: ReactNodeLabel
 }
 
+/** Labels for Combobox internal UI strings. */
+export type ComboboxLabels = {
+  /** Accessible label for the required (*) indicator. Must be string (aria-label). Default: "required" */
+  requiredSymbolLabel: string
+  /** Suffix appended after the field label when optional. Rendered as JSX child. Default: " (Optional)" */
+  optionalSuffix: ReactNodeLabel
+  /** Fallback aria-label on the combobox input when label/placeholder are not provided. Default: "Combobox input" */
+  defaultInputAriaLabel: string
+  /** aria-label on the clear selection trigger. Default: "Clear selection" */
+  clearSelectionLabel: string
+  /** aria-label on the open/close options trigger. Default: "Toggle options" */
+  toggleOptionsLabel: string
+  /** Visible text shown when no results match. Rendered as JSX child. Default: "No items found" */
+  noItemsFoundLabel: ReactNodeLabel
+}
+
 // ---------------------------------------------------------------------------
 // Tier A — Simple Components
 // ---------------------------------------------------------------------------
@@ -188,6 +204,12 @@ export type MobileSearchLabels = {
 export type SwitchLabels = {
   /** Fallback aria-label when no aria-label prop is provided. Default: (name) => name */
   defaultAriaLabel: (name: string) => string
+}
+
+/** Labels for Tag internal UI strings. */
+export type TagLabels = {
+  /** aria-label builder for the close trigger. Default: (label) => `${label} tag close button` */
+  closeButtonAriaLabel: (label: string) => string
 }
 
 /** Labels for Menu internal UI strings. */
@@ -573,6 +595,7 @@ export type DesignSystemLabels = {
   CheckboxList?: Partial<CheckboxListLabels>
   Password?: Partial<PasswordLabels>
   TextInput?: Partial<TextInputLabels>
+  Combobox?: Partial<ComboboxLabels>
   // Tier A
   CloseButton?: Partial<CloseButtonLabels>
   Toast?: Partial<ToastLabels>
@@ -585,6 +608,7 @@ export type DesignSystemLabels = {
   Search?: Partial<SearchLabels>
   MobileSearch?: Partial<MobileSearchLabels>
   Switch?: Partial<SwitchLabels>
+  Tag?: Partial<TagLabels>
   Menu?: Partial<MenuLabels>
   Modal?: Partial<ModalLabels>
   Sheet?: Partial<SheetLabels>

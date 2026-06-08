@@ -5,7 +5,7 @@ export type {
   CheckboxListLabels,
   PasswordLabels,
   TextInputLabels,
-  // Tier A
+  ComboboxLabels,
   CloseButtonLabels,
   ToastLabels,
   InlineMessageLabels,
@@ -17,10 +17,10 @@ export type {
   SearchLabels,
   MobileSearchLabels,
   SwitchLabels,
+  TagLabels,
   MenuLabels,
   ModalLabels,
   SheetLabels,
-  // Tier B
   RadioListLabels,
   SelectLabels,
   NavigationRailLabels,
@@ -28,7 +28,6 @@ export type {
   LegendItemLabels,
   ToolbarLabels,
   OpacityControlLabels,
-  // Tier C
   TextareaLabels,
   PaginationLabels,
   ItemCountLabels,

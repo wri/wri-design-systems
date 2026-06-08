@@ -2,6 +2,7 @@ import type {
   CheckboxListLabels,
   PasswordLabels,
   TextInputLabels,
+  ComboboxLabels,
   CloseButtonLabels,
   ToastLabels,
   InlineMessageLabels,
@@ -13,6 +14,7 @@ import type {
   SearchLabels,
   MobileSearchLabels,
   SwitchLabels,
+  TagLabels,
   MenuLabels,
   ModalLabels,
   SheetLabels,
@@ -37,6 +39,7 @@ type DefaultLabels = {
   CheckboxList: Required<CheckboxListLabels>
   Password: Required<PasswordLabels>
   TextInput: Required<TextInputLabels>
+  Combobox: Required<ComboboxLabels>
   CloseButton: Required<CloseButtonLabels>
   Toast: Required<ToastLabels>
   InlineMessage: Required<InlineMessageLabels>
@@ -48,6 +51,7 @@ type DefaultLabels = {
   Search: Required<SearchLabels>
   MobileSearch: Required<MobileSearchLabels>
   Switch: Required<SwitchLabels>
+  Tag: Required<TagLabels>
   Menu: Required<MenuLabels>
   Modal: Required<ModalLabels>
   Sheet: Required<SheetLabels>
@@ -104,6 +108,14 @@ export const defaultLabels: DefaultLabels = {
     requiredSymbolLabel: 'required',
     optionalSuffix: ' (Optional)',
   },
+  Combobox: {
+    requiredSymbolLabel: 'required',
+    optionalSuffix: ' (Optional)',
+    defaultInputAriaLabel: 'Combobox input',
+    clearSelectionLabel: 'Clear selection',
+    toggleOptionsLabel: 'Toggle options',
+    noItemsFoundLabel: 'No items found',
+  },
   // Tier A
   CloseButton: {
     closeLabel: 'Close',
@@ -148,6 +160,9 @@ export const defaultLabels: DefaultLabels = {
   },
   Switch: {
     defaultAriaLabel: (name) => name,
+  },
+  Tag: {
+    closeButtonAriaLabel: (label) => `${label} tag close button`,
   },
   Menu: {
     menuAriaLabel: 'Menu',
