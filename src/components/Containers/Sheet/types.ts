@@ -1,5 +1,7 @@
 import type { SheetLabels } from '../../../lib/i18n/types'
 
+export type { SheetLabels }
+
 export type SheetProps = {
   header?: React.ReactNode
   content: React.ReactNode

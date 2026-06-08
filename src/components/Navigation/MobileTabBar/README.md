@@ -42,6 +42,13 @@ import { MobileTabBar } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type MobileTabBarLabels = {
+  tabPositionStatus: (index: number, total: number) => string
+  selectedStatus: string
+  notSelectedStatus: string
+  disabledStatus: string
+}
+
 type MobileTabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
   label: string
   value: string
@@ -57,5 +64,6 @@ type MobileTabBarProps = {
   onTabClick?: (tabValue: string) => void
   hideLabels?: boolean
   activationMode?: 'automatic' | 'manual' // default: 'manual'
+  labels?: Partial<MobileTabBarLabels>
 }
 ```

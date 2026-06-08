@@ -14,6 +14,7 @@ import type {
   BaseMapLabels,
   SearchLabels,
   MobileSearchLabels,
+  MobileTabBarLabels,
   SwitchLabels,
   TagLabels,
   MenuLabels,
@@ -53,6 +54,7 @@ type DefaultLabels = {
   BaseMap: Required<BaseMapLabels>
   Search: Required<SearchLabels>
   MobileSearch: Required<MobileSearchLabels>
+  MobileTabBar: Required<MobileTabBarLabels>
   Switch: Required<SwitchLabels>
   Tag: Required<TagLabels>
   Menu: Required<MenuLabels>
@@ -169,6 +171,12 @@ export const defaultLabels: DefaultLabels = {
     recentSearchesTitle: 'Recent searches',
     matchingResultsTitle: (n) => `Showing ${n} matching results`,
     infoLabel: 'Label',
+  },
+  MobileTabBar: {
+    tabPositionStatus: (index, total) => `tab ${index} of ${total}`,
+    selectedStatus: 'selected',
+    notSelectedStatus: 'not selected',
+    disabledStatus: 'disabled',
   },
   Switch: {
     defaultAriaLabel: (name) => name,

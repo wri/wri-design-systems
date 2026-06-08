@@ -1,6 +1,8 @@
 import { SizeValue } from '../../../lib/sizing'
 import type { ModalLabels } from '../../../lib/i18n/types'
 
+export type { ModalLabels }
+
 export type ModalProps = {
   header: React.ReactNode
   content: React.ReactNode

@@ -124,7 +124,7 @@ const Menu = ({
                           css={menuContentStyles(item.menuWidth)}
                           role='menu'
                           aria-label={l.submenuAriaLabel(
-                            item.label || `${item.label} submenu`,
+                            item.label || l.menuAriaLabel,
                           )}
                         >
                           {item.submenu.map((submenuItem, submenuIdx) => (

@@ -171,7 +171,7 @@ export type TableLabels = {
   /** aria-label on the header checkbox that selects all rows. Default: "Select all rows" */
   selectAllRowsLabel: string
   /** aria-label template for each row checkbox. Default: (name, id) => (name || id ? `Select row ${name || id}` : 'Select row') */
-  selectRowLabel: (name?: string, id?: string) => string
+  selectRowLabel: (name?: string, id?: string | number) => string
 }
 
 /** Labels for Button internal UI strings. */
@@ -210,6 +210,18 @@ export type MobileSearchLabels = {
   matchingResultsTitle: (count: number) => string
   /** Label text inside the InlineMessage shown when no query. Default: "Label" */
   infoLabel: string
+}
+
+/** Labels for MobileTabBar internal UI strings. */
+export type MobileTabBarLabels = {
+  /** Builds screen-reader status text for tab position. Default: (index, total) => `tab ${index} of ${total}` */
+  tabPositionStatus: (index: number, total: number) => string
+  /** Screen-reader status when the tab is selected. Default: "selected" */
+  selectedStatus: string
+  /** Screen-reader status when the tab is not selected. Default: "not selected" */
+  notSelectedStatus: string
+  /** Screen-reader status appended when the tab is disabled. Default: "disabled" */
+  disabledStatus: string
 }
 
 /** Labels for Switch internal UI strings. */
@@ -626,6 +638,7 @@ export type DesignSystemLabels = {
   BaseMap?: Partial<BaseMapLabels>
   Search?: Partial<SearchLabels>
   MobileSearch?: Partial<MobileSearchLabels>
+  MobileTabBar?: Partial<MobileTabBarLabels>
   Switch?: Partial<SwitchLabels>
   Tag?: Partial<TagLabels>
   Menu?: Partial<MenuLabels>

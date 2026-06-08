@@ -190,6 +190,7 @@ Each type follows one of four classification rules:
 | `MapMarker`             | `MapMarkerLabels`             | `clusterAriaLabel`, `pinAriaLabel`, `pointAriaLabel`                                                                               |
 | `MapPopUp`              | `MapPopUpLabels`              | `dialogAriaLabel`, `closeLabel`                                                                                                    |
 | `Menu`                  | `MenuLabels`                  | `menuAriaLabel`, `submenuAriaLabel`, `shortcutPrefix`                                                                              |
+| `MobileTabBar`          | `MobileTabBarLabels`          | `tabPositionStatus`, `selectedStatus`, `notSelectedStatus`, `disabledStatus`                                                       |
 | `Modal`                 | `ModalLabels`                 | `dialogAriaLabel`                                                                                                                  |
 | `Navbar`                | `NavbarLabels`                | `openMenuLabel`, `closeLabel`, `menuLabel`, `goBackLabel`, `closeMenuLabel`, `closeButtonText`                                     |
 | `NavigationRail`        | `NavigationRailLabels`        | `showLabel`, `hideLabel`, `sidebarLabel`                                                                                           |

@@ -8,7 +8,7 @@ type CreateDefaultRowRendererParams = {
   selectable?: boolean
   isRowSelected: (rowData: any) => boolean
   onRowSelected: (rowData: any, checked: boolean) => void
-  getSelectRowLabel: (name?: string, id?: string) => string
+  getSelectRowLabel: (name?: string, id?: string | number) => string
 }
 
 export const createDefaultRowRenderer = ({

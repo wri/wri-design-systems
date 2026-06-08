@@ -167,7 +167,7 @@ const Table = ({
     selectable,
     isRowSelected,
     onRowSelected: handleRowSelected,
-    getSelectRowLabel: (name?: string, id?: string) =>
+    getSelectRowLabel: (name?: string, id?: string | number) =>
       l.selectRowLabel(name, id),
   })
 

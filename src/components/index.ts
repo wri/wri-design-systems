@@ -31,6 +31,7 @@ export type {
   ButtonLabels,
   BaseMapLabels,
   SearchLabels,
+  MobileTabBarLabels,
   SwitchLabels,
   TagLabels,
   MenuLabels,
