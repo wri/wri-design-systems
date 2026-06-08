@@ -6,9 +6,11 @@ import { Alert as ChakraAlert, CloseButton } from '@chakra-ui/react'
 import { CheckCircleIcon, WarningIcon, InfoIcon } from '../../icons'
 import { AlertProps } from './types'
 import { alertBannerStyles } from './styled'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
-  ({ title, children, icon, variant, onClose }, _ref) => {
+  ({ title, children, icon, variant, onClose, labels }, _ref) => {
+    const l = useLabels('AlertBanner', labels)
     const [visible, setVisible] = React.useState(true)
 
     const defaultIcon =
@@ -39,7 +41,7 @@ const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
         )}
 
         <CloseButton
-          aria-label='Close alert'
+          aria-label={l.closeAlertLabel}
           pos='absolute'
           insetEnd='2'
           _hover={{ bg: 'gray.200' }}

@@ -5,6 +5,10 @@ import type {
   ComboboxLabels,
   CloseButtonLabels,
   ToastLabels,
+  AlertBannerLabels,
+  BadgeLabels,
+  AvatarLabels,
+  ProgressBarLabels,
   InlineMessageLabels,
   MapPopUpLabels,
   MapMarkerLabels,
@@ -45,6 +49,10 @@ type DefaultLabels = {
   Combobox: Required<ComboboxLabels>
   CloseButton: Required<CloseButtonLabels>
   Toast: Required<ToastLabels>
+  AlertBanner: Required<AlertBannerLabels>
+  Badge: Required<BadgeLabels>
+  Avatar: Required<AvatarLabels>
+  ProgressBar: Required<ProgressBarLabels>
   InlineMessage: Required<InlineMessageLabels>
   MapPopUp: Required<MapPopUpLabels>
   MapMarker: Required<MapMarkerLabels>
@@ -129,6 +137,18 @@ export const defaultLabels: DefaultLabels = {
   Toast: {
     dismissLabel: 'Dismiss',
   },
+  AlertBanner: {
+    closeAlertLabel: 'Close alert',
+  },
+  Badge: {
+    unreadMessagesLabel: (count) => `${count} unread message`,
+  },
+  Avatar: {
+    unreadMessagesLabel: (count) => `${count} unread message`,
+  },
+  ProgressBar: {
+    progressAriaLabel: (progress) => `Progress: ${progress}%`,
+  },
   InlineMessage: {
     roleDescription: 'Note',
   },
@@ -149,7 +169,7 @@ export const defaultLabels: DefaultLabels = {
     descendingLabel: 'Descending',
     selectAllRowsLabel: 'Select all rows',
     selectRowLabel: (name?: string, id?: string | number) => {
-      const key = name ?? id
+      const key = name || id
       return key !== undefined && key !== null && `${key}` !== ''
         ? `Select row ${key}`
         : 'Select row'

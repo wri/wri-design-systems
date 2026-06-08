@@ -19,10 +19,17 @@ import { Badge } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type BadgeLabels = {
+  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread message` */
+  unreadMessagesLabel: (count: number) => string
+}
+
 type BadgeProps = {
   hasNotification?: boolean
   notificationCount?: number
   label?: string
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<BadgeLabels>
 }
 ```
 

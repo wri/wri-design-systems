@@ -19,7 +19,14 @@ import { ProgressBar } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type ProgressBarLabels = {
+  /** Builds aria-label text for progress value. Default: (progress) => `Progress: ${progress}%` */
+  progressAriaLabel: (progress: number) => string
+}
+
 type ProgressBarProps = {
   progress: number
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<ProgressBarLabels>
 }
 ```

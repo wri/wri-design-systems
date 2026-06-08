@@ -12,6 +12,7 @@ import {
   avatarNotificationContainerStyles,
   avatarFallbackStyles,
 } from './styled'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
   (
@@ -26,9 +27,11 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
       notificationCount,
       disabled = true,
       customBackgroundColor = '',
+      labels,
     },
     ref,
   ) => {
+    const l = useLabels('Avatar', labels)
     const handleClick = () => {
       if (!disabled) {
         onClick?.()
@@ -97,7 +100,7 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
         {notification.length > 0 ? (
           <div css={avatarNotificationContainerStyles(width)}>
             <div css={avatarCountContainerStyles(width)}>
-              <p aria-label={`${notificationCount} unread message`}>
+              <p aria-label={l.unreadMessagesLabel(notificationCount || 0)}>
                 {notification}
               </p>
             </div>

@@ -175,8 +175,11 @@ Each type follows one of four classification rules:
 
 | Component               | Label type                    | Keys                                                                                                                               |
 | ----------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `AlertBanner`           | `AlertBannerLabels`           | `closeAlertLabel`                                                                                                                  |
 | `AnalysisWidget`        | `AnalysisWidgetLabels`        | `toggleSectionLabel`                                                                                                               |
+| `Avatar`                | `AvatarLabels`                | `unreadMessagesLabel`                                                                                                              |
 | `BaseMap`               | `BaseMapLabels`               | `activeLabel`                                                                                                                      |
+| `Badge`                 | `BadgeLabels`                 | `unreadMessagesLabel`                                                                                                              |
 | `Button`                | `ButtonLabels`                | `loadingLabel`                                                                                                                     |
 | `CheckboxList`          | `CheckboxListLabels`          | `expandLabel`, `hideLabel`, `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel`                                 |
 | `CloseButton`           | `CloseButtonLabels`           | `closeLabel`                                                                                                                       |
@@ -197,6 +200,7 @@ Each type follows one of four classification rules:
 | `OpacityControl`        | `OpacityControlLabels`        | `opacityButtonLabel`, `opacityHeading`, `opacityAriaLabel`, `percentSuffix`                                                        |
 | `Pagination`            | `PaginationLabels`            | `previousLabel`, `nextLabel`, `previousPageLabel`, `nextPageLabel`, `paginationLabel`, `pageLabel`                                 |
 | `Password`              | `PasswordLabels`              | 17 keys (strength levels, validation rules, show/hide labels)                                                                      |
+| `ProgressBar`           | `ProgressBarLabels`           | `progressAriaLabel`                                                                                                                |
 | `QualitativeAttribute`  | `QualitativeAttributeLabels`  | `hideLabel`, `showLabel`, `visibleText`, `hiddenText`, `linePrefix`, `currentlyTemplate`                                           |
 | `RadioList`             | `RadioListLabels`             | `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel`                                                             |
 | `Search`                | `SearchLabels`                | `filterPlaceholder`, `filterAriaLabel`                                                                                             |
@@ -209,7 +213,7 @@ Each type follows one of four classification rules:
 | `Textarea`              | `TextareaLabels`              | 9 keys (character count messages + required/optional indicators)                                                                   |
 | `TextInput`             | `TextInputLabels`             | `requiredSymbolLabel`, `optionalSuffix`                                                                                            |
 | `Toast`                 | `ToastLabels`                 | `dismissLabel`                                                                                                                     |
-| `Toolbar`               | `ToolbarLabels`               | `collapseLabel`, `expandLabel`                                                                                                     |
+| `Toolbar`               | `ToolbarLabels`               | `collapseLabel`, `expandLabel`, `collapseAriaLabel`, `expandAriaLabel`                                                             |
 
 ---
 

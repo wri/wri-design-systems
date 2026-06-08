@@ -132,6 +132,30 @@ export type ToastLabels = {
   dismissLabel: string
 }
 
+/** Labels for AlertBanner internal UI strings. */
+export type AlertBannerLabels = {
+  /** aria-label on the close action button. Default: "Close alert" */
+  closeAlertLabel: string
+}
+
+/** Labels for Badge internal UI strings. */
+export type BadgeLabels = {
+  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread message` */
+  unreadMessagesLabel: (count: number) => string
+}
+
+/** Labels for Avatar internal UI strings. */
+export type AvatarLabels = {
+  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread message` */
+  unreadMessagesLabel: (count: number) => string
+}
+
+/** Labels for ProgressBar internal UI strings. */
+export type ProgressBarLabels = {
+  /** Builds aria-label text for progress value. Default: (progress) => `Progress: ${progress}%` */
+  progressAriaLabel: (progress: number) => string
+}
+
 /** Labels for InlineMessage internal UI strings. */
 export type InlineMessageLabels = {
   /** aria-roledescription on the root element. Default: "Note" */
@@ -629,6 +653,10 @@ export type DesignSystemLabels = {
   // Tier A
   CloseButton?: Partial<CloseButtonLabels>
   Toast?: Partial<ToastLabels>
+  AlertBanner?: Partial<AlertBannerLabels>
+  Badge?: Partial<BadgeLabels>
+  Avatar?: Partial<AvatarLabels>
+  ProgressBar?: Partial<ProgressBarLabels>
   InlineMessage?: Partial<InlineMessageLabels>
   MapPopUp?: Partial<MapPopUpLabels>
   MapMarker?: Partial<MapMarkerLabels>

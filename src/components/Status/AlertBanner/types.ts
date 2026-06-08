@@ -1,4 +1,7 @@
 import { Alert as ChakraAlert } from '@chakra-ui/react'
+import type { AlertBannerLabels } from '../../../lib/i18n/types'
+
+export type { AlertBannerLabels }
 
 export interface AlertProps
   extends Omit<ChakraAlert.RootProps, 'title' | 'variant'> {
@@ -12,4 +15,6 @@ export interface AlertProps
     | 'success'
     | 'warning'
     | 'error'
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<AlertBannerLabels>
 }
