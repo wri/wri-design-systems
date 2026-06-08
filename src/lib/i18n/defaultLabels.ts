@@ -120,7 +120,10 @@ export const defaultLabels: DefaultLabels = {
     ascendingLabel: 'Ascending',
     descendingLabel: 'Descending',
     selectAllRowsLabel: 'Select all rows',
-    selectRowLabel: (name, id) => `Select row ${name || id}`,
+    selectRowLabel: (name, id) => {
+      const key = name || id
+      return key ? `Select row ${key}` : 'Select row'
+    },
   },
   Button: {
     loadingLabel: 'Loading',
