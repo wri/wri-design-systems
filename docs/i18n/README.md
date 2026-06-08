@@ -186,6 +186,7 @@ Each type follows one of four classification rules:
 | `LegendItem`            | `LegendItemLabels`            | `dragAndDropLabel`, `upLabel`, `downLabel`, `removeLabel`, `aboutDataLabel`                        |
 | `MapControlsToolbar`    | `MapControlsToolbarLabels`    | 15 keys (7 visible labels + 7 aria-labels + 1 toolbar aria-label)                                  |
 | `MapPopUp`              | `MapPopUpLabels`              | `closeLabel`                                                                                       |
+| `Menu`                  | `MenuLabels`                  | `menuAriaLabel`, `submenuAriaLabel`, `shortcutPrefix`                                              |
 | `Modal`                 | `ModalLabels`                 | `dialogAriaLabel`                                                                                  |
 | `Navbar`                | `NavbarLabels`                | `openMenuLabel`, `closeLabel`, `menuLabel`, `goBackLabel`, `closeMenuLabel`, `closeButtonText`     |
 | `NavigationRail`        | `NavigationRailLabels`        | `showLabel`, `hideLabel`, `sidebarLabel`                                                           |

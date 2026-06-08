@@ -167,7 +167,8 @@ const Table = ({
     selectable,
     isRowSelected,
     onRowSelected: handleRowSelected,
-    getSelectRowLabel: (name: string, id: string) => l.selectRowLabel(name, id),
+    getSelectRowLabel: (name?: string, id?: string) =>
+      l.selectRowLabel(name, id),
   })
 
   const rowRenderer = renderRow || defaultRenderRow

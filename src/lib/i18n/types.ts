@@ -143,7 +143,7 @@ export type TableLabels = {
   /** aria-label on the header checkbox that selects all rows. Default: "Select all rows" */
   selectAllRowsLabel: string
   /** aria-label template for each row checkbox. Default: (name, id) => (name || id ? `Select row ${name || id}` : 'Select row') */
-  selectRowLabel: (name: string, id: string) => string
+  selectRowLabel: (name?: string, id?: string) => string
 }
 
 /** Labels for Button internal UI strings. */
@@ -182,6 +182,16 @@ export type MobileSearchLabels = {
   matchingResultsTitle: (count: number) => string
   /** Label text inside the InlineMessage shown when no query. Default: "Label" */
   infoLabel: string
+}
+
+/** Labels for Menu internal UI strings. */
+export type MenuLabels = {
+  /** Fallback aria-label for the menu content when no trigger label is provided. Default: "Menu" */
+  menuAriaLabel: string
+  /** Builds aria-label for submenu content. Default: (label) => `${label} submenu` */
+  submenuAriaLabel: (label: string) => string
+  /** Prefix used for command aria-label text. Default: "Shortcut" */
+  shortcutPrefix: string
 }
 
 /** Labels for Modal internal UI strings. */
@@ -568,6 +578,7 @@ export type DesignSystemLabels = {
   BaseMap?: Partial<BaseMapLabels>
   Search?: Partial<SearchLabels>
   MobileSearch?: Partial<MobileSearchLabels>
+  Menu?: Partial<MenuLabels>
   Modal?: Partial<ModalLabels>
   Sheet?: Partial<SheetLabels>
   // Tier B

@@ -16,6 +16,7 @@ export type {
   BaseMapLabels,
   SearchLabels,
   MobileSearchLabels,
+  MenuLabels,
   ModalLabels,
   SheetLabels,
   // Tier B

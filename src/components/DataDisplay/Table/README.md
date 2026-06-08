@@ -171,7 +171,7 @@ type TableLabels = {
   /** aria-label on the header checkbox that selects all rows. Default: "Select all rows" */
   selectAllRowsLabel: string
   /** aria-label template for each row checkbox. Default: (name, id) => (name || id ? `Select row ${name || id}` : 'Select row') */
-  selectRowLabel: (name: string, id: string) => string
+  selectRowLabel: (name?: string, id?: string) => string
 }
 
 type TableColumn = {

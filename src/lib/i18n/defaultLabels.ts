@@ -12,6 +12,7 @@ import type {
   BaseMapLabels,
   SearchLabels,
   MobileSearchLabels,
+  MenuLabels,
   ModalLabels,
   SheetLabels,
   RadioListLabels,
@@ -45,6 +46,7 @@ type DefaultLabels = {
   BaseMap: Required<BaseMapLabels>
   Search: Required<SearchLabels>
   MobileSearch: Required<MobileSearchLabels>
+  Menu: Required<MenuLabels>
   Modal: Required<ModalLabels>
   Sheet: Required<SheetLabels>
   RadioList: Required<RadioListLabels>
@@ -120,7 +122,7 @@ export const defaultLabels: DefaultLabels = {
     ascendingLabel: 'Ascending',
     descendingLabel: 'Descending',
     selectAllRowsLabel: 'Select all rows',
-    selectRowLabel: (name, id) => {
+    selectRowLabel: (name?: string, id?: string) => {
       const key = name || id
       return key ? `Select row ${key}` : 'Select row'
     },
@@ -141,6 +143,11 @@ export const defaultLabels: DefaultLabels = {
     recentSearchesTitle: 'Recent searches',
     matchingResultsTitle: (n) => `Showing ${n} matching results`,
     infoLabel: 'Label',
+  },
+  Menu: {
+    menuAriaLabel: 'Menu',
+    submenuAriaLabel: (label) => `${label} submenu`,
+    shortcutPrefix: 'Shortcut',
   },
   Modal: {
     dialogAriaLabel: 'Modal dialog',

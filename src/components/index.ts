@@ -30,6 +30,7 @@ export type {
   ButtonLabels,
   BaseMapLabels,
   SearchLabels,
+  MenuLabels,
   ModalLabels,
   SheetLabels,
   // Tier B
