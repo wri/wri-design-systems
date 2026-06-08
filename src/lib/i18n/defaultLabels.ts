@@ -119,6 +119,8 @@ export const defaultLabels: DefaultLabels = {
   Table: {
     ascendingLabel: 'Ascending',
     descendingLabel: 'Descending',
+    selectAllRowsLabel: 'Select all rows',
+    selectRowLabel: (name, id) => `Select row ${name || id}`,
   },
   Button: {
     loadingLabel: 'Loading',

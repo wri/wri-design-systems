@@ -140,6 +140,10 @@ export type TableLabels = {
   ascendingLabel: string
   /** aria-label on the descending sort icon button. Default: "Descending" */
   descendingLabel: string
+  /** aria-label on the header checkbox that selects all rows. Default: "Select all rows" */
+  selectAllRowsLabel: string
+  /** aria-label template for each row checkbox. Default: (name, id) => `Select row ${name || id}` */
+  selectRowLabel: (name: string, id: string) => string
 }
 
 /** Labels for Button internal UI strings. */

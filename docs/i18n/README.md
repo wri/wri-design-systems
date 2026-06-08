@@ -195,10 +195,10 @@ Each type follows one of four classification rules:
 | `QualitativeAttribute`  | `QualitativeAttributeLabels`  | `hideLabel`, `showLabel`, `visibleText`, `hiddenText`, `linePrefix`, `currentlyTemplate`           |
 | `RadioList`             | `RadioListLabels`             | `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel`                             |
 | `Search`                | `SearchLabels`                | `filterPlaceholder`, `filterAriaLabel`                                                             |
-| `Sheet`                 | `SheetLabels`                 | `expandSheetLabel`, `makeFullScreenLabel`, `expandedSheetLabel`                                   |
+| `Sheet`                 | `SheetLabels`                 | `expandSheetLabel`, `makeFullScreenLabel`, `expandedSheetLabel`                                    |
 | `Select`                | `SelectLabels`                | `defaultAriaLabel`, `requiredSuffix`, `disabledSuffix`                                             |
 | `StepProgressIndicator` | `StepProgressIndicatorLabels` | `currentStepLabel`                                                                                 |
-| `Table`                 | `TableLabels`                 | `ascendingLabel`, `descendingLabel`                                                                |
+| `Table`                 | `TableLabels`                 | `ascendingLabel`, `descendingLabel`, `selectAllRowsLabel`, `selectRowLabel`                        |
 | `Textarea`              | `TextareaLabels`              | 9 keys (character count messages + required/optional indicators)                                   |
 | `TextInput`             | `TextInputLabels`             | `requiredSymbolLabel`, `optionalSuffix`                                                            |
 | `Toast`                 | `ToastLabels`                 | `dismissLabel`                                                                                     |
