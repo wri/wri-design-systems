@@ -23,6 +23,7 @@ const Textarea = ({
   required,
   disabled,
   size = 'default',
+  showOptionalLabel = true,
   defaultValue = '',
   onChange,
   minLength,
@@ -110,7 +111,9 @@ const Textarea = ({
           >
             <Field.RequiredIndicator aria-label={l.requiredSymbolLabel} />
             {label}
-            {!required ? <span>{l.optionalSuffix}</span> : ''}
+            {!required && showOptionalLabel ? (
+              <span>{l.optionalSuffix}</span>
+            ) : null}
           </Field.Label>
         ) : null}
 

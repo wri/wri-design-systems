@@ -81,6 +81,14 @@ export const OptionalInput: Story = {
   },
 }
 
+export const OptionalInputNoOptionalLabel: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    showOptionalLabel: false,
+  },
+}
+
 export const SmallInput: Story = {
   args: {
     label: 'Label',

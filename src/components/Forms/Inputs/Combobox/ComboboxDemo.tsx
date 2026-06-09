@@ -26,6 +26,13 @@ const ComboboxDemo = () => (
     />
     <Combobox
       initialItems={items}
+      label='Label'
+      caption='Caption'
+      placeholder='placeholder'
+      showOptionalLabel={false}
+    />
+    <Combobox
+      initialItems={items}
       label='Multiple'
       caption='Caption'
       placeholder='placeholder'
