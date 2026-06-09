@@ -36,4 +36,24 @@ describe('Textarea — accessibility', () => {
 
     expect(await axe(container)).toHaveNoViolations()
   })
+
+  it('shows optional label by default for non-required fields', () => {
+    const { container } = render(
+      <Textarea label='Description' aria-label='Description' />,
+    )
+
+    expect(container.textContent).toContain('(Optional)')
+  })
+
+  it('hides optional label when showOptionalLabel is false', () => {
+    const { container } = render(
+      <Textarea
+        label='Description'
+        aria-label='Description'
+        showOptionalLabel={false}
+      />,
+    )
+
+    expect(container.textContent).not.toContain('(Optional)')
+  })
 })

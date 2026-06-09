@@ -14,6 +14,7 @@ export type TextareaProps = Omit<
   required?: boolean
   disabled?: boolean
   size?: 'small' | 'default'
+  showOptionalLabel?: boolean
   defaultValue?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   minLength?: number

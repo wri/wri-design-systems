@@ -28,6 +28,7 @@ const Combobox = ({
   errorMessage,
   size,
   disabled,
+  showOptionalLabel = true,
   placeholder,
   labels,
   noMarginBottom,
@@ -72,7 +73,9 @@ const Combobox = ({
           >
             <Field.RequiredIndicator aria-label={l.requiredSymbolLabel} />
             {label}
-            {!required ? <span>{l.optionalSuffix}</span> : ''}
+            {!required && showOptionalLabel ? (
+              <span>{l.optionalSuffix}</span>
+            ) : null}
           </Field.Label>
         ) : null}
         {caption ? (

@@ -10,6 +10,7 @@ export type ComboboxProps = {
   errorMessage?: string
   size?: 'small' | 'default'
   disabled?: boolean
+  showOptionalLabel?: boolean
   placeholder?: string
   labels?: Partial<ComboboxLabels>
   noMarginBottom?: boolean

@@ -21,6 +21,12 @@ const TextInputDemo = () => (
         label='Label'
         caption='Caption'
         placeholder='placeholder'
+        showOptionalLabel={false}
+      />
+      <TextInput
+        label='Label'
+        caption='Caption'
+        placeholder='placeholder'
         errorMessage='Error Message'
         required
       />

@@ -23,4 +23,27 @@ describe('Combobox — accessibility', () => {
 
     expect(await axe(container)).toHaveNoViolations()
   })
+
+  it('shows optional label by default for non-required fields', () => {
+    const { container } = render(
+      <Combobox
+        label='Country'
+        initialItems={[{ label: 'Colombia', value: 'co' }]}
+      />,
+    )
+
+    expect(container.textContent).toContain('(Optional)')
+  })
+
+  it('hides optional label when showOptionalLabel is false', () => {
+    const { container } = render(
+      <Combobox
+        label='Country'
+        showOptionalLabel={false}
+        initialItems={[{ label: 'Colombia', value: 'co' }]}
+      />,
+    )
+
+    expect(container.textContent).not.toContain('(Optional)')
+  })
 })
