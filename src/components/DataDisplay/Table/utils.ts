@@ -19,19 +19,28 @@ export const getLastStickyColumnKey = (stickyColumnKeys: string[]) =>
     ? stickyColumnKeys[stickyColumnKeys.length - 1]
     : undefined
 
+export const CHECKBOX_COLUMN_KEY = '__checkbox__'
+
 export const calculateStickyOffsets = (
   columns: TableColumn[],
   headerCellRefs: Record<string, HTMLTableCellElement | null>,
+  checkboxCellRef?: HTMLTableCellElement | null, // 👈
 ) => {
   const nextOffsets: Record<string, number> = {}
   let offset = 0
 
-  columns
-    .filter((column) => column.sticky)
-    .forEach((column) => {
-      nextOffsets[column.key] = offset
-      offset += headerCellRefs[column.key]?.offsetWidth || 0
-    })
+  const stickyColumns = columns.filter((column) => column.sticky)
+
+  // only add the checkbox column offset if there are sticky columns
+  if (checkboxCellRef && stickyColumns.length > 0) {
+    nextOffsets[CHECKBOX_COLUMN_KEY] = 0
+    offset += checkboxCellRef.offsetWidth
+  }
+
+  stickyColumns.forEach((column) => {
+    nextOffsets[column.key] = offset
+    offset += headerCellRefs[column.key]?.offsetWidth || 0
+  })
 
   return nextOffsets
 }

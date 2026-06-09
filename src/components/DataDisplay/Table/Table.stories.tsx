@@ -10,7 +10,6 @@ const meta = {
   component: TableStory,
   parameters: {
     layout: 'centered',
-
     docs: {
       description: {
         component:
@@ -25,8 +24,32 @@ const meta = {
       options: ['default', 'full-width'],
     },
     selectable: {
-      table: { disable: true },
+      control: { type: 'boolean' },
+      description: 'Enables row selection with checkboxes.',
     },
+    stickyHeader: {
+      control: { type: 'boolean' },
+      description: 'Makes the table header stick to the top when scrolling.',
+    },
+    height: {
+      control: { type: 'text' },
+      description: 'Height of the scrollable container (e.g. "300px", "50vh").',
+    },
+    striped: {
+      control: { type: 'boolean' },
+    },
+    loading: {
+      control: { type: 'boolean' },
+    },
+
+    renderRow: { table: { disable: true } },
+    onPageChange: { table: { disable: true } },
+    onPageSizeChange: { table: { disable: true } },
+    onSortColumn: { table: { disable: true } },
+    onRowSelected: { table: { disable: true } },
+    onAllItemsSelected: { table: { disable: true } },
+    selectedRows: { table: { disable: true } },
+    labels: { table: { disable: true } },
   },
 } satisfies Meta<typeof TableStory>
 
@@ -191,13 +214,6 @@ export const ScrollableTable = {
   args: {
     height: '300px',
   },
-  argTypes: {
-    height: {
-      control: { type: 'text' },
-      description:
-        'Height of the scrollable container. Set to any CSS value (e.g. "300px", "50vh").',
-    },
-  },
   parameters: {
     layout: 'fullscreen',
   },
@@ -269,7 +285,7 @@ export const StickyColumns = {
 
 export const StickyColumnsAndHeader = {
   name: 'Sticky Columns + Sticky Header',
-  args: { height: '300px', stickyHeader: true },
+  args: { height: '300px', stickyHeader: true, selectable: true },
   parameters: { layout: 'fullscreen' },
   render: makeStickyStoryRender(),
 }
@@ -294,12 +310,6 @@ export const CustomizableColumnWidths = {
     emailSticky: false,
   },
   argTypes: {
-    stickyHeader: {
-      control: { type: 'boolean' },
-    },
-    height: {
-      control: { type: 'text' },
-    },
     nameWidth: {
       control: { type: 'text' },
       description: 'Width for Name column (e.g. 12rem, 180px, 20%).',
@@ -314,9 +324,11 @@ export const CustomizableColumnWidths = {
     },
     nameSticky: {
       control: { type: 'boolean' },
+      description: 'Makes the Name column sticky.',
     },
     emailSticky: {
       control: { type: 'boolean' },
+      description: 'Makes the Email column sticky.',
     },
   },
   parameters: {

@@ -25,6 +25,7 @@ import { getThemedColor } from '../../../lib/theme'
 import { useLabels } from '../../../lib/i18n/useLabels'
 import {
   calculateStickyOffsets,
+  CHECKBOX_COLUMN_KEY,
   createColumnsByKey,
   getCellProps as getCellPropsHelper,
   getColumnWidthProps as getColumnWidthPropsHelper,
@@ -63,6 +64,8 @@ const Table = ({
     order: '',
   })
   const headerCellRefs = useRef<Record<string, HTMLTableCellElement | null>>({})
+  const checkboxHeaderRef = useRef<HTMLTableCellElement | null>(null)
+
   const [stickyOffsets, setStickyOffsets] = useState<Record<string, number>>({})
   const [internalSelectedRows, setInternalSelectedRows] = useState<any[]>([])
 
@@ -100,12 +103,21 @@ const Table = ({
     () => getStickyColumnKeys(columns),
     [columns],
   )
-  const lastStickyColumnKey = getLastStickyColumnKey(stickyColumnKeys)
+  const lastStickyColumnKey = getLastStickyColumnKey([
+    ...(stickyOffsets[CHECKBOX_COLUMN_KEY] !== undefined
+      ? [CHECKBOX_COLUMN_KEY]
+      : []),
+    ...stickyColumnKeys,
+  ])
 
   const calculateStickyPositions = useCallback(() => {
-    const nextOffsets = calculateStickyOffsets(columns, headerCellRefs.current)
+    const nextOffsets = calculateStickyOffsets(
+      columns,
+      headerCellRefs.current,
+      selectable ? checkboxHeaderRef.current : undefined,
+    )
     setStickyOffsets(nextOffsets)
-  }, [columns])
+  }, [columns, selectable])
 
   useEffect(() => {
     calculateStickyPositions()
@@ -167,6 +179,8 @@ const Table = ({
     selectable,
     isRowSelected,
     onRowSelected: handleRowSelected,
+    stickyOffsets,
+    lastStickyColumnKey,
   })
 
   const rowRenderer = renderRow || defaultRenderRow
@@ -183,7 +197,14 @@ const Table = ({
           <ChakraTable.Header css={tableHeaderContainerStyles(variant)}>
             <ChakraTable.Row>
               {selectable ? (
-                <ChakraTable.ColumnHeader>
+                <ChakraTable.ColumnHeader
+                  ref={checkboxHeaderRef}
+                  {...getStickyPropsHelper(
+                    stickyOffsets,
+                    CHECKBOX_COLUMN_KEY,
+                    lastStickyColumnKey,
+                  )}
+                >
                   <Checkbox
                     name='header-checkbox'
                     aria-label='Select all rows'
@@ -252,7 +273,7 @@ const Table = ({
               ))}
             </ChakraTable.Row>
           </ChakraTable.Header>
-          <ChakraTable.Body css={tableBodyStyles}>
+          <ChakraTable.Body css={tableBodyStyles(striped)}>
             {displayData.map((item: any) => (
               <React.Fragment key={item.id}>
                 {rowRenderer(item, {
