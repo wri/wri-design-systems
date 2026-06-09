@@ -11,6 +11,7 @@ import {
   modalHeaderStyles,
 } from './styled'
 import CloseButton from '../../Forms/Actions/CloseButton'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const Modal = ({
   header,
@@ -24,7 +25,9 @@ const Modal = ({
   blocking,
   open,
   onClose,
+  labels,
 }: ModalProps) => {
+  const l = useLabels('Modal', labels)
   const nodeRef = useRef(null)
 
   if (!open) return null
@@ -47,7 +50,7 @@ const Modal = ({
         <Draggable disabled={!draggable} nodeRef={nodeRef}>
           <Dialog.Positioner ref={nodeRef}>
             <Dialog.Content
-              aria-label='Modal dialog'
+              aria-label={l.dialogAriaLabel}
               css={modalContainerStyles(size, width, height, maxHeight)}
             >
               <Dialog.Header css={modalHeaderStyles}>

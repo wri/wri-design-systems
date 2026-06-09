@@ -167,6 +167,8 @@ const Table = ({
     selectable,
     isRowSelected,
     onRowSelected: handleRowSelected,
+    getSelectRowLabel: (name?: string, id?: string | number) =>
+      l.selectRowLabel(name, id),
   })
 
   const rowRenderer = renderRow || defaultRenderRow
@@ -186,7 +188,7 @@ const Table = ({
                 <ChakraTable.ColumnHeader>
                   <Checkbox
                     name='header-checkbox'
-                    aria-label='Select all rows'
+                    aria-label={l.selectAllRowsLabel}
                     checked={allChecked}
                     indeterminate={indeterminate}
                     onCheckedChange={({ checked }: any) => {

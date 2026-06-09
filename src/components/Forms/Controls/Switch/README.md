@@ -19,6 +19,11 @@ import { Switch } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type SwitchLabels = {
+  /** Fallback aria-label when no aria-label prop is provided. Default: (name) => name */
+  defaultAriaLabel: (name: string) => string
+}
+
 type SwitchProps = Omit<
   ChakraSwitch.RootProps,
   | 'size'
@@ -27,12 +32,15 @@ type SwitchProps = Omit<
   | 'invalid'
   | 'onCheckedChange'
   | 'onChange'
+  | 'labels'
 > & {
   name: string
   onChange?: (name: string, checked: boolean) => void
   defaultChecked?: boolean
   disabled?: boolean
   isLabelOnLeft?: boolean
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<SwitchLabels>
 }
 ```
 

@@ -14,6 +14,7 @@ import {
   menuSubmenuTriggerStyles,
 } from './styled'
 import { ChevronDownIcon } from '../../../icons'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const Menu = ({
   theme = 'light',
@@ -27,7 +28,9 @@ const Menu = ({
   selectionMode,
   defaultSelectedValues = [],
   menuWidth = '14rem',
+  labels,
 }: MenuProps) => {
+  const l = useLabels('Menu', labels)
   const [isOpen, setIsOpen] = useState(false)
   const [selectedValues, setSelectedValues] = useState<Set<string>>(
     new Set(defaultSelectedValues),
@@ -89,7 +92,7 @@ const Menu = ({
           <ChakraMenu.Content
             css={menuContentStyles(menuWidth)}
             role='menu'
-            aria-label={label || 'Menu'}
+            aria-label={label || l.menuAriaLabel}
           >
             {hideArrow ? null : <div css={menuArrowStyles} />}
             {items?.map((item, idx) => {
@@ -120,12 +123,15 @@ const Menu = ({
                         <ChakraMenu.Content
                           css={menuContentStyles(item.menuWidth)}
                           role='menu'
-                          aria-label={`${item.label} submenu`}
+                          aria-label={l.submenuAriaLabel(
+                            item.label || l.menuAriaLabel,
+                          )}
                         >
                           {item.submenu.map((submenuItem, submenuIdx) => (
                             <MenuItem
                               key={submenuItem.value}
                               item={submenuItem}
+                              labels={l}
                             />
                           ))}
                         </ChakraMenu.Content>
@@ -139,6 +145,7 @@ const Menu = ({
                 <MenuItem
                   key={`${item.value}-${idx}`}
                   item={item}
+                  labels={l}
                   isChecked={
                     !!selectionMode &&
                     selectedValues.has(item.value || item.label || '')
@@ -163,6 +170,7 @@ const Menu = ({
                     <MenuItem
                       key={groupItem.value}
                       item={groupItem}
+                      labels={l}
                       isChecked={
                         !!selectionMode &&
                         selectedValues.has(

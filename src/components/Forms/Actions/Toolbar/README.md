@@ -28,6 +28,17 @@ import { Toolbar } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type ToolbarLabels = {
+  /** Visible text on the collapse toggle button. Default: "Collapse" */
+  collapseLabel: ReactNode
+  /** Visible text on the expand toggle button. Default: "Expand" */
+  expandLabel: ReactNode
+  /** aria-label on the collapse toggle button. Default: "Collapse" */
+  collapseAriaLabel: string
+  /** aria-label on the expand toggle button. Default: "Expand" */
+  expandAriaLabel: string
+}
+
 interface ToolbarItem {
   icon: React.ReactElement
   ariaLabel: string

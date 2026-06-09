@@ -5,6 +5,7 @@ import React, { useRef } from 'react'
 import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet'
 import { SheetProps } from './types'
 import { sheetContainerStyles, grabberLabelStyles } from './styled'
+import { useLabels } from '../../../lib/i18n/useLabels'
 import 'react-spring-bottom-sheet/dist/style.css'
 
 const closedSnap = 20
@@ -36,7 +37,9 @@ const Sheet = ({
   className,
   blocking,
   zIndex = 1000,
+  labels,
 }: SheetProps) => {
+  const l = useLabels('Sheet', labels)
   const sheetRef = useRef<BottomSheetRef>(null)
   const snapPointsRef = React.useRef<number[]>([])
   const [currentSnap, setCurrentSnap] = React.useState<number | null>(null)
@@ -44,15 +47,15 @@ const Sheet = ({
 
   const snaps = snapPointsRef.current
 
-  let grabberLabel = 'Expand sheet'
+  let grabberLabel = l.expandSheetLabel
 
   if (currentSnap != null) {
     const index = getSnapIndex(currentSnap, snaps)
 
     if (index > 0 && index < snaps.length - 1) {
-      grabberLabel = 'Make full screen'
+      grabberLabel = l.makeFullScreenLabel
     } else if (index === snaps.length - 1) {
-      grabberLabel = 'Expanded sheet'
+      grabberLabel = l.expandedSheetLabel
     }
   }
   const isFull = !!(

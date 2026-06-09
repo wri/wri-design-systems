@@ -1,3 +1,7 @@
+import type { MenuLabels } from '../../../../lib/i18n/types'
+
+export type { MenuLabels }
+
 export type MenuItemProps = {
   label?: string
   caption?: string
@@ -31,4 +35,6 @@ export type MenuProps = {
   /** Values that are checked by default on first render. */
   defaultSelectedValues?: string[]
   menuWidth?: string | 'content'
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<MenuLabels>
 }

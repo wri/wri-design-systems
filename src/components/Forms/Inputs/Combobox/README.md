@@ -28,6 +28,15 @@ import { Combobox } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type ComboboxLabels = {
+  requiredSymbolLabel: string
+  optionalSuffix: ReactNodeLabel
+  defaultInputAriaLabel: string
+  clearSelectionLabel: string
+  toggleOptionsLabel: string
+  noItemsFoundLabel: ReactNodeLabel
+}
+
 type ComboboxProps = {
   initialItems?: { label: string; value: string }[]
   label?: string
@@ -37,7 +46,7 @@ type ComboboxProps = {
   size?: 'small' | 'default'
   disabled?: boolean
   placeholder?: string
-  labels?: Partial<TextInputLabels>
+  labels?: Partial<ComboboxLabels>
   noMarginBottom?: boolean
   multiple?: boolean
   showSelectedItems?: boolean
@@ -122,6 +131,10 @@ The component ships with English defaults for all internal UI strings. Override 
   labels={{
     requiredSymbolLabel: 'obligatorio',
     optionalSuffix: ' (Opcional)',
+    defaultInputAriaLabel: 'Entrada de lista',
+    clearSelectionLabel: 'Borrar selección',
+    toggleOptionsLabel: 'Alternar opciones',
+    noItemsFoundLabel: 'Sin resultados',
   }}
   initialItems={[{ label: 'Opción 1', value: 'opcion-1' }]}
 />
@@ -133,9 +146,13 @@ The component ships with English defaults for all internal UI strings. Override 
 import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
 ;<DesignSystemLocaleProvider
   labels={{
-    TextInput: {
+    Combobox: {
       requiredSymbolLabel: 'obligatoire',
       optionalSuffix: ' (Optionnel)',
+      defaultInputAriaLabel: 'Champ de sélection',
+      clearSelectionLabel: 'Effacer la sélection',
+      toggleOptionsLabel: 'Basculer les options',
+      noItemsFoundLabel: 'Aucun résultat',
     },
   }}
 >

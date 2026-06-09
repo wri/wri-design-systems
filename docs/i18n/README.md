@@ -173,34 +173,47 @@ Each type follows one of four classification rules:
 
 **Supported components and their label types:**
 
-| Component               | Label type                    | Keys                                                                                               |
-| ----------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------- |
-| `AnalysisWidget`        | `AnalysisWidgetLabels`        | `toggleSectionLabel`                                                                               |
-| `BaseMap`               | `BaseMapLabels`               | `activeLabel`                                                                                      |
-| `Button`                | `ButtonLabels`                | `loadingLabel`                                                                                     |
-| `CheckboxList`          | `CheckboxListLabels`          | `expandLabel`, `hideLabel`, `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel` |
-| `CloseButton`           | `CloseButtonLabels`           | `closeLabel`                                                                                       |
-| `InlineMessage`         | `InlineMessageLabels`         | `roleDescription`                                                                                  |
-| `ItemCount`             | `ItemCountLabels`             | `perPageLabel`, `showingLabel`                                                                     |
-| `LayerGroup`            | `LayerGroupLabels`            | `activeTagLabel`, `groupAriaLabel`                                                                 |
-| `LegendItem`            | `LegendItemLabels`            | `dragAndDropLabel`, `upLabel`, `downLabel`, `removeLabel`, `aboutDataLabel`                        |
-| `MapControlsToolbar`    | `MapControlsToolbarLabels`    | 15 keys (7 visible labels + 7 aria-labels + 1 toolbar aria-label)                                  |
-| `MapPopUp`              | `MapPopUpLabels`              | `closeLabel`                                                                                       |
-| `Navbar`                | `NavbarLabels`                | `openMenuLabel`, `closeLabel`, `menuLabel`, `goBackLabel`, `closeMenuLabel`, `closeButtonText`     |
-| `NavigationRail`        | `NavigationRailLabels`        | `showLabel`, `hideLabel`, `sidebarLabel`                                                           |
-| `OpacityControl`        | `OpacityControlLabels`        | `opacityButtonLabel`, `opacityHeading`, `opacityAriaLabel`, `percentSuffix`                        |
-| `Pagination`            | `PaginationLabels`            | `previousLabel`, `nextLabel`, `previousPageLabel`, `nextPageLabel`, `paginationLabel`, `pageLabel` |
-| `Password`              | `PasswordLabels`              | 17 keys (strength levels, validation rules, show/hide labels)                                      |
-| `QualitativeAttribute`  | `QualitativeAttributeLabels`  | `hideLabel`, `showLabel`, `visibleText`, `hiddenText`, `linePrefix`, `currentlyTemplate`           |
-| `RadioList`             | `RadioListLabels`             | `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel`                             |
-| `Search`                | `SearchLabels`                | `filterPlaceholder`, `filterAriaLabel`                                                             |
-| `Select`                | `SelectLabels`                | `defaultAriaLabel`, `requiredSuffix`, `disabledSuffix`                                             |
-| `StepProgressIndicator` | `StepProgressIndicatorLabels` | `currentStepLabel`                                                                                 |
-| `Table`                 | `TableLabels`                 | `ascendingLabel`, `descendingLabel`                                                                |
-| `Textarea`              | `TextareaLabels`              | 9 keys (character count messages + required/optional indicators)                                   |
-| `TextInput`             | `TextInputLabels`             | `requiredSymbolLabel`, `optionalSuffix`                                                            |
-| `Toast`                 | `ToastLabels`                 | `dismissLabel`                                                                                     |
-| `Toolbar`               | `ToolbarLabels`               | `collapseLabel`, `expandLabel`                                                                     |
+| Component               | Label type                    | Keys                                                                                                                               |
+| ----------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `AlertBanner`           | `AlertBannerLabels`           | `closeAlertLabel`                                                                                                                  |
+| `AnalysisWidget`        | `AnalysisWidgetLabels`        | `toggleSectionLabel`                                                                                                               |
+| `Avatar`                | `AvatarLabels`                | `unreadMessagesLabel`                                                                                                              |
+| `BaseMap`               | `BaseMapLabels`               | `activeLabel`                                                                                                                      |
+| `Badge`                 | `BadgeLabels`                 | `unreadMessagesLabel`                                                                                                              |
+| `Button`                | `ButtonLabels`                | `loadingLabel`                                                                                                                     |
+| `CheckboxList`          | `CheckboxListLabels`          | `expandLabel`, `hideLabel`, `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel`                                 |
+| `CloseButton`           | `CloseButtonLabels`           | `closeLabel`                                                                                                                       |
+| `Combobox`              | `ComboboxLabels`              | `requiredSymbolLabel`, `optionalSuffix`, `defaultInputAriaLabel`, `clearSelectionLabel`, `toggleOptionsLabel`, `noItemsFoundLabel` |
+| `InlineMessage`         | `InlineMessageLabels`         | `roleDescription`                                                                                                                  |
+| `ItemCount`             | `ItemCountLabels`             | `perPageLabel`, `showingLabel`                                                                                                     |
+| `LayerGroup`            | `LayerGroupLabels`            | `activeTagLabel`, `groupAriaLabel`                                                                                                 |
+| `LayerItem`             | `LayerItemLabels`             | `aboutDataLabel`                                                                                                                   |
+| `LegendItem`            | `LegendItemLabels`            | `dragAndDropLabel`, `upLabel`, `downLabel`, `removeLabel`, `aboutDataLabel`                                                        |
+| `MapControlsToolbar`    | `MapControlsToolbarLabels`    | 15 keys (7 visible labels + 7 aria-labels + 1 toolbar aria-label)                                                                  |
+| `MapMarker`             | `MapMarkerLabels`             | `clusterAriaLabel`, `pinAriaLabel`, `pointAriaLabel`                                                                               |
+| `MapPopUp`              | `MapPopUpLabels`              | `dialogAriaLabel`, `closeLabel`                                                                                                    |
+| `Menu`                  | `MenuLabels`                  | `menuAriaLabel`, `submenuAriaLabel`, `shortcutPrefix`                                                                              |
+| `MobileTabBar`          | `MobileTabBarLabels`          | `tabPositionStatus`, `selectedStatus`, `notSelectedStatus`, `disabledStatus`                                                       |
+| `Modal`                 | `ModalLabels`                 | `dialogAriaLabel`                                                                                                                  |
+| `Navbar`                | `NavbarLabels`                | `openMenuLabel`, `closeLabel`, `menuLabel`, `goBackLabel`, `closeMenuLabel`, `closeButtonText`                                     |
+| `NavigationRail`        | `NavigationRailLabels`        | `showLabel`, `hideLabel`, `sidebarLabel`                                                                                           |
+| `OpacityControl`        | `OpacityControlLabels`        | `opacityButtonLabel`, `opacityHeading`, `opacityAriaLabel`, `percentSuffix`                                                        |
+| `Pagination`            | `PaginationLabels`            | `previousLabel`, `nextLabel`, `previousPageLabel`, `nextPageLabel`, `paginationLabel`, `pageLabel`                                 |
+| `Password`              | `PasswordLabels`              | 17 keys (strength levels, validation rules, show/hide labels)                                                                      |
+| `ProgressBar`           | `ProgressBarLabels`           | `progressAriaLabel`                                                                                                                |
+| `QualitativeAttribute`  | `QualitativeAttributeLabels`  | `hideLabel`, `showLabel`, `visibleText`, `hiddenText`, `linePrefix`, `currentlyTemplate`                                           |
+| `RadioList`             | `RadioListLabels`             | `requiredLabel`, `optionalLabel`, `errorPrefix`, `requiredSymbolLabel`                                                             |
+| `Search`                | `SearchLabels`                | `filterPlaceholder`, `filterAriaLabel`                                                                                             |
+| `Sheet`                 | `SheetLabels`                 | `expandSheetLabel`, `makeFullScreenLabel`, `expandedSheetLabel`                                                                    |
+| `Select`                | `SelectLabels`                | `defaultAriaLabel`, `requiredSuffix`, `disabledSuffix`                                                                             |
+| `StepProgressIndicator` | `StepProgressIndicatorLabels` | `currentStepLabel`                                                                                                                 |
+| `Switch`                | `SwitchLabels`                | `defaultAriaLabel`                                                                                                                 |
+| `Table`                 | `TableLabels`                 | `ascendingLabel`, `descendingLabel`, `selectAllRowsLabel`, `selectRowLabel`                                                        |
+| `Tag`                   | `TagLabels`                   | `closeButtonAriaLabel`                                                                                                             |
+| `Textarea`              | `TextareaLabels`              | 9 keys (character count messages + required/optional indicators)                                                                   |
+| `TextInput`             | `TextInputLabels`             | `requiredSymbolLabel`, `optionalSuffix`                                                                                            |
+| `Toast`                 | `ToastLabels`                 | `dismissLabel`                                                                                                                     |
+| `Toolbar`               | `ToolbarLabels`               | `collapseLabel`, `expandLabel`, `collapseAriaLabel`, `expandAriaLabel`                                                             |
 
 ---
 

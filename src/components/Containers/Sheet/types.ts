@@ -1,3 +1,7 @@
+import type { SheetLabels } from '../../../lib/i18n/types'
+
+export type { SheetLabels }
+
 export type SheetProps = {
   header?: React.ReactNode
   content: React.ReactNode
@@ -11,4 +15,5 @@ export type SheetProps = {
   className?: string
   blocking?: boolean
   zIndex?: number // default 1000
+  labels?: Partial<SheetLabels>
 }

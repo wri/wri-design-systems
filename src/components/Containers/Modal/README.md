@@ -15,6 +15,11 @@ import { Modal } from '@worldresources/wri-design-systems'
 ```ts
 type SizeValue = number | string
 
+type ModalLabels = {
+  /** aria-label on the dialog content. Default: "Modal dialog" */
+  dialogAriaLabel: string
+}
+
 type ModalProps = {
   header: React.ReactNode
   content: React.ReactNode
@@ -27,6 +32,7 @@ type ModalProps = {
   width?: SizeValue
   height?: SizeValue
   maxHeight?: SizeValue
+  labels?: Partial<ModalLabels>
 }
 ```
 

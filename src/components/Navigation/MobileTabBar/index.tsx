@@ -10,6 +10,7 @@ import {
   mobileTabBarItemIconContainerStyles,
   mobileTabBarItemStyles,
 } from './styled'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const getTabIndex = (tabs: MobileTabBarItemProps[], selectedTab?: string) =>
   Math.max(
@@ -23,7 +24,9 @@ const MobileTabBar = ({
   onTabClick,
   hideLabels,
   activationMode = 'manual',
+  labels,
 }: MobileTabBarProps) => {
+  const l = useLabels('MobileTabBar', labels)
   const totalTabs = tabs.length
   const [selectedTabIndex, setSelectedTabIndex] = useState(() => {
     const initialIndex = getTabIndex(tabs, defaultValue)
@@ -61,12 +64,12 @@ const MobileTabBar = ({
             const strStatusId = `${tab.value}-str-status`
             const isSelected = selectedTabIndex === index
             const strStatus = [
-              `tab ${index + 1} of ${totalTabs}`,
-              isSelected ? 'selected' : 'not selected',
+              l.tabPositionStatus(index + 1, totalTabs),
+              isSelected ? l.selectedStatus : l.notSelectedStatus,
             ]
 
             if (disabled) {
-              strStatus.push('disabled')
+              strStatus.push(l.disabledStatus)
             }
 
             const describedBy =
