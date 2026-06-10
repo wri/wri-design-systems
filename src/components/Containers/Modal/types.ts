@@ -21,6 +21,6 @@ export type ModalProps = {
   unmountOnExit?: boolean
   restoreFocus?: boolean
   modal?: boolean
-  initialFocusEl?: (() => MaybeElement)
-  finalFocusEl?: (() => MaybeElement)
+  initialFocusEl?: () => MaybeElement
+  finalFocusEl?: () => MaybeElement
 }
