@@ -78,6 +78,14 @@ export const OptionalTextarea: Story = {
   },
 }
 
+export const OptionalTextareaNoOptionalLabel: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    showOptionalLabel: false,
+  },
+}
+
 export const SmallTextarea: Story = {
   args: {
     label: 'Label',

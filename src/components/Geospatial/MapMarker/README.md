@@ -22,6 +22,12 @@ import { MapMarker } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type MapMarkerLabels = {
+  clusterAriaLabel: (count: number) => string
+  pinAriaLabel: string
+  pointAriaLabel: string
+}
+
 type MapMarkerProps = {
   ariaLabel?: string
   icon?: React.ReactNode
@@ -31,6 +37,7 @@ type MapMarkerProps = {
   count?: number
   mode?: 'dark' | 'light'
   variant?: 'cluster' | 'simple-pin' | 'icon'
+  labels?: Partial<MapMarkerLabels>
 }
 ```
 

@@ -19,6 +19,10 @@ import { Tag } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type TagLabels = {
+  closeButtonAriaLabel: (label: string) => string
+}
+
 type TagProps = Omit<
   ChakraTag.RootProps,
   'size' | 'variant' | 'colorPalette' | 'children'
@@ -30,6 +34,7 @@ type TagProps = Omit<
   icon?: React.ReactNode
   onClose?: VoidFunction
   closable?: boolean
+  labels?: Partial<TagLabels>
 }
 ```
 
@@ -91,4 +96,17 @@ type TagProps = Omit<
 
 ```tsx
 <Tag label='Label' variant='info-grey' icon={<InfoIcon />} closable disabled />
+```
+
+## Internationalization (i18n)
+
+```tsx
+<Tag
+  label='Etiqueta'
+  variant='info-grey'
+  closable
+  labels={{
+    closeButtonAriaLabel: (label) => `Cerrar etiqueta ${label}`,
+  }}
+/>
 ```

@@ -2,16 +2,28 @@ import type {
   CheckboxListLabels,
   PasswordLabels,
   TextInputLabels,
+  ComboboxLabels,
   CloseButtonLabels,
   ToastLabels,
+  AlertBannerLabels,
+  BadgeLabels,
+  AvatarLabels,
+  ProgressBarLabels,
   InlineMessageLabels,
   MapPopUpLabels,
+  MapMarkerLabels,
   AnalysisWidgetLabels,
   TableLabels,
   ButtonLabels,
   BaseMapLabels,
   SearchLabels,
   MobileSearchLabels,
+  MobileTabBarLabels,
+  SwitchLabels,
+  TagLabels,
+  MenuLabels,
+  ModalLabels,
+  SheetLabels,
   RadioListLabels,
   SelectLabels,
   NavigationRailLabels,
@@ -23,6 +35,7 @@ import type {
   PaginationLabels,
   ItemCountLabels,
   LayerGroupLabels,
+  LayerItemLabels,
   QualitativeAttributeLabels,
   MapControlsToolbarLabels,
   StepProgressIndicatorLabels,
@@ -33,16 +46,28 @@ type DefaultLabels = {
   CheckboxList: Required<CheckboxListLabels>
   Password: Required<PasswordLabels>
   TextInput: Required<TextInputLabels>
+  Combobox: Required<ComboboxLabels>
   CloseButton: Required<CloseButtonLabels>
   Toast: Required<ToastLabels>
+  AlertBanner: Required<AlertBannerLabels>
+  Badge: Required<BadgeLabels>
+  Avatar: Required<AvatarLabels>
+  ProgressBar: Required<ProgressBarLabels>
   InlineMessage: Required<InlineMessageLabels>
   MapPopUp: Required<MapPopUpLabels>
+  MapMarker: Required<MapMarkerLabels>
   AnalysisWidget: Required<AnalysisWidgetLabels>
   Table: Required<TableLabels>
   Button: Required<ButtonLabels>
   BaseMap: Required<BaseMapLabels>
   Search: Required<SearchLabels>
   MobileSearch: Required<MobileSearchLabels>
+  MobileTabBar: Required<MobileTabBarLabels>
+  Switch: Required<SwitchLabels>
+  Tag: Required<TagLabels>
+  Menu: Required<MenuLabels>
+  Modal: Required<ModalLabels>
+  Sheet: Required<SheetLabels>
   RadioList: Required<RadioListLabels>
   Select: Required<SelectLabels>
   NavigationRail: Required<NavigationRailLabels>
@@ -54,6 +79,7 @@ type DefaultLabels = {
   Pagination: Required<PaginationLabels>
   ItemCount: Required<ItemCountLabels>
   LayerGroup: Required<LayerGroupLabels>
+  LayerItem: Required<LayerItemLabels>
   QualitativeAttribute: Required<QualitativeAttributeLabels>
   MapControlsToolbar: Required<MapControlsToolbarLabels>
   StepProgressIndicator: Required<StepProgressIndicatorLabels>
@@ -96,6 +122,14 @@ export const defaultLabels: DefaultLabels = {
     requiredSymbolLabel: 'required',
     optionalSuffix: ' (Optional)',
   },
+  Combobox: {
+    requiredSymbolLabel: 'required',
+    optionalSuffix: ' (Optional)',
+    defaultInputAriaLabel: 'Combobox input',
+    clearSelectionLabel: 'Clear selection',
+    toggleOptionsLabel: 'Toggle options',
+    noItemsFoundLabel: 'No items found',
+  },
   // Tier A
   CloseButton: {
     closeLabel: 'Close',
@@ -103,11 +137,31 @@ export const defaultLabels: DefaultLabels = {
   Toast: {
     dismissLabel: 'Dismiss',
   },
+  AlertBanner: {
+    closeAlertLabel: 'Close alert',
+  },
+  Badge: {
+    unreadMessagesLabel: (count) =>
+      `${count} unread ${count === 1 ? 'message' : 'messages'}`,
+  },
+  Avatar: {
+    unreadMessagesLabel: (count) =>
+      `${count} unread ${count === 1 ? 'message' : 'messages'}`,
+  },
+  ProgressBar: {
+    progressAriaLabel: (progress) => `Progress: ${progress}%`,
+  },
   InlineMessage: {
     roleDescription: 'Note',
   },
   MapPopUp: {
+    dialogAriaLabel: 'Map popup dialog',
     closeLabel: 'Close',
+  },
+  MapMarker: {
+    clusterAriaLabel: (count) => `Cluster of ${count} locations`,
+    pinAriaLabel: 'Map pin location',
+    pointAriaLabel: 'Map point',
   },
   AnalysisWidget: {
     toggleSectionLabel: 'Toggle section',
@@ -115,6 +169,13 @@ export const defaultLabels: DefaultLabels = {
   Table: {
     ascendingLabel: 'Ascending',
     descendingLabel: 'Descending',
+    selectAllRowsLabel: 'Select all rows',
+    selectRowLabel: (name?: string, id?: string | number) => {
+      const key = name || id
+      return key !== undefined && key !== null && `${key}` !== ''
+        ? `Select row ${key}`
+        : 'Select row'
+    },
   },
   Button: {
     loadingLabel: 'Loading',
@@ -132,6 +193,31 @@ export const defaultLabels: DefaultLabels = {
     recentSearchesTitle: 'Recent searches',
     matchingResultsTitle: (n) => `Showing ${n} matching results`,
     infoLabel: 'Label',
+  },
+  MobileTabBar: {
+    tabPositionStatus: (index, total) => `tab ${index} of ${total}`,
+    selectedStatus: 'selected',
+    notSelectedStatus: 'not selected',
+    disabledStatus: 'disabled',
+  },
+  Switch: {
+    defaultAriaLabel: (name) => name,
+  },
+  Tag: {
+    closeButtonAriaLabel: (label) => `${label} tag close button`,
+  },
+  Menu: {
+    menuAriaLabel: 'Menu',
+    submenuAriaLabel: (label) => `${label} submenu`,
+    shortcutPrefix: 'Shortcut',
+  },
+  Modal: {
+    dialogAriaLabel: 'Modal dialog',
+  },
+  Sheet: {
+    expandSheetLabel: 'Expand sheet',
+    makeFullScreenLabel: 'Make full screen',
+    expandedSheetLabel: 'Expanded sheet',
   },
   // Tier B
   RadioList: {
@@ -205,6 +291,9 @@ export const defaultLabels: DefaultLabels = {
     activeTagLabel: (count) => `${count} Active`,
     groupAriaLabel: (label, activeCount, caption) =>
       `${label}, ${activeCount} Active layers on the map${caption ? `, ${caption}` : ''}`,
+  },
+  LayerItem: {
+    aboutDataLabel: 'About data',
   },
   QualitativeAttribute: {
     hideLabel: 'Hide',

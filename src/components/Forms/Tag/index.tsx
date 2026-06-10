@@ -11,6 +11,7 @@ import {
   errorTagStyles,
 } from './styled'
 import { CloseIcon } from '../../icons'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const Tag = ({
   label,
@@ -20,8 +21,11 @@ const Tag = ({
   icon,
   onClose,
   closable,
+  labels,
   ...rest
 }: TagProps) => {
+  const l = useLabels('Tag', labels)
+
   let variantTagStyles = infoWhiteTagStyles
   if (variant === 'info-grey') {
     variantTagStyles = infoGreyTagStyles
@@ -58,7 +62,7 @@ const Tag = ({
                 onClose()
               }
             }}
-            aria-label={`${label} tag close button`}
+            aria-label={l.closeButtonAriaLabel(label)}
           >
             <CloseIcon />
           </div>

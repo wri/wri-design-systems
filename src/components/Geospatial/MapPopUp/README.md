@@ -115,6 +115,8 @@ const triggerPlantRef = useRef<HTMLButtonElement>(null)
 
 ```ts
 type MapPopUpLabels = {
+  /** aria-label on the popup dialog container. Default: "Map popup dialog" */
+  dialogAriaLabel: string
   /** aria-label on the close button. Default: "Close" */
   closeLabel: string
 }

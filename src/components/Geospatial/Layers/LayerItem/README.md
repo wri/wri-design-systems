@@ -11,6 +11,10 @@ LayerItem is used as part of [LayerGroups](https://github.com/wri/wri-design-sys
 ## Props
 
 ```ts
+type LayerItemLabels = {
+  aboutDataLabel: string
+}
+
 type LayerItemProps = {
   name: string
   label: string
@@ -22,5 +26,6 @@ type LayerItemProps = {
   onInfoClick?: () => void
   isDefaultSelected?: boolean
   onChange?: (name: string, checked: boolean, selectedValue?: string) => void
+  labels?: Partial<LayerItemLabels>
 }
 ```

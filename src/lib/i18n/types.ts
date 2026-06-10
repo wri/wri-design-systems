@@ -100,6 +100,22 @@ export type TextInputLabels = {
   optionalSuffix: ReactNodeLabel
 }
 
+/** Labels for Combobox internal UI strings. */
+export type ComboboxLabels = {
+  /** Accessible label for the required (*) indicator. Must be string (aria-label). Default: "required" */
+  requiredSymbolLabel: string
+  /** Suffix appended after the field label when optional. Rendered as JSX child. Default: " (Optional)" */
+  optionalSuffix: ReactNodeLabel
+  /** Fallback aria-label on the combobox input when label/placeholder are not provided. Default: "Combobox input" */
+  defaultInputAriaLabel: string
+  /** aria-label on the clear selection trigger. Default: "Clear selection" */
+  clearSelectionLabel: string
+  /** aria-label on the open/close options trigger. Default: "Toggle options" */
+  toggleOptionsLabel: string
+  /** Visible text shown when no results match. Rendered as JSX child. Default: "No items found" */
+  noItemsFoundLabel: ReactNodeLabel
+}
+
 // ---------------------------------------------------------------------------
 // Tier A — Simple Components
 // ---------------------------------------------------------------------------
@@ -116,6 +132,30 @@ export type ToastLabels = {
   dismissLabel: string
 }
 
+/** Labels for AlertBanner internal UI strings. */
+export type AlertBannerLabels = {
+  /** aria-label on the close action button. Default: "Close alert" */
+  closeAlertLabel: string
+}
+
+/** Labels for Badge internal UI strings. */
+export type BadgeLabels = {
+  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread ${count === 1 ? 'message' : 'messages'}` */
+  unreadMessagesLabel: (count: number) => string
+}
+
+/** Labels for Avatar internal UI strings. */
+export type AvatarLabels = {
+  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread ${count === 1 ? 'message' : 'messages'}` */
+  unreadMessagesLabel: (count: number) => string
+}
+
+/** Labels for ProgressBar internal UI strings. */
+export type ProgressBarLabels = {
+  /** Builds aria-label text for progress value. Default: (progress) => `Progress: ${progress}%` */
+  progressAriaLabel: (progress: number) => string
+}
+
 /** Labels for InlineMessage internal UI strings. */
 export type InlineMessageLabels = {
   /** aria-roledescription on the root element. Default: "Note" */
@@ -124,8 +164,20 @@ export type InlineMessageLabels = {
 
 /** Labels for MapPopUp internal UI strings. */
 export type MapPopUpLabels = {
+  /** aria-label on the popup dialog container. Default: "Map popup dialog" */
+  dialogAriaLabel: string
   /** aria-label on the close button. Default: "Close" */
   closeLabel: string
+}
+
+/** Labels for MapMarker internal UI strings. */
+export type MapMarkerLabels = {
+  /** aria-label builder for cluster markers when count is provided. Default: (count) => `Cluster of ${count} locations` */
+  clusterAriaLabel: (count: number) => string
+  /** aria-label for simple pin marker variant. Default: "Map pin location" */
+  pinAriaLabel: string
+  /** fallback aria-label for non-pin markers. Default: "Map point" */
+  pointAriaLabel: string
 }
 
 /** Labels for AnalysisWidget internal UI strings. */
@@ -140,6 +192,10 @@ export type TableLabels = {
   ascendingLabel: string
   /** aria-label on the descending sort icon button. Default: "Descending" */
   descendingLabel: string
+  /** aria-label on the header checkbox that selects all rows. Default: "Select all rows" */
+  selectAllRowsLabel: string
+  /** aria-label template for each row checkbox. Default: (name, id) => (name || id ? `Select row ${name || id}` : 'Select row') */
+  selectRowLabel: (name?: string, id?: string | number) => string
 }
 
 /** Labels for Button internal UI strings. */
@@ -178,6 +234,56 @@ export type MobileSearchLabels = {
   matchingResultsTitle: (count: number) => string
   /** Label text inside the InlineMessage shown when no query. Default: "Label" */
   infoLabel: string
+}
+
+/** Labels for MobileTabBar internal UI strings. */
+export type MobileTabBarLabels = {
+  /** Builds screen-reader status text for tab position. Default: (index, total) => `tab ${index} of ${total}` */
+  tabPositionStatus: (index: number, total: number) => string
+  /** Screen-reader status when the tab is selected. Default: "selected" */
+  selectedStatus: string
+  /** Screen-reader status when the tab is not selected. Default: "not selected" */
+  notSelectedStatus: string
+  /** Screen-reader status appended when the tab is disabled. Default: "disabled" */
+  disabledStatus: string
+}
+
+/** Labels for Switch internal UI strings. */
+export type SwitchLabels = {
+  /** Fallback aria-label when no aria-label prop is provided. Default: (name) => name */
+  defaultAriaLabel: (name: string) => string
+}
+
+/** Labels for Tag internal UI strings. */
+export type TagLabels = {
+  /** aria-label builder for the close trigger. Default: (label) => `${label} tag close button` */
+  closeButtonAriaLabel: (label: string) => string
+}
+
+/** Labels for Menu internal UI strings. */
+export type MenuLabels = {
+  /** Fallback aria-label for the menu content when no trigger label is provided. Default: "Menu" */
+  menuAriaLabel: string
+  /** Builds aria-label for submenu content. Default: (label) => `${label} submenu` */
+  submenuAriaLabel: (label: string) => string
+  /** Prefix used for command aria-label text. Default: "Shortcut" */
+  shortcutPrefix: string
+}
+
+/** Labels for Modal internal UI strings. */
+export type ModalLabels = {
+  /** aria-label on the dialog content. Default: "Modal dialog" */
+  dialogAriaLabel: string
+}
+
+/** Labels for Sheet internal UI strings. */
+export type SheetLabels = {
+  /** aria-label for the grabber button when collapsed/minimized. Default: "Expand sheet" */
+  expandSheetLabel: string
+  /** aria-label for the grabber button at intermediate snap points. Default: "Make full screen" */
+  makeFullScreenLabel: string
+  /** aria-label for the grabber button when fully expanded. Default: "Expanded sheet" */
+  expandedSheetLabel: string
 }
 
 // ---------------------------------------------------------------------------
@@ -404,6 +510,12 @@ export type LayerGroupLabels = {
   ) => string
 }
 
+/** Labels for LayerItem internal UI strings. */
+export type LayerItemLabels = {
+  /** Default label on the optional info button. Default: "About data" */
+  aboutDataLabel: string
+}
+
 /** Labels for QualitativeAttribute internal UI strings. */
 export type QualitativeAttributeLabels = {
   /**
@@ -537,17 +649,29 @@ export type DesignSystemLabels = {
   CheckboxList?: Partial<CheckboxListLabels>
   Password?: Partial<PasswordLabels>
   TextInput?: Partial<TextInputLabels>
+  Combobox?: Partial<ComboboxLabels>
   // Tier A
   CloseButton?: Partial<CloseButtonLabels>
   Toast?: Partial<ToastLabels>
+  AlertBanner?: Partial<AlertBannerLabels>
+  Badge?: Partial<BadgeLabels>
+  Avatar?: Partial<AvatarLabels>
+  ProgressBar?: Partial<ProgressBarLabels>
   InlineMessage?: Partial<InlineMessageLabels>
   MapPopUp?: Partial<MapPopUpLabels>
+  MapMarker?: Partial<MapMarkerLabels>
   AnalysisWidget?: Partial<AnalysisWidgetLabels>
   Table?: Partial<TableLabels>
   Button?: Partial<ButtonLabels>
   BaseMap?: Partial<BaseMapLabels>
   Search?: Partial<SearchLabels>
   MobileSearch?: Partial<MobileSearchLabels>
+  MobileTabBar?: Partial<MobileTabBarLabels>
+  Switch?: Partial<SwitchLabels>
+  Tag?: Partial<TagLabels>
+  Menu?: Partial<MenuLabels>
+  Modal?: Partial<ModalLabels>
+  Sheet?: Partial<SheetLabels>
   // Tier B
   RadioList?: Partial<RadioListLabels>
   Select?: Partial<SelectLabels>
@@ -561,6 +685,7 @@ export type DesignSystemLabels = {
   Pagination?: Partial<PaginationLabels>
   ItemCount?: Partial<ItemCountLabels>
   LayerGroup?: Partial<LayerGroupLabels>
+  LayerItem?: Partial<LayerItemLabels>
   QualitativeAttribute?: Partial<QualitativeAttributeLabels>
   MapControlsToolbar?: Partial<MapControlsToolbarLabels>
   StepProgressIndicator?: Partial<StepProgressIndicatorLabels>

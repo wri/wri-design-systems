@@ -1,4 +1,6 @@
-import type { TextInputLabels } from '../../../../lib/i18n/types'
+import type { ComboboxLabels } from '../../../../lib/i18n/types'
+
+export type { ComboboxLabels }
 
 export type ComboboxProps = {
   initialItems?: { label: string; value: string }[]
@@ -8,8 +10,9 @@ export type ComboboxProps = {
   errorMessage?: string
   size?: 'small' | 'default'
   disabled?: boolean
+  showOptionalLabel?: boolean
   placeholder?: string
-  labels?: Partial<TextInputLabels>
+  labels?: Partial<ComboboxLabels>
   noMarginBottom?: boolean
   multiple?: boolean
   showSelectedItems?: boolean

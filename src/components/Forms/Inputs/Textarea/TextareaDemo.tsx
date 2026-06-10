@@ -23,6 +23,15 @@ const TextareaDemo = () => (
         label='Label'
         caption='Caption'
         placeholder='Placeholder'
+        defaultValue='Default Value'
+        minLength={5}
+        maxLength={200}
+        showOptionalLabel={false}
+      />
+      <Textarea
+        label='Label'
+        caption='Caption'
+        placeholder='Placeholder'
         errorMessage='Error Message'
         required
       />

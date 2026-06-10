@@ -19,6 +19,11 @@ import { Avatar } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type AvatarLabels = {
+  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread ${count === 1 ? 'message' : 'messages'}` */
+  unreadMessagesLabel: (count: number) => string
+}
+
 type AvatarProps = {
   name: string
   ariaLabel?: string
@@ -30,6 +35,8 @@ type AvatarProps = {
   notificationCount?: number
   disabled?: boolean
   customBackgroundColor?: string
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<AvatarLabels>
 }
 ```
 

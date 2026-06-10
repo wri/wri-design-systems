@@ -4,6 +4,7 @@ import { Switch as ChakraSwitch } from '@chakra-ui/react'
 import { SwitchProps } from './types'
 import { rootSwitchStyles } from './styled'
 import { CheckIcon } from '../../../icons'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 const Switch = ({
   name,
@@ -12,8 +13,11 @@ const Switch = ({
   disabled = false,
   isLabelOnLeft = false,
   children,
+  labels,
   ...rest
 }: SwitchProps) => {
+  const l = useLabels('Switch', labels)
+
   const handleOnCheckedChange = ({ checked }: { checked: boolean }) => {
     if (onChange) {
       onChange(name, checked)
@@ -26,7 +30,7 @@ const Switch = ({
         css={rootSwitchStyles}
         id={name}
         name={name}
-        aria-label={rest['aria-label'] || name}
+        aria-label={rest['aria-label'] || l.defaultAriaLabel(name)}
         defaultChecked={defaultChecked}
         onCheckedChange={handleOnCheckedChange}
         disabled={disabled}

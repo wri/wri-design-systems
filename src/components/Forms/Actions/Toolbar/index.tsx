@@ -67,7 +67,7 @@ const Toolbar = ({
     <div style={{ position: 'relative', display: 'flex', width: '3rem' }}>
       <ToolbarButton
         isExpanded={isExpanded}
-        ariaLabel={isExpanded ? 'Collapse' : 'Expand'}
+        ariaLabel={isExpanded ? l.collapseAriaLabel : l.expandAriaLabel}
         icon={<MenuDotsIcon />}
         showGap={false}
         vertical={vertical}
@@ -157,7 +157,7 @@ const Toolbar = ({
                 <DoubleChevronLeftIcon />
               )
             }
-            label={l.collapseLabel}
+            label={isExpanded ? l.collapseLabel : l.expandLabel}
             onClick={() => setIsExpanded(!isExpanded)}
             showGap={false}
             vertical={vertical}

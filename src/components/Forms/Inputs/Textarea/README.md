@@ -61,8 +61,9 @@ type TextareaProps = Omit<
   required?: boolean
   disabled?: boolean
   size?: 'small' | 'default'
+  showOptionalLabel?: boolean
   defaultValue?: string
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   minLength?: number
   maxLength?: number
   /** Override internal UI labels for internationalization support. */

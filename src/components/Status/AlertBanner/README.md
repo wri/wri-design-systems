@@ -19,6 +19,11 @@ import { AlertBanner } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type AlertBannerLabels = {
+  /** aria-label on the close action button. Default: "Close alert" */
+  closeAlertLabel: string
+}
+
 interface AlertProps extends Omit<ChakraAlert.RootProps, 'title' | 'variant'> {
   title?: React.ReactNode
   icon?: React.ReactElement
@@ -30,6 +35,8 @@ interface AlertProps extends Omit<ChakraAlert.RootProps, 'title' | 'variant'> {
     | 'success'
     | 'warning'
     | 'error'
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<AlertBannerLabels>
 }
 ```
 

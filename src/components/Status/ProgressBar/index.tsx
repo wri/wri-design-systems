@@ -3,8 +3,10 @@
 
 import { progressBarContainerStyles, progressBarStyles } from './styled'
 import { ProgressBarProps } from './types'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
-const ProgressBar = ({ progress }: ProgressBarProps) => {
+const ProgressBar = ({ progress, labels }: ProgressBarProps) => {
+  const l = useLabels('ProgressBar', labels)
   let newProgress = progress
   if (newProgress > 100) newProgress = 100
   if (newProgress < 0) newProgress = 0
@@ -13,7 +15,7 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
     <div
       css={progressBarContainerStyles}
       role='progressbar'
-      aria-label={`Progress: ${newProgress}%`}
+      aria-label={l.progressAriaLabel(newProgress)}
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={newProgress}

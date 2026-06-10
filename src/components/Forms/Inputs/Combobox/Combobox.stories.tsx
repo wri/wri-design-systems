@@ -74,6 +74,16 @@ export const Optional: Story = {
   },
 }
 
+export const OptionalNoOptionalLabel: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Search...',
+    initialItems: ITEMS,
+    showOptionalLabel: false,
+  },
+}
+
 export const Small: Story = {
   args: {
     label: 'Label',

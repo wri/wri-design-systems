@@ -13,8 +13,15 @@ import {
   badgeMobileCountStyles,
 } from './styled'
 import { BadgeProps } from './types'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
-const Badge = ({ hasNotification, notificationCount, label }: BadgeProps) => {
+const Badge = ({
+  hasNotification,
+  notificationCount,
+  label,
+  labels,
+}: BadgeProps) => {
+  const l = useLabels('Badge', labels)
   const [isTablet, setIsTablet] = useState(false)
 
   useEffect(() => {
@@ -67,7 +74,7 @@ const Badge = ({ hasNotification, notificationCount, label }: BadgeProps) => {
           <div css={badgeMobileCountContainerStyles}>
             <p
               css={badgeMobileCountStyles}
-              aria-label={`${notificationCount} unread message`}
+              aria-label={l.unreadMessagesLabel(notificationCount || 0)}
             >
               {notification}
             </p>
@@ -85,7 +92,7 @@ const Badge = ({ hasNotification, notificationCount, label }: BadgeProps) => {
           <div css={badgeCountContainerStyles}>
             <p
               css={badgeCountStyles}
-              aria-label={`${notificationCount} unread message`}
+              aria-label={l.unreadMessagesLabel(notificationCount || 0)}
             >
               {notification}
             </p>

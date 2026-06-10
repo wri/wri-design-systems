@@ -55,6 +55,15 @@ const [isOpen, setIsOpen] = useState(false)
 ## Props
 
 ```ts
+type SheetLabels = {
+  /** aria-label for the grabber button when collapsed/minimized. Default: "Expand sheet" */
+  expandSheetLabel: string
+  /** aria-label for the grabber button at intermediate snap points. Default: "Make full screen" */
+  makeFullScreenLabel: string
+  /** aria-label for the grabber button when fully expanded. Default: "Expanded sheet" */
+  expandedSheetLabel: string
+}
+
 type SheetProps = {
   header?: React.ReactNode
   content: React.ReactNode
@@ -68,5 +77,6 @@ type SheetProps = {
   className?: string
   blocking?: boolean
   zIndex?: number // default 1000
+  labels?: Partial<SheetLabels>
 }
 ```

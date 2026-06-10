@@ -28,6 +28,7 @@ const Combobox = ({
   errorMessage,
   size,
   disabled,
+  showOptionalLabel = true,
   placeholder,
   labels,
   noMarginBottom,
@@ -45,7 +46,7 @@ const Combobox = ({
     )
   }
 
-  const l = useLabels('TextInput', labels)
+  const l = useLabels('Combobox', labels)
   const { contains } = useFilter({ sensitivity: 'base' })
 
   const { collection, filter } = useListCollection({
@@ -72,7 +73,9 @@ const Combobox = ({
           >
             <Field.RequiredIndicator aria-label={l.requiredSymbolLabel} />
             {label}
-            {!required ? <span>{l.optionalSuffix}</span> : ''}
+            {!required && showOptionalLabel ? (
+              <span>{l.optionalSuffix}</span>
+            ) : null}
           </Field.Label>
         ) : null}
         {caption ? (
@@ -106,17 +109,19 @@ const Combobox = ({
               placeholder={placeholder}
               css={textInputStyles(size)}
               disabled={disabled}
-              aria-label={label || placeholder || 'Combobox input'}
+              aria-label={label || placeholder || l.defaultInputAriaLabel}
             />
             <ChakraCombobox.IndicatorGroup>
-              <ChakraCombobox.ClearTrigger aria-label='Clear selection' />
-              <ChakraCombobox.Trigger aria-label='Toggle options' />
+              <ChakraCombobox.ClearTrigger aria-label={l.clearSelectionLabel} />
+              <ChakraCombobox.Trigger aria-label={l.toggleOptionsLabel} />
             </ChakraCombobox.IndicatorGroup>
           </ChakraCombobox.Control>
           <Portal>
             <ChakraCombobox.Positioner>
               <ChakraCombobox.Content>
-                <ChakraCombobox.Empty>No items found</ChakraCombobox.Empty>
+                <ChakraCombobox.Empty>
+                  {l.noItemsFoundLabel}
+                </ChakraCombobox.Empty>
                 {collection.items.map((item) => (
                   <ChakraCombobox.Item item={item} key={item.value}>
                     {item.label}

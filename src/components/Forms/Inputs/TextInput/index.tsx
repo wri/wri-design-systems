@@ -23,6 +23,7 @@ const TextInput = ({
   required,
   disabled,
   size = 'default',
+  showOptionalLabel = true,
   noMarginBottom = false,
   defaultValue = '',
   onChange,
@@ -59,7 +60,9 @@ const TextInput = ({
           >
             <Field.RequiredIndicator aria-label={l.requiredSymbolLabel} />
             {label}
-            {!required ? <span>{l.optionalSuffix}</span> : ''}
+            {!required && showOptionalLabel ? (
+              <span>{l.optionalSuffix}</span>
+            ) : null}
           </Field.Label>
         ) : null}
         {caption ? (

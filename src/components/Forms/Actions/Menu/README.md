@@ -13,6 +13,15 @@ import { Menu } from '@worldresources/wri-design-systems'
 ## Props
 
 ```ts
+type MenuLabels = {
+  /** Fallback aria-label for the menu content when no trigger label is provided. Default: "Menu" */
+  menuAriaLabel: string
+  /** Builds aria-label for submenu content. Default: (label) => `${label} submenu` */
+  submenuAriaLabel: (label: string) => string
+  /** Prefix used for command aria-label text. Default: "Shortcut" */
+  shortcutPrefix: string
+}
+
 type MenuItemProps = {
   label?: string
   caption?: string
@@ -46,6 +55,8 @@ type MenuProps = {
   /** Values that are checked by default on first render. */
   defaultSelectedValues?: string[]
   menuWidth?: string | 'content'
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<MenuLabels>
 }
 ```
 

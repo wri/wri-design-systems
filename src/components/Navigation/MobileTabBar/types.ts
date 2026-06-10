@@ -1,5 +1,8 @@
 import { Tabs as ChakraTabs } from '@chakra-ui/react'
 import type { Ref } from 'react'
+import type { MobileTabBarLabels } from '../../../lib/i18n/types'
+
+export type { MobileTabBarLabels }
 
 export type MobileTabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
   label: string
@@ -16,4 +19,6 @@ export type MobileTabBarProps = {
   onTabClick?: (tabValue: string) => void
   hideLabels?: boolean
   activationMode?: 'automatic' | 'manual' // default: 'manual'
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<MobileTabBarLabels>
 }

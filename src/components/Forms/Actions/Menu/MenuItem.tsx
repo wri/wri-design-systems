@@ -5,6 +5,7 @@ import React from 'react'
 import { Menu as ChakraMenu } from '@chakra-ui/react'
 import { CheckIcon } from '../../../icons'
 import { MenuItemProps } from './types'
+import type { MenuLabels } from '../../../../lib/i18n/types'
 import {
   menuItemContainerStyles,
   menuItemLabelAndCaptionStyles,
@@ -14,9 +15,11 @@ import {
 const MenuItem = ({
   item,
   isChecked = false,
+  labels,
 }: {
   item: MenuItemProps
   isChecked?: boolean
+  labels: MenuLabels
 }) => (
   <ChakraMenu.Item
     css={menuItemContainerStyles}
@@ -36,7 +39,9 @@ const MenuItem = ({
           <div css={menuItemLabelContentStyles(isChecked)}>
             <p className='ds-menu-item-label'>{item.label}</p>
             {item.command ? (
-              <ChakraMenu.ItemCommand aria-label={`Shortcut ${item.command}`}>
+              <ChakraMenu.ItemCommand
+                aria-label={`${labels.shortcutPrefix} ${item.command}`}
+              >
                 {item.command}
               </ChakraMenu.ItemCommand>
             ) : null}

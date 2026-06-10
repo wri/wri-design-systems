@@ -99,7 +99,7 @@ const MapPopUp = ({
       <div
         ref={refs.setFloating}
         style={floatingStyles}
-        aria-label='Map popup dialog'
+        aria-label={l.dialogAriaLabel}
         aria-modal
         {...getFloatingProps()}
         css={mapPopUpContainerStyles}
