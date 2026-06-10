@@ -46,6 +46,24 @@ export const tableContainerStyles = (
     z-index: ${stickyHeader ? 3 : 'auto'};
   }
 
+  /* Border left on first sticky column cells */
+  td[data-sticky]:first-of-type,
+  th[data-sticky]:first-of-type {
+    box-shadow: inset 0.0625rem 0 0 ${getThemedColor('neutral', 300)};
+  }
+
+  /* Border top on sticky header cells */
+  ${stickyHeader
+    ? `
+    thead th {
+      box-shadow: inset 0 0.0625rem 0 ${getThemedColor('neutral', 300)};
+    }
+    thead th[data-sticky]:first-of-type {
+      box-shadow: inset 0.0625rem 0.0625rem 0 ${getThemedColor('neutral', 300)};
+    }
+  `
+    : ''}
+
   [data-sticky='start']::after {
     content: none;
   }
@@ -134,13 +152,24 @@ export const tablePaginationContainerStyles = css`
   margin-top: 0.5625rem;
 `
 
-export const tableBodyStyles = css`
+export const tableBodyStyles = (striped?: boolean) => css`
   tr {
     height: ${getThemedSpacing(1200)};
 
     td {
       border-color: ${getThemedColor('neutral', 300)};
     }
+
+    ${striped
+      ? `
+  &:nth-of-type(odd) td[data-sticky] {
+    background-color: ${getThemedColor('neutral', 200)};
+  }
+  &:nth-of-type(even) td[data-sticky] {
+    background-color: ${getThemedColor('neutral', 100)};
+  }
+`
+      : ''}
 
     :hover {
       background-color: ${getThemedColor('neutral', 200)};
@@ -160,7 +189,6 @@ export const tableBodyStyles = css`
     }
   }
 `
-
 export const tableScrollContainerStyles = (height: string) => css`
   overflow: auto;
   height: ${height};
