@@ -1,3 +1,4 @@
+import type { MaybeElement } from '@zag-js/types'
 import { SizeValue } from '../../../lib/sizing'
 import type { ModalLabels } from '../../../lib/i18n/types'
 
@@ -16,4 +17,10 @@ export type ModalProps = {
   height?: SizeValue
   maxHeight?: SizeValue
   labels?: Partial<ModalLabels>
+  lazyMount?: boolean
+  unmountOnExit?: boolean
+  restoreFocus?: boolean
+  modal?: boolean
+  initialFocusEl?: () => MaybeElement
+  finalFocusEl?: () => MaybeElement
 }
