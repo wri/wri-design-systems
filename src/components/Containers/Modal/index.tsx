@@ -26,6 +26,12 @@ const Modal = ({
   open,
   onClose,
   labels,
+  lazyMount,
+  unmountOnExit,
+  restoreFocus,
+  modal,
+  initialFocusEl,
+  finalFocusEl,
 }: ModalProps) => {
   const l = useLabels('Modal', labels)
   const nodeRef = useRef(null)
@@ -42,6 +48,12 @@ const Modal = ({
       preventScroll={!draggable && !blocking}
       closeOnEscape={!blocking}
       defaultOpen
+      lazyMount={lazyMount}
+      unmountOnExit={unmountOnExit}
+      restoreFocus={restoreFocus}
+      modal={modal}
+      initialFocusEl={initialFocusEl}
+      finalFocusEl={finalFocusEl}
     >
       <Portal>
         {!draggable ? (
