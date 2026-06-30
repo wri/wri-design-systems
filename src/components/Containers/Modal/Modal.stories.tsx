@@ -36,6 +36,13 @@ const meta = {
     width: { description: '`width` value', control: false },
     height: { description: '`height` value', control: false },
     maxHeight: { description: '`maxHeight` value', control: false },
+    lazyMount: { description: '`lazyMount` flag', control: 'boolean' },
+    unmountOnExit: { description: '`unmountOnExit` flag', control: 'boolean' },
+    restoreFocus: { description: '`restoreFocus` flag', control: 'boolean' },
+    modal: { description: '`modal` flag', control: 'boolean' },
+    initialFocusEl: { description: '`initialFocusEl` element', control: false },
+    finalFocusEl: { description: '`finalFocusEl` element', control: false },
+    trapFocus: { description: '`trapFocus` flag', control: 'boolean' },
   },
 } satisfies Meta<typeof ModalStory>
 

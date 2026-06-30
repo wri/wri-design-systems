@@ -23,4 +23,5 @@ export type ModalProps = {
   modal?: boolean
   initialFocusEl?: () => MaybeElement
   finalFocusEl?: () => MaybeElement
+  trapFocus?: boolean
 }
