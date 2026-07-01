@@ -32,6 +32,7 @@ const Modal = ({
   modal,
   initialFocusEl,
   finalFocusEl,
+  trapFocus,
 }: ModalProps) => {
   const l = useLabels('Modal', labels)
   const nodeRef = useRef(null)
@@ -48,6 +49,7 @@ const Modal = ({
       preventScroll={!draggable && !blocking}
       closeOnEscape={!blocking}
       defaultOpen
+      trapFocus={trapFocus}
       lazyMount={lazyMount}
       unmountOnExit={unmountOnExit}
       restoreFocus={restoreFocus}

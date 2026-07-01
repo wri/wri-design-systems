@@ -33,6 +33,13 @@ type ModalProps = {
   height?: SizeValue
   maxHeight?: SizeValue
   labels?: Partial<ModalLabels>
+  lazyMount?: boolean
+  unmountOnExit?: boolean
+  restoreFocus?: boolean
+  modal?: boolean
+  initialFocusEl?: () => MaybeElement
+  finalFocusEl?: () => MaybeElement
+  trapFocus?: boolean
 }
 ```
 
