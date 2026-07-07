@@ -50,7 +50,7 @@ const renderMenuItemBody = (
   if (item.children) return item.children
   if (item.link)
     return (
-      <a href={item.link} target='_blank' rel='noopener noreferrer'>
+      <a href={item.link} rel='noopener noreferrer'>
         <MenuItemContent item={item} isChecked={isChecked} labels={labels} />
       </a>
     )
