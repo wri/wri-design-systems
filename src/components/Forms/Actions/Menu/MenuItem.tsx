@@ -50,7 +50,15 @@ const renderMenuItemBody = (
   if (item.children) return item.children
   if (item.link)
     return (
-      <a href={item.link} rel='noopener noreferrer'>
+      <a
+        href={item.disabled ? undefined : item.link}
+        aria-disabled={item.disabled || undefined}
+        tabIndex={item.disabled ? -1 : undefined}
+        onClick={(e) => {
+          if (item.disabled) e.preventDefault()
+        }}
+        style={{ textDecoration: 'none', color: 'inherit' }}
+      >
         <MenuItemContent item={item} isChecked={isChecked} labels={labels} />
       </a>
     )
