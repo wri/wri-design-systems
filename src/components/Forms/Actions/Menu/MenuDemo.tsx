@@ -18,7 +18,8 @@ const MenuDemo = () => (
         label='Open Menu'
         items={[
           {
-            label: 'Label',
+            label: 'Label with link',
+            link: 'https://www.google.com',
             value: 'label-1-1',
           },
           {
