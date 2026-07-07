@@ -51,7 +51,7 @@ const renderMenuItemBody = (
   if (item.link)
     return (
       <a
-        href={item.disabled ? undefined : item.link}
+        href={item.link}
         aria-disabled={item.disabled || undefined}
         tabIndex={item.disabled ? -1 : undefined}
         onClick={(e) => {
@@ -80,7 +80,7 @@ const MenuItem = ({
     disabled={item.disabled}
     role='menuitem'
     aria-label={item.label}
-    asChild={!!item.link}
+    asChild={!!item.link && !item.children}
   >
     {renderMenuItemBody(item, isChecked, labels)}
   </ChakraMenu.Item>

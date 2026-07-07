@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import Menu from '.'
@@ -45,5 +45,43 @@ describe('Menu — accessibility', () => {
       />,
     )
     expect(await axe(container)).toHaveNoViolations()
+  })
+})
+
+describe('Menu — link items', () => {
+  it('renders an anchor with the correct href for a linked item', () => {
+    render(
+      <Menu
+        label='Links'
+        items={[
+          {
+            label: 'Open docs',
+            value: 'docs',
+            link: 'https://example.com/docs',
+          },
+        ]}
+      />,
+    )
+    const anchor = screen.getByRole('link', { name: /open docs/i })
+    expect(anchor).toHaveAttribute('href', 'https://example.com/docs')
+  })
+
+  it('marks a disabled linked item as aria-disabled and keeps the href', () => {
+    render(
+      <Menu
+        label='Links'
+        items={[
+          {
+            label: 'Disabled link',
+            value: 'disabled',
+            link: 'https://example.com',
+            disabled: true,
+          },
+        ]}
+      />,
+    )
+    const anchor = screen.getByRole('link', { name: /disabled link/i })
+    expect(anchor).toHaveAttribute('href', 'https://example.com')
+    expect(anchor).toHaveAttribute('aria-disabled', 'true')
   })
 })
