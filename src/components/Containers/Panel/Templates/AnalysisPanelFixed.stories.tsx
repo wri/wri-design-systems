@@ -217,7 +217,6 @@ export const Fixed: Story = {
                       style={{
                         display: 'flex',
                         padding: '0.5rem',
-                        marginBottom: '3.125rem',
                       }}
                     >
                       <Tag

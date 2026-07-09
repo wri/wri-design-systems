@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 /* eslint-disable react/no-unknown-property */
 
-import { useEffect, useId, useRef, useState } from 'react'
+import { useId } from 'react'
 import {
   panelContainerStyles,
   panelContentContainerStyles,
@@ -20,19 +20,6 @@ const Panel = ({
   width,
 }: PanelProps) => {
   const headerId = useId()
-  const [headerHeight, setHeaderHeight] = useState<number | undefined>(
-    undefined,
-  )
-  const [footerHeight, setFooterHeight] = useState<number | undefined>(
-    undefined,
-  )
-  const headerRef = useRef<HTMLDivElement>(null)
-  const footerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    setHeaderHeight(headerRef?.current?.getBoundingClientRect()?.height)
-    setFooterHeight(footerRef?.current?.getBoundingClientRect()?.height)
-  }, [header, footer])
 
   const panel = (
     <div
@@ -46,18 +33,12 @@ const Panel = ({
       ]}
     >
       {header ? (
-        <div id={headerId} css={panelHeaderContainerStyles} ref={headerRef}>
+        <div id={headerId} css={panelHeaderContainerStyles}>
           {header}
         </div>
       ) : null}
-      <div css={panelContentContainerStyles(headerHeight, footerHeight)}>
-        {content}
-      </div>
-      {footer ? (
-        <div css={panelFooterContainerStyles} ref={footerRef}>
-          {footer}
-        </div>
-      ) : null}
+      <div css={panelContentContainerStyles}>{content}</div>
+      {footer ? <div css={panelFooterContainerStyles}>{footer}</div> : null}
     </div>
   )
 
