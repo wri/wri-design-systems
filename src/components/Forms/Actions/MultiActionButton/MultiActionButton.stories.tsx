@@ -3,7 +3,6 @@ import React from 'react'
 
 /* eslint-disable no-console */
 import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
 import MultiActionButton from '.'
 import { InfoIcon } from '../../../icons'
 
@@ -21,12 +20,11 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-  args: { onClick: fn() },
   argTypes: {
     variant: {
       description: 'Visual style of the button',
       control: { type: 'select' },
-      options: ['primary', 'secondary'],
+      options: ['primary', 'secondary', 'borderless', 'outline', 'negative'],
     },
     size: {
       description: 'Size variant',
@@ -142,6 +140,129 @@ export const SecondarySmall: Story = {
   },
 }
 
+export const BorderlessDefault: Story = {
+  args: {
+    variant: 'borderless',
+    mainActionLabel: 'First Action',
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+      },
+    ],
+  },
+}
+
+export const BorderlessSmall: Story = {
+  args: {
+    variant: 'borderless',
+    size: 'small',
+    mainActionLabel: 'First Action',
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+      },
+    ],
+  },
+}
+
+export const OutlineDefault: Story = {
+  args: {
+    variant: 'outline',
+    mainActionLabel: 'First Action',
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+      },
+    ],
+  },
+}
+
+export const OutlineSmall: Story = {
+  args: {
+    variant: 'outline',
+    size: 'small',
+    mainActionLabel: 'First Action',
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+      },
+    ],
+  },
+}
+
+export const NegativeDefault: Story = {
+  args: {
+    variant: 'negative',
+    mainActionLabel: 'First Action',
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+      },
+    ],
+  },
+}
+
+export const NegativeSmall: Story = {
+  args: {
+    variant: 'negative',
+    size: 'small',
+    mainActionLabel: 'First Action',
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+      },
+    ],
+  },
+}
+
 export const Disabled: Story = {
   args: {
     variant: 'primary',
@@ -160,6 +281,27 @@ export const Disabled: Story = {
       },
     ],
     disabled: true,
+  },
+}
+
+export const WithDisabledMenuItem: Story = {
+  args: {
+    variant: 'primary',
+    mainActionLabel: 'First Action',
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+        disabled: true,
+      },
+    ],
   },
 }
 

@@ -39,7 +39,7 @@ type MultiActionButtonProps = Omit<
   ChakraButtonProps,
   'size' | 'variant' | 'colorPalette' | 'children'
 > & {
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'outline' | 'borderless' | 'negative'
   size?: 'default' | 'small'
   mainActionLeftIcon?: React.ReactNode
   mainActionRightIcon?: React.ReactNode

@@ -9,6 +9,7 @@ import {
   secondaryButtonStyles,
   borderlessButtonStyles,
   outlineButtonStyles,
+  negativeButtonStyles,
 } from './styled'
 import { useLabels } from '../../../../lib/i18n/useLabels'
 
@@ -36,6 +37,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variantButtonStyles = borderlessButtonStyles
     } else if (variant === 'outline') {
       variantButtonStyles = outlineButtonStyles
+    } else if (variant === 'negative') {
+      variantButtonStyles = negativeButtonStyles
     }
 
     const getAriaLabel = () => {
@@ -53,7 +56,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ChakraButton
         aria-label={getAriaLabel()}
-        css={[baseButtonStyles(size), variantButtonStyles(disabled)]}
+        css={[baseButtonStyles(size), variantButtonStyles]}
         disabled={disabled || loading}
         aria-disabled={disabled || loading}
         ref={ref}

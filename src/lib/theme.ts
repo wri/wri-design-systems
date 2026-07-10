@@ -116,12 +116,14 @@ export const wriColors: ThemeColors = {
     100: { value: '#FFEFED' },
     200: { value: '#EDA1A9' },
     300: { value: '#F6C5C1' },
+    400: { value: '#F9D6D4' },
     500: { value: '#C11101' },
     900: { value: '#8D0D01' },
   },
   accessible: {
     'text-on-primary-mids': { value: '#332300' }, // primary 900
     'text-on-secondary-mids': { value: '#F2F6FF' }, // secondary 100
+    'text-on-negative-mids': { value: '#8D0D01' }, // error 900
     'controls-on-neutral-lights': { value: '#855B00' }, // primary 700
     'controls-on-neutral-darks': { value: '#F5BF4F' }, // primary 400
   },
@@ -243,7 +245,8 @@ export const getThemedColor = (
     | 'text-on-primary-mids'
     | 'text-on-secondary-mids'
     | 'controls-on-neutral-lights'
-    | 'controls-on-neutral-darks',
+    | 'controls-on-neutral-darks'
+    | 'text-on-negative-mids',
 ): string =>
   designSystemStyles.tokens.getVar(`colors.${variant}.${index}`) ||
   wriColors?.[variant]?.[index]?.value

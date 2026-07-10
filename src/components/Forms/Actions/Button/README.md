@@ -30,7 +30,7 @@ type ButtonProps = Omit<
 > & {
   label?: string
   loading?: boolean
-  variant?: 'primary' | 'secondary' | 'borderless' | 'outline'
+  variant?: 'primary' | 'secondary' | 'borderless' | 'outline' | 'negative'
   size?: 'default' | 'small'
   disabled?: boolean
   leftIcon?: React.ReactNode
