@@ -120,13 +120,22 @@ export const FilterPanel: Story = {
           </Box>
         }
         content={
-          <div style={{ maxHeight: '31.25rem' }}>
-            <div>
+          <div
+            style={{
+              maxHeight: '31.25rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.9375rem',
+            }}
+          >
+            <div style={{ flex: 1 }}>
               <Box
                 style={{
                   border: `0.0625rem solid ${getThemedColor('neutral', 300)}`,
                   padding: '0.9375rem',
-                  margin: '0.9375rem',
+                  marginRight: '0.9375rem',
+                  marginLeft: '0.9375rem',
+                  marginTop: '0.9375rem',
                   borderRadius: '0.3125rem',
                 }}
               >
@@ -215,12 +224,14 @@ export const FilterPanel: Story = {
                 </div>
               </Box>
             </div>
-            <div>
+            <div style={{ flex: 1 }}>
               <Box
                 style={{
                   border: `0.0625rem solid ${getThemedColor('neutral', 300)}`,
                   padding: '0.9375rem',
-                  margin: '0.9375rem',
+                  marginRight: '0.9375rem',
+                  marginBottom: '0.9375rem',
+                  marginLeft: '0.9375rem',
                   borderRadius: '0.3125rem',
                 }}
               >

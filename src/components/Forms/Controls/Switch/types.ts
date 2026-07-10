@@ -1,5 +1,5 @@
-import type { SwitchLabels } from '../../../../lib/i18n/types'
 import { Switch as ChakraSwitch } from '@chakra-ui/react'
+import type { SwitchLabels } from '../../../../lib/i18n/types'
 
 export type { SwitchLabels }
 

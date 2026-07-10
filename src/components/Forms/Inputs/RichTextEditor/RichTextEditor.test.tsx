@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
+import RichTextEditor from '.'
+
 jest.mock('@tiptap/starter-kit', () => ({
   __esModule: true,
   default: {
@@ -59,8 +61,6 @@ jest.mock('@tiptap/react', () => ({
   EditorContent: () => null,
   useEditor: () => null,
 }))
-
-import RichTextEditor from '.'
 
 jest.mock('@chakra-ui/react', () =>
   jest.requireActual('../../../testUtils').createChakraMock(),
