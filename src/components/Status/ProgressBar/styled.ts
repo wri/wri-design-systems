@@ -13,9 +13,10 @@ export const progressBarContainerStyles = css`
 
 export const progressBarStyles = (
   progress: ProgressBarProps['progress'],
+  color?: ProgressBarProps['color'],
 ) => css`
   height: 100%;
   width: ${progress}%;
-  background-color: ${getThemedColor('primary', 500)};
+  background-color: ${color ?? getThemedColor('primary', 500)};
   transition: width 0.5s ease-in-out;
 `
