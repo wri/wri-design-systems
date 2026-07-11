@@ -2,6 +2,7 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
+import { getThemedColor } from '../..'
 import ProgressBarStory from '.'
 
 const meta = {
@@ -20,6 +21,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     progress: { description: '`progress` value', control: 'number' },
+    color: { description: 'Custom bar color', control: 'color' },
   },
 } satisfies Meta<typeof ProgressBarStory>
 
@@ -29,6 +31,18 @@ type Story = StoryObj<typeof meta>
 export const ProgressBar: Story = {
   args: {
     progress: 50,
+  },
+  render: (args) => (
+    <div style={{ width: '25rem' }}>
+      <ProgressBarStory {...args} />
+    </div>
+  ),
+}
+
+export const CustomColor: Story = {
+  args: {
+    progress: 75,
+    color: getThemedColor('success', 500),
   },
   render: (args) => (
     <div style={{ width: '25rem' }}>

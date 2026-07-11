@@ -14,6 +14,8 @@ import { ProgressBar } from '@worldresources/wri-design-systems'
 
 ```tsx
 <ProgressBar progress={25} />
+
+<ProgressBar progress={75} color={getThemedColor('success', 500)} />
 ```
 
 ## Props
@@ -26,6 +28,7 @@ type ProgressBarLabels = {
 
 type ProgressBarProps = {
   progress: number
+  color?: string
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<ProgressBarLabels>
 }

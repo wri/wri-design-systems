@@ -38,4 +38,14 @@ describe('ProgressBar', () => {
     const { container } = render(<ProgressBar progress={50} />)
     expect(await axe(container)).toHaveNoViolations()
   })
+
+  it('applies custom color to the progress bar when provided', () => {
+    const customColor = 'red'
+    const { getByRole } = render(
+      <ProgressBar progress={40} color={customColor} />,
+    )
+    const container = getByRole('progressbar')
+    const innerBar = container.firstChild
+    expect(innerBar).toHaveStyle(`background-color: ${customColor}`)
+  })
 })

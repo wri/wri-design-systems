@@ -1,4 +1,4 @@
-import { ProgressBar } from '../..'
+import { getThemedColor, ProgressBar } from '../..'
 import DemoWrapper from '../../UI/DemoWrapper'
 
 const ProgressBarDemo = () => (
@@ -15,7 +15,7 @@ const ProgressBarDemo = () => (
       <ProgressBar progress={0} />
       <ProgressBar progress={25} />
       <ProgressBar progress={50} />
-      <ProgressBar progress={75} />
+      <ProgressBar progress={75} color={getThemedColor('success', 500)} />
       <ProgressBar progress={100} />
     </div>
   </DemoWrapper>

@@ -4,6 +4,7 @@ export type { ProgressBarLabels }
 
 export type ProgressBarProps = {
   progress: number
+  color?: string
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<ProgressBarLabels>
 }
