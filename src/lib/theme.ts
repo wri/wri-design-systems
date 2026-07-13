@@ -116,7 +116,6 @@ export const wriColors: ThemeColors = {
     100: { value: '#FFEFED' },
     200: { value: '#EDA1A9' },
     300: { value: '#F6C5C1' },
-    400: { value: '#F9D6D4' },
     500: { value: '#C11101' },
     900: { value: '#8D0D01' },
   },

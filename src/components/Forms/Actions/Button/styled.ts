@@ -213,7 +213,7 @@ export const negativeButtonStyles = css`
 
   &:active {
     outline: none;
-    background-color: ${getThemedColor('error', 400)} !important;
+    background-color: ${getThemedColor('error', 300)} !important;
     box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
     box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
   }
