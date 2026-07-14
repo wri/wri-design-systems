@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
+import { getThemedSpacing } from '../../../lib/theme'
 import Modal from '.'
 
 jest.mock('react-draggable', () => ({
@@ -19,7 +20,11 @@ describe('Modal — accessibility', () => {
         open
         onClose={() => {}}
         header={<p>Modal title</p>}
-        content={<p>Modal content</p>}
+        content={
+          <div style={{ padding: getThemedSpacing(300) }}>
+            <p>Modal content</p>
+          </div>
+        }
         footer={<button type='button'>Save</button>}
       />,
     )

@@ -59,7 +59,11 @@ type ModalProps = {
       Title
     </p>
   }
-  content={<p>Content</p>}
+  content={
+    <div style={{ padding: getThemedSpacing(300) }}>
+      <p>Content</p>
+    </div>
+  }
   open={showModal}
   onClose={() => setShowModal(false)}
 />
@@ -79,15 +83,10 @@ type ModalProps = {
       Title
     </p>
   }
-  header={
-    <p
-      style={{
-        fontWeight: 'bold',
-        color: getThemedColor('neutral', 800),
-      }}
-    >
-      Title
-    </p>
+  content={
+    <div style={{ padding: getThemedSpacing(300) }}>
+      <p>Content</p>
+    </div>
   }
   size='small'
   open={showModal}
@@ -109,7 +108,11 @@ type ModalProps = {
       Title
     </p>
   }
-  content={<p>Content</p>}
+  content={
+    <div style={{ padding: getThemedSpacing(300) }}>
+      <p>Content</p>
+    </div>
+  }
   size='large'
   open={showModal}
   onClose={() => setShowModal(false)}
@@ -130,7 +133,11 @@ type ModalProps = {
       Title
     </p>
   }
-  content={<p>Content</p>}
+  content={
+    <div style={{ padding: getThemedSpacing(300) }}>
+      <p>Content</p>
+    </div>
+  }
   size='xlarge'
   open={showModal}
   onClose={() => setShowModal(false)}
@@ -151,7 +158,11 @@ type ModalProps = {
       Title
     </p>
   }
-  content={<p>Content</p>}
+  content={
+    <div style={{ padding: getThemedSpacing(300) }}>
+      <p>Content</p>
+    </div>
+  }
   footer={
     <>
       <Button
@@ -188,7 +199,11 @@ type ModalProps = {
       Title
     </p>
   }
-  content={<p>Content</p>}
+  content={
+    <div style={{ padding: getThemedSpacing(300) }}>
+      <p>Content</p>
+    </div>
+  }
   open={showModal}
   onClose={() => setShowModal(false)}
   draggable
@@ -209,7 +224,11 @@ type ModalProps = {
       Title
     </p>
   }
-  content={<p>Content</p>}
+  content={
+    <div style={{ padding: getThemedSpacing(300) }}>
+      <p>Content</p>
+    </div>
+  }
   open={showModal}
   onClose={() => setShowModal(false)}
   blocking
