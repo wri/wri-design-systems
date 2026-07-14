@@ -1,12 +1,10 @@
-import { ButtonProps as ChakraButtonProps } from '@chakra-ui/react'
 import React from 'react'
+import { ButtonProps } from '../Button/types'
 
 export type MultiActionButtonProps = Omit<
-  ChakraButtonProps,
-  'size' | 'variant' | 'colorPalette' | 'children'
+  ButtonProps,
+  'label' | 'leftIcon' | 'rightIcon' | 'onClick' | 'children' | 'css'
 > & {
-  variant?: 'primary' | 'secondary'
-  size?: 'default' | 'small'
   mainActionLeftIcon?: React.ReactNode
   mainActionRightIcon?: React.ReactNode
   mainActionLabel: string
@@ -15,6 +13,6 @@ export type MultiActionButtonProps = Omit<
     label: React.ReactNode
     value: string
     onClick: VoidFunction
+    disabled?: boolean
   }[]
-  disabled?: boolean
 }

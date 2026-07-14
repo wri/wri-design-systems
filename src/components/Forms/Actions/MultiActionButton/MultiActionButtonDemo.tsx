@@ -35,6 +35,7 @@ const MultiActionButtonDemo = () => (
               label: 'Third Action',
               value: 'third-action',
               onClick: () => console.log('third action'),
+              disabled: true,
             },
           ]}
         />
@@ -74,6 +75,108 @@ const MultiActionButtonDemo = () => (
         />
         <MultiActionButton
           variant='secondary'
+          size='small'
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+        />
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.625rem',
+          flexWrap: 'wrap',
+        }}
+      >
+        <MultiActionButton
+          variant='borderless'
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+        />
+        <MultiActionButton
+          variant='borderless'
+          size='small'
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+        />
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.625rem',
+          flexWrap: 'wrap',
+        }}
+      >
+        <MultiActionButton
+          variant='outline'
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+        />
+        <MultiActionButton
+          variant='outline'
+          size='small'
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+        />
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.625rem',
+          flexWrap: 'wrap',
+        }}
+      >
+        <MultiActionButton
+          variant='negative'
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+        />
+        <MultiActionButton
+          variant='negative'
           size='small'
           mainActionLabel='First Action'
           mainActionOnClick={() => console.log('first action')}

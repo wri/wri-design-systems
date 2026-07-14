@@ -17,14 +17,77 @@ export const menuContentStyles = css`
   padding: ${getThemedSpacing(200)};
 `
 
+const getMenuTriggerOpenBackgroundColor = (
+  variant: MultiActionButtonProps['variant'],
+) => {
+  switch (variant) {
+    case 'secondary':
+      return getThemedColor('neutral', 200)
+    case 'borderless':
+      return `color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent)`
+    case 'outline':
+      return getThemedColor('primary', 200)
+    case 'negative':
+      return getThemedColor('error', 600)
+    case 'primary':
+    default:
+      return getThemedColor('primary', 600)
+  }
+}
+
+const getMenuTriggerOpenBorderColor = (
+  variant: MultiActionButtonProps['variant'],
+) => {
+  switch (variant) {
+    case 'secondary':
+      return getThemedColor('primary', 800)
+    case 'borderless':
+      return 'transparent'
+    case 'outline':
+      return getThemedColor('primary', 900)
+    case 'negative':
+      return getThemedColor('primary', 800)
+    case 'primary':
+    default:
+      return getThemedColor('primary', 800)
+  }
+}
+
+export const getMenuTriggerIconColor = (
+  variant: MultiActionButtonProps['variant'],
+  disabled?: boolean,
+) => {
+  if (disabled) return getThemedColor('neutral', 500)
+
+  switch (variant) {
+    case 'secondary':
+      return getThemedColor('neutral', 800)
+    case 'borderless':
+      return getThemedColor('neutral', 900)
+    case 'outline':
+      return getThemedColor('primary', 800)
+    case 'negative':
+      return (
+        getThemedColor('accessible', 'text-on-negative-mids') ||
+        getThemedColor('error', 900)
+      )
+    case 'primary':
+    default:
+      return (
+        getThemedColor('accessible', 'text-on-primary-mids') ||
+        getThemedColor('primary', 900)
+      )
+  }
+}
+
 export const menuTriggerStyles = (
   variant: MultiActionButtonProps['variant'],
 ) => css`
   &[data-state='open'] {
-    background-color: ${variant === 'primary'
-      ? getThemedColor('primary', 600)
-      : getThemedColor('neutral', 200)} !important;
-    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 800)} !important;
+    background-color: ${getMenuTriggerOpenBackgroundColor(variant)} !important;
+    border: ${variant === 'borderless'
+      ? 'none'
+      : `${getThemedBorderWidth(100)} solid ${getMenuTriggerOpenBorderColor(variant)}`} !important;
   }
 `
 
@@ -41,6 +104,11 @@ export const menuItemStyles = (size: MultiActionButtonProps['size']) => css`
 
   &[data-highlighted] {
     background-color: ${getThemedColor('neutral', 200)};
+  }
+
+  &[data-disabled] {
+    cursor: not-allowed;
+    color: ${getThemedColor('neutral', 500)};
   }
 `
 export const disabledGroupStyles = css`

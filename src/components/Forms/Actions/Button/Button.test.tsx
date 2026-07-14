@@ -40,6 +40,11 @@ describe('Button — accessibility', () => {
     expect(await axe(container)).toHaveNoViolations()
   })
 
+  it('renders negative variant and has no violations', async () => {
+    const { container } = render(<Button variant='negative'>Delete</Button>)
+    expect(await axe(container)).toHaveNoViolations()
+  })
+
   it('renders outline variant and has no violations', async () => {
     const { container } = render(
       <Button variant='outline'>View details</Button>,

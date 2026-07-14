@@ -2,7 +2,6 @@
 import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
 import Button from '.'
 import { CheckIcon } from '../../../icons'
 
@@ -15,18 +14,17 @@ const meta = {
     docs: {
       description: {
         component:
-          "Primary action button. Use `variant='primary'` for the main CTA, `variant='secondary'` for less prominent actions, `variant='borderless'` for inline text actions, and `variant='outline'` for bordered secondary actions. Prefer `IconButton` when no label is needed.",
+          "Primary action button. Use `variant='primary'` for the main CTA, `variant='secondary'` for less prominent actions, `variant='borderless'` for inline text actions, `variant='outline'` for bordered secondary actions, and `variant='negative'` for destructive actions. Prefer `IconButton` when no label is needed.",
       },
     },
   },
   tags: ['autodocs'],
-  args: { onClick: fn() },
   argTypes: {
     label: { description: 'Button text', control: 'text' },
     variant: {
       description: 'Visual style of the button',
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'borderless', 'outline'],
+      options: ['primary', 'secondary', 'borderless', 'outline', 'negative'],
     },
     size: {
       description: "Size variant — use 'small' in compact layouts",
@@ -90,6 +88,13 @@ export const Outline: Story = {
   args: {
     label: 'Outline',
     variant: 'outline',
+  },
+}
+
+export const Negative: Story = {
+  args: {
+    label: 'Negative',
+    variant: 'negative',
   },
 }
 

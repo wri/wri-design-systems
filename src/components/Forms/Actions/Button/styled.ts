@@ -43,148 +43,191 @@ export const baseButtonStyles = (size: ButtonProps['size']) => css`
   }
 `
 
-export const primaryButtonStyles = (disabled?: boolean) => css`
-  ${disabled
-    ? `
+export const primaryButtonStyles = css`
+  background-color: ${getThemedColor('primary', 500)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 600)};
+  color: ${getThemedColor('accessible', 'text-on-primary-mids') ||
+  getThemedColor('primary', 900)};
+  box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
+
+  &:hover {
+    background-color: ${getThemedColor('primary', 500)};
+    box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
+  }
+
+  &:active {
+    outline: none;
+    background-color: ${getThemedColor('primary', 600)} !important;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)} !important;
+    box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
+  }
+
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+    background-color: ${getThemedColor('primary', 500)};
+  }
+
+  &:disabled,
+  &[data-disabled] {
     background-color: ${getThemedColor('neutral', 300)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
     color: ${getThemedColor('neutral', 500)};
-    cursor: not-allowed !important;
+    cursor: not-allowed;
+    opacity: 1;
 
     &:hover {
-      background-color: ${getThemedColor('neutral', 300)} !important;
+      background-color: ${getThemedColor('neutral', 300)};
     }
-  `
-    : `
-    background-color: ${getThemedColor('primary', 500)};
-    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 600)};
-    color: ${getThemedColor('accessible', 'text-on-primary-mids') || getThemedColor('primary', 900)};
-    box-shadow: 0 0.0625rem 0.125rem 0 #0000000D;
-
-    &:hover {
-      background-color: ${getThemedColor('primary', 500)};
-      box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001A;
-      box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001A;
-    }
-
-    &:active {
-      outline: none;
-      background-color: ${getThemedColor('primary', 600)} !important;
-      border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)} !important;
-      box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001A;
-      box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001A;
-    }
-
-    &:focus-visible {
-      outline-color: ${getThemedColor('primary', 700)};
-      background-color: ${getThemedColor('primary', 500)};
-    }
-  `}
+  }
 `
 
-export const secondaryButtonStyles = (disabled?: boolean) => css`
-  ${disabled
-    ? `
-    background-color: ${getThemedColor('neutral', 200)};
-    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
-    color: ${getThemedColor('neutral', 500)};
-    cursor: not-allowed !important;
+export const secondaryButtonStyles = css`
+  background-color: ${getThemedColor('neutral', 100)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  color: ${getThemedColor('neutral', 800)};
+  box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
 
-    &:hover {
-      background-color: ${getThemedColor('neutral', 200)} !important;
-    }
-  `
-    : `
+  &:hover {
     background-color: ${getThemedColor('neutral', 100)};
-    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
-    color: ${getThemedColor('neutral', 800)};
-    box-shadow: 0 0.0625rem 0.125rem 0 #0000000D;
+    box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
+  }
 
-    &:hover {
-      background-color: ${getThemedColor('neutral', 100)};
-      box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001A;
-      box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001A;
-    }
+  &:active {
+    outline: none;
+    background-color: ${getThemedColor('neutral', 200)} !important;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)} !important;
+    box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
+  }
 
-    &:active {
-      outline: none;
-      background-color: ${getThemedColor('neutral', 200)} !important;
-      border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)} !important;
-      box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001A;
-      box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001A;
-    }
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+  }
 
-    &:focus-visible {
-      outline-color: ${getThemedColor('primary', 700)};
-    }
-  `}
-`
-
-export const borderlessButtonStyles = (disabled?: boolean) => css`
-  ${disabled
-    ? `
-    background-color: transparent;
-    color: ${getThemedColor('neutral', 500)};
-    cursor: not-allowed !important;
-
-    &:hover {
-      background-color: transparent !important;
-    }
-  `
-    : `
-    background-color: transparent;
-    border: none;
-    color: ${getThemedColor('neutral', 900)};
-    box-shadow: none;
-
-    &:hover {
-      background-color: color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
-    }
-
-    &:active {
-      outline: none;
-      background-color: color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
-      box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001A;
-    }
-
-    &:focus-visible {
-      outline-color: ${getThemedColor('primary', 700)};
-    }
-  `}
-`
-
-export const outlineButtonStyles = (disabled?: boolean) => css`
-  ${disabled
-    ? `
+  &:disabled,
+  &[data-disabled] {
     background-color: ${getThemedColor('neutral', 200)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
     color: ${getThemedColor('neutral', 500)};
-    cursor: not-allowed !important;
+    cursor: not-allowed;
+    opacity: 1;
 
     &:hover {
-      background-color: ${getThemedColor('neutral', 200)} !important;
+      background-color: ${getThemedColor('neutral', 200)};
     }
-  `
-    : `
+  }
+`
+
+export const borderlessButtonStyles = css`
+  background-color: transparent;
+  border: none;
+  color: ${getThemedColor('neutral', 900)};
+  box-shadow: none;
+
+  &:hover {
+    background-color: color-mix(
+      in srgb,
+      ${getThemedColor('primary', 500)} 20%,
+      transparent
+    );
+  }
+
+  &:active {
+    outline: none;
+    background-color: color-mix(
+      in srgb,
+      ${getThemedColor('primary', 500)} 40%,
+      transparent
+    );
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
+  }
+
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+  }
+
+  &:disabled,
+  &[data-disabled] {
     background-color: transparent;
-    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 800)};
-    color: ${getThemedColor('primary', 800)};
+    color: ${getThemedColor('neutral', 500)};
+    cursor: not-allowed;
+    opacity: 1;
 
     &:hover {
-      background-color: ${getThemedColor('primary', 100)};
-      color: ${getThemedColor('primary', 900)};
+      background-color: transparent;
     }
+  }
+`
 
-    &:active {
-      outline: none;
-      background-color: ${getThemedColor('primary', 200)} !important;
-      border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 900)} !important;
-      color: ${getThemedColor('primary', 900)};
-    }
+export const outlineButtonStyles = css`
+  background-color: transparent;
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 800)};
+  color: ${getThemedColor('primary', 800)};
 
-    &:focus-visible {
-      outline-color: ${getThemedColor('primary', 700)};
-      background-color: ${getThemedColor('primary', 100)};
+  &:hover {
+    background-color: ${getThemedColor('primary', 100)};
+    color: ${getThemedColor('primary', 900)};
+  }
+
+  &:active {
+    outline: none;
+    background-color: ${getThemedColor('primary', 200)} !important;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 900)} !important;
+    color: ${getThemedColor('primary', 900)};
+  }
+
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+    background-color: ${getThemedColor('primary', 100)};
+  }
+
+  &:disabled,
+  &[data-disabled] {
+    background-color: ${getThemedColor('neutral', 200)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+    color: ${getThemedColor('neutral', 500)};
+    cursor: not-allowed;
+    opacity: 1;
+
+    &:hover {
+      background-color: ${getThemedColor('neutral', 200)};
     }
-  `}
+  }
+`
+
+export const negativeButtonStyles = css`
+  background-color: ${getThemedColor('error', 100)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('error', 300)};
+  color: ${getThemedColor('accessible', 'text-on-negative-mids') ||
+  getThemedColor('error', 900)};
+  box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
+
+  &:hover {
+    background-color: ${getThemedColor('error', 100)};
+    box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
+  }
+
+  &:active {
+    outline: none;
+    background-color: ${getThemedColor('error', 300)} !important;
+    box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
+  }
+
+  &:focus-visible {
+    outline-color: ${getThemedColor('primary', 700)};
+  }
+
+  &:disabled,
+  &[data-disabled] {
+    background-color: ${getThemedColor('neutral', 200)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+    color: ${getThemedColor('neutral', 500)};
+    cursor: not-allowed;
+    opacity: 1;
+  }
 `

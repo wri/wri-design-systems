@@ -12,8 +12,8 @@ import {
   menuItemStyles,
   disabledGroupStyles,
   triggerMenuButtonStyles,
+  getMenuTriggerIconColor,
 } from './styled'
-import { getThemedColor } from '../../../../lib/theme'
 
 interface MenuContentProps extends ChakraMenu.ContentProps {
   portalled?: boolean
@@ -60,7 +60,7 @@ const MultiActionButton = ({
       role='group'
     >
       <Button
-        css={{}}
+        {...rest}
         label={mainActionLabel}
         variant={variant}
         size={size}
@@ -68,12 +68,17 @@ const MultiActionButton = ({
         disabled={isDisabledProp}
         leftIcon={mainActionLeftIcon}
         rightIcon={mainActionRightIcon}
-        {...rest}
       />
 
       <ChakraMenu.Root
         onOpenChange={({ open }) => setIsOpen(open)}
         positioning={{ placement: 'bottom-end' }}
+        onSelect={({ value }) => {
+          const action = otherActions.find((item) => item.value === value)
+          if (action && !action.disabled) {
+            action.onClick()
+          }
+        }}
       >
         <ChakraMenu.Trigger
           css={menuTriggerStyles(variant)}
@@ -92,22 +97,19 @@ const MultiActionButton = ({
               <ChevronDownIcon
                 aria-hidden='true'
                 rotate={isOpen ? '180' : '0'}
-                color={
-                  getThemedColor('accessible', 'text-on-primary-mids') ||
-                  getThemedColor('primary', 900)
-                }
+                color={getMenuTriggerIconColor(variant, isDisabledProp)}
               />
             }
             disabled={isDisabledProp}
           />
         </ChakraMenu.Trigger>
         <MenuContent>
-          {otherActions.map(({ label, value, onClick }) => (
+          {otherActions.map(({ label, value, disabled }) => (
             <ChakraMenu.Item
               css={menuItemStyles(size)}
               key={value}
-              onClick={onClick}
               value={value}
+              disabled={disabled}
             >
               {label}
             </ChakraMenu.Item>
