@@ -4,7 +4,13 @@ import React, { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import ModalStory from '.'
 import Button from '../../Forms/Actions/Button'
-import { getThemedColor } from '../../../lib/theme'
+import { getThemedColor, getThemedSpacing } from '../../../lib/theme'
+
+const paddedContent = (
+  <div style={{ padding: getThemedSpacing(300) }}>
+    <p>Content</p>
+  </div>
+)
 
 const meta = {
   title: 'Containers/Modal',
@@ -61,7 +67,7 @@ export const Modal: Story = {
         Title
       </p>
     ),
-    content: <p>Content</p>,
+    content: paddedContent,
     open: false,
   },
   render: (args) => {
@@ -92,7 +98,7 @@ export const ExtraSmall: Story = {
         Title
       </p>
     ),
-    content: <p>Content</p>,
+    content: paddedContent,
     size: 'xsmall',
     open: false,
   },
@@ -124,7 +130,7 @@ export const Small: Story = {
         Title
       </p>
     ),
-    content: <p>Content</p>,
+    content: paddedContent,
     size: 'small',
     open: false,
   },
@@ -156,7 +162,7 @@ export const Large: Story = {
         Title
       </p>
     ),
-    content: <p>Content</p>,
+    content: paddedContent,
     size: 'large',
     open: false,
   },
@@ -188,7 +194,7 @@ export const ExtraLarge: Story = {
         Title
       </p>
     ),
-    content: <p>Content</p>,
+    content: paddedContent,
     size: 'xlarge',
     open: false,
   },
@@ -219,7 +225,7 @@ export const FullWidth: Story = {
         Title
       </p>
     ),
-    content: <p>Content</p>,
+    content: paddedContent,
     size: 'full-width',
     open: false,
   },
@@ -251,7 +257,7 @@ export const CustomSize: Story = {
         Title
       </p>
     ),
-    content: <p>Content</p>,
+    content: paddedContent,
     width: '31.25rem',
     height: '18.75rem',
     maxHeight: '25rem',
@@ -285,7 +291,7 @@ export const WithActions: Story = {
         Title
       </p>
     ),
-    content: <p>Content</p>,
+    content: paddedContent,
     open: false,
   },
   render: (args) => {
@@ -333,7 +339,7 @@ export const Draggable: Story = {
         Title
       </p>
     ),
-    content: <p>Content</p>,
+    content: paddedContent,
     open: false,
   },
   render: (args) => {
@@ -365,7 +371,7 @@ export const Blocking: Story = {
         Title
       </p>
     ),
-    content: <p>Content</p>,
+    content: paddedContent,
     open: false,
   },
   render: (args) => {

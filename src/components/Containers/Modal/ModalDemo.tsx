@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, getThemedColor, Modal } from '../..'
+import { Button, getThemedColor, getThemedSpacing, Modal } from '../..'
 import DemoWrapper from '../../UI/DemoWrapper'
 import { ModalProps } from './types'
 
@@ -26,7 +26,11 @@ const ModalDemo = () => {
           Title
         </p>
       ),
-      content: <p>Modal size: {size}</p>,
+      content: (
+        <div style={{ padding: getThemedSpacing(300) }}>
+          <p>Modal size: {size}</p>
+        </div>
+      ),
       footer: showActions ? (
         <>
           <Button

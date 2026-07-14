@@ -74,5 +74,5 @@ export const modalCloseButtonStyles = css`
 `
 
 export const modalContentStyles = css`
-  padding: ${getThemedSpacing(300)};
+  padding: 0;
 `
