@@ -9,6 +9,7 @@ const items = [
 
 const ComboboxDemo = () => (
   <DemoWrapper title='Combobox'>
+    <div style={{ width: '18.125rem', flexDirection: 'column', display: 'flex', gap: '1.25rem' }} >
     <Combobox
       initialItems={items}
       label='Label'
@@ -55,7 +56,8 @@ const ComboboxDemo = () => (
       placeholder='placeholder'
       required
       disabled
-    />
+      />
+    </div>
   </DemoWrapper>
 )
 

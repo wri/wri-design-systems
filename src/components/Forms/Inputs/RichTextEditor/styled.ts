@@ -7,6 +7,7 @@ import {
   getThemedRadius,
   getThemedSpacing,
 } from '../../../../lib/theme'
+import { fieldFocusVisibleStyleObject } from '../FieldWrapper/styled'
 
 export const richTextEditorContainerStyles: SystemStyleObject = {
   display: 'flex',
@@ -70,7 +71,7 @@ export const richTextEditorContainerStyles: SystemStyleObject = {
       marginBlock: getThemedSpacing(400),
     },
     '&:focus-visible': {
-      boxShadow: `inset 0 0 0 ${getThemedBorderWidth(200)} ${getThemedColor('primary', 600)}`,
+      ...fieldFocusVisibleStyleObject,
       borderRadius: getThemedRadius(100),
     },
     '& p.is-editor-empty:first-of-type::before': {

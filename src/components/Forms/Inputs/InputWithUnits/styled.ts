@@ -2,8 +2,6 @@ import { css } from '@emotion/react'
 import {
   getThemedBorderWidth,
   getThemedColor,
-  getThemedFontSize,
-  getThemedLineHeight,
   getThemedSpacing,
 } from '../../../../lib/theme'
 import { InputWithUnitsProps } from './types'
@@ -14,56 +12,11 @@ export const inputWithUnitsStyles = css`
   position: relative;
 `
 
-export const inputWithUnitsLabelStyles = (
-  disabled?: InputWithUnitsProps['disabled'],
-) => css`
-  font-size: ${getThemedFontSize(400)};
-  line-height: ${getThemedLineHeight(600)};
-  font-weight: 400;
-  color: ${getThemedColor('neutral', disabled ? 600 : 900)};
-  text-align: left;
-
-  span {
-    color: ${disabled
-      ? getThemedColor('neutral', 600)
-      : getThemedColor('error', 500)};
-    margin-right: 0.1875rem;
-  }
-`
-
-export const inputWithUnitsCaptionStyles = (
-  disabled?: InputWithUnitsProps['disabled'],
-) => css`
-  font-size: ${getThemedFontSize(300)};
-  line-height: ${getThemedLineHeight(500)};
-  font-weight: 400;
-  color: ${getThemedColor('neutral', disabled ? 600 : 700)};
-  text-align: left;
-`
-
-export const errorBarStyles = css`
-  width: 0.1875rem;
-  height: 100%;
-  background-color: ${getThemedColor('error', 900)};
-  position: absolute;
-  top: 0;
-  left: 0;
-`
-
-export const inputWithUnitsErrorMessageStyles = css`
-  font-size: ${getThemedFontSize(300)};
-  line-height: ${getThemedLineHeight(500)};
-  font-weight: 700;
-  color: ${getThemedColor('error', 900)};
-  text-align: left;
-`
-
 export const inputWithUnitsContainerStyles = (
   hasError: boolean,
   unitsPosition?: InputWithUnitsProps['unitsPosition'],
 ) => css`
   width: 100%;
-  margin-top: ${getThemedSpacing(200)};
 
   .ds-text-input-container {
     margin-bottom: 0;

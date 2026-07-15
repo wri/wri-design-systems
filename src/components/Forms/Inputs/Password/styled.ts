@@ -13,33 +13,11 @@ export const passwordContainerStyles = css`
   max-width: 30.375rem;
 `
 
-export const passwordLabelStyles = css`
-  font-size: ${getThemedFontSize(400)};
-  line-height: ${getThemedLineHeight(600)};
-  font-weight: 400;
-  color: ${getThemedColor('neutral', 900)};
-  text-align: left;
-
-  span {
-    color: ${getThemedColor('error', 500)};
-    margin-right: 0.1875rem;
-  }
-`
-
-export const passwordCaptionStyles = css`
-  font-size: ${getThemedFontSize(300)};
-  line-height: ${getThemedLineHeight(500)};
-  font-weight: 400;
-  color: ${getThemedColor('neutral', 700)};
-  text-align: left;
-`
-
 export const passwordContentStyles = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: ${getThemedSpacing(200)};
-  margin-top: ${getThemedSpacing(200)};
 
   .ds-text-input-container {
     margin-bottom: 0;
@@ -55,7 +33,9 @@ export const passwordContentStyles = css`
 `
 
 export const passwordStrengthContainerStyles = css`
-  margin-top: ${getThemedSpacing(300)};
+  display: flex;
+  flex-direction: column;
+  gap: ${getThemedSpacing(200)};
 `
 
 export const passwordStrengthLabelStyles = (strength: string) => css`
@@ -64,6 +44,7 @@ export const passwordStrengthLabelStyles = (strength: string) => css`
   font-weight: 400;
   color: ${getThemedColor('neutral', 800)};
   text-align: left;
+  margin: 0;
 
   span {
     font-weight: 700;
@@ -82,8 +63,7 @@ export const passwordStrengthBarStyles = (strength: string) => css`
   height: ${getThemedSpacing(200)};
   width: 100%;
   background-color: ${getThemedColor('neutral', 300)};
-  margin-top: ${getThemedSpacing(200)};
-  margin-bottom: ${getThemedSpacing(300)};
+  margin-bottom: ${getThemedSpacing(100)};
   border-radius: ${getThemedRadius(500)};
 
   div {
@@ -125,5 +105,9 @@ export const passwordStrengthItemStyles = (isValid: boolean) => css`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  p {
+    margin: 0;
   }
 `

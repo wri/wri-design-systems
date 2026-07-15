@@ -4,6 +4,7 @@ import {
   getThemedColor,
   getThemedSpacing,
 } from '../../../../lib/theme'
+import { fieldFocusVisibleStyles } from '../../Inputs/FieldWrapper/styled'
 
 export const radioGroupItemStyles = css`
   .ds-radio-item-indicator {
@@ -30,13 +31,7 @@ export const radioGroupItemStyles = css`
 
     &:focus-visible,
     &[data-focus-visible] {
-      outline: ${getThemedBorderWidth(200)} solid
-        ${getThemedColor('accessible', 'controls-on-neutral-lights') ||
-        getThemedColor('primary', 700)};
-      outline-offset: ${getThemedSpacing(50)};
-      box-shadow:
-        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
+      ${fieldFocusVisibleStyles}
 
       &[data-checked] {
         border: ${getThemedBorderWidth(200)} solid
