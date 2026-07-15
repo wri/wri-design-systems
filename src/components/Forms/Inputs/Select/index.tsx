@@ -162,12 +162,7 @@ const Select = ({
         {...rest}
       >
         <SelectTrigger
-          css={selectTriggerStyles(
-            size,
-            isFilled,
-            !!errorMessage,
-            multiple,
-          )}
+          css={selectTriggerStyles(size, isFilled, !!errorMessage, multiple)}
           aria-label={rest['aria-label'] || label || l.defaultAriaLabel}
         >
           {multiple ? (

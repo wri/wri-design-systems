@@ -93,15 +93,15 @@ export const fieldWrapperLabelStyles = (
   .chakra-field__requiredIndicator {
     margin-top: ${getThemedSpacing(100)};
     color: ${disabled
-    ? getThemedColor('neutral', 600)
-    : getThemedColor('error', 500)};
+      ? getThemedColor('neutral', 600)
+      : getThemedColor('error', 500)};
   }
 
   /* Group-semantics required asterisk */
   > span[data-required-indicator] {
     color: ${disabled
-    ? getThemedColor('neutral', 600)
-    : getThemedColor('error', 500)};
+      ? getThemedColor('neutral', 600)
+      : getThemedColor('error', 500)};
     margin-right: 0.1875rem;
   }
 

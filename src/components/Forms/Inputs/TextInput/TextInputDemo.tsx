@@ -3,7 +3,14 @@ import DemoWrapper from '../../../UI/DemoWrapper'
 
 const TextInputDemo = () => (
   <DemoWrapper title='Text Input'>
-    <div style={{ width: '18.125rem', flexDirection: 'column', display: 'flex', gap: '1.25rem' }} >
+    <div
+      style={{
+        width: '18.125rem',
+        flexDirection: 'column',
+        display: 'flex',
+        gap: '1.25rem',
+      }}
+    >
       <TextInput
         label='Label'
         caption='Caption'

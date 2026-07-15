@@ -112,8 +112,7 @@ const SliderInput = ({
           <Select
             items={sliderItem.marks.map((mark) => {
               const markValue = typeof mark === 'number' ? mark : mark.value
-              const markLabel =
-                typeof mark === 'number' ? mark : mark.label
+              const markLabel = typeof mark === 'number' ? mark : mark.label
               return {
                 label: `${markLabel}`,
                 value: `${markValue}`,

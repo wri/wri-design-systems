@@ -5,10 +5,7 @@ import { useState } from 'react'
 import { Group } from '@chakra-ui/react'
 
 import { InputWithUnitsProps } from './types'
-import {
-  inputWithUnitsContainerStyles,
-  inputWithUnitsStyles,
-} from './styled'
+import { inputWithUnitsContainerStyles, inputWithUnitsStyles } from './styled'
 import TextInput from '../TextInput'
 import Select from '../Select'
 import FieldWrapper from '../FieldWrapper'

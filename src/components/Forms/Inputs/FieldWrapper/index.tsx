@@ -158,7 +158,11 @@ const FieldWrapper = ({
 }
 
 export default FieldWrapper
-export type { FieldWrapperProps, FieldWrapperLabels, FieldWrapperSize } from './types'
+export type {
+  FieldWrapperProps,
+  FieldWrapperLabels,
+  FieldWrapperSize,
+} from './types'
 export {
   fieldFocusVisibleStyleObject,
   fieldFocusVisibleStyles,

@@ -38,8 +38,8 @@ export const selectTriggerStyles = (
 
   .chakra-select__trigger {
     min-height: ${size === 'small'
-    ? getThemedSpacing(800)
-    : getThemedSpacing(1000)};
+      ? getThemedSpacing(800)
+      : getThemedSpacing(1000)};
     border-radius: ${getThemedRadius(300)};
     padding: ${getThemedSpacing(50)} ${getThemedSpacing(200)};
     border: ${getThemedBorderWidth(100)} solid
@@ -50,20 +50,20 @@ export const selectTriggerStyles = (
 
     .chakra-select__valueText {
       font-size: ${size === 'small'
-    ? getThemedFontSize(300)
-    : getThemedFontSize(400)};
+        ? getThemedFontSize(300)
+        : getThemedFontSize(400)};
       line-height: ${size === 'small'
-    ? getThemedLineHeight(500)
-    : getThemedLineHeight(600)};
+        ? getThemedLineHeight(500)
+        : getThemedLineHeight(600)};
       color: ${getThemedColor('neutral', 700)};
 
       ${multiple
-    ? `
+        ? `
         display: flex;
         flex-wrap: wrap;
         gap: ${getThemedSpacing(200)};
       `
-    : ''}
+        : ''}
     }
 
     &[data-state='open'] {
@@ -75,9 +75,9 @@ export const selectTriggerStyles = (
         border-bottom-left-radius: ${getThemedRadius(300)};
         border-bottom-right-radius: ${getThemedRadius(300)};
         border-bottom-color: ${getTriggerBorderColor(
-      isFilled,
-      hasErrorMessage,
-    )};
+          isFilled,
+          hasErrorMessage,
+        )};
 
         border-top-left-radius: 0;
         border-top-right-radius: 0;
@@ -95,8 +95,8 @@ export const selectTriggerStyles = (
   .chakra-select__indicator {
     svg {
       width: ${size === 'small'
-    ? getThemedSpacing(300)
-    : getThemedSpacing(400)};
+        ? getThemedSpacing(300)
+        : getThemedSpacing(400)};
 
       path {
         fill: ${getThemedColor('neutral', 700)};

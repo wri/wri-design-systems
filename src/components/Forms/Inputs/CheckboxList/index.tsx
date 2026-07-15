@@ -180,9 +180,7 @@ const CheckboxList = ({
             aria-controls='checkbox-list'
             css={expandButtonStyles}
           >
-            {isExpanded
-              ? resolvedLabels.hideLabel
-              : resolvedLabels.expandLabel}
+            {isExpanded ? resolvedLabels.hideLabel : resolvedLabels.expandLabel}
             <span aria-hidden='true'>
               {isExpanded ? (
                 <ChevronDownIcon style={{ transform: 'rotate(180deg)' }} />
