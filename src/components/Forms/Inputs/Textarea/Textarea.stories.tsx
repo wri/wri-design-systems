@@ -104,6 +104,16 @@ export const DefaultValue: Story = {
   },
 }
 
+export const DisabledWithDefaultValue: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    defaultValue: 'Default Value',
+    required: true,
+    disabled: true,
+  },
+}
+
 export const ErrorMessage: Story = {
   args: {
     label: 'Label',

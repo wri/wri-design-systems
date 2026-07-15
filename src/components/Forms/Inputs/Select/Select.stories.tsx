@@ -112,6 +112,7 @@ export const DefaultValue: Story = {
         value: 'value-3',
       },
     ],
+    required: true,
   },
 }
 
@@ -141,12 +142,39 @@ export const SmallSize: Story = {
   },
 }
 
-export const Disabled: Story = {
+export const DisabledWithDefaultValue: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
     placeholder: 'Please select',
     defaultValue: ['value-2'],
+    items: [
+      {
+        label: 'Label 1',
+        caption: 'Caption 1',
+        value: 'value-1',
+      },
+      {
+        label: 'Label 2',
+        caption: 'Caption 2',
+        value: 'value-2',
+      },
+      {
+        label: 'Label 3',
+        caption: 'Caption 3',
+        value: 'value-3',
+      },
+    ],
+    required: true,
+    disabled: true,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Please select',
     items: [
       {
         label: 'Label 1',
