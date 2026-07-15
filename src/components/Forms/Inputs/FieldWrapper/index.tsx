@@ -31,7 +31,6 @@ const FieldWrapper = ({
   footer,
   semantics = 'field',
   className,
-  style,
   children,
   captionId,
   errorId,
@@ -135,7 +134,6 @@ const FieldWrapper = ({
     <div
       css={fieldWrapperContainerStyles(noMarginBottom, hasError)}
       className={className}
-      style={style}
       {...containerProps}
     >
       {hasError ? <div css={fieldWrapperErrorBarStyles} /> : null}

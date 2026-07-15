@@ -1,4 +1,4 @@
-import type { ReactNode, CSSProperties, HTMLAttributes } from 'react'
+import type { ReactNode, HTMLAttributes } from 'react'
 
 export type FieldWrapperSize = 'small' | 'default'
 
@@ -36,7 +36,6 @@ export type FieldWrapperProps = {
    */
   semantics?: 'field' | 'group'
   className?: string
-  style?: CSSProperties
   children: ReactNode
   /** Optional id on the caption element (for aria-describedby). */
   captionId?: string

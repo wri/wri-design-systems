@@ -97,7 +97,6 @@ const Select = ({
   labels,
   value: controlledValue,
   defaultValue,
-  style,
   ...rest
 }: SelectProps) => {
   const l = useLabels('Select', labels)
@@ -141,7 +140,6 @@ const Select = ({
       size={size}
       showOptionalLabel={false}
       semantics='group'
-      style={style}
       containerProps={{
         tabIndex: disabled ? 0 : undefined,
         'aria-disabled': disabled,
