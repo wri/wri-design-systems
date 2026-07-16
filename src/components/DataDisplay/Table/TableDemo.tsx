@@ -1,4 +1,4 @@
-import { isValidElement, type ReactNode, useMemo, useState } from 'react'
+import React, { isValidElement, type ReactNode, useMemo, useState } from 'react'
 import { Table, TableRow, TableCell } from '../..'
 import DemoWrapper from '../../UI/DemoWrapper'
 
