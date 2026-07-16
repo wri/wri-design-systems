@@ -5,16 +5,10 @@ import { useState } from 'react'
 import { Group } from '@chakra-ui/react'
 
 import { InputWithUnitsProps } from './types'
-import {
-  errorBarStyles,
-  inputWithUnitsCaptionStyles,
-  inputWithUnitsContainerStyles,
-  inputWithUnitsErrorMessageStyles,
-  inputWithUnitsLabelStyles,
-  inputWithUnitsStyles,
-} from './styled'
+import { inputWithUnitsContainerStyles, inputWithUnitsStyles } from './styled'
 import TextInput from '../TextInput'
 import Select from '../Select'
+import FieldWrapper from '../FieldWrapper'
 
 const InputWithUnits = ({
   label,
@@ -44,20 +38,16 @@ const InputWithUnits = ({
 
   return (
     <div css={inputWithUnitsStyles}>
-      {errorMessage ? <div css={errorBarStyles} /> : null}
-      <div style={{ marginLeft: errorMessage ? '1.1875rem' : '0px' }}>
-        <p css={inputWithUnitsLabelStyles(disabled)} aria-label={label}>
-          {required ? <span>*</span> : null}
-          {label}
-        </p>
-        <p css={inputWithUnitsCaptionStyles(disabled)} aria-label={caption}>
-          {caption}
-        </p>
-        {errorMessage ? (
-          <p css={inputWithUnitsErrorMessageStyles} aria-label={errorMessage}>
-            {errorMessage}
-          </p>
-        ) : null}
+      <FieldWrapper
+        label={label}
+        caption={caption}
+        errorMessage={errorMessage}
+        required={required}
+        disabled={disabled}
+        showOptionalLabel={false}
+        noMarginBottom
+        semantics='group'
+      >
         <Group
           css={inputWithUnitsContainerStyles(!!errorMessage, unitsPosition)}
           attached
@@ -80,6 +70,7 @@ const InputWithUnits = ({
             aria-label={`${label} value`}
             value={inputValue}
             disabled={disabled}
+            noMarginBottom
             onChange={(e) => {
               setInputValue(e.target.value)
               handleOnChange(e.target.value)
@@ -99,7 +90,7 @@ const InputWithUnits = ({
             />
           ) : null}
         </Group>
-      </div>
+      </FieldWrapper>
     </div>
   )
 }

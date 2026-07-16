@@ -4,6 +4,7 @@ import {
   getThemedColor,
   getThemedSpacing,
 } from '../../../../lib/theme'
+import { fieldFocusVisibleStyles } from '../../Inputs/FieldWrapper/styled'
 
 export const checkboxStyles = css`
   .chakra-checkbox__control {
@@ -34,13 +35,7 @@ export const checkboxStyles = css`
 
     &:focus-visible,
     &[data-focus-visible] {
-      box-shadow: none;
-      outline: ${getThemedBorderWidth(200)} solid
-        ${getThemedColor('primary', 700)};
-      outline-offset: ${getThemedSpacing(50)};
-      box-shadow:
-        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
+      ${fieldFocusVisibleStyles}
     }
 
     &[data-state='checked'],

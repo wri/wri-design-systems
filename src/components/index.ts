@@ -123,6 +123,12 @@ export { default as Switch } from './Forms/Controls/Switch'
 export type { SwitchProps } from './Forms/Controls/Switch/types'
 
 // Inputs
+export { default as FieldWrapper } from './Forms/Inputs/FieldWrapper'
+export type {
+  FieldWrapperLabels,
+  FieldWrapperProps,
+  FieldWrapperSize,
+} from './Forms/Inputs/FieldWrapper/types'
 export { default as CheckboxList } from './Forms/Inputs/CheckboxList'
 export type {
   CheckboxListLabel,

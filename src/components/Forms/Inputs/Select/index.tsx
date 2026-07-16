@@ -8,32 +8,26 @@ import {
   createListCollection,
   HStack,
   SelectValueChangeDetails,
-  Group,
 } from '@chakra-ui/react'
 import {
   SelectContent,
   SelectItem,
-  SelectLabel,
   SelectRoot,
   SelectTrigger,
   SelectValueText,
 } from './BaseSelect'
 import {
-  selectCaptionStyles,
-  selectContainerStyles,
   selectContentStyles,
-  selectErrorBarStyles,
-  selectErrorMessageStyles,
   selectItemCaptionStyles,
   selectItemLabelStyles,
   selectItemStyles,
-  selectLabelStyles,
   selectTriggerStyles,
 } from './styled'
 import { SelectItemProps, SelectProps } from './types'
 import Tag from '../../Tag'
 import Checkbox from '../../Controls/Checkbox'
 import { useLabels } from '../../../../lib/i18n/useLabels'
+import FieldWrapper from '../FieldWrapper'
 
 const getCollectionItems = (items: SelectItemProps[]) =>
   createListCollection({ items })
@@ -101,16 +95,22 @@ const Select = ({
   errorMessage,
   multiple,
   labels,
+  value: controlledValue,
+  defaultValue,
   ...rest
 }: SelectProps) => {
   const l = useLabels('Select', labels)
-  const [selectedItems, setSelectedItems] = useState<string[]>(
-    rest.defaultValue || [],
+  const [uncontrolledValue, setUncontrolledValue] = useState<string[]>(
+    defaultValue || [],
   )
+  const isControlled = controlledValue !== undefined
+  const selectedItems = isControlled ? controlledValue : uncontrolledValue
   const selectItems = getCollectionItems(items)
 
   const onChangeHandler = (value: string[]) => {
-    setSelectedItems(value)
+    if (!isControlled) {
+      setUncontrolledValue(value)
+    }
 
     if (onChange) {
       onChange(value)
@@ -121,20 +121,31 @@ const Select = ({
     const newItems = selectedItems.filter((item) => item !== value)
     onChangeHandler(newItems)
   }
+
   const totalAriaLabel =
     `${label || l.defaultAriaLabel}${required ? l.requiredSuffix : ''}${
       caption ? ` ${caption}.` : ''
     }${disabled ? l.disabledSuffix : ''}`.trim()
+
+  const isFilled = selectedItems.length > 0
+
   return (
-    <Group
-      css={selectContainerStyles(size)}
-      style={rest.style}
+    <FieldWrapper
       className='ds-select-input-container'
-      tabIndex={disabled ? 0 : undefined}
-      aria-disabled={disabled}
-      aria-label={disabled ? totalAriaLabel : undefined}
+      label={label}
+      caption={caption}
+      errorMessage={errorMessage}
+      required={required}
+      disabled={disabled}
+      size={size}
+      showOptionalLabel={false}
+      semantics='group'
+      containerProps={{
+        tabIndex: disabled ? 0 : undefined,
+        'aria-disabled': disabled,
+        'aria-label': disabled ? totalAriaLabel : undefined,
+      }}
     >
-      {errorMessage ? <div css={selectErrorBarStyles} /> : null}
       <SelectRoot
         css={{}}
         collection={selectItems}
@@ -146,28 +157,10 @@ const Select = ({
         onValueChange={(details: SelectValueChangeDetails) =>
           onChangeHandler(details.value)
         }
-        style={{ marginLeft: errorMessage ? '1.1875rem' : '0px' }}
         {...rest}
       >
-        {label ? (
-          <SelectLabel css={selectLabelStyles(size)}>
-            {required ? <span>*</span> : null}
-            {label}
-          </SelectLabel>
-        ) : null}
-        {caption ? (
-          <p css={selectCaptionStyles(size, disabled)}>{caption}</p>
-        ) : null}
-        {errorMessage && (
-          <p css={selectErrorMessageStyles(size)}>{errorMessage}</p>
-        )}
         <SelectTrigger
-          css={selectTriggerStyles(
-            size,
-            selectedItems.length > 0,
-            !!errorMessage,
-            multiple,
-          )}
+          css={selectTriggerStyles(size, isFilled, !!errorMessage, multiple)}
           aria-label={rest['aria-label'] || label || l.defaultAriaLabel}
         >
           {multiple ? (
@@ -203,7 +196,7 @@ const Select = ({
           ))}
         </SelectContent>
       </SelectRoot>
-    </Group>
+    </FieldWrapper>
   )
 }
 

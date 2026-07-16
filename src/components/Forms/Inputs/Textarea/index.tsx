@@ -5,15 +5,12 @@ import React, { useEffect, useState, useId } from 'react'
 import { Field, Textarea as ChakraTextarea } from '@chakra-ui/react'
 import { TextareaProps } from './types'
 import {
-  fieldCaptionStyles,
   fieldErrorMessageStyles,
   fieldHelperTextStyles,
-  fieldLabelStyles,
-  textareaContainerStyles,
-  textareaErrorBarStyles,
   textareaSyles,
 } from './styled'
 import { useLabels } from '../../../../lib/i18n/useLabels'
+import FieldWrapper from '../FieldWrapper'
 
 const Textarea = ({
   label,
@@ -29,13 +26,19 @@ const Textarea = ({
   minLength,
   maxLength,
   labels,
+  value: controlledValue,
   ...rest
 }: TextareaProps) => {
   const l = useLabels('Textarea', labels)
-  const [value, setValue] = useState(defaultValue)
+  const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue)
   const [showMinLengthError, setShowMinLengthError] = useState(false)
   const [showMaxLengthError, setShowMaxLengthError] = useState(false)
   const [helperText, setHelperText] = useState('')
+
+  const isControlled = controlledValue !== undefined
+  const currentValue = isControlled
+    ? String(controlledValue ?? '')
+    : uncontrolledValue
 
   const captionId = useId()
   const errorId = useId()
@@ -60,7 +63,9 @@ const Textarea = ({
   }, [])
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(e.target.value)
+    if (!isControlled) {
+      setUncontrolledValue(e.target.value)
+    }
     const { length } = e.target.value
 
     if (minLength && maxLength) {
@@ -95,103 +100,91 @@ const Textarea = ({
       .filter(Boolean)
       .join(' ') || undefined
 
-  return (
-    <div css={textareaContainerStyles(size)}>
-      {hasError ? <div css={textareaErrorBarStyles} /> : null}
-      <Field.Root
-        required={required}
-        invalid={hasError}
-        gap='0'
-        style={{ marginLeft: hasError ? '1.1875rem' : '0px' }}
-      >
-        {label ? (
-          <Field.Label
-            css={fieldLabelStyles(size, disabled)}
-            aria-label={label}
-          >
-            <Field.RequiredIndicator aria-label={l.requiredSymbolLabel} />
-            {label}
-            {!required && showOptionalLabel ? (
-              <span>{l.optionalSuffix}</span>
-            ) : null}
-          </Field.Label>
-        ) : null}
+  const isFilled = Boolean(currentValue || defaultValue)
 
-        {caption ? (
-          <Field.HelperText
-            id={captionId}
-            css={fieldCaptionStyles(size, disabled)}
-          >
-            {caption}
-          </Field.HelperText>
-        ) : null}
+  const showHelperText =
+    helperText && !showMaxLengthError && !showMinLengthError
+  const hasFooterContent =
+    (showMinLengthError && !!minLength) ||
+    (showMaxLengthError && !!maxLength) ||
+    showHelperText
 
-        {errorMessage ? (
-          <Field.ErrorText
-            id={errorId}
-            css={fieldErrorMessageStyles}
-            aria-label={`${l.errorPrefix} ${errorMessage}`}
-            aria-live='polite'
-          >
-            {errorMessage}
-          </Field.ErrorText>
-        ) : null}
-
-        <ChakraTextarea
-          placeholder={placeholder}
-          disabled={disabled}
-          css={textareaSyles(size, value, defaultValue)}
-          onChange={handleOnChange}
-          value={value}
-          aria-label={label || placeholder}
-          aria-describedby={describedByIds}
-          _placeholder={{
-            color: 'var(--chakra-colors-neutral-500)',
+  const footer = hasFooterContent ? (
+    <>
+      {showMinLengthError && minLength ? (
+        <Field.ErrorText
+          id={errorId}
+          css={fieldErrorMessageStyles}
+          style={{
+            fontSize: '0.75rem',
+            lineHeight: '1rem',
           }}
-          {...rest}
-        />
+          aria-live='polite'
+        >
+          {l.needMoreChars(minLength - currentValue.length)}
+        </Field.ErrorText>
+      ) : null}
 
-        {showMinLengthError && minLength ? (
-          <Field.ErrorText
-            id={errorId}
-            css={fieldErrorMessageStyles}
-            style={{
-              marginTop: '0.5rem',
-              fontSize: '0.75rem',
-              lineHeight: '1rem',
-            }}
-            aria-live='polite'
-          >
-            {l.needMoreChars(minLength - value.length)}
-          </Field.ErrorText>
-        ) : null}
+      {showMaxLengthError && maxLength ? (
+        <Field.ErrorText
+          id={errorId}
+          css={fieldErrorMessageStyles}
+          style={{
+            fontSize: '0.75rem',
+            lineHeight: '1rem',
+          }}
+          aria-live='polite'
+        >
+          {l.tooManyChars(currentValue.length - maxLength)}
+        </Field.ErrorText>
+      ) : null}
 
-        {showMaxLengthError && maxLength ? (
-          <Field.ErrorText
-            id={errorId}
-            css={fieldErrorMessageStyles}
-            style={{
-              marginTop: '0.5rem',
-              fontSize: '0.75rem',
-              lineHeight: '1rem',
-            }}
-            aria-live='polite'
-          >
-            {l.tooManyChars(value.length - maxLength)}
-          </Field.ErrorText>
-        ) : null}
+      {showHelperText ? (
+        <Field.HelperText
+          id={helperId}
+          css={fieldHelperTextStyles}
+          aria-live='polite'
+        >
+          {helperText}
+        </Field.HelperText>
+      ) : null}
+    </>
+  ) : null
 
-        {helperText && !showMaxLengthError && !showMinLengthError ? (
-          <Field.HelperText
-            id={helperId}
-            css={fieldHelperTextStyles}
-            aria-live='polite'
-          >
-            {helperText}
-          </Field.HelperText>
-        ) : null}
-      </Field.Root>
-    </div>
+  return (
+    <FieldWrapper
+      label={label}
+      caption={caption}
+      errorMessage={errorMessage}
+      invalid={hasError}
+      required={required}
+      disabled={disabled}
+      size={size}
+      showOptionalLabel={showOptionalLabel}
+      labels={{
+        requiredSymbolLabel: l.requiredSymbolLabel,
+        optionalSuffix: l.optionalSuffix,
+      }}
+      captionId={captionId}
+      errorId={errorMessage ? errorId : undefined}
+      footer={footer}
+      semantics='field'
+    >
+      <ChakraTextarea
+        placeholder={placeholder}
+        disabled={disabled}
+        css={textareaSyles(size, isFilled)}
+        onChange={handleOnChange}
+        value={currentValue}
+        aria-label={label || placeholder}
+        aria-describedby={describedByIds}
+        aria-invalid={hasError || undefined}
+        _placeholder={{
+          color: 'var(--chakra-colors-neutral-500)',
+        }}
+        {...rest}
+      />
+    </FieldWrapper>
   )
 }
 

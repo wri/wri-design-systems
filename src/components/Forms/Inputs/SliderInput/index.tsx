@@ -4,14 +4,11 @@
 import React, { useState } from 'react'
 
 import { SliderInputProps } from './types'
-import {
-  sliderInputCaptionStyles,
-  sliderInputContentStyles,
-  sliderInputLabelStyles,
-} from './styled'
+import { sliderInputContentStyles } from './styled'
 import TextInput from '../TextInput'
 import Slider from '../../Controls/Slider'
 import Select from '../Select'
+import FieldWrapper from '../FieldWrapper'
 
 const SliderInput = ({
   label,
@@ -101,24 +98,26 @@ const SliderInput = ({
   }
 
   return (
-    <div>
-      <p css={sliderInputLabelStyles(size)} aria-label={label}>
-        {required ? <span>*</span> : null}
-        {label}
-      </p>
-      {caption ? (
-        <p css={sliderInputCaptionStyles(size)} aria-label={caption}>
-          {caption}
-        </p>
-      ) : null}
-
+    <FieldWrapper
+      label={label}
+      caption={caption}
+      required={required}
+      size={size}
+      showOptionalLabel={false}
+      noMarginBottom
+      semantics='group'
+    >
       <div css={sliderInputContentStyles}>
         {sliderItem.step && sliderItem.marks ? (
           <Select
-            items={sliderItem.marks.map((mark: any) => ({
-              label: `${mark.label}`,
-              value: `${mark.value}`,
-            }))}
+            items={sliderItem.marks.map((mark) => {
+              const markValue = typeof mark === 'number' ? mark : mark.value
+              const markLabel = typeof mark === 'number' ? mark : mark.label
+              return {
+                label: `${markLabel}`,
+                value: `${markValue}`,
+              }
+            })}
             placeholder=''
             style={{ width: '5.625rem' }}
             value={[`${value?.[0]}`]}
@@ -134,7 +133,10 @@ const SliderInput = ({
             onChange={(e) => handleInputChanged(e, 0)}
             onBlur={(e) => handleInputBlur(e, 0)}
             className='ds-opacity-control-text-input'
-            onClick={(e: any) => e.target.select()}
+            onClick={(e: React.MouseEvent<HTMLInputElement>) =>
+              (e.target as HTMLInputElement).select()
+            }
+            noMarginBottom
           />
         )}
         <Slider
@@ -158,11 +160,14 @@ const SliderInput = ({
             onChange={(e) => handleInputChanged(e, 1)}
             onBlur={(e) => handleInputBlur(e, 1)}
             className='ds-opacity-control-text-input'
-            onClick={(e: any) => e.target.select()}
+            onClick={(e: React.MouseEvent<HTMLInputElement>) =>
+              (e.target as HTMLInputElement).select()
+            }
+            noMarginBottom
           />
         ) : null}
       </div>
-    </div>
+    </FieldWrapper>
   )
 }
 

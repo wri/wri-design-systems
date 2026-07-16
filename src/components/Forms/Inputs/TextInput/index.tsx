@@ -3,17 +3,11 @@
 
 import React, { useState } from 'react'
 
-import { Field, Input } from '@chakra-ui/react'
-import {
-  fieldCaptionStyles,
-  fieldErrorMessageStyles,
-  fieldLabelStyles,
-  textInputContainerStyles,
-  textInputErrorBarStyles,
-  textInputStyles,
-} from './styled'
+import { Input } from '@chakra-ui/react'
+import { textInputStyles } from './styled'
 import { TextInputProps } from './types'
 import { useLabels } from '../../../../lib/i18n/useLabels'
+import FieldWrapper from '../FieldWrapper'
 
 const TextInput = ({
   label,
@@ -28,72 +22,57 @@ const TextInput = ({
   defaultValue = '',
   onChange,
   labels,
+  value: controlledValue,
   ...rest
 }: TextInputProps) => {
   const l = useLabels('TextInput', labels)
-  const [value, setValue] = useState(defaultValue)
+  const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue)
+  const isControlled = controlledValue !== undefined
+  const currentValue = isControlled
+    ? String(controlledValue ?? '')
+    : uncontrolledValue
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value)
+    if (!isControlled) {
+      setUncontrolledValue(e.target.value)
+    }
 
     if (onChange) {
       onChange(e)
     }
   }
 
+  const isFilled = Boolean(currentValue || defaultValue)
+
   return (
-    <div
-      css={textInputContainerStyles(size, noMarginBottom)}
+    <FieldWrapper
       className='ds-text-input-container'
+      label={label}
+      caption={caption}
+      errorMessage={errorMessage}
+      required={required}
+      disabled={disabled}
+      size={size}
+      showOptionalLabel={showOptionalLabel}
+      noMarginBottom={noMarginBottom}
+      labels={{
+        requiredSymbolLabel: l.requiredSymbolLabel,
+        optionalSuffix: l.optionalSuffix,
+      }}
+      semantics='field'
     >
-      {errorMessage ? <div css={textInputErrorBarStyles} /> : null}
-      <Field.Root
-        required={required}
-        invalid={!!errorMessage}
-        gap='0'
-        style={{ marginLeft: errorMessage ? '1.1875rem' : '0px' }}
-      >
-        {label ? (
-          <Field.Label
-            css={fieldLabelStyles(size, disabled)}
-            aria-label={label}
-          >
-            <Field.RequiredIndicator aria-label={l.requiredSymbolLabel} />
-            {label}
-            {!required && showOptionalLabel ? (
-              <span>{l.optionalSuffix}</span>
-            ) : null}
-          </Field.Label>
-        ) : null}
-        {caption ? (
-          <Field.HelperText
-            css={fieldCaptionStyles(size, disabled)}
-            aria-label={caption}
-          >
-            {caption}
-          </Field.HelperText>
-        ) : null}
-        {errorMessage ? (
-          <Field.ErrorText
-            css={fieldErrorMessageStyles(size)}
-            aria-label={errorMessage}
-          >
-            {errorMessage}
-          </Field.ErrorText>
-        ) : null}
-        <Input
-          placeholder={placeholder}
-          disabled={disabled}
-          css={textInputStyles(size, value, defaultValue)}
-          onChange={handleOnChange}
-          value={value}
-          _placeholder={{
-            color: 'var(--chakra-colors-neutral-500)',
-          }}
-          {...rest}
-        />
-      </Field.Root>
-    </div>
+      <Input
+        placeholder={placeholder}
+        disabled={disabled}
+        css={textInputStyles(size, isFilled)}
+        onChange={handleOnChange}
+        value={currentValue}
+        _placeholder={{
+          color: 'var(--chakra-colors-neutral-500)',
+        }}
+        {...rest}
+      />
+    </FieldWrapper>
   )
 }
 

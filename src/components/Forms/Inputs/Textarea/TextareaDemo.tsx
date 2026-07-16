@@ -3,7 +3,14 @@ import DemoWrapper from '../../../UI/DemoWrapper'
 
 const TextareaDemo = () => (
   <DemoWrapper title='Textarea'>
-    <div style={{ width: '18.125rem' }}>
+    <div
+      style={{
+        width: '18.125rem',
+        flexDirection: 'column',
+        display: 'flex',
+        gap: '1.25rem',
+      }}
+    >
       <Textarea
         label='Label'
         caption='Caption'

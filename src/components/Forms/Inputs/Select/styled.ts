@@ -7,68 +7,7 @@ import {
   getThemedRadius,
   getThemedSpacing,
 } from '../../../../lib/theme'
-
-export const selectContainerStyles = (size: string) => css`
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: ${size === 'small' ? getThemedSpacing(300) : getThemedSpacing(400)};
-  margin-bottom: ${getThemedSpacing(400)};
-  &:focus-visible {
-    outline-color: ${getThemedColor('primary', 700)};
-  }
-`
-
-export const selectErrorBarStyles = css`
-  width: 0.1875rem;
-  height: 100%;
-  background-color: ${getThemedColor('error', 900)};
-  position: absolute;
-  top: 0;
-  left: 0;
-`
-
-export const selectLabelStyles = (size: string) => css`
-  font-size: ${size === 'small'
-    ? getThemedFontSize(300)
-    : getThemedFontSize(400)};
-  line-height: ${size === 'small'
-    ? getThemedLineHeight(500)
-    : getThemedLineHeight(600)};
-  font-weight: 400;
-  color: ${getThemedColor('neutral', 900)};
-  text-align: left;
-
-  span {
-    color: ${getThemedColor('error', 500)};
-    margin-right: 0.1875rem;
-  }
-
-  &[data-disabled] {
-    color: ${getThemedColor('neutral', 600)};
-
-    span {
-      color: ${getThemedColor('neutral', 600)};
-    }
-  }
-`
-
-export const selectCaptionStyles = (size: string, disabled?: boolean) => css`
-  font-size: ${size === 'small'
-    ? getThemedFontSize(200)
-    : getThemedFontSize(300)};
-  line-height: ${size === 'small'
-    ? getThemedLineHeight(400)
-    : getThemedLineHeight(500)};
-  font-weight: 400;
-  color: ${getThemedColor('neutral', 700)};
-  text-align: left;
-
-  ${disabled ? `color: ${getThemedColor('neutral', 600)} !important;` : ''}
-`
+import { fieldFocusVisibleStyles } from '../FieldWrapper/styled'
 
 const getTriggerBorderColor = (isFilled: boolean, hasErrorMessage: boolean) => {
   if (hasErrorMessage) {
@@ -84,6 +23,19 @@ export const selectTriggerStyles = (
   hasErrorMessage: boolean,
   multiple?: boolean,
 ) => css`
+  border-radius: ${getThemedRadius(300)};
+  overflow: visible;
+
+  &:has(
+      .chakra-select__trigger:is(
+          :focus-visible,
+          [data-focus-visible],
+          [data-state='open']
+        )
+    ) {
+    ${fieldFocusVisibleStyles}
+  }
+
   .chakra-select__trigger {
     min-height: ${size === 'small'
       ? getThemedSpacing(800)
@@ -117,18 +69,20 @@ export const selectTriggerStyles = (
     &[data-state='open'] {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      border-bottom: none;
-    }
+      border-bottom-color: transparent;
 
-    &:is(:focus-visible, [data-focus-visible]) {
-      outline-offset: ${getThemedSpacing(50)};
-      outline-width: ${getThemedBorderWidth(200)};
-      outline-color: ${getThemedColor('primary', 700)};
-      border: ${getThemedBorderWidth(200)} solid
-        ${getThemedColor('neutral', 700)};
-      box-shadow:
-        0 0 0 0.125rem ${getThemedColor('neutral', 100)},
-        rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
+      &[data-placement^='top'] {
+        border-bottom-left-radius: ${getThemedRadius(300)};
+        border-bottom-right-radius: ${getThemedRadius(300)};
+        border-bottom-color: ${getTriggerBorderColor(
+          isFilled,
+          hasErrorMessage,
+        )};
+
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top-color: transparent;
+      }
     }
 
     &[data-disabled] {
@@ -157,12 +111,28 @@ export const selectTriggerStyles = (
   }
 `
 export const selectContentStyles = css`
-  margin-top: -${getThemedSpacing(200)};
+  margin-top: calc(${getThemedSpacing(200)} * -1);
   border-radius: ${getThemedRadius(300)};
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-top: none;
+  box-shadow:
+    0 0.25rem 0.375rem -0.25rem #0000001a,
+    0 0.625rem 0.9375rem -0.1875rem #0000001a;
+
+  &[data-placement^='top'] {
+    margin-top: 0;
+    margin-bottom: calc(${getThemedSpacing(200)} * -1);
+    border-top-left-radius: ${getThemedRadius(300)};
+    border-top-right-radius: ${getThemedRadius(300)};
+    border-top: ${getThemedBorderWidth(100)} solid
+      ${getThemedColor('neutral', 400)};
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow:
+      0 -0.25rem 0.375rem -0.25rem #0000001a,
+      0 -0.625rem 0.9375rem -0.1875rem #0000001a;
+  }
 `
 
 export const selectItemStyles = css`
@@ -182,6 +152,7 @@ export const selectItemLabelStyles = (size: string, disabled?: boolean) => css`
     : getThemedLineHeight(600)};
   color: ${getThemedColor('neutral', 800)};
   text-align: left;
+  margin: 0;
 
   ${disabled ? `color: ${getThemedColor('neutral', 600)} !important;` : ''}
 `
@@ -198,18 +169,7 @@ export const selectItemCaptionStyles = (
     : getThemedLineHeight(600)};
   color: ${getThemedColor('neutral', 700)};
   text-align: left;
+  margin: 0;
 
   ${disabled ? `color: ${getThemedColor('neutral', 600)} !important;` : ''}
-`
-
-export const selectErrorMessageStyles = (size: string) => css`
-  font-size: ${size === 'small'
-    ? getThemedFontSize(200)
-    : getThemedFontSize(300)};
-  line-height: ${size === 'small'
-    ? getThemedLineHeight(400)
-    : getThemedLineHeight(500)};
-  font-weight: 700;
-  color: ${getThemedColor('error', 900)};
-  text-align: left;
 `
