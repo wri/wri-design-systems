@@ -11,6 +11,7 @@ import {
 } from './styled'
 import { useLabels } from '../../../../lib/i18n/useLabels'
 import FieldWrapper from '../FieldWrapper'
+import { useTabFocus } from '../FieldWrapper/useTabFocus'
 
 const Textarea = ({
   label,
@@ -23,6 +24,8 @@ const Textarea = ({
   showOptionalLabel = true,
   defaultValue = '',
   onChange,
+  onFocus,
+  onBlur,
   minLength,
   maxLength,
   labels,
@@ -100,7 +103,8 @@ const Textarea = ({
       .filter(Boolean)
       .join(' ') || undefined
 
-  const isFilled = Boolean(currentValue || defaultValue)
+  const isFilled = Boolean(currentValue)
+  const tabFocus = useTabFocus<HTMLTextAreaElement>(onFocus, onBlur)
 
   const showHelperText =
     helperText && !showMaxLengthError && !showMinLengthError
@@ -173,6 +177,7 @@ const Textarea = ({
       <ChakraTextarea
         placeholder={placeholder}
         disabled={disabled}
+        focusVisibleRing='none'
         css={textareaSyles(size, isFilled)}
         onChange={handleOnChange}
         value={currentValue}
@@ -183,6 +188,9 @@ const Textarea = ({
           color: 'var(--chakra-colors-neutral-500)',
         }}
         {...rest}
+        data-focus-visible={tabFocus.isTabFocused || undefined}
+        onFocus={tabFocus.onFocus}
+        onBlur={tabFocus.onBlur}
       />
     </FieldWrapper>
   )

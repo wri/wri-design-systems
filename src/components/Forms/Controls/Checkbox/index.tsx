@@ -14,6 +14,7 @@ const Checkbox = ({
   indeterminate,
   onCheckedChange,
   children,
+  tabIndex,
   ...rest
 }: CheckboxProps) => (
   <ChakraCheckbox.Root
@@ -27,7 +28,7 @@ const Checkbox = ({
     gap={children ? '0.625rem' : '0'}
     {...rest}
   >
-    <ChakraCheckbox.HiddenInput />
+    <ChakraCheckbox.HiddenInput tabIndex={tabIndex} />
     <ChakraCheckbox.Control>
       {indeterminate ? <CheckIndeterminateIcon /> : <CheckIcon />}
     </ChakraCheckbox.Control>

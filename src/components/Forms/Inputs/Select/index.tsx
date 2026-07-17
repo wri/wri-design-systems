@@ -177,9 +177,13 @@ const Select = ({
             />
           )}
         </SelectTrigger>
-        <SelectContent css={selectContentStyles}>
+        <SelectContent css={selectContentStyles(isFilled, !!errorMessage)}>
           {selectItems.items.map((item) => (
-            <SelectItem css={selectItemStyles} item={item} key={item.value}>
+            <SelectItem
+              css={selectItemStyles(multiple)}
+              item={item}
+              key={item.value}
+            >
               <Box>
                 <p css={selectItemLabelStyles(size)}>{item.label}</p>
                 <p css={selectItemCaptionStyles(size)}>{item.caption}</p>
@@ -190,6 +194,7 @@ const Select = ({
                     (selectItem) => selectItem === item.value,
                   )}
                   aria-label={`Select ${item.label}`}
+                  tabIndex={-1}
                 />
               ) : null}
             </SelectItem>

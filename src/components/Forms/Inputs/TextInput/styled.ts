@@ -27,7 +27,10 @@ export const textInputStyles = (
     ? getThemedFontSize(300)
     : getThemedFontSize(400)};
 
-  &:focus-visible,
+  &:focus {
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 700)};
+  }
+
   &[data-focus-visible] {
     ${fieldFocusVisibleStyles}
   }

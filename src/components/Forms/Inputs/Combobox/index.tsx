@@ -11,6 +11,7 @@ import {
 import Tag from '../../Tag'
 import { textInputStyles } from '../TextInput/styled'
 import FieldWrapper from '../FieldWrapper'
+import { useTabFocus } from '../FieldWrapper/useTabFocus'
 import { useLabels } from '../../../../lib/i18n/useLabels'
 import { ComboboxProps } from './types'
 
@@ -48,6 +49,7 @@ const Combobox = ({
   })
 
   const isFilled = selectedItems.length > 0
+  const tabFocus = useTabFocus<HTMLInputElement>()
 
   return (
     <FieldWrapper
@@ -78,9 +80,13 @@ const Combobox = ({
         <ChakraCombobox.Control>
           <ChakraCombobox.Input
             placeholder={placeholder}
+            focusVisibleRing='none'
             css={textInputStyles(size, isFilled)}
             disabled={disabled}
             aria-label={label || placeholder || l.defaultInputAriaLabel}
+            data-focus-visible={tabFocus.isTabFocused || undefined}
+            onFocus={tabFocus.onFocus}
+            onBlur={tabFocus.onBlur}
           />
           <ChakraCombobox.IndicatorGroup>
             <ChakraCombobox.ClearTrigger aria-label={l.clearSelectionLabel} />
