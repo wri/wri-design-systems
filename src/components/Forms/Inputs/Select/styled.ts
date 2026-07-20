@@ -7,7 +7,10 @@ import {
   getThemedRadius,
   getThemedSpacing,
 } from '../../../../lib/theme'
-import { fieldFocusVisibleStyles } from '../FieldWrapper/styled'
+import {
+  fieldFocusVisibleStyles,
+  getPrimaryOverlayColor,
+} from '../FieldWrapper/styled'
 
 const getTriggerBorderColor = (isFilled: boolean, hasErrorMessage: boolean) => {
   if (hasErrorMessage) {
@@ -139,7 +142,7 @@ export const selectContentStyles = (
 export const selectItemStyles = (multiple?: boolean) => css`
   align-items: flex-start;
   &[data-highlighted] {
-    background-color: ${getThemedColor('neutral', 200)};
+    background-color: ${getPrimaryOverlayColor(20)};
     cursor: pointer;
   }
 
@@ -158,11 +161,7 @@ export const selectItemStyles = (multiple?: boolean) => css`
   }
 
   &:active {
-    background-color: color-mix(
-      in srgb,
-      ${getThemedColor('primary', 500)} 40%,
-      transparent
-    );
+    background-color: ${getPrimaryOverlayColor(40)};
   }
 `
 

@@ -185,7 +185,7 @@ const Textarea = ({
         aria-describedby={describedByIds}
         aria-invalid={hasError || undefined}
         _placeholder={{
-          color: 'var(--chakra-colors-neutral-500)',
+          color: 'var(--chakra-colors-neutral-700)',
         }}
         {...rest}
         data-focus-visible={tabFocus.isTabFocused || undefined}

@@ -14,6 +14,13 @@ import FieldWrapper from '../FieldWrapper'
 import { useTabFocus } from '../FieldWrapper/useTabFocus'
 import { useLabels } from '../../../../lib/i18n/useLabels'
 import { ComboboxProps } from './types'
+import {
+  comboboxClearTriggerStyles,
+  comboboxContentStyles,
+  comboboxInputStyles,
+  comboboxItemStyles,
+} from './styled'
+import { useComboboxFlyout } from './useComboboxFlyout'
 
 const Combobox = ({
   label,
@@ -49,7 +56,15 @@ const Combobox = ({
   })
 
   const isFilled = selectedItems.length > 0
+  const hasError = !!errorMessage
   const tabFocus = useTabFocus<HTMLInputElement>()
+  const {
+    contentPlacement,
+    contentRef,
+    onInputKeyDown,
+    onInputPointerDown,
+    onContentPointerMove,
+  } = useComboboxFlyout()
 
   return (
     <FieldWrapper
@@ -70,35 +85,58 @@ const Combobox = ({
     >
       <ChakraCombobox.Root
         multiple={multiple}
+        invalid={hasError}
         onValueChange={handleValueChange}
         value={selectedItems.map((item) => item.value)}
         collection={collection}
         onInputValueChange={(e) => filter(e.inputValue)}
-        width='20rem'
+        width='100%'
+        positioning={{ sameWidth: true }}
         size={size === 'small' ? 'sm' : 'md'}
       >
         <ChakraCombobox.Control>
           <ChakraCombobox.Input
             placeholder={placeholder}
             focusVisibleRing='none'
-            css={textInputStyles(size, isFilled)}
+            css={[
+              textInputStyles(size, isFilled),
+              comboboxInputStyles(contentPlacement),
+            ]}
             disabled={disabled}
             aria-label={label || placeholder || l.defaultInputAriaLabel}
             data-focus-visible={tabFocus.isTabFocused || undefined}
             onFocus={tabFocus.onFocus}
             onBlur={tabFocus.onBlur}
+            onKeyDown={onInputKeyDown}
+            onPointerDown={onInputPointerDown}
+            _placeholder={{
+              color: 'var(--chakra-colors-neutral-700)',
+            }}
           />
           <ChakraCombobox.IndicatorGroup>
-            <ChakraCombobox.ClearTrigger aria-label={l.clearSelectionLabel} />
+            <ChakraCombobox.ClearTrigger
+              aria-label={l.clearSelectionLabel}
+              tabIndex={0}
+              focusVisibleRing='none'
+              css={comboboxClearTriggerStyles}
+            />
             <ChakraCombobox.Trigger aria-label={l.toggleOptionsLabel} />
           </ChakraCombobox.IndicatorGroup>
         </ChakraCombobox.Control>
         <Portal>
           <ChakraCombobox.Positioner>
-            <ChakraCombobox.Content>
+            <ChakraCombobox.Content
+              ref={contentRef}
+              css={comboboxContentStyles(hasError)}
+              onPointerMove={onContentPointerMove}
+            >
               <ChakraCombobox.Empty>{l.noItemsFoundLabel}</ChakraCombobox.Empty>
               {collection.items.map((item) => (
-                <ChakraCombobox.Item item={item} key={item.value}>
+                <ChakraCombobox.Item
+                  css={comboboxItemStyles}
+                  item={item}
+                  key={item.value}
+                >
                   {item.label}
                   <ChakraCombobox.ItemIndicator />
                 </ChakraCombobox.Item>
