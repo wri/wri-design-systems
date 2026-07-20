@@ -11,7 +11,9 @@ import {
 } from '../FieldWrapper/styled'
 
 const getComboboxConnectColor = (hasErrorMessage: boolean) =>
-  hasErrorMessage ? getThemedColor('error', 900) : getThemedColor('neutral', 700)
+  hasErrorMessage
+    ? getThemedColor('error', 900)
+    : getThemedColor('neutral', 700)
 
 export const comboboxInputStyles = (placement: string) => css`
   &[data-state='open'] {
