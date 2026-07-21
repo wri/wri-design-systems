@@ -7,7 +7,10 @@ import {
   getThemedRadius,
   getThemedSpacing,
 } from '../../../../lib/theme'
-import { fieldFocusVisibleStyles } from '../FieldWrapper/styled'
+import {
+  fieldFocusVisibleStyles,
+  getPrimaryOverlayColor,
+} from '../FieldWrapper/styled'
 
 const getTriggerBorderColor = (isFilled: boolean, hasErrorMessage: boolean) => {
   if (hasErrorMessage) {
@@ -26,13 +29,7 @@ export const selectTriggerStyles = (
   border-radius: ${getThemedRadius(300)};
   overflow: visible;
 
-  &:has(
-      .chakra-select__trigger:is(
-          :focus-visible,
-          [data-focus-visible],
-          [data-state='open']
-        )
-    ) {
+  &:has(.chakra-select__trigger:is(:focus-visible, [data-focus-visible])) {
     ${fieldFocusVisibleStyles}
   }
 
@@ -89,6 +86,11 @@ export const selectTriggerStyles = (
       border: ${getThemedBorderWidth(100)} solid
         ${getThemedColor('neutral', 300)};
       background-color: ${getThemedColor('neutral', 200)};
+      color: ${getThemedColor('neutral', 600)};
+
+      .chakra-select__valueText {
+        color: ${getThemedColor('neutral', 600)};
+      }
     }
   }
 
@@ -110,12 +112,17 @@ export const selectTriggerStyles = (
     }
   }
 `
-export const selectContentStyles = css`
+export const selectContentStyles = (
+  isFilled: boolean,
+  hasErrorMessage: boolean,
+) => css`
   margin-top: calc(${getThemedSpacing(200)} * -1);
   border-radius: ${getThemedRadius(300)};
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  border-top: ${getThemedBorderWidth(100)} solid
+    ${getTriggerBorderColor(isFilled, hasErrorMessage)};
   box-shadow:
     0 0.25rem 0.375rem -0.25rem #0000001a,
     0 0.625rem 0.9375rem -0.1875rem #0000001a;
@@ -129,17 +136,37 @@ export const selectContentStyles = css`
       ${getThemedColor('neutral', 400)};
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    border-bottom: ${getThemedBorderWidth(100)} solid
+      ${getTriggerBorderColor(isFilled, hasErrorMessage)};
     box-shadow:
       0 -0.25rem 0.375rem -0.25rem #0000001a,
       0 -0.625rem 0.9375rem -0.1875rem #0000001a;
   }
 `
 
-export const selectItemStyles = css`
+export const selectItemStyles = (multiple?: boolean) => css`
   align-items: flex-start;
   &[data-highlighted] {
-    background-color: ${getThemedColor('neutral', 200)};
+    background-color: ${getPrimaryOverlayColor(20)};
     cursor: pointer;
+  }
+
+  [data-nav-source='keyboard'] &[data-highlighted] {
+    ${!multiple
+      ? css`
+          ${fieldFocusVisibleStyles}
+          outline-offset: -${getThemedBorderWidth(200)};
+        `
+      : css`
+          .chakra-checkbox__control {
+            ${fieldFocusVisibleStyles}
+            outline-offset: ${getThemedSpacing(50)};
+          }
+        `}
+  }
+
+  &:active {
+    background-color: ${getPrimaryOverlayColor(40)};
   }
 `
 

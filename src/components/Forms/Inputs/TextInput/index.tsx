@@ -8,6 +8,7 @@ import { textInputStyles } from './styled'
 import { TextInputProps } from './types'
 import { useLabels } from '../../../../lib/i18n/useLabels'
 import FieldWrapper from '../FieldWrapper'
+import { useTabFocus } from '../FieldWrapper/useTabFocus'
 
 const TextInput = ({
   label,
@@ -21,6 +22,8 @@ const TextInput = ({
   noMarginBottom = false,
   defaultValue = '',
   onChange,
+  onFocus,
+  onBlur,
   labels,
   value: controlledValue,
   ...rest
@@ -42,7 +45,8 @@ const TextInput = ({
     }
   }
 
-  const isFilled = Boolean(currentValue || defaultValue)
+  const isFilled = Boolean(currentValue)
+  const tabFocus = useTabFocus<HTMLInputElement>(onFocus, onBlur)
 
   return (
     <FieldWrapper
@@ -64,13 +68,17 @@ const TextInput = ({
       <Input
         placeholder={placeholder}
         disabled={disabled}
+        focusVisibleRing='none'
         css={textInputStyles(size, isFilled)}
         onChange={handleOnChange}
         value={currentValue}
         _placeholder={{
-          color: 'var(--chakra-colors-neutral-500)',
+          color: 'var(--chakra-colors-neutral-700)',
         }}
         {...rest}
+        data-focus-visible={tabFocus.isTabFocused || undefined}
+        onFocus={tabFocus.onFocus}
+        onBlur={tabFocus.onBlur}
       />
     </FieldWrapper>
   )

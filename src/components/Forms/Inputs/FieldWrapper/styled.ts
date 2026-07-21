@@ -8,19 +8,20 @@ import {
 } from '../../../../lib/theme'
 import { FieldWrapperSize } from './types'
 
-/** Shared keyboard-only focus ring values (usable with Chakra SystemStyleObject). */
 export const fieldFocusVisibleStyleObject = {
   outline: `${getThemedBorderWidth(200)} solid ${getThemedColor('primary', 700)}`,
   outlineOffset: getThemedSpacing(50),
   boxShadow: `0 0 0 0.125rem ${getThemedColor('neutral', 100)}, rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem`,
 } as const
 
-/** Shared keyboard-only focus ring for form controls (Emotion). */
 export const fieldFocusVisibleStyles = css`
   outline: ${fieldFocusVisibleStyleObject.outline};
   outline-offset: ${fieldFocusVisibleStyleObject.outlineOffset};
   box-shadow: ${fieldFocusVisibleStyleObject.boxShadow};
 `
+
+export const getPrimaryOverlayColor = (percentage: number) =>
+  `color-mix(in srgb, ${getThemedColor('primary', 500)} ${percentage}%, transparent)`
 
 export const fieldWrapperContainerStyles = (
   noMarginBottom?: boolean,

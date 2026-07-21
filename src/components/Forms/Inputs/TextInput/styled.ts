@@ -27,7 +27,10 @@ export const textInputStyles = (
     ? getThemedFontSize(300)
     : getThemedFontSize(400)};
 
-  &:focus-visible,
+  &:focus {
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 700)};
+  }
+
   &[data-focus-visible] {
     ${fieldFocusVisibleStyles}
   }
@@ -39,6 +42,9 @@ export const textInputStyles = (
   &:disabled {
     background-color: ${getThemedColor('neutral', 200)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)} !important;
+    color: ${getThemedColor('neutral', 600)};
+    -webkit-text-fill-color: ${getThemedColor('neutral', 600)};
+    opacity: 1;
   }
 
   ${isFilled

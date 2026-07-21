@@ -11,7 +11,11 @@ export const SelectTrigger = React.forwardRef<
   const { 'aria-label': triggerAriaLabel, ...controlProps } = rest
   return (
     <ChakraSelect.Control {...controlProps}>
-      <ChakraSelect.Trigger ref={ref} aria-label={triggerAriaLabel}>
+      <ChakraSelect.Trigger
+        ref={ref}
+        aria-label={triggerAriaLabel}
+        focusVisibleRing='none'
+      >
         {children}
       </ChakraSelect.Trigger>
       <ChakraSelect.IndicatorGroup>
@@ -27,11 +31,29 @@ export const SelectContent = React.forwardRef<
   HTMLDivElement,
   ChakraSelect.ContentProps
 >((props, ref) => {
-  const { ...rest } = props
+  const { onKeyDown, onPointerMove, ...rest } = props
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const contentEl = event.currentTarget
+    contentEl.dataset.navSource = 'keyboard'
+    onKeyDown?.(event)
+  }
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const contentEl = event.currentTarget
+    contentEl.dataset.navSource = 'pointer'
+    onPointerMove?.(event)
+  }
+
   return (
     <Portal>
       <ChakraSelect.Positioner>
-        <ChakraSelect.Content {...rest} ref={ref} />
+        <ChakraSelect.Content
+          {...rest}
+          ref={ref}
+          onKeyDown={handleKeyDown}
+          onPointerMove={handlePointerMove}
+        />
       </ChakraSelect.Positioner>
     </Portal>
   )
