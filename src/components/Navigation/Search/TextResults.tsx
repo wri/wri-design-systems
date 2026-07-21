@@ -1,5 +1,9 @@
+/** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
+
 import React, { useRef, useEffect } from 'react'
 import { Box } from '@chakra-ui/react'
+import { searchItemStyles } from './styled'
 
 const HighlightedText = ({ text, query }: { text: string; query: string }) => {
   if (!query) return text
@@ -32,6 +36,7 @@ const TextResults = ({
   highlightedIndex: number
 }) => {
   const resultsRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     if (!resultsRef.current) return
     const list = resultsRef.current
@@ -40,17 +45,14 @@ const TextResults = ({
       item.scrollIntoView({ block: 'nearest' })
     }
   }, [highlightedIndex])
+
   return (
-    <Box padding='0.5rem'>
+    <Box ref={resultsRef} padding='0.5rem'>
       {items.map((item, index) => (
         <Box
-          ref={resultsRef}
           key={item.id}
-          padding='0.375rem 0.5rem'
-          borderRadius='md'
-          cursor='pointer'
-          bg={index === highlightedIndex ? 'gray.100' : undefined}
-          _hover={{ background: 'gray.50' }}
+          css={searchItemStyles}
+          data-highlighted={index === highlightedIndex || undefined}
           onClick={() => onSelect(item.id || item.label)}
         >
           <HighlightedText text={item.label} query={query} />

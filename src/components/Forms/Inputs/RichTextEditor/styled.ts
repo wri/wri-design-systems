@@ -76,7 +76,7 @@ export const richTextEditorContainerStyles: SystemStyleObject = {
     },
     '& p.is-editor-empty:first-of-type::before': {
       content: 'attr(data-placeholder)',
-      color: getThemedColor('neutral', 500),
+      color: getThemedColor('neutral', 700),
       pointerEvents: 'none',
       float: 'left',
       height: '0',

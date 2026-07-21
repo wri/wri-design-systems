@@ -283,6 +283,16 @@ export const createChakraMock = () => {
     },
     Popover: {
       Root: el('div'),
+      Anchor: React.forwardRef(
+        ({ children, asChild, ...rest }: any, ref: any) =>
+          asChild
+            ? React.createElement(React.Fragment, {}, children)
+            : React.createElement(
+                'div',
+                { ref, ...cleanProps(rest) },
+                children,
+              ),
+      ),
       Trigger: React.forwardRef(
         ({ children, asChild, ...rest }: any, ref: any) =>
           asChild

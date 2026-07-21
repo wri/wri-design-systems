@@ -27,6 +27,15 @@ export const textInputStyles = (
     ? getThemedFontSize(300)
     : getThemedFontSize(400)};
 
+  &:is(:placeholder-shown, [data-placeholder-shown]) {
+    color: ${getThemedColor('neutral', 700)};
+  }
+
+  &::placeholder {
+    color: ${getThemedColor('neutral', 700)};
+    opacity: 1;
+  }
+
   &:focus {
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 700)};
   }
