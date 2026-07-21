@@ -52,7 +52,7 @@ export const selectTriggerStyles = (
       line-height: ${size === 'small'
         ? getThemedLineHeight(500)
         : getThemedLineHeight(600)};
-      color: ${getThemedColor('neutral', 700)};
+      color: ${getThemedColor('neutral', 800)};
 
       ${multiple
         ? `
@@ -61,6 +61,10 @@ export const selectTriggerStyles = (
         gap: ${getThemedSpacing(200)};
       `
         : ''}
+    }
+
+    &[data-placeholder-shown] .chakra-select__valueText {
+      color: ${getThemedColor('neutral', 700)};
     }
 
     &[data-state='open'] {

@@ -5,6 +5,7 @@ import React, { useState, useRef, useEffect, useId } from 'react'
 import {
   InputGroup,
   Box,
+  Popover as ChakraPopover,
   Portal,
   useDisclosure,
   Spinner,
@@ -18,6 +19,8 @@ import { SearchProps } from './types'
 import { getThemedColor } from '../../../lib/theme'
 import { useLabels } from '../../../lib/i18n/useLabels'
 import { resolveSizeValue } from '../../../lib/sizing'
+import { usePlacementSync } from '../../../lib/hooks/usePlacementSync'
+import { searchContainerStyles, searchResultsStyles } from './styled'
 
 const Search = ({
   placeholder,
@@ -39,8 +42,10 @@ const Search = ({
   const [filteredResults, setFilteredResults] = useState(options)
   const [highlightedIndex, setHighlightedIndex] = useState(-1)
   const [isFocused, setIsFocused] = useState(false)
+  const [navSource, setNavSource] = useState<'keyboard' | 'pointer'>('pointer')
 
   const containerRef = useRef<HTMLDivElement>(null)
+  const { contentRef, placement } = usePlacementSync()
   const handleOnSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
 
@@ -91,24 +96,6 @@ const Search = ({
     onOpen()
   }, [filterText])
 
-  useEffect(() => {
-    // Clicking outside the results container closes it.
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        open &&
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
-        onClose()
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [open])
-
   const endElement = filterText.length ? (
     <CloseButton onClick={handleOnClear} />
   ) : null
@@ -119,6 +106,10 @@ const Search = ({
     filteredResults.length > 0 &&
     open
 
+  const showPortalMenu =
+    (resultsVisible || (isLoading && !!filterText.length)) &&
+    displayResults !== 'custom'
+
   let iconFillColor = getThemedColor('neutral', 500)
   if (disabled) {
     iconFillColor = getThemedColor('neutral', 500)
@@ -128,88 +119,107 @@ const Search = ({
   const iconSize = size === 'small' ? '1rem' : '1.25rem'
   const normalizedResultsMaxHeight = resolveSizeValue(resultsMaxHeight)
   return (
-    <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
-      <InputGroup
-        startElement={
-          <SearchIcon width={iconSize} height={iconSize} fill={iconFillColor} />
-        }
-        endElement={endElement}
+    <ChakraPopover.Root
+      open={showPortalMenu}
+      onOpenChange={(details) => {
+        if (!details.open) onClose()
+      }}
+      autoFocus={false}
+      closeOnEscape={false}
+      positioning={{ sameWidth: true, gutter: 0 }}
+    >
+      <div
+        ref={containerRef}
+        css={searchContainerStyles}
+        data-open={showPortalMenu || undefined}
+        data-placement={placement}
       >
-        <TextInput
-          autoComplete='off'
-          placeholder={placeholder || l.filterPlaceholder}
-          onChange={handleOnSearch}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          value={filterText}
-          label=''
-          style={{
-            paddingLeft: '2.5rem',
-          }}
-          type='search'
-          aria-label={placeholder || l.filterAriaLabel}
-          aria-expanded={resultsVisible}
-          aria-controls={listboxId}
-          role='combobox'
-          aria-autocomplete='list'
-          disabled={disabled}
-          size={size}
-          noMarginBottom
-          onKeyDown={(e) => {
-            if (!resultsVisible) return
-
-            if (e.key === 'ArrowDown') {
-              e.preventDefault()
-              setHighlightedIndex((prev) => {
-                const next = Math.min(prev + 1, filteredResults.length - 1)
-                return next
-              })
+        <ChakraPopover.Anchor>
+          <InputGroup
+            startElement={
+              <SearchIcon
+                width={iconSize}
+                height={iconSize}
+                fill={iconFillColor}
+              />
             }
+            endElement={endElement}
+          >
+            <TextInput
+              autoComplete='off'
+              placeholder={placeholder || l.filterPlaceholder}
+              onChange={handleOnSearch}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              value={filterText}
+              label=''
+              style={{
+                paddingLeft: '2.5rem',
+              }}
+              type='search'
+              aria-label={placeholder || l.filterAriaLabel}
+              aria-expanded={resultsVisible}
+              aria-controls={listboxId}
+              role='combobox'
+              aria-autocomplete='list'
+              disabled={disabled}
+              size={size}
+              noMarginBottom
+              onKeyDown={(e) => {
+                if (!resultsVisible) return
 
-            if (e.key === 'ArrowUp') {
-              e.preventDefault()
-              setHighlightedIndex((prev) => {
-                const next = Math.max(prev - 1, 0)
-                return next
-              })
-            }
+                if (e.key === 'ArrowDown') {
+                  e.preventDefault()
+                  setNavSource('keyboard')
+                  setHighlightedIndex((prev) => {
+                    const next = Math.min(prev + 1, filteredResults.length - 1)
+                    return next
+                  })
+                }
 
-            if (e.key === 'Enter') {
-              e.preventDefault()
-              if (highlightedIndex >= 0) {
-                const item = filteredResults[highlightedIndex]
-                handleSelect(item.id || item.label)
-              }
-            }
+                if (e.key === 'ArrowUp') {
+                  e.preventDefault()
+                  setNavSource('keyboard')
+                  setHighlightedIndex((prev) => {
+                    const next = Math.max(prev - 1, 0)
+                    return next
+                  })
+                }
 
-            if (e.key === 'Escape') {
-              onClose()
-            }
-          }}
-        />
-      </InputGroup>
-      {(resultsVisible || (isLoading && !!filterText.length)) &&
-        displayResults === 'custom' &&
-        renderResults &&
-        !isLoading &&
-        renderResults({
-          items: filteredResults,
-          highlightedIndex,
-          query: filterText,
-          onSelect: handleSelect,
-        })}
-      {(resultsVisible || (isLoading && !!filterText.length)) && (
-        <Portal container={containerRef}>
-          <Box
-            position='absolute'
-            width='100%'
-            backgroundColor='white'
-            border={displayResults === 'custom' ? 'none' : '0.0625rem solid'}
-            borderColor='gray.200'
-            borderRadius='md'
-            zIndex={1000}
-            overflowY='auto'
-            maxHeight={normalizedResultsMaxHeight}
+                if (e.key === 'Enter') {
+                  e.preventDefault()
+                  if (highlightedIndex >= 0) {
+                    const item = filteredResults[highlightedIndex]
+                    handleSelect(item.id || item.label)
+                  }
+                }
+
+                if (e.key === 'Escape') {
+                  onClose()
+                }
+              }}
+            />
+          </InputGroup>
+        </ChakraPopover.Anchor>
+        {(resultsVisible || (isLoading && !!filterText.length)) &&
+          displayResults === 'custom' &&
+          renderResults &&
+          !isLoading &&
+          renderResults({
+            items: filteredResults,
+            highlightedIndex,
+            query: filterText,
+            onSelect: handleSelect,
+          })}
+      </div>
+      <Portal>
+        <ChakraPopover.Positioner>
+          <ChakraPopover.Content
+            ref={contentRef}
+            css={searchResultsStyles}
+            style={{ maxHeight: normalizedResultsMaxHeight }}
+            data-nav-source={navSource}
+            onPointerMove={() => setNavSource('pointer')}
           >
             {isLoading && (
               <Box padding='1rem'>
@@ -232,10 +242,10 @@ const Search = ({
                 highlightedIndex={highlightedIndex}
               />
             )}
-          </Box>
-        </Portal>
-      )}
-    </div>
+          </ChakraPopover.Content>
+        </ChakraPopover.Positioner>
+      </Portal>
+    </ChakraPopover.Root>
   )
 }
 

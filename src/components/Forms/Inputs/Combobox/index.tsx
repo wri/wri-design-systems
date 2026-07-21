@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
-import { useState } from 'react'
+import { KeyboardEvent, useState } from 'react'
 import {
   Combobox as ChakraCombobox,
   Portal,
@@ -13,6 +13,7 @@ import { textInputStyles } from '../TextInput/styled'
 import FieldWrapper from '../FieldWrapper'
 import { useTabFocus } from '../FieldWrapper/useTabFocus'
 import { useLabels } from '../../../../lib/i18n/useLabels'
+import { usePlacementSync } from '../../../../lib/hooks/usePlacementSync'
 import { ComboboxProps } from './types'
 import {
   comboboxClearTriggerStyles,
@@ -20,7 +21,8 @@ import {
   comboboxInputStyles,
   comboboxItemStyles,
 } from './styled'
-import { useComboboxFlyout } from './useComboboxFlyout'
+
+const KEYBOARD_NAV_KEYS = new Set(['ArrowDown', 'ArrowUp', 'Home', 'End'])
 
 const Combobox = ({
   label,
@@ -58,13 +60,13 @@ const Combobox = ({
   const isFilled = selectedItems.length > 0
   const hasError = !!errorMessage
   const tabFocus = useTabFocus<HTMLInputElement>()
-  const {
-    contentPlacement,
-    contentRef,
-    onInputKeyDown,
-    onInputPointerDown,
-    onContentPointerMove,
-  } = useComboboxFlyout()
+  const { contentRef, placement } = usePlacementSync()
+  const [navSource, setNavSource] = useState<'keyboard' | 'pointer'>('pointer')
+
+  const onInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (KEYBOARD_NAV_KEYS.has(event.key)) setNavSource('keyboard')
+  }
+  const markPointerNav = () => setNavSource('pointer')
 
   return (
     <FieldWrapper
@@ -100,7 +102,7 @@ const Combobox = ({
             focusVisibleRing='none'
             css={[
               textInputStyles(size, isFilled),
-              comboboxInputStyles(contentPlacement),
+              comboboxInputStyles(placement),
             ]}
             disabled={disabled}
             aria-label={label || placeholder || l.defaultInputAriaLabel}
@@ -108,7 +110,7 @@ const Combobox = ({
             onFocus={tabFocus.onFocus}
             onBlur={tabFocus.onBlur}
             onKeyDown={onInputKeyDown}
-            onPointerDown={onInputPointerDown}
+            onPointerDown={markPointerNav}
             _placeholder={{
               color: 'var(--chakra-colors-neutral-700)',
             }}
@@ -128,7 +130,8 @@ const Combobox = ({
             <ChakraCombobox.Content
               ref={contentRef}
               css={comboboxContentStyles(hasError)}
-              onPointerMove={onContentPointerMove}
+              data-nav-source={navSource}
+              onPointerMove={markPointerNav}
             >
               <ChakraCombobox.Empty>{l.noItemsFoundLabel}</ChakraCombobox.Empty>
               {collection.items.map((item) => (
