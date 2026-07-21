@@ -1,7 +1,4 @@
-/** @jsxImportSource @emotion/react */
-/* eslint-disable react/no-unknown-property */
-
-import React, { useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import { Box } from '@chakra-ui/react'
 import { searchItemStyles } from './styled'
 

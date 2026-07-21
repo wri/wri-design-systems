@@ -12,10 +12,6 @@ import {
 
 const connectColor = getThemedColor('neutral', 700)
 
-/**
- * Container styles. When the results menu is open, the inner input flattens the
- * border edge that connects to the menu (mirrors the Combobox/Select flyout).
- */
 export const searchContainerStyles = css`
   position: relative;
   width: 100%;
@@ -35,12 +31,6 @@ export const searchContainerStyles = css`
     border-top-color: transparent;
   }
 `
-
-/**
- * Results menu (Popover.Content) styles. Positioning and flipping are handled by
- * Chakra's Popover.Positioner; these styles only control appearance and flatten
- * the connecting edge based on Chakra's `data-placement` (mirrors the Combobox).
- */
 export const searchResultsStyles = css`
   width: 100%;
   z-index: 1000;
@@ -73,7 +63,6 @@ export const searchResultsStyles = css`
   }
 `
 
-/** Item chrome aligned with Combobox/Select (hover, pressed, keyboard focus). */
 export const searchItemStyles = css`
   padding: ${getThemedSpacing(200)};
   border-radius: ${getThemedRadius(300)};
