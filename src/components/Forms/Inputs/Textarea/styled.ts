@@ -54,6 +54,9 @@ export const textareaSyles = (
   &:disabled {
     background-color: ${getThemedColor('neutral', 200)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)} !important;
+    color: ${getThemedColor('neutral', 600)};
+    -webkit-text-fill-color: ${getThemedColor('neutral', 600)};
+    opacity: 1;
   }
 
   ${isFilled

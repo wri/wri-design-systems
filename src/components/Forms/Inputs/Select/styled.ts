@@ -86,6 +86,11 @@ export const selectTriggerStyles = (
       border: ${getThemedBorderWidth(100)} solid
         ${getThemedColor('neutral', 300)};
       background-color: ${getThemedColor('neutral', 200)};
+      color: ${getThemedColor('neutral', 600)};
+
+      .chakra-select__valueText {
+        color: ${getThemedColor('neutral', 600)};
+      }
     }
   }
 

@@ -91,7 +91,7 @@ export const richTextEditorContainerStyles: SystemStyleObject = {
   },
   '&[data-disabled] .ProseMirror': {
     pointerEvents: 'none',
-    opacity: 0.6,
+    color: getThemedColor('neutral', 600),
     cursor: 'not-allowed',
   },
 }
