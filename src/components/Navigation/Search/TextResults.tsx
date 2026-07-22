@@ -4,6 +4,7 @@
 import React, { useRef, useEffect } from 'react'
 import { Box } from '@chakra-ui/react'
 import { searchItemStyles } from './styled'
+import type { ListItemProps } from '../../DataDisplay/List/types'
 
 const HighlightedText = ({ text, query }: { text: string; query: string }) => {
   if (!query) return text
@@ -48,16 +49,29 @@ const TextResults = ({
 
   return (
     <Box ref={resultsRef} padding='0.5rem'>
-      {items.map((item, index) => (
-        <Box
-          key={item.id}
-          css={searchItemStyles}
-          data-highlighted={index === highlightedIndex || undefined}
-          onClick={() => onSelect(item.id || item.label)}
-        >
-          <HighlightedText text={item.label} query={query} />
-        </Box>
-      ))}
+      {items.map((item, index) => {
+        const searchLabel =
+          item.searchLabel ||
+          (typeof item.label === 'string' || typeof item.label === 'number'
+            ? String(item.label)
+            : '')
+
+        return (
+          <Box
+            key={item.id}
+            css={searchItemStyles}
+            data-highlighted={index === highlightedIndex || undefined}
+            onClick={() => onSelect(item.id || searchLabel)}
+          >
+            {typeof item.label === 'string' ||
+            typeof item.label === 'number' ? (
+              <HighlightedText text={String(item.label)} query={query} />
+            ) : (
+              item.label
+            )}
+          </Box>
+        )
+      })}
     </Box>
   )
 }

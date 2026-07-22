@@ -13,6 +13,7 @@ import {
 import CloseButton from '../../Forms/Actions/CloseButton'
 import TextInput from '../../Forms/Inputs/TextInput'
 import List from '../../DataDisplay/List'
+import { ListItemProps } from '../../DataDisplay/List/types'
 import TextResults from './TextResults'
 import { SearchIcon } from '../../icons'
 import { SearchProps } from './types'
@@ -21,6 +22,14 @@ import { useLabels } from '../../../lib/i18n/useLabels'
 import { resolveSizeValue } from '../../../lib/sizing'
 import { usePlacementSync } from '../../../lib/hooks/usePlacementSync'
 import { searchContainerStyles, searchResultsStyles } from './styled'
+
+const getSearchLabel = (item: ListItemProps): string => {
+  if (item.searchLabel) return item.searchLabel
+  if (typeof item.label === 'string' || typeof item.label === 'number') {
+    return String(item.label)
+  }
+  return ''
+}
 
 const Search = ({
   placeholder,
@@ -61,7 +70,7 @@ const Search = ({
 
   const handleSelect = (id: string) => {
     const selected = options.find(
-      (option) => option.id === id || option.label === id,
+      (option) => option.id === id || getSearchLabel(option) === id,
     )
 
     if (selected) {
@@ -78,19 +87,23 @@ const Search = ({
       return
     }
 
-    const filtered = options.filter(
-      (result) =>
-        result.id?.toLowerCase().includes(filterText.toLowerCase()) ||
-        result.label.toLowerCase().includes(filterText.toLowerCase()) ||
-        result.caption?.toLowerCase().includes(filterText.toLowerCase()),
-    )
+    const filtered = options.filter((result) => {
+      const normalizedFilter = filterText.toLowerCase()
+
+      return (
+        result.id?.toLowerCase().includes(normalizedFilter) ||
+        getSearchLabel(result).toLowerCase().includes(normalizedFilter) ||
+        result.caption?.toLowerCase().includes(normalizedFilter)
+      )
+    })
     const listItems = filtered.map((item) => ({
-      id: item.id,
+      id: item.id ?? getSearchLabel(item),
       label: item.label,
+      searchLabel: item.searchLabel,
       caption: item.caption,
       variant: 'select' as const,
       icon: item.icon,
-      onItemClick: () => handleSelect(item.id || item.label),
+      onItemClick: () => handleSelect(item.id || getSearchLabel(item)),
     }))
     setFilteredResults(listItems)
     onOpen()
@@ -190,7 +203,7 @@ const Search = ({
                   e.preventDefault()
                   if (highlightedIndex >= 0) {
                     const item = filteredResults[highlightedIndex]
-                    handleSelect(item.id || item.label)
+                    handleSelect(item.id || getSearchLabel(item))
                   }
                 }
 

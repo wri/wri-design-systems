@@ -12,6 +12,7 @@ const ListDemo = () => {
       value: 'Active',
       variant: 'data' as const,
       icon: <MapIcon />,
+      isHighlighted: true,
     },
     {
       id: 'nav-1',

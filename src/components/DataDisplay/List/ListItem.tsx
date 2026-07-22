@@ -38,8 +38,21 @@ const ListItem = ({
   }
 
   const Container = isClickable ? chakra.button : chakra.div
+  const labelText =
+    typeof label === 'string' ||
+    typeof label === 'number' ||
+    typeof label === 'bigint'
+      ? String(label)
+      : ''
+  const valueText =
+    typeof value === 'string' ||
+    typeof value === 'number' ||
+    typeof value === 'bigint'
+      ? String(value)
+      : ''
   const computedAriaLabel =
-    ariaLabel || (variant === 'data' && value ? `${label}, ${value}` : label)
+    ariaLabel ||
+    (variant === 'data' && valueText ? `${labelText}, ${valueText}` : labelText)
 
   return (
     <Container
