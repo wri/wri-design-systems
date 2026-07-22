@@ -4,7 +4,7 @@ export type ListItemVariant = 'data' | 'navigation' | 'select'
 
 export interface ListItemProps {
   id?: string
-  label: string
+  label: string | React.ReactNode
   caption?: string
   icon?: ReactElement
   value?: React.ReactNode
