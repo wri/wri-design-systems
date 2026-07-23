@@ -38,9 +38,7 @@ describe('Badge', () => {
   })
 
   it('renders a small count pill', () => {
-    const { getByText } = render(
-      <Badge notificationCount={5} size='small' />,
-    )
+    const { getByText } = render(<Badge notificationCount={5} size='small' />)
     expect(getByText('5')).toBeInTheDocument()
   })
 

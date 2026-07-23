@@ -139,9 +139,7 @@ export const CustomIconCountLarge: Story = {
   args: {
     notificationCount: 3,
     size: 'large',
-    children: (
-      <UserIcon color='currentColor' height='1.5rem' width='1.5rem' />
-    ),
+    children: <UserIcon color='currentColor' height='1.5rem' width='1.5rem' />,
   },
 }
 
@@ -157,9 +155,7 @@ export const CustomIconDotLarge: Story = {
   args: {
     hasNotification: true,
     size: 'large',
-    children: (
-      <InfoIcon color='currentColor' height='1.5rem' width='1.5rem' />
-    ),
+    children: <InfoIcon color='currentColor' height='1.5rem' width='1.5rem' />,
   },
 }
 
@@ -167,8 +163,6 @@ export const CustomIconOverflowLarge: Story = {
   args: {
     notificationCount: 150,
     size: 'large',
-    children: (
-      <UserIcon color='currentColor' height='1.5rem' width='1.5rem' />
-    ),
+    children: <UserIcon color='currentColor' height='1.5rem' width='1.5rem' />,
   },
 }
