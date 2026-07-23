@@ -21,7 +21,7 @@ export const textInputStyles = (
     : getThemedSpacing(300)};
   background-color: ${getThemedColor('neutral', 100)};
   color: ${getThemedColor('neutral', 800)};
-  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
   font-size: ${size === 'small'
     ? getThemedFontSize(300)
