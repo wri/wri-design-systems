@@ -20,16 +20,22 @@ import { Badge } from '@worldresources/wri-design-systems'
 
 ```ts
 type BadgeLabels = {
-  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread ${count === 1 ? 'message' : 'messages'}` */
   unreadMessagesLabel: (count: number) => string
+}
+
+type BadgeNotificationColor = {
+  background?: string
+  text?: string
 }
 
 type BadgeProps = {
   hasNotification?: boolean
   notificationCount?: number
   label?: string
-  /** Override internal UI labels for internationalization support. */
+  size?: 'small' | 'large'
+  color?: BadgeNotificationColor
   labels?: Partial<BadgeLabels>
+  children?: React.ReactNode
 }
 ```
 
@@ -37,22 +43,57 @@ type BadgeProps = {
 
 ```tsx
 <Badge />
-```
-
-## Notification Count
-
-```tsx
-<Badge notificationCount={100} />
-```
-
-## Notification Count With Label
-
-```tsx
-<Badge label='Notifications' notificationCount={100} />
+<Badge size='small' />
+<Badge size='large' />
 ```
 
 ## Notification Dot
 
 ```tsx
-<Badge hasNotification />
+<Badge hasNotification size='small' />
+<Badge hasNotification size='large' />
+```
+
+## Notification Count
+
+```tsx
+<Badge notificationCount={3} size='small' />
+<Badge notificationCount={3} size='large' />
+<Badge notificationCount={12} size='large' />
+```
+
+## Count Overflow (99+)
+
+```tsx
+<Badge notificationCount={100} size='small' />
+<Badge notificationCount={150} size='large' />
+```
+
+## With Label
+
+```tsx
+<Badge label='Notifications' notificationCount={3} size='large' />
+<Badge label='Notifications' hasNotification size='small' />
+```
+
+## Custom Icon
+
+```tsx
+<Badge notificationCount={3} size='large'>
+  <UserIcon color='currentColor' height='1.5rem' width='1.5rem' />
+</Badge>
+```
+
+## Custom Notification Color
+
+```tsx
+<Badge
+  notificationCount={8}
+  color={{
+    background: 'var(--chakra-colors-secondary-500)',
+    text: 'var(--chakra-colors-secondary-100)',
+  }}
+/>
+
+<Badge hasNotification color={{ background: '#009E77' }} />
 ```
