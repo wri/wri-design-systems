@@ -30,7 +30,7 @@ type InlineMessageLabels = {
 }
 
 type InlineMessageProps = {
-  label: string
+  label: string | React.ReactNode
   caption?: string | React.ReactNode
   variant: 'info-white' | 'info-grey' | 'success' | 'warning' | 'error'
   size?: 'small' | 'large' | 'full-width'

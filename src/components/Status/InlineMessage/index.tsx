@@ -60,7 +60,15 @@ const InlineMessage = ({
       <div>
         <div css={inlineMessageHeaderStyles}>
           {icon}
-          <p css={inlineMessageTitleStyles(size)}>{label}</p>
+          {caption && typeof caption === 'string' ? (
+            <p css={inlineMessageTitleStyles(size)}>{caption}</p>
+          ) : caption ? (
+            <div css={inlineMessageTitleStyles(size)}>
+              {label}
+            </div>
+          ) : (
+            <p css={inlineMessageTitleStyles(size)}>{label}</p>
+          )}
         </div>
         {caption && typeof caption === 'string' ? (
           <p css={inlineMessageCaptionStyles(size, !!icon)}>{caption}</p>

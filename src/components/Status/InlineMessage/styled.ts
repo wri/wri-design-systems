@@ -40,7 +40,7 @@ export const defaultInlineMessageStyles = (
 
 export const inlineMessageHeaderStyles = css`
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   gap: ${getThemedSpacing(200)};
 
   svg {
@@ -49,7 +49,6 @@ export const inlineMessageHeaderStyles = css`
 `
 
 export const inlineMessageTitleStyles = (size: string) => css`
-  max-width: 45rem;
   color: ${getThemedColor('neutral', 800)};
   font-size: ${size === 'small'
     ? getThemedFontSize(300)
@@ -65,7 +64,6 @@ export const inlineMessageCaptionStyles = (
   size: string,
   hasIcon: boolean,
 ) => css`
-  max-width: 45rem;
   color: ${getThemedColor('neutral', 700)};
   font-size: ${size === 'small'
     ? getThemedFontSize(200)
@@ -82,7 +80,6 @@ export const inlineMessageCaptionContainerStyles = (
   size: string,
   hasIcon: boolean,
 ) => css`
-  max-width: 45rem;
   color: ${getThemedColor('neutral', 700)};
   font-size: ${size === 'small'
     ? getThemedFontSize(200)
