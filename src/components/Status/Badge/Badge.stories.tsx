@@ -20,7 +20,6 @@ const meta = {
       control: 'radio',
       options: ['small', 'large'],
     },
-    color: { control: 'object' },
   },
 } satisfies Meta<typeof Badge>
 

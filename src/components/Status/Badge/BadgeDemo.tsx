@@ -109,33 +109,6 @@ const BadgeDemo = () => (
           </Badge>
         </div>
       </div>
-
-      <div style={sectionStyle}>
-        <p style={sectionTitleStyle}>Custom notification color</p>
-        <div style={rowStyle}>
-          <Badge
-            notificationCount={8}
-            size='large'
-            color={{
-              background: 'var(--chakra-colors-secondary-500)',
-              text: 'var(--chakra-colors-secondary-100)',
-            }}
-          />
-          <Badge
-            hasNotification
-            size='large'
-            color={{ background: 'var(--chakra-colors-success-500)' }}
-          />
-          <Badge
-            notificationCount={99}
-            size='small'
-            color={{
-              background: '#3855A3',
-              text: '#F2F6FF',
-            }}
-          />
-        </div>
-      </div>
     </div>
   </DemoWrapper>
 )

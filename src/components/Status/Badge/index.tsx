@@ -22,7 +22,6 @@ const Badge = ({
   labels,
   children,
   size = 'large',
-  color,
 }: BadgeProps) => {
   const l = useLabels('Badge', labels)
   const [isTablet, setIsTablet] = useState(false)
@@ -73,15 +72,15 @@ const Badge = ({
             width={iconSize}
           />
           {hasNotification && !notificationCount && !label ? (
-            <div css={badgeDotContainerStyles(size, color)} aria-hidden />
+            <div css={badgeDotContainerStyles(size)} aria-hidden />
           ) : null}
         </div>
 
         {label ? <p>{label}</p> : null}
         {notification.length > 0 ? (
-          <div css={badgeMobileCountContainerStyles(size, color)}>
+          <div css={badgeMobileCountContainerStyles(size)}>
             <p
-              css={badgeMobileCountStyles(size, color)}
+              css={badgeMobileCountStyles(size)}
               aria-label={l.unreadMessagesLabel(notificationCount || 0)}
             >
               {notification}
@@ -97,9 +96,9 @@ const Badge = ({
       {label ? <p>{label}</p> : null}
       <div css={badgeNotificationContainerStyles(width)}>
         {notification.length > 0 ? (
-          <div css={badgeCountContainerStyles(size, color)}>
+          <div css={badgeCountContainerStyles(size)}>
             <p
-              css={badgeCountStyles(size, color)}
+              css={badgeCountStyles(size)}
               aria-label={l.unreadMessagesLabel(notificationCount || 0)}
             >
               {notification}
@@ -107,7 +106,7 @@ const Badge = ({
           </div>
         ) : null}
         {hasNotification && !notificationCount ? (
-          <div css={badgeDotContainerStyles(size, color)} aria-hidden />
+          <div css={badgeDotContainerStyles(size)} aria-hidden />
         ) : null}
         {children ?? (
           <NotificationIcon

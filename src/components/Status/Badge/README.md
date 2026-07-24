@@ -23,17 +23,11 @@ type BadgeLabels = {
   unreadMessagesLabel: (count: number) => string
 }
 
-type BadgeNotificationColor = {
-  background?: string
-  text?: string
-}
-
 type BadgeProps = {
   hasNotification?: boolean
   notificationCount?: number
   label?: string
   size?: 'small' | 'large'
-  color?: BadgeNotificationColor
   labels?: Partial<BadgeLabels>
   children?: React.ReactNode
 }
@@ -82,18 +76,4 @@ type BadgeProps = {
 <Badge notificationCount={3} size='large'>
   <UserIcon color='currentColor' height='1.5rem' width='1.5rem' />
 </Badge>
-```
-
-## Custom Notification Color
-
-```tsx
-<Badge
-  notificationCount={8}
-  color={{
-    background: 'var(--chakra-colors-secondary-500)',
-    text: 'var(--chakra-colors-secondary-100)',
-  }}
-/>
-
-<Badge hasNotification color={{ background: '#009E77' }} />
 ```
