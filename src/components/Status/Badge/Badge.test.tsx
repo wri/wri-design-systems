@@ -20,7 +20,7 @@ const setWindowWidth = (width: number) => {
 
 describe('Badge', () => {
   beforeEach(() => {
-    setWindowWidth(1280) // desktop by default
+    setWindowWidth(1280)
   })
 
   it('renders notification count', () => {
@@ -35,6 +35,11 @@ describe('Badge', () => {
       <Badge notificationCount={100} hasNotification />,
     )
     expect(getAllByText('99+').length).toBeGreaterThan(0)
+  })
+
+  it('renders a small count pill', () => {
+    const { getByText } = render(<Badge notificationCount={5} size='small' />)
+    expect(getByText('5')).toBeInTheDocument()
   })
 
   it('renders a label', () => {

@@ -20,6 +20,8 @@ const Badge = ({
   notificationCount,
   label,
   labels,
+  children,
+  size = 'large',
 }: BadgeProps) => {
   const l = useLabels('Badge', labels)
   const [isTablet, setIsTablet] = useState(false)
@@ -51,29 +53,34 @@ const Badge = ({
   }
 
   const notification = getNotificationCount()
+  const iconSize = size === 'small' ? '1rem' : '1.5rem'
 
-  let width = '1rem'
+  let width = iconSize
   if (notificationCount && notificationCount > 99) {
-    width = '1.75rem'
+    width = size === 'small' ? '1.25rem' : '1.75rem'
   } else if (notificationCount && notificationCount > 9) {
-    width = '1.375rem'
+    width = size === 'small' ? '1rem' : '1.375rem'
   }
 
   if (isTablet) {
     return (
       <div css={badgeContainerStyles} role='status' aria-live='polite'>
         <div css={badgeNotificationContainerStyles()}>
-          <NotificationIcon color='currentColor' height='1rem' width='1rem' />
+          <NotificationIcon
+            color='currentColor'
+            height={iconSize}
+            width={iconSize}
+          />
           {hasNotification && !notificationCount && !label ? (
-            <div css={badgeDotContainerStyles} aria-hidden />
+            <div css={badgeDotContainerStyles(size)} aria-hidden />
           ) : null}
         </div>
 
         {label ? <p>{label}</p> : null}
         {notification.length > 0 ? (
-          <div css={badgeMobileCountContainerStyles}>
+          <div css={badgeMobileCountContainerStyles(size)}>
             <p
-              css={badgeMobileCountStyles}
+              css={badgeMobileCountStyles(size)}
               aria-label={l.unreadMessagesLabel(notificationCount || 0)}
             >
               {notification}
@@ -89,9 +96,9 @@ const Badge = ({
       {label ? <p>{label}</p> : null}
       <div css={badgeNotificationContainerStyles(width)}>
         {notification.length > 0 ? (
-          <div css={badgeCountContainerStyles}>
+          <div css={badgeCountContainerStyles(size)}>
             <p
-              css={badgeCountStyles}
+              css={badgeCountStyles(size)}
               aria-label={l.unreadMessagesLabel(notificationCount || 0)}
             >
               {notification}
@@ -99,9 +106,15 @@ const Badge = ({
           </div>
         ) : null}
         {hasNotification && !notificationCount ? (
-          <div css={badgeDotContainerStyles} aria-hidden />
+          <div css={badgeDotContainerStyles(size)} aria-hidden />
         ) : null}
-        <NotificationIcon color='currentColor' height='1rem' width='1rem' />
+        {children ?? (
+          <NotificationIcon
+            color='currentColor'
+            height={iconSize}
+            width={iconSize}
+          />
+        )}
       </div>
     </div>
   )
