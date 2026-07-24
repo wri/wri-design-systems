@@ -3,7 +3,7 @@ import type { InlineMessageLabels } from '../../../lib/i18n/types'
 export type { InlineMessageLabels }
 
 export type InlineMessageProps = {
-  label: string
+  label: string | React.ReactNode
   caption?: string | React.ReactNode
   variant: 'info-white' | 'info-grey' | 'success' | 'warning' | 'error'
   size?: 'small' | 'large' | 'full-width'
