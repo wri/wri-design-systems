@@ -83,7 +83,7 @@ export const badgeCountContainerStyles = (
     align-items: center;
     position: absolute;
     top: 0;
-    left: 55%;
+    left: calc(100% - ${boxSize} / 2);
     transform: translateY(-25%);
     width: auto;
     min-width: ${boxSize};
