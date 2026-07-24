@@ -85,7 +85,6 @@ export const MapPopUp: Story = {
               fontSize: '1rem',
               lineHeight: '1.5rem',
               fontWeight: 'bold',
-              marginBottom: '0.25rem',
               color: getThemedColor('neutral', 800),
             }}
           >

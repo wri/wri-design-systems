@@ -30,7 +30,7 @@ export const mapPopUpHeaderContainerStyles = css`
   padding: ${getThemedSpacing(200)} ${getThemedSpacing(300)};
   border-bottom: ${getThemedBorderWidth(100)} solid
     ${getThemedColor('neutral', 300)};
-  min-height: ${getThemedSpacing(1600)};
+  min-height: ${getThemedSpacing(1000)};
 
   .ds-map-pop-up-close-button {
     margin-top: ${getThemedSpacing(100)};
