@@ -14,7 +14,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Full-width informational or warning banner. Use `type` to set severity.',
+          'Full-width or inline informational banner with optional centered content.',
       },
     },
   },
@@ -43,6 +43,16 @@ const meta = {
     icon: {
       description: 'Custom icon element (overrides variant default)',
       control: false,
+    },
+    isCentered: {
+      description: 'Centers the banner content',
+      control: 'boolean',
+    },
+    width: {
+      description:
+        'Controls whether the banner fills its container or fits its content',
+      control: { type: 'select' },
+      options: ['full-width', 'inline'],
     },
     onClose: {
       description: 'Handler for dismiss button — shows button when set',
@@ -73,6 +83,24 @@ export const WithChildren: Story = {
   args: {
     title: 'General white',
     variant: 'general-grey',
+    children: <Tag label='Label' variant='info-white' />,
+  },
+}
+
+export const Inline: Story = {
+  args: {
+    title: 'Information',
+    variant: 'information',
+    width: 'inline',
+    children: <Tag label='Label' variant='info-white' />,
+  },
+}
+
+export const Centered: Story = {
+  args: {
+    title: 'Success',
+    variant: 'success',
+    isCentered: true,
     children: <Tag label='Label' variant='info-white' />,
   },
 }
