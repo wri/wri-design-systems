@@ -51,4 +51,8 @@ export const alertBannerStyles = (
 
 export const alertBannerIconStyles = (variant?: string) => css`
   rotate: ${variant === 'error' ? '180deg' : ''};
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
 `
