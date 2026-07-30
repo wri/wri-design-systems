@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* eslint-disable no-console */
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryContext, StoryObj } from '@storybook/react'
 import Button from '../../Forms/Actions/Button'
 import Toast from '.'
 import { closeToast, showToast } from './utils'
@@ -23,10 +23,12 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    (Story: any) => (
+    (Story: any, context: StoryContext) => (
       <div>
         <Story />
-        <Toast />
+        {context.viewMode !== 'docs' || context.name === 'Info' ? (
+          <Toast />
+        ) : null}
       </div>
     ),
   ],
