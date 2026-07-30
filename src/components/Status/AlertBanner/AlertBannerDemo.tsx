@@ -7,27 +7,69 @@ const AlertBannerDemo = () => (
     <div
       style={{
         display: 'flex',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '0.5rem',
+        flexDirection: 'column',
+        gap: '1rem',
       }}
     >
-      <AlertBanner title='General white' variant='general-white' />
-      <AlertBanner title='General gray' variant='general-grey'>
-        <Tag label='Label' variant='info-white' />
-      </AlertBanner>
-      <AlertBanner title='Information' variant='information'>
-        <Tag label='Label' variant='info-white' />
-      </AlertBanner>
-      <AlertBanner title='Success' variant='success'>
-        <Tag label='Label' variant='info-white' />
-      </AlertBanner>
-      <AlertBanner title='Warning' variant='warning'>
-        <Tag label='Label' variant='info-white' />
-      </AlertBanner>
-      <AlertBanner title='Error' variant='error'>
-        <Tag label='Label' variant='info-white' />
-      </AlertBanner>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <AlertBanner title='General white' variant='general-white' />
+        <AlertBanner title='General gray' variant='general-grey'>
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+        <AlertBanner
+          title='Information centered'
+          variant='information'
+          isCentered
+        >
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+        <AlertBanner title='Success' variant='success'>
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+        <AlertBanner title='Warning' variant='warning'>
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+        <AlertBanner title='Error' variant='error'>
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+      </div>
+
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '0.5rem',
+        }}
+      >
+        <AlertBanner
+          title='General white'
+          variant='general-white'
+          width='inline'
+        >
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+        <AlertBanner title='General gray' variant='general-grey' width='inline'>
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+        <AlertBanner
+          title='Information centered'
+          variant='information'
+          isCentered
+          width='inline'
+        >
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+        <AlertBanner title='Success' variant='success' width='inline'>
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+        <AlertBanner title='Warning' variant='warning' width='inline'>
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+        <AlertBanner title='Error' variant='error' width='inline'>
+          <Tag label='Label' variant='info-white' />
+        </AlertBanner>
+      </div>
     </div>
   </DemoWrapper>
 )

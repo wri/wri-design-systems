@@ -44,6 +44,25 @@ describe('AlertBanner', () => {
     expect(getByTestId('custom-icon')).toBeInTheDocument()
   })
 
+  it('renders inline when requested', () => {
+    const { container } = render(
+      <AlertBanner title='Inline alert' width='inline' />,
+    )
+    expect(container.firstChild).toHaveStyle({
+      display: 'inline-flex',
+      width: 'fit-content',
+    })
+  })
+
+  it('centers its content when requested', () => {
+    const { container } = render(
+      <AlertBanner title='Centered alert' isCentered />,
+    )
+    expect(container.firstChild).toHaveStyle({
+      justifyContent: 'center',
+    })
+  })
+
   it('has no accessibility violations', async () => {
     const { container } = render(
       <AlertBanner title='Accessible alert' variant='success' />,
