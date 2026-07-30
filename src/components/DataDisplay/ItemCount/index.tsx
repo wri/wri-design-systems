@@ -6,6 +6,7 @@ import {
   itemCountContainerStyles,
   itemCountPerPageContainerStyles,
   itemCountPerPageLabelStyles,
+  itemCountPerPageLabelShowingStyles,
 } from './styles'
 import { ItemCountProps } from './types'
 import { useLabels } from '../../../lib/i18n/useLabels'
@@ -30,41 +31,43 @@ const ItemCount = ({
   }
 
   return (
-    <div css={itemCountContainerStyles}>
-      <div css={itemCountPerPageContainerStyles(showItemCountText)}>
-        <div style={{ width: '5rem' }}>
-          <Select
-            defaultValue={[`${pageSize}`]}
-            items={[
-              {
-                label: '10',
-                value: '10',
-              },
-              {
-                label: '20',
-                value: '20',
-              },
-              {
-                label: '50',
-                value: '50',
-              },
-              {
-                label: '100',
-                value: '100',
-              },
-            ]}
-            onChange={handleSelectChange}
-            required
-          />
+    <>
+      <div css={itemCountContainerStyles}>
+        <div css={itemCountPerPageContainerStyles}>
+          <div style={{ width: '5rem' }}>
+            <Select
+              defaultValue={[`${pageSize}`]}
+              items={[
+                {
+                  label: '10',
+                  value: '10',
+                },
+                {
+                  label: '20',
+                  value: '20',
+                },
+                {
+                  label: '50',
+                  value: '50',
+                },
+                {
+                  label: '100',
+                  value: '100',
+                },
+              ]}
+              onChange={handleSelectChange}
+              required
+            />
+          </div>
+          <p css={itemCountPerPageLabelStyles}>{l.perPageLabel}</p>
         </div>
-        <p css={itemCountPerPageLabelStyles}>{l.perPageLabel}</p>
       </div>
       {showItemCountText ? (
-        <p css={itemCountPerPageLabelStyles}>
+        <p css={itemCountPerPageLabelShowingStyles}>
           {l.showingLabel(startItem, endItem, totalItems)}
         </p>
       ) : null}
-    </div>
+    </>
   )
 }
 

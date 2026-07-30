@@ -146,6 +146,7 @@ export const tableFooterContainerStyles = css`
   margin-top: ${getThemedSpacing(300)};
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 
 export const tablePaginationContainerStyles = css`
