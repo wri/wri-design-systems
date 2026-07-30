@@ -16,10 +16,9 @@ const Tooltip = ({
   portalRef,
   openDelay = 0,
   closeDelay = 0,
+  asChild = false,
 }: TooltipProps) => {
   const [open, setOpen] = useState(false)
-
-  if (disabled) return children
 
   return (
     <ChakraTooltip.Root
@@ -35,13 +34,18 @@ const Tooltip = ({
       }}
       openDelay={openDelay}
       closeDelay={closeDelay}
-      open={open}
-      onOpenChange={({ open: isOpen }) => setOpen(isOpen)}
+      open={disabled ? false : open}
+      onOpenChange={({ open: isOpen }) => {
+        if (!disabled) setOpen(isOpen)
+      }}
     >
       <ChakraTooltip.Trigger
-        tabIndex={0}
-        onClick={() => setOpen(true)}
-        css={tooltipTriggerStyles}
+        asChild={asChild}
+        tabIndex={asChild ? undefined : 0}
+        onClick={() => {
+          if (!disabled) setOpen(true)
+        }}
+        css={asChild ? undefined : tooltipTriggerStyles}
       >
         {children}
       </ChakraTooltip.Trigger>

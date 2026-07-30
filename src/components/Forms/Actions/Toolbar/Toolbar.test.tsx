@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import Toolbar from '.'
@@ -9,7 +9,6 @@ jest.mock('@chakra-ui/react', () =>
   jest.requireActual('../../../testUtils').createChakraMock(),
 )
 
-// ResizeObserver is not available in jsdom — polyfill it for this test
 global.ResizeObserver = class ResizeObserver
   implements globalThis.ResizeObserver
 {
@@ -62,6 +61,41 @@ describe('Toolbar — accessibility', () => {
     const { container } = render(
       <Toolbar items={toolbarItems} expanded ariaLabel='Expanded toolbar' />,
     )
+    expect(await axe(container)).toHaveNoViolations()
+  })
+
+  it('marks an active item with aria-pressed and data-active', async () => {
+    const { container } = render(
+      <Toolbar
+        items={[
+          {
+            icon: <MockIcon />,
+            ariaLabel: 'Toggle polygons',
+            label: 'Polygons',
+            active: true,
+            onClick: () => {},
+          },
+          {
+            icon: <MockIcon />,
+            ariaLabel: 'Share',
+            label: 'Share',
+            active: false,
+            onClick: () => {},
+          },
+        ]}
+        ariaLabel='Map layer controls'
+      />,
+    )
+
+    const activeButton = screen.getByRole('button', {
+      name: 'Toggle polygons',
+    })
+    const inactiveButton = screen.getByRole('button', { name: 'Share' })
+
+    expect(activeButton).toHaveAttribute('aria-pressed', 'true')
+    expect(activeButton).toHaveAttribute('data-active')
+    expect(inactiveButton).toHaveAttribute('aria-pressed', 'false')
+    expect(inactiveButton).not.toHaveAttribute('data-active')
     expect(await axe(container)).toHaveNoViolations()
   })
 })
