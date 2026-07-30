@@ -294,17 +294,15 @@ const Table = ({
       ) : null}
 
       <div css={tableFooterContainerStyles}>
-        <div>
-          {showItemCount ? (
-            <ItemCount
-              pageSize={pageSize}
-              currentPage={currentPage}
-              totalItems={totalItems}
-              onPageSizeChange={onPageSizeChange}
-              showItemCountText={showItemCountText}
-            />
-          ) : null}
-        </div>
+        {showItemCount ? (
+          <ItemCount
+            pageSize={pageSize}
+            currentPage={currentPage}
+            totalItems={totalItems}
+            onPageSizeChange={onPageSizeChange}
+            showItemCountText={showItemCountText}
+          />
+        ) : null}
         {pagination ? (
           <div css={tablePaginationContainerStyles}>
             <Pagination

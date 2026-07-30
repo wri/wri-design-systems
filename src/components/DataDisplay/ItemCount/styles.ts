@@ -11,13 +11,10 @@ export const itemCountContainerStyles = css`
   flex-direction: column;
 `
 
-export const itemCountPerPageContainerStyles = (
-  showItemCountText?: boolean,
-) => css`
+export const itemCountPerPageContainerStyles = css`
   display: flex;
   gap: ${getThemedSpacing(400)};
   align-items: center;
-  margin-bottom: ${showItemCountText ? getThemedSpacing(300) : 0};
 
   .ds-select-input-container {
     margin-bottom: 0rem;
@@ -25,6 +22,12 @@ export const itemCountPerPageContainerStyles = (
 `
 
 export const itemCountPerPageLabelStyles = css`
+  font-size: ${getThemedFontSize(500)};
+  line-height: ${getThemedLineHeight(700)};
+  font-weight: 400;
+  color: ${getThemedColor('neutral', 700)};
+`
+export const itemCountPerPageLabelShowingStyles = css`
   font-size: ${getThemedFontSize(500)};
   line-height: ${getThemedLineHeight(700)};
   font-weight: 400;
