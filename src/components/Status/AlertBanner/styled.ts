@@ -40,8 +40,8 @@ export const alertBannerStyles = (
     width: ${width === 'inline' ? 'fit-content' : '100%'};
     max-width: 100%;
     color: ${color};
-    align-items: center;
-    padding-right: 3rem;
+    align-items: flex-start;
+    padding-right: 2.5rem;
     justify-content: ${isCentered ? 'center' : 'flex-start'};
     background-color: ${backgroundColor};
     border-bottom: ${getThemedBorderWidth(100)} solid ${borderColor};

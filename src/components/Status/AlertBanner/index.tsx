@@ -60,6 +60,7 @@ const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
         <CloseButton
           aria-label={l.closeAlertLabel}
           pos='absolute'
+          top='1rem'
           insetEnd='2'
           onClick={() => {
             setVisible(false)
