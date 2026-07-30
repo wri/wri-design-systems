@@ -7,7 +7,6 @@ const readPlacement = (element: HTMLElement): FlyoutPlacement =>
     ? 'top'
     : 'bottom'
 
-// Syncs portaled flyout's `data-placement` to React for correct anchor border rendering.
 export const usePlacementSync = () => {
   const [placement, setPlacement] = useState<FlyoutPlacement>('bottom')
   const observerRef = useRef<MutationObserver | null>(null)
