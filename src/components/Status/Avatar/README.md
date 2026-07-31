@@ -33,6 +33,7 @@ type AvatarProps = {
   srcSet?: string
   onClick?: () => void
   notificationCount?: number
+  badgeSize?: 'small' | 'large'
   disabled?: boolean
   customBackgroundColor?: string
   /** Override internal UI labels for internationalization support. */
@@ -52,11 +53,14 @@ type AvatarProps = {
 
 ## With Notification
 
+Notification counts reuse the `Badge` component (overlay layout).
+
 ```tsx
 <Avatar
   name='Jane Doe'
   src='https://i.pravatar.cc/150?u=jane-doe'
   notificationCount={3}
+  badgeSize='small'
 />
 ```
 

@@ -5,7 +5,6 @@ import {
   getThemedColor,
   getThemedFontSize,
   getThemedLineHeight,
-  getThemedRadius,
   getThemedSpacing,
 } from '../../../lib/theme'
 import { AvatarProps } from './types'
@@ -43,11 +42,14 @@ export function avatarContainerStyles(
     ? getThemedColor('neutral', 200)
     : getThemedColor('primary', 300)
 
-  const backgroundColor = customBackgroundColor ?? defaultBackgroundColor
+  const backgroundColor = customBackgroundColor || defaultBackgroundColor
   const opacity = customBackgroundColor && disabled ? 'opacity: 0.7;' : ''
   const borderColor = disabled
     ? getThemedColor('neutral', 400)
-    : getThemedColor('neutral', 800)
+    : getThemedColor('primary', 800)
+  const textColor = disabled
+    ? getThemedColor('neutral', 400)
+    : getThemedColor('primary', 800)
 
   return css`
     height: ${containerSize};
@@ -56,7 +58,7 @@ export function avatarContainerStyles(
     ${opacity}
     background-color: ${backgroundColor};
     border: ${getThemedBorderWidth(100)} solid ${borderColor};
-    position: relative;
+    color: ${textColor};
 
     &[role='button'] {
       cursor: pointer;
@@ -87,31 +89,9 @@ export function avatarContainerStyles(
   `
 }
 
-export const avatarNotificationContainerStyles = (width?: string) => css`
-  width: ${width || getThemedSpacing(400)};
-  position: absolute;
-  top: -${getThemedSpacing(200)};
-  left: 0.9375rem;
-`
-
-export const avatarCountContainerStyles = (width?: string) => css`
-  height: ${getThemedSpacing(400)};
-  width: auto;
-  background-color: ${getThemedColor('error', 500)};
-  padding: 0 0.1875rem 0.0625rem 0.1875rem;
-  border-radius: ${getThemedRadius(500)};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: ${getThemedFontSize(200)};
-  line-height: ${getThemedLineHeight(400)};
-  font-weight: 700;
-  color: ${getThemedColor('error', 100)};
-`
-
 export const avatarFallbackStyles = css`
   font-size: ${getThemedFontSize(200)};
   line-height: ${getThemedLineHeight(400)};
   font-weight: 700;
-  color: ${getThemedColor('primary', 800)};
+  color: inherit;
 `

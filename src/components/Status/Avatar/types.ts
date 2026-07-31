@@ -1,5 +1,6 @@
 import type { AvatarLabels } from '../../../lib/i18n/types'
 import type { SizeValue } from '../../../lib/sizing'
+import type { BadgeSize } from '../Badge/types'
 
 export type { AvatarLabels }
 
@@ -12,8 +13,8 @@ export type AvatarProps = {
   srcSet?: string
   onClick?: () => void
   notificationCount?: number
+  badgeSize?: BadgeSize
   disabled?: boolean
   customBackgroundColor?: string
-  /** Override internal UI labels for internationalization support. */
   labels?: Partial<AvatarLabels>
 }

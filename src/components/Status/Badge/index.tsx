@@ -62,7 +62,7 @@ const Badge = ({
     width = size === 'small' ? '1rem' : '1.375rem'
   }
 
-  if (isTablet) {
+  if (isTablet && children == null) {
     return (
       <div css={badgeContainerStyles} role='status' aria-live='polite'>
         <div css={badgeNotificationContainerStyles()}>

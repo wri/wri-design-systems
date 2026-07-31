@@ -55,6 +55,17 @@ describe('Badge', () => {
     expect(getByRole('status')).toBeInTheDocument()
   })
 
+  it('keeps overlay layout for custom children on tablet', () => {
+    setWindowWidth(768)
+    const { getByText, getByTestId } = render(
+      <Badge notificationCount={3}>
+        <span data-testid='custom-child'>Avatar</span>
+      </Badge>,
+    )
+    expect(getByTestId('custom-child')).toBeInTheDocument()
+    expect(getByText('3')).toBeInTheDocument()
+  })
+
   it('has no accessibility violations (desktop)', async () => {
     const { container } = render(
       <Badge notificationCount={2} hasNotification label='Notifications' />,
