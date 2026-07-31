@@ -51,15 +51,18 @@ describe('Avatar', () => {
 
   it('accepts an independent badgeSize', () => {
     const { getByText } = render(
-      <Avatar name='Jane' size='large' notificationCount={3} badgeSize='small' />,
+      <Avatar
+        name='Jane'
+        size='large'
+        notificationCount={3}
+        badgeSize='small'
+      />,
     )
     expect(getByText('3')).toBeInTheDocument()
   })
 
   it('displays 99+ when notificationCount exceeds 99', () => {
-    const { getByText } = render(
-      <Avatar name='Jane' notificationCount={100} />,
-    )
+    const { getByText } = render(<Avatar name='Jane' notificationCount={100} />)
     expect(getByText('99+')).toBeInTheDocument()
   })
 
