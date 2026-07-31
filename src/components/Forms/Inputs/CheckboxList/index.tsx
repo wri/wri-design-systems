@@ -7,9 +7,12 @@ import { useLabels } from '../../../../lib/i18n/useLabels'
 import Checkbox from '../../Controls/Checkbox'
 import { ChevronDownIcon } from '../../../icons'
 import {
+  checkboxListCollapseStyles,
+  checkboxListCollapseInnerStyles,
   checkboxListContentListStyles,
   checkboxCounterTextStyles,
   expandButtonStyles,
+  expandIconStyles,
   checkboxListLabelRowStyles,
 } from './styled'
 import FieldWrapper from '../FieldWrapper'
@@ -181,12 +184,8 @@ const CheckboxList = ({
             css={expandButtonStyles}
           >
             {isExpanded ? resolvedLabels.hideLabel : resolvedLabels.expandLabel}
-            <span aria-hidden='true'>
-              {isExpanded ? (
-                <ChevronDownIcon style={{ transform: 'rotate(180deg)' }} />
-              ) : (
-                <ChevronDownIcon />
-              )}
+            <span aria-hidden='true' css={expandIconStyles(isExpanded)}>
+              <ChevronDownIcon />
             </span>
           </button>
         )}
@@ -209,30 +208,33 @@ const CheckboxList = ({
         'aria-label': groupLabel,
       }}
     >
-      <div
-        id='checkbox-list'
-        css={checkboxListContentListStyles(horizontal, isExpanded)}
-      >
-        {checkboxes.map((checkbox) => {
-          const { onCheckedChange: itemOnCheckedChange, ...checkboxProps } =
-            checkbox
+      <div id='checkbox-list' css={checkboxListCollapseStyles(isExpanded)}>
+        <div css={checkboxListCollapseInnerStyles}>
+          <div css={checkboxListContentListStyles(horizontal)}>
+            {checkboxes.map((checkbox) => {
+              const { onCheckedChange: itemOnCheckedChange, ...checkboxProps } =
+                checkbox
 
-          return (
-            <Checkbox
-              ms={hasParentCheckbox && !horizontal ? '6' : ''}
-              key={checkbox.name}
-              css={{}}
-              checked={
-                checkbox?.name ? !!resolvedCheckedValues[checkbox.name] : false
-              }
-              onCheckedChange={({ checked }) => {
-                handleOnChecked(checked, checkbox.name)
-                itemOnCheckedChange?.({ checked: !!checked })
-              }}
-              {...checkboxProps}
-            />
-          )
-        })}
+              return (
+                <Checkbox
+                  ms={hasParentCheckbox && !horizontal ? '6' : ''}
+                  key={checkbox.name}
+                  css={{}}
+                  checked={
+                    checkbox?.name
+                      ? !!resolvedCheckedValues[checkbox.name]
+                      : false
+                  }
+                  onCheckedChange={({ checked }) => {
+                    handleOnChecked(checked, checkbox.name)
+                    itemOnCheckedChange?.({ checked: !!checked })
+                  }}
+                  {...checkboxProps}
+                />
+              )
+            })}
+          </div>
+        </div>
       </div>
     </FieldWrapper>
   )

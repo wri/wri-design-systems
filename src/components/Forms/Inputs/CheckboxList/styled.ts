@@ -5,20 +5,26 @@ import {
   getThemedSpacing,
 } from '../../../../lib/theme'
 
-export const checkboxListContentListStyles = (
-  horizontal?: boolean,
-  isExpanded?: boolean,
-) => css`
+export const checkboxListCollapseStyles = (isExpanded?: boolean) => css`
+  display: grid;
+  grid-template-rows: ${isExpanded ? '1fr' : '0fr'};
+  opacity: ${isExpanded ? 1 : 0};
+  transition:
+    grid-template-rows 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 200ms ease;
+`
+
+export const checkboxListCollapseInnerStyles = css`
+  overflow: hidden;
+  min-height: 0;
+`
+
+export const checkboxListContentListStyles = (horizontal?: boolean) => css`
   display: flex;
   flex-direction: ${horizontal ? 'row' : 'column'};
   flex-wrap: wrap;
   gap: ${horizontal ? getThemedSpacing(500) : getThemedSpacing(300)};
-  max-height: ${isExpanded ? '62.5rem' : '0'};
-  overflow: hidden;
-  opacity: ${isExpanded ? 1 : 0};
-  transition:
-    max-height 250ms ease,
-    opacity 200ms ease;
+  padding: ${getThemedSpacing(100)};
 `
 
 export const checkboxCounterTextStyles = css`
@@ -37,7 +43,13 @@ export const expandButtonStyles = css`
   cursor: pointer;
   > span {
     margin-left: 0.375rem;
+    display: inline-flex;
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+`
+
+export const expandIconStyles = (isExpanded?: boolean) => css`
+  transform: rotate(${isExpanded ? '180deg' : '0deg'});
 `
 
 export const checkboxListLabelRowStyles = css`
