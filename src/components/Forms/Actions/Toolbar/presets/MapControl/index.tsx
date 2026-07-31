@@ -24,7 +24,6 @@ export type MapControlsToolbarProps = {
   expanded?: boolean
   showExpandedToggle?: boolean
   ariaLabel?: string
-  /** Override internal UI labels for internationalization support. */
   labels?: Partial<MapControlsToolbarLabels>
 }
 

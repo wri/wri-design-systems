@@ -1,91 +1,219 @@
-import { useEffect, useState, useRef } from 'react'
+import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 import { UseToolbarOverflowParams } from './types'
-import { SizeValue, resolveSizeValue } from '../../../../lib/sizing'
 
-const toRems = (value: SizeValue): number => {
-  const resolved = resolveSizeValue(value)
-  const rootFontSize =
-    parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
-  if (resolved.endsWith('px')) {
-    return parseFloat(resolved) / rootFontSize
+const sizeOf = (el: Element | null, vertical: boolean) => {
+  if (!el || !(el instanceof HTMLElement)) return 0
+  return vertical ? el.offsetHeight : el.offsetWidth
+}
+
+const groupCountForVisible = (
+  visibleCount: number,
+  endsGroup: boolean[],
+  hasOverflow: boolean,
+  hasToggle: boolean,
+) => {
+  let groups = 0
+  if (visibleCount > 0) {
+    groups = 1
+    for (let i = 0; i < visibleCount - 1; i += 1) {
+      if (endsGroup[i]) groups += 1
+    }
   }
-  if (resolved.endsWith('rem')) {
-    return parseFloat(resolved)
+  if (hasOverflow) groups += 1
+  if (hasToggle) groups += 1
+  return groups
+}
+
+const packVisibleCount = ({
+  itemSizes,
+  endsGroup,
+  overflowSize,
+  toggleSize,
+  gap,
+  available,
+}: {
+  itemSizes: number[]
+  endsGroup: boolean[]
+  overflowSize: number
+  toggleSize: number
+  gap: number
+  available: number
+}) => {
+  const itemsCount = itemSizes.length
+  if (itemsCount === 0) return 0
+
+  const fits = (visibleCount: number) => {
+    const hasOverflow = visibleCount < itemsCount
+    let total = 0
+    for (let i = 0; i < visibleCount; i += 1) {
+      total += itemSizes[i]
+    }
+    if (hasOverflow) total += overflowSize
+    if (toggleSize > 0) total += toggleSize
+    const groups = groupCountForVisible(
+      visibleCount,
+      endsGroup,
+      hasOverflow,
+      toggleSize > 0,
+    )
+    total += Math.max(groups - 1, 0) * gap
+    return total <= available + 1
   }
-  return parseFloat(resolved)
+
+  for (let count = itemsCount; count >= 0; count -= 1) {
+    if (fits(count)) return count
+  }
+  return 0
+}
+
+const readMeasureMode = (
+  root: HTMLElement,
+  mode: 'expanded' | 'collapsed',
+  isVertical: boolean,
+  showExpandedToggle?: boolean,
+) => {
+  const row = root.querySelector(`[data-toolbar-measure-mode="${mode}"]`)
+  if (!row) {
+    return {
+      itemSizes: [] as number[],
+      overflowSize: 0,
+      toggleSize: 0,
+      gap: 0,
+    }
+  }
+
+  const gap = Number.parseFloat(getComputedStyle(row).gap || '0') || 0
+  const itemSizes = Array.from(
+    row.querySelectorAll('[data-toolbar-measure-item]'),
+  ).map((el) => sizeOf(el, isVertical))
+  const overflowSize = sizeOf(
+    row.querySelector('[data-toolbar-measure-overflow]'),
+    isVertical,
+  )
+  const toggleSize = showExpandedToggle
+    ? sizeOf(row.querySelector('[data-toolbar-measure-toggle]'), isVertical)
+    : 0
+
+  return { itemSizes, overflowSize, toggleSize, gap }
 }
 
 export function useToolbarOverflow({
   itemsCount,
   isExpanded,
   isVertical,
-  collapsedWidth,
-  expandedLabelWidth,
-  gap = 0,
+  endsGroup,
   showExpandedToggle,
   autoCollapse,
 }: UseToolbarOverflowParams) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [containerWidth, setContainerWidth] = useState(0)
+  const measureRef = useRef<HTMLDivElement>(null)
 
-  const [visibleNumberOfItems, setvisibleNumberOfItems] = useState(itemsCount)
+  const [visibleNumberOfItems, setVisibleNumberOfItems] = useState(itemsCount)
   const [shouldForceCollapse, setShouldForceCollapse] = useState(false)
 
-  useEffect(() => {
-    if (!containerRef.current) return
-    const observer = new ResizeObserver((entries) => {
-      const entry = entries[0]
-      const rootFontSize =
-        parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
-      setContainerWidth(entry.contentRect.width / rootFontSize)
-    })
-    observer.observe(containerRef.current)
-    // eslint-disable-next-line consistent-return
-    return () => observer.disconnect()
-  }, [])
+  const recalculate = useCallback(() => {
+    const container = containerRef.current
+    const measure = measureRef.current
 
-  useEffect(() => {
-    if (containerWidth === 0) return
-
-    if (!autoCollapse) {
+    if (!autoCollapse || !container || !measure) {
       setShouldForceCollapse(false)
-      setvisibleNumberOfItems(itemsCount)
+      setVisibleNumberOfItems((prev) =>
+        prev === itemsCount ? prev : itemsCount,
+      )
       return
     }
 
-    const collapsedWidthRems = toRems(collapsedWidth)
-    const expandedLabelWidthRems = toRems(expandedLabelWidth)
-    const gapRems = toRems(gap)
+    const available = isVertical
+      ? container.clientHeight
+      : container.clientWidth
+    if (available <= 0) return
 
-    const toggleWidth = showExpandedToggle ? collapsedWidthRems + gapRems : 0
-    const availableWidth = containerWidth - toggleWidth
+    const expanded = readMeasureMode(
+      measure,
+      'expanded',
+      isVertical,
+      showExpandedToggle,
+    )
+    const collapsed = readMeasureMode(
+      measure,
+      'collapsed',
+      isVertical,
+      showExpandedToggle,
+    )
 
-    const itemWidthCollapsed = collapsedWidthRems + gapRems
-    const itemWidthExpanded = expandedLabelWidthRems + gapRems
-    const currentItemWidth = isExpanded ? itemWidthExpanded : itemWidthCollapsed
-
-    const totalWidthNeeded = itemsCount * currentItemWidth - gapRems
-
-    const mustCollapse = totalWidthNeeded > availableWidth
-    setShouldForceCollapse(mustCollapse)
-
-    if (itemsCount > 1 && !isVertical) {
-      setvisibleNumberOfItems(Math.floor(availableWidth / itemWidthCollapsed))
+    if (
+      expanded.itemSizes.length !== itemsCount ||
+      collapsed.itemSizes.length !== itemsCount
+    ) {
+      return
     }
+
+    const expandedVisible = packVisibleCount({
+      itemSizes: expanded.itemSizes,
+      endsGroup,
+      overflowSize: expanded.overflowSize,
+      toggleSize: expanded.toggleSize,
+      gap: expanded.gap,
+      available,
+    })
+
+    const collapsedVisible = packVisibleCount({
+      itemSizes: collapsed.itemSizes,
+      endsGroup,
+      overflowSize: collapsed.overflowSize,
+      toggleSize: collapsed.toggleSize,
+      gap: collapsed.gap,
+      available,
+    })
+
+    if (isExpanded && expandedVisible > 0) {
+      setShouldForceCollapse(false)
+      setVisibleNumberOfItems((prev) =>
+        prev === expandedVisible ? prev : expandedVisible,
+      )
+      return
+    }
+
+    if (isExpanded && expandedVisible === 0) {
+      setShouldForceCollapse(true)
+      setVisibleNumberOfItems((prev) =>
+        prev === collapsedVisible ? prev : collapsedVisible,
+      )
+      return
+    }
+
+    setShouldForceCollapse(false)
+    setVisibleNumberOfItems((prev) =>
+      prev === collapsedVisible ? prev : collapsedVisible,
+    )
   }, [
-    containerWidth,
-    itemsCount,
+    autoCollapse,
+    endsGroup,
     isExpanded,
     isVertical,
-    collapsedWidth,
-    expandedLabelWidth,
-    gap,
+    itemsCount,
     showExpandedToggle,
-    autoCollapse,
   ])
+
+  useLayoutEffect(() => {
+    recalculate()
+
+    const container = containerRef.current
+    const measure = measureRef.current
+    if (!container) return undefined
+
+    const observer = new ResizeObserver(() => {
+      recalculate()
+    })
+    observer.observe(container)
+    if (measure) observer.observe(measure)
+
+    return () => observer.disconnect()
+  }, [recalculate])
 
   return {
     containerRef,
+    measureRef,
     visibleNumberOfItems,
     shouldForceCollapse,
   }

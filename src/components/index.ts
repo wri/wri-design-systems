@@ -81,6 +81,7 @@ export type { IconButtonProps } from './Forms/Actions/IconButton/types'
 export { default as Toolbar } from './Forms/Actions/Toolbar'
 export type {
   ToolbarButtonProps,
+  ToolbarExpandSide,
   ToolbarItem,
   ToolbarProps,
 } from './Forms/Actions/Toolbar/types'

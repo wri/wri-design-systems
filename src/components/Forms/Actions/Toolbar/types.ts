@@ -1,16 +1,18 @@
 import type { ToolbarLabels } from '../../../../lib/i18n/types'
-import { SizeValue } from '../../../../lib/sizing'
 
 export type { ToolbarLabels }
+
+export type ToolbarExpandSide = 'left' | 'right'
 
 export interface ToolbarItem {
   icon: React.ReactElement
   ariaLabel: string
-  label?: string
+  label?: React.ReactNode
   disabled?: boolean
   onClick?: () => void
   gap?: boolean
   tooltip?: string
+  active?: boolean
 }
 
 export interface ToolbarProps {
@@ -21,7 +23,7 @@ export interface ToolbarProps {
   ariaLabel?: string
   defaultGaps?: boolean
   autoCollapse?: boolean
-  /** Override internal UI labels for internationalization support. */
+  expandSide?: ToolbarExpandSide
   labels?: Partial<ToolbarLabels>
 }
 
@@ -33,17 +35,16 @@ export interface ToolbarButtonProps {
   tooltip?: string
   disabled?: boolean
   onClick?: () => void
-  showGap?: boolean
   vertical?: boolean
+  expandSide?: ToolbarExpandSide
+  active?: boolean
 }
 
 export interface UseToolbarOverflowParams {
   itemsCount: number
   isExpanded: boolean
   isVertical: boolean
-  collapsedWidth: SizeValue
-  expandedLabelWidth: SizeValue
-  gap?: SizeValue
+  endsGroup: boolean[]
   showExpandedToggle?: boolean
   autoCollapse?: boolean
 }

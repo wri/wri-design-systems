@@ -1,64 +1,107 @@
 /** @jsxImportSource @emotion/react */
+/* eslint-disable react/no-unknown-property */
 
-import { Button as ChakraButton, Box } from '@chakra-ui/react'
-import { toolbarBaseStyles } from './styled'
+import { forwardRef } from 'react'
+import { Button as ChakraButton } from '@chakra-ui/react'
+import {
+  toolbarBaseStyles,
+  toolbarItemSurfaceStyles,
+  toolbarItemHighlightStyles,
+  toolbarItemIconStyles,
+  toolbarItemLabelStyles,
+} from './styled'
 import { ToolbarButtonProps } from './types'
+import { useTabFocus } from '../../Inputs/FieldWrapper/useTabFocus'
 
 import Tooltip from '../Tooltip'
 
-const ToolbarButton = ({
-  isExpanded,
-  ariaLabel,
-  icon,
-  label,
-  tooltip,
-  disabled,
-  onClick,
-  showGap,
-  vertical,
-}: ToolbarButtonProps) => (
-  <ChakraButton
-    className='toolbar-item-button'
-    css={toolbarBaseStyles(isExpanded)}
-    aria-label={ariaLabel}
-    disabled={disabled}
-    onClick={onClick}
-    mr={showGap && !vertical ? '1rem' : '0'}
-    mb={showGap && vertical ? '1rem' : '0'}
-  >
-    <Box
-      display='flex'
-      overflow='hidden'
-      style={{ justifyContent: 'flex-end', alignItems: 'center' }}
-      whiteSpace='nowrap'
-      transition='max-width 0.3s ease, opacity 0.2s ease, margin-left 0.3s ease'
-      maxWidth={isExpanded ? '9.375rem' : '2rem'}
-      padding='0.5rem'
-      margin={isExpanded ? '0.5rem' : '0'}
-    >
-      {icon && (
-        <Box as='span' mr={icon && isExpanded ? '0.5rem' : '0px'}>
-          <Tooltip content={tooltip} disabled={!tooltip}>
-            {icon}
-          </Tooltip>
-        </Box>
-      )}
+const getTooltipPosition = (
+  expandSide: NonNullable<ToolbarButtonProps['expandSide']>,
+  vertical?: boolean,
+) => {
+  if (expandSide === 'left') {
+    return vertical ? 'left' : 'top'
+  }
+  return vertical ? 'right' : 'bottom'
+}
 
-      {label && (
-        <Box
-          aria-hidden={!isExpanded}
-          overflow='hidden'
-          maxWidth={isExpanded ? '9.375rem' : '0px'}
-          whiteSpace='nowrap'
-          transition='max-width 0.3s ease, opacity 0.2s ease, margin-left 0.3s ease'
+const ToolbarButton = forwardRef<HTMLButtonElement, ToolbarButtonProps>(
+  (
+    {
+      isExpanded,
+      ariaLabel,
+      icon,
+      label,
+      tooltip,
+      disabled,
+      onClick,
+      vertical,
+      expandSide = 'right',
+      active,
+    },
+    ref,
+  ) => {
+    const tabFocus = useTabFocus<HTMLButtonElement>()
+    const tooltipPosition = getTooltipPosition(expandSide, vertical)
+
+    const button = (
+      <ChakraButton
+        ref={ref}
+        className='toolbar-item-button'
+        css={toolbarBaseStyles(isExpanded, !!vertical, expandSide)}
+        aria-label={ariaLabel}
+        aria-pressed={typeof active === 'boolean' ? active : undefined}
+        data-active={active || undefined}
+        disabled={disabled}
+        onClick={onClick}
+        onFocus={tabFocus.onFocus}
+        onBlur={tabFocus.onBlur}
+        data-focus-visible={tabFocus.isTabFocused || undefined}
+        focusVisibleRing='none'
+      >
+        <span
+          className='toolbar-item-surface'
+          css={toolbarItemSurfaceStyles(isExpanded, !!vertical, expandSide)}
         >
-          <Tooltip content={tooltip} disabled={!tooltip}>
-            {label}
-          </Tooltip>
-        </Box>
-      )}
-    </Box>
-  </ChakraButton>
+          <span
+            css={toolbarItemHighlightStyles(isExpanded, !!vertical, expandSide)}
+          >
+            {icon ? (
+              <span className='toolbar-item-icon' css={toolbarItemIconStyles}>
+                {icon}
+              </span>
+            ) : null}
+            {label ? (
+              <span
+                className='toolbar-item-label'
+                css={toolbarItemLabelStyles(isExpanded, !!vertical, expandSide)}
+                aria-hidden={!isExpanded}
+              >
+                <span className='toolbar-item-label-text'>{label}</span>
+              </span>
+            ) : null}
+          </span>
+        </span>
+      </ChakraButton>
+    )
+
+    if (!tooltip) {
+      return button
+    }
+
+    return (
+      <Tooltip
+        content={tooltip}
+        position={tooltipPosition}
+        asChild
+        disabled={isExpanded}
+      >
+        {button}
+      </Tooltip>
+    )
+  },
 )
+
+ToolbarButton.displayName = 'ToolbarButton'
 
 export default ToolbarButton

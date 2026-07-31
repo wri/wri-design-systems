@@ -29,24 +29,21 @@ import { Toolbar } from '@worldresources/wri-design-systems'
 
 ```ts
 type ToolbarLabels = {
-  /** Visible text on the collapse toggle button. Default: "Collapse" */
   collapseLabel: ReactNode
-  /** Visible text on the expand toggle button. Default: "Expand" */
   expandLabel: ReactNode
-  /** aria-label on the collapse toggle button. Default: "Collapse" */
   collapseAriaLabel: string
-  /** aria-label on the expand toggle button. Default: "Expand" */
   expandAriaLabel: string
 }
 
 interface ToolbarItem {
   icon: React.ReactElement
   ariaLabel: string
-  label?: string
+  label?: React.ReactNode
   disabled?: boolean
   onClick?: () => void
   gap?: boolean
   tooltip?: string
+  active?: boolean
 }
 
 interface ToolbarProps {
@@ -57,7 +54,7 @@ interface ToolbarProps {
   ariaLabel?: string
   defaultGaps?: boolean
   autoCollapse?: boolean
-  /** Override internal UI labels for internationalization support. */
+  expandSide?: 'left' | 'right'
   labels?: Partial<ToolbarLabels>
 }
 
@@ -69,17 +66,16 @@ interface ToolbarButtonProps {
   tooltip?: string
   disabled?: boolean
   onClick?: () => void
-  showGap?: boolean
   vertical?: boolean
+  expandSide?: 'left' | 'right'
+  active?: boolean
 }
 
 interface UseToolbarOverflowParams {
   itemsCount: number
   isExpanded: boolean
   isVertical: boolean
-  collapsedWidth: SizeValue
-  expandedLabelWidth: SizeValue
-  gap?: SizeValue
+  endsGroup: boolean[]
   showExpandedToggle?: boolean
   autoCollapse?: boolean
 }
@@ -114,6 +110,34 @@ interface UseToolbarOverflowParams {
   expanded
   showExpandedToggle
 />
+```
+
+## Expand side
+
+`expandSide` sets the direction labels open toward. Expanded items share one width —
+the widest label — via CSS flex/grid stretch (no JS measurement).
+
+- **Vertical**: column flex sized to the widest child; siblings stretch to match.
+  `expandSide="left"` mirrors icon/label and hugs the right edge.
+- **Horizontal**: equal `1fr` grid columns (groups use subgrid) so every button
+  matches the widest. With `left`, the toolbar grows from the right edge.
+
+```tsx
+<div style={{ position: 'absolute', top: 16, left: 16 }}>
+  <Toolbar items={items} vertical showExpandedToggle expandSide='right' />
+</div>
+
+<div style={{ position: 'absolute', top: 16, right: 16 }}>
+  <Toolbar items={items} vertical showExpandedToggle expandSide='left' />
+</div>
+
+<div style={{ position: 'absolute', bottom: 16, left: 16 }}>
+  <Toolbar items={items} showExpandedToggle expandSide='right' />
+</div>
+
+<div style={{ position: 'absolute', bottom: 16, right: 16 }}>
+  <Toolbar items={items} showExpandedToggle expandSide='left' />
+</div>
 ```
 
 ## Disabled
