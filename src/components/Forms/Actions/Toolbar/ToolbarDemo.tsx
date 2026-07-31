@@ -283,7 +283,7 @@ const AutoCollapseDemo = () => {
   )
 }
 
-const MapControlDemo = () => (
+const ToolbarDemo = () => (
   <DemoWrapper title='Toolbar'>
     <ExpandSidesDemo />
     <ActiveItemDemo />
@@ -291,4 +291,4 @@ const MapControlDemo = () => (
   </DemoWrapper>
 )
 
-export default MapControlDemo
+export default ToolbarDemo

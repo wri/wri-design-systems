@@ -60,7 +60,7 @@ const components = [
   'Button',
   'Close Button',
   'Icon Button',
-  'Map Controls Toolbar',
+  'Toolbar',
   'Multi Action Button',
   'Tooltip',
   'Checkbox',
