@@ -8,5 +8,5 @@ export type TooltipProps = {
   portalRef?: React.RefObject<HTMLElement | null>
   openDelay?: number
   closeDelay?: number
-  asChild?: boolean
+  preserveFocusOnChild?: boolean
 }

@@ -16,7 +16,7 @@ const Tooltip = ({
   portalRef,
   openDelay = 0,
   closeDelay = 0,
-  asChild = false,
+  preserveFocusOnChild = false,
 }: TooltipProps) => {
   const [open, setOpen] = useState(false)
 
@@ -40,12 +40,12 @@ const Tooltip = ({
       }}
     >
       <ChakraTooltip.Trigger
-        asChild={asChild}
-        tabIndex={asChild ? undefined : 0}
+        asChild={preserveFocusOnChild}
+        tabIndex={preserveFocusOnChild ? undefined : 0}
         onClick={() => {
           if (!disabled) setOpen(true)
         }}
-        css={asChild ? undefined : tooltipTriggerStyles}
+        css={preserveFocusOnChild ? undefined : tooltipTriggerStyles}
       >
         {children}
       </ChakraTooltip.Trigger>
