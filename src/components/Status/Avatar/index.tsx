@@ -6,13 +6,9 @@ import { Avatar as ChakraAvatar } from '@chakra-ui/react'
 import { AvatarProps } from './types'
 import { UserIcon } from '../../icons'
 import { getThemedColor } from '../../../lib/theme'
-import {
-  avatarContainerStyles,
-  avatarCountContainerStyles,
-  avatarNotificationContainerStyles,
-  avatarFallbackStyles,
-} from './styled'
+import { avatarContainerStyles, avatarFallbackStyles } from './styled'
 import { useLabels } from '../../../lib/i18n/useLabels'
+import Badge from '../Badge'
 
 const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
   (
@@ -25,7 +21,8 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
       srcSet,
       onClick,
       notificationCount,
-      disabled = true,
+      badgeSize = 'large',
+      disabled = false,
       customBackgroundColor = '',
       labels,
     },
@@ -37,26 +34,12 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
         onClick?.()
       }
     }
-    const getNotificationCount = () => {
-      let notification = ''
-      if (notificationCount && notificationCount > 0) {
-        notification = `${notificationCount > 99 ? '99+' : notificationCount}`
-      }
 
-      return notification
-    }
-
-    const notification = getNotificationCount()
-
-    let width = '1rem'
-    if (notificationCount && notificationCount > 99) {
-      width = '1.75rem'
-    } else if (notificationCount && notificationCount > 9) {
-      width = '1.375rem'
-    }
     const hasImage = !!src || !!srcSet
-    const isClickable = onClick && !disabled
-    return (
+    const isClickable = !!onClick && !disabled
+    const hasNotification = !!notificationCount && notificationCount > 0
+
+    const avatar = (
       <ChakraAvatar.Root
         aria-label={ariaLabel || name}
         ref={ref}
@@ -75,7 +58,7 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
         }}
         role={isClickable ? 'button' : 'img'}
         tabIndex={isClickable ? 0 : undefined}
-        aria-disabled={isClickable ? disabled : undefined}
+        aria-disabled={onClick ? disabled : undefined}
       >
         {hasImage && (
           <ChakraAvatar.Image
@@ -93,20 +76,27 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
             size='100%'
             style={{
               padding: '15%',
-              color: disabled ? getThemedColor('neutral', 400) : undefined,
+              color: disabled
+                ? getThemedColor('neutral', 400)
+                : getThemedColor('primary', 800),
             }}
           />
         )}
-        {notification.length > 0 ? (
-          <div css={avatarNotificationContainerStyles(width)}>
-            <div css={avatarCountContainerStyles(width)}>
-              <p aria-label={l.unreadMessagesLabel(notificationCount || 0)}>
-                {notification}
-              </p>
-            </div>
-          </div>
-        ) : null}
       </ChakraAvatar.Root>
+    )
+
+    if (!hasNotification) {
+      return avatar
+    }
+
+    return (
+      <Badge
+        notificationCount={notificationCount}
+        size={badgeSize}
+        labels={{ unreadMessagesLabel: l.unreadMessagesLabel }}
+      >
+        {avatar}
+      </Badge>
     )
   },
 )

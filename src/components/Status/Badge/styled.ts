@@ -48,6 +48,7 @@ export const badgeDotContainerStyles = (size: BadgeSize = 'large') => {
     position: absolute;
     top: 0rem;
     right: 0rem;
+    z-index: 1;
   `
 }
 
@@ -68,6 +69,7 @@ export const badgeCountContainerStyles = (size: BadgeSize = 'large') => {
     width: auto;
     min-width: ${boxSize};
     height: ${boxSize};
+    z-index: 1;
   `
 }
 

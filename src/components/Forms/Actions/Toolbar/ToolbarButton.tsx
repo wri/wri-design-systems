@@ -93,7 +93,7 @@ const ToolbarButton = forwardRef<HTMLButtonElement, ToolbarButtonProps>(
       <Tooltip
         content={tooltip}
         position={tooltipPosition}
-        asChild
+        preserveFocusOnChild
         disabled={isExpanded}
       >
         {button}
