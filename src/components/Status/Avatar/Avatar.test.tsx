@@ -21,17 +21,13 @@ describe('Avatar', () => {
   })
 
   it('renders as a button role when onClick is provided and not disabled', () => {
-    const { getByRole } = render(
-      <Avatar name='Jane' onClick={jest.fn()} disabled={false} />,
-    )
+    const { getByRole } = render(<Avatar name='Jane' onClick={jest.fn()} />)
     expect(getByRole('button', { name: 'Jane' })).toBeInTheDocument()
   })
 
   it('calls onClick when clicked and not disabled', () => {
     const onClick = jest.fn()
-    const { getByRole } = render(
-      <Avatar name='Jane' onClick={onClick} disabled={false} />,
-    )
+    const { getByRole } = render(<Avatar name='Jane' onClick={onClick} />)
     fireEvent.click(getByRole('button', { name: 'Jane' }))
     expect(onClick).toHaveBeenCalledTimes(1)
   })
@@ -45,8 +41,40 @@ describe('Avatar', () => {
     expect(onClick).not.toHaveBeenCalled()
   })
 
+  it('renders notification count via Badge', () => {
+    const { getByText, getByLabelText } = render(
+      <Avatar name='Jane' notificationCount={3} />,
+    )
+    expect(getByText('3')).toBeInTheDocument()
+    expect(getByLabelText('3 unread messages')).toBeInTheDocument()
+  })
+
+  it('accepts an independent badgeSize', () => {
+    const { getByText } = render(
+      <Avatar
+        name='Jane'
+        size='large'
+        notificationCount={3}
+        badgeSize='small'
+      />,
+    )
+    expect(getByText('3')).toBeInTheDocument()
+  })
+
+  it('displays 99+ when notificationCount exceeds 99', () => {
+    const { getByText } = render(<Avatar name='Jane' notificationCount={100} />)
+    expect(getByText('99+')).toBeInTheDocument()
+  })
+
   it('has no accessibility violations', async () => {
     const { container } = render(<Avatar name='Test User' />)
+    expect(await axe(container)).toHaveNoViolations()
+  })
+
+  it('has no accessibility violations with notification', async () => {
+    const { container } = render(
+      <Avatar name='Test User' notificationCount={2} />,
+    )
     expect(await axe(container)).toHaveNoViolations()
   })
 })

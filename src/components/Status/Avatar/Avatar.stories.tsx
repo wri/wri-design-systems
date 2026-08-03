@@ -11,19 +11,25 @@ const meta = {
   component: AvatarStory,
   parameters: {
     layout: 'centered',
-
-    docs: {
-      description: {
-        component:
-          'User avatar with fallback initials or image. Use `size` to control dimensions.',
-      },
-    },
   },
   tags: ['autodocs'],
+  args: {
+    disabled: false,
+  },
   argTypes: {
     size: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large'],
+    },
+    badgeSize: {
+      control: { type: 'radio' },
+      options: ['small', 'large'],
+    },
+    disabled: {
+      control: 'boolean',
+    },
+    onClick: {
+      control: false,
     },
   },
 } satisfies Meta<typeof AvatarStory>
@@ -68,6 +74,17 @@ export const WithNotification: Story = {
     name: 'Jane Doe',
     src: 'https://i.pravatar.cc/150?u=jane-doe',
     notificationCount: 3,
+    badgeSize: 'small',
+  },
+}
+
+export const WithNotificationSmallBadge: Story = {
+  args: {
+    name: 'Jane Doe',
+    src: 'https://i.pravatar.cc/150?u=jane-doe',
+    size: 'large',
+    notificationCount: 3,
+    badgeSize: 'large',
   },
 }
 
