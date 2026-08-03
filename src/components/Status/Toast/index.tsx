@@ -54,7 +54,7 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
                 <Spinner
                   size='lg'
                   borderWidth='0.1875rem'
-                  color='var(--chakra-colors-primary-500)'
+                  color='var(--chakra-colors-primary-700)'
                 />
               ) : null}
               {toast.type === 'success' ? (
