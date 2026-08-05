@@ -12,6 +12,8 @@ import {
   sliderThumbStyles,
   sliderTrackStyles,
   sliderMarkerStyles,
+  sliderMarkLabelsRowStyles,
+  sliderMarkLabelStyles,
 } from './styled'
 
 const SliderThumbs = (props: { value?: number[] }) => {
@@ -39,7 +41,6 @@ const SliderMarks = React.forwardRef<HTMLDivElement, SliderMarksProps>(
       <ChakraSlider.MarkerGroup ref={ref}>
         {marks.map((mark, index) => {
           const value = typeof mark === 'number' ? mark : mark.value
-          const label = typeof mark === 'number' ? undefined : mark.label
           const isMiddleMark = isCentred && index === 1
 
           return (
@@ -49,7 +50,6 @@ const SliderMarks = React.forwardRef<HTMLDivElement, SliderMarksProps>(
               value={value}
             >
               <ChakraSlider.MarkerIndicator />
-              <p>{label}</p>
             </ChakraSlider.Marker>
           )
         })}
@@ -57,6 +57,43 @@ const SliderMarks = React.forwardRef<HTMLDivElement, SliderMarksProps>(
     )
   },
 )
+
+const SliderMarkLabels = (props: {
+  marks?: Array<{ value: number; label?: React.ReactNode }>
+  min: number
+  max: number
+}) => {
+  const { marks, min, max } = props
+  const labelledMarks = marks?.filter(
+    (mark) => mark.label !== undefined && mark.label !== null,
+  )
+
+  if (!labelledMarks?.length) return null
+
+  const range = max - min || 1
+
+  return (
+    <div css={sliderMarkLabelsRowStyles}>
+      {labelledMarks.map((mark) => {
+        const translateX =
+          mark.value === min ? '0' : mark.value === max ? '-100%' : '-50%'
+
+        return (
+          <span
+            key={mark.value}
+            css={sliderMarkLabelStyles}
+            style={{
+              left: `${((mark.value - min) / range) * 100}%`,
+              transform: `translateX(${translateX})`,
+            }}
+          >
+            {mark.label}
+          </span>
+        )
+      })}
+    </div>
+  )
+}
 
 const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   const { marks: marksProp, onValueChange, isCentred, value, ...rest } = props
@@ -66,15 +103,15 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
     setNewValue(value || [0])
   }, [value])
 
+  const min = rest.min ?? 0
+  const max = rest.max ?? 100
+
   let marks = marksProp?.map((mark) => {
     if (typeof mark === 'number') return { value: mark, label: undefined }
     return mark
   })
 
   if (isCentred) {
-    const min = rest.min || 0
-    const max = rest.max || 100
-
     marks = [min, (min + max) / 2, max].map((mark) => ({
       value: mark,
       label: undefined,
@@ -112,12 +149,13 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
           </HStack>
         )}
         */}
+      <SliderMarkLabels marks={marks} min={min} max={max} />
       <ChakraSlider.Control data-has-mark-label={hasMarkLabel || undefined}>
         <ChakraSlider.Track css={sliderTrackStyles}>
-          <ChakraSlider.Range css={sliderRangeStyles} />
+          <ChakraSlider.Range css={sliderRangeStyles(isCentred)} />
         </ChakraSlider.Track>
-        <SliderThumbs value={newValue} />
         <SliderMarks marks={marks} isCentred={isCentred} />
+        <SliderThumbs value={newValue} />
       </ChakraSlider.Control>
     </ChakraSlider.Root>
   )

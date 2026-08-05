@@ -21,9 +21,6 @@ export const sliderInputContentStyles = css`
   }
 
   .chakra-slider__root {
-    padding: 0 ${getThemedSpacing(300)};
-    height: 1.875rem;
-    margin-top: 1.125rem;
     width: 100%;
   }
 `
