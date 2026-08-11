@@ -75,8 +75,12 @@ const SliderMarkLabels = (props: {
   return (
     <div css={sliderMarkLabelsRowStyles}>
       {labelledMarks.map((mark) => {
-        const translateX =
-          mark.value === min ? '0' : mark.value === max ? '-100%' : '-50%'
+        let translateX = '-50%'
+        if (mark.value === min) {
+          translateX = '0'
+        } else if (mark.value === max) {
+          translateX = '-100%'
+        }
 
         return (
           <span
