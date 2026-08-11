@@ -38,6 +38,7 @@ import LayerParametersDemo from './components/Geospatial/Legends/LayerParameters
 import { LegendItemDemo } from './components/Geospatial/Legends/LegendItem/LegendItemDemo'
 import LegendPanelDemo from './components/Geospatial/Legends/LegendPanel/LegendPanelDemo'
 import QualitativeAttributeDemo from './components/Geospatial/Legends/QualitativeAttribute/QualitativeAttributeDemo'
+import OpacityControlDemo from './components/Geospatial/Legends/OpacityControl/OpacityControlDemo'
 import ScaleBarDemo from './components/Geospatial/Legends/ScaleBar/ScaleBarDemo'
 
 import ItemCountDemo from './components/DataDisplay/ItemCount/ItemCountDemo'
@@ -162,6 +163,7 @@ const App = () => (
           </DemoWrapper>
           <LegendPanelDemo />
           <QualitativeAttributeDemo />
+          <OpacityControlDemo />
           <ScaleBarDemo />
 
           <ItemCountDemo />
