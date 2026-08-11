@@ -22,3 +22,8 @@ Brief context on why this change is needed
 - Group related changes together
 - Mention any files deleted or renamed
 - Add some examples of before/after code where helpful
+
+## New Props
+
+- List any new props added to exposed components in a table:
+  name | type | required | description | default value

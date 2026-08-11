@@ -76,8 +76,10 @@ const OpacityControl = ({
                 <p
                   style={{
                     position: 'absolute',
-                    top: '1.15625rem',
+                    top: '50%',
                     right: '0.3125rem',
+                    transform: 'translateY(-50%)',
+                    margin: 0,
                   }}
                 >
                   {l.percentSuffix}

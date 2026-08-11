@@ -90,6 +90,7 @@ const components = [
   'Legend Item',
   'Legend Panel',
   'Qualitative Attribute',
+  'Opacity Control',
   'Scale Bar',
   'Item Count',
   'Pagination',

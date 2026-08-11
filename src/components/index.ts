@@ -191,6 +191,8 @@ export { default as LegendItem } from './Geospatial/Legends/LegendItem'
 export type { LegendItemProps } from './Geospatial/Legends/LegendItem/types'
 export { default as QualitativeAttribute } from './Geospatial/Legends/QualitativeAttribute'
 export type { QualitativeAttributeProps } from './Geospatial/Legends/QualitativeAttribute/types'
+export { default as OpacityControl } from './Geospatial/Legends/OpacityControl'
+export type { OpacityControlProps } from './Geospatial/Legends/OpacityControl/types'
 export { default as ScaleBar } from './Geospatial/Legends/ScaleBar'
 export type { ScaleBarProps } from './Geospatial/Legends/ScaleBar/types'
 
