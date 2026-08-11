@@ -12,8 +12,7 @@ const meta = {
 
     docs: {
       description: {
-        component:
-          'Control for adjusting map layer opacity from 0 to 100.',
+        component: 'Control for adjusting map layer opacity from 0 to 100.',
       },
     },
   },
