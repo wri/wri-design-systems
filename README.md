@@ -85,11 +85,71 @@ Copy the `SKILL.md` file you want into the matching skills folder in your own pr
 
 With this custom theme you can change the color scheme according to your Project Theme
 
-```tsx
-import { createSystem, defaultConfig } from '@chakra-ui/react'
-import { designSystemStyles } from '@worldresources/wri-design-systems'
+### Add an EmotionProvider to avoid hydrate errors
 
-export const system = createSystem(designSystemStyles._config, {
+```tsx
+'use client'
+
+import React, { useState } from 'react'
+import { useServerInsertedHTML } from 'next/navigation'
+import { CacheProvider } from '@emotion/react'
+import createCache from '@emotion/cache'
+
+export default function EmotionProvider({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const [{ cache, flush }] = useState(() => {
+    const cache = createCache({ key: 'css-global' })
+    cache.compat = true
+    const prevInsert = cache.insert
+    let inserted: string[] = []
+    cache.insert = (...args) => {
+      const serialized = args[1]
+      if (cache.inserted[serialized.name] === undefined) {
+        inserted.push(serialized.name)
+      }
+      return prevInsert(...args)
+    }
+    const flush = () => {
+      const prevInserted = inserted
+      inserted = []
+      return prevInserted
+    }
+    return { cache, flush }
+  })
+
+  useServerInsertedHTML(() => {
+    const names = flush()
+    if (names.length === 0) return null
+    let styles = ''
+    for (const name of names) {
+      styles += cache.inserted[name]
+    }
+    return (
+      <style
+        data-emotion={`${cache.key} ${names.join(' ')}`}
+        dangerouslySetInnerHTML={{ __html: styles }}
+      />
+    )
+  })
+
+  return <CacheProvider value={cache}>{children}</CacheProvider>
+}
+```
+
+### Chakra Provider
+
+```tsx
+import {
+  ChakraProvider as ChakraProviderComponent,
+  createSystem,
+} from '@chakra-ui/react'
+import { designSystemStyles } from '@worldresources/wri-design-systems'
+import EmotionProvider from './EmotionProvider'
+
+const customStylesSystem = createSystem(designSystemStyles._config, {
   theme: {
     tokens: {
       colors: {
@@ -177,23 +237,27 @@ export const system = createSystem(designSystemStyles._config, {
     },
   },
 })
+
+const ChakraProvider = ({ children }: { children: React.ReactNode }) => (
+  <EmotionProvider>
+    <ChakraProviderComponent value={customStylesSystem}>
+      {children}
+    </ChakraProviderComponent>
+  </EmotionProvider>
+)
+
+export default ChakraProvider
 ```
 
 ### Wrap ChakraProvider at the root of your app
 
 ```tsx
 import React from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
-import { designSystemStyles } from "@worldresources/wri-design-systems";
-import { system } from './lib/theme'
+import ChakraProvider from './path/to/your/ChakraProvider'
 
 function App() {
   return (
-    {/* if you want to use the default WRI Theme colors */}
-    {/* <ChakraProvider value={designSystemStyles}> */}
-
-    {/* if you want to use your custom system Theme colors */}
-    <ChakraProvider value={system}>
+    <ChakraProvider>
       <TheRestOfYourApplication />
     </ChakraProvider>
   )
@@ -470,7 +534,7 @@ line-height: ${getThemedLineHeight(600)};
 ## Building the lib
 
 ```
-yarn lint-fix
+yarn lint:fix
 ```
 
 ```
