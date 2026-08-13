@@ -18,6 +18,7 @@ export const sliderInputContentStyles = css`
 
   .ds-select-input-container {
     margin-bottom: 0;
+    width: auto;
   }
 
   .chakra-slider__root {
