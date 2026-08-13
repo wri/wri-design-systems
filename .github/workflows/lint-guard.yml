@@ -31,18 +31,18 @@ jobs:
       - name: Install deps
         run: yarn install --frozen-lockfile
 
-      - name: Run lint-fix
-        run: yarn lint-fix
+      - name: Run lint:fix
+        run: yarn lint:fix
 
-      - name: Ensure working tree is clean after lint-fix
+      - name: Ensure working tree is clean after lint:fix
         run: |
           if [[ -n "$(git status --porcelain)" ]]; then
-            echo "::error::This PR is not formatted. Please run 'yarn lint-fix' locally and commit the changes."
+            echo "::error::This PR is not formatted. Please run 'yarn lint:fix' locally and commit the changes."
             echo "Modified files:"
             git status --porcelain
             echo "Changed file list:"
             git diff --name-only
             exit 1
           else
-            echo "OK: 'lint-fix' produced no changes."
+            echo "OK: 'lint:fix' produced no changes."
           fi
