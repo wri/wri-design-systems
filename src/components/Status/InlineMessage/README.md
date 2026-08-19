@@ -29,11 +29,13 @@ type InlineMessageLabels = {
   roleDescription: string
 }
 
+type InlineMessageSize = 'small' | 'large' | 'full-width' | 'small-full-width'
+
 type InlineMessageProps = {
   label: string | React.ReactNode
   caption?: string | React.ReactNode
   variant: 'info-white' | 'info-grey' | 'success' | 'warning' | 'error'
-  size?: 'small' | 'large' | 'full-width'
+  size?: InlineMessageSize
   icon?: React.ReactNode
   onActionClick?: VoidFunction
   actionLabel?: string
@@ -121,6 +123,18 @@ type InlineMessageProps = {
   variant='info-white'
   actionLabel='Label'
   size='small'
+/>
+```
+
+## Small Full Width
+
+```tsx
+<InlineMessage
+  label='Label'
+  caption='caption'
+  variant='info-white'
+  actionLabel='Label'
+  size='small-full-width'
 />
 ```
 

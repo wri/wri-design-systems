@@ -65,6 +65,22 @@ describe('InlineMessage', () => {
     expect(onActionClick).toHaveBeenCalledTimes(1)
   })
 
+  it('renders small-full-width as compact and full width', () => {
+    const { getByRole } = render(
+      <InlineMessage
+        label='Info message'
+        variant='info-white'
+        actionLabel='Retry'
+        size='small-full-width'
+      />,
+    )
+
+    expect(getByRole('status')).toHaveStyle({ maxWidth: '100%' })
+    expect(getByRole('button', { name: 'Retry' })).toHaveStyle({
+      height: '1.75rem',
+    })
+  })
+
   it('has no accessibility violations', async () => {
     const { container } = render(
       <InlineMessage label='All good' variant='success' />,

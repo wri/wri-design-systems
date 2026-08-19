@@ -7,13 +7,20 @@ import {
   getThemedRadius,
   getThemedSpacing,
 } from '../../../lib/theme'
+import type { InlineMessageSize } from './types'
+
+const isSmallSize = (size: InlineMessageSize) =>
+  size === 'small' || size === 'small-full-width'
+
+const isFullWidthSize = (size: InlineMessageSize) =>
+  size === 'full-width' || size === 'small-full-width'
 
 export const defaultInlineMessageStyles = (
-  size: string,
+  size: InlineMessageSize,
   isButtonRight?: boolean,
 ) => {
   let maxWidth = '14.875rem'
-  if (size === 'full-width') {
+  if (isFullWidthSize(size)) {
     maxWidth = '100%'
   } else if (size === 'large') {
     maxWidth = '22.875rem'
@@ -23,7 +30,7 @@ export const defaultInlineMessageStyles = (
     width: 100%;
     max-width: ${maxWidth};
     border-radius: ${getThemedRadius(300)};
-    padding: ${size === 'small'
+    padding: ${isSmallSize(size)
       ? `${getThemedSpacing(200)} ${getThemedSpacing(200)} ${getThemedSpacing(300)} ${getThemedSpacing(200)}`
       : `${getThemedSpacing(200)} ${getThemedSpacing(300)} ${getThemedSpacing(300)} ${getThemedSpacing(300)}`};
     display: flex;
@@ -48,12 +55,12 @@ export const inlineMessageHeaderStyles = css`
   }
 `
 
-export const inlineMessageTitleStyles = (size: string) => css`
+export const inlineMessageTitleStyles = (size: InlineMessageSize) => css`
   color: ${getThemedColor('neutral', 800)};
-  font-size: ${size === 'small'
+  font-size: ${isSmallSize(size)
     ? getThemedFontSize(300)
     : getThemedFontSize(500)};
-  line-height: ${size === 'small'
+  line-height: ${isSmallSize(size)
     ? getThemedLineHeight(500)
     : getThemedLineHeight(700)};
   font-weight: 400;
@@ -61,14 +68,14 @@ export const inlineMessageTitleStyles = (size: string) => css`
 `
 
 export const inlineMessageCaptionStyles = (
-  size: string,
+  size: InlineMessageSize,
   hasIcon: boolean,
 ) => css`
   color: ${getThemedColor('neutral', 700)};
-  font-size: ${size === 'small'
+  font-size: ${isSmallSize(size)
     ? getThemedFontSize(200)
     : getThemedFontSize(400)};
-  line-height: ${size === 'small'
+  line-height: ${isSmallSize(size)
     ? getThemedLineHeight(400)
     : getThemedLineHeight(600)};
   font-weight: 400;
@@ -77,14 +84,14 @@ export const inlineMessageCaptionStyles = (
 `
 
 export const inlineMessageCaptionContainerStyles = (
-  size: string,
+  size: InlineMessageSize,
   hasIcon: boolean,
 ) => css`
   color: ${getThemedColor('neutral', 700)};
-  font-size: ${size === 'small'
+  font-size: ${isSmallSize(size)
     ? getThemedFontSize(200)
     : getThemedFontSize(400)};
-  line-height: ${size === 'small'
+  line-height: ${isSmallSize(size)
     ? getThemedLineHeight(400)
     : getThemedLineHeight(600)};
   font-weight: 400;

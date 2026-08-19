@@ -39,7 +39,7 @@ const meta = {
     size: {
       description: '`size` variant',
       control: { type: 'select' },
-      options: ['small', 'large', 'full-width'],
+      options: ['small', 'large', 'full-width', 'small-full-width'],
     },
     icon: { description: '`icon` content', control: false },
     onActionClick: { description: '`onActionClick` handler', control: false },
@@ -131,6 +131,17 @@ export const Small: Story = {
     actionLabel: 'Label',
     size: 'small',
     isButtonRight: true,
+  },
+}
+
+export const SmallFullWidth: Story = {
+  args: {
+    label: 'Small Full Width',
+    caption:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices, nisi vel congue imperdiet, risus felis iaculis metus, sit amet accumsan justo nibh eu odio.',
+    variant: 'info-white',
+    actionLabel: 'Label',
+    size: 'small-full-width',
   },
 }
 
