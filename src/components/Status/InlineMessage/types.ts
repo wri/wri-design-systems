@@ -2,11 +2,17 @@ import type { InlineMessageLabels } from '../../../lib/i18n/types'
 
 export type { InlineMessageLabels }
 
+export type InlineMessageSize =
+  | 'small'
+  | 'large'
+  | 'full-width'
+  | 'small-full-width'
+
 export type InlineMessageProps = {
   label: string | React.ReactNode
   caption?: string | React.ReactNode
   variant: 'info-white' | 'info-grey' | 'success' | 'warning' | 'error'
-  size?: 'small' | 'large' | 'full-width'
+  size?: InlineMessageSize
   icon?: React.ReactNode
   onActionClick?: VoidFunction
   actionLabel?: string

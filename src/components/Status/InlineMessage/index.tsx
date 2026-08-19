@@ -82,7 +82,7 @@ const InlineMessage = ({
               ? 'primary'
               : 'secondary'
           }
-          size={size === 'large' ? 'default' : 'small'}
+          size={size === 'large' || size === 'full-width' ? 'default' : 'small'}
           onClick={onActionClick}
           leftIcon={buttonLeftIcon}
           rightIcon={buttonRightIcon}

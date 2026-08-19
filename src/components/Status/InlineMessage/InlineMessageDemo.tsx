@@ -40,6 +40,21 @@ const InlineMessageDemo = () => (
         size='small'
       />
       <InlineMessage
+        label='Small full width'
+        caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices, nisi vel congue imperdiet, risus felis iaculis metus, sit amet accumsan justo nibh eu odio.'
+        variant='info-white'
+        actionLabel='Label'
+        size='small-full-width'
+      />
+      <InlineMessage
+        label='Small full width'
+        caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices, nisi vel congue imperdiet, risus felis iaculis metus, sit amet accumsan justo nibh eu odio.'
+        variant='info-white'
+        actionLabel='Label'
+        size='small-full-width'
+        isButtonRight
+      />
+      <InlineMessage
         label='Label'
         caption='caption'
         variant='info-white'
