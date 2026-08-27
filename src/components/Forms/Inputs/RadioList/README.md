@@ -35,10 +35,14 @@ type RadioListProps = {
   horizontal?: boolean
   required?: boolean
   variant?: 'default' | 'card'
+  color?: string
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<RadioListLabels>
 }
 ```
+
+Use `color` to override the indicator border and selected dot color for the
+whole list.
 
 ## Default
 

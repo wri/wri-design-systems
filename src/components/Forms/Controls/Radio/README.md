@@ -38,12 +38,15 @@ type RadioGroupProps = Omit<
   | 'onChange'
   | 'children'
   | 'defaultValue'
+  | 'color'
 > & {
   name: string
   value?: ChakraRadioGroup.ItemProps['value']
   horizontal?: boolean
   onChange?: (name: string, selectedValue: string) => void
   customGap?: string
+  color?: string
+  css?: Interpolation<Theme>
   children?: React.ReactNode
 }
 ```
@@ -65,6 +68,15 @@ type RadioProps = Omit<
   <Radio value='1'>One</Radio>
   <Radio value='2'>Two</Radio>
   <Radio value='3'>Three</Radio>
+</RadioGroup>
+```
+
+## Custom Indicator Color
+
+```tsx
+<RadioGroup name='radio-group' value='2' color='#123369'>
+  <Radio value='1'>One</Radio>
+  <Radio value='2'>Two</Radio>
 </RadioGroup>
 ```
 

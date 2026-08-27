@@ -6,11 +6,26 @@ import {
 } from '../../../../lib/theme'
 import { fieldFocusVisibleStyles } from '../../Inputs/FieldWrapper/styled'
 
+export const radioGroupColorStyles = (color?: string) =>
+  color
+    ? css`
+        & label .ds-radio-item-indicator {
+          border-color: ${color};
+        }
+
+        & label .ds-radio-item-indicator[data-checked] {
+          border-color: ${color};
+          color: ${color};
+        }
+      `
+    : undefined
+
 export const radioGroupItemStyles = css`
   .ds-radio-item-indicator {
     width: ${getThemedSpacing(500)};
     height: ${getThemedSpacing(500)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 700)};
+    background-color: transparent !important;
     cursor: pointer;
 
     .dot {
@@ -32,6 +47,7 @@ export const radioGroupItemStyles = css`
     &:focus-visible,
     &[data-focus-visible] {
       ${fieldFocusVisibleStyles}
+      box-shadow: none;
 
       &[data-checked] {
         border: ${getThemedBorderWidth(200)} solid
@@ -49,7 +65,7 @@ export const radioGroupItemStyles = css`
       border: ${getThemedBorderWidth(100)} solid
         ${getThemedColor('accessible', 'controls-on-neutral-lights') ||
         getThemedColor('primary', 700)};
-      background-color: ${getThemedColor('neutral', 100)} !important;
+      background-color: transparent !important;
       color: ${getThemedColor('accessible', 'controls-on-neutral-lights') ||
       getThemedColor('primary', 700)};
 

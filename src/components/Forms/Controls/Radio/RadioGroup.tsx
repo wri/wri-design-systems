@@ -1,9 +1,11 @@
+/** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
 import { RadioGroup as ChakraRadioGroup, HStack } from '@chakra-ui/react'
 import { ValueChangeDetails } from '@zag-js/radio-group'
 import { RadioGroupProps } from './types'
+import { radioGroupColorStyles } from './styled'
 
 const RadioGroup = ({
   children,
@@ -12,6 +14,8 @@ const RadioGroup = ({
   value = '',
   onChange,
   customGap,
+  color,
+  css,
   ...rest
 }: RadioGroupProps) => {
   const handleOnChange = (details: ValueChangeDetails) => {
@@ -25,6 +29,7 @@ const RadioGroup = ({
 
   return (
     <ChakraRadioGroup.Root
+      css={[radioGroupColorStyles(color), css]}
       onValueChange={handleOnChange}
       value={value}
       {...rest}

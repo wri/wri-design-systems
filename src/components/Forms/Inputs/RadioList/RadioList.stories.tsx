@@ -40,6 +40,10 @@ const meta = {
     errorMessage: { description: '`errorMessage` text', control: 'text' },
     horizontal: { description: '`horizontal` flag', control: 'boolean' },
     required: { description: '`required` flag', control: 'boolean' },
+    color: {
+      description: 'Overrides the radio indicator color',
+      control: 'color',
+    },
     variant: {
       description: '`variant` variant',
       control: { type: 'select' },

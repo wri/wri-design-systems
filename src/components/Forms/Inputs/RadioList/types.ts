@@ -14,6 +14,7 @@ export type RadioListProps = {
   horizontal?: boolean
   required?: boolean
   variant?: 'default' | 'card'
+  color?: string
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<RadioListLabels>
 }

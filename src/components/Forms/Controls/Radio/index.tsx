@@ -8,9 +8,9 @@ import {
   radioGroupHiddenInputStyles,
 } from './styled'
 
-const Radio = ({ children, value, disabled, ...rest }: RadioProps) => (
+const Radio = ({ children, value, disabled, css, ...rest }: RadioProps) => (
   <ChakraRadioGroup.Item
-    css={radioGroupItemStyles}
+    css={[radioGroupItemStyles, css]}
     value={value}
     disabled={disabled}
     {...rest}
