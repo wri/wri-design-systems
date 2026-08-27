@@ -25,7 +25,6 @@ export type RadioGroupProps = Omit<
   horizontal?: boolean
   onChange?: (name: string, selectedValue: string) => void
   customGap?: string
-  color?: string
   css?: Interpolation<Theme>
   children?: React.ReactNode
 }

@@ -23,10 +23,6 @@ const meta = {
   argTypes: {
     value: { description: 'Value of the radio option', control: 'text' },
     disabled: { description: 'Disables the radio button', control: 'boolean' },
-    color: {
-      description: 'Overrides the radio indicator color',
-      control: 'color',
-    },
   },
 } satisfies Meta<typeof RadioGroup>
 

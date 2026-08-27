@@ -5,7 +5,6 @@ import React from 'react'
 import { RadioGroup as ChakraRadioGroup, HStack } from '@chakra-ui/react'
 import { ValueChangeDetails } from '@zag-js/radio-group'
 import { RadioGroupProps } from './types'
-import { radioGroupColorStyles } from './styled'
 
 const RadioGroup = ({
   children,
@@ -14,7 +13,6 @@ const RadioGroup = ({
   value = '',
   onChange,
   customGap,
-  color,
   css,
   ...rest
 }: RadioGroupProps) => {
@@ -29,7 +27,7 @@ const RadioGroup = ({
 
   return (
     <ChakraRadioGroup.Root
-      css={[radioGroupColorStyles(color), css]}
+      css={css}
       onValueChange={handleOnChange}
       value={value}
       {...rest}

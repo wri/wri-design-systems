@@ -6,20 +6,6 @@ import {
 } from '../../../../lib/theme'
 import { fieldFocusVisibleStyles } from '../../Inputs/FieldWrapper/styled'
 
-export const radioGroupColorStyles = (color?: string) =>
-  color
-    ? css`
-        & label .ds-radio-item-indicator {
-          border-color: ${color};
-        }
-
-        & label .ds-radio-item-indicator[data-checked] {
-          border-color: ${color};
-          color: ${color};
-        }
-      `
-    : undefined
-
 export const radioGroupItemStyles = css`
   .ds-radio-item-indicator {
     width: ${getThemedSpacing(500)};

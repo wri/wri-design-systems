@@ -20,7 +20,6 @@ const RadioList = ({
   variant = 'default',
   required,
   labels,
-  color,
 }: RadioListProps) => {
   const l = useLabels('RadioList', labels)
   const captionText = caption ? `${caption}.` : ''
@@ -50,7 +49,6 @@ const RadioList = ({
         value={defaultValue}
         onChange={onCheckedChange}
         horizontal={horizontal && variant !== 'card'}
-        color={color}
       >
         {radios.map((radio) => (
           <Radio
