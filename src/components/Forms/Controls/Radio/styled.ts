@@ -11,6 +11,7 @@ export const radioGroupItemStyles = css`
     width: ${getThemedSpacing(500)};
     height: ${getThemedSpacing(500)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 700)};
+    background-color: transparent !important;
     cursor: pointer;
 
     .dot {
@@ -32,6 +33,7 @@ export const radioGroupItemStyles = css`
     &:focus-visible,
     &[data-focus-visible] {
       ${fieldFocusVisibleStyles}
+      box-shadow: none;
 
       &[data-checked] {
         border: ${getThemedBorderWidth(200)} solid
@@ -49,7 +51,7 @@ export const radioGroupItemStyles = css`
       border: ${getThemedBorderWidth(100)} solid
         ${getThemedColor('accessible', 'controls-on-neutral-lights') ||
         getThemedColor('primary', 700)};
-      background-color: ${getThemedColor('neutral', 100)} !important;
+      background-color: transparent !important;
       color: ${getThemedColor('accessible', 'controls-on-neutral-lights') ||
       getThemedColor('primary', 700)};
 

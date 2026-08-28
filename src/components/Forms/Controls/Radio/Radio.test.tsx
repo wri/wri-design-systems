@@ -2,6 +2,7 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import Radio from '.'
+import { radioGroupItemStyles } from './styled'
 
 jest.mock('@chakra-ui/react', () =>
   jest.requireActual('../../../testUtils').createChakraMock(),
@@ -26,5 +27,14 @@ describe('Radio — accessibility', () => {
     )
 
     expect(await axe(container)).toHaveNoViolations()
+  })
+
+  it('keeps the parent background visible in default and focus states', () => {
+    expect(radioGroupItemStyles.styles).toMatch(
+      /background-color:\s*transparent !important/,
+    )
+    expect(radioGroupItemStyles.styles).toMatch(
+      /(?:&:focus-visible|\[data-focus-visible\])[\s\S]*box-shadow:\s*none/,
+    )
   })
 })
