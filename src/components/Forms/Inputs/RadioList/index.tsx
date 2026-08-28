@@ -53,11 +53,8 @@ const RadioList = ({
         {radios.map((radio) => (
           <Radio
             key={radio.value}
+            css={variant === 'card' ? radioListItemStyles : {}}
             {...radio}
-            css={[
-              variant === 'card' ? radioListItemStyles : undefined,
-              radio.css,
-            ]}
           />
         ))}
       </RadioGroup>

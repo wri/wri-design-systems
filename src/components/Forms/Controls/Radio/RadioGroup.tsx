@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
 
@@ -13,7 +12,6 @@ const RadioGroup = ({
   value = '',
   onChange,
   customGap,
-  css,
   ...rest
 }: RadioGroupProps) => {
   const handleOnChange = (details: ValueChangeDetails) => {
@@ -27,7 +25,6 @@ const RadioGroup = ({
 
   return (
     <ChakraRadioGroup.Root
-      css={css}
       onValueChange={handleOnChange}
       value={value}
       {...rest}

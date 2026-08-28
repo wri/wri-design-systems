@@ -38,14 +38,12 @@ type RadioGroupProps = Omit<
   | 'onChange'
   | 'children'
   | 'defaultValue'
-  | 'color'
 > & {
   name: string
   value?: ChakraRadioGroup.ItemProps['value']
   horizontal?: boolean
   onChange?: (name: string, selectedValue: string) => void
   customGap?: string
-  css?: Interpolation<Theme>
   children?: React.ReactNode
 }
 ```
