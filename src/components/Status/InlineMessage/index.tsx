@@ -27,6 +27,7 @@ const InlineMessage = ({
   icon = <InfoIcon height='1rem' width='1rem' />,
   onActionClick,
   actionLabel,
+  actionButtonVariant = 'secondary',
   isButtonRight,
   buttonLeftIcon,
   buttonRightIcon,
@@ -77,11 +78,7 @@ const InlineMessage = ({
       {actionLabel ? (
         <Button
           label={actionLabel}
-          variant={
-            variant === 'info-white' || variant === 'info-grey'
-              ? 'primary'
-              : 'secondary'
-          }
+          variant={actionButtonVariant}
           size={size === 'large' || size === 'full-width' ? 'default' : 'small'}
           onClick={onActionClick}
           leftIcon={buttonLeftIcon}

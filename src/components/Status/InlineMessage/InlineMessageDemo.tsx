@@ -17,13 +17,15 @@ const InlineMessageDemo = () => (
         caption='caption'
         variant='info-white'
         actionLabel='Label'
+        actionButtonVariant='primary'
       />
       <InlineMessage
-        label='Full width'
+        label='Full width / action button outline'
         caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices, nisi vel congue imperdiet, risus felis iaculis metus, sit amet accumsan justo nibh eu odio. Fusce velit augue, bibendum vestibulum elit vel, placerat iaculis dolor. Aliquam tincidunt nunc blandit, consequat magna ut, mollis mi. Morbi ac dictum nisi. Quisque leo neque, vehicula eu lorem ac, convallis pellentesque sem. Proin commodo libero quis nulla tristique, a vehicula sem consectetur. Donec id luctus orci.'
         variant='info-white'
         actionLabel='Label'
         size='full-width'
+        actionButtonVariant='outline'
       />
       <InlineMessage
         label='Label'
