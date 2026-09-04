@@ -39,6 +39,12 @@ type InlineMessageProps = {
   icon?: React.ReactNode
   onActionClick?: VoidFunction
   actionLabel?: string
+  actionButtonVariant?:
+    | 'primary'
+    | 'secondary'
+    | 'borderless'
+    | 'outline'
+    | 'negative'
   isButtonRight?: boolean
   buttonLeftIcon?: React.ReactNode
   buttonRightIcon?: React.ReactNode
