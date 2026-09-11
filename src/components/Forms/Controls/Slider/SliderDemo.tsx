@@ -66,6 +66,14 @@ const SliderDemo = () => (
         marks={[0, 25, 50, 75, 100]}
         disabled
       />
+      <Slider
+        width='17.5rem'
+        min={0}
+        max={100}
+        value={[23, 81]}
+        aria-label={['Range start', 'Range end'] as string[]}
+        colors={['#fffbc2', '#fd893b', '#a40026']}
+      />
     </div>
   </DemoWrapper>
 )

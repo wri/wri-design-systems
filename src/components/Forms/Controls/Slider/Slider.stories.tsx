@@ -20,6 +20,10 @@ const meta = {
   argTypes: {
     marks: { description: '`marks` content', control: false },
     isCentred: { description: '`isCentred` flag', control: 'boolean' },
+    colors: {
+      description: '`colors` used to render a gradient track',
+      control: false,
+    },
   },
 } satisfies Meta<typeof Slider>
 
@@ -94,5 +98,15 @@ export const Disabled: Story = {
     max: 100,
     value: [50],
     disabled: true,
+  },
+}
+
+export const Gradient: Story = {
+  args: {
+    width: '15.625rem',
+    min: 0,
+    max: 100,
+    value: [23, 81],
+    colors: ['#fffbc2', '#fd893b', '#a40026'],
   },
 }

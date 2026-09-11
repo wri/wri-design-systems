@@ -27,11 +27,16 @@ export const sliderMarkLabelStyles = css`
   white-space: nowrap;
 `
 
-export const sliderThumbStyles = css`
+export const sliderThumbStyles = (hasGradient?: boolean) => css`
   height: ${getThemedSpacing(500)};
   width: ${getThemedSpacing(500)};
-  background-color: ${getThemedColor('primary', 500)};
-  border: ${getThemedBorderWidth(200)} solid ${getThemedColor('primary', 700)};
+  background-color: ${hasGradient
+    ? getThemedColor('neutral', 100)
+    : getThemedColor('primary', 500)};
+  border: ${getThemedBorderWidth(200)} solid
+    ${hasGradient
+      ? getThemedColor('secondary', 900)
+      : getThemedColor('primary', 700)};
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
   cursor: pointer;
   z-index: 1;
@@ -40,7 +45,14 @@ export const sliderThumbStyles = css`
   &[data-hover] {
     z-index: 2;
     outline: ${getThemedSpacing(100)} solid
-      color-mix(in srgb, ${getThemedColor('primary', 500)} 20%, transparent);
+      color-mix(
+        in srgb,
+        ${hasGradient
+            ? getThemedColor('secondary', 900)
+            : getThemedColor('primary', 500)}
+          20%,
+        transparent
+      );
 
     .ds-slider-value-preview {
       display: flex;
@@ -50,7 +62,14 @@ export const sliderThumbStyles = css`
   &[data-dragging] {
     z-index: 2;
     outline: ${getThemedSpacing(100)} solid
-      color-mix(in srgb, ${getThemedColor('primary', 500)} 40%, transparent);
+      color-mix(
+        in srgb,
+        ${hasGradient
+            ? getThemedColor('secondary', 900)
+            : getThemedColor('primary', 500)}
+          40%,
+        transparent
+      );
 
     div {
       display: flex;
@@ -97,15 +116,46 @@ export const sliderThumbLabelStyles = css`
   white-space: nowrap;
 `
 
-export const sliderTrackStyles = css`
+export const sliderTrackStyles = (
+  colors?: string[],
+  hasGradient?: boolean,
+) => css`
   background-color: ${getThemedColor('neutral', 300)};
   border: none;
   box-shadow: none;
+  ${colors?.length
+    ? `background: linear-gradient(to right, ${colors.join(', ')});`
+    : ''}
+  ${hasGradient
+    ? `
+    position: relative;
+    height: ${getThemedSpacing(500)};
+    border-radius: ${getThemedRadius(500)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+    overflow: hidden;
+  `
+    : ''}
 `
 
-export const sliderRangeStyles = (isCentred?: boolean) => css`
-  background-color: ${getThemedColor('primary', 500)};
-  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)};
+export const sliderGradientMaskStyles = (position: 'start' | 'end') => css`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  ${position === 'start' ? 'left' : 'right'}: 0;
+  background-color: ${getThemedColor('neutral', 200)};
+  pointer-events: none;
+`
+
+export const sliderRangeStyles = (
+  isCentred?: boolean,
+  hasGradient?: boolean,
+) => css`
+  background-color: ${hasGradient
+    ? 'transparent'
+    : getThemedColor('primary', 500)};
+  border: ${hasGradient
+    ? 'none'
+    : `${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)}`};
   border-radius: ${isCentred ? '0' : getThemedRadius(500)};
 
   &:disabled,

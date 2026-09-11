@@ -50,6 +50,7 @@ type SliderProps = Omit<
   onValueChange?: (details: ValueChangeDetails) => void
   onValueChangeEnd?: (details: ValueChangeDetails) => void
   isCentred?: boolean
+  colors?: string[]
 }
 ```
 
