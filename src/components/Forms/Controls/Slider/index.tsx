@@ -11,17 +11,22 @@ import {
   sliderThumbLabelStyles,
   sliderThumbStyles,
   sliderTrackStyles,
+  sliderGradientMaskStyles,
   sliderMarkerStyles,
   sliderMarkLabelsRowStyles,
   sliderMarkLabelStyles,
 } from './styled'
 
-const SliderThumbs = (props: { value?: number[] }) => {
-  const { value } = props
+const SliderThumbs = (props: { value?: number[]; hasGradient?: boolean }) => {
+  const { value, hasGradient } = props
   return (
     <For each={value}>
       {(_, index) => (
-        <ChakraSlider.Thumb key={index} css={sliderThumbStyles} index={index}>
+        <ChakraSlider.Thumb
+          key={index}
+          css={sliderThumbStyles(hasGradient)}
+          index={index}
+        >
           <div css={sliderThumbLabelStyles} className='ds-slider-value-preview'>
             {_}
           </div>
@@ -29,6 +34,36 @@ const SliderThumbs = (props: { value?: number[] }) => {
         </ChakraSlider.Thumb>
       )}
     </For>
+  )
+}
+
+const SliderGradientMask = (props: {
+  value: number[]
+  min: number
+  max: number
+}) => {
+  const { value, min, max } = props
+  if (!value?.length) return null
+
+  const range = max - min || 1
+  const startPercent = ((value[0] - min) / range) * 100
+  const endPercent = ((value[value.length - 1] - min) / range) * 100
+
+  return (
+    <>
+      {startPercent > 0 && (
+        <div
+          css={sliderGradientMaskStyles('start')}
+          style={{ width: `${startPercent}%` }}
+        />
+      )}
+      {endPercent < 100 && (
+        <div
+          css={sliderGradientMaskStyles('end')}
+          style={{ width: `${100 - endPercent}%` }}
+        />
+      )}
+    </>
   )
 }
 
@@ -100,8 +135,17 @@ const SliderMarkLabels = (props: {
 }
 
 const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
-  const { marks: marksProp, onValueChange, isCentred, value, ...rest } = props
+  const {
+    marks: marksProp,
+    onValueChange,
+    isCentred,
+    value,
+    colors,
+    ...rest
+  } = props
   const [newValue, setNewValue] = useState(value || [0])
+
+  const hasGradient = !!colors?.length
 
   useEffect(() => {
     setNewValue(value || [0])
@@ -155,11 +199,14 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
         */}
       <SliderMarkLabels marks={marks} min={min} max={max} />
       <ChakraSlider.Control data-has-mark-label={hasMarkLabel || undefined}>
-        <ChakraSlider.Track css={sliderTrackStyles}>
-          <ChakraSlider.Range css={sliderRangeStyles(isCentred)} />
+        <ChakraSlider.Track css={sliderTrackStyles(colors, hasGradient)}>
+          {hasGradient && (
+            <SliderGradientMask value={newValue} min={min} max={max} />
+          )}
+          <ChakraSlider.Range css={sliderRangeStyles(isCentred, hasGradient)} />
         </ChakraSlider.Track>
         <SliderMarks marks={marks} isCentred={isCentred} />
-        <SliderThumbs value={newValue} />
+        <SliderThumbs value={newValue} hasGradient={hasGradient} />
       </ChakraSlider.Control>
     </ChakraSlider.Root>
   )

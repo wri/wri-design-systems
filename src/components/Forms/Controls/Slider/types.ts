@@ -31,4 +31,6 @@ export type SliderProps = Omit<
   onValueChange?: (details: ValueChangeDetails) => void
   onValueChangeEnd?: (details: ValueChangeDetails) => void
   isCentred?: boolean
+  /** Colors used to render a gradient track, e.g. for data-driven scales (low → high). */
+  colors?: string[]
 }
