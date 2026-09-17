@@ -115,6 +115,7 @@ const components = [
   'Mobile Search',
   'Combobox',
   'Rich Text Editor',
+  'Guided Tour',
 ]
 
 const DemoIndex = () => {

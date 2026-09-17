@@ -37,9 +37,11 @@ const MapPopUp = ({
   content,
   footer,
   placement = 'bottom',
+  variant = 'default',
   offset = 30,
   closeOnEscape = true,
   closeOnOutsideClick = false,
+  showOverlay = true,
   labels,
 }: MapPopUpProps) => {
   const l = useLabels('MapPopUp', labels)
@@ -102,9 +104,9 @@ const MapPopUp = ({
         aria-label={l.dialogAriaLabel}
         aria-modal
         {...getFloatingProps()}
-        css={mapPopUpContainerStyles}
+        css={mapPopUpContainerStyles(variant)}
       >
-        <div css={mapPopUpHeaderContainerStyles}>
+        <div css={mapPopUpHeaderContainerStyles(variant)}>
           {header}
           <CloseButton
             onClick={() => onOpenChange(false)}
@@ -116,7 +118,7 @@ const MapPopUp = ({
         <div css={mapPopUpContentContainerStyles}>{content}</div>
 
         {footer ? (
-          <div css={mapPopUpFooterContainerStyles}>{footer}</div>
+          <div css={mapPopUpFooterContainerStyles(variant)}>{footer}</div>
         ) : null}
 
         <div
@@ -128,14 +130,17 @@ const MapPopUp = ({
             arrowY,
             staticSide,
             offset,
+            variant,
           )}
         />
       </div>
 
-      <div
-        className='fixed inset-0 z-[999] bg-black/20 backdrop-blur-[1px]'
-        onClick={() => closeOnOutsideClick && onOpenChange(false)}
-      />
+      {showOverlay ? (
+        <div
+          className='fixed inset-0 z-[999] bg-black/20 backdrop-blur-[1px]'
+          onClick={() => closeOnOutsideClick && onOpenChange(false)}
+        />
+      ) : null}
     </>
   )
 }

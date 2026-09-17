@@ -39,3 +39,34 @@ describe('MapPopUp — accessibility', () => {
     expect(await axe(container)).toHaveNoViolations()
   })
 })
+
+describe('MapPopUp — dark variant', () => {
+  const renderPopUp = (variant?: 'default' | 'dark') => {
+    const anchorRef = createRef<HTMLButtonElement>()
+
+    return render(
+      <div>
+        <button ref={anchorRef} type='button'>
+          Anchor
+        </button>
+        <MapPopUp
+          open
+          onOpenChange={() => {}}
+          anchorRef={anchorRef}
+          variant={variant}
+          header={<div>Popup title</div>}
+          content={<div>Popup content</div>}
+        />
+      </div>,
+    )
+  }
+
+  it('renders the dark variant with a close button and no a11y violations', async () => {
+    const { container } = renderPopUp('dark')
+
+    expect(
+      container.querySelector('.ds-map-pop-up-close-button'),
+    ).not.toBeNull()
+    expect(await axe(container)).toHaveNoViolations()
+  })
+})

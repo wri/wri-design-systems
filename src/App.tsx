@@ -71,6 +71,7 @@ import { Toast } from './components'
 import DemoWrapper from './components/UI/DemoWrapper'
 import RichTextEditorDemo from './components/Forms/Inputs/RichTextEditor/RichTextEditorDemo'
 import MobileSearchDemo from './components/Navigation/MobileSearch/MobileSearchDemo'
+import GuidedTourDemo from './components/Geospatial/MapPopUp/presets/GuidedTour/GuidedTourDemo'
 
 const App = () => (
   <div className='App'>
@@ -132,6 +133,7 @@ const App = () => (
           <MapMarkerDemo />
           <MapMarkerPresetsDemo />
           <MapPopUpDemo />
+          <GuidedTourDemo />
 
           <div
             style={{

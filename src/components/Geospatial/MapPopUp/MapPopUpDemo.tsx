@@ -6,8 +6,12 @@ import { NotificationIcon, UserIcon } from '../../icons'
 const MapPopUpDemo = () => {
   const [openPlant, setOpenPlant] = useState(false)
   const [openPoint, setOpenPoint] = useState(false)
+  const [openDiv, setOpenDiv] = useState(false)
+  const [openDark, setOpenDark] = useState(false)
   const triggerPlantRef = useRef<HTMLButtonElement>(null)
   const triggerPointRef = useRef<HTMLButtonElement>(null)
+  const triggerDivRef = useRef<HTMLButtonElement>(null)
+  const triggerDarkRef = useRef<HTMLButtonElement>(null)
 
   return (
     <DemoWrapper title='Map Pop Up'>
@@ -196,6 +200,164 @@ const MapPopUpDemo = () => {
                 noBorder
               />
             }
+            footer={
+              <div>
+                <Button label='Label' size='small' />
+              </div>
+            }
+          />
+        </div>
+
+        <div>
+          <button
+            ref={triggerDivRef}
+            type='button'
+            onClick={() => setOpenDiv(true)}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.25rem',
+              minWidth: '12rem',
+              padding: '1rem',
+              textAlign: 'left',
+              cursor: 'pointer',
+              borderRadius: '0.5rem',
+              border: `1px solid ${getThemedColor('neutral', 300)}`,
+              backgroundColor: getThemedColor('neutral', 100),
+            }}
+          >
+            <p
+              style={{
+                fontSize: '1rem',
+                lineHeight: '1.5rem',
+                fontWeight: 'bold',
+                color: getThemedColor('neutral', 800),
+              }}
+            >
+              Title
+            </p>
+            <p
+              style={{
+                fontSize: '0.875rem',
+                lineHeight: '1.25rem',
+                color: getThemedColor('neutral', 700),
+              }}
+            >
+              Caption
+            </p>
+          </button>
+          <MapPopUp
+            open={openDiv}
+            onOpenChange={setOpenDiv}
+            anchorRef={triggerDivRef}
+            placement='bottom'
+            offset={20}
+            closeOnOutsideClick
+            header={
+              <div>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    gap: '0.25rem',
+                  }}
+                >
+                  <NotificationIcon />
+                  <p
+                    style={{
+                      fontSize: '1rem',
+                      lineHeight: '1.5rem',
+                      fontWeight: 'bold',
+                      marginBottom: '0.25rem',
+                      color: getThemedColor('neutral', 800),
+                    }}
+                  >
+                    Title
+                  </p>
+                </div>
+                <p
+                  style={{
+                    fontSize: '0.875rem',
+                    lineHeight: '1.25rem',
+                    color: getThemedColor('neutral', 700),
+                  }}
+                >
+                  Caption
+                </p>
+              </div>
+            }
+            content={
+              <div style={{ padding: '0.75rem' }}>
+                <p
+                  style={{
+                    fontSize: '0.875rem',
+                    lineHeight: '1.25rem',
+                    color: getThemedColor('neutral', 700),
+                  }}
+                >
+                  Any element with a ref can be the anchor, not only map
+                  markers.
+                </p>
+              </div>
+            }
+            footer={
+              <div>
+                <Button label='Label' size='small' />
+              </div>
+            }
+          />
+        </div>
+
+        <div>
+          <MapMarkers.Drop
+            ariaLabel='drop icon'
+            onClick={() => setOpenDark(true)}
+            triggerRef={triggerDarkRef}
+            showFocusState={openDark}
+          />
+          <MapPopUp
+            open={openDark}
+            onOpenChange={setOpenDark}
+            anchorRef={triggerDarkRef}
+            placement='right'
+            offset={20}
+            variant='dark'
+            header={
+              <div>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    gap: '0.25rem',
+                  }}
+                >
+                  <NotificationIcon color={getThemedColor('neutral', 100)} />
+                  <p
+                    style={{
+                      fontSize: '1rem',
+                      lineHeight: '1.5rem',
+                      fontWeight: 'bold',
+                      marginBottom: '0.25rem',
+                      color: getThemedColor('neutral', 100),
+                    }}
+                  >
+                    Title
+                  </p>
+                </div>
+                <p
+                  style={{
+                    fontSize: '0.875rem',
+                    lineHeight: '1.25rem',
+                    color: getThemedColor('neutral', 200),
+                  }}
+                >
+                  Caption
+                </p>
+              </div>
+            }
+            content={<div style={{ padding: '0.75rem' }}>content</div>}
             footer={
               <div>
                 <Button label='Label' size='small' />

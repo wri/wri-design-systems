@@ -161,6 +161,12 @@ export type { TagProps } from './Forms/Tag/types'
 
 // -- Forms -- //
 
+export { default as GuidedTour } from './Geospatial/MapPopUp/presets/GuidedTour'
+export type {
+  GuidedTourProps,
+  GuidedTourStep,
+} from './Geospatial/MapPopUp/presets/GuidedTour/types'
+
 // -- Geospatial -- //
 
 export { default as BaseMap } from './Geospatial/BaseMap'
