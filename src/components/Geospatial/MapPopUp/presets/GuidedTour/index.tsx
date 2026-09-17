@@ -29,7 +29,6 @@ const GuidedTour = ({
   variant = 'dark',
   closeOnEscape = true,
   closeOnOutsideClick = false,
-  showOverlay = true,
   labels,
 }: GuidedTourProps) => {
   const l = useLabels('GuidedTour', labels)
@@ -157,7 +156,6 @@ const GuidedTour = ({
       variant={variant}
       closeOnEscape={closeOnEscape}
       closeOnOutsideClick={closeOnOutsideClick}
-      showOverlay={showOverlay}
       header={header}
       content={step.content}
       footer={footer}

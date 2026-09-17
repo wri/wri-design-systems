@@ -22,12 +22,6 @@ export type MapPopUpProps = {
   offset?: number // default: 30
   closeOnEscape?: boolean // default: true
   closeOnOutsideClick?: boolean // default: false
-  /**
-   * Renders the dimmed backdrop layer behind the popup.
-   * Set to `false` when a parent (e.g. GuidedTour) owns the overlay.
-   * Default: true
-   */
-  showOverlay?: boolean
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<MapPopUpLabels>
 }

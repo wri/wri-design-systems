@@ -41,7 +41,6 @@ const MapPopUp = ({
   offset = 30,
   closeOnEscape = true,
   closeOnOutsideClick = false,
-  showOverlay = true,
   labels,
 }: MapPopUpProps) => {
   const l = useLabels('MapPopUp', labels)
@@ -66,9 +65,17 @@ const MapPopUp = ({
     ],
   })
 
+  /**
+   * `useFloating` returns a new `refs` object on every render, so subscribing
+   * to it here would re-run this effect on each pass. In a tour the anchor
+   * changes per step, which made that loop unbounded. Depend on the element
+   * itself instead: it only changes when the anchor actually changes.
+   */
+  const anchorElement = anchorRef?.current ?? null
+
   React.useEffect(() => {
-    if (anchorRef?.current) refs.setReference(anchorRef.current)
-  }, [anchorRef, refs])
+    if (anchorElement) refs.setReference(anchorElement)
+  }, [anchorElement])
 
   const dismiss = useDismiss(context, {
     escapeKey: closeOnEscape,
@@ -135,12 +142,10 @@ const MapPopUp = ({
         />
       </div>
 
-      {showOverlay ? (
-        <div
-          className='fixed inset-0 z-[999] bg-black/20 backdrop-blur-[1px]'
-          onClick={() => closeOnOutsideClick && onOpenChange(false)}
-        />
-      ) : null}
+      <div
+        className='fixed inset-0 z-[999] bg-black/20 backdrop-blur-[1px]'
+        onClick={() => closeOnOutsideClick && onOpenChange(false)}
+      />
     </>
   )
 }

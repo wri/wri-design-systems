@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useRef, useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import GuidedTour from '.'
@@ -60,7 +60,6 @@ const meta = {
       description: '`closeOnOutsideClick` value',
       control: 'boolean',
     },
-    showOverlay: { description: '`showOverlay` value', control: 'boolean' },
     labels: { description: '`labels` value', control: false },
   },
 } satisfies Meta<typeof GuidedTour>
@@ -107,6 +106,24 @@ const Body = ({ isDark }: { isDark: boolean }) => (
   </div>
 )
 
+/** Kept outside the story so the element identity never changes between renders. */
+const stepTitle = <Title text='Step one' isDark />
+const stepTwoTitle = <Title text='Step two' isDark />
+const stepThreeTitle = <Title text='Step three' isDark />
+const stepCaption = <Caption text='Anchored to a marker' isDark />
+const stepTwoCaption = <Caption text='Same tour, different anchor' isDark />
+const stepThreeCaption = <Caption text='Start exploring finishes' isDark />
+const stepBody = <Body isDark />
+const stepIcon = <NotificationIcon color={getThemedColor('neutral', 100)} />
+const stepFooterExtra = (
+  <Button
+    variant='borderless'
+    size='small'
+    label='Extra step action'
+    onClick={() => {}}
+  />
+)
+
 export const GuidedTourStory: Story = {
   args: {
     open: false,
@@ -123,51 +140,45 @@ export const GuidedTourStory: Story = {
     const secondRef = useRef<HTMLButtonElement>(null)
     const thirdRef = useRef<HTMLButtonElement>(null)
 
-    const isDark = args.variant !== 'default'
-    const icon = (
-      <NotificationIcon color={getThemedColor('neutral', isDark ? 100 : 800)} />
+    // Everything inside `steps` must be referentially stable. MapPopUp syncs
+    // `anchorRef` in an effect, so a new array (or a new `icon` element) on
+    // every render would re-register the reference endlessly.
+    const steps: GuidedTourStep[] = useMemo(
+      () => [
+        {
+          id: 'first',
+          anchorRef: firstRef,
+          placement: 'right',
+          offset: 20,
+          icon: stepIcon,
+          title: stepTitle,
+          caption: stepCaption,
+          content: stepBody,
+        },
+        {
+          id: 'second',
+          anchorRef: secondRef,
+          placement: 'right',
+          offset: 20,
+          icon: stepIcon,
+          title: stepTwoTitle,
+          caption: stepTwoCaption,
+          content: stepBody,
+        },
+        {
+          id: 'third',
+          anchorRef: thirdRef,
+          placement: 'left',
+          offset: 20,
+          icon: stepIcon,
+          title: stepThreeTitle,
+          caption: stepThreeCaption,
+          content: stepBody,
+          footer: stepFooterExtra,
+        },
+      ],
+      [firstRef, secondRef, thirdRef],
     )
-
-    const steps: GuidedTourStep[] = [
-      {
-        id: 'first',
-        anchorRef: firstRef,
-        placement: 'right',
-        offset: 20,
-        icon,
-        title: <Title text='Step one' isDark={isDark} />,
-        caption: <Caption text='Anchored to a marker' isDark={isDark} />,
-        content: <Body isDark={isDark} />,
-      },
-      {
-        id: 'second',
-        anchorRef: secondRef,
-        placement: 'right',
-        offset: 20,
-        icon,
-        title: <Title text='Step two' isDark={isDark} />,
-        caption: <Caption text='Same tour, different anchor' isDark={isDark} />,
-        content: <Body isDark={isDark} />,
-      },
-      {
-        id: 'third',
-        anchorRef: thirdRef,
-        placement: 'left',
-        offset: 20,
-        icon,
-        title: <Title text='Step three' isDark={isDark} />,
-        caption: <Caption text='Finish closes the tour' isDark={isDark} />,
-        content: <Body isDark={isDark} />,
-        footer: (
-          <Button
-            variant='borderless'
-            size='small'
-            label='Extra step action'
-            onClick={() => {}}
-          />
-        ),
-      },
-    ]
 
     const startTour = () => {
       setStepIndex(0)

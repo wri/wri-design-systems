@@ -28,7 +28,7 @@ type ButtonProps = Omit<
   ChakraButtonProps,
   'size' | 'variant' | 'colorPalette' | 'children'
 > & {
-  label?: string
+  label?: string | React.ReactNode
   loading?: boolean
   variant?: 'primary' | 'secondary' | 'borderless' | 'outline' | 'negative'
   size?: 'default' | 'small'

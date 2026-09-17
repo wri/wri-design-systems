@@ -156,10 +156,10 @@ describe('GuidedTour', () => {
     ).toBeNull()
   })
 
-  it('does not render the backdrop when showOverlay is false', () => {
-    const { container } = renderTour(0, { showOverlay: false })
+  it('renders the dimmed overlay behind the popup', () => {
+    const { container } = renderTour(0)
 
-    expect(container.querySelector('.backdrop-blur-\\[1px\\]')).toBeNull()
+    expect(container.querySelector('.backdrop-blur-\\[1px\\]')).not.toBeNull()
   })
 
   it('supports label overrides for i18n', () => {

@@ -53,8 +53,6 @@ export type GuidedTourProps = {
   closeOnEscape?: boolean
   /** Close the tour when clicking outside the popup. Default: false */
   closeOnOutsideClick?: boolean
-  /** Renders the dimmed backdrop layer behind the popup. Default: true */
-  showOverlay?: boolean
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<GuidedTourLabels>
 }
