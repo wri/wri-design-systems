@@ -489,6 +489,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Base Map](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/BaseMap)
 - [Map Marker](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/MapMarker)
 - [Map Pop Up](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/MapPopUp)
+- [Guided Tour](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/MapPopUp/presets/GuidedTour)
 
 ### Layers
 

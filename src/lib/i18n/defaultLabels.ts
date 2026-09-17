@@ -11,6 +11,7 @@ import type {
   ProgressBarLabels,
   InlineMessageLabels,
   MapPopUpLabels,
+  GuidedTourLabels,
   MapMarkerLabels,
   AnalysisWidgetLabels,
   TableLabels,
@@ -55,6 +56,7 @@ type DefaultLabels = {
   ProgressBar: Required<ProgressBarLabels>
   InlineMessage: Required<InlineMessageLabels>
   MapPopUp: Required<MapPopUpLabels>
+  GuidedTour: Required<GuidedTourLabels>
   MapMarker: Required<MapMarkerLabels>
   AnalysisWidget: Required<AnalysisWidgetLabels>
   Table: Required<TableLabels>
@@ -157,6 +159,14 @@ export const defaultLabels: DefaultLabels = {
   MapPopUp: {
     dialogAriaLabel: 'Map popup dialog',
     closeLabel: 'Close',
+  },
+  GuidedTour: {
+    stepCounterLabel: (current, total) => `${current} of ${total}`,
+    previousStepLabel: 'Previous step',
+    nextStepLabel: 'Next step',
+    finishLabel: 'Finish',
+    skipAllLabel: 'Skip all',
+    startExploringLabel: 'Start exploring',
   },
   MapMarker: {
     clusterAriaLabel: (count) => `Cluster of ${count} locations`,

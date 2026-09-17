@@ -41,14 +41,21 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variantButtonStyles = negativeButtonStyles
     }
 
-    const getAriaLabel = () => {
-      let newLabel = rest['aria-label'] || label
-
+    /**
+     * `label` may be any ReactNode, but `aria-label` only accepts a string.
+     * Only use it as the accessible name when it is plain text; otherwise
+     * fall back to an explicit `aria-label`.
+     */
+    const getAriaLabel = (): string | undefined => {
       if (loading) {
-        newLabel = l.loadingLabel
+        return l.loadingLabel
       }
 
-      return newLabel
+      if (rest['aria-label']) {
+        return rest['aria-label']
+      }
+
+      return typeof label === 'string' ? label : undefined
     }
 
     const hasContent = label || children

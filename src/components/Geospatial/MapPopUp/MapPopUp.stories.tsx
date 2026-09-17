@@ -45,6 +45,11 @@ const meta = {
     content: { description: '`content` content', control: false },
     footer: { description: '`footer` content', control: false },
     placement: { description: '`placement` value', control: false },
+    variant: {
+      description: '`variant` value',
+      options: ['default', 'dark'],
+      control: { type: 'inline-radio' },
+    },
     offset: { description: '`offset` value', control: false },
     closeOnEscape: { description: '`closeOnEscape` value', control: false },
     closeOnOutsideClick: {
@@ -69,6 +74,7 @@ export const MapPopUp: Story = {
     open: false,
     onOpenChange: () => {},
     anchorRef: null as any,
+    variant: 'default',
     header: (
       <div>
         <div

@@ -37,6 +37,7 @@ const MapPopUp = ({
   content,
   footer,
   placement = 'bottom',
+  variant = 'default',
   offset = 30,
   closeOnEscape = true,
   closeOnOutsideClick = false,
@@ -64,9 +65,17 @@ const MapPopUp = ({
     ],
   })
 
+  /**
+   * `useFloating` returns a new `refs` object on every render, so subscribing
+   * to it here would re-run this effect on each pass. In a tour the anchor
+   * changes per step, which made that loop unbounded. Depend on the element
+   * itself instead: it only changes when the anchor actually changes.
+   */
+  const anchorElement = anchorRef?.current ?? null
+
   React.useEffect(() => {
-    if (anchorRef?.current) refs.setReference(anchorRef.current)
-  }, [anchorRef, refs])
+    if (anchorElement) refs.setReference(anchorElement)
+  }, [anchorElement])
 
   const dismiss = useDismiss(context, {
     escapeKey: closeOnEscape,
@@ -102,9 +111,9 @@ const MapPopUp = ({
         aria-label={l.dialogAriaLabel}
         aria-modal
         {...getFloatingProps()}
-        css={mapPopUpContainerStyles}
+        css={mapPopUpContainerStyles(variant)}
       >
-        <div css={mapPopUpHeaderContainerStyles}>
+        <div css={mapPopUpHeaderContainerStyles(variant)}>
           {header}
           <CloseButton
             onClick={() => onOpenChange(false)}
@@ -116,7 +125,7 @@ const MapPopUp = ({
         <div css={mapPopUpContentContainerStyles}>{content}</div>
 
         {footer ? (
-          <div css={mapPopUpFooterContainerStyles}>{footer}</div>
+          <div css={mapPopUpFooterContainerStyles(variant)}>{footer}</div>
         ) : null}
 
         <div
@@ -128,6 +137,7 @@ const MapPopUp = ({
             arrowY,
             staticSide,
             offset,
+            variant,
           )}
         />
       </div>

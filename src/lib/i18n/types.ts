@@ -170,6 +170,22 @@ export type MapPopUpLabels = {
   closeLabel: string
 }
 
+/** Labels for GuidedTour internal UI strings. */
+export type GuidedTourLabels = {
+  /** Builds the step counter shown in the footer. Default: (current, total) => `${current} of ${total}` */
+  stepCounterLabel: (current: number, total: number) => string
+  /** aria-label on the previous step button. Default: "Previous step" */
+  previousStepLabel: string
+  /** aria-label on the next step button. Default: "Next step" */
+  nextStepLabel: string
+  /** Label on the last step button. Default: "Finish" */
+  finishLabel: string
+  /** Label on the skip button. Default: "Skip all" */
+  skipAllLabel: string
+  /** Label on the primary button shown on the last step. Default: "Start exploring" */
+  startExploringLabel: string
+}
+
 /** Labels for MapMarker internal UI strings. */
 export type MapMarkerLabels = {
   /** aria-label builder for cluster markers when count is provided. Default: (count) => `Cluster of ${count} locations` */
@@ -659,6 +675,7 @@ export type DesignSystemLabels = {
   ProgressBar?: Partial<ProgressBarLabels>
   InlineMessage?: Partial<InlineMessageLabels>
   MapPopUp?: Partial<MapPopUpLabels>
+  GuidedTour?: Partial<GuidedTourLabels>
   MapMarker?: Partial<MapMarkerLabels>
   AnalysisWidget?: Partial<AnalysisWidgetLabels>
   Table?: Partial<TableLabels>

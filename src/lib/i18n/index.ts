@@ -14,6 +14,7 @@ export type {
   ProgressBarLabels,
   InlineMessageLabels,
   MapPopUpLabels,
+  GuidedTourLabels,
   MapMarkerLabels,
   AnalysisWidgetLabels,
   TableLabels,

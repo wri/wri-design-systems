@@ -12,6 +12,12 @@ export type MapPopUpProps = {
   content: React.ReactNode
   footer?: React.ReactNode
   placement?: Placement
+  /**
+   * Surface style of the popup. `dark` uses neutral/800 as background,
+   * neutral/100 as text color and neutral/900 for the connector (arrow).
+   * Default: "default"
+   */
+  variant?: 'default' | 'dark'
   /** Gap between anchor and modal. Also affects connector length */
   offset?: number // default: 30
   closeOnEscape?: boolean // default: true
