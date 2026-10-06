@@ -85,6 +85,7 @@ const TabBar = ({
               </Tabs.Trigger>
               {variant === 'view' &&
               idx === 1 &&
+              idx < tabs.length - 1 &&
               getBorderSide(selectedTabIndex) === 'right' ? (
                 <div css={tabBarItemViewDividerStyles} />
               ) : null}
