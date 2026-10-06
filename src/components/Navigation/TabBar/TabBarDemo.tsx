@@ -65,6 +65,14 @@ const TabBarDemo = () => (
           { label: 'Three', value: 'three', icon: <PlaceholderIcon /> },
         ]}
       />
+      <br />
+      <TabBar
+        variant='view'
+        tabs={[
+          { label: 'One', value: 'one', icon: <PlaceholderIcon /> },
+          { label: 'Two', value: 'two', icon: <PlaceholderIcon /> },
+        ]}
+      />
     </div>
   </DemoWrapper>
 )
