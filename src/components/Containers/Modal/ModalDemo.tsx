@@ -65,8 +65,9 @@ const configSummary = (config: DialogConfig) => (
 
 const ModalDemo = () => {
   const [modalData, setModalData] = useState<Partial<ModalProps>>({})
-  const [dialogConfig, setDialogConfig] =
-    useState<DialogConfig>(DEFAULT_DIALOG_CONFIG)
+  const [dialogConfig, setDialogConfig] = useState<DialogConfig>(
+    DEFAULT_DIALOG_CONFIG,
+  )
 
   // Stacked scenario: the second modal opens on top of the first one.
   const [stackedFirstOpen, setStackedFirstOpen] = useState(false)
