@@ -75,6 +75,17 @@ const ButtonDemo = () => (
           flexWrap: 'wrap',
         }}
       >
+        <Button label='Button Label' variant='primary' disabled />
+        <Button label='Button Label' variant='primary' loading />
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.625rem',
+          flexWrap: 'wrap',
+        }}
+      >
         <SSOButtons.Google />
         <SSOButtons.Facebook />
         <SSOButtons.X />

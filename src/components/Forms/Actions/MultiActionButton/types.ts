@@ -1,5 +1,6 @@
 import React from 'react'
 import { ButtonProps } from '../Button/types'
+import type { MultiActionButtonLabels } from '../../../../lib/i18n/types'
 
 export type MultiActionButtonProps = Omit<
   ButtonProps,
@@ -15,4 +16,6 @@ export type MultiActionButtonProps = Omit<
     onClick: VoidFunction
     disabled?: boolean
   }[]
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<MultiActionButtonLabels>
 }

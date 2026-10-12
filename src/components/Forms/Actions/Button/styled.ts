@@ -50,13 +50,13 @@ export const primaryButtonStyles = css`
   getThemedColor('primary', 900)};
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
 
-  &:hover {
+  &:hover:not(:disabled):not([data-disabled]) {
     background-color: ${getThemedColor('primary', 500)};
     box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
     box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
-  &:active {
+  &:active:not(:disabled):not([data-disabled]) {
     outline: none;
     background-color: ${getThemedColor('primary', 600)} !important;
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)} !important;
@@ -89,13 +89,13 @@ export const secondaryButtonStyles = css`
   color: ${getThemedColor('neutral', 800)};
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
 
-  &:hover {
+  &:hover:not(:disabled):not([data-disabled]) {
     background-color: ${getThemedColor('neutral', 100)};
     box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
     box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
-  &:active {
+  &:active:not(:disabled):not([data-disabled]) {
     outline: none;
     background-color: ${getThemedColor('neutral', 200)} !important;
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)} !important;
@@ -127,7 +127,7 @@ export const borderlessButtonStyles = css`
   color: ${getThemedColor('neutral', 900)};
   box-shadow: none;
 
-  &:hover {
+  &:hover:not(:disabled):not([data-disabled]) {
     background-color: color-mix(
       in srgb,
       ${getThemedColor('primary', 500)} 20%,
@@ -135,7 +135,7 @@ export const borderlessButtonStyles = css`
     );
   }
 
-  &:active {
+  &:active:not(:disabled):not([data-disabled]) {
     outline: none;
     background-color: color-mix(
       in srgb,
@@ -167,12 +167,12 @@ export const outlineButtonStyles = css`
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 800)};
   color: ${getThemedColor('primary', 800)};
 
-  &:hover {
+  &:hover:not(:disabled):not([data-disabled]) {
     background-color: ${getThemedColor('primary', 100)};
     color: ${getThemedColor('primary', 900)};
   }
 
-  &:active {
+  &:active:not(:disabled):not([data-disabled]) {
     outline: none;
     background-color: ${getThemedColor('primary', 200)} !important;
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 900)} !important;
@@ -205,13 +205,13 @@ export const negativeButtonStyles = css`
   getThemedColor('error', 900)};
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
 
-  &:hover {
+  &:hover:not(:disabled):not([data-disabled]) {
     background-color: ${getThemedColor('error', 100)};
     box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
     box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
-  &:active {
+  &:active:not(:disabled):not([data-disabled]) {
     outline: none;
     background-color: ${getThemedColor('error', 300)} !important;
     box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;

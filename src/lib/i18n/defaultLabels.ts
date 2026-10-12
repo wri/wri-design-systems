@@ -16,6 +16,7 @@ import type {
   AnalysisWidgetLabels,
   TableLabels,
   ButtonLabels,
+  MultiActionButtonLabels,
   BaseMapLabels,
   SearchLabels,
   MobileSearchLabels,
@@ -61,6 +62,7 @@ type DefaultLabels = {
   AnalysisWidget: Required<AnalysisWidgetLabels>
   Table: Required<TableLabels>
   Button: Required<ButtonLabels>
+  MultiActionButton: Required<MultiActionButtonLabels>
   BaseMap: Required<BaseMapLabels>
   Search: Required<SearchLabels>
   MobileSearch: Required<MobileSearchLabels>
@@ -189,6 +191,10 @@ export const defaultLabels: DefaultLabels = {
   },
   Button: {
     loadingLabel: 'Loading',
+  },
+  MultiActionButton: {
+    openOptionsLabel: (label) => `Open ${label} options`,
+    disabledAriaLabel: (label) => `${label} action button with menu, disabled`,
   },
   BaseMap: {
     activeLabel: 'Active',

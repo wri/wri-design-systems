@@ -106,6 +106,14 @@ export const Disabled: Story = {
   },
 }
 
+export const PrimaryLoading: Story = {
+  args: {
+    label: 'Primary',
+    variant: 'primary',
+    loading: true,
+  },
+}
+
 export const WithLeftIcon: Story = {
   args: {
     label: 'Primary',
