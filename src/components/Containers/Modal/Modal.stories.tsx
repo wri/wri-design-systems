@@ -4,12 +4,52 @@ import React, { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import ModalStory from '.'
 import Button from '../../Forms/Actions/Button'
-import { getThemedColor, getThemedSpacing } from '../../../lib/theme'
+import Switch from '../../Forms/Controls/Switch'
+import {
+  getThemedColor,
+  getThemedFontSize,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 const paddedContent = (
   <div style={{ padding: getThemedSpacing(300) }}>
     <p>Content</p>
   </div>
+)
+
+const modalHeader = (
+  <p
+    style={{
+      fontWeight: 'bold',
+      color: getThemedColor('neutral', 800),
+    }}
+  >
+    Title
+  </p>
+)
+
+const recommendedDialogConfig = {
+  lazyMount: true,
+  unmountOnExit: true,
+  restoreFocus: false,
+  modal: false,
+}
+
+const configSummaryStyles = {
+  fontSize: getThemedFontSize(200),
+  color: getThemedColor('neutral', 700),
+  margin: `0 0 ${getThemedSpacing(200)}`,
+}
+
+const configSummary = (config: {
+  lazyMount?: boolean
+  unmountOnExit?: boolean
+  restoreFocus?: boolean
+  modal?: boolean
+}) => (
+  <p style={configSummaryStyles}>
+    {`lazyMount: ${config.lazyMount} — unmountOnExit: ${config.unmountOnExit} — restoreFocus: ${config.restoreFocus} — modal: ${config.modal}`}
+  </p>
 )
 
 const meta = {
@@ -402,6 +442,164 @@ export const Blocking: Story = {
           open={showModal}
           onClose={() => setShowModal(false)}
           blocking
+        />
+      </>
+    )
+  },
+}
+
+export const MultipleModalsStacked: Story = {
+  args: {
+    header: modalHeader,
+    content: paddedContent,
+    open: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A second modal opens on top of the first one. Uses the recommended Dialog.Root configuration to avoid the focus-trap error.',
+      },
+    },
+  },
+  render: (args) => {
+    const [firstOpen, setFirstOpen] = useState(false)
+    const [secondOpen, setSecondOpen] = useState(false)
+
+    return (
+      <>
+        <Button label='Open First Modal' onClick={() => setFirstOpen(true)} />
+        <ModalStory
+          {...args}
+          content={
+            <div
+              style={{
+                padding: getThemedSpacing(300),
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                gap: getThemedSpacing(300),
+              }}
+            >
+              <p>First modal</p>
+              {configSummary(recommendedDialogConfig)}
+              <Button
+                label='Open Second Modal'
+                onClick={() => setSecondOpen(true)}
+              />
+            </div>
+          }
+          footer={
+            <Button
+              label='Close All'
+              variant='secondary'
+              onClick={() => {
+                setFirstOpen(false)
+                setSecondOpen(false)
+              }}
+            />
+          }
+          size='medium'
+          open={firstOpen}
+          onClose={() => {
+            setFirstOpen(false)
+            setSecondOpen(false)
+          }}
+          {...recommendedDialogConfig}
+        />
+        <ModalStory
+          header={modalHeader}
+          content={
+            <div style={{ padding: getThemedSpacing(300) }}>
+              <p>Second modal, opened on top of the first one.</p>
+              {configSummary(recommendedDialogConfig)}
+            </div>
+          }
+          footer={
+            <Button
+              label='Close Second Modal'
+              onClick={() => setSecondOpen(false)}
+            />
+          }
+          size='small'
+          open={secondOpen}
+          onClose={() => setSecondOpen(false)}
+          {...recommendedDialogConfig}
+        />
+      </>
+    )
+  },
+}
+
+export const MultipleModalsSwapped: Story = {
+  args: {
+    header: modalHeader,
+    content: paddedContent,
+    open: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'The first modal closes while the second one opens, so the new modal renders before the previous one has fully unmounted.',
+      },
+    },
+  },
+  render: (args) => {
+    const [firstOpen, setFirstOpen] = useState(false)
+    const [secondOpen, setSecondOpen] = useState(false)
+
+    return (
+      <>
+        <Button label='Open Modal A' onClick={() => setFirstOpen(true)} />
+        <ModalStory
+          {...args}
+          content={
+            <div
+              style={{
+                padding: getThemedSpacing(300),
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                gap: getThemedSpacing(300),
+              }}
+            >
+              <p>Modal A</p>
+              {configSummary(recommendedDialogConfig)}
+              <Button
+                label='Swap To Modal B'
+                onClick={() => {
+                  setFirstOpen(false)
+                  setSecondOpen(true)
+                }}
+              />
+            </div>
+          }
+          footer={
+            <Button
+              label='Close'
+              variant='secondary'
+              onClick={() => setFirstOpen(false)}
+            />
+          }
+          size='medium'
+          open={firstOpen}
+          onClose={() => setFirstOpen(false)}
+          {...recommendedDialogConfig}
+        />
+        <ModalStory
+          header={modalHeader}
+          content={
+            <div style={{ padding: getThemedSpacing(300) }}>
+              <p>Modal B, opened while Modal A was closing.</p>
+              {configSummary(recommendedDialogConfig)}
+            </div>
+          }
+          footer={<Button label='Close' onClick={() => setSecondOpen(false)} />}
+          size='medium'
+          open={secondOpen}
+          onClose={() => setSecondOpen(false)}
+          {...recommendedDialogConfig}
         />
       </>
     )
