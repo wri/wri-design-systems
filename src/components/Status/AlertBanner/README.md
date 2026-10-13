@@ -24,10 +24,13 @@ type AlertBannerLabels = {
   closeAlertLabel: string
 }
 
-interface AlertProps extends Omit<ChakraAlert.RootProps, 'title' | 'variant'> {
+interface AlertProps
+  extends Omit<ChakraAlert.RootProps, 'title' | 'variant' | 'width'> {
   title?: React.ReactNode
   icon?: React.ReactElement
   onClose?: () => void
+  isCentered?: boolean
+  width?: 'full-width' | 'inline'
   variant?:
     | 'general-white'
     | 'general-grey'
@@ -50,6 +53,16 @@ interface AlertProps extends Omit<ChakraAlert.RootProps, 'title' | 'variant'> {
 
 ```tsx
 <AlertBanner title='Success' variant='success'>
-  <Tag label='Label' variant='info-white' />
+  <Button variant='secondary' size='small' label='Label' />
 </AlertBanner>
+```
+
+## Inline
+
+The `inline` width renders a fully bordered box with a 4px border radius;
+`full-width` (default) renders a square ribbon with a bottom border only.
+Both are 44px tall per the Figma design.
+
+```tsx
+<AlertBanner title='Information' variant='information' width='inline' />
 ```

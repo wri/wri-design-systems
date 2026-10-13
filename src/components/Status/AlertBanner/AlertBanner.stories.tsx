@@ -3,7 +3,7 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import AlertBanner from '.'
-import Tag from '../../Forms/Tag'
+import Button from '../../Forms/Actions/Button'
 
 const meta = {
   title: 'Status/Alert Banner',
@@ -81,9 +81,9 @@ export const WithLabel: Story = {
 
 export const WithChildren: Story = {
   args: {
-    title: 'General white',
+    title: 'General grey',
     variant: 'general-grey',
-    children: <Tag label='Label' variant='info-white' />,
+    children: <Button variant='secondary' size='small' label='Label' />,
   },
 }
 
@@ -92,7 +92,7 @@ export const Inline: Story = {
     title: 'Information',
     variant: 'information',
     width: 'inline',
-    children: <Tag label='Label' variant='info-white' />,
+    children: <Button variant='secondary' size='small' label='Label' />,
   },
 }
 
@@ -101,6 +101,6 @@ export const Centered: Story = {
     title: 'Success',
     variant: 'success',
     isCentered: true,
-    children: <Tag label='Label' variant='info-white' />,
+    children: <Button variant='secondary' size='small' label='Label' />,
   },
 }

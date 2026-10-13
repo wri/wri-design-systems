@@ -1,4 +1,4 @@
-import Tag from '../../Forms/Tag'
+import Button from '../../Forms/Actions/Button'
 import { AlertBanner } from '../..'
 import DemoWrapper from '../../UI/DemoWrapper'
 
@@ -14,23 +14,23 @@ const AlertBannerDemo = () => (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <AlertBanner title='General white' variant='general-white' />
         <AlertBanner title='General gray' variant='general-grey'>
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
         <AlertBanner
           title='Information centered'
           variant='information'
           isCentered
         >
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
         <AlertBanner title='Success' variant='success'>
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
         <AlertBanner title='Warning' variant='warning'>
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
         <AlertBanner title='Error' variant='error'>
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
       </div>
 
@@ -47,10 +47,10 @@ const AlertBannerDemo = () => (
           variant='general-white'
           width='inline'
         >
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
         <AlertBanner title='General gray' variant='general-grey' width='inline'>
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
         <AlertBanner
           title='Information centered'
@@ -58,16 +58,16 @@ const AlertBannerDemo = () => (
           isCentered
           width='inline'
         >
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
         <AlertBanner title='Success' variant='success' width='inline'>
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
         <AlertBanner title='Warning' variant='warning' width='inline'>
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
         <AlertBanner title='Error' variant='error' width='inline'>
-          <Tag label='Label' variant='info-white' />
+          <Button variant='secondary' size='small' label='Label' />
         </AlertBanner>
       </div>
     </div>

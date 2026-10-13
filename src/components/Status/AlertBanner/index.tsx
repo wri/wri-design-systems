@@ -3,10 +3,19 @@
 /** @jsxImportSource @emotion/react */
 import * as React from 'react'
 import { Alert as ChakraAlert } from '@chakra-ui/react'
-import { CheckCircleIcon, WarningIcon, InfoIcon } from '../../icons'
+import {
+  CheckCircleIcon,
+  WarningIcon,
+  InfoIcon,
+  ErrorIcon,
+} from '../../icons'
 import CloseButton from '../../Forms/Actions/CloseButton'
 import { AlertProps } from './types'
-import { alertBannerIconStyles, alertBannerStyles } from './styled'
+import {
+  alertBannerIconStyles,
+  alertBannerStyles,
+  alertBannerTextGroupStyles,
+} from './styled'
 import { useLabels } from '../../../lib/i18n/useLabels'
 
 const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
@@ -31,6 +40,8 @@ const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
         <CheckCircleIcon />
       ) : variant === 'warning' ? (
         <WarningIcon />
+      ) : variant === 'error' ? (
+        <ErrorIcon />
       ) : (
         <InfoIcon />
       )
@@ -44,9 +55,7 @@ const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
         </ChakraAlert.Indicator>
         {children ? (
           <ChakraAlert.Content flex={isCentered ? 'initial' : undefined}>
-            <div
-              style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}
-            >
+            <div css={alertBannerTextGroupStyles}>
               <ChakraAlert.Title>{title}</ChakraAlert.Title>
               <ChakraAlert.Description>{children}</ChakraAlert.Description>
             </div>
@@ -60,8 +69,8 @@ const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
         <CloseButton
           aria-label={l.closeAlertLabel}
           pos='absolute'
-          top='1rem'
-          insetEnd='2'
+          top='0.75rem'
+          insetEnd='0.75rem'
           onClick={() => {
             setVisible(false)
             onClose?.()

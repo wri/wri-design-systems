@@ -91,6 +91,12 @@ code {
   --color-error-500: var(--chakra-colors-error-500);
   --color-error-900: var(--chakra-colors-error-900);
 
+  --color-information-100: var(--chakra-colors-information-100);
+  --color-information-200: var(--chakra-colors-information-200);
+  --color-information-300: var(--chakra-colors-information-300);
+  --color-information-500: var(--chakra-colors-information-500);
+  --color-information-900: var(--chakra-colors-information-900);
+
   --color-accessible-text-on-primary-mids: var(
     --chakra-colors-accessible-text-on-primary-mids
   );

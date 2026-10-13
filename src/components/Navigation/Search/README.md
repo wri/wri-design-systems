@@ -2,7 +2,7 @@
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs//navigation-search--docs)
 
-[ItemCountDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Navigation/Search/SearchDemo.tsx)
+[SearchDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Navigation/Search/SearchDemo.tsx)
 
 ## Import
 
