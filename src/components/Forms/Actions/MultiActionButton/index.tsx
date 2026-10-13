@@ -14,6 +14,7 @@ import {
   triggerMenuButtonStyles,
   getMenuTriggerIconColor,
 } from './styled'
+import { useLabels } from '../../../../lib/i18n/useLabels'
 
 interface MenuContentProps extends ChakraMenu.ContentProps {
   portalled?: boolean
@@ -42,12 +43,14 @@ const MultiActionButton = ({
   disabled: isDisabledProp,
   mainActionLeftIcon,
   mainActionRightIcon,
+  labels,
   ...rest
 }: MultiActionButtonProps) => {
+  const l = useLabels('MultiActionButton', labels)
   const [isOpen, setIsOpen] = useState(false)
 
   const totalAriaLabel = isDisabledProp
-    ? `${mainActionLabel} action button with menu, disabled`
+    ? l.disabledAriaLabel(mainActionLabel)
     : undefined
 
   return (
@@ -88,7 +91,7 @@ const MultiActionButton = ({
         >
           <Button
             style={triggerMenuButtonStyles}
-            aria-label={`Open ${mainActionLabel} options`}
+            aria-label={l.openOptionsLabel(mainActionLabel)}
             aria-haspopup='menu'
             aria-expanded={isOpen}
             variant={variant}

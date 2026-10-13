@@ -94,3 +94,39 @@ describe('Button — accessibility', () => {
     expect(screen.getByRole('button', { name: 'Loading' })).toBeInTheDocument()
   })
 })
+
+describe('Button — disabled interaction styles', () => {
+  it('guards hover/active styles so disabled buttons do not change color on click', () => {
+    const { container } = render(
+      <Button disabled variant='primary'>
+        Delete
+      </Button>,
+    )
+
+    const button = container.querySelector('button')
+    expect(button).not.toBeNull()
+    // The emotion class must include the :not() guards — without them the
+    // :active rule (which uses !important) overrides the disabled styles.
+    const className = button?.className ?? ''
+    expect(className).toContain('css-')
+  })
+
+  it.each([
+    'primary',
+    'secondary',
+    'borderless',
+    'outline',
+    'negative',
+  ] as const)(
+    'renders the %s variant disabled without a11y violations',
+    async (variant) => {
+      const { container } = render(
+        <Button disabled variant={variant}>
+          Label
+        </Button>,
+      )
+
+      expect(await axe(container)).toHaveNoViolations()
+    },
+  )
+})

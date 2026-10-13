@@ -19,6 +19,7 @@ export type {
   AnalysisWidgetLabels,
   TableLabels,
   ButtonLabels,
+  MultiActionButtonLabels,
   BaseMapLabels,
   SearchLabels,
   MobileSearchLabels,

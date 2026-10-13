@@ -220,6 +220,14 @@ export type ButtonLabels = {
   loadingLabel: string
 }
 
+/** Labels for MultiActionButton internal UI strings. */
+export type MultiActionButtonLabels = {
+  /** aria-label on the dropdown trigger. Default: (label) => `Open ${label} options` */
+  openOptionsLabel: (label: string) => string
+  /** aria-label on the whole control when disabled. Default: (label) => `${label} action button with menu, disabled` */
+  disabledAriaLabel: (label: string) => string
+}
+
 /** Labels for BaseMap internal UI strings. */
 export type BaseMapLabels = {
   /**
@@ -680,6 +688,7 @@ export type DesignSystemLabels = {
   AnalysisWidget?: Partial<AnalysisWidgetLabels>
   Table?: Partial<TableLabels>
   Button?: Partial<ButtonLabels>
+  MultiActionButton?: Partial<MultiActionButtonLabels>
   BaseMap?: Partial<BaseMapLabels>
   Search?: Partial<SearchLabels>
   MobileSearch?: Partial<MobileSearchLabels>

@@ -26,7 +26,7 @@ export const iconButtonStyles = css`
     color: ${getThemedColor('neutral', 800)};
   }
 
-  &:hover {
+  &:hover:not(:disabled):not([data-disabled]) {
     background-color: color-mix(
       in srgb,
       ${getThemedColor('primary', 500)} 20%,
@@ -34,7 +34,7 @@ export const iconButtonStyles = css`
     );
   }
 
-  &:active {
+  &:active:not(:disabled):not([data-disabled]) {
     background-color: color-mix(
       in srgb,
       ${getThemedColor('primary', 500)} 40%,
@@ -49,13 +49,20 @@ export const iconButtonStyles = css`
       rgba(0, 0, 0, 0.05) 0 0.125rem 0.125rem 0.25rem;
   }
 
-  &:disabled {
-    background-color: transparent;
+  &:disabled,
+  &[data-disabled] {
+    background-color: ${getThemedColor('neutral', 200)};
+    cursor: not-allowed;
+    opacity: 1;
 
     svg {
       path {
         fill: ${getThemedColor('neutral', 500)};
       }
+    }
+
+    p {
+      color: ${getThemedColor('neutral', 500)};
     }
   }
 `

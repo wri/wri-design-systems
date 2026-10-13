@@ -23,13 +23,13 @@ export const closeButtonStyles = css`
     }
   }
 
-  &:hover {
+  &:hover:not(:disabled):not([data-disabled]) {
     background-color: ${getThemedColor('neutral', 300)};
     box-shadow: 0 0.0625rem 0.125rem -0.0625rem #0000001a;
     box-shadow: 0 0.0625rem 0.1875rem 0 #0000001a;
   }
 
-  &:active {
+  &:active:not(:disabled):not([data-disabled]) {
     background-color: ${getThemedColor('neutral', 400)};
     box-shadow: 0 0.0625rem 0.125rem -0.0625rem #0000001a;
     box-shadow: 0 0.0625rem 0.1875rem 0 #0000001a;
