@@ -11,6 +11,7 @@ export type ColorVariant =
   | 'success'
   | 'warning'
   | 'error'
+  | 'information'
   | 'accessible'
 
 export type ThemeColors = Record<ColorVariant, TokenScale>
@@ -118,6 +119,13 @@ export const wriColors: ThemeColors = {
     300: { value: '#F6C5C1' },
     500: { value: '#C11101' },
     900: { value: '#8D0D01' },
+  },
+  information: {
+    100: { value: '#EDF7FD' },
+    200: { value: '#D6EAF8' },
+    300: { value: '#CAE6F8' },
+    500: { value: '#2495E0' },
+    900: { value: '#045992' },
   },
   accessible: {
     'text-on-primary-mids': { value: '#332300' }, // primary 900

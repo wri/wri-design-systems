@@ -1,58 +1,126 @@
 import { css } from '@emotion/react'
-import { getThemedBorderWidth, getThemedColor } from '../../../lib/theme'
+import {
+  getThemedBorderWidth,
+  getThemedColor,
+  getThemedFontSize,
+  getThemedLineHeight,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
+
+interface AlertBannerPalette {
+  backgroundColor: string
+  textColor: string
+  borderColor: string
+  iconColor: string
+}
+
+const getPalette = (variant?: string): AlertBannerPalette => {
+  switch (variant) {
+    case 'success':
+      return {
+        backgroundColor: getThemedColor('success', 100),
+        textColor: getThemedColor('success', 900),
+        borderColor: getThemedColor('success', 300),
+        iconColor: getThemedColor('success', 500),
+      }
+    case 'warning':
+      return {
+        backgroundColor: getThemedColor('warning', 100),
+        textColor: getThemedColor('warning', 900),
+        borderColor: getThemedColor('warning', 300),
+        iconColor: getThemedColor('warning', 500),
+      }
+    case 'error':
+      return {
+        backgroundColor: getThemedColor('error', 100),
+        textColor: getThemedColor('error', 900),
+        borderColor: getThemedColor('error', 300),
+        iconColor: getThemedColor('error', 500),
+      }
+    case 'information':
+      return {
+        backgroundColor: getThemedColor('information', 100),
+        textColor: getThemedColor('information', 900),
+        borderColor: getThemedColor('information', 300),
+        iconColor: getThemedColor('information', 500),
+      }
+    case 'general-grey':
+      return {
+        backgroundColor: getThemedColor('neutral', 200),
+        textColor: getThemedColor('neutral', 800),
+        borderColor: getThemedColor('neutral', 300),
+        iconColor: getThemedColor('neutral', 700),
+      }
+    default: // general-white
+      return {
+        backgroundColor: getThemedColor('neutral', 100),
+        textColor: getThemedColor('neutral', 800),
+        borderColor: getThemedColor('neutral', 300),
+        iconColor: getThemedColor('neutral', 700),
+      }
+  }
+}
 
 export const alertBannerStyles = (
   variant?: string,
   width: 'full-width' | 'inline' = 'full-width',
   isCentered = false,
 ) => {
-  let backgroundColor = ''
-  let color = ''
-  let borderColor = ''
-  if (variant === 'success') {
-    backgroundColor = getThemedColor('success', 100)
-    color = getThemedColor('success', 500)
-    borderColor = getThemedColor('success', 300)
-  } else if (variant === 'warning') {
-    backgroundColor = getThemedColor('warning', 100)
-    color = getThemedColor('warning', 500)
-    borderColor = getThemedColor('warning', 300)
-  } else if (variant === 'error') {
-    backgroundColor = getThemedColor('error', 100)
-    color = getThemedColor('error', 500)
-    borderColor = getThemedColor('error', 300)
-  } else if (variant === 'information') {
-    backgroundColor = getThemedColor('secondary', 100)
-    color = getThemedColor('secondary', 500)
-    borderColor = getThemedColor('secondary', 200)
-  } else if (variant === 'general-grey') {
-    backgroundColor = getThemedColor('neutral', 200)
-    color = getThemedColor('neutral', 700)
-    borderColor = getThemedColor('neutral', 300)
-  } else {
-    backgroundColor = getThemedColor('neutral', 100)
-    color = getThemedColor('neutral', 700)
-    borderColor = getThemedColor('neutral', 300)
-  }
+  const { backgroundColor, textColor, borderColor } = getPalette(variant)
+  const isInline = width === 'inline'
+  const borderWidth = getThemedBorderWidth(100)
+  const padTop = isInline
+    ? `calc(${getThemedSpacing(200)} - ${borderWidth})`
+    : getThemedSpacing(200)
+  const padBottom = `calc(${getThemedSpacing(200)} - ${borderWidth})`
 
   return css`
-    display: ${width === 'inline' ? 'inline-flex' : 'flex'};
-    width: ${width === 'inline' ? 'fit-content' : '100%'};
+    display: ${isInline ? 'inline-flex' : 'flex'};
+    width: ${isInline ? 'fit-content' : '100%'};
     max-width: 100%;
-    color: ${color};
-    align-items: flex-start;
-    padding-right: 2.5rem;
+    min-height: ${getThemedSpacing(1100)};
+    align-items: center;
+    gap: ${getThemedSpacing(200)};
+    padding: ${padTop} ${getThemedSpacing(300)} ${padBottom};
+    padding-right: ${getThemedSpacing(1000)};
     justify-content: ${isCentered ? 'center' : 'flex-start'};
+    color: ${textColor};
     background-color: ${backgroundColor};
-    border-bottom: ${getThemedBorderWidth(100)} solid ${borderColor};
-    border-radius: 0;
+    ${isInline
+      ? `border: ${borderWidth} solid ${borderColor};
+      border-radius: ${getThemedRadius(300)};`
+      : `border-bottom: ${borderWidth} solid ${borderColor};
+      border-radius: ${getThemedRadius(100)};`}
+    .chakra-alert__title,
+    .chakra-alert__description {
+      font-size: ${getThemedFontSize(400)};
+      line-height: ${getThemedLineHeight(600)};
+      font-weight: 400;
+    }
   `
 }
 
-export const alertBannerIconStyles = (variant?: string) => css`
-  rotate: ${variant === 'error' ? '180deg' : ''};
-  svg {
-    width: 1rem;
-    height: 1rem;
-  }
+export const alertBannerIconStyles = (variant?: string) => {
+  const { iconColor } = getPalette(variant)
+
+  return css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: ${getThemedSpacing(400)};
+    height: ${getThemedSpacing(400)};
+    color: ${iconColor};
+    svg {
+      width: ${getThemedSpacing(400)};
+      height: ${getThemedSpacing(400)};
+    }
+  `
+}
+
+export const alertBannerTextGroupStyles = css`
+  display: flex;
+  align-items: center;
+  gap: ${getThemedSpacing(400)};
 `

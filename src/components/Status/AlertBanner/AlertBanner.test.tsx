@@ -54,6 +54,52 @@ describe('AlertBanner', () => {
     })
   })
 
+  it('renders a 4px border radius on the inline variant (Figma)', () => {
+    const { container } = render(
+      <AlertBanner title='Inline alert' variant='information' width='inline' />,
+    )
+    expect(container.firstChild).toHaveStyle({
+      'border-radius': '0.25rem',
+    })
+  })
+
+  it('renders a 0 border radius on the full-width variant (Figma)', () => {
+    const { container } = render(
+      <AlertBanner title='Full width alert' variant='success' />,
+    )
+    expect(container.firstChild).toHaveStyle({
+      'border-radius': '0rem',
+    })
+  })
+
+  it('renders a full border on the inline variant (DS-329 QA)', () => {
+    const { container } = render(
+      <AlertBanner title='Inline alert' variant='information' width='inline' />,
+    )
+    expect(container.firstChild).toHaveStyle({
+      border: '0.0625rem solid #CAE6F8',
+    })
+  })
+
+  it('renders only a bottom border on the full-width variant', () => {
+    const { container } = render(
+      <AlertBanner title='Full width alert' variant='success' />,
+    )
+    expect(container.firstChild).toHaveStyle({
+      'border-bottom': '0.0625rem solid #C2E5DC',
+    })
+  })
+
+  it('uses information palette colors for the information variant (DS-329)', () => {
+    const { container } = render(
+      <AlertBanner title='Info alert' variant='information' />,
+    )
+    expect(container.firstChild).toHaveStyle({
+      'background-color': '#EDF7FD',
+      color: '#045992',
+    })
+  })
+
   it('centers its content when requested', () => {
     const { container } = render(
       <AlertBanner title='Centered alert' isCentered />,
