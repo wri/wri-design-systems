@@ -3,12 +3,7 @@
 /** @jsxImportSource @emotion/react */
 import * as React from 'react'
 import { Alert as ChakraAlert } from '@chakra-ui/react'
-import {
-  CheckCircleIcon,
-  WarningIcon,
-  InfoIcon,
-  ErrorIcon,
-} from '../../icons'
+import { CheckCircleIcon, WarningIcon, InfoIcon, ErrorIcon } from '../../icons'
 import CloseButton from '../../Forms/Actions/CloseButton'
 import { AlertProps } from './types'
 import {
