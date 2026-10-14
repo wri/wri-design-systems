@@ -404,7 +404,7 @@ export const createChakraMock = () => {
       ),
     createListCollection: ({ items }: any) => ({ items }),
     createToaster: () => ({
-      add: jest.fn(),
+      create: jest.fn(),
       dismiss: jest.fn(),
       subscribe: jest.fn(() => () => {}),
     }),

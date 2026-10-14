@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* eslint-disable no-console */
-import type { Meta, StoryContext, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import Button from '../../Forms/Actions/Button'
 import Toast from '.'
 import { closeToast, showToast } from './utils'
@@ -23,12 +23,13 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [
-    (Story: any, context: StoryContext) => (
+    // The Toast component deduplicates itself when mounted multiple times
+    // (Storybook Docs renders the primary story twice), so it is safe to
+    // render it unconditionally here.
+    (Story: any) => (
       <div>
         <Story />
-        {context.viewMode !== 'docs' || context.name === 'Info' ? (
-          <Toast />
-        ) : null}
+        <Toast />
       </div>
     ),
   ],

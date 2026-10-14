@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 /** @jsxImportSource @emotion/react */
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Toaster as ChakraToaster,
   Toast as ChakraToast,
@@ -23,13 +23,33 @@ import {
   InfoIcon,
   WarningIcon,
 } from '../../icons'
-import { toasters } from './utils'
+import { claimToastRenderer, toasters } from './utils'
 import Button from '../../Forms/Actions/Button'
 import { useLabels } from '../../../lib/i18n/useLabels'
 import type { ToastComponentProps } from './types'
 
 const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
   const l = useLabels('Toast', labels)
+
+  /**
+   * The toaster stores are module-level singletons. If more than one
+   * `<Toast />` is mounted at the same time (e.g. Storybook Docs renders the
+   * primary story twice), each instance would render its own portal for every
+   * store and a single `showToast()` would appear multiple times. Only the
+   * instance that owns the render claim mounts the toaster UI.
+   */
+  const [rendersToaster, setRendersToaster] = useState(false)
+
+  useEffect(() => {
+    const release = claimToastRenderer(() => setRendersToaster(true))
+    return () => {
+      release()
+      setRendersToaster(false)
+    }
+  }, [])
+
+  if (!rendersToaster) return null
+
   return Object.keys(toasters).map((toaster) => (
     <Portal key={toaster}>
       <ChakraToaster toaster={toasters[toaster]} insetInline={{ mdDown: '4' }}>
@@ -108,7 +128,7 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
                         toast.action.onClick()
                       }
 
-                      toasters[toaster].dismiss()
+                      toasters[toaster].dismiss(toast.id)
                     }}
                   />
                 ) : null}
@@ -127,7 +147,7 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
                         toast.meta.onClose()
                       }
 
-                      toasters[toaster].dismiss()
+                      toasters[toaster].dismiss(toast.id)
                     }}
                   />
                 ) : null}
