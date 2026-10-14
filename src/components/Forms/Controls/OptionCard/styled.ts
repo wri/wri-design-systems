@@ -63,6 +63,15 @@ export const optionCardContainerStyles = (
     .option-card-icon-container svg {
       color: ${getThemedColor('neutral', 400)};
     }
+
+    &[data-state='checked'] {
+      border: ${getThemedBorderWidth(100)} solid
+        ${selectedColor || getThemedColor('primary', 700)};
+
+      .option-card-icon-container svg {
+        color: ${selectedColor || getThemedColor('neutral', 900)};
+      }
+    }
   }
 `
 
