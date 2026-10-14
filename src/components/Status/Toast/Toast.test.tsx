@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import Toast from '.'
@@ -7,6 +7,8 @@ import { showToast } from './utils'
 jest.mock('@chakra-ui/react', () =>
   jest.requireActual('../../testUtils').createChakraMock(),
 )
+
+const getToasterCount = () => screen.queryAllByTestId('chakra-toaster').length
 
 describe('Toast', () => {
   it('renders without crashing', () => {
@@ -29,13 +31,17 @@ describe('Toast', () => {
     const first = render(<Toast />)
     const second = render(<Toast />)
 
-    // The mocked Toaster renders null, so assert via the claim state instead:
-    // only the first instance should have claimed the render.
-    expect(first.container).toBeDefined()
-    expect(second.container).toBeDefined()
+    // One mounted owner renders the 6 placement toasters; the second
+    // instance must not add any more.
+    expect(getToasterCount()).toBe(6)
 
+    // When the owner unmounts, the queued instance takes over and the
+    // toaster UI keeps rendering.
     first.unmount()
+    expect(getToasterCount()).toBe(6)
+
     second.unmount()
+    expect(getToasterCount()).toBe(0)
   })
 
   it('showToast creates a single toast per call', () => {

@@ -15,12 +15,15 @@ import { ToastProps } from './types'
  * instance takes over, so the toasts keep working.
  */
 let toastRendererMounted = false
-const pendingClaims: Array<() => void> = []
+const pendingClaims = new Set<() => void>()
 
 const handOver = () => {
   toastRendererMounted = false
-  const next = pendingClaims.shift()
-  next?.()
+  const [next] = pendingClaims
+  if (next) {
+    pendingClaims.delete(next)
+    next()
+  }
 }
 
 /**
@@ -34,7 +37,7 @@ const handOver = () => {
  */
 export const claimToastRenderer = (onClaim: () => void): (() => void) => {
   let ownsRender = false
-  let queued = false
+  let queuedClaim: (() => void) | undefined
 
   const release = () => {
     if (!ownsRender) return
@@ -45,17 +48,15 @@ export const claimToastRenderer = (onClaim: () => void): (() => void) => {
   const claim = () => {
     toastRendererMounted = true
     ownsRender = true
+    queuedClaim = undefined
     onClaim()
   }
 
   if (!toastRendererMounted) {
     claim()
   } else {
-    queued = true
-    pendingClaims.push(() => {
-      if (queued) claim()
-      else handOver() // claim was cancelled; pass ownership along
-    })
+    queuedClaim = () => claim()
+    pendingClaims.add(queuedClaim)
   }
 
   return () => {
@@ -63,7 +64,8 @@ export const claimToastRenderer = (onClaim: () => void): (() => void) => {
       release()
       return
     }
-    queued = false // cancel a pending claim
+    // Cancel a claim that is still waiting in the queue.
+    if (queuedClaim) pendingClaims.delete(queuedClaim)
   }
 }
 

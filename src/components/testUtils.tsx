@@ -408,7 +408,13 @@ export const createChakraMock = () => {
       dismiss: jest.fn(),
       subscribe: jest.fn(() => () => {}),
     }),
-    Toaster: () => null,
+    // Renders a marker div per toaster so tests can count how many toaster
+    // instances are mounted (e.g. Toast dedup tests).
+    Toaster: ({ toaster }: any) =>
+      React.createElement('div', {
+        'data-testid': 'chakra-toaster',
+        'data-toaster': toaster?.attrs?.placement ?? 'unknown',
+      }),
     Toast: {
       Root: el('div', { role: 'status', 'aria-live': 'polite' }),
       Title: el('span'),
