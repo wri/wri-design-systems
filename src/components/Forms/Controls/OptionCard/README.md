@@ -315,3 +315,46 @@ type OptionCardProps = Omit<
   ]}
 />
 ```
+
+## Custom Colors Disabled
+
+```tsx
+<OptionCard
+  defaultValue='value-3'
+  items={[
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <CheckCircleIcon />,
+      value: 'value-1',
+      selectedColor: getThemedColor('success', 500),
+      selectedBackgroundColor: getThemedColor('success', 100),
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <IndeterminateIcon />,
+      value: 'value-2',
+      selectedColor: getThemedColor('warning', 500),
+      selectedBackgroundColor: getThemedColor('warning', 100),
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <DisallowedIcon />,
+      value: 'value-3',
+      selectedColor: getThemedColor('error', 500),
+      selectedBackgroundColor: getThemedColor('error', 100),
+      disabled: true,
+    },
+    {
+      label: 'Label',
+      caption: 'Caption',
+      icon: <NotApplicableIcon />,
+      value: 'value-4',
+      selectedColor: getThemedColor('neutral', 500),
+      selectedBackgroundColor: getThemedColor('neutral', 100),
+    },
+  ]}
+/>
+```
