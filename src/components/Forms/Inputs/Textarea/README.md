@@ -13,13 +13,7 @@ import { Textarea } from '@worldresources/wri-design-systems'
 ## Usage
 
 ```tsx
-<Textarea
-  label='Label'
-  caption='Caption'
-  placeholder='placeholder'
-  helperText='You have 200 characters remaining'
-  required
-/>
+<Textarea label='Label' caption='Caption' placeholder='placeholder' required />
 ```
 
 ## Props
@@ -74,12 +68,7 @@ type TextareaProps = Omit<
 ## Optional
 
 ```tsx
-<Textarea
-  label='Label'
-  caption='Caption'
-  placeholder='placeholder'
-  helperText='You have 200 characters remaining'
-/>
+<Textarea label='Label' caption='Caption' placeholder='placeholder' />
 ```
 
 ## Small Input
@@ -89,7 +78,6 @@ type TextareaProps = Omit<
   label='Label'
   caption='Caption'
   placeholder='placeholder'
-  helperText='You have 200 characters remaining'
   size='small'
 />
 ```
@@ -112,7 +100,6 @@ type TextareaProps = Omit<
   label='Label'
   caption='Caption'
   placeholder='placeholder'
-  helperText='You have 200 characters remaining'
   errorMessage='Error Message'
 />
 ```

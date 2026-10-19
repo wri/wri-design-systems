@@ -27,7 +27,7 @@ const meta = {
   ],
   tags: ['autodocs'],
   argTypes: {
-    title: { description: 'Banner title content', control: false },
+    children: { description: 'Banner content', control: false },
     variant: {
       description: 'Semantic variant — sets color and icon',
       control: { type: 'select' },
@@ -66,41 +66,45 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    title: 'Information',
     variant: 'information',
+    children: 'Information',
   },
 }
 
-export const WithLabel: Story = {
+export const WithButton: Story = {
   args: {
-    title: 'Success',
-    variant: 'success',
-    children: 'Text label',
-  },
-}
-
-export const WithChildren: Story = {
-  args: {
-    title: 'General grey',
-    variant: 'general-grey',
-    children: <Button variant='secondary' size='small' label='Label' />,
+    variant: 'general-white',
+    children: (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        General white
+        <Button variant='secondary' size='small' label='Label' />
+      </div>
+    ),
   },
 }
 
 export const Inline: Story = {
   args: {
-    title: 'Information',
     variant: 'information',
     width: 'inline',
-    children: <Button variant='secondary' size='small' label='Label' />,
+    children: (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        Inline
+        <Button variant='secondary' size='small' label='Label' />
+      </div>
+    ),
   },
 }
 
 export const Centered: Story = {
   args: {
-    title: 'Success',
     variant: 'success',
     isCentered: true,
-    children: <Button variant='secondary' size='small' label='Label' />,
+    children: (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        Centered
+        <Button variant='secondary' size='small' label='Label' />
+      </div>
+    ),
   },
 }
