@@ -92,8 +92,7 @@ export const alertBannerStyles = (
       border-radius: ${getThemedRadius(300)};`
       : `border-bottom: ${borderWidth} solid ${borderColor};
       border-radius: ${getThemedRadius(100)};`}
-    .chakra-alert__title,
-    .chakra-alert__description {
+    .chakra-alert__content {
       font-size: ${getThemedFontSize(400)};
       line-height: ${getThemedLineHeight(600)};
       font-weight: 400;
@@ -118,9 +117,3 @@ export const alertBannerIconStyles = (variant?: string) => {
     }
   `
 }
-
-export const alertBannerTextGroupStyles = css`
-  display: flex;
-  align-items: center;
-  gap: ${getThemedSpacing(400)};
-`

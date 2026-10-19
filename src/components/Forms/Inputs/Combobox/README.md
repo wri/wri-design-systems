@@ -35,6 +35,7 @@ type ComboboxLabels = {
   clearSelectionLabel: string
   toggleOptionsLabel: string
   noItemsFoundLabel: ReactNodeLabel
+  createOptionLabel: (inputValue: string) => ReactNodeLabel
 }
 
 type ComboboxProps = {
@@ -51,6 +52,11 @@ type ComboboxProps = {
   noMarginBottom?: boolean
   multiple?: boolean
   showSelectedItems?: boolean
+  value?: string[]
+  defaultValue?: string[]
+  onChange?: (values: string[]) => void
+  creatable?: boolean
+  clearInputOnSelect?: boolean
 }
 ```
 
@@ -120,6 +126,41 @@ type ComboboxProps = {
 />
 ```
 
+## Creatable (add new options)
+
+When `creatable` is enabled, typing a value that does not match any option shows
+a "Create …" row. Selecting it adds the entry to the list.
+
+```tsx
+<Combobox
+  label='Label'
+  caption='Caption'
+  placeholder='Type to add...'
+  initialItems={[{ label: 'Option 1', value: 'option-1' }]}
+  creatable
+  required
+/>
+```
+
+## Controlled value
+
+Pass `value` + `onChange` to own the selection, or `defaultValue` for
+uncontrolled usage.
+
+```tsx
+const [value, setValue] = useState<string[]>([])
+
+<Combobox
+  label='Label'
+  caption='Caption'
+  placeholder='Search...'
+  initialItems={[{ label: 'Option 1', value: 'option-1' }]}
+  value={value}
+  onChange={setValue}
+  required
+/>
+```
+
 ## Internationalization (i18n)
 
 The component ships with English defaults for all internal UI strings. Override any or all of them via the `labels` prop, or set them app-wide using `DesignSystemLocaleProvider`.
@@ -136,6 +177,7 @@ The component ships with English defaults for all internal UI strings. Override 
     clearSelectionLabel: 'Borrar selección',
     toggleOptionsLabel: 'Alternar opciones',
     noItemsFoundLabel: 'Sin resultados',
+    createOptionLabel: (inputValue) => `Crear “${inputValue}”`,
   }}
   initialItems={[{ label: 'Opción 1', value: 'opcion-1' }]}
 />
@@ -154,6 +196,7 @@ import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
       clearSelectionLabel: 'Effacer la sélection',
       toggleOptionsLabel: 'Basculer les options',
       noItemsFoundLabel: 'Aucun résultat',
+      createOptionLabel: (inputValue) => `Créer « ${inputValue} »`,
     },
   }}
 >

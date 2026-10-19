@@ -13,7 +13,7 @@ import { AlertBanner } from '@worldresources/wri-design-systems'
 ## Usage
 
 ```tsx
-<AlertBanner title='Success' variant='information' />
+<AlertBanner variant='information'>Information</AlertBanner>
 ```
 
 ## Props
@@ -26,7 +26,6 @@ type AlertBannerLabels = {
 
 interface AlertProps
   extends Omit<ChakraAlert.RootProps, 'title' | 'variant' | 'width'> {
-  title?: React.ReactNode
   icon?: React.ReactElement
   onClose?: () => void
   isCentered?: boolean
@@ -46,14 +45,19 @@ interface AlertProps
 ## Success
 
 ```tsx
-<AlertBanner title='Success' variant='success' />
+<AlertBanner variant='success'>Success</AlertBanner>
 ```
 
-## With Children
+## With Custom Content
+
+Children are the single content API — pass any node, including custom layouts:
 
 ```tsx
-<AlertBanner title='Success' variant='success'>
-  <Button variant='secondary' size='small' label='Label' />
+<AlertBanner variant='success'>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+    Success
+    <Button variant='secondary' size='small' label='Label' />
+  </div>
 </AlertBanner>
 ```
 
@@ -64,5 +68,7 @@ The `inline` width renders a fully bordered box with a 4px border radius;
 Both are 44px tall per the Figma design.
 
 ```tsx
-<AlertBanner title='Information' variant='information' width='inline' />
+<AlertBanner variant='information' width='inline'>
+  Information
+</AlertBanner>
 ```

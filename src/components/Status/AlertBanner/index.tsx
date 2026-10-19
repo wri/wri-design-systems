@@ -6,17 +6,12 @@ import { Alert as ChakraAlert } from '@chakra-ui/react'
 import { CheckCircleIcon, WarningIcon, InfoIcon, ErrorIcon } from '../../icons'
 import CloseButton from '../../Forms/Actions/CloseButton'
 import { AlertProps } from './types'
-import {
-  alertBannerIconStyles,
-  alertBannerStyles,
-  alertBannerTextGroupStyles,
-} from './styled'
+import { alertBannerIconStyles, alertBannerStyles } from './styled'
 import { useLabels } from '../../../lib/i18n/useLabels'
 
 const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
   (
     {
-      title,
       children,
       icon,
       variant,
@@ -48,18 +43,9 @@ const AlertBanner = React.forwardRef<HTMLDivElement, AlertProps>(
         <ChakraAlert.Indicator css={alertBannerIconStyles(variant)}>
           {icon || defaultIcon}
         </ChakraAlert.Indicator>
-        {children ? (
-          <ChakraAlert.Content flex={isCentered ? 'initial' : undefined}>
-            <div css={alertBannerTextGroupStyles}>
-              <ChakraAlert.Title>{title}</ChakraAlert.Title>
-              <ChakraAlert.Description>{children}</ChakraAlert.Description>
-            </div>
-          </ChakraAlert.Content>
-        ) : (
-          <ChakraAlert.Title flex={isCentered ? 'initial' : '1'}>
-            {title}
-          </ChakraAlert.Title>
-        )}
+        <ChakraAlert.Content flex={isCentered ? 'initial' : '1'}>
+          {children}
+        </ChakraAlert.Content>
 
         <CloseButton
           aria-label={l.closeAlertLabel}
