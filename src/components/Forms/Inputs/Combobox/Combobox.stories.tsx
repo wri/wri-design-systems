@@ -49,6 +49,19 @@ const meta = {
       description: '`showSelectedItems` flag',
       control: 'boolean',
     },
+    value: { description: '`value` (controlled) — string[]', control: false },
+    defaultValue: {
+      description: '`defaultValue` (uncontrolled initial selection)',
+      control: false,
+    },
+    onChange: {
+      description: '`onChange` callback — (values: string[]) => void',
+      control: false,
+    },
+    creatable: {
+      description: '`creatable` flag — allow adding new options',
+      control: 'boolean',
+    },
   },
 } satisfies Meta<typeof Combobox>
 
@@ -129,6 +142,37 @@ export const Disabled: Story = {
   },
 }
 
+export const Creatable: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Type to add...',
+    initialItems: ITEMS,
+    creatable: true,
+    required: true,
+  },
+}
+
+export const Controlled: Story = {
+  render: () => {
+    const [value, setValue] = React.useState<string[]>(['option-2'])
+    return (
+      <div style={{ width: '18.125rem' }}>
+        <Combobox
+          label='Label'
+          caption='Caption'
+          placeholder='Search...'
+          initialItems={ITEMS}
+          value={value}
+          onChange={setValue}
+          required
+        />
+        <p style={{ marginTop: '0.5rem' }}>Selected: {value.join(', ')}</p>
+      </div>
+    )
+  },
+}
+
 /**
  * Override specific labels via the `labels` prop for one-off translations.
  */
@@ -141,6 +185,10 @@ export const WithI18nLabels: Story = {
     labels: {
       requiredSymbolLabel: 'obligatorio',
       optionalSuffix: ' (Opcional)',
+      clearSelectionLabel: 'Borrar selección',
+      toggleOptionsLabel: 'Mostrar opciones',
+      noItemsFoundLabel: 'No se encontraron elementos',
+      createOptionLabel: (inputValue) => `Crear “${inputValue}”`,
     },
   },
 }
@@ -152,9 +200,13 @@ export const WithI18nContext: Story = {
   render: (args) => (
     <DesignSystemLocaleProvider
       labels={{
-        TextInput: {
+        Combobox: {
           requiredSymbolLabel: 'obligatoire',
           optionalSuffix: ' (Optionnel)',
+          clearSelectionLabel: 'Effacer la sélection',
+          toggleOptionsLabel: 'Afficher les options',
+          noItemsFoundLabel: 'Aucun élément trouvé',
+          createOptionLabel: (inputValue) => `Créer « ${inputValue} »`,
         },
       }}
     >

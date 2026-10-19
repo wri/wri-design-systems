@@ -47,11 +47,13 @@ export const fieldWrapperErrorBarStyles = css`
   background-color: ${getThemedColor('error', 900)};
 `
 
-export const fieldWrapperContentStyles = css`
+export const fieldWrapperContentStyles = (
+  size: FieldWrapperSize = 'default',
+) => css`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: ${getThemedSpacing(200)};
+  gap: ${size === 'small' ? getThemedSpacing(100) : getThemedSpacing(200)};
   width: 100%;
   flex: 1;
   min-width: 0;

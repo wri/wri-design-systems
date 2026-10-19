@@ -1,8 +1,8 @@
-# Item Count
+# List
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/data-display-list--docs)
 
-[ItemCountDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/DataDisplay/List/ListDemo.tsx)
+[ListDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/DataDisplay/List/ListDemo.tsx)
 
 ## Import
 
@@ -42,7 +42,8 @@ type ListItemVariant = 'data' | 'navigation' | 'select'
 
 interface ListItemProps {
   id?: string
-  label: string
+  label: React.ReactNode
+  searchLabel?: string
   caption?: string
   icon?: ReactElement
   value?: React.ReactNode

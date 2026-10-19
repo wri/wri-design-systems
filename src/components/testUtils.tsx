@@ -436,6 +436,7 @@ export const createChakraMock = () => {
     useListCollection: ({ initialItems }: any) => ({
       collection: { items: initialItems },
       filter: () => undefined,
+      upsert: () => undefined,
     }),
   }
 }
