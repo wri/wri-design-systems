@@ -54,7 +54,7 @@ Children are the single content API — pass any node, including custom layouts:
 
 ```tsx
 <AlertBanner variant='success'>
-  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
     Success
     <Button variant='secondary' size='small' label='Label' />
   </div>
@@ -68,5 +68,7 @@ The `inline` width renders a fully bordered box with a 4px border radius;
 Both are 44px tall per the Figma design.
 
 ```tsx
-<AlertBanner variant='information' width='inline'>Information</AlertBanner>
+<AlertBanner variant='information' width='inline'>
+  Information
+</AlertBanner>
 ```
