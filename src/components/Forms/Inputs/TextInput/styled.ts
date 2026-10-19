@@ -13,7 +13,10 @@ export const textInputStyles = (
   size: TextInputProps['size'],
   isFilled?: boolean,
 ) => css`
-  height: ${size === 'small' ? getThemedSpacing(700) : getThemedSpacing(1000)};
+  height: ${size === 'small' ? getThemedSpacing(800) : getThemedSpacing(1000)};
+  min-height: ${size === 'small'
+    ? getThemedSpacing(800)
+    : getThemedSpacing(1000)};
   width: 100%;
   border-radius: ${getThemedRadius(300)};
   padding: ${size === 'small'

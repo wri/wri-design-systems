@@ -114,6 +114,8 @@ export type ComboboxLabels = {
   toggleOptionsLabel: string
   /** Visible text shown when no results match. Rendered as JSX child. Default: "No items found" */
   noItemsFoundLabel: ReactNodeLabel
+  /** Builds the visible text for the create-new-option row. Default: (inputValue) => `Create “${inputValue}”` */
+  createOptionLabel: (inputValue: string) => ReactNodeLabel
 }
 
 // ---------------------------------------------------------------------------

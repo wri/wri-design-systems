@@ -36,11 +36,9 @@ import { MultiActionButton } from '@worldresources/wri-design-systems'
 
 ```ts
 type MultiActionButtonProps = Omit<
-  ChakraButtonProps,
-  'size' | 'variant' | 'colorPalette' | 'children'
+  ButtonProps,
+  'label' | 'leftIcon' | 'rightIcon' | 'onClick' | 'children' | 'css'
 > & {
-  variant?: 'primary' | 'secondary' | 'outline' | 'borderless' | 'negative'
-  size?: 'default' | 'small'
   mainActionLeftIcon?: React.ReactNode
   mainActionRightIcon?: React.ReactNode
   mainActionLabel: string
@@ -49,8 +47,8 @@ type MultiActionButtonProps = Omit<
     label: React.ReactNode
     value: string
     onClick: VoidFunction
+    disabled?: boolean
   }[]
-  disabled?: boolean
 }
 ```
 

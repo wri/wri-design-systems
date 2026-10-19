@@ -1,28 +1,42 @@
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
-import { KeyboardEvent, useState } from 'react'
+import { KeyboardEvent, useMemo, useState } from 'react'
 import {
   Combobox as ChakraCombobox,
   Portal,
+  createListCollection,
   useFilter,
   useListCollection,
 } from '@chakra-ui/react'
 import Tag from '../../Tag'
+import { PlusIcon } from '../../../icons'
 import { textInputStyles } from '../TextInput/styled'
 import FieldWrapper from '../FieldWrapper'
 import { useTabFocus } from '../FieldWrapper/useTabFocus'
 import { useLabels } from '../../../../lib/i18n/useLabels'
 import { usePlacementSync } from '../../../../lib/hooks/usePlacementSync'
-import { ComboboxProps } from './types'
+import { ComboboxItem, ComboboxProps } from './types'
 import {
   comboboxClearTriggerStyles,
   comboboxContentStyles,
+  comboboxCreateItemStyles,
+  comboboxEmptyStyles,
+  comboboxIndicatorGroupStyles,
   comboboxInputStyles,
   comboboxItemStyles,
+  comboboxSelectedItemsStyles,
 } from './styled'
 
 const KEYBOARD_NAV_KEYS = new Set(['ArrowDown', 'ArrowUp', 'Home', 'End'])
+
+const CREATE_OPTION_VALUE_PREFIX = '__create__'
+
+const isCreateOptionValue = (value: string) =>
+  value.startsWith(CREATE_OPTION_VALUE_PREFIX)
+
+const getCreateOptionValue = (inputValue: string) =>
+  `${CREATE_OPTION_VALUE_PREFIX}${inputValue}`
 
 const Combobox = ({
   label,
@@ -38,26 +52,68 @@ const Combobox = ({
   initialItems = [],
   multiple = false,
   showSelectedItems = false,
+  value: controlledValue,
+  defaultValue,
+  onChange,
+  creatable = false,
 }: ComboboxProps) => {
-  const [selectedItems, setSelectedItems] = useState<
-    { label: string; value: string }[]
-  >([])
+  const [createdItems, setCreatedItems] = useState<ComboboxItem[]>([])
+  const [uncontrolledValue, setUncontrolledValue] = useState<string[]>(
+    defaultValue ?? [],
+  )
+  const [inputValue, setInputValue] = useState('')
 
-  const handleValueChange = (details: ChakraCombobox.ValueChangeDetails) => {
-    setSelectedItems(
-      details.items.map((item) => ({ label: item.label, value: item.value })),
-    )
+  const isControlled = controlledValue !== undefined
+  const selectedValues = isControlled ? controlledValue : uncontrolledValue
+
+  const handleValueChange = (values: string[]) => {
+    if (!isControlled) setUncontrolledValue(values)
+    onChange?.(values)
   }
 
   const l = useLabels('Combobox', labels)
   const { contains } = useFilter({ sensitivity: 'base' })
 
-  const { collection, filter } = useListCollection({
+  const { collection, filter, upsert } = useListCollection({
     initialItems,
     filter: contains,
   })
 
-  const isFilled = selectedItems.length > 0
+  const trimmedInput = inputValue.trim()
+  const createOptionValue = getCreateOptionValue(trimmedInput)
+  const canCreateOption =
+    creatable &&
+    trimmedInput.length > 0 &&
+    !collection.items.some(
+      (item) => item.label.toLowerCase() === trimmedInput.toLowerCase(),
+    )
+
+  const createCollection = useMemo(() => {
+    if (!canCreateOption) return null
+    return createListCollection({
+      items: [
+        { label: trimmedInput, value: createOptionValue },
+        ...collection.items,
+      ],
+    })
+  }, [canCreateOption, createOptionValue, trimmedInput, collection])
+
+  const activeCollection = createCollection ?? collection
+
+  const lookupItems = useMemo<ComboboxItem[]>(
+    () => [...createdItems, ...initialItems],
+    [createdItems, initialItems],
+  )
+  const selectedItems = useMemo(
+    () =>
+      selectedValues.map((value) => ({
+        value,
+        label: lookupItems.find((item) => item.value === value)?.label ?? value,
+      })),
+    [selectedValues, lookupItems],
+  )
+
+  const isFilled = selectedValues.length > 0
   const hasError = !!errorMessage
   const tabFocus = useTabFocus<HTMLInputElement>()
   const { contentRef, placement } = usePlacementSync()
@@ -67,6 +123,19 @@ const Combobox = ({
     if (KEYBOARD_NAV_KEYS.has(event.key)) setNavSource('keyboard')
   }
   const markPointerNav = () => setNavSource('pointer')
+
+  const materialiseCreatedItems = (values: string[]) => {
+    values.forEach((createdValue) => {
+      const newLabel = createdValue.slice(CREATE_OPTION_VALUE_PREFIX.length)
+      const newItem = { label: newLabel, value: newLabel }
+      upsert(newItem.value, newItem, 'prepend')
+      setCreatedItems((prev) =>
+        prev.some((item) => item.value === newItem.value)
+          ? prev
+          : [newItem, ...prev],
+      )
+    })
+  }
 
   return (
     <FieldWrapper
@@ -88,10 +157,32 @@ const Combobox = ({
       <ChakraCombobox.Root
         multiple={multiple}
         invalid={hasError}
-        onValueChange={handleValueChange}
-        value={selectedItems.map((item) => item.value)}
-        collection={collection}
-        onInputValueChange={(e) => filter(e.inputValue)}
+        disabled={disabled}
+        collection={activeCollection}
+        value={selectedValues}
+        onValueChange={(details) => {
+          const createdValues = details.value.filter(isCreateOptionValue)
+          if (createdValues.length > 0) {
+            // Selection came from the "Create …" row — materialise the items.
+            materialiseCreatedItems(createdValues)
+            handleValueChange(
+              details.value.map((value) =>
+                isCreateOptionValue(value)
+                  ? value.slice(CREATE_OPTION_VALUE_PREFIX.length)
+                  : value,
+              ),
+            )
+          } else {
+            handleValueChange(details.value)
+          }
+          if (showSelectedItems) setInputValue('')
+        }}
+        inputValue={inputValue}
+        onInputValueChange={(e) => {
+          setInputValue(e.inputValue)
+          filter(e.inputValue)
+        }}
+        selectionBehavior={showSelectedItems ? 'clear' : 'replace'}
         width='100%'
         positioning={{ sameWidth: true }}
         size={size === 'small' ? 'sm' : 'md'}
@@ -115,7 +206,7 @@ const Combobox = ({
               color: 'var(--chakra-colors-neutral-700)',
             }}
           />
-          <ChakraCombobox.IndicatorGroup>
+          <ChakraCombobox.IndicatorGroup css={comboboxIndicatorGroupStyles}>
             <ChakraCombobox.ClearTrigger
               aria-label={l.clearSelectionLabel}
               tabIndex={0}
@@ -129,12 +220,24 @@ const Combobox = ({
           <ChakraCombobox.Positioner>
             <ChakraCombobox.Content
               ref={contentRef}
-              css={comboboxContentStyles(hasError)}
+              css={comboboxContentStyles(hasError, size)}
               data-nav-source={navSource}
               onPointerMove={markPointerNav}
             >
-              <ChakraCombobox.Empty>{l.noItemsFoundLabel}</ChakraCombobox.Empty>
-              {collection.items.map((item) => (
+              <ChakraCombobox.Empty css={comboboxEmptyStyles}>
+                {l.noItemsFoundLabel}
+              </ChakraCombobox.Empty>
+              {canCreateOption ? (
+                <ChakraCombobox.Item
+                  css={comboboxCreateItemStyles}
+                  item={{ label: trimmedInput, value: createOptionValue }}
+                  key={createOptionValue}
+                >
+                  <PlusIcon />
+                  {l.createOptionLabel(trimmedInput)}
+                </ChakraCombobox.Item>
+              ) : null}
+              {activeCollection.items.map((item) => (
                 <ChakraCombobox.Item
                   css={comboboxItemStyles}
                   item={item}
@@ -147,24 +250,16 @@ const Combobox = ({
             </ChakraCombobox.Content>
           </ChakraCombobox.Positioner>
         </Portal>
-        {showSelectedItems ? (
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              gap: '0.25rem',
-              paddingTop: '0.5rem',
-            }}
-          >
+        {showSelectedItems && selectedItems.length > 0 ? (
+          <div css={comboboxSelectedItemsStyles}>
             {selectedItems.map((item) => (
               <Tag
                 key={item.value}
                 label={item.label}
                 variant='info-white'
                 onClose={() =>
-                  setSelectedItems((prev) =>
-                    prev.filter((i) => i.value !== item.value),
+                  handleValueChange(
+                    selectedValues.filter((value) => value !== item.value),
                   )
                 }
                 closable

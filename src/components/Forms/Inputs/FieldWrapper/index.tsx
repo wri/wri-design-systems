@@ -123,7 +123,7 @@ const FieldWrapper = ({
   }
 
   const content = (
-    <div css={fieldWrapperContentStyles}>
+    <div css={fieldWrapperContentStyles(size)}>
       {semantics === 'field' ? renderFieldHeader() : renderGroupHeader()}
       {children}
       {footer ? <div css={fieldWrapperFooterStyles}>{footer}</div> : null}
@@ -165,6 +165,7 @@ export {
   fieldFocusVisibleStyleObject,
   fieldFocusVisibleStyles,
   fieldWrapperCaptionStyles,
+  fieldWrapperContentStyles,
   fieldWrapperErrorMessageStyles,
   fieldWrapperLabelStyles,
 } from './styled'

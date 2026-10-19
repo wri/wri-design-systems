@@ -133,6 +133,7 @@ export const defaultLabels: DefaultLabels = {
     clearSelectionLabel: 'Clear selection',
     toggleOptionsLabel: 'Toggle options',
     noItemsFoundLabel: 'No items found',
+    createOptionLabel: (inputValue) => `Create “${inputValue}”`,
   },
   // Tier A
   CloseButton: {
