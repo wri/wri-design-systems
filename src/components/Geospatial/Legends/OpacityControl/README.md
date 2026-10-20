@@ -55,6 +55,6 @@ Pass a partial `labels` object to override the default English strings:
 <OpacityControl
   defaultValue={80}
   onOpacityChanged={setOpacity}
-  labels={{ opacity: 'Opacidad' }}
+  labels={{ opacityButtonLabel: 'Opacidad' }}
 />
 ```

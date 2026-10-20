@@ -36,7 +36,7 @@ describe('OpacityControl — DS-363 style contract', () => {
 
   it('styles the trigger button grey while the popover is open', () => {
     expect(opacityControlTriggerStyles.styles).toMatch(
-      /\.ds-opacity-control-trigger\[data-state=['"]open['"]\]/,
+      /\.ds-opacity-control-trigger\[data-state=['"]open['"]\]:not\(:disabled\)/,
     )
     expect(opacityControlTriggerStyles.styles).toMatch(
       /background-color:\s*#F6F6F6/, // neutral-200
@@ -47,6 +47,14 @@ describe('OpacityControl — DS-363 style contract', () => {
     // Shadows/300
     expect(opacityControlTriggerStyles.styles).toMatch(
       /box-shadow:[\s\S]*?rgba\(0,\s*0,\s*0,\s*0\.1\)/,
+    )
+  })
+
+  it('keeps the open-state style while the trigger is hovered', () => {
+    // The secondary Button hover rule is (0,4,0); the open-state selector
+    // with :not() guards + :hover must be at least as specific.
+    expect(opacityControlTriggerStyles.styles).toMatch(
+      /\.ds-opacity-control-trigger\[data-state=['"]open['"]\]:hover:not\(:disabled\):not\(\[data-disabled\]\)/,
     )
   })
 

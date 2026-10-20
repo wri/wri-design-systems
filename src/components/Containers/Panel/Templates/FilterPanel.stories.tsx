@@ -113,6 +113,10 @@ const filterPanelSectionCaptionStyles = css`
   margin: 0 0 ${getThemedSpacing(300)};
 `
 
+/* Selection IDs are qualified per section/list so independent filters cannot
+   select or clear each other; the tag label is the unqualified name. */
+const tagLabel = (id: string) => id.slice(id.lastIndexOf(':') + 1)
+
 export const FilterPanel: Story = {
   args: {
     content: <div>content</div>,
@@ -121,10 +125,23 @@ export const FilterPanel: Story = {
     const [selectedTags, setSelectedTags] = useState<string[]>([])
 
     const toggleTag = (name: string, checked: boolean) => {
-      setSelectedTags((tags: string[]) =>
-        checked ? [...tags, name] : tags.filter((tag) => tag !== name),
-      )
+      setSelectedTags((tags: string[]) => {
+        if (!checked) {
+          return tags.filter((tag) => tag !== name)
+        }
+        return tags.includes(name) ? tags : [...tags, name]
+      })
     }
+
+    // CheckboxList emits its full checked map on every change; qualifying
+    // names keeps one list's values from removing another list's tags.
+    const withSelection = (qualifier: string, names: string[]) =>
+      names.map((name) => ({
+        children: 'Label',
+        name: `${qualifier}:${name}`,
+        value: name,
+        checked: selectedTags.includes(`${qualifier}:${name}`),
+      }))
 
     const removeTag = (name: string) => {
       setSelectedTags((tags: string[]) => tags.filter((tag) => tag !== name))
@@ -197,7 +214,7 @@ export const FilterPanel: Story = {
                       <Tag
                         key={tag}
                         variant='info-white'
-                        label={tag}
+                        label={tagLabel(tag)}
                         closable
                         onClose={() => removeTag(tag)}
                       />
@@ -214,34 +231,22 @@ export const FilterPanel: Story = {
                   }}
                 >
                   <Checkbox
-                    name='Checkbox'
+                    name='s1:Checkbox'
                     value='1'
-                    checked={selectedTags.includes('Checkbox')}
+                    checked={selectedTags.includes('s1:Checkbox')}
                     onCheckedChange={({ checked }) =>
-                      toggleTag('Checkbox', !!checked)
+                      toggleTag('s1:Checkbox', !!checked)
                     }
                   >
                     Label
                   </Checkbox>
                   <CheckboxList
                     label={{ type: 'checkbox', label: 'Label', name: 'all' }}
-                    checkboxes={[
-                      {
-                        children: 'Label',
-                        name: 'checkbox-1',
-                        value: 'checkbox-1',
-                      },
-                      {
-                        children: 'Label',
-                        name: 'checkbox-2',
-                        value: 'checkbox-2',
-                      },
-                      {
-                        children: 'Label',
-                        name: 'checkbox-3',
-                        value: 'checkbox-3',
-                      },
-                    ]}
+                    checkboxes={withSelection('s1:l1', [
+                      'checkbox-1',
+                      'checkbox-2',
+                      'checkbox-3',
+                    ])}
                     onCheckedChange={(checkedValues) =>
                       Object.entries(checkedValues).forEach(([name, checked]) =>
                         toggleTag(name, checked),
@@ -251,33 +256,13 @@ export const FilterPanel: Story = {
 
                   <CheckboxList
                     label={{ type: 'checkbox', label: 'Label', name: 'all' }}
-                    checkboxes={[
-                      {
-                        children: 'Label',
-                        name: 'checkbox-1',
-                        value: 'checkbox-1',
-                      },
-                      {
-                        children: 'Label',
-                        name: 'checkbox-2',
-                        value: 'checkbox-2',
-                      },
-                      {
-                        children: 'Label',
-                        name: 'checkbox-3',
-                        value: 'checkbox-3',
-                      },
-                      {
-                        children: 'Label',
-                        name: 'checkbox-4',
-                        value: 'checkbox-4',
-                      },
-                      {
-                        children: 'Label',
-                        name: 'checkbox-5',
-                        value: 'checkbox-5',
-                      },
-                    ]}
+                    checkboxes={withSelection('s1:l2', [
+                      'checkbox-1',
+                      'checkbox-2',
+                      'checkbox-3',
+                      'checkbox-4',
+                      'checkbox-5',
+                    ])}
                     onCheckedChange={(checkedValues) =>
                       Object.entries(checkedValues).forEach(([name, checked]) =>
                         toggleTag(name, checked),
@@ -285,21 +270,21 @@ export const FilterPanel: Story = {
                     }
                   />
                   <Checkbox
-                    name='Checkbox2'
+                    name='s1:Checkbox2'
                     value='1'
-                    checked={selectedTags.includes('Checkbox2')}
+                    checked={selectedTags.includes('s1:Checkbox2')}
                     onCheckedChange={({ checked }) =>
-                      toggleTag('Checkbox2', !!checked)
+                      toggleTag('s1:Checkbox2', !!checked)
                     }
                   >
                     Label
                   </Checkbox>
                   <Checkbox
-                    name='Checkbox3'
+                    name='s1:Checkbox3'
                     value='1'
-                    checked={selectedTags.includes('Checkbox3')}
+                    checked={selectedTags.includes('s1:Checkbox3')}
                     onCheckedChange={({ checked }) =>
-                      toggleTag('Checkbox3', !!checked)
+                      toggleTag('s1:Checkbox3', !!checked)
                     }
                   >
                     Label
@@ -328,32 +313,32 @@ export const FilterPanel: Story = {
                   }}
                 >
                   <Checkbox
-                    name='Checkbox'
+                    name='s2:Checkbox'
                     value='1'
-                    checked={selectedTags.includes('Checkbox')}
+                    checked={selectedTags.includes('s2:Checkbox')}
                     onCheckedChange={({ checked }) =>
-                      toggleTag('Checkbox', !!checked)
+                      toggleTag('s2:Checkbox', !!checked)
                     }
                   >
                     Label
                   </Checkbox>
 
                   <Checkbox
-                    name='Checkbox2'
+                    name='s2:Checkbox2'
                     value='1'
-                    checked={selectedTags.includes('Checkbox2')}
+                    checked={selectedTags.includes('s2:Checkbox2')}
                     onCheckedChange={({ checked }) =>
-                      toggleTag('Checkbox2', !!checked)
+                      toggleTag('s2:Checkbox2', !!checked)
                     }
                   >
                     Label
                   </Checkbox>
                   <Checkbox
-                    name='Checkbox3'
+                    name='s2:Checkbox3'
                     value='1'
-                    checked={selectedTags.includes('Checkbox3')}
+                    checked={selectedTags.includes('s2:Checkbox3')}
                     onCheckedChange={({ checked }) =>
-                      toggleTag('Checkbox3', !!checked)
+                      toggleTag('s2:Checkbox3', !!checked)
                     }
                   >
                     Label
