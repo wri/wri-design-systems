@@ -51,7 +51,7 @@ export const LegendItemDemo = ({
       <InlineMessage
         label='Label'
         caption='caption'
-        variant='info-white'
+        variant='info-grey'
         actionLabel='Label'
         size='small'
       />
@@ -105,7 +105,7 @@ export const LegendItemDemo2 = ({
       <InlineMessage
         label='Label'
         caption='caption'
-        variant='info-white'
+        variant='info-grey'
         actionLabel='Label'
         size='small'
       />
@@ -158,7 +158,7 @@ export const LegendItemDemo3 = ({
       <InlineMessage
         label='Label'
         caption='caption'
-        variant='info-white'
+        variant='info-grey'
         actionLabel='Label'
         size='small'
       />

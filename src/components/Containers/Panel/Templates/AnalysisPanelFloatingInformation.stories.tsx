@@ -176,7 +176,7 @@ export const Floating: Story = {
                     <InlineMessage
                       label='Label'
                       caption='caption'
-                      variant='info-white'
+                      variant='info-grey'
                       actionLabel='Label'
                       size='small'
                     />

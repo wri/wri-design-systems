@@ -14,6 +14,7 @@ import {
   opacityControlContainerStyles,
   opacityControlLabelStyles,
   opacityControlTextInputContainerStyles,
+  opacityControlTriggerStyles,
 } from './styled'
 import { useLabels } from '../../../../lib/i18n/useLabels'
 
@@ -48,54 +49,57 @@ const OpacityControl = ({
   }
 
   return (
-    <ChakraPopover.Root positioning={{ placement: 'bottom-end' }}>
-      <ChakraPopover.Trigger asChild>
-        <Button
-          label={l.opacityButtonLabel}
-          size='small'
-          variant='secondary'
-          leftIcon={<InfoIcon />}
-        />
-      </ChakraPopover.Trigger>
+    <span css={opacityControlTriggerStyles} style={{ display: 'contents' }}>
+      <ChakraPopover.Root positioning={{ placement: 'bottom-end' }}>
+        <ChakraPopover.Trigger asChild>
+          <Button
+            className='ds-opacity-control-trigger'
+            label={l.opacityButtonLabel}
+            size='small'
+            variant='secondary'
+            leftIcon={<InfoIcon />}
+          />
+        </ChakraPopover.Trigger>
 
-      <ChakraPopover.Positioner>
-        <ChakraPopover.Content css={opacityControlContainerStyles}>
-          <ChakraPopover.Body css={opacityControlBodyStyles}>
-            <p css={opacityControlLabelStyles}>{l.opacityHeading}</p>
-            <div css={opacityControlTextInputContainerStyles}>
-              <div style={{ position: 'relative' }}>
-                <TextInput
-                  aria-label={l.opacityAriaLabel}
-                  min='0'
-                  max='100'
-                  value={opacity}
-                  onChange={handleOpacityChanged}
-                  className='ds-opacity-control-text-input'
-                  onClick={(e: any) => e.target.select()}
+        <ChakraPopover.Positioner>
+          <ChakraPopover.Content css={opacityControlContainerStyles}>
+            <ChakraPopover.Body css={opacityControlBodyStyles}>
+              <p css={opacityControlLabelStyles}>{l.opacityHeading}</p>
+              <div css={opacityControlTextInputContainerStyles}>
+                <div style={{ position: 'relative' }}>
+                  <TextInput
+                    aria-label={l.opacityAriaLabel}
+                    min='0'
+                    max='100'
+                    value={opacity}
+                    onChange={handleOpacityChanged}
+                    className='ds-opacity-control-text-input'
+                    onClick={(e: any) => e.target.select()}
+                  />
+                  <p
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      right: '0.3125rem',
+                      transform: 'translateY(-50%)',
+                      margin: 0,
+                    }}
+                  >
+                    {l.percentSuffix}
+                  </p>
+                </div>
+                <Slider
+                  min={0}
+                  max={100}
+                  value={[opacity]}
+                  onValueChangeEnd={opacityChangeHandler}
                 />
-                <p
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    right: '0.3125rem',
-                    transform: 'translateY(-50%)',
-                    margin: 0,
-                  }}
-                >
-                  {l.percentSuffix}
-                </p>
               </div>
-              <Slider
-                min={0}
-                max={100}
-                value={[opacity]}
-                onValueChangeEnd={opacityChangeHandler}
-              />
-            </div>
-          </ChakraPopover.Body>
-        </ChakraPopover.Content>
-      </ChakraPopover.Positioner>
-    </ChakraPopover.Root>
+            </ChakraPopover.Body>
+          </ChakraPopover.Content>
+        </ChakraPopover.Positioner>
+      </ChakraPopover.Root>
+    </span>
   )
 }
 
