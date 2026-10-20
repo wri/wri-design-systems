@@ -14,6 +14,27 @@ export const opacityControlContainerStyles = css`
   border-radius: ${getThemedRadius(300)};
 `
 
+/* Trigger button while the popover is open (Shadows/300). The :not() guards
+   and :hover variant keep this above the secondary Button hover rule. */
+export const opacityControlTriggerStyles = css`
+  .ds-opacity-control-trigger {
+    &:not(:disabled):not([data-disabled])[data-state='open'],
+    &:not(:disabled):not([data-disabled])[aria-expanded='true'],
+    &:not(:disabled):not([data-disabled])[data-popup-open],
+    &:not(:disabled):not([data-disabled])[data-state='open']:hover,
+    &:not(:disabled):not([data-disabled])[aria-expanded='true']:hover,
+    &:not(:disabled):not([data-disabled])[data-popup-open]:hover {
+      border-radius: ${getThemedRadius(300)};
+      border: ${getThemedBorderWidth(100)} solid
+        ${getThemedColor('neutral', 600)};
+      background-color: ${getThemedColor('neutral', 200)};
+      box-shadow:
+        0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1),
+        0 0.125rem 0.25rem -0.125rem rgba(0, 0, 0, 0.1);
+    }
+  }
+`
+
 export const opacityControlBodyStyles = css`
   padding: ${getThemedSpacing(300)};
 `
@@ -36,8 +57,15 @@ export const opacityControlTextInputContainerStyles = css`
     margin: 0;
 
     .chakra-input {
-      padding: ${getThemedSpacing(100)};
+      display: flex;
+      height: ${getThemedSpacing(700)};
+      min-height: ${getThemedSpacing(700)};
+      padding: ${getThemedSpacing(100)} ${getThemedSpacing(200)};
+      align-items: center;
+      gap: ${getThemedSpacing(200)};
+      align-self: stretch;
       width: ${getThemedSpacing(1200)};
+      box-sizing: border-box;
     }
   }
 

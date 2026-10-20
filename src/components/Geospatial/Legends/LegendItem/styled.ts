@@ -36,6 +36,20 @@ export const legendItemHeaderContainerStyles = css`
   margin-bottom: ${getThemedSpacing(400)};
 `
 
+/* Vertical rhythm between the LegendItem children (ScaleBar, attributes,
+   InlineMessage, LayerParameters) — spacing/400 per DS-363. Child margins
+   are reset so the gap owns the spacing without changing the standalone
+   components. */
+export const legendItemContentStyles = css`
+  display: flex;
+  flex-direction: column;
+  gap: ${getThemedSpacing(400)};
+
+  > :not(:last-child) {
+    margin-bottom: 0;
+  }
+`
+
 export const legendItemLayerNameStyles = css`
   font-size: ${getThemedFontSize(400)};
   line-height: ${getThemedLineHeight(600)};

@@ -37,7 +37,9 @@ const LayerGroup = ({
     key?: string
     active?: boolean
   }>({})
-  const [defaultValue] = useState(getDefaultValue(layerItems))
+  const [selectedRadioValue, setSelectedRadioValue] = useState(
+    getDefaultValue(layerItems),
+  )
 
   useEffect(() => {
     let newActiveItems = { ...activeItems }
@@ -112,16 +114,17 @@ const LayerGroup = ({
       <Accordion.ItemContent paddingLeft='1rem' paddingRight='1rem'>
         <RadioGroup
           name={label}
-          value={defaultValue}
+          value={selectedRadioValue}
           customGap='0'
-          onChange={(name: string, selectedValue: string) =>
+          onChange={(name: string, selectedValue: string) => {
+            setSelectedRadioValue(selectedValue)
             handleOnChange(
               name,
               !!selectedValue,
               onChangeForRadioVariant,
               selectedValue,
             )
-          }
+          }}
         >
           {layerItems.map((layerItem) => (
             <LayerItem

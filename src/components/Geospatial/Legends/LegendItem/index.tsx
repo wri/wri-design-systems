@@ -5,6 +5,7 @@ import { LegendItemProps } from './types'
 import {
   legendItemButtonsContainerStyles,
   legendItemContainerStyles,
+  legendItemContentStyles,
   legendItemDataUnitStyles,
   legendItemDragAndDropActionsStyles,
   legendItemHeaderContainerStyles,
@@ -71,7 +72,7 @@ const LegendItem = ({
             onClick={onRemoveClick}
           />
         </div>
-        {children}
+        {children ? <div css={legendItemContentStyles}>{children}</div> : null}
         <div css={legendItemButtonsContainerStyles}>
           <Button
             label={l.aboutDataLabel}
