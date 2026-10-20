@@ -17,30 +17,21 @@ export const opacityControlContainerStyles = css`
 /* Trigger button while the popover is open (Shadows/300). The :not() guards
    and :hover variant keep this above the secondary Button hover rule. */
 export const opacityControlTriggerStyles = css`
-  .ds-opacity-control-trigger[data-state='open']:not(:disabled):not(
-      [data-disabled]
-    ),
-  .ds-opacity-control-trigger[aria-expanded='true']:not(:disabled):not(
-      [data-disabled]
-    ),
-  .ds-opacity-control-trigger[data-popup-open]:not(:disabled):not(
-      [data-disabled]
-    ),
-  .ds-opacity-control-trigger[data-state='open']:hover:not(:disabled):not(
-      [data-disabled]
-    ),
-  .ds-opacity-control-trigger[aria-expanded='true']:hover:not(:disabled):not(
-      [data-disabled]
-    ),
-  .ds-opacity-control-trigger[data-popup-open]:hover:not(:disabled):not(
-      [data-disabled]
-    ) {
-    border-radius: ${getThemedRadius(300)};
-    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
-    background-color: ${getThemedColor('neutral', 200)};
-    box-shadow:
-      0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1),
-      0 0.125rem 0.25rem -0.125rem rgba(0, 0, 0, 0.1);
+  .ds-opacity-control-trigger {
+    &:not(:disabled):not([data-disabled])[data-state='open'],
+    &:not(:disabled):not([data-disabled])[aria-expanded='true'],
+    &:not(:disabled):not([data-disabled])[data-popup-open],
+    &:not(:disabled):not([data-disabled])[data-state='open']:hover,
+    &:not(:disabled):not([data-disabled])[aria-expanded='true']:hover,
+    &:not(:disabled):not([data-disabled])[data-popup-open]:hover {
+      border-radius: ${getThemedRadius(300)};
+      border: ${getThemedBorderWidth(100)} solid
+        ${getThemedColor('neutral', 600)};
+      background-color: ${getThemedColor('neutral', 200)};
+      box-shadow:
+        0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1),
+        0 0.125rem 0.25rem -0.125rem rgba(0, 0, 0, 0.1);
+    }
   }
 `
 
