@@ -72,9 +72,7 @@ const LegendItem = ({
             onClick={onRemoveClick}
           />
         </div>
-        {children ? (
-          <div css={legendItemContentStyles}>{children}</div>
-        ) : null}
+        {children ? <div css={legendItemContentStyles}>{children}</div> : null}
         <div css={legendItemButtonsContainerStyles}>
           <Button
             label={l.aboutDataLabel}

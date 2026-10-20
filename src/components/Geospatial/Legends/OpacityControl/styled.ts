@@ -20,8 +20,7 @@ export const opacityControlTriggerStyles = css`
   .ds-opacity-control-trigger[aria-expanded='true'],
   .ds-opacity-control-trigger[data-popup-open] {
     border-radius: ${getThemedRadius(300)};
-    border: ${getThemedBorderWidth(100)} solid
-      ${getThemedColor('neutral', 600)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
     background-color: ${getThemedColor('neutral', 200)};
     box-shadow:
       0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1),

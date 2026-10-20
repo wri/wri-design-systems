@@ -30,9 +30,7 @@ describe('LegendItem — accessibility', () => {
 
 describe('LegendItem — DS-363 layout contract', () => {
   it('spaces children with a 16px (spacing/400) column gap', () => {
-    expect(legendItemContentStyles.styles).toMatch(
-      /flex-direction:\s*column/,
-    )
+    expect(legendItemContentStyles.styles).toMatch(/flex-direction:\s*column/)
     expect(legendItemContentStyles.styles).toMatch(
       /gap:\s*1rem/, // spacing/400 = 16px
     )

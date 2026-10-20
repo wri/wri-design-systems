@@ -52,7 +52,7 @@ type MapMarkerProps = {
 
 ## Presets
 
-### Map Marker Prestes
+### Map Marker Presets
 
 [Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-map-marker-presets--docs)
 

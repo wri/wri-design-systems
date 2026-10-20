@@ -93,7 +93,9 @@ describe('LayerGroup — radio selection (DS-363)', () => {
         label='Basemaps'
         caption='Available layers'
         value='basemaps'
-        layerItems={radioLayerItems.map(({ isDefaultSelected, ...item }) => item)}
+        layerItems={radioLayerItems.map(
+          ({ isDefaultSelected, ...item }) => item,
+        )}
       />,
     )
 
