@@ -147,13 +147,13 @@ type MultiActionButtonProps = Omit<
 State behavior per variant (primary values shown; other variants follow the
 same principle with their own tokens — see the `States` story):
 
-| State | Main segment | Trigger (chevron) segment |
-| --- | --- | --- |
-| Default | `primary-500` bg, `primary-600` border | Same as main |
-| Hover | `primary-500` bg + elevated shadow | Same + `primary-800` border |
-| Pressed | `primary-600` bg, `primary-700` border | Same, also while the menu is open |
-| Open | unchanged | `primary-500` bg (default), `primary-800` border, chevron rotated 180° |
-| Disabled | `neutral-300` bg, `neutral-400` border, `neutral-500` text | Same |
+| State    | Main segment                                               | Trigger (chevron) segment                                              |
+| -------- | ---------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Default  | `primary-500` bg, `primary-600` border                     | Same as main                                                           |
+| Hover    | `primary-500` bg + elevated shadow                         | Same + `primary-800` border                                            |
+| Pressed  | `primary-600` bg, `primary-700` border                     | Same, also while the menu is open                                      |
+| Open     | unchanged                                                  | `primary-500` bg (default), `primary-800` border, chevron rotated 180° |
+| Disabled | `neutral-300` bg, `neutral-400` border, `neutral-500` text | Same                                                                   |
 
 > Note: only the `primary` variant states are fully specified in Figma so far
 > (tracked in [DS-362](https://gfw.atlassian.net/browse/DS-362)). Other
