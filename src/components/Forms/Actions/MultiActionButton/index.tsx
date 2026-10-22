@@ -11,7 +11,7 @@ import {
   menuTriggerStyles,
   menuItemStyles,
   disabledGroupStyles,
-  triggerMenuButtonStyles,
+  getTriggerMenuButtonStyle,
   getMenuTriggerIconColor,
 } from './styled'
 import { useLabels } from '../../../../lib/i18n/useLabels'
@@ -90,7 +90,7 @@ const MultiActionButton = ({
           asChild
         >
           <Button
-            style={triggerMenuButtonStyles}
+            style={getTriggerMenuButtonStyle(size)}
             aria-label={l.openOptionsLabel(mainActionLabel)}
             aria-haspopup='menu'
             aria-expanded={isOpen}
