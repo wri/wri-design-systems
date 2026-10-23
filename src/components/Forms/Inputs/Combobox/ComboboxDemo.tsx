@@ -29,7 +29,7 @@ const ComboboxDemo = () => {
           initialItems={items}
           label='Label'
           caption='Caption'
-          placeholder='placeholder'
+          placeholder='Type to search or add new'
           required
           showSelectedItems
         />
@@ -37,21 +37,21 @@ const ComboboxDemo = () => {
           initialItems={items}
           label='Label'
           caption='Caption'
-          placeholder='placeholder'
+          placeholder='Type to search or add new'
           size='small'
         />
         <Combobox
           initialItems={items}
           label='Label'
           caption='Caption'
-          placeholder='placeholder'
+          placeholder='Type to search or add new'
           showOptionalLabel={false}
         />
         <Combobox
           initialItems={items}
           label='Multiple'
           caption='Caption'
-          placeholder='placeholder'
+          placeholder='Type to search or add new'
           multiple
           required
           showSelectedItems
@@ -60,7 +60,7 @@ const ComboboxDemo = () => {
           initialItems={items}
           label='Label'
           caption='Caption'
-          placeholder='placeholder'
+          placeholder='Type to search or add new'
           errorMessage='Error Message'
           required
         />
@@ -68,7 +68,7 @@ const ComboboxDemo = () => {
           initialItems={items}
           label='Label'
           caption='Caption'
-          placeholder='placeholder'
+          placeholder='Type to search or add new'
           required
           disabled
         />
@@ -76,7 +76,7 @@ const ComboboxDemo = () => {
           initialItems={items}
           label='Creatable'
           caption='Type a new option to add it'
-          placeholder='Type to add...'
+          placeholder='Type to search or add new'
           creatable
           required
         />
@@ -84,7 +84,7 @@ const ComboboxDemo = () => {
           initialItems={items}
           label='Controlled'
           caption='Value owned by the consumer'
-          placeholder='placeholder'
+          placeholder='Type to search or add new'
           value={controlledValue}
           onChange={setControlledValue}
           required

@@ -111,12 +111,14 @@ export const comboboxItemStyles = css`
 
 export const comboboxCreateItemStyles = css`
   ${comboboxItemStyles}
+  justify-content: flex-start;
 
   svg {
     width: ${getThemedSpacing(200)};
     height: ${getThemedSpacing(200)};
     flex-shrink: 0;
     color: ${getThemedColor('neutral', 900)};
+    margin-top: -0.1875rem;
   }
 `
 
