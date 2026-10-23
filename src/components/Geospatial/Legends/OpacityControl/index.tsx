@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 
 import { Popover as ChakraPopover } from '@chakra-ui/react'
 import Button from '../../../Forms/Actions/Button'
-import { InfoIcon } from '../../../icons'
+import { TransparencyIcon } from '../../../icons'
 import TextInput from '../../../Forms/Inputs/TextInput'
 import Slider from '../../../Forms/Controls/Slider'
 import { OpacityControlProps } from './types'
@@ -57,7 +57,7 @@ const OpacityControl = ({
             label={l.opacityButtonLabel}
             size='small'
             variant='secondary'
-            leftIcon={<InfoIcon />}
+            leftIcon={<TransparencyIcon />}
           />
         </ChakraPopover.Trigger>
 
@@ -80,7 +80,7 @@ const OpacityControl = ({
                     style={{
                       position: 'absolute',
                       top: '50%',
-                      right: '0.3125rem',
+                      right: '0.125rem',
                       transform: 'translateY(-50%)',
                       margin: 0,
                     }}
