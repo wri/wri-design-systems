@@ -209,3 +209,55 @@ describe('Combobox — disabled state', () => {
     expect(screen.getByRole('textbox')).toBeDisabled()
   })
 })
+
+describe('Combobox — creatable', () => {
+  const typeIntoInput = (value: string) => {
+    fireEvent.change(screen.getByRole('textbox'), {
+      target: { value },
+    })
+  }
+
+  it('renders the create row exactly once when typing a non-matching value', () => {
+    render(
+      <Combobox
+        label='Country'
+        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        creatable
+      />,
+    )
+
+    typeIntoInput('test')
+
+    // Regression guard: the create option used to render twice — once as the
+    // styled "+ Create …" row and once as a plain collection item.
+    expect(screen.getAllByText('Create “test”')).toHaveLength(1)
+  })
+
+  it('does not render a create row when creatable is not set', () => {
+    render(
+      <Combobox
+        label='Country'
+        initialItems={[{ label: 'Colombia', value: 'co' }]}
+      />,
+    )
+
+    typeIntoInput('test')
+
+    expect(screen.queryByText('Create “test”')).not.toBeInTheDocument()
+  })
+
+  it('does not render a create row when the input matches an existing item', () => {
+    render(
+      <Combobox
+        label='Country'
+        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        creatable
+      />,
+    )
+
+    // Case-insensitive match against an existing option.
+    typeIntoInput('COLOMBIA')
+
+    expect(screen.queryByText('Create “COLOMBIA”')).not.toBeInTheDocument()
+  })
+})

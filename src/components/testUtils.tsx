@@ -85,6 +85,17 @@ const el = (
     )
   }
 
+/**
+ * Bridges the mock Combobox.Root's `onInputValueChange` to the mock
+ * Combobox.Input: the real Chakra Input reports typing through the Root
+ * context, so the mock wires the input's change event to the callback the
+ * component passed to Root. Without this, `inputValue` can never change in
+ * tests (e.g. creatable Combobox rows would never render).
+ */
+const ComboboxInputContext = React.createContext<{
+  onInputValueChange?: (details: { inputValue: string }) => void
+}>({})
+
 export const createChakraMock = () => {
   const { Fragment } = React
 
@@ -203,9 +214,30 @@ export const createChakraMock = () => {
       ThumbIndicator: el('span', { 'aria-hidden': true }),
     },
     Combobox: {
-      Root: el('div'),
+      Root: ({ children, onInputValueChange, ...rest }: any) =>
+        React.createElement(
+          ComboboxInputContext.Provider,
+          { value: { onInputValueChange } },
+          React.createElement('div', cleanProps(rest), children),
+        ),
       Control: el('div'),
-      Input: React.forwardRef(el('input', { type: 'text' })),
+      Input: React.forwardRef((props: any, ref: any) => (
+        <ComboboxInputContext.Consumer>
+          {({ onInputValueChange }) =>
+            React.createElement('input', {
+              ref,
+              type: 'text',
+              ...cleanProps(props),
+              onChange: (event: any) => {
+                props.onChange?.(event)
+                onInputValueChange?.({
+                  inputValue: (event.target as HTMLInputElement).value,
+                })
+              },
+            })
+          }
+        </ComboboxInputContext.Consumer>
+      )),
       IndicatorGroup: el('div'),
       ClearTrigger: el('button', { type: 'button' }),
       Trigger: el('button', { type: 'button' }),
