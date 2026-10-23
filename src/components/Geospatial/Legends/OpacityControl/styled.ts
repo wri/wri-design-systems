@@ -50,7 +50,8 @@ export const opacityControlLabelStyles = css`
 export const opacityControlTextInputContainerStyles = css`
   display: flex;
   align-items: center;
-  gap: ${getThemedSpacing(300)};
+  gap: ${getThemedSpacing(400)};
+  margin-top: 0.375rem;
 
   .ds-text-input-container {
     width: ${getThemedSpacing(1200)};
@@ -64,15 +65,13 @@ export const opacityControlTextInputContainerStyles = css`
       align-items: center;
       gap: ${getThemedSpacing(200)};
       align-self: stretch;
-      width: ${getThemedSpacing(1200)};
+      width: ${getThemedSpacing(1400)};
       box-sizing: border-box;
     }
   }
 
   .chakra-slider__root {
     padding: 0 ${getThemedSpacing(300)};
-    height: 1.875rem;
-    margin-top: 1.125rem;
     width: 100%;
   }
 `
