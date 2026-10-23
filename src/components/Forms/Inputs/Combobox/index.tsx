@@ -237,16 +237,18 @@ const Combobox = ({
                   {l.createOptionLabel(trimmedInput)}
                 </ChakraCombobox.Item>
               ) : null}
-              {activeCollection.items.map((item) => (
-                <ChakraCombobox.Item
-                  css={comboboxItemStyles}
-                  item={item}
-                  key={item.value}
-                >
-                  {item.label}
-                  <ChakraCombobox.ItemIndicator />
-                </ChakraCombobox.Item>
-              ))}
+              {activeCollection.items
+                .filter((item) => !isCreateOptionValue(item.value))
+                .map((item) => (
+                  <ChakraCombobox.Item
+                    css={comboboxItemStyles}
+                    item={item}
+                    key={item.value}
+                  >
+                    {item.label}
+                    <ChakraCombobox.ItemIndicator />
+                  </ChakraCombobox.Item>
+                ))}
             </ChakraCombobox.Content>
           </ChakraCombobox.Positioner>
         </Portal>

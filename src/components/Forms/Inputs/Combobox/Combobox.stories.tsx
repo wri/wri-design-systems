@@ -12,6 +12,13 @@ const ITEMS = [
   { label: 'Option 4', value: 'option-4' },
 ]
 
+const SPANISH_ITEMS = [
+  { label: 'Opción 1', value: 'option-1' },
+  { label: 'Opción 2', value: 'option-2' },
+  { label: 'Opción 3', value: 'option-3' },
+  { label: 'Opción 4', value: 'option-4' },
+]
+
 const meta = {
   title: 'Forms/Inputs/Combobox',
   component: Combobox,
@@ -25,6 +32,13 @@ const meta = {
       },
     },
   },
+  decorators: [
+    (Story: any) => (
+      <div style={{ width: '20rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
   tags: ['autodocs'],
   argTypes: {
     initialItems: { description: '`initialItems` value', control: false },
@@ -72,7 +86,7 @@ export const Required: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Search...',
+    placeholder: 'Type to search or add new',
     initialItems: ITEMS,
     required: true,
   },
@@ -82,7 +96,7 @@ export const Optional: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Search...',
+    placeholder: 'Type to search or add new',
     initialItems: ITEMS,
   },
 }
@@ -91,7 +105,7 @@ export const OptionalNoOptionalLabel: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Search...',
+    placeholder: 'Type to search or add new',
     initialItems: ITEMS,
     showOptionalLabel: false,
   },
@@ -101,7 +115,7 @@ export const Small: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Search...',
+    placeholder: 'Type to search or add new',
     initialItems: ITEMS,
     size: 'small',
     required: true,
@@ -112,7 +126,7 @@ export const Multiple: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Search...',
+    placeholder: 'Type to search or add new',
     initialItems: ITEMS,
     multiple: true,
     showSelectedItems: true,
@@ -124,7 +138,7 @@ export const WithError: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Search...',
+    placeholder: 'Type to search or add new',
     initialItems: ITEMS,
     errorMessage: 'Error Message',
     required: true,
@@ -135,7 +149,7 @@ export const Disabled: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Search...',
+    placeholder: 'Type to search or add new',
     initialItems: ITEMS,
     required: true,
     disabled: true,
@@ -146,7 +160,7 @@ export const Creatable: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
-    placeholder: 'Type to add...',
+    placeholder: 'Type to search or add new',
     initialItems: ITEMS,
     creatable: true,
     required: true,
@@ -161,7 +175,7 @@ export const Controlled: Story = {
         <Combobox
           label='Label'
           caption='Caption'
-          placeholder='Search...'
+          placeholder='Type to search or add new'
           initialItems={ITEMS}
           value={value}
           onChange={setValue}
@@ -180,8 +194,8 @@ export const WithI18nLabels: Story = {
   args: {
     label: 'Categoría',
     caption: 'Selecciona una opción',
-    placeholder: 'Buscar...',
-    initialItems: ITEMS,
+    placeholder: 'Escribe para buscar o agregar nuevo',
+    initialItems: SPANISH_ITEMS,
     labels: {
       requiredSymbolLabel: 'obligatorio',
       optionalSuffix: ' (Opcional)',
@@ -201,12 +215,12 @@ export const WithI18nContext: Story = {
     <DesignSystemLocaleProvider
       labels={{
         Combobox: {
-          requiredSymbolLabel: 'obligatoire',
-          optionalSuffix: ' (Optionnel)',
-          clearSelectionLabel: 'Effacer la sélection',
-          toggleOptionsLabel: 'Afficher les options',
-          noItemsFoundLabel: 'Aucun élément trouvé',
-          createOptionLabel: (inputValue) => `Créer « ${inputValue} »`,
+          requiredSymbolLabel: 'obligatorio',
+          optionalSuffix: ' (Opcional)',
+          clearSelectionLabel: 'Borrar selección',
+          toggleOptionsLabel: 'Mostrar opciones',
+          noItemsFoundLabel: 'No se encontraron elementos',
+          createOptionLabel: (inputValue) => `Crear “${inputValue}”`,
         },
       }}
     >
@@ -214,9 +228,9 @@ export const WithI18nContext: Story = {
     </DesignSystemLocaleProvider>
   ),
   args: {
-    label: 'Catégorie',
-    caption: 'Sélectionnez une option',
-    placeholder: 'Rechercher...',
-    initialItems: ITEMS,
+    label: 'Categoría',
+    caption: 'Selecciona una opción',
+    placeholder: 'Escribe para buscar o agregar nuevo',
+    initialItems: SPANISH_ITEMS,
   },
 }
