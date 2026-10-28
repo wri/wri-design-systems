@@ -6,14 +6,14 @@ export type ComboboxItem = { label: string; value: string }
 
 export type ComboboxProps = {
   /**
-   * Items to render in the dropdown. Reactive: when this prop changes (e.g.
-   * after an async fetch), the dropdown list is replaced.
+   * Dropdown options for both static lists and dynamically updated results.
+   * Changes to the list contents replace the dropdown options.
    * @default []
    */
   items?: ComboboxItem[]
   /**
-   * Seed items for the dropdown list. Only read on first mount; use `items`
-   * for a list that updates. `items` takes precedence when both are provided.
+   * Legacy dropdown options, read only on mount when `items` is omitted.
+   * @deprecated Pass the options through `items` instead.
    * @default []
    */
   initialItems?: ComboboxItem[]

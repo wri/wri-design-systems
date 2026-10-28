@@ -42,7 +42,6 @@ const meta = {
   ],
   tags: ['autodocs'],
   argTypes: {
-    initialItems: { description: '`initialItems` value', control: false },
     label: { description: '`label` text', control: 'text' },
     required: { description: '`required` flag', control: 'boolean' },
     caption: { description: '`caption` text', control: 'text' },
@@ -103,7 +102,7 @@ export const Required: Story = {
     label: 'Label',
     caption: 'Caption',
     placeholder: 'Type to search or add new',
-    initialItems: ITEMS,
+    items: ITEMS,
     required: true,
   },
 }
@@ -113,7 +112,7 @@ export const Optional: Story = {
     label: 'Label',
     caption: 'Caption',
     placeholder: 'Type to search or add new',
-    initialItems: ITEMS,
+    items: ITEMS,
   },
 }
 
@@ -122,7 +121,7 @@ export const OptionalNoOptionalLabel: Story = {
     label: 'Label',
     caption: 'Caption',
     placeholder: 'Type to search or add new',
-    initialItems: ITEMS,
+    items: ITEMS,
     showOptionalLabel: false,
   },
 }
@@ -132,7 +131,7 @@ export const Small: Story = {
     label: 'Label',
     caption: 'Caption',
     placeholder: 'Type to search or add new',
-    initialItems: ITEMS,
+    items: ITEMS,
     size: 'small',
     required: true,
   },
@@ -143,7 +142,7 @@ export const Multiple: Story = {
     label: 'Label',
     caption: 'Caption',
     placeholder: 'Type to search or add new',
-    initialItems: ITEMS,
+    items: ITEMS,
     multiple: true,
     showSelectedItems: true,
     required: true,
@@ -155,7 +154,7 @@ export const WithError: Story = {
     label: 'Label',
     caption: 'Caption',
     placeholder: 'Type to search or add new',
-    initialItems: ITEMS,
+    items: ITEMS,
     errorMessage: 'Error Message',
     required: true,
   },
@@ -166,7 +165,7 @@ export const Disabled: Story = {
     label: 'Label',
     caption: 'Caption',
     placeholder: 'Type to search or add new',
-    initialItems: ITEMS,
+    items: ITEMS,
     required: true,
     disabled: true,
   },
@@ -177,7 +176,7 @@ export const Creatable: Story = {
     label: 'Label',
     caption: 'Caption',
     placeholder: 'Type to search or add new',
-    initialItems: ITEMS,
+    items: ITEMS,
     creatable: true,
     required: true,
   },
@@ -192,7 +191,7 @@ export const Controlled: Story = {
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
-          initialItems={ITEMS}
+          items={ITEMS}
           value={value}
           onChange={setValue}
           required
@@ -212,7 +211,7 @@ export const WithI18nLabels: Story = {
     label: 'Categoría',
     caption: 'Selecciona una opción',
     placeholder: 'Escribe para buscar o agregar nuevo',
-    initialItems: SPANISH_ITEMS,
+    items: SPANISH_ITEMS,
     labels: {
       requiredSymbolLabel: 'obligatorio',
       optionalSuffix: ' (Opcional)',
@@ -310,6 +309,6 @@ export const WithI18nContext: Story = {
     label: 'Categoría',
     caption: 'Selecciona una opción',
     placeholder: 'Escribe para buscar o agregar nuevo',
-    initialItems: SPANISH_ITEMS,
+    items: SPANISH_ITEMS,
   },
 }
