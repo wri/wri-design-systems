@@ -88,7 +88,7 @@ const ComboboxDemo = () => {
         }}
       >
         <Combobox
-          initialItems={staticItems}
+          items={staticItems}
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
@@ -96,21 +96,21 @@ const ComboboxDemo = () => {
           showSelectedItems
         />
         <Combobox
-          initialItems={staticItems}
+          items={staticItems}
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
           size='small'
         />
         <Combobox
-          initialItems={staticItems}
+          items={staticItems}
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
           showOptionalLabel={false}
         />
         <Combobox
-          initialItems={staticItems}
+          items={staticItems}
           label='Multiple'
           caption='Caption'
           placeholder='Type to search or add new'
@@ -119,7 +119,7 @@ const ComboboxDemo = () => {
           showSelectedItems
         />
         <Combobox
-          initialItems={staticItems}
+          items={staticItems}
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
@@ -127,7 +127,7 @@ const ComboboxDemo = () => {
           required
         />
         <Combobox
-          initialItems={staticItems}
+          items={staticItems}
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
@@ -135,7 +135,7 @@ const ComboboxDemo = () => {
           disabled
         />
         <Combobox
-          initialItems={staticItems}
+          items={staticItems}
           label='Creatable'
           caption='Type a new option to add it'
           placeholder='Type to search or add new'
@@ -143,7 +143,7 @@ const ComboboxDemo = () => {
           required
         />
         <Combobox
-          initialItems={staticItems}
+          items={staticItems}
           label='Controlled'
           caption='Value owned by the consumer'
           placeholder='Type to search or add new'

@@ -17,7 +17,7 @@ import { Combobox } from '@worldresources/wri-design-systems'
   label='Label'
   caption='Caption'
   placeholder='Search...'
-  initialItems={[
+  items={[
     { label: 'Option 1', value: 'option-1' },
     { label: 'Option 2', value: 'option-2' },
   ]}
@@ -41,8 +41,6 @@ type ComboboxLabels = {
 
 type ComboboxProps = {
   items?: { label: string; value: string }[]
-  /** Seed-only list (read on mount). Use `items` for reactive updates; `items` wins if both are given. */
-  initialItems?: { label: string; value: string }[]
   label?: string
   required?: boolean
   caption?: string
@@ -71,7 +69,7 @@ type ComboboxProps = {
   label='Label'
   caption='Caption'
   placeholder='Search...'
-  initialItems={[{ label: 'Option 1', value: 'option-1' }]}
+  items={[{ label: 'Option 1', value: 'option-1' }]}
 />
 ```
 
@@ -82,7 +80,7 @@ type ComboboxProps = {
   label='Label'
   caption='Caption'
   placeholder='Search...'
-  initialItems={[{ label: 'Option 1', value: 'option-1' }]}
+  items={[{ label: 'Option 1', value: 'option-1' }]}
   size='small'
   required
 />
@@ -95,7 +93,7 @@ type ComboboxProps = {
   label='Label'
   caption='Caption'
   placeholder='Search...'
-  initialItems={[
+  items={[
     { label: 'Option 1', value: 'option-1' },
     { label: 'Option 2', value: 'option-2' },
   ]}
@@ -111,7 +109,7 @@ type ComboboxProps = {
   label='Label'
   caption='Caption'
   placeholder='Search...'
-  initialItems={[{ label: 'Option 1', value: 'option-1' }]}
+  items={[{ label: 'Option 1', value: 'option-1' }]}
   errorMessage='Error Message'
   required
 />
@@ -124,7 +122,7 @@ type ComboboxProps = {
   label='Label'
   caption='Caption'
   placeholder='Search...'
-  initialItems={[{ label: 'Option 1', value: 'option-1' }]}
+  items={[{ label: 'Option 1', value: 'option-1' }]}
   required
   disabled
 />
@@ -140,7 +138,7 @@ a "Create …" row. Selecting it adds the entry to the list.
   label='Label'
   caption='Caption'
   placeholder='Type to add...'
-  initialItems={[{ label: 'Option 1', value: 'option-1' }]}
+  items={[{ label: 'Option 1', value: 'option-1' }]}
   creatable
   required
 />
@@ -212,8 +210,7 @@ useEffect(() => {
 ```
 
 > **Note:** `items` is the reactive list — whenever it changes, the dropdown
-> contents are replaced. `initialItems` is the seed-only fallback, read on
-> mount. If both are provided, `items` wins.
+> contents are replaced.
 
 ## Internationalization (i18n)
 
@@ -233,7 +230,7 @@ The component ships with English defaults for all internal UI strings. Override 
     noItemsFoundLabel: 'Sin resultados',
     createOptionLabel: (inputValue) => `Crear “${inputValue}”`,
   }}
-  initialItems={[{ label: 'Opción 1', value: 'opcion-1' }]}
+  items={[{ label: 'Opción 1', value: 'opcion-1' }]}
 />
 ```
 
