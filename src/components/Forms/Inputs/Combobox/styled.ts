@@ -129,6 +129,16 @@ export const comboboxEmptyStyles = css`
   padding: 0;
 `
 
+export const comboboxLoadingStyles = css`
+  display: flex;
+  align-items: center;
+  gap: ${getThemedSpacing(100)};
+  color: ${getThemedColor('neutral', 700)};
+  font-size: ${getThemedFontSize(400)};
+  line-height: ${getThemedLineHeight(600)};
+  padding: 0;
+`
+
 export const comboboxSelectedItemsStyles = css`
   width: 100%;
   display: flex;

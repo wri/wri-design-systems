@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Combobox from '.'
 import DemoWrapper from '../../../UI/DemoWrapper'
+import { ComboboxItem } from './types'
 
-const items = [
+const staticItems = [
   { label: 'Label 1', value: 'label-1' },
   { label: 'Label 2', value: 'label-2' },
   { label: 'Label 3', value: 'label-3' },
@@ -11,6 +12,67 @@ const items = [
   { label: 'Label 6', value: 'label-6' },
   { label: 'Label 7', value: 'label-7' },
 ]
+
+/**
+ * Server-side filtering demo backed by the JSONPlaceholder API.
+ *
+ * The full user list is fetched once; each query "refetches" (simulated by
+ * filtering on the consumer side) and the matching users are passed back to
+ * the Combobox through the reactive `items` prop — exactly how a real
+ * endpoint would return a filtered page.
+ */
+const JSON_PLACEHOLDER_URL = 'https://jsonplaceholder.typicode.com/users'
+
+const AsyncComboboxDemo = () => {
+  const [items, setItems] = useState<ComboboxItem[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [query, setQuery] = useState('')
+
+  useEffect(() => {
+    // Consumer-owned debounce — the library never throttles onQueryChange.
+    const timeoutId = setTimeout(() => {
+      let cancelled = false
+      setIsLoading(true)
+
+      fetch(JSON_PLACEHOLDER_URL)
+        .then((response) => response.json())
+        .then((users: { id: number; name: string }[]) => {
+          if (cancelled) return
+          const filtered = users.filter((user) =>
+            user.name.toLowerCase().includes(query.toLowerCase()),
+          )
+          setItems(
+            filtered.map((user) => ({
+              label: user.name,
+              value: String(user.id),
+            })),
+          )
+        })
+        .finally(() => {
+          if (!cancelled) setIsLoading(false)
+        })
+
+      return () => {
+        cancelled = true
+      }
+    }, 300)
+
+    return () => clearTimeout(timeoutId)
+  }, [query])
+
+  return (
+    <Combobox
+      items={items}
+      isLoading={isLoading}
+      onQueryChange={setQuery}
+      label='Server-side filtering'
+      caption='Users fetched from JSONPlaceholder — type to filter'
+      placeholder='Type to search users'
+      showSelectedItems
+      multiple
+    />
+  )
+}
 
 const ComboboxDemo = () => {
   const [controlledValue, setControlledValue] = useState<string[]>(['label-1'])
@@ -26,7 +88,7 @@ const ComboboxDemo = () => {
         }}
       >
         <Combobox
-          initialItems={items}
+          initialItems={staticItems}
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
@@ -34,21 +96,21 @@ const ComboboxDemo = () => {
           showSelectedItems
         />
         <Combobox
-          initialItems={items}
+          initialItems={staticItems}
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
           size='small'
         />
         <Combobox
-          initialItems={items}
+          initialItems={staticItems}
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
           showOptionalLabel={false}
         />
         <Combobox
-          initialItems={items}
+          initialItems={staticItems}
           label='Multiple'
           caption='Caption'
           placeholder='Type to search or add new'
@@ -57,7 +119,7 @@ const ComboboxDemo = () => {
           showSelectedItems
         />
         <Combobox
-          initialItems={items}
+          initialItems={staticItems}
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
@@ -65,7 +127,7 @@ const ComboboxDemo = () => {
           required
         />
         <Combobox
-          initialItems={items}
+          initialItems={staticItems}
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
@@ -73,7 +135,7 @@ const ComboboxDemo = () => {
           disabled
         />
         <Combobox
-          initialItems={items}
+          initialItems={staticItems}
           label='Creatable'
           caption='Type a new option to add it'
           placeholder='Type to search or add new'
@@ -81,7 +143,7 @@ const ComboboxDemo = () => {
           required
         />
         <Combobox
-          initialItems={items}
+          initialItems={staticItems}
           label='Controlled'
           caption='Value owned by the consumer'
           placeholder='Type to search or add new'
@@ -89,6 +151,7 @@ const ComboboxDemo = () => {
           onChange={setControlledValue}
           required
         />
+        <AsyncComboboxDemo />
       </div>
     </DemoWrapper>
   )
