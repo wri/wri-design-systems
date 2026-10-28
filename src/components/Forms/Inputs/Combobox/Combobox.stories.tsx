@@ -1,8 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import Combobox from '.'
+import { ComboboxItem } from './types'
 import { DesignSystemLocaleProvider } from '../../..'
 
 const ITEMS = [
@@ -74,6 +75,21 @@ const meta = {
     },
     creatable: {
       description: '`creatable` flag — allow adding new options',
+      control: 'boolean',
+    },
+    items: {
+      description:
+        '`items` — reactive item list; replaces the dropdown contents when it changes',
+      control: false,
+    },
+    onQueryChange: {
+      description:
+        '`onQueryChange` — fires on every input change (empty query after select/clear); providing it enables server-side filtering mode (client-side filtering is skipped)',
+      control: false,
+    },
+    isLoading: {
+      description:
+        '`isLoading` — shows a spinner in the dropdown and hides the empty state',
       control: 'boolean',
     },
   },
@@ -168,7 +184,7 @@ export const Creatable: Story = {
 }
 
 export const Controlled: Story = {
-  render: () => {
+  render: (args) => {
     const [value, setValue] = React.useState<string[]>(['option-2'])
     return (
       <div style={{ width: '18.125rem' }}>
@@ -180,6 +196,7 @@ export const Controlled: Story = {
           value={value}
           onChange={setValue}
           required
+          {...args}
         />
         <p style={{ marginTop: '0.5rem' }}>Selected: {value.join(', ')}</p>
       </div>
@@ -204,6 +221,68 @@ export const WithI18nLabels: Story = {
       noItemsFoundLabel: 'No se encontraron elementos',
       createOptionLabel: (inputValue) => `Crear “${inputValue}”`,
     },
+  },
+}
+
+/**
+ * Server-side filtering backed by the JSONPlaceholder API. The consumer owns
+ * the fetch and the debounce: `onQueryChange` reports every keystroke, the
+ * debounced effect "refetches" (filters the fetched user list) and passes the
+ * matching users back through the reactive `items` prop. While the request is
+ * in flight, `isLoading` shows a spinner in the dropdown.
+ */
+const JSON_PLACEHOLDER_URL = 'https://jsonplaceholder.typicode.com/users'
+
+export const AsyncServerFiltering: Story = {
+  render: (args) => {
+    const [items, setItems] = useState<ComboboxItem[]>([])
+    const [isLoading, setIsLoading] = useState(false)
+    const [query, setQuery] = useState('')
+
+    useEffect(() => {
+      const timeoutId = setTimeout(() => {
+        let cancelled = false
+        setIsLoading(true)
+
+        fetch(JSON_PLACEHOLDER_URL)
+          .then((response) => response.json())
+          .then((users: { id: number; name: string }[]) => {
+            if (cancelled) return
+            const filtered = users.filter((user) =>
+              user.name.toLowerCase().includes(query.toLowerCase()),
+            )
+            setItems(
+              filtered.map((user) => ({
+                label: user.name,
+                value: String(user.id),
+              })),
+            )
+          })
+          .finally(() => {
+            if (!cancelled) setIsLoading(false)
+          })
+
+        return () => {
+          cancelled = true
+        }
+      }, 300)
+
+      return () => clearTimeout(timeoutId)
+    }, [query])
+
+    return (
+      <Combobox
+        items={items}
+        isLoading={isLoading}
+        onQueryChange={setQuery}
+        label='Server-side filtering'
+        caption='Users fetched from JSONPlaceholder — type to filter'
+        placeholder='Type to search users'
+        showSelectedItems
+        multiple
+        {...args}
+      />
+    )
   },
 }
 

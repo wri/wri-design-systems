@@ -93,7 +93,10 @@ const el = (
  * tests (e.g. creatable Combobox rows would never render).
  */
 const ComboboxInputContext = React.createContext<{
-  onInputValueChange?: (details: { inputValue: string }) => void
+  onInputValueChange?: (details: {
+    inputValue: string
+    reason?: string
+  }) => void
 }>({})
 
 export const createChakraMock = () => {
@@ -232,6 +235,7 @@ export const createChakraMock = () => {
                 props.onChange?.(event)
                 onInputValueChange?.({
                   inputValue: (event.target as HTMLInputElement).value,
+                  reason: 'input-change',
                 })
               },
             })
@@ -239,7 +243,28 @@ export const createChakraMock = () => {
         </ComboboxInputContext.Consumer>
       )),
       IndicatorGroup: el('div'),
-      ClearTrigger: el('button', { type: 'button' }),
+      ClearTrigger: ({
+        onClick,
+        ...rest
+      }: React.ButtonHTMLAttributes<HTMLButtonElement> & {
+        onClick?: React.MouseEventHandler<HTMLButtonElement>
+      }) => (
+        <ComboboxInputContext.Consumer>
+          {({ onInputValueChange }) =>
+            React.createElement('button', {
+              type: 'button',
+              ...cleanProps(rest),
+              onClick: (event: React.MouseEvent<HTMLButtonElement>) => {
+                onClick?.(event)
+                onInputValueChange?.({
+                  inputValue: '',
+                  reason: 'clear-trigger',
+                })
+              },
+            })
+          }
+        </ComboboxInputContext.Consumer>
+      ),
       Trigger: el('button', { type: 'button' }),
       Positioner: el('div'),
       Content: el('div'),
@@ -465,10 +490,34 @@ export const createChakraMock = () => {
       onOpen: jest.fn(),
       onClose: jest.fn(),
     }),
-    useListCollection: ({ initialItems }: any) => ({
-      collection: { items: initialItems },
-      filter: () => undefined,
-      upsert: () => undefined,
-    }),
+    /**
+     * Stateful mock of ark-ui's `useListCollection`: `filter` narrows the
+     * items by label (like the real hook + `useFilter.contains`), `set`
+     * replaces the list and clears the filter text, `upsert` prepends new
+     * items.
+     */
+    useListCollection: ({ initialItems }: any) => {
+      const [items, setItems] = React.useState(initialItems ?? [])
+      const [filterText, setFilterText] = React.useState('')
+      const visibleItems = filterText
+        ? items.filter((item: any) =>
+            item.label.toLowerCase().includes(filterText.toLowerCase()),
+          )
+        : items
+      return {
+        collection: { items: visibleItems },
+        filter: (inputValue: string) => setFilterText(inputValue || ''),
+        set: (newItems: any) => {
+          setItems(newItems ?? [])
+          setFilterText('')
+        },
+        upsert: (value: any, item: any) =>
+          setItems((prev: any) =>
+            prev.some((existing: any) => existing.value === value)
+              ? prev
+              : [item, ...prev],
+          ),
+      }
+    },
   }
 }

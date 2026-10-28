@@ -36,9 +36,12 @@ type ComboboxLabels = {
   toggleOptionsLabel: string
   noItemsFoundLabel: ReactNodeLabel
   createOptionLabel: (inputValue: string) => ReactNodeLabel
+  loadingLabel: ReactNodeLabel
 }
 
 type ComboboxProps = {
+  items?: { label: string; value: string }[]
+  /** Seed-only list (read on mount). Use `items` for reactive updates; `items` wins if both are given. */
   initialItems?: { label: string; value: string }[]
   label?: string
   required?: boolean
@@ -56,7 +59,8 @@ type ComboboxProps = {
   defaultValue?: string[]
   onChange?: (values: string[]) => void
   creatable?: boolean
-  clearInputOnSelect?: boolean
+  onQueryChange?: (query: string) => void
+  isLoading?: boolean
 }
 ```
 
@@ -154,12 +158,62 @@ const [value, setValue] = useState<string[]>([])
   label='Label'
   caption='Caption'
   placeholder='Search...'
-  initialItems={[{ label: 'Option 1', value: 'option-1' }]}
+  items={[{ label: 'Option 1', value: 'option-1' }]}
   value={value}
   onChange={setValue}
   required
 />
 ```
+
+## Server-side filtering (async)
+
+For large datasets (e.g. 500+ sites) the list can be filtered by an API instead
+of client-side. Provide `onQueryChange` to enable server-side filtering mode:
+
+- `onQueryChange(query)` fires on every input change — including an empty
+  query when the input resets after a selection or clear, which is your signal
+  to restore the full list. The component does **not**
+  debounce; the consumer owns debouncing, aborting and error handling.
+- Client-side filtering is **skipped** — the dropdown renders whatever `items`
+  currently contains, so pass the fetched results back through the reactive
+  `items` prop.
+- `isLoading` shows a spinner inside the dropdown and hides the "No items
+  found" empty state while a request is in flight.
+- Selected tags keep their labels even when a later query replaces the items
+  list.
+
+```tsx
+const [items, setItems] = useState([])
+const [isLoading, setIsLoading] = useState(false)
+const [query, setQuery] = useState('')
+
+// Consumer-owned debounce
+useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    fetch(`/api/sites?name_like=${encodeURIComponent(query)}`)
+      .then((response) => response.json())
+      .then((data) =>
+        setItems(data.map((site) => ({ label: site.name, value: site.id }))),
+      )
+      .finally(() => setIsLoading(false))
+  }, 300)
+
+  return () => clearTimeout(timeoutId)
+}, [query])
+
+<Combobox
+  label='Site'
+  placeholder='Type to search sites'
+  items={items}
+  isLoading={isLoading}
+  onQueryChange={setQuery}
+  showSelectedItems
+/>
+```
+
+> **Note:** `items` is the reactive list — whenever it changes, the dropdown
+> contents are replaced. `initialItems` is the seed-only fallback, read on
+> mount. If both are provided, `items` wins.
 
 ## Internationalization (i18n)
 

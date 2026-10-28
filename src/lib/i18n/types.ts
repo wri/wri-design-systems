@@ -116,6 +116,11 @@ export type ComboboxLabels = {
   noItemsFoundLabel: ReactNodeLabel
   /** Builds the visible text for the create-new-option row. Default: (inputValue) => `Create “${inputValue}”` */
   createOptionLabel: (inputValue: string) => ReactNodeLabel
+  /**
+   * Visually hidden text announced while the dropdown is loading. Rendered as
+   * JSX child of the loading status element. Default: "Loading"
+   */
+  loadingLabel: ReactNodeLabel
 }
 
 // ---------------------------------------------------------------------------

@@ -13,6 +13,16 @@
     "bin",
     "agents"
   ],
+  "jest": {
+    "moduleNameMapper": {
+      "^uqr$": "<rootDir>/node_modules/uqr/dist/index.cjs",
+      "^proxy-compare$": "<rootDir>/node_modules/proxy-compare/dist/cjs/index.js",
+      "^@ark-ui/react/(anatomy|factory)$": "<rootDir>/node_modules/@ark-ui/react/dist/components/$1.cjs",
+      "^@ark-ui/react/(environment|locale)$": "<rootDir>/node_modules/@ark-ui/react/dist/providers/$1/index.cjs",
+      "^@ark-ui/react/utils$": "<rootDir>/node_modules/@ark-ui/react/dist/utils/index.cjs",
+      "^@ark-ui/react/([^/]+)$": "<rootDir>/node_modules/@ark-ui/react/dist/components/$1/index.cjs"
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "build-app": "react-scripts build",

@@ -1,10 +1,12 @@
 /* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 
-import { KeyboardEvent, useMemo, useState } from 'react'
+import { KeyboardEvent, useEffect, useMemo, useRef, useState } from 'react'
 import {
   Combobox as ChakraCombobox,
   Portal,
+  Spinner,
+  VisuallyHidden,
   createListCollection,
   useFilter,
   useListCollection,
@@ -15,6 +17,7 @@ import { textInputStyles } from '../TextInput/styled'
 import FieldWrapper from '../FieldWrapper'
 import { useTabFocus } from '../FieldWrapper/useTabFocus'
 import { useLabels } from '../../../../lib/i18n/useLabels'
+import { getThemedColor } from '../../../../lib/theme'
 import { usePlacementSync } from '../../../../lib/hooks/usePlacementSync'
 import { ComboboxItem, ComboboxProps } from './types'
 import {
@@ -25,6 +28,7 @@ import {
   comboboxIndicatorGroupStyles,
   comboboxInputStyles,
   comboboxItemStyles,
+  comboboxLoadingStyles,
   comboboxSelectedItemsStyles,
 } from './styled'
 
@@ -49,14 +53,20 @@ const Combobox = ({
   placeholder,
   labels,
   noMarginBottom,
-  initialItems = [],
+  items,
+  initialItems,
   multiple = false,
   showSelectedItems = false,
   value: controlledValue,
   defaultValue,
   onChange,
   creatable = false,
+  onQueryChange,
+  isLoading = false,
 }: ComboboxProps) => {
+  // `items` is the reactive list; `initialItems` is the seed-only fallback.
+  // When both are given, `items` wins.
+  const resolvedItems = items ?? initialItems ?? []
   const [createdItems, setCreatedItems] = useState<ComboboxItem[]>([])
   const [uncontrolledValue, setUncontrolledValue] = useState<string[]>(
     defaultValue ?? [],
@@ -74,17 +84,36 @@ const Combobox = ({
   const l = useLabels('Combobox', labels)
   const { contains } = useFilter({ sensitivity: 'base' })
 
-  const { collection, filter, upsert } = useListCollection({
-    initialItems,
+  const { collection, filter, set, upsert } = useListCollection({
+    initialItems: resolvedItems,
     filter: contains,
   })
+
+  // Server-side filtering mode: when the consumer listens for query changes,
+  // the rendered list is whatever `items` currently holds — the built-in
+  // client-side filtering is skipped so server results are shown verbatim.
+  const isAsyncMode = !!onQueryChange
+  const lastQueryRef = useRef('')
+
+  // `useListCollection` seeds its state from `initialItems` only on mount, so
+  // later `items` changes must be pushed into the collection explicitly. The
+  // effect is keyed on the serialized items: consumers often pass inline
+  // arrays (new reference, same contents) on every render, and re-seeding on
+  // those would wipe the active client-side filter text.
+  const itemsKey = useMemo(() => JSON.stringify(items ?? null), [items])
+  const seededKeyRef = useRef<string | null>(itemsKey)
+  useEffect(() => {
+    if (seededKeyRef.current === itemsKey) return
+    seededKeyRef.current = itemsKey
+    set(items ?? initialItems ?? [])
+  }, [itemsKey, items, initialItems, set])
 
   const trimmedInput = inputValue.trim()
   const createOptionValue = getCreateOptionValue(trimmedInput)
   const canCreateOption =
     creatable &&
     trimmedInput.length > 0 &&
-    !collection.items.some(
+    ![...createdItems, ...resolvedItems].some(
       (item) => item.label.toLowerCase() === trimmedInput.toLowerCase(),
     )
 
@@ -101,14 +130,28 @@ const Combobox = ({
   const activeCollection = createCollection ?? collection
 
   const lookupItems = useMemo<ComboboxItem[]>(
-    () => [...createdItems, ...initialItems],
-    [createdItems, initialItems],
+    () => [...createdItems, ...resolvedItems],
+    [createdItems, resolvedItems],
   )
+
+  // Selected-tag labels must survive item replacement (e.g. a server response
+  // that no longer includes a selected entry), so every label ever seen is
+  // remembered by value.
+  const labelCacheRef = useRef<Map<string, string>>(new Map())
+  useEffect(() => {
+    lookupItems.forEach((item) =>
+      labelCacheRef.current.set(item.value, item.label),
+    )
+  }, [lookupItems])
+
   const selectedItems = useMemo(
     () =>
       selectedValues.map((value) => ({
         value,
-        label: lookupItems.find((item) => item.value === value)?.label ?? value,
+        label:
+          lookupItems.find((item) => item.value === value)?.label ??
+          labelCacheRef.current.get(value) ??
+          value,
       })),
     [selectedValues, lookupItems],
   )
@@ -156,6 +199,7 @@ const Combobox = ({
     >
       <ChakraCombobox.Root
         multiple={multiple}
+        closeOnSelect
         invalid={hasError}
         disabled={disabled}
         collection={activeCollection}
@@ -180,7 +224,17 @@ const Combobox = ({
         inputValue={inputValue}
         onInputValueChange={(e) => {
           setInputValue(e.inputValue)
-          filter(e.inputValue)
+          if (isAsyncMode) {
+            // Mirror every change, including the empty reset after item
+            // selection / clear, so the consumer can restore the full list.
+            // Skipping unchanged values avoids redundant refetches.
+            if (lastQueryRef.current !== e.inputValue) {
+              lastQueryRef.current = e.inputValue
+              onQueryChange?.(e.inputValue)
+            }
+          } else {
+            filter(e.inputValue)
+          }
         }}
         selectionBehavior={showSelectedItems ? 'clear' : 'replace'}
         width='100%'
@@ -224,9 +278,16 @@ const Combobox = ({
               data-nav-source={navSource}
               onPointerMove={markPointerNav}
             >
-              <ChakraCombobox.Empty css={comboboxEmptyStyles}>
-                {l.noItemsFoundLabel}
-              </ChakraCombobox.Empty>
+              {isLoading ? (
+                <div css={comboboxLoadingStyles} role='status'>
+                  <Spinner size='sm' color={getThemedColor('primary', 500)} />
+                  <VisuallyHidden>{l.loadingLabel}</VisuallyHidden>
+                </div>
+              ) : (
+                <ChakraCombobox.Empty css={comboboxEmptyStyles}>
+                  {l.noItemsFoundLabel}
+                </ChakraCombobox.Empty>
+              )}
               {canCreateOption ? (
                 <ChakraCombobox.Item
                   css={comboboxCreateItemStyles}
