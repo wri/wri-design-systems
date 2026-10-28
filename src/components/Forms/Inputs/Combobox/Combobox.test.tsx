@@ -14,7 +14,7 @@ describe('Combobox — accessibility', () => {
         label='Country'
         caption='Choose one option'
         placeholder='Select a country'
-        initialItems={[
+        items={[
           { label: 'Colombia', value: 'co' },
           { label: 'Brazil', value: 'br' },
         ]}
@@ -26,10 +26,7 @@ describe('Combobox — accessibility', () => {
 
   it('shows optional label by default for non-required fields', () => {
     const { container } = render(
-      <Combobox
-        label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
-      />,
+      <Combobox label='Country' items={[{ label: 'Colombia', value: 'co' }]} />,
     )
 
     expect(container.textContent).toContain('(Optional)')
@@ -40,7 +37,7 @@ describe('Combobox — accessibility', () => {
       <Combobox
         label='Country'
         showOptionalLabel={false}
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Colombia', value: 'co' }]}
       />,
     )
 
@@ -53,7 +50,7 @@ describe('Combobox — selection tags', () => {
     render(
       <Combobox
         label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Colombia', value: 'co' }]}
         defaultValue={['co']}
         showSelectedItems
       />,
@@ -67,7 +64,7 @@ describe('Combobox — selection tags', () => {
     render(
       <Combobox
         label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Colombia', value: 'co' }]}
         defaultValue={['co']}
       />,
     )
@@ -80,7 +77,7 @@ describe('Combobox — selection tags', () => {
     render(
       <Combobox
         label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Colombia', value: 'co' }]}
         defaultValue={['co']}
         showSelectedItems={false}
       />,
@@ -96,7 +93,7 @@ describe('Combobox — controlled API', () => {
     const { rerender } = render(
       <Combobox
         label='Country'
-        initialItems={[
+        items={[
           { label: 'Colombia', value: 'co' },
           { label: 'Brazil', value: 'br' },
         ]}
@@ -110,7 +107,7 @@ describe('Combobox — controlled API', () => {
     rerender(
       <Combobox
         label='Country'
-        initialItems={[
+        items={[
           { label: 'Colombia', value: 'co' },
           { label: 'Brazil', value: 'br' },
         ]}
@@ -126,7 +123,7 @@ describe('Combobox — controlled API', () => {
     render(
       <Combobox
         label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Colombia', value: 'co' }]}
         defaultValue={['co']}
       />,
     )
@@ -141,7 +138,7 @@ describe('Combobox — controlled API', () => {
     render(
       <Combobox
         label='Country'
-        initialItems={[
+        items={[
           { label: 'Colombia', value: 'co' },
           { label: 'Brazil', value: 'br' },
         ]}
@@ -163,7 +160,7 @@ describe('Combobox — controlled API', () => {
     render(
       <Combobox
         label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Colombia', value: 'co' }]}
         value={['co']}
         onChange={handleChange}
         showSelectedItems
@@ -181,7 +178,7 @@ describe('Combobox — controlled API', () => {
     render(
       <Combobox
         label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Colombia', value: 'co' }]}
         defaultValue={['co']}
         showSelectedItems
       />,
@@ -201,7 +198,7 @@ describe('Combobox — disabled state', () => {
     render(
       <Combobox
         label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Colombia', value: 'co' }]}
         disabled
       />,
     )
@@ -221,7 +218,7 @@ describe('Combobox — creatable', () => {
     render(
       <Combobox
         label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Colombia', value: 'co' }]}
         creatable
       />,
     )
@@ -235,10 +232,7 @@ describe('Combobox — creatable', () => {
 
   it('does not render a create row when creatable is not set', () => {
     render(
-      <Combobox
-        label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
-      />,
+      <Combobox label='Country' items={[{ label: 'Colombia', value: 'co' }]} />,
     )
 
     typeIntoInput('test')
@@ -250,7 +244,7 @@ describe('Combobox — creatable', () => {
     render(
       <Combobox
         label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Colombia', value: 'co' }]}
         creatable
       />,
     )
@@ -421,30 +415,6 @@ describe('Combobox — server-side filtering (async)', () => {
     expect(screen.getByText('Chile')).toBeInTheDocument()
   })
 
-  it('still works with the initialItems prop', () => {
-    render(
-      <Combobox
-        label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
-      />,
-    )
-
-    expect(screen.getByText('Colombia')).toBeInTheDocument()
-  })
-
-  it('prefers items over initialItems when both are given', () => {
-    render(
-      <Combobox
-        label='Country'
-        initialItems={[{ label: 'Colombia', value: 'co' }]}
-        items={[{ label: 'Brazil', value: 'br' }]}
-      />,
-    )
-
-    expect(screen.queryByText('Colombia')).not.toBeInTheDocument()
-    expect(screen.getByText('Brazil')).toBeInTheDocument()
-  })
-
   it('has no accessibility violations in async loading state', async () => {
     const { container } = render(
       <Combobox
@@ -475,15 +445,6 @@ describe('Combobox — filtering regressions', () => {
     expect(screen.queryByText('Brazil')).not.toBeInTheDocument()
   })
 
-  it('keeps initialItems seed-only after mounting', () => {
-    const { rerender } = render(
-      <Combobox label='Country' initialItems={items} />,
-    )
-    rerender(<Combobox label='Country' initialItems={[]} />)
-    expect(screen.getByText('Colombia')).toBeInTheDocument()
-    expect(screen.getByText('Brazil')).toBeInTheDocument()
-  })
-
   it('does not emit another empty query when clearing an already empty query', () => {
     const onQueryChange = jest.fn()
     render(
@@ -498,5 +459,45 @@ describe('Combobox — filtering regressions', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Clear selection' }))
     fireEvent.click(screen.getByRole('button', { name: 'Clear selection' }))
     expect(onQueryChange.mock.calls).toEqual([['col'], ['']])
+  })
+})
+
+describe('Combobox — deprecated initialItems compatibility', () => {
+  const items = [
+    { label: 'Colombia', value: 'co' },
+    { label: 'Brazil', value: 'br' },
+  ]
+
+  it('supports the deprecated initialItems prop when items is omitted', () => {
+    render(
+      <Combobox
+        label='Country'
+        initialItems={[{ label: 'Colombia', value: 'co' }]}
+      />,
+    )
+
+    expect(screen.getByText('Colombia')).toBeInTheDocument()
+  })
+
+  it('prefers items over initialItems when both are given', () => {
+    render(
+      <Combobox
+        label='Country'
+        initialItems={[{ label: 'Colombia', value: 'co' }]}
+        items={[{ label: 'Brazil', value: 'br' }]}
+      />,
+    )
+
+    expect(screen.queryByText('Colombia')).not.toBeInTheDocument()
+    expect(screen.getByText('Brazil')).toBeInTheDocument()
+  })
+
+  it('keeps initialItems seed-only after mounting', () => {
+    const { rerender } = render(
+      <Combobox label='Country' initialItems={items} />,
+    )
+    rerender(<Combobox label='Country' initialItems={[]} />)
+    expect(screen.getByText('Colombia')).toBeInTheDocument()
+    expect(screen.getByText('Brazil')).toBeInTheDocument()
   })
 })

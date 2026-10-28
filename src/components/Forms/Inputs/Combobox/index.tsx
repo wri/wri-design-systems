@@ -64,8 +64,6 @@ const Combobox = ({
   onQueryChange,
   isLoading = false,
 }: ComboboxProps) => {
-  // `items` is the reactive list; `initialItems` is the seed-only fallback.
-  // When both are given, `items` wins.
   const resolvedItems = items ?? initialItems ?? []
   const [createdItems, setCreatedItems] = useState<ComboboxItem[]>([])
   const [uncontrolledValue, setUncontrolledValue] = useState<string[]>(
