@@ -228,3 +228,43 @@ export const MixedItems: Story = {
     ],
   },
 }
+
+export const ReactNodeLabels: Story = {
+  args: {
+    items: [
+      {
+        id: 'node-1',
+        label: (
+          <span>
+            Forest <strong>monitor</strong>
+          </span>
+        ),
+        ariaLabel: 'Forest monitor',
+        variant: 'data',
+        value: 'Active',
+      },
+      {
+        id: 'node-2',
+        label: (
+          <span>
+            Water <em>risk</em>
+          </span>
+        ),
+        ariaLabel: 'Water risk',
+        variant: 'navigation',
+        onItemClick: fn(),
+      },
+      {
+        id: 'node-3',
+        label: (
+          <span>
+            Land <strong>cover</strong>
+          </span>
+        ),
+        ariaLabel: 'Land cover',
+        variant: 'data',
+        isHighlighted: true,
+      },
+    ],
+  },
+}

@@ -27,6 +27,14 @@ import {
 } from './styled'
 import { getThemedColor } from '../../../lib/theme'
 
+const getSearchLabel = (item: ListItemProps): string => {
+  if (item.searchLabel) return item.searchLabel
+  if (typeof item.label === 'string' || typeof item.label === 'number') {
+    return String(item.label)
+  }
+  return ''
+}
+
 const MobileSearch = ({
   value,
   placeholder,
@@ -73,7 +81,7 @@ const MobileSearch = ({
 
     return items.filter((item) => {
       const searchableText =
-        `${item.id ?? ''} ${item.label} ${item.caption ?? ''}`.toLowerCase()
+        `${item.id ?? ''} ${getSearchLabel(item)} ${item.caption ?? ''}`.toLowerCase()
       return searchableText.includes(query)
     })
   }, [items, currentValue])
@@ -200,7 +208,11 @@ const MobileSearch = ({
                   type='button'
                   css={mobileSearchListItemStyles}
                   onClick={() => handleItemClick(item)}
-                  aria-label={`${item.label}, ${item.caption ?? ''}`}
+                  aria-label={
+                    [getSearchLabel(item), item.caption ?? '']
+                      .filter(Boolean)
+                      .join(', ') || undefined
+                  }
                   style={{ width: '100%' }}
                 >
                   {item.icon ?? null}

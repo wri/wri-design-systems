@@ -15,7 +15,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Search input with debounced onChange. Use `onSearch` to handle the search action.',
+          'Search input with filtering and selection. Use `onSelect` to handle the selection action.',
       },
     },
   },
@@ -206,5 +206,37 @@ export const NoDisplayResults: Story = {
     options: sampleOptions,
     placeholder: 'Results are hidden',
     displayResults: 'none',
+  },
+}
+
+export const ReactNodeLabelsWithSearchLabel: Story = {
+  args: {
+    options: [
+      ...sampleOptions,
+      {
+        id: '11',
+        label: (
+          <span>
+            Forest <strong>monitor</strong>
+          </span>
+        ),
+        searchLabel: 'Forest monitor',
+        caption: 'ReactNode label • searchable via searchLabel',
+        icon: <MapIcon />,
+      },
+      {
+        id: '12',
+        label: (
+          <span>
+            Water <em>risk</em>
+          </span>
+        ),
+        searchLabel: 'Water risk',
+        caption: 'ReactNode label • searchable via searchLabel',
+        icon: <MapIcon />,
+      },
+    ],
+    placeholder: 'Search (try "monitor" or "risk")',
+    onSelect: () => {},
   },
 }

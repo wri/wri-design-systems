@@ -22,7 +22,8 @@ const sampleOptions = [
   },
   {
     id: '2',
-    label: 'Location Name 2',
+    label: <strong>Location Name 2</strong>,
+    searchLabel: 'Location Name 2',
     caption: 'City • Address',
     icon: <MapIcon />,
   },
@@ -37,6 +38,14 @@ const sampleOptions = [
 <Search options={sampleOptions} placeholder='Search' />
 
 ```
+
+### ReactNode labels and searchLabel
+
+When an option's `label` is a `ReactNode`, it renders as-is (no query
+highlighting) and cannot be matched by text on its own. Provide
+`searchLabel` so the option can still be filtered and selected; without it,
+only `id` and `caption` are searchable. String labels keep the built-in
+query highlighting.
 
 ## Props
 
