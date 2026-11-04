@@ -43,9 +43,7 @@ describe('Breadcrumb — accessibility', () => {
     // inside a list item, not as a bare element under the <ol>.
     const ellipsisButton = container.querySelector('button')
     expect(ellipsisButton).toBeInTheDocument()
-    expect(ellipsisButton?.closest('ol')).toBe(
-      container.querySelector('ol'),
-    )
+    expect(ellipsisButton?.closest('ol')).toBe(container.querySelector('ol'))
     expect(ellipsisButton?.closest('li')).not.toBeNull()
   })
 })
