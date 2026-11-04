@@ -52,7 +52,7 @@ describe('Search — ReactNode labels with searchLabel (DS-332)', () => {
     expect(screen.queryByText('Water risk')).not.toBeInTheDocument()
   })
 
-  it('filters ReactNode-label options by id when searchLabel is absent', () => {
+  it('filters string-label options by label text when searchLabel is absent', () => {
     const { container } = render(<Search options={options} />)
 
     type('plain')
@@ -64,6 +64,21 @@ describe('Search — ReactNode labels with searchLabel (DS-332)', () => {
     )
     expect(rows.some((row) => row.textContent === 'Plain label')).toBe(true)
     expect(rows.some((row) => row.textContent === 'Amazon biome')).toBe(false)
+  })
+
+  it('filters options by id', () => {
+    const { container } = render(<Search options={options} />)
+
+    // "3" matches only the third option's id — none of the labels contain
+    // "3", so the row is rendered without highlight spans.
+    type('3')
+
+    const rows = Array.from(
+      container.querySelectorAll('[data-nav-source] > div > div'),
+    )
+    expect(rows.some((row) => row.textContent === 'Plain label')).toBe(true)
+    expect(rows.some((row) => row.textContent === 'Amazon biome')).toBe(false)
+    expect(rows.some((row) => row.textContent === 'Water risk')).toBe(false)
   })
 
   it('selects a ReactNode-label option via searchLabel', () => {

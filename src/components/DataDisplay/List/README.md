@@ -49,6 +49,15 @@ const items = [
 item is used inside `Search` or `MobileSearch` so it can still be filtered and
 selected by text.
 
+### Keys
+
+Row keys prefer `id`, then `searchLabel`, then the label text for string
+labels, so per-item state follows the item when the list is reordered. Give
+items an `id` (or at least a `searchLabel`) when they can be reordered;
+items without any identity — e.g. ReactNode labels — fall back to their array
+index. Duplicate identities are disambiguated automatically and are only a
+problem for reorder stability.
+
 ### Highlighting
 
 Items can be highlighted two ways, which combine:

@@ -121,6 +121,60 @@ describe('List — ReactNode labels (DS-332)', () => {
     )
     consoleError.mockRestore()
   })
+
+  it('does not collide on keys when items share a searchLabel without ids', () => {
+    const consoleError = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => {})
+
+    render(
+      <List
+        items={[
+          { searchLabel: 'Same', label: <em>A</em> },
+          { searchLabel: 'Same', label: <em>B</em> },
+        ]}
+      />,
+    )
+
+    expect(screen.getByText('A')).toBeInTheDocument()
+    expect(screen.getByText('B')).toBeInTheDocument()
+    expect(consoleError).not.toHaveBeenCalledWith(
+      expect.stringContaining('same key'),
+    )
+    consoleError.mockRestore()
+  })
+
+  it('does not collide on keys when id-less items share a string label', () => {
+    const consoleError = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => {})
+
+    render(<List items={[{ label: 'Same' }, { label: 'Same' }]} />)
+
+    expect(screen.getAllByText('Same')).toHaveLength(2)
+    expect(consoleError).not.toHaveBeenCalledWith(
+      expect.stringContaining('same key'),
+    )
+    consoleError.mockRestore()
+  })
+
+  it('keeps the label-text key for id-less string-label items across reorders', () => {
+    const consoleError = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => {})
+
+    const { rerender } = render(
+      <List items={[{ label: 'One' }, { label: 'Two' }]} />,
+    )
+    // Reorder: with index-based keys React would remount rows in new
+    // positions; label-text keys keep each row with its item.
+    rerender(<List items={[{ label: 'Two' }, { label: 'One' }]} />)
+
+    expect(consoleError).not.toHaveBeenCalledWith(
+      expect.stringContaining('unique "key" prop'),
+    )
+    consoleError.mockRestore()
+  })
 })
 
 describe('List — highlighting (DS-332)', () => {
