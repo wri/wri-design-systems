@@ -16,6 +16,8 @@ import { HideSidebarIcon, ShowSidebarIcon } from '../../icons'
 import { getThemedColor } from '../../../lib/theme'
 import { useLabels } from '../../../lib/i18n/useLabels'
 
+const MOBILE_MEDIA_QUERY = ['(max-width: 48rem)']
+
 const NavigationRail = ({
   tabs = [],
   defaultValue,
@@ -44,7 +46,7 @@ const NavigationRail = ({
       onOpenChange(!open)
     }
   }
-  const [isMobile] = useMediaQuery(['(max-width: 48rem)'])
+  const [isMobile] = useMediaQuery(MOBILE_MEDIA_QUERY)
   if (isMobile) {
     return (
       <Tabs.Root

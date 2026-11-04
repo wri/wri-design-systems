@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import Tag from '.'
@@ -14,5 +14,148 @@ describe('Tag — accessibility', () => {
     )
 
     expect(await axe(container)).toHaveNoViolations()
+  })
+
+  it('renders a disabled tag with no violations', async () => {
+    const { container } = render(
+      <Tag label='Locked' variant='error' disabled closable />,
+    )
+
+    expect(await axe(container)).toHaveNoViolations()
+  })
+})
+
+describe('Tag — variants', () => {
+  const variants = [
+    'info-white',
+    'info-grey',
+    'success',
+    'warning',
+    'error',
+  ] as const
+
+  it.each(variants)('renders the %s variant', (variant) => {
+    const { getByText } = render(<Tag label='Status' variant={variant} />)
+
+    expect(getByText('Status')).toBeInTheDocument()
+  })
+
+  it('renders an icon in the start element', () => {
+    const { container } = render(
+      <Tag
+        label='With icon'
+        variant='info-grey'
+        icon={<span data-testid='tag-icon' />}
+      />,
+    )
+
+    expect(container.querySelector('[data-testid="tag-icon"]')).not.toBeNull()
+  })
+})
+
+describe('Tag — sizes', () => {
+  it('renders the default size', () => {
+    const { getByText } = render(
+      <Tag label='Default size' variant='info-grey' />,
+    )
+
+    expect(getByText('Default size')).toBeInTheDocument()
+  })
+
+  it('renders the small size', () => {
+    const { getByText } = render(
+      <Tag label='Small size' variant='info-grey' size='small' />,
+    )
+
+    expect(getByText('Small size')).toBeInTheDocument()
+  })
+})
+
+describe('Tag — close button', () => {
+  it('renders a close trigger when closable', () => {
+    const { getByRole } = render(
+      <Tag label='Removable' variant='info-grey' closable />,
+    )
+
+    expect(
+      getByRole('button', { name: 'Removable tag close button' }),
+    ).toBeInTheDocument()
+  })
+
+  it('calls onClose when the close trigger is clicked', () => {
+    const onClose = jest.fn()
+    const { getByRole } = render(
+      <Tag label='Removable' variant='info-grey' closable onClose={onClose} />,
+    )
+
+    fireEvent.click(getByRole('button', { name: 'Removable tag close button' }))
+
+    expect(onClose).toHaveBeenCalledTimes(1)
+  })
+
+  it('calls onClose on Enter and Space keydown', () => {
+    const onClose = jest.fn()
+    const { getByRole } = render(
+      <Tag label='Removable' variant='info-grey' closable onClose={onClose} />,
+    )
+    const trigger = getByRole('button', { name: 'Removable tag close button' })
+
+    fireEvent.keyDown(trigger, { key: 'Enter' })
+    fireEvent.keyDown(trigger, { key: ' ' })
+
+    expect(onClose).toHaveBeenCalledTimes(2)
+  })
+
+  it('ignores other keys', () => {
+    const onClose = jest.fn()
+    const { getByRole } = render(
+      <Tag label='Removable' variant='info-grey' closable onClose={onClose} />,
+    )
+    const trigger = getByRole('button', { name: 'Removable tag close button' })
+
+    fireEvent.keyDown(trigger, { key: 'Escape' })
+
+    expect(onClose).not.toHaveBeenCalled()
+  })
+
+  it('does not render the close trigger when not closable', () => {
+    const { queryByRole } = render(<Tag label='Static' variant='info-grey' />)
+
+    expect(
+      queryByRole('button', { name: 'Static tag close button' }),
+    ).toBeNull()
+  })
+
+  it('does not render the close trigger when disabled', () => {
+    const { queryByRole } = render(
+      <Tag label='Locked' variant='info-grey' closable disabled />,
+    )
+
+    expect(
+      queryByRole('button', { name: 'Locked tag close button' }),
+    ).toBeNull()
+  })
+
+  it('does not render the close trigger at small size', () => {
+    const { queryByRole } = render(
+      <Tag label='Compact' variant='info-grey' closable size='small' />,
+    )
+
+    expect(
+      queryByRole('button', { name: 'Compact tag close button' }),
+    ).toBeNull()
+  })
+
+  it('supports a custom close aria-label via labels', () => {
+    const { getByRole } = render(
+      <Tag
+        label='Filtro'
+        variant='info-grey'
+        closable
+        labels={{ closeButtonAriaLabel: (label) => `Quitar ${label}` }}
+      />,
+    )
+
+    expect(getByRole('button', { name: 'Quitar Filtro' })).toBeInTheDocument()
   })
 })
