@@ -54,7 +54,9 @@ describe('Breadcrumb', () => {
       />,
     )
 
-    const ellipsis = screen.getByRole('button', { name: '...' })
+    const ellipsis = screen.getByRole('button', {
+      name: 'Show hidden breadcrumb items',
+    })
 
     // With the Chakra 3.27 HTML-validity fix, the collapse trigger must live
     // inside a list item, not as a bare element under the <ol>.
@@ -63,7 +65,9 @@ describe('Breadcrumb', () => {
 
     fireEvent.click(ellipsis)
 
-    expect(screen.queryByRole('button', { name: '...' })).toBeNull()
+    expect(
+      screen.queryByRole('button', { name: 'Show hidden breadcrumb items' }),
+    ).toBeNull()
     expect(screen.getByRole('link', { name: 'Data' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Layer' })).toBeInTheDocument()
   })

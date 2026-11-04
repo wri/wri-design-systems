@@ -96,7 +96,7 @@ describe('Tag — close button', () => {
   it('calls onClose on Enter and Space keydown', () => {
     const onClose = jest.fn()
     const { getByRole } = render(
-      <Tag label='Removable' variant='info-grey' closable />,
+      <Tag label='Removable' variant='info-grey' closable onClose={onClose} />,
     )
     const trigger = getByRole('button', { name: 'Removable tag close button' })
 

@@ -45,6 +45,7 @@ const Breadcrumb = ({
               <button
                 css={breadcrumbEllipsisStyles}
                 type='button'
+                aria-label='Show hidden breadcrumb items'
                 onClick={() => setShowEllipsis(false)}
               >
                 ...
