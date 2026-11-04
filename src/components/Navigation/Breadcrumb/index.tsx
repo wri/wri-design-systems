@@ -41,7 +41,7 @@ const Breadcrumb = ({
             <ChakraBreadcrumb.Separator css={breadcrumbSeparatorStyles(size)}>
               {separator || <ChevronDownIcon rotate='270' />}
             </ChakraBreadcrumb.Separator>
-            <li className='chakra-breadcrumb__item'>
+            <ChakraBreadcrumb.Item css={breadcrumbItemStyles(size)}>
               <button
                 css={breadcrumbEllipsisStyles}
                 type='button'
@@ -49,7 +49,7 @@ const Breadcrumb = ({
               >
                 ...
               </button>
-            </li>
+            </ChakraBreadcrumb.Item>
             <ChakraBreadcrumb.Separator css={breadcrumbSeparatorStyles(size)}>
               {separator || <ChevronDownIcon rotate='270' />}
             </ChakraBreadcrumb.Separator>

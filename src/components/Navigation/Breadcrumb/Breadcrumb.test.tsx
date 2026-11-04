@@ -24,4 +24,28 @@ describe('Breadcrumb — accessibility', () => {
 
     expect(await axe(container)).toHaveNoViolations()
   })
+
+  it('renders collapsed overflow item as a list item and a button', () => {
+    const { container } = render(
+      <Breadcrumb
+        links={[
+          { label: 'Home', link: '/' },
+          { label: 'Data', link: '/data' },
+          { label: 'Layer', link: '/data/layer' },
+          { label: 'Analysis', link: '/data/analysis' },
+        ]}
+        maxItems={2}
+        linkRouter={LinkRouter}
+      />,
+    )
+
+    // With the Chakra 3.27 HTML-validity fix, the collapse trigger must live
+    // inside a list item, not as a bare element under the <ol>.
+    const ellipsisButton = container.querySelector('button')
+    expect(ellipsisButton).toBeInTheDocument()
+    expect(ellipsisButton?.closest('ol')).toBe(
+      container.querySelector('ol'),
+    )
+    expect(ellipsisButton?.closest('li')).not.toBeNull()
+  })
 })
