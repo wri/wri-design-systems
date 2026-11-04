@@ -29,11 +29,33 @@ const items = [
         icon: <SettingsIcon />,
         onItemClick: () => alert('Settings clicked'),
       },
+      {
+        id: 'nav-2',
+        label: <strong>Rich label</strong>,
+        ariaLabel: 'Rich label',
+        variant: 'navigation' as const,
+        onItemClick: () => alert('Rich label clicked'),
+      },
     ]
 
 <List items={items} />
 
 ```
+
+### ReactNode labels
+
+`label` accepts any `ReactNode`. When it is not a plain string, provide an
+`ariaLabel` so the row keeps an accessible name, and a `searchLabel` when the
+item is used inside `Search` or `MobileSearch` so it can still be filtered and
+selected by text.
+
+### Highlighting
+
+Items can be highlighted two ways, which combine:
+
+- `highlightedIndex` on `List` — highlights the item at that index (used by
+  keyboard navigation in `Search`).
+- `isHighlighted` on an item — highlights that item regardless of index.
 
 ## Props
 

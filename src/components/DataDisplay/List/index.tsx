@@ -10,13 +10,15 @@ const List = ({ items, noBorder, highlightedIndex }: ListProps) => (
     {items.map((item, index) => (
       <ListItem
         id={item.id}
-        key={item.id ?? (item.label as string)}
+        key={item.id ?? item.searchLabel ?? index}
         icon={item.icon}
         label={item.label}
+        searchLabel={item.searchLabel}
         caption={item.caption}
         value={item.value}
         variant={item.variant ?? 'data'}
         onItemClick={item.onItemClick}
+        ariaLabel={item.ariaLabel}
         isHighlighted={index === highlightedIndex || item.isHighlighted}
       />
     ))}

@@ -116,6 +116,26 @@ const SearchDemo = () => (
         displayResults='none'
         onSelect={(option) => console.log({ selected: option })}
       />
+
+      {/* ReactNode labels with searchLabel */}
+      <Search
+        options={[
+          ...sampleOptions,
+          {
+            id: '11',
+            label: (
+              <span>
+                Forest <strong>monitor</strong>
+              </span>
+            ),
+            searchLabel: 'Forest monitor',
+            caption: 'ReactNode label • searchable via searchLabel',
+            icon: <MapIcon />,
+          },
+        ]}
+        placeholder='9. ReactNode labels (try "monitor")'
+        onSelect={(option) => console.log({ selected: option })}
+      />
     </Box>
   </DemoWrapper>
 )

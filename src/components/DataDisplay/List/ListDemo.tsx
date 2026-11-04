@@ -34,6 +34,17 @@ const ListDemo = () => {
       variant: 'navigation' as const,
       onItemClick: () => alert('Profile clicked'),
     },
+    {
+      id: 'node-1',
+      label: (
+        <span>
+          Forest <strong>monitor</strong>
+        </span>
+      ),
+      ariaLabel: 'Forest monitor',
+      variant: 'data' as const,
+      value: 'Active',
+    },
   ]
 
   return (
