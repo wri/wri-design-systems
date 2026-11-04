@@ -22,14 +22,12 @@ describe('Footer', () => {
     expect(
       screen.getByText(/© World Resources Institute \d{4}/),
     ).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Privacy policy' })).toHaveAttribute(
-      'href',
-      '/privacy',
-    )
-    expect(screen.getByRole('link', { name: 'Terms of service' })).toHaveAttribute(
-      'href',
-      '/terms',
-    )
+    expect(
+      screen.getByRole('link', { name: 'Privacy policy' }),
+    ).toHaveAttribute('href', '/privacy')
+    expect(
+      screen.getByRole('link', { name: 'Terms of service' }),
+    ).toHaveAttribute('href', '/terms')
     expect(await axe(container)).toHaveNoViolations()
   })
 

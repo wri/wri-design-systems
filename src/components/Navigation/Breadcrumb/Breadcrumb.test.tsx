@@ -33,10 +33,10 @@ describe('Breadcrumb', () => {
       'href',
       '/data',
     )
-    expect(screen.queryByRole('link', { name: 'Layer' })).not.toBeInTheDocument()
     expect(
-      screen.getByText('Layer').getAttribute('aria-current'),
-    ).toBe('page')
+      screen.queryByRole('link', { name: 'Layer' }),
+    ).not.toBeInTheDocument()
+    expect(screen.getByText('Layer').getAttribute('aria-current')).toBe('page')
     expect(await axe(container)).toHaveNoViolations()
   })
 
@@ -83,9 +83,9 @@ describe('Breadcrumb', () => {
     )
 
     expect(screen.getByRole('link', { name: 'Home' })).toBeInTheDocument()
-    expect(
-      screen.getByText('Analysis').getAttribute('aria-current'),
-    ).toBe('page')
+    expect(screen.getByText('Analysis').getAttribute('aria-current')).toBe(
+      'page',
+    )
   })
 
   it('renders small size without a11y violations', async () => {

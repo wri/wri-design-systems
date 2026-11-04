@@ -24,10 +24,15 @@ describe('SliderInput — accessibility', () => {
 describe('SliderInput — numeric input', () => {
   it('renders the initial value in the input', () => {
     const { container } = render(
-      <SliderInput label='Opacity' sliderItem={{ min: 0, max: 100, value: [50] }} />,
+      <SliderInput
+        label='Opacity'
+        sliderItem={{ min: 0, max: 100, value: [50] }}
+      />,
     )
 
-    const input = container.querySelector('input[type="number"]') as HTMLInputElement
+    const input = container.querySelector(
+      'input[type="number"]',
+    ) as HTMLInputElement
     expect(input.value).toBe('50')
   })
 
@@ -41,7 +46,9 @@ describe('SliderInput — numeric input', () => {
       />,
     )
 
-    const input = container.querySelector('input[type="number"]') as HTMLInputElement
+    const input = container.querySelector(
+      'input[type="number"]',
+    ) as HTMLInputElement
     fireEvent.change(input, { target: { value: '-5' } })
     fireEvent.blur(input)
 
@@ -58,7 +65,9 @@ describe('SliderInput — numeric input', () => {
       />,
     )
 
-    const input = container.querySelector('input[type="number"]') as HTMLInputElement
+    const input = container.querySelector(
+      'input[type="number"]',
+    ) as HTMLInputElement
     fireEvent.change(input, { target: { value: '150' } })
     fireEvent.blur(input)
 
@@ -75,7 +84,9 @@ describe('SliderInput — numeric input', () => {
       />,
     )
 
-    const input = container.querySelector('input[type="number"]') as HTMLInputElement
+    const input = container.querySelector(
+      'input[type="number"]',
+    ) as HTMLInputElement
     fireEvent.change(input, { target: { value: 'abc' } })
     fireEvent.blur(input)
 
@@ -118,7 +129,10 @@ describe('SliderInput — numeric input', () => {
 
   it('renders two inputs in range mode', () => {
     const { container } = render(
-      <SliderInput label='Range' sliderItem={{ min: 0, max: 100, value: [40, 80] }} />,
+      <SliderInput
+        label='Range'
+        sliderItem={{ min: 0, max: 100, value: [40, 80] }}
+      />,
     )
 
     expect(container.querySelectorAll('input[type="number"]')).toHaveLength(2)

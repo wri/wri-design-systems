@@ -40,9 +40,7 @@ describe('MobileSearch', () => {
     fireEvent.change(input, { target: { value: 'glad' } })
 
     expect(onQueryChange).toHaveBeenCalledWith('glad')
-    expect(
-      screen.getByText('Showing 1 matching results'),
-    ).toBeInTheDocument()
+    expect(screen.getByText('Showing 1 matching results')).toBeInTheDocument()
     expect(
       screen.getByRole('button', { name: 'Glad alerts, Recent' }),
     ).toBeInTheDocument()
@@ -60,9 +58,7 @@ describe('MobileSearch', () => {
     // the shared mock renders InputGroup as a plain div and drops
     // startElement/endElement slots, so only Cancel is present. Clearing is
     // therefore covered by the cancel test below.
-    expect(
-      screen.getByRole('button', { name: 'Cancel' }),
-    ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Close' })).toBeNull()
   })
 
@@ -70,9 +66,7 @@ describe('MobileSearch', () => {
     const onItemClick = jest.fn()
     renderSearch({ onItemClick })
 
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Forest loss, Alerts' }),
-    )
+    fireEvent.click(screen.getByRole('button', { name: 'Forest loss, Alerts' }))
 
     expect(onItemClick).toHaveBeenCalledWith(
       expect.objectContaining({ id: '1' }),
@@ -96,7 +90,10 @@ describe('MobileSearch', () => {
   it('respects showInfoMessage and localized labels', () => {
     renderSearch({
       showInfoMessage: false,
-      labels: { cancelLabel: 'Cancelar', recentSearchesTitle: 'Búsquedas recientes' },
+      labels: {
+        cancelLabel: 'Cancelar',
+        recentSearchesTitle: 'Búsquedas recientes',
+      },
     })
 
     expect(screen.getByText('Búsquedas recientes')).toBeInTheDocument()

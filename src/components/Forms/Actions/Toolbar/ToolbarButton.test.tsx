@@ -30,11 +30,11 @@ describe('ToolbarButton', () => {
   })
 
   it('hides the visible label from assistive tech when collapsed', () => {
-    render(<ToolbarButton ariaLabel='Zoom in' label='Zoom in' isExpanded={false} />)
+    render(
+      <ToolbarButton ariaLabel='Zoom in' label='Zoom in' isExpanded={false} />,
+    )
 
-    const label = document.querySelector(
-      '.toolbar-item-label',
-    ) as HTMLElement
+    const label = document.querySelector('.toolbar-item-label') as HTMLElement
 
     expect(label).toHaveAttribute('aria-hidden', 'true')
   })
@@ -51,9 +51,9 @@ describe('ToolbarButton', () => {
 
     rerender(<ToolbarButton ariaLabel='Bold' isExpanded />)
 
-    expect(
-      screen.getByRole('button', { name: 'Bold' }),
-    ).not.toHaveAttribute('aria-pressed')
+    expect(screen.getByRole('button', { name: 'Bold' })).not.toHaveAttribute(
+      'aria-pressed',
+    )
   })
 
   it('fires the click handler on activation', () => {
@@ -68,7 +68,12 @@ describe('ToolbarButton', () => {
   it('renders a disabled button that swallows clicks', () => {
     const onClick = jest.fn()
     render(
-      <ToolbarButton ariaLabel='Zoom in' isExpanded disabled onClick={onClick} />,
+      <ToolbarButton
+        ariaLabel='Zoom in'
+        isExpanded
+        disabled
+        onClick={onClick}
+      />,
     )
 
     const button = screen.getByRole('button', { name: 'Zoom in' })

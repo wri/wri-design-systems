@@ -15,11 +15,7 @@ const tabs = [
 
 const renderRail = (props = {}) =>
   render(
-    <NavigationRail
-      tabs={tabs}
-      defaultValue='layers'
-      onTabClick={() => {}}
-    >
+    <NavigationRail tabs={tabs} defaultValue='layers' onTabClick={() => {}}>
       <div>Sidebar content</div>
     </NavigationRail>,
     props as any,

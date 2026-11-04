@@ -92,9 +92,7 @@ describe('FieldWrapper — header content', () => {
       </FieldWrapper>,
     )
 
-    expect(
-      container.querySelector('[aria-label="obligatorio"]'),
-    ).not.toBeNull()
+    expect(container.querySelector('[aria-label="obligatorio"]')).not.toBeNull()
     expect(container.textContent).toContain('(Opcional)')
   })
 
@@ -175,7 +173,10 @@ describe('FieldWrapper — structure', () => {
   it('forwards className and containerProps to the container', () => {
     const { container } = renderField({
       className: 'my-field',
-      containerProps: { id: 'field-wrap', 'data-testid': 'fw' } as FieldWrapperProps['containerProps'],
+      containerProps: {
+        id: 'field-wrap',
+        'data-testid': 'fw',
+      } as FieldWrapperProps['containerProps'],
     })
     const root = container.firstElementChild as HTMLElement
 

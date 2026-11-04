@@ -4,8 +4,7 @@ import { useTabFocus } from './useTabFocus'
 // The hook returns React's synthetic FocusEvent type, but tests dispatch
 // plain DOM events; cast since the hook only forwards the object.
 type FocusEvt = Parameters<ReturnType<typeof useTabFocus>['onFocus']>[0]
-const focusEvent = (type: string) =>
-  new FocusEvent(type) as unknown as FocusEvt
+const focusEvent = (type: string) => new FocusEvent(type) as unknown as FocusEvt
 
 const keydown = (key: string, modifiers = {}) =>
   act(() => {

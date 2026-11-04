@@ -35,9 +35,7 @@ describe('MenuItem', () => {
     expect(item.querySelector('.ds-menu-item-caption')).toHaveTextContent(
       'Makes a copy',
     )
-    expect(
-      screen.getByLabelText('Shortcut ⌘D'),
-    ).toHaveTextContent('⌘D')
+    expect(screen.getByLabelText('Shortcut ⌘D')).toHaveTextContent('⌘D')
     expect(await axe(container)).toHaveNoViolations()
   })
 
@@ -53,7 +51,11 @@ describe('MenuItem', () => {
     expect(screen.getByText('X')).toBeInTheDocument()
 
     rerender(
-      <MenuItem labels={labels} item={{ label: 'Grid view', value: 'grid' }} isChecked />,
+      <MenuItem
+        labels={labels}
+        item={{ label: 'Grid view', value: 'grid' }}
+        isChecked
+      />,
     )
 
     // The checked state swaps the end icon for the check mark icon.

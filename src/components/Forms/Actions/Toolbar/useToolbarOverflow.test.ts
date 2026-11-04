@@ -68,9 +68,7 @@ const setupDom = ({
 
   const measure = document.createElement('div')
   measure.appendChild(buildMeasureRow('expanded', itemsCount, { showToggle }))
-  measure.appendChild(
-    buildMeasureRow('collapsed', itemsCount, { showToggle }),
-  )
+  measure.appendChild(buildMeasureRow('collapsed', itemsCount, { showToggle }))
 
   document.body.appendChild(container)
   document.body.appendChild(measure)

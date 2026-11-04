@@ -26,7 +26,11 @@ const items = [
 describe('OptionCard — accessibility', () => {
   it('renders radio cards with no violations', async () => {
     const { container } = render(
-      <OptionCard defaultValue='standard' items={items} onValueChange={() => {}} />,
+      <OptionCard
+        defaultValue='standard'
+        items={items}
+        onValueChange={() => {}}
+      />,
     )
 
     expect(await axe(container)).toHaveNoViolations()
@@ -67,7 +71,9 @@ describe('OptionCard — structure', () => {
   })
 
   it('renders radio inputs for each item', () => {
-    const { container } = render(<OptionCard defaultValue='standard' items={items} />)
+    const { container } = render(
+      <OptionCard defaultValue='standard' items={items} />,
+    )
 
     expect(container.querySelectorAll('input[type="radio"]')).toHaveLength(2)
   })
@@ -87,7 +93,11 @@ describe('OptionCard — structure', () => {
     const expandedItems = [{ ...items[0], children: <div>Extra content</div> }]
 
     const expanded = render(
-      <OptionCard defaultValue='standard' variant='expanded' items={expandedItems} />,
+      <OptionCard
+        defaultValue='standard'
+        variant='expanded'
+        items={expandedItems}
+      />,
     )
     expect(expanded.getByText('Extra content')).toBeInTheDocument()
   })

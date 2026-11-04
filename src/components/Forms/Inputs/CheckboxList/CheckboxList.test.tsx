@@ -16,7 +16,12 @@ const items = [
 describe('CheckboxList — accessibility', () => {
   it('renders a checkbox group and has no violations', async () => {
     const { container } = render(
-      <CheckboxList label='Interests' caption='Select all that apply' required checkboxes={items} />,
+      <CheckboxList
+        label='Interests'
+        caption='Select all that apply'
+        required
+        checkboxes={items}
+      />,
     )
 
     expect(await axe(container)).toHaveNoViolations()
@@ -46,7 +51,9 @@ describe('CheckboxList — string label', () => {
     )
 
     expect(getByText('Interests')).toBeInTheDocument()
-    expect(getByLabelText(/Interests\. Select all that apply\. Required\./)).toBeInTheDocument()
+    expect(
+      getByLabelText(/Interests\. Select all that apply\. Required\./),
+    ).toBeInTheDocument()
   })
 
   it('marks the group label as optional when not required', () => {
@@ -59,7 +66,11 @@ describe('CheckboxList — string label', () => {
 
   it('includes the error message in the group aria-label', () => {
     const { getByLabelText } = render(
-      <CheckboxList label='Interests' errorMessage='Pick one' checkboxes={items} />,
+      <CheckboxList
+        label='Interests'
+        errorMessage='Pick one'
+        checkboxes={items}
+      />,
     )
 
     expect(getByLabelText(/Error: Pick one\./)).toBeInTheDocument()
@@ -67,7 +78,11 @@ describe('CheckboxList — string label', () => {
 
   it('renders the error message text', () => {
     const { getByText } = render(
-      <CheckboxList label='Interests' errorMessage='Pick one' checkboxes={items} />,
+      <CheckboxList
+        label='Interests'
+        errorMessage='Pick one'
+        checkboxes={items}
+      />,
     )
 
     expect(getByText('Pick one')).toBeInTheDocument()

@@ -26,7 +26,11 @@ const items = [
 describe('CheckboxOptionCard — accessibility', () => {
   it('renders checkbox cards with no violations', async () => {
     const { container } = render(
-      <CheckboxOptionCard defaultValue={['daily']} items={items} onValueChange={() => {}} />,
+      <CheckboxOptionCard
+        defaultValue={['daily']}
+        items={items}
+        onValueChange={() => {}}
+      />,
     )
 
     expect(await axe(container)).toHaveNoViolations()
@@ -36,7 +40,13 @@ describe('CheckboxOptionCard — accessibility', () => {
     const { container } = render(
       <CheckboxOptionCard
         defaultValue={['daily']}
-        items={[{ ...items[0], variant: 'expanded' as const, children: <div>Extra</div> }]}
+        items={[
+          {
+            ...items[0],
+            variant: 'expanded' as const,
+            children: <div>Extra</div>,
+          },
+        ]}
         onValueChange={() => {}}
       />,
     )

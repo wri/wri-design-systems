@@ -65,7 +65,10 @@ describe('Navbar — desktop', () => {
     const { getByRole } = renderNavbar()
 
     expect(getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/')
-    expect(getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about')
+    expect(getByRole('link', { name: 'About' })).toHaveAttribute(
+      'href',
+      '/about',
+    )
   })
 
   it('renders utility section children', () => {

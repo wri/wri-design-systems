@@ -54,10 +54,7 @@ describe('RadioGroup — controlled value', () => {
   it('passes the controlled value to the group root', () => {
     renderGroup({ value: 'express' })
 
-    expect(screen.getByRole('radiogroup')).toHaveAttribute(
-      'value',
-      'express',
-    )
+    expect(screen.getByRole('radiogroup')).toHaveAttribute('value', 'express')
   })
 
   it('defaults to an empty value', () => {

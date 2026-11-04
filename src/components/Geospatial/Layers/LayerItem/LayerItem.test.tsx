@@ -61,7 +61,9 @@ describe('LayerItem', () => {
       />,
     )
 
-    expect(screen.getByRole('button', { name: 'Layer details' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Layer details' }),
+    ).toBeInTheDocument()
   })
 
   it('disables the toggle and info button together', () => {

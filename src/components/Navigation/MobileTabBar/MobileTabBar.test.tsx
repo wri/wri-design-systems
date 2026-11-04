@@ -56,7 +56,12 @@ jest.mock('@chakra-ui/react', () => {
 
 const tabs = [
   { label: 'Map', value: 'map', icon: <PlaceholderIcon /> },
-  { label: 'Layers', value: 'layers', icon: <PlaceholderIcon />, bagdeCount: 2 },
+  {
+    label: 'Layers',
+    value: 'layers',
+    icon: <PlaceholderIcon />,
+    bagdeCount: 2,
+  },
   { label: 'Settings', value: 'settings', icon: <PlaceholderIcon /> },
 ]
 
@@ -71,21 +76,21 @@ describe('MobileTabBar', () => {
     expect(tabsList).toHaveLength(3)
     expect(tabsList[0]).toHaveAttribute('aria-label', 'Map')
     expect(container.querySelector('.ds-badge-count')).toHaveTextContent('2')
-    expect(
-      container.querySelector('#map-str-status'),
-    ).toHaveTextContent('tab 1 of 3, selected')
-    expect(
-      container.querySelector('#layers-str-status'),
-    ).toHaveTextContent('tab 2 of 3, not selected')
+    expect(container.querySelector('#map-str-status')).toHaveTextContent(
+      'tab 1 of 3, selected',
+    )
+    expect(container.querySelector('#layers-str-status')).toHaveTextContent(
+      'tab 2 of 3, not selected',
+    )
     expect(await axe(container)).toHaveNoViolations()
   })
 
   it('defaults to the first tab when no defaultValue is given', () => {
     const { container } = render(<MobileTabBar tabs={tabs} />)
 
-    expect(
-      container.querySelector('#map-str-status'),
-    ).toHaveTextContent('selected')
+    expect(container.querySelector('#map-str-status')).toHaveTextContent(
+      'selected',
+    )
   })
 
   it('reports the selected tab value through onTabClick', () => {
@@ -97,12 +102,12 @@ describe('MobileTabBar', () => {
     fireEvent.click(screen.getByRole('tab', { name: 'Settings' }))
 
     expect(onTabClick).toHaveBeenCalledWith('settings')
-    expect(
-      container.querySelector('#settings-str-status'),
-    ).toHaveTextContent('tab 3 of 3, selected')
-    expect(
-      container.querySelector('#map-str-status'),
-    ).toHaveTextContent('not selected')
+    expect(container.querySelector('#settings-str-status')).toHaveTextContent(
+      'tab 3 of 3, selected',
+    )
+    expect(container.querySelector('#map-str-status')).toHaveTextContent(
+      'not selected',
+    )
   })
 
   it('marks disabled tabs in their status description', () => {
@@ -121,9 +126,9 @@ describe('MobileTabBar', () => {
       />,
     )
 
-    expect(
-      container.querySelector('#layers-str-status'),
-    ).toHaveTextContent('tab 2 of 2, not selected, disabled')
+    expect(container.querySelector('#layers-str-status')).toHaveTextContent(
+      'tab 2 of 2, not selected, disabled',
+    )
     expect(screen.getByRole('tab', { name: 'Layers' })).toHaveAttribute(
       'aria-disabled',
       'true',
@@ -149,8 +154,8 @@ describe('MobileTabBar', () => {
       />,
     )
 
-    expect(
-      container.querySelector('#map-str-status'),
-    ).toHaveTextContent('pestaña 1 de 3, seleccionada')
+    expect(container.querySelector('#map-str-status')).toHaveTextContent(
+      'pestaña 1 de 3, seleccionada',
+    )
   })
 })

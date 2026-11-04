@@ -15,7 +15,12 @@ const units = [
 describe('InputWithUnits — accessibility', () => {
   it('renders with unit selector and has no violations', async () => {
     const { container } = render(
-      <InputWithUnits label='Distance' caption='Enter a value' units={units} defaultValue='10' />,
+      <InputWithUnits
+        label='Distance'
+        caption='Enter a value'
+        units={units}
+        defaultValue='10'
+      />,
     )
 
     expect(await axe(container)).toHaveNoViolations()
@@ -42,7 +47,9 @@ describe('InputWithUnits — structure', () => {
     const value = getAllByLabelText('Distance value')[0]
     const unit = getAllByLabelText('Distance unit')[0]
 
-    expect(value.compareDocumentPosition(unit) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(
+      value.compareDocumentPosition(unit) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy()
   })
 
   it('places the unit select before the input with unitsPosition="start"', () => {
@@ -53,16 +60,25 @@ describe('InputWithUnits — structure', () => {
     const value = getAllByLabelText('Distance value')[0]
     const unit = getAllByLabelText('Distance unit')[0]
 
-    expect(unit.compareDocumentPosition(value) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(
+      unit.compareDocumentPosition(value) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy()
   })
 
   it('defaults the unit to the first unit when defaultUnit is omitted', () => {
     const onChange = jest.fn()
     const { getByLabelText } = render(
-      <InputWithUnits label='Distance' units={units} defaultValue='10' onChange={onChange} />,
+      <InputWithUnits
+        label='Distance'
+        units={units}
+        defaultValue='10'
+        onChange={onChange}
+      />,
     )
 
-    fireEvent.change(getByLabelText('Distance value'), { target: { value: '42' } })
+    fireEvent.change(getByLabelText('Distance value'), {
+      target: { value: '42' },
+    })
 
     expect(onChange).toHaveBeenLastCalledWith('42 km')
   })
@@ -79,7 +95,9 @@ describe('InputWithUnits — structure', () => {
       />,
     )
 
-    fireEvent.change(getByLabelText('Distance value'), { target: { value: '42' } })
+    fireEvent.change(getByLabelText('Distance value'), {
+      target: { value: '42' },
+    })
 
     expect(onChange).toHaveBeenLastCalledWith('42 mi')
   })
@@ -96,7 +114,9 @@ describe('InputWithUnits — structure', () => {
       />,
     )
 
-    fireEvent.change(getByLabelText('Distance value'), { target: { value: '42' } })
+    fireEvent.change(getByLabelText('Distance value'), {
+      target: { value: '42' },
+    })
 
     expect(onChange).toHaveBeenLastCalledWith('42 km')
   })
@@ -113,14 +133,20 @@ describe('InputWithUnits — structure', () => {
       />,
     )
 
-    fireEvent.change(getByLabelText('Distance value'), { target: { value: '42' } })
+    fireEvent.change(getByLabelText('Distance value'), {
+      target: { value: '42' },
+    })
 
     expect(onChange).toHaveBeenLastCalledWith('km 42')
   })
 
   it('renders the error message', () => {
     const { getByText } = render(
-      <InputWithUnits label='Distance' units={units} errorMessage='Enter a number' />,
+      <InputWithUnits
+        label='Distance'
+        units={units}
+        errorMessage='Enter a number'
+      />,
     )
 
     expect(getByText('Enter a number')).toBeInTheDocument()

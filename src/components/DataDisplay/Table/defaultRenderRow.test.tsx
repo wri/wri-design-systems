@@ -24,9 +24,12 @@ describe('defaultRenderRow', () => {
     const { container } = render(
       <table>
         <tbody>
-          {Row({ id: 1, name: 'Forest', area: '10 ha' }, {
-            getCellProps: () => ({}),
-          })}
+          {Row(
+            { id: 1, name: 'Forest', area: '10 ha' },
+            {
+              getCellProps: () => ({}),
+            },
+          )}
         </tbody>
       </table>,
     )
@@ -64,7 +67,11 @@ describe('defaultRenderRow', () => {
         },
       ],
     })
-    render(<table><tbody>{Row({ id: 2, name: 'Peatland', area: '5 ha' })}</tbody></table>)
+    render(
+      <table>
+        <tbody>{Row({ id: 2, name: 'Peatland', area: '5 ha' })}</tbody>
+      </table>,
+    )
 
     expect(screen.getByText('Peatland')).toBeInTheDocument()
     expect(screen.getByText('5 ha total')).toBeInTheDocument()
@@ -75,10 +82,13 @@ describe('defaultRenderRow', () => {
     const { container } = render(
       <table>
         <tbody>
-          {Row({ id: 2, name: 'Peatland', area: '5 ha' }, {
-            className: 'striped-row',
-            getCellProps: (key: string) => ({ 'data-col': key }),
-          })}
+          {Row(
+            { id: 2, name: 'Peatland', area: '5 ha' },
+            {
+              className: 'striped-row',
+              getCellProps: (key: string) => ({ 'data-col': key }),
+            },
+          )}
         </tbody>
       </table>,
     )

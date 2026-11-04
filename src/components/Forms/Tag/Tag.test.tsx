@@ -42,7 +42,11 @@ describe('Tag — variants', () => {
 
   it('renders an icon in the start element', () => {
     const { container } = render(
-      <Tag label='With icon' variant='info-grey' icon={<span data-testid='tag-icon' />} />,
+      <Tag
+        label='With icon'
+        variant='info-grey'
+        icon={<span data-testid='tag-icon' />}
+      />,
     )
 
     expect(container.querySelector('[data-testid="tag-icon"]')).not.toBeNull()
@@ -51,13 +55,17 @@ describe('Tag — variants', () => {
 
 describe('Tag — sizes', () => {
   it('renders the default size', () => {
-    const { getByText } = render(<Tag label='Default size' variant='info-grey' />)
+    const { getByText } = render(
+      <Tag label='Default size' variant='info-grey' />,
+    )
 
     expect(getByText('Default size')).toBeInTheDocument()
   })
 
   it('renders the small size', () => {
-    const { getByText } = render(<Tag label='Small size' variant='info-grey' size='small' />)
+    const { getByText } = render(
+      <Tag label='Small size' variant='info-grey' size='small' />,
+    )
 
     expect(getByText('Small size')).toBeInTheDocument()
   })
@@ -65,7 +73,9 @@ describe('Tag — sizes', () => {
 
 describe('Tag — close button', () => {
   it('renders a close trigger when closable', () => {
-    const { getByRole } = render(<Tag label='Removable' variant='info-grey' closable />)
+    const { getByRole } = render(
+      <Tag label='Removable' variant='info-grey' closable />,
+    )
 
     expect(
       getByRole('button', { name: 'Removable tag close button' }),
@@ -85,7 +95,9 @@ describe('Tag — close button', () => {
 
   it('calls onClose on Enter and Space keydown', () => {
     const onClose = jest.fn()
-    const { getByRole } = render(<Tag label='Removable' variant='info-grey' closable />)
+    const { getByRole } = render(
+      <Tag label='Removable' variant='info-grey' closable />,
+    )
     const trigger = getByRole('button', { name: 'Removable tag close button' })
 
     fireEvent.keyDown(trigger, { key: 'Enter' })

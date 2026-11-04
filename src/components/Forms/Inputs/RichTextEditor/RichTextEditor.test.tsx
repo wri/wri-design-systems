@@ -117,9 +117,13 @@ describe('RichTextEditor — visibleControls', () => {
     expect(getByRole('button', { name: 'Undo' })).toBeInTheDocument()
     expect(getByRole('button', { name: 'Redo' })).toBeInTheDocument()
     // Option controls compose their label with the current value.
-    expect(getByRole('button', { name: 'Text Type: Normal text' })).toBeInTheDocument()
+    expect(
+      getByRole('button', { name: 'Text Type: Normal text' }),
+    ).toBeInTheDocument()
     expect(getByRole('button', { name: 'Font Size: 16px' })).toBeInTheDocument()
-    expect(getByRole('button', { name: 'Alignment: Align left' })).toBeInTheDocument()
+    expect(
+      getByRole('button', { name: 'Alignment: Align left' }),
+    ).toBeInTheDocument()
     expect(getByRole('button', { name: 'Bold (B)' })).toBeInTheDocument()
     expect(getByRole('button', { name: 'Italic (I)' })).toBeInTheDocument()
     expect(getByRole('button', { name: 'Underline (U)' })).toBeInTheDocument()
@@ -152,7 +156,9 @@ describe('RichTextEditor — visibleControls', () => {
     const { getByRole } = render(<RichTextEditor />)
 
     expect(getByRole('button', { name: 'Bold (B)' }).textContent).toContain('B')
-    expect(getByRole('button', { name: 'Italic (I)' }).textContent).toContain('I')
+    expect(getByRole('button', { name: 'Italic (I)' }).textContent).toContain(
+      'I',
+    )
   })
 })
 

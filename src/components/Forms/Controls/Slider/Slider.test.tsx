@@ -62,7 +62,9 @@ describe('Slider', () => {
     )
 
     // The mocked Marker renders one div per value inside the marker group.
-    const markers = container.querySelectorAll('[value="0"], [value="5"], [value="10"]')
+    const markers = container.querySelectorAll(
+      '[value="0"], [value="5"], [value="10"]',
+    )
 
     expect(markers).toHaveLength(3)
   })

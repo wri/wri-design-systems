@@ -60,9 +60,7 @@ describe('NavbarMobile', () => {
       '/home',
     )
     expect(screen.getByRole('link', { name: 'Help' })).toBeInTheDocument()
-    expect(
-      screen.getByRole('button', { name: 'Explore' }),
-    ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Explore' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Sign in' })).toBeInTheDocument()
     expect(await axe(container)).toHaveNoViolations()
   })

@@ -1,10 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
-import {
-  DesignSystemLocaleProvider,
-  useLocaleContext,
-} from './LocaleProvider'
+import { DesignSystemLocaleProvider, useLocaleContext } from './LocaleProvider'
 import { useLabels } from './useLabels'
 import { defaultLabels } from './defaultLabels'
 
@@ -49,7 +46,10 @@ describe('useLabels — priority resolution', () => {
       <DesignSystemLocaleProvider
         labels={{ TextInput: { requiredSymbolLabel: 'from-context' } }}
       >
-        <Probe componentName='TextInput' labels={{ requiredSymbolLabel: 'from-props' }} />
+        <Probe
+          componentName='TextInput'
+          labels={{ requiredSymbolLabel: 'from-props' }}
+        />
       </DesignSystemLocaleProvider>,
     )
 
