@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
+import { css } from '@emotion/react'
+import { isValidElement, type ReactNode } from 'react'
 import { Tag as ChakraTag } from '@chakra-ui/react'
 import { TagProps } from './types'
 import {
@@ -13,12 +15,30 @@ import {
 import { CloseIcon } from '../../icons'
 import { useLabels } from '../../../lib/i18n/useLabels'
 
+const getLabelText = (node: ReactNode): string => {
+  if (typeof node === 'string' || typeof node === 'number') {
+    return String(node)
+  }
+  if (isValidElement(node)) {
+    return getLabelText((node.props as { children?: ReactNode }).children)
+  }
+  if (Array.isArray(node)) {
+    return node.map(getLabelText).join('')
+  }
+  return ''
+}
+
 const Tag = ({
   label,
   size = 'default',
   variant,
   disabled,
   icon,
+  ariaLabel,
+  color,
+  borderColor,
+  closeIconColor,
+  iconPosition = 'start',
   onClose,
   closable,
   labels,
@@ -37,18 +57,42 @@ const Tag = ({
     variantTagStyles = errorTagStyles
   }
 
+  if (color || borderColor || closeIconColor) {
+    variantTagStyles = css`
+      ${variantTagStyles}
+      ${color ? `background-color: ${color};` : ''}
+      ${borderColor ? `border-color: ${borderColor};` : ''}
+      ${closeIconColor
+        ? `.chakra-tag__closeTrigger { color: ${closeIconColor}; }`
+        : ''}
+    `
+  }
+
+  const hasCustomBorder = Boolean(borderColor)
+  const accessibleName = ariaLabel ?? getLabelText(label)
+
   return (
     <ChakraTag.Root
-      css={[baseTagStyles(size), variantTagStyles]}
+      css={[baseTagStyles(size, hasCustomBorder), variantTagStyles]}
       data-disabled={disabled}
       {...rest}
     >
-      {icon ? (
+      {icon && iconPosition === 'start' ? (
         <ChakraTag.StartElement aria-hidden='true'>
           {icon}
         </ChakraTag.StartElement>
       ) : null}
-      <ChakraTag.Label aria-label={label}>{label}</ChakraTag.Label>
+      <ChakraTag.Label aria-label={accessibleName || undefined}>
+        {label}
+      </ChakraTag.Label>
+      {icon && iconPosition === 'end' ? (
+        <ChakraTag.EndElement
+          aria-hidden='true'
+          className='chakra-tag__iconEndElement'
+        >
+          {icon}
+        </ChakraTag.EndElement>
+      ) : null}
       {closable && !disabled && size !== 'small' ? (
         <ChakraTag.EndElement>
           <div
@@ -62,7 +106,7 @@ const Tag = ({
                 onClose()
               }
             }}
-            aria-label={l.closeButtonAriaLabel(label)}
+            aria-label={l.closeButtonAriaLabel(accessibleName)}
           >
             <CloseIcon />
           </div>

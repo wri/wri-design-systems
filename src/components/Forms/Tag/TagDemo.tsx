@@ -157,6 +157,68 @@ const TagDemo = () => (
           disabled
         />
       </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.375rem',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Tag
+          label='Small'
+          size='small'
+          variant='info-grey'
+          icon={<InfoIcon />}
+          iconPosition='end'
+        />
+        <Tag
+          label='Default'
+          variant='info-grey'
+          icon={<InfoIcon />}
+          iconPosition='end'
+          closable
+        />
+        <Tag
+          label='Large'
+          size='large'
+          variant='info-grey'
+          icon={<InfoIcon />}
+          iconPosition='end'
+          closable
+        />
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.375rem',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Tag
+          label={<span style={{ color: 'white' }}>Small custom color</span>}
+          size='small'
+          variant='info-grey'
+          color='#7B61FF'
+          borderColor='#FF5C00'
+        />
+        <Tag
+          label={<span style={{ color: 'white' }}>Default custom color</span>}
+          variant='info-grey'
+          color='#7B61FF'
+          borderColor='#FF5C00'
+        />
+        <Tag
+          label={<span style={{ color: 'white' }}>Large custom colors</span>}
+          size='large'
+          variant='info-grey'
+          color='#7B61FF'
+          borderColor='#FF5C00'
+          closeIconColor='#FF5C00'
+          closable
+        />
+      </div>
     </div>
   </DemoWrapper>
 )

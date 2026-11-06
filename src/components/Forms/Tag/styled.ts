@@ -9,14 +9,17 @@ import {
 } from '../../../lib/theme'
 import { TagProps } from './types'
 
-export const baseTagStyles = (size: TagProps['size']) => css`
+export const baseTagStyles = (
+  size: TagProps['size'],
+  hasCustomBorder?: boolean,
+) => css`
   max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0;
   padding: ${getThemedSpacing(100)} ${getThemedSpacing(200)};
-  border-radius: ${getThemedRadius(300)};
+  border-radius: ${getThemedRadius(900)};
   font-weight: 700;
   color: ${getThemedColor('neutral', 700)};
   box-shadow: none;
@@ -24,6 +27,12 @@ export const baseTagStyles = (size: TagProps['size']) => css`
   height: ${getThemedSpacing(600)};
   font-size: ${getThemedFontSize(200)};
   line-height: ${getThemedLineHeight(400)};
+
+  ${size !== 'large' && !hasCustomBorder
+    ? `
+    border: none !important;
+  `
+    : ''}
 
   .chakra-tag__startElement {
     width: 0.875rem;
@@ -41,6 +50,16 @@ export const baseTagStyles = (size: TagProps['size']) => css`
     height: 0.625rem;
   }
 
+  .chakra-tag__iconEndElement {
+    width: 0.875rem;
+    height: 0.625rem;
+  }
+
+  .chakra-tag__iconEndElement svg {
+    margin-right: 0;
+    margin-left: ${getThemedSpacing(100)};
+  }
+
   .chakra-tag__closeTrigger {
     margin-left: ${getThemedSpacing(200)};
 
@@ -52,7 +71,6 @@ export const baseTagStyles = (size: TagProps['size']) => css`
   ${size === 'small'
     ? `
     height: ${getThemedSpacing(400)};
-    border: none !important;
     font-size: 0.625rem;
     line-height: ${getThemedLineHeight(300)};
 
@@ -65,6 +83,16 @@ export const baseTagStyles = (size: TagProps['size']) => css`
       width: ${getThemedSpacing(200)};
       height: ${getThemedSpacing(200)};
       margin-right: ${getThemedSpacing(100)};
+    }
+
+    .chakra-tag__iconEndElement {
+      width: ${getThemedSpacing(300)};
+      height: ${getThemedSpacing(200)};
+    }
+
+    .chakra-tag__iconEndElement svg {
+      margin-right: 0;
+      margin-left: ${getThemedSpacing(100)};
     }
 
     .chakra-tag__closeTrigger {
@@ -97,6 +125,16 @@ export const baseTagStyles = (size: TagProps['size']) => css`
     .chakra-tag__endElement {
       width: 1.375rem;
       height: ${getThemedSpacing(300)};
+    }
+
+    .chakra-tag__iconEndElement {
+      width: 1.125rem;
+      height: ${getThemedSpacing(300)};
+    }
+
+    .chakra-tag__iconEndElement svg {
+      margin-right: 0;
+      margin-left: 0.375rem;
     }
 
     .chakra-tag__closeTrigger {

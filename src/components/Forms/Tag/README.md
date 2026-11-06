@@ -27,11 +27,21 @@ type TagProps = Omit<
   ChakraTag.RootProps,
   'size' | 'variant' | 'colorPalette' | 'children'
 > & {
-  label: string
+  label: React.ReactNode
+  /** Optional accessible name when `label` is not plain text. */
+  ariaLabel?: string
   variant: 'info-white' | 'info-grey' | 'success' | 'warning' | 'error'
   size?: 'small' | 'default' | 'large'
   disabled?: boolean
   icon?: React.ReactNode
+  /** Whether the icon renders before (start) or after (end) the label. */
+  iconPosition?: 'start' | 'end'
+  /** Optional custom background color, overriding the variant background. */
+  color?: string
+  /** Optional custom border color, overriding the variant border. */
+  borderColor?: string
+  /** Optional custom color for the close icon, overriding the default. */
+  closeIconColor?: string
   onClose?: VoidFunction
   closable?: boolean
   labels?: Partial<TagLabels>
@@ -84,6 +94,42 @@ type TagProps = Omit<
 
 ```tsx
 <Tag label='Label' variant='info-grey' icon={<InfoIcon />} />
+```
+
+## Icon On The Right
+
+```tsx
+<Tag label='Label' variant='info-grey' icon={<InfoIcon />} iconPosition='end' />
+```
+
+## Custom Color
+
+```tsx
+<Tag label='Label' variant='info-grey' color='#7B61FF' />
+```
+
+## Close Icon Color
+
+When `closeIconColor` is set, it overrides the close icon's original color.
+
+```tsx
+<Tag label='Label' variant='info-grey' closable closeIconColor='#FF0000' />
+```
+
+## Custom Border Color
+
+```tsx
+<Tag label='Label' variant='info-grey' borderColor='#7B61FF' />
+```
+
+## Node Label
+
+```tsx
+<Tag
+  ariaLabel='Status: active'
+  label={<strong>Status</strong>}
+  variant='success'
+/>
 ```
 
 ## Closable
