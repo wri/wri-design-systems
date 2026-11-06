@@ -22,7 +22,14 @@ const meta = {
   tags: ['autodocs'],
   args: { onClick: fn() },
   argTypes: {
-    label: { description: 'Tag label text', control: 'text' },
+    label: {
+      description: 'Tag label text or custom React node',
+      control: 'text',
+    },
+    ariaLabel: {
+      description: 'Optional accessible name when the label is not plain text',
+      control: 'text',
+    },
     variant: {
       description: 'Color/semantic variant',
       control: { type: 'select' },
@@ -41,6 +48,24 @@ const meta = {
     icon: {
       description: 'Optional icon displayed inside the tag',
       control: false,
+    },
+    iconPosition: {
+      description: 'Icon position: before (start) or after (end) the label',
+      control: { type: 'select' },
+      options: ['start', 'end'],
+    },
+    backgroundColor: {
+      description: 'Custom background color, overrides the variant background',
+      control: 'color',
+    },
+    borderColor: {
+      description:
+        'Custom border color — when set, the border renders on any size',
+      control: 'color',
+    },
+    closeIconColor: {
+      description: 'Custom close icon color, overrides the original color',
+      control: 'color',
     },
     onClose: {
       description: 'Handler called when the close button is clicked',
@@ -95,6 +120,31 @@ export const WithIcon: Story = {
   },
 }
 
+export const WithIconEnd: Story = {
+  args: {
+    label: 'Icon End',
+    variant: 'info-grey',
+    icon: <InfoIcon />,
+    iconPosition: 'end',
+  },
+}
+
+export const Small: Story = {
+  args: {
+    label: 'Small Tag',
+    variant: 'info-grey',
+    size: 'small',
+  },
+}
+
+export const Large: Story = {
+  args: {
+    label: 'Large Tag',
+    variant: 'info-grey',
+    size: 'large',
+  },
+}
+
 export const Closable: Story = {
   args: {
     label: 'Closable',
@@ -109,5 +159,24 @@ export const Disabled: Story = {
     label: 'Disabled',
     variant: 'info-grey',
     disabled: true,
+  },
+}
+
+export const CustomColors: Story = {
+  args: {
+    label: <span style={{ color: 'white' }}>Custom colors</span>,
+    variant: 'info-grey',
+    backgroundColor: '#7B61FF',
+    borderColor: '#FF0000',
+    closeIconColor: '#00eeff',
+    closable: true,
+  },
+}
+
+export const NodeLabel: Story = {
+  args: {
+    ariaLabel: 'Status: active',
+    label: <span style={{ fontStyle: 'italic' }}>Status</span>,
+    variant: 'success',
   },
 }
