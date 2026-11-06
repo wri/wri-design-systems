@@ -31,7 +31,7 @@ describe('Tag — accessibility', () => {
         ariaLabel='Status: active'
         label={<strong>Status</strong>}
         variant='info-grey'
-        color='#7B61FF'
+        backgroundColor='#7B61FF'
         borderColor='#FF5C00'
         closeIconColor='#FF5C00'
         icon={<InfoIcon />}
@@ -142,8 +142,8 @@ describe('Tag — label types', () => {
     expect(getByText('Status')).toBeInTheDocument()
   })
 
-  it('uses the ariaLabel as accessible name for a node label', () => {
-    const { getByLabelText } = render(
+  it('exposes the ariaLabel as visually hidden text for a node label', () => {
+    const { getByText } = render(
       <Tag
         ariaLabel='Status: active'
         label={<strong>Status</strong>}
@@ -151,19 +151,32 @@ describe('Tag — label types', () => {
       />,
     )
 
-    expect(getByLabelText('Status: active')).toBeInTheDocument()
+    expect(getByText('Status: active')).toBeInTheDocument()
   })
 
-  it('derives the accessible name from a string label', () => {
-    const { getByLabelText } = render(
+  it('hides the visible label from assistive tech when ariaLabel is provided', () => {
+    const { getByText, container } = render(
+      <Tag
+        ariaLabel='Status: active'
+        label={<strong>Status</strong>}
+        variant='success'
+      />,
+    )
+
+    expect(getByText('Status')).toBeInTheDocument()
+    expect(container.querySelector('span[aria-hidden="true"]')).not.toBeNull()
+  })
+
+  it('renders a string label as its own accessible text', () => {
+    const { getByText } = render(
       <Tag label='Plain label' variant='info-grey' />,
     )
 
-    expect(getByLabelText('Plain label')).toBeInTheDocument()
+    expect(getByText('Plain label')).toBeInTheDocument()
   })
 })
 
-describe('Tag — custom color', () => {
+describe('Tag — custom colors', () => {
   it('renders with a custom close icon color', () => {
     const { getByText } = render(
       <Tag label='Custom' variant='info-grey' closeIconColor='#FF0000' />,
@@ -172,9 +185,9 @@ describe('Tag — custom color', () => {
     expect(getByText('Custom')).toBeInTheDocument()
   })
 
-  it('renders with a custom color', () => {
+  it('renders with a custom backgroundColor', () => {
     const { getByText } = render(
-      <Tag label='Custom' variant='info-grey' color='#7B61FF' />,
+      <Tag label='Custom' variant='info-grey' backgroundColor='#7B61FF' />,
     )
 
     expect(getByText('Custom')).toBeInTheDocument()
@@ -195,6 +208,46 @@ describe('Tag — custom color', () => {
         variant='info-grey'
         size='small'
         borderColor='#FF0000'
+      />,
+    )
+
+    expect(getByText('Custom')).toBeInTheDocument()
+  })
+
+  it('accepts css color function values', () => {
+    const { getByText } = render(
+      <Tag
+        label='Custom'
+        variant='info-grey'
+        backgroundColor='rgb(255, 0, 0)'
+        borderColor='rgba(0, 0, 0, 0.5)'
+      />,
+    )
+
+    expect(getByText('Custom')).toBeInTheDocument()
+  })
+
+  it('accepts named color values', () => {
+    const { getByText } = render(
+      <Tag
+        label='Custom'
+        variant='info-grey'
+        backgroundColor='rebeccapurple'
+        borderColor='black'
+      />,
+    )
+
+    expect(getByText('Custom')).toBeInTheDocument()
+  })
+
+  it('ignores malicious css injection attempts in color props', () => {
+    const { getByText } = render(
+      <Tag
+        label='Custom'
+        variant='info-grey'
+        backgroundColor="red; } .evil { background: url('http://evil.com')"
+        borderColor='expression(alert(1))'
+        closeIconColor='url(javascript:alert(1))'
       />,
     )
 

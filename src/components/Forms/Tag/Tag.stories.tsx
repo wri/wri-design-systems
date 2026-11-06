@@ -54,7 +54,7 @@ const meta = {
       control: { type: 'select' },
       options: ['start', 'end'],
     },
-    color: {
+    backgroundColor: {
       description: 'Custom background color, overrides the variant background',
       control: 'color',
     },
@@ -166,7 +166,7 @@ export const CustomColors: Story = {
   args: {
     label: <span style={{ color: 'white' }}>Custom colors</span>,
     variant: 'info-grey',
-    color: '#7B61FF',
+    backgroundColor: '#7B61FF',
     borderColor: '#FF0000',
     closeIconColor: '#00eeff',
     closable: true,

@@ -200,20 +200,20 @@ const TagDemo = () => (
           label={<span style={{ color: 'white' }}>Small custom color</span>}
           size='small'
           variant='info-grey'
-          color='#7B61FF'
+          backgroundColor='#7B61FF'
           borderColor='#FF5C00'
         />
         <Tag
           label={<span style={{ color: 'white' }}>Default custom color</span>}
           variant='info-grey'
-          color='#7B61FF'
+          backgroundColor='#7B61FF'
           borderColor='#FF5C00'
         />
         <Tag
           label={<span style={{ color: 'white' }}>Large custom colors</span>}
           size='large'
           variant='info-grey'
-          color='#7B61FF'
+          backgroundColor='#7B61FF'
           borderColor='#FF5C00'
           closeIconColor='#FF5C00'
           closable

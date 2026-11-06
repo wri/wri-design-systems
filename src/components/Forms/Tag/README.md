@@ -25,7 +25,7 @@ type TagLabels = {
 
 type TagProps = Omit<
   ChakraTag.RootProps,
-  'size' | 'variant' | 'colorPalette' | 'children'
+  'size' | 'variant' | 'colorPalette' | 'children' | 'border' | 'color'
 > & {
   label: React.ReactNode
   /** Optional accessible name when `label` is not plain text. */
@@ -37,7 +37,7 @@ type TagProps = Omit<
   /** Whether the icon renders before (start) or after (end) the label. */
   iconPosition?: 'start' | 'end'
   /** Optional custom background color, overriding the variant background. */
-  color?: string
+  backgroundColor?: string
   /** Optional custom border color, overriding the variant border. */
   borderColor?: string
   /** Optional custom color for the close icon, overriding the default. */
@@ -102,10 +102,10 @@ type TagProps = Omit<
 <Tag label='Label' variant='info-grey' icon={<InfoIcon />} iconPosition='end' />
 ```
 
-## Custom Color
+## Custom Background Color
 
 ```tsx
-<Tag label='Label' variant='info-grey' color='#7B61FF' />
+<Tag label='Label' variant='info-grey' backgroundColor='#7B61FF' />
 ```
 
 ## Close Icon Color

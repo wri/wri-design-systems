@@ -2,7 +2,7 @@
 
 import { css } from '@emotion/react'
 import { isValidElement, type ReactNode } from 'react'
-import { Tag as ChakraTag } from '@chakra-ui/react'
+import { Tag as ChakraTag, VisuallyHidden } from '@chakra-ui/react'
 import { TagProps } from './types'
 import {
   baseTagStyles,
@@ -28,6 +28,18 @@ const getLabelText = (node: ReactNode): string => {
   return ''
 }
 
+/**
+ * Interpolated into an Emotion css template, a raw color string could inject
+ * arbitrary CSS. Allowlist the safe color syntaxes instead: hex, named
+ * colors, and css color functions. Anything else is ignored so the variant
+ * styling applies.
+ */
+const SAFE_COLOR_PATTERN =
+  /^(#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})|[a-zA-Z]+|(?:rgb|rgba|hsl|hsla|hwb|lab|lch|oklab|oklch|color|color-mix)\([\w\s,%./()-]*\))$/i
+
+const safeColor = (value?: string) =>
+  value && SAFE_COLOR_PATTERN.test(value) ? value : undefined
+
 const Tag = ({
   label,
   size = 'default',
@@ -35,7 +47,7 @@ const Tag = ({
   disabled,
   icon,
   ariaLabel,
-  color,
+  backgroundColor,
   borderColor,
   closeIconColor,
   iconPosition = 'start',
@@ -57,18 +69,22 @@ const Tag = ({
     variantTagStyles = errorTagStyles
   }
 
-  if (color || borderColor || closeIconColor) {
+  const safeBackgroundColor = safeColor(backgroundColor)
+  const safeBorderColor = safeColor(borderColor)
+  const safeCloseIconColor = safeColor(closeIconColor)
+
+  if (safeBackgroundColor || safeBorderColor || safeCloseIconColor) {
     variantTagStyles = css`
       ${variantTagStyles}
-      ${color ? `background-color: ${color};` : ''}
-      ${borderColor ? `border-color: ${borderColor};` : ''}
-      ${closeIconColor
-        ? `.chakra-tag__closeTrigger { color: ${closeIconColor}; }`
+      ${safeBackgroundColor ? `background-color: ${safeBackgroundColor};` : ''}
+      ${safeBorderColor ? `border-color: ${safeBorderColor};` : ''}
+      ${safeCloseIconColor
+        ? `.chakra-tag__closeTrigger { color: ${safeCloseIconColor}; }`
         : ''}
     `
   }
 
-  const hasCustomBorder = Boolean(borderColor)
+  const hasCustomBorder = Boolean(safeBorderColor)
   const accessibleName = ariaLabel ?? getLabelText(label)
 
   return (
@@ -82,8 +98,15 @@ const Tag = ({
           {icon}
         </ChakraTag.StartElement>
       ) : null}
-      <ChakraTag.Label aria-label={accessibleName || undefined}>
-        {label}
+      <ChakraTag.Label>
+        {ariaLabel ? (
+          <>
+            <span aria-hidden='true'>{label}</span>
+            <VisuallyHidden>{ariaLabel}</VisuallyHidden>
+          </>
+        ) : (
+          label
+        )}
       </ChakraTag.Label>
       {icon && iconPosition === 'end' ? (
         <ChakraTag.EndElement
