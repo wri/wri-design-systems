@@ -140,7 +140,7 @@ export const Link = (
     >
       <ChakraPopover.Trigger asChild>
         <Box>
-          <Tooltip content={label}>
+          <Tooltip content={label} preserveFocusOnChild>
             <IconButton
               icon={
                 <span data-rte-icon='true'>

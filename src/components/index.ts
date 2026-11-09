@@ -223,6 +223,8 @@ export type {
   AnalysisWidgetActionsProps,
   AnalysisWidgetProps,
 } from './DataDisplay/AnalysisWidget/types'
+export { default as Blockquote } from './DataDisplay/Blockquote'
+export type { BlockquoteProps } from './DataDisplay/Blockquote/types'
 
 // -- Information Display -- //
 

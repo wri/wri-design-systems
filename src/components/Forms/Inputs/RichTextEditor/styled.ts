@@ -60,10 +60,9 @@ export const richTextEditorContainerStyles: SystemStyleObject = {
     },
     '& blockquote': {
       marginInline: 0,
-      paddingInlineStart: getThemedSpacing(400),
-      borderInlineStart: `${getThemedBorderWidth(300)} solid ${getThemedColor('neutral', 500)}`,
-      color: getThemedColor('neutral', 700),
-      fontStyle: 'italic',
+      paddingInlineStart: getThemedSpacing(500),
+      borderInlineStart: `3px solid ${getThemedColor('secondary', 300)}`,
+      color: getThemedColor('neutral', 900),
     },
     '& hr': {
       border: 0,

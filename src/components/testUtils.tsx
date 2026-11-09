@@ -119,6 +119,20 @@ export const createChakraMock = () => {
     Button: React.forwardRef(el('button', { type: 'button' })),
     CloseButton: React.forwardRef(el('button', { type: 'button' })),
     Icon: React.forwardRef(el('span', { 'aria-hidden': true })),
+    Blockquote: {
+      Root: React.forwardRef(el('figure')),
+      Content: React.forwardRef(el('blockquote')),
+      Caption: React.forwardRef(el('figcaption')),
+      Icon: React.forwardRef(({ children, asChild, ...rest }: any, ref: any) =>
+        asChild
+          ? React.createElement(React.Fragment, {}, children)
+          : React.createElement(
+              'svg',
+              { ref, 'aria-hidden': true, ...cleanProps(rest) },
+              children,
+            ),
+      ),
+    },
     Tag: {
       Root: React.forwardRef(el('span')),
       Label: el('span'),

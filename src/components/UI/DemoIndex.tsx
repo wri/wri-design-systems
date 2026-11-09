@@ -93,6 +93,7 @@ const components = [
   'Opacity Control',
   'Scale Bar',
   'Item Count',
+  'Blockquote',
   'Pagination',
   'Table',
   'List',
