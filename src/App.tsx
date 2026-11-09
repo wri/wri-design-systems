@@ -72,6 +72,7 @@ import DemoWrapper from './components/UI/DemoWrapper'
 import RichTextEditorDemo from './components/Forms/Inputs/RichTextEditor/RichTextEditorDemo'
 import MobileSearchDemo from './components/Navigation/MobileSearch/MobileSearchDemo'
 import GuidedTourDemo from './components/Geospatial/MapPopUp/presets/GuidedTour/GuidedTourDemo'
+import BlockquoteDemo from './components/DataDisplay/Blockquote/BlockquoteDemo'
 
 const App = () => (
   <div className='App'>
@@ -174,6 +175,7 @@ const App = () => (
           <ListDemo />
           <ExtendableCardDemo />
           <AnalysisWidgetDemo />
+          <BlockquoteDemo />
 
           <PanelDemo />
           <SheetDemo />

@@ -87,7 +87,7 @@ const FieldWrapper = ({
     return (
       <div css={fieldWrapperHeaderStyles}>
         {label ? (
-          <p
+          <div
             css={fieldWrapperLabelStyles(size, disabled)}
             aria-label={typeof label === 'string' ? label : undefined}
             data-disabled={disabled || undefined}
@@ -98,7 +98,7 @@ const FieldWrapper = ({
               </span>
             ) : null}
             {label}
-          </p>
+          </div>
         ) : null}
         {caption ? (
           <p

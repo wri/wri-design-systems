@@ -27,6 +27,7 @@ const RichTextEditorDemo = () => {
             minH='180px'
             fontFamily='monospace'
             whiteSpace='pre'
+            textWrap='wrap'
           />
         </Box>
       </VStack>

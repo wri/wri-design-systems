@@ -34,7 +34,7 @@ export const ButtonControl = (props: ButtonControlProps) => {
   const { icon, label, active, ...rest } = props
 
   return (
-    <Tooltip content={label}>
+    <Tooltip content={label} preserveFocusOnChild>
       <IconButton
         icon={<span data-rte-icon='true'>{icon}</span>}
         aria-label={label}

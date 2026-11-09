@@ -439,6 +439,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Table](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/Table)
 - [Extendable Card](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/ExtendableCard)
 - [Analysis Widget](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/AnalysisWidget)
+- [Blockquote](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/Blockquote)
 
 ## Forms
 
