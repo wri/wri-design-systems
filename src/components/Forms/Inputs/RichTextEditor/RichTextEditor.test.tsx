@@ -152,6 +152,16 @@ describe('RichTextEditor — visibleControls', () => {
     expect(container.querySelectorAll('button')).toHaveLength(0)
   })
 
+  // Regression test for button-in-button hydration errors: tooltip-wrapped
+  // controls must render exactly one button each (no wrapper trigger button).
+  it('renders exactly one button per tooltip-wrapped control', () => {
+    const { getAllByRole } = render(<RichTextEditor />)
+
+    expect(getAllByRole('button', { name: 'Undo' })).toHaveLength(1)
+    expect(getAllByRole('button', { name: 'Bold (B)' })).toHaveLength(1)
+    expect(getAllByRole('button', { name: 'Link' })).toHaveLength(1)
+  })
+
   it('renders the bold and italic icon glyphs', () => {
     const { getByRole } = render(<RichTextEditor />)
 

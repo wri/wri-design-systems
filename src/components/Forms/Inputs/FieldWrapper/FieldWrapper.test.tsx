@@ -121,8 +121,25 @@ describe('FieldWrapper — header content', () => {
 
   it('marks the group label as disabled', () => {
     const { getByText } = renderGroup({ disabled: true })
-
     expect(getByText('Layers')).toHaveAttribute('data-disabled', 'true')
+  })
+
+  // Regression test for the div-in-p hydration error: CheckboxList passes a
+  // rich label containing a <button> as the group label.
+  it('renders the group label as a div, not a p, for rich label content', () => {
+    const { container, getByText } = renderGroup({
+      label: (
+        <div>
+          Parent
+          <button type='button'>Expand</button>
+        </div>
+      ),
+    })
+
+    // No caption or error message is set, so the only <p> would be the group
+    // label itself — a <p> would nest the button inside it.
+    expect(container.querySelector('p')).toBeNull()
+    expect(getByText('Expand')).toBeInTheDocument()
   })
 })
 
