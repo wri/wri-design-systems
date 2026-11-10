@@ -26,6 +26,17 @@ const SliderInputDemo = () => (
         required
       />
       <SliderInput
+        label='Optional'
+        caption='Caption'
+        sliderItem={{
+          min: 0,
+          max: 100,
+          value: [30],
+        }}
+        onChange={(value: number[]) => console.log('Optional', value)}
+        showOptionalLabel
+      />
+      <SliderInput
         label='Continuous Small'
         caption='Caption'
         size='small'

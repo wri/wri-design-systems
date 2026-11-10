@@ -40,6 +40,11 @@ const meta = {
     errorMessage: { description: '`errorMessage` text', control: 'text' },
     horizontal: { description: '`horizontal` flag', control: 'boolean' },
     required: { description: '`required` flag', control: 'boolean' },
+    showOptionalLabel: {
+      description:
+        'Shows the "(optional)" suffix for non-required fields — Default: false',
+      control: 'boolean',
+    },
     variant: {
       description: '`variant` variant',
       control: { type: 'select' },
@@ -72,6 +77,29 @@ export const RadioList: Story = {
       },
     ],
     required: true,
+  },
+}
+
+export const Optional: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    name: 'radio-list-optional',
+    radios: [
+      {
+        children: 'Radio 1',
+        value: 'radio-1',
+      },
+      {
+        children: 'Radio 2',
+        value: 'radio-2',
+      },
+      {
+        children: 'Radio 3',
+        value: 'radio-3',
+      },
+    ],
+    showOptionalLabel: true,
   },
 }
 

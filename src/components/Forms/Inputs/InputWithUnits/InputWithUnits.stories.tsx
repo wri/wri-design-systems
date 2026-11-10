@@ -41,6 +41,11 @@ const meta = {
     onChange: { description: '`onChange` handler', control: false },
     required: { description: '`required` flag', control: 'boolean' },
     disabled: { description: '`disabled` flag', control: 'boolean' },
+    showOptionalLabel: {
+      description:
+        'Shows the "(optional)" suffix for non-required fields — Default: false',
+      control: 'boolean',
+    },
   },
 } satisfies Meta<typeof InputWithUnitsStory>
 
@@ -66,6 +71,28 @@ export const InputWithUnits: Story = {
       },
     ],
     required: true,
+  },
+}
+
+export const Optional: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    units: [
+      {
+        label: 'Unit 1',
+        value: 'unit-1',
+      },
+      {
+        label: 'Unit 2',
+        value: 'unit-2',
+      },
+      {
+        label: 'Unit 3',
+        value: 'unit-3',
+      },
+    ],
+    showOptionalLabel: true,
   },
 }
 

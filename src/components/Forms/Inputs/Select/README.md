@@ -76,37 +76,13 @@ type SelectProps = Omit<
   size?: 'default' | 'small'
   required?: boolean
   disabled?: boolean
+  /** Shows the "(optional)" suffix for non-required fields. Default: false */
+  showOptionalLabel?: boolean
   onChange?: (value: string[]) => void
   errorMessage?: string
   multiple?: boolean
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<SelectLabels>
-}
-```
-
-```ts
-type SelectProps = Omit<
-  ChakraSelectRootProps,
-  | 'collection'
-  | 'size'
-  | 'colorPalette'
-  | 'variant'
-  | 'onValueChange'
-  | 'onChange'
-  | 'defaultChecked'
-  | 'invalid'
-> & {
-  label: string
-  caption?: string
-  placeholder: string
-  defaultValue?: string[]
-  items: SelectItemProps[]
-  size?: 'default' | 'small'
-  required?: boolean
-  disabled?: boolean
-  onChange?: (value: string[]) => void
-  errorMessage?: string
-  multiple?: boolean
 }
 ```
 

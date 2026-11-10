@@ -55,7 +55,7 @@ type CheckboxListLabels = {
   hideLabel: ReactNodeLabel
   /** Appended to the group aria-label when the field is required. Must be string (aria-label). Default: "Required." */
   requiredLabel: string
-  /** Appended to the group aria-label when the field is optional. Must be string (aria-label). Default: "Optional" */
+  /** Appended to the group aria-label when the field is optional. Must be string (aria-label). Default: "optional" */
   optionalLabel: string
   /** Prefix prepended to error messages in the group aria-label. Must be string (aria-label). Default: "Error:" */
   errorPrefix: string
@@ -80,6 +80,8 @@ type CheckboxListProps = {
   errorMessage?: string
   horizontal?: boolean
   required?: boolean
+  /** Shows the "(optional)" suffix for non-required fields. Default: false */
+  showOptionalLabel?: boolean
   hideCheckedCounter?: boolean
   hideExpandToggle?: boolean
   /** Override internal UI labels for internationalization support. */
@@ -184,7 +186,7 @@ The component ships with English defaults for all internal UI strings. Override 
     expandLabel: 'Mostrar',
     hideLabel: 'Ocultar',
     requiredLabel: 'Obligatorio.',
-    optionalLabel: 'Opcional',
+    optionalLabel: 'opcional',
     errorPrefix: 'Error:',
     requiredSymbolLabel: 'obligatorio',
   }}

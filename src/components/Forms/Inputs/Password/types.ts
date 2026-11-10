@@ -17,6 +17,7 @@ export type PasswordProps = {
   label: string
   caption?: string
   required?: boolean
+  showOptionalLabel?: boolean
   onChange?: ({
     strength,
     length,

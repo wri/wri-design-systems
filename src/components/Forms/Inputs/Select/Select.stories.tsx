@@ -29,6 +29,11 @@ const meta = {
     label: { description: '`label` text', control: 'text' },
     caption: { description: '`caption` text', control: 'text' },
     value: { description: '`value` text', control: 'text' },
+    showOptionalLabel: {
+      description:
+        'Shows the "(optional)" suffix for non-required fields — Default: false',
+      control: 'boolean',
+    },
   },
 } satisfies Meta<typeof SelectStory>
 
@@ -58,6 +63,32 @@ export const Select: Story = {
       },
     ],
     required: true,
+  },
+}
+
+export const Optional: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    placeholder: 'Please select',
+    items: [
+      {
+        label: 'Label 1',
+        caption: 'Caption 1',
+        value: 'value-1',
+      },
+      {
+        label: 'Label 2',
+        caption: 'Caption 2',
+        value: 'value-2',
+      },
+      {
+        label: 'Label 3',
+        caption: 'Caption 3',
+        value: 'value-3',
+      },
+    ],
+    showOptionalLabel: true,
   },
 }
 

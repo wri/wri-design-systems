@@ -33,7 +33,7 @@ const TextareaDemo = () => (
         defaultValue='Default Value'
         minLength={5}
         maxLength={200}
-        showOptionalLabel={false}
+        showOptionalLabel
       />
       <Textarea
         label='Label'

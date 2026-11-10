@@ -13,6 +13,7 @@ export type RadioListProps = {
   errorMessage?: string
   horizontal?: boolean
   required?: boolean
+  showOptionalLabel?: boolean
   variant?: 'default' | 'card'
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<RadioListLabels>

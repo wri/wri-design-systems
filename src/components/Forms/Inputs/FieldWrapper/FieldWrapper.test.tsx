@@ -2,6 +2,7 @@ import { render } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import FieldWrapper, { FieldWrapperProps } from '.'
+import { fieldWrapperLabelStyles } from './styled'
 
 jest.mock('@chakra-ui/react', () =>
   jest.requireActual('../../../testUtils').createChakraMock(),
@@ -55,22 +56,29 @@ describe('FieldWrapper — header content', () => {
     expect(getByRole('status')).toHaveTextContent('Name is required')
   })
 
-  it('shows the optional suffix by default for non-required fields', () => {
+  it('hides the optional suffix by default for non-required fields', () => {
     const { container } = renderField()
 
-    expect(container.textContent).toContain('(Optional)')
+    expect(container.textContent).not.toContain('(optional)')
   })
 
   it('hides the optional suffix when the field is required', () => {
     const { container } = renderField({ required: true })
 
+    expect(container.textContent).not.toContain('(optional)')
+  })
+
+  it('shows the lowercase optional suffix when showOptionalLabel is true', () => {
+    const { container } = renderField({ showOptionalLabel: true })
+
+    expect(container.textContent).toContain('(optional)')
     expect(container.textContent).not.toContain('(Optional)')
   })
 
   it('hides the optional suffix when showOptionalLabel is false', () => {
     const { container } = renderField({ showOptionalLabel: false })
 
-    expect(container.textContent).not.toContain('(Optional)')
+    expect(container.textContent).not.toContain('(optional)')
   })
 
   it('labels the required indicator as "required" by default', () => {
@@ -83,9 +91,10 @@ describe('FieldWrapper — header content', () => {
     const { container } = render(
       <FieldWrapper
         label='Nombre'
+        showOptionalLabel
         labels={{
           requiredSymbolLabel: 'obligatorio',
-          optionalSuffix: ' (Opcional)',
+          optionalSuffix: '(opcional)',
         }}
       >
         <input aria-label='Nombre' />
@@ -93,7 +102,7 @@ describe('FieldWrapper — header content', () => {
     )
 
     expect(container.querySelector('[aria-label="obligatorio"]')).not.toBeNull()
-    expect(container.textContent).toContain('(Opcional)')
+    expect(container.textContent).toContain('(opcional)')
   })
 
   it('renders the group required indicator only when required', () => {
@@ -106,6 +115,64 @@ describe('FieldWrapper — header content', () => {
     expect(
       optional.container.querySelector('[data-required-indicator]'),
     ).toBeNull()
+  })
+
+  it('hides the optional suffix by default in group semantics', () => {
+    const { container } = renderGroup()
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+
+  it('shows the lowercase optional suffix in group semantics when showOptionalLabel is true', () => {
+    const { container } = renderGroup({ showOptionalLabel: true })
+
+    expect(container.textContent).toContain('(optional)')
+    expect(container.textContent).not.toContain('(Optional)')
+  })
+
+  it('never shows the optional suffix for required fields in group semantics', () => {
+    const { container } = renderGroup({
+      required: true,
+      showOptionalLabel: true,
+    })
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+
+  it('marks the optional suffix with data-optional-suffix in field semantics', () => {
+    const { container } = renderField({ showOptionalLabel: true })
+
+    const suffix = container.querySelector('[data-optional-suffix]')
+    expect(suffix).not.toBeNull()
+    expect(suffix?.textContent).toBe('(optional)')
+  })
+
+  it('marks the optional suffix with data-optional-suffix in group semantics', () => {
+    const { container } = renderGroup({ showOptionalLabel: true })
+
+    const suffix = container.querySelector('[data-optional-suffix]')
+    expect(suffix).not.toBeNull()
+    expect(suffix?.textContent).toBe('(optional)')
+  })
+
+  it('renders a capitalized suffix override inside the lowercase-enforced span', () => {
+    const { container } = renderField({
+      showOptionalLabel: true,
+      labels: { optionalSuffix: '(OPTIONAL)' },
+    })
+
+    const suffix = container.querySelector('[data-optional-suffix]')
+    // The raw string is preserved in the DOM; `text-transform: lowercase`
+    // (see fieldWrapperLabelStyles) forces the visible rendering lowercase.
+    expect(suffix?.textContent).toBe('(OPTIONAL)')
+  })
+
+  it('applies text-transform: lowercase to the optional suffix for every size', () => {
+    ;(['default', 'small'] as const).forEach((size) => {
+      const { styles } = fieldWrapperLabelStyles(size)
+      expect(styles).toContain('span[data-optional-suffix]')
+      expect(styles).toContain('text-transform: lowercase')
+    })
   })
 
   it('applies captionId and errorId for aria-describedby wiring', () => {
@@ -121,8 +188,25 @@ describe('FieldWrapper — header content', () => {
 
   it('marks the group label as disabled', () => {
     const { getByText } = renderGroup({ disabled: true })
-
     expect(getByText('Layers')).toHaveAttribute('data-disabled', 'true')
+  })
+
+  // Regression test for the div-in-p hydration error: CheckboxList passes a
+  // rich label containing a <button> as the group label.
+  it('renders the group label as a div, not a p, for rich label content', () => {
+    const { container, getByText } = renderGroup({
+      label: (
+        <div>
+          Parent
+          <button type='button'>Expand</button>
+        </div>
+      ),
+    })
+
+    // No caption or error message is set, so the only <p> would be the group
+    // label itself — a <p> would nest the button inside it.
+    expect(container.querySelector('p')).toBeNull()
+    expect(getByText('Expand')).toBeInTheDocument()
   })
 })
 

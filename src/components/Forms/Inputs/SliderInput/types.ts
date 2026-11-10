@@ -6,5 +6,6 @@ export type SliderInputProps = {
   size?: 'default' | 'small'
   sliderItem: SliderProps
   required?: boolean
+  showOptionalLabel?: boolean
   onChange?: (value: number[]) => void
 }

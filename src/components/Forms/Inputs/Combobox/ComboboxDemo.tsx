@@ -107,7 +107,7 @@ const ComboboxDemo = () => {
           label='Label'
           caption='Caption'
           placeholder='Type to search or add new'
-          showOptionalLabel={false}
+          showOptionalLabel
         />
         <Combobox
           items={staticItems}

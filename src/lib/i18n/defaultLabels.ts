@@ -124,11 +124,11 @@ export const defaultLabels: DefaultLabels = {
   },
   TextInput: {
     requiredSymbolLabel: 'required',
-    optionalSuffix: ' (Optional)',
+    optionalSuffix: '(optional)',
   },
   Combobox: {
     requiredSymbolLabel: 'required',
-    optionalSuffix: ' (Optional)',
+    optionalSuffix: '(optional)',
     defaultInputAriaLabel: 'Combobox input',
     clearSelectionLabel: 'Clear selection',
     toggleOptionsLabel: 'Toggle options',
@@ -284,7 +284,7 @@ export const defaultLabels: DefaultLabels = {
   // Tier C
   Textarea: {
     requiredSymbolLabel: 'required',
-    optionalSuffix: ' (Optional)',
+    optionalSuffix: '(optional)',
     errorPrefix: 'Error:',
     enterAtLeastChars: (n) => `Enter at least ${n} characters`,
     minChars: (n) => `Min ${n} characters`,

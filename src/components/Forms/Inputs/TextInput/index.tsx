@@ -18,7 +18,7 @@ const TextInput = ({
   required,
   disabled,
   size = 'default',
-  showOptionalLabel = true,
+  showOptionalLabel = false,
   noMarginBottom = false,
   defaultValue = '',
   onChange,

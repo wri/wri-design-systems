@@ -337,8 +337,15 @@ export const createChakraMock = () => {
     Tooltip: {
       Root: ({ children }: any) =>
         React.createElement(React.Fragment, {}, children),
-      Trigger: React.forwardRef(({ children, ...rest }: any, ref: any) =>
-        React.createElement('span', { ref, ...cleanProps(rest) }, children),
+      Trigger: React.forwardRef(
+        ({ children, asChild, ...rest }: any, ref: any) =>
+          asChild
+            ? React.createElement(React.Fragment, {}, children)
+            : React.createElement(
+                'span',
+                { ref, ...cleanProps(rest) },
+                children,
+              ),
       ),
       Content: ({ children, ...rest }: any) =>
         React.createElement(

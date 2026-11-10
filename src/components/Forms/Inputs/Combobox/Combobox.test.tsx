@@ -24,12 +24,24 @@ describe('Combobox — accessibility', () => {
     expect(await axe(container)).toHaveNoViolations()
   })
 
-  it('shows optional label by default for non-required fields', () => {
+  it('hides optional label by default for non-required fields', () => {
     const { container } = render(
       <Combobox label='Country' items={[{ label: 'Colombia', value: 'co' }]} />,
     )
 
-    expect(container.textContent).toContain('(Optional)')
+    expect(container.textContent).not.toContain('(optional)')
+  })
+
+  it('shows the lowercase optional label when showOptionalLabel is true', () => {
+    const { container } = render(
+      <Combobox
+        label='Country'
+        showOptionalLabel
+        items={[{ label: 'Colombia', value: 'co' }]}
+      />,
+    )
+
+    expect(container.textContent).toContain('(optional)')
   })
 
   it('hides optional label when showOptionalLabel is false', () => {
@@ -41,7 +53,7 @@ describe('Combobox — accessibility', () => {
       />,
     )
 
-    expect(container.textContent).not.toContain('(Optional)')
+    expect(container.textContent).not.toContain('(optional)')
   })
 })
 

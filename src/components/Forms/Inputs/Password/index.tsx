@@ -23,6 +23,7 @@ const Password = ({
   label,
   caption,
   required,
+  showOptionalLabel = false,
   disabledRules,
   onChange,
   minLength = 8,
@@ -108,7 +109,7 @@ const Password = ({
         label={label}
         caption={caption}
         required={required}
-        showOptionalLabel={false}
+        showOptionalLabel={showOptionalLabel}
         noMarginBottom
         semantics='group'
       >

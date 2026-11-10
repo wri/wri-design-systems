@@ -36,6 +36,11 @@ const meta = {
     },
     sliderItem: { description: '`sliderItem` value', control: false },
     required: { description: '`required` flag', control: 'boolean' },
+    showOptionalLabel: {
+      description:
+        'Shows the "(optional)" suffix for non-required fields — Default: false',
+      control: 'boolean',
+    },
     onChange: { description: '`onChange` handler', control: false },
   },
 } satisfies Meta<typeof SliderInput>
@@ -54,6 +59,20 @@ export const Continuous: Story = {
     },
     onChange: (value: number[]) => console.log('Continuous', value),
     required: true,
+  },
+}
+
+export const Optional: Story = {
+  args: {
+    label: 'Optional',
+    caption: 'Caption',
+    sliderItem: {
+      min: 0,
+      max: 100,
+      value: [30],
+    },
+    onChange: (value: number[]) => console.log('Optional', value),
+    showOptionalLabel: true,
   },
 }
 

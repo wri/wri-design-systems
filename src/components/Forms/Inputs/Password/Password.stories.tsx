@@ -32,6 +32,11 @@ const meta = {
     label: { description: 'Input label', control: 'text' },
     caption: { description: 'Helper text below the input', control: 'text' },
     required: { description: 'Mark field as required', control: 'boolean' },
+    showOptionalLabel: {
+      description:
+        'Shows the "(optional)" suffix for non-required fields — Default: false',
+      control: 'boolean',
+    },
     onChange: {
       description: 'Callback fired on value change with strength analysis',
       control: false,
@@ -63,6 +68,14 @@ export const Password: Story = {
     label: 'Label',
     caption: 'Caption',
     required: true,
+  },
+}
+
+export const Optional: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    showOptionalLabel: true,
   },
 }
 

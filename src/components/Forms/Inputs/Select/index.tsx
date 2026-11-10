@@ -95,6 +95,7 @@ const Select = ({
   errorMessage,
   multiple,
   labels,
+  showOptionalLabel = false,
   value: controlledValue,
   defaultValue,
   ...rest
@@ -138,7 +139,7 @@ const Select = ({
       required={required}
       disabled={disabled}
       size={size}
-      showOptionalLabel={false}
+      showOptionalLabel={showOptionalLabel}
       semantics='group'
       containerProps={{
         tabIndex: disabled ? 0 : undefined,

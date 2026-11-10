@@ -180,3 +180,26 @@ describe('Password — strength panel', () => {
     expect(container.textContent).toContain('Use a number')
   })
 })
+
+describe('Password — optional label', () => {
+  it('hides the optional suffix by default', () => {
+    const { container } = renderPassword()
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+
+  it('shows the lowercase optional suffix when showOptionalLabel is true', () => {
+    const { container } = renderPassword({ showOptionalLabel: true })
+
+    expect(container.textContent).toContain('(optional)')
+  })
+
+  it('never shows the optional suffix for required fields', () => {
+    const { container } = renderPassword({
+      required: true,
+      showOptionalLabel: true,
+    })
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+})
