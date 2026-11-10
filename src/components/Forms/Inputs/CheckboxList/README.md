@@ -186,7 +186,7 @@ The component ships with English defaults for all internal UI strings. Override 
     expandLabel: 'Mostrar',
     hideLabel: 'Ocultar',
     requiredLabel: 'Obligatorio.',
-    optionalLabel: 'optional',
+    optionalLabel: 'opcional',
     errorPrefix: 'Error:',
     requiredSymbolLabel: 'obligatorio',
   }}
