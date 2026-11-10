@@ -95,7 +95,7 @@ export type TextInputLabels = {
   /**
    * Suffix appended after the field label when the field is optional.
    * Rendered as JSX child inside a <span> — accepts ReactNode.
-   * Default: " (Optional)"
+   * Default: "(optional)"
    */
   optionalSuffix: ReactNodeLabel
 }
@@ -104,7 +104,7 @@ export type TextInputLabels = {
 export type ComboboxLabels = {
   /** Accessible label for the required (*) indicator. Must be string (aria-label). Default: "required" */
   requiredSymbolLabel: string
-  /** Suffix appended after the field label when optional. Rendered as JSX child. Default: " (Optional)" */
+  /** Suffix appended after the field label when optional. Rendered as JSX child. Default: "(optional)" */
   optionalSuffix: ReactNodeLabel
   /** Fallback aria-label on the combobox input when label/placeholder are not provided. Default: "Combobox input" */
   defaultInputAriaLabel: string
@@ -464,9 +464,9 @@ export type TextareaLabels = {
   /** aria-label on the required (*) indicator. Default: "required" */
   requiredSymbolLabel: string
   /**
-   * Visible "(Optional)" suffix appended to the label.
+   * Visible "(optional)" suffix appended to the label.
    * Rendered as JSX child — accepts ReactNode.
-   * Default: " (Optional)"
+   * Default: "(optional)"
    */
   optionalSuffix: ReactNodeLabel
   /** "Error:" prefix in aria-label of error text. Default: "Error:" */

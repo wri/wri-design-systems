@@ -48,6 +48,8 @@ type InputWithUnitsProps = {
   onChange?: (value: string) => void
   required?: boolean
   disabled?: boolean
+  /** Shows the "(optional)" suffix for non-required fields. Default: false */
+  showOptionalLabel?: boolean
 }
 ```
 

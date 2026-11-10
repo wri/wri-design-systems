@@ -15,7 +15,7 @@ import {
 import { FieldWrapperProps } from './types'
 
 const DEFAULT_REQUIRED_SYMBOL_LABEL = 'required'
-const DEFAULT_OPTIONAL_SUFFIX = ' (Optional)'
+const DEFAULT_OPTIONAL_SUFFIX = '(optional)'
 
 const FieldWrapper = ({
   label,
@@ -25,7 +25,7 @@ const FieldWrapper = ({
   required,
   disabled,
   size = 'default',
-  showOptionalLabel = true,
+  showOptionalLabel = false,
   noMarginBottom = false,
   labels,
   footer,
@@ -55,7 +55,7 @@ const FieldWrapper = ({
             <Field.RequiredIndicator aria-label={requiredSymbolLabel} />
             {label}
             {!required && showOptionalLabel ? (
-              <span>{optionalSuffix}</span>
+              <span data-optional-suffix>{optionalSuffix}</span>
             ) : null}
           </Field.Label>
         ) : null}
@@ -98,6 +98,9 @@ const FieldWrapper = ({
               </span>
             ) : null}
             {label}
+            {!required && showOptionalLabel ? (
+              <span data-optional-suffix>{optionalSuffix}</span>
+            ) : null}
           </div>
         ) : null}
         {caption ? (

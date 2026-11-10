@@ -44,6 +44,11 @@ const meta = {
       description: 'Marks the field as required',
       control: 'boolean',
     },
+    showOptionalLabel: {
+      description:
+        'Shows the "(optional)" suffix for non-required fields — Default: false',
+      control: 'boolean',
+    },
     disabled: { description: 'Disables the textarea', control: 'boolean' },
     size: {
       description: 'Size variant',
@@ -75,6 +80,7 @@ export const OptionalTextarea: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
+    showOptionalLabel: true,
   },
 }
 

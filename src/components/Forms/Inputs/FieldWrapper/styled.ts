@@ -81,6 +81,7 @@ export const fieldWrapperLabelStyles = (
     : getThemedLineHeight(600)};
   display: flex;
   align-items: flex-start;
+  gap: ${getThemedSpacing(100)};
   text-align: left;
   -webkit-user-select: text;
   -moz-user-select: text;
@@ -93,6 +94,11 @@ export const fieldWrapperLabelStyles = (
     color: ${getThemedColor('neutral', disabled ? 600 : 700)};
   }
 
+  /* The optional suffix is always lowercase, regardless of the provided string */
+  span[data-optional-suffix] {
+    text-transform: lowercase;
+  }
+
   .chakra-field__requiredIndicator {
     margin-top: ${getThemedSpacing(100)};
     color: ${disabled
@@ -100,12 +106,11 @@ export const fieldWrapperLabelStyles = (
       : getThemedColor('error', 500)};
   }
 
-  /* Group-semantics required asterisk */
+  /* Group-semantics required asterisk — spacing comes from the label gap */
   > span[data-required-indicator] {
     color: ${disabled
       ? getThemedColor('neutral', 600)
       : getThemedColor('error', 500)};
-    margin-right: 0.1875rem;
   }
 
   &[data-disabled] {

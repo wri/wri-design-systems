@@ -104,3 +104,40 @@ describe('RadioList — structure', () => {
     expect(getByRole('radiogroup')).toBeInTheDocument()
   })
 })
+
+describe('RadioList — optional label', () => {
+  it('hides the optional suffix by default', () => {
+    const { container } = render(
+      <RadioList label='Delivery speed' name='speed' radios={radios} />,
+    )
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+
+  it('shows the lowercase optional suffix when showOptionalLabel is true', () => {
+    const { container } = render(
+      <RadioList
+        label='Delivery speed'
+        name='speed'
+        radios={radios}
+        showOptionalLabel
+      />,
+    )
+
+    expect(container.textContent).toContain('(optional)')
+  })
+
+  it('never shows the optional suffix for required fields', () => {
+    const { container } = render(
+      <RadioList
+        label='Delivery speed'
+        name='speed'
+        required
+        showOptionalLabel
+        radios={radios}
+      />,
+    )
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+})

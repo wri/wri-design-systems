@@ -44,6 +44,11 @@ const meta = {
   argTypes: {
     label: { description: '`label` text', control: 'text' },
     required: { description: '`required` flag', control: 'boolean' },
+    showOptionalLabel: {
+      description:
+        'Shows the "(optional)" suffix for non-required fields — Default: false',
+      control: 'boolean',
+    },
     caption: { description: '`caption` text', control: 'text' },
     errorMessage: { description: '`errorMessage` text', control: 'text' },
     size: {
@@ -113,6 +118,7 @@ export const Optional: Story = {
     caption: 'Caption',
     placeholder: 'Type to search or add new',
     items: ITEMS,
+    showOptionalLabel: true,
   },
 }
 
@@ -214,7 +220,7 @@ export const WithI18nLabels: Story = {
     items: SPANISH_ITEMS,
     labels: {
       requiredSymbolLabel: 'obligatorio',
-      optionalSuffix: ' (Opcional)',
+      optionalSuffix: '(opcional)',
       clearSelectionLabel: 'Borrar selección',
       toggleOptionsLabel: 'Mostrar opciones',
       noItemsFoundLabel: 'No se encontraron elementos',
@@ -294,7 +300,7 @@ export const WithI18nContext: Story = {
       labels={{
         Combobox: {
           requiredSymbolLabel: 'obligatorio',
-          optionalSuffix: ' (Opcional)',
+          optionalSuffix: '(opcional)',
           clearSelectionLabel: 'Borrar selección',
           toggleOptionsLabel: 'Mostrar opciones',
           noItemsFoundLabel: 'No se encontraron elementos',

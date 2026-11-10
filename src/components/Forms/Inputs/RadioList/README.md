@@ -34,6 +34,8 @@ type RadioListProps = {
   errorMessage?: string
   horizontal?: boolean
   required?: boolean
+  /** Shows the "(optional)" suffix for non-required fields. Default: false */
+  showOptionalLabel?: boolean
   variant?: 'default' | 'card'
   /** Override internal UI labels for internationalization support. */
   labels?: Partial<RadioListLabels>

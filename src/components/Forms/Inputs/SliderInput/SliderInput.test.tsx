@@ -138,3 +138,41 @@ describe('SliderInput — numeric input', () => {
     expect(container.querySelectorAll('input[type="number"]')).toHaveLength(2)
   })
 })
+
+describe('SliderInput — optional label', () => {
+  it('hides the optional suffix by default', () => {
+    const { container } = render(
+      <SliderInput
+        label='Opacity'
+        sliderItem={{ min: 0, max: 100, value: [50] }}
+      />,
+    )
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+
+  it('shows the lowercase optional suffix when showOptionalLabel is true', () => {
+    const { container } = render(
+      <SliderInput
+        label='Opacity'
+        sliderItem={{ min: 0, max: 100, value: [50] }}
+        showOptionalLabel
+      />,
+    )
+
+    expect(container.textContent).toContain('(optional)')
+  })
+
+  it('never shows the optional suffix for required fields', () => {
+    const { container } = render(
+      <SliderInput
+        label='Opacity'
+        sliderItem={{ min: 0, max: 100, value: [50] }}
+        required
+        showOptionalLabel
+      />,
+    )
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+})

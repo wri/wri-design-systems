@@ -137,3 +137,27 @@ describe('Select — states', () => {
     expect(getByText('Colombia')).toBeInTheDocument()
   })
 })
+
+describe('Select — optional label', () => {
+  it('hides the optional suffix by default', () => {
+    const { container } = render(<Select label='Country' items={items} />)
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+
+  it('shows the lowercase optional suffix when showOptionalLabel is true', () => {
+    const { container } = render(
+      <Select label='Country' items={items} showOptionalLabel />,
+    )
+
+    expect(container.textContent).toContain('(optional)')
+  })
+
+  it('never shows the optional suffix for required fields', () => {
+    const { container } = render(
+      <Select label='Country' items={items} required showOptionalLabel />,
+    )
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+})

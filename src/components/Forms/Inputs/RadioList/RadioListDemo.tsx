@@ -35,6 +35,26 @@ const RadioListDemo = () => (
       <RadioList
         label='Label'
         caption='Caption'
+        name='radio-list-optional'
+        showOptionalLabel
+        radios={[
+          {
+            children: 'Radio 1',
+            value: 'radio-1',
+          },
+          {
+            children: 'Radio 2',
+            value: 'radio-2',
+          },
+          {
+            children: 'Radio 3',
+            value: 'radio-3',
+          },
+        ]}
+      />
+      <RadioList
+        label='Label'
+        caption='Caption'
         name='radio-list-2'
         defaultValue='radio-2'
         errorMessage='Error Message'

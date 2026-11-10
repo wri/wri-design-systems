@@ -21,6 +21,7 @@ const InputWithUnits = ({
   onChange,
   required,
   disabled,
+  showOptionalLabel = false,
 }: InputWithUnitsProps) => {
   const [inputValue, setInputValue] = useState(defaultValue)
   const [selectValue, setSelectValue] = useState(
@@ -44,7 +45,7 @@ const InputWithUnits = ({
         errorMessage={errorMessage}
         required={required}
         disabled={disabled}
-        showOptionalLabel={false}
+        showOptionalLabel={showOptionalLabel}
         noMarginBottom
         semantics='group'
       >

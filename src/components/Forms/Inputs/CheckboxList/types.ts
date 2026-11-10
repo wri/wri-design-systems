@@ -20,6 +20,7 @@ export type CheckboxListProps = {
   errorMessage?: string
   horizontal?: boolean
   required?: boolean
+  showOptionalLabel?: boolean
   hideCheckedCounter?: boolean
   hideExpandToggle?: boolean
   /** Override internal UI labels for internationalization support. */

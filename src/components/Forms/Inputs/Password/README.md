@@ -73,6 +73,8 @@ type PasswordProps = {
   label: string
   caption?: string
   required?: boolean
+  /** Shows the "(optional)" suffix for non-required fields. Default: false */
+  showOptionalLabel?: boolean
   onChange?: ({
     strength,
     length,

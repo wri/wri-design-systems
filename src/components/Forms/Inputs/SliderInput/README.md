@@ -35,6 +35,8 @@ type SliderInputProps = {
   size?: 'default' | 'small'
   sliderItem: SliderProps
   required?: boolean
+  /** Shows the "(optional)" suffix for non-required fields. Default: false */
+  showOptionalLabel?: boolean
   onChange?: (value: number[]) => void
 }
 ```

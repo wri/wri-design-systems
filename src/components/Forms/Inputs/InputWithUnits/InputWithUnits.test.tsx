@@ -152,3 +152,34 @@ describe('InputWithUnits — structure', () => {
     expect(getByText('Enter a number')).toBeInTheDocument()
   })
 })
+
+describe('InputWithUnits — optional label', () => {
+  it('hides the optional suffix by default', () => {
+    const { container } = render(
+      <InputWithUnits label='Distance' units={units} />,
+    )
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+
+  it('shows the lowercase optional suffix when showOptionalLabel is true', () => {
+    const { container } = render(
+      <InputWithUnits label='Distance' units={units} showOptionalLabel />,
+    )
+
+    expect(container.textContent).toContain('(optional)')
+  })
+
+  it('never shows the optional suffix for required fields', () => {
+    const { container } = render(
+      <InputWithUnits
+        label='Distance'
+        units={units}
+        required
+        showOptionalLabel
+      />,
+    )
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+})

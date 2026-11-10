@@ -49,7 +49,7 @@ const Combobox = ({
   errorMessage,
   size,
   disabled,
-  showOptionalLabel = true,
+  showOptionalLabel = false,
   placeholder,
   labels,
   noMarginBottom,

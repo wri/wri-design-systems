@@ -45,6 +45,11 @@ const meta = {
       description: 'Marks the field as required',
       control: 'boolean',
     },
+    showOptionalLabel: {
+      description:
+        'Shows the "(optional)" suffix for non-required fields — Default: false',
+      control: 'boolean',
+    },
     disabled: { description: 'Disables the input', control: 'boolean' },
     size: {
       description: 'Size variant',
@@ -78,6 +83,7 @@ export const OptionalInput: Story = {
   args: {
     label: 'Label',
     caption: 'Caption',
+    showOptionalLabel: true,
   },
 }
 
@@ -144,7 +150,7 @@ export const WithI18nLabels: Story = {
     caption: 'Introduce tu correo',
     labels: {
       requiredSymbolLabel: 'obligatorio',
-      optionalSuffix: ' (Opcional)',
+      optionalSuffix: '(opcional)',
     },
   },
 }
@@ -158,7 +164,7 @@ export const WithI18nContext: Story = {
       labels={{
         TextInput: {
           requiredSymbolLabel: 'obligatoire',
-          optionalSuffix: ' (Optionnel)',
+          optionalSuffix: '(optionnel)',
         },
       }}
     >

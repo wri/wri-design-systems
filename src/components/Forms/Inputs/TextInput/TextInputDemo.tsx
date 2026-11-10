@@ -28,7 +28,7 @@ const TextInputDemo = () => (
         label='Label'
         caption='Caption'
         placeholder='placeholder'
-        showOptionalLabel={false}
+        showOptionalLabel
       />
       <TextInput
         label='Label'

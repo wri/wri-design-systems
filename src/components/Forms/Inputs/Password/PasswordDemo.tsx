@@ -13,6 +13,7 @@ const PasswordDemo = () => (
       }}
     >
       <Password label='Label' caption='Caption' required />
+      <Password label='Label' caption='Caption' showOptionalLabel />
       <Password
         label='Label - minLength 10'
         caption='Caption'

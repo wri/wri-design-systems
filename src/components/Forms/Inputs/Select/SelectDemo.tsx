@@ -15,6 +15,29 @@ const SelectDemo = () => (
         label='Label'
         caption='Caption'
         placeholder='Please select'
+        showOptionalLabel
+        items={[
+          {
+            label: 'Label 1',
+            caption: 'Caption 1',
+            value: 'value-1',
+          },
+          {
+            label: 'Label 2',
+            caption: 'Caption 2',
+            value: 'value-2',
+          },
+          {
+            label: 'Label 3',
+            caption: 'Caption 3',
+            value: 'value-3',
+          },
+        ]}
+      />
+      <Select
+        label='Label'
+        caption='Caption'
+        placeholder='Please select'
         defaultValue={['value-2']}
         items={[
           {

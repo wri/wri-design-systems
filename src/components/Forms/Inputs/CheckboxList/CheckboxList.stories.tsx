@@ -33,6 +33,11 @@ const meta = {
     errorMessage: { description: '`errorMessage` text', control: 'text' },
     horizontal: { description: '`horizontal` flag', control: 'boolean' },
     required: { description: '`required` flag', control: 'boolean' },
+    showOptionalLabel: {
+      description:
+        'Shows the "(optional)" suffix for non-required fields — Default: false',
+      control: 'boolean',
+    },
     hideCheckedCounter: {
       description: '`hideCheckedCounter` flag',
       control: 'boolean',
@@ -70,6 +75,31 @@ export const CheckboxList: Story = {
       },
     ],
     required: true,
+  },
+}
+
+export const Optional: Story = {
+  args: {
+    label: 'Label',
+    caption: 'Caption',
+    checkboxes: [
+      {
+        children: 'Checkbox 1',
+        name: 'checkbox-1',
+        value: 'checkbox-1',
+      },
+      {
+        children: 'Checkbox 2',
+        name: 'checkbox-2',
+        value: 'checkbox-2',
+      },
+      {
+        children: 'Checkbox 3',
+        name: 'checkbox-3',
+        value: 'checkbox-3',
+      },
+    ],
+    showOptionalLabel: true,
   },
 }
 
@@ -232,7 +262,7 @@ export const WithI18nLabels: Story = {
       expandLabel: 'Mostrar',
       hideLabel: 'Ocultar',
       requiredLabel: 'Obligatorio.',
-      optionalLabel: 'Opcional',
+      optionalLabel: 'opcional',
       errorPrefix: 'Error:',
       requiredSymbolLabel: 'obligatorio',
     },
@@ -257,7 +287,7 @@ export const WithI18nContext: Story = {
           expandLabel: 'Afficher',
           hideLabel: 'Masquer',
           requiredLabel: 'Obligatoire.',
-          optionalLabel: 'Optionnel',
+          optionalLabel: 'optionnel',
           errorPrefix: 'Erreur :',
           requiredSymbolLabel: 'obligatoire',
         },

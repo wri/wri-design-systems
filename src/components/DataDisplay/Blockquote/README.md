@@ -29,7 +29,6 @@ import { Blockquote } from '@worldresources/wri-design-systems'
 | icon      | React.ReactNode                | —               | Icon rendered instead of the quote bar              |
 | justify   | `'start' \| 'center' \| 'end'` | `'start'`       | Aligns the blockquote content                       |
 
-
 ## With citation
 
 ```tsx

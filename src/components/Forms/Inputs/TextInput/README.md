@@ -25,7 +25,7 @@ type TextInputLabels = {
   /**
    * Suffix appended after the field label when the field is optional.
    * Rendered as JSX child inside a <span> — accepts ReactNode.
-   * Default: " (Optional)"
+   * Default: "(optional)"
    */
   optionalSuffix: ReactNodeLabel
 }
@@ -41,6 +41,7 @@ type TextInputProps = Omit<
   required?: boolean
   disabled?: boolean
   size?: 'small' | 'default'
+  /** Shows the "(optional)" suffix for non-required fields. Default: false */
   showOptionalLabel?: boolean
   noMarginBottom?: boolean
   defaultValue?: string
@@ -54,6 +55,17 @@ type TextInputProps = Omit<
 
 ```tsx
 <TextInput label='Label' caption='Caption' placeholder='placeholder' />
+```
+
+## Optional Label
+
+```tsx
+<TextInput
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  showOptionalLabel
+/>
 ```
 
 ## Small Input
@@ -115,7 +127,7 @@ The component ships with English defaults for all internal UI strings. Override 
   label='Correo electrónico'
   labels={{
     requiredSymbolLabel: 'obligatorio',
-    optionalSuffix: ' (Opcional)',
+    optionalSuffix: '(opcional)',
   }}
 />
 ```
@@ -128,7 +140,7 @@ import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
   labels={{
     TextInput: {
       requiredSymbolLabel: 'obligatoire',
-      optionalSuffix: ' (Optionnel)',
+      optionalSuffix: '(optionnel)',
     },
   }}
 >

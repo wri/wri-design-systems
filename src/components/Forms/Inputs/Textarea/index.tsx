@@ -21,7 +21,7 @@ const Textarea = ({
   required,
   disabled,
   size = 'default',
-  showOptionalLabel = true,
+  showOptionalLabel = false,
   defaultValue = '',
   onChange,
   onFocus,

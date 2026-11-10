@@ -47,6 +47,7 @@ type ComboboxProps = {
   errorMessage?: string
   size?: 'small' | 'default'
   disabled?: boolean
+  /** Shows the "(optional)" suffix for non-required fields. Default: false */
   showOptionalLabel?: boolean
   placeholder?: string
   labels?: Partial<ComboboxLabels>
@@ -70,6 +71,18 @@ type ComboboxProps = {
   caption='Caption'
   placeholder='Search...'
   items={[{ label: 'Option 1', value: 'option-1' }]}
+/>
+```
+
+## Optional Label
+
+```tsx
+<Combobox
+  label='Label'
+  caption='Caption'
+  placeholder='Search...'
+  items={[{ label: 'Option 1', value: 'option-1' }]}
+  showOptionalLabel
 />
 ```
 
@@ -223,7 +236,7 @@ The component ships with English defaults for all internal UI strings. Override 
   label='Categoría'
   labels={{
     requiredSymbolLabel: 'obligatorio',
-    optionalSuffix: ' (Opcional)',
+    optionalSuffix: '(opcional)',
     defaultInputAriaLabel: 'Entrada de lista',
     clearSelectionLabel: 'Borrar selección',
     toggleOptionsLabel: 'Alternar opciones',
@@ -242,7 +255,7 @@ import { DesignSystemLocaleProvider } from '@worldresources/wri-design-systems'
   labels={{
     Combobox: {
       requiredSymbolLabel: 'obligatoire',
-      optionalSuffix: ' (Optionnel)',
+      optionalSuffix: '(optionnel)',
       defaultInputAriaLabel: 'Champ de sélection',
       clearSelectionLabel: 'Effacer la sélection',
       toggleOptionsLabel: 'Basculer les options',

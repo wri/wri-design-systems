@@ -34,6 +34,25 @@ const InputWithUnitsDemo = () => (
       <InputWithUnits
         label='Label'
         caption='Caption'
+        showOptionalLabel
+        units={[
+          {
+            label: 'Unit 1',
+            value: 'unit-1',
+          },
+          {
+            label: 'Unit 2',
+            value: 'unit-2',
+          },
+          {
+            label: 'Unit 3',
+            value: 'unit-3',
+          },
+        ]}
+      />
+      <InputWithUnits
+        label='Label'
+        caption='Caption'
         units={[
           {
             label: 'Unit 1',

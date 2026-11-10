@@ -180,3 +180,34 @@ describe('CheckboxList — initial checked state', () => {
     expect(labels[1]).toHaveAttribute('name', 'events')
   })
 })
+
+describe('CheckboxList — optional label', () => {
+  it('hides the optional suffix by default', () => {
+    const { container } = render(
+      <CheckboxList label='Interests' checkboxes={items} />,
+    )
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+
+  it('shows the lowercase optional suffix when showOptionalLabel is true', () => {
+    const { container } = render(
+      <CheckboxList label='Interests' checkboxes={items} showOptionalLabel />,
+    )
+
+    expect(container.textContent).toContain('(optional)')
+  })
+
+  it('never shows the optional suffix for required fields', () => {
+    const { container } = render(
+      <CheckboxList
+        label='Interests'
+        required
+        showOptionalLabel
+        checkboxes={items}
+      />,
+    )
+
+    expect(container.textContent).not.toContain('(optional)')
+  })
+})

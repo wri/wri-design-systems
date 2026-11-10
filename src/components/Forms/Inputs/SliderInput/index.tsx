@@ -16,6 +16,7 @@ const SliderInput = ({
   size = 'default',
   sliderItem,
   required,
+  showOptionalLabel = false,
   onChange,
 }: SliderInputProps) => {
   const [value, setValue] = useState(sliderItem.value || [])
@@ -103,7 +104,7 @@ const SliderInput = ({
       caption={caption}
       required={required}
       size={size}
-      showOptionalLabel={false}
+      showOptionalLabel={showOptionalLabel}
       noMarginBottom
       semantics='group'
     >

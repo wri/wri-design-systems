@@ -23,9 +23,9 @@ type TextareaLabels = {
   /** aria-label on the required (*) indicator. Default: "required" */
   requiredSymbolLabel: string
   /**
-   * Visible "(Optional)" suffix appended to the label.
+   * Visible "(optional)" suffix appended to the label.
    * Rendered as JSX child — accepts ReactNode.
-   * Default: " (Optional)"
+   * Default: "(optional)"
    */
   optionalSuffix: ReactNodeLabel
   /** "Error:" prefix in aria-label of error text. Default: "Error:" */
@@ -55,6 +55,7 @@ type TextareaProps = Omit<
   required?: boolean
   disabled?: boolean
   size?: 'small' | 'default'
+  /** Shows the "(optional)" suffix for non-required fields. Default: false */
   showOptionalLabel?: boolean
   defaultValue?: string
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
@@ -69,6 +70,17 @@ type TextareaProps = Omit<
 
 ```tsx
 <Textarea label='Label' caption='Caption' placeholder='placeholder' />
+```
+
+## Optional Label
+
+```tsx
+<Textarea
+  label='Label'
+  caption='Caption'
+  placeholder='placeholder'
+  showOptionalLabel
+/>
 ```
 
 ## Small Input

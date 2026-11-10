@@ -7,7 +7,8 @@ export type FieldWrapperLabels = {
   requiredSymbolLabel?: string
   /**
    * Suffix appended after the field label when the field is optional.
-   * Default: " (Optional)"
+   * Spacing between the label and the suffix is handled by the label's flex gap.
+   * Default: "(optional)"
    */
   optionalSuffix?: ReactNode
 }
@@ -24,6 +25,10 @@ export type FieldWrapperProps = {
   required?: boolean
   disabled?: boolean
   size?: FieldWrapperSize
+  /**
+   * Whether to show the "(optional)" suffix after the label for non-required fields.
+   * Default: false
+   */
   showOptionalLabel?: boolean
   noMarginBottom?: boolean
   /** Override strings used by field-semantics labels. */

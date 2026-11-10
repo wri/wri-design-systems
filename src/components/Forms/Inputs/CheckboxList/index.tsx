@@ -26,6 +26,7 @@ const CheckboxList = ({
   errorMessage,
   horizontal,
   required,
+  showOptionalLabel = false,
   hideCheckedCounter = false,
   hideExpandToggle = false,
   labels,
@@ -198,7 +199,7 @@ const CheckboxList = ({
       caption={caption}
       errorMessage={errorMessage}
       required={typeof label === 'string' ? required : false}
-      showOptionalLabel={false}
+      showOptionalLabel={showOptionalLabel}
       noMarginBottom
       semantics='group'
       labels={{

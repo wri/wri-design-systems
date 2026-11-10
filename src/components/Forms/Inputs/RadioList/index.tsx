@@ -19,6 +19,7 @@ const RadioList = ({
   horizontal,
   variant = 'default',
   required,
+  showOptionalLabel = false,
   labels,
 }: RadioListProps) => {
   const l = useLabels('RadioList', labels)
@@ -33,7 +34,7 @@ const RadioList = ({
       caption={caption}
       errorMessage={errorMessage}
       required={required}
-      showOptionalLabel={false}
+      showOptionalLabel={showOptionalLabel}
       noMarginBottom
       semantics='group'
       labels={{

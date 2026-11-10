@@ -9,4 +9,5 @@ export type InputWithUnitsProps = {
   onChange?: (value: string) => void
   required?: boolean
   disabled?: boolean
+  showOptionalLabel?: boolean
 }
