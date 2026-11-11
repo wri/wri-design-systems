@@ -97,6 +97,10 @@ export const fieldWrapperLabelStyles = (
   /* The optional suffix is always lowercase, regardless of the provided string */
   span[data-optional-suffix] {
     text-transform: lowercase;
+    font-size: ${size === 'small'
+      ? getThemedFontSize(200)
+      : getThemedFontSize(300)};
+    color: ${getThemedColor('neutral', 700)};
   }
 
   .chakra-field__requiredIndicator {
