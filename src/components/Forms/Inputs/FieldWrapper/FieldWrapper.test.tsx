@@ -3,6 +3,7 @@ import { axe } from 'jest-axe'
 
 import FieldWrapper, { FieldWrapperProps } from '.'
 import { fieldWrapperLabelStyles } from './styled'
+import { getThemedColor, getThemedFontSize } from '../../../../lib/theme'
 
 jest.mock('@chakra-ui/react', () =>
   jest.requireActual('../../../testUtils').createChakraMock(),
@@ -172,6 +173,31 @@ describe('FieldWrapper — header content', () => {
       const { styles } = fieldWrapperLabelStyles(size)
       expect(styles).toContain('span[data-optional-suffix]')
       expect(styles).toContain('text-transform: lowercase')
+    })
+  })
+
+  const getOptionalSuffixRuleStyles = (size: 'default' | 'small') => {
+    const { styles } = fieldWrapperLabelStyles(size)
+    const selectorIndex = styles.indexOf('span[data-optional-suffix]')
+    const openBraceIndex = styles.indexOf('{', selectorIndex)
+    const closeBraceIndex = styles.indexOf('}', openBraceIndex)
+    return styles.slice(openBraceIndex + 1, closeBraceIndex)
+  }
+
+  it('applies 14px font size to the optional suffix for the default size', () => {
+    const suffixRule = getOptionalSuffixRuleStyles('default')
+    expect(suffixRule).toContain(`font-size: ${getThemedFontSize(300)}`)
+  })
+
+  it('applies 12px font size to the optional suffix for the small size', () => {
+    const suffixRule = getOptionalSuffixRuleStyles('small')
+    expect(suffixRule).toContain(`font-size: ${getThemedFontSize(200)}`)
+  })
+
+  it('applies neutral-700 color to the optional suffix', () => {
+    ;(['default', 'small'] as const).forEach((size) => {
+      const suffixRule = getOptionalSuffixRuleStyles(size)
+      expect(suffixRule).toContain(`color: ${getThemedColor('neutral', 700)}`)
     })
   })
 
