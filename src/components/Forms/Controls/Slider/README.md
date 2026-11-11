@@ -18,41 +18,19 @@ import { Slider } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type SliderMarksProps = {
-  marks?: Array<number | { value: number; label: React.ReactNode }>
-  isCentred?: boolean
-}
-
-type ValueChangeDetails = {
-  value: number[]
-}
-
-type SliderProps = Omit<
-  ChakraSliderRootProps,
-  | 'size'
-  | 'variant'
-  | 'colorPalette'
-  | 'thumbAlignment'
-  | 'thumbSize'
-  | 'label'
-  | 'defaultChecked'
-  | 'origin'
-  | 'defaultValue'
-> & {
-  width?: string
-  min?: number
-  max?: number
-  value?: number[]
-  marks?: Array<number | { value: number; label: React.ReactNode }>
-  step?: number
-  disabled?: boolean
-  onValueChange?: (details: ValueChangeDetails) => void
-  onValueChangeEnd?: (details: ValueChangeDetails) => void
-  isCentred?: boolean
-  colors?: string[]
-}
-```
+| Prop               | Type                                                         | Default | Description                                                                                                       |
+| ------------------ | ------------------------------------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------- |
+| `colors`           | `string[]`                                                   | —       | Colors used to render a gradient track, e.g. for data-driven scales (low → high)                                  |
+| `disabled`         | `boolean`                                                    | —       | Disables the slider and applies disabled styles                                                                   |
+| `isCentred`        | `boolean`                                                    | —       | Renders a centred origin: the filled range grows from the middle and a middle marker is drawn between min and max |
+| `marks`            | `Array<number \| { value: number; label: React.ReactNode }>` | —       | Tick marks on the track. Numbers render markers only; objects can also render a label below the track             |
+| `max`              | `number`                                                     | `100`   | Maximum slider value                                                                                              |
+| `min`              | `number`                                                     | `0`     | Minimum slider value                                                                                              |
+| `onValueChange`    | `(details: { value: number[] }) => void`                     | —       | Called with the current value(s) while the value changes                                                          |
+| `onValueChangeEnd` | `(details: { value: number[] }) => void`                     | —       | Called with the final value(s) when the change interaction ends                                                   |
+| `step`             | `number`                                                     | —       | Increment between selectable values                                                                               |
+| `value`            | `number[]`                                                   | `[0]`   | Controlled value(s) of the slider                                                                                 |
+| `width`            | `string`                                                     | —       | Custom width for the slider                                                                                       |
 
 ## Continuous
 

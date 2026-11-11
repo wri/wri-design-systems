@@ -23,6 +23,23 @@ import { InlineMessage } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop                  | Type                                                                  | Default                                   | Description                                                     |
+| --------------------- | --------------------------------------------------------------------- | ----------------------------------------- | --------------------------------------------------------------- |
+| `actionButtonVariant` | `'primary' \| 'secondary' \| 'borderless' \| 'outline' \| 'negative'` | `'secondary'`                             | Variant of the action button                                    |
+| `actionLabel`         | `string`                                                              | —                                         | Text of the optional action button; renders the button when set |
+| `buttonLeftIcon`      | `React.ReactNode`                                                     | —                                         | Icon rendered before the action button label                    |
+| `buttonRightIcon`     | `React.ReactNode`                                                     | —                                         | Icon rendered after the action button label                     |
+| `caption`             | `React.ReactNode`                                                     | —                                         | Secondary message text rendered under the label                 |
+| `icon`                | `React.ReactNode`                                                     | `<InfoIcon height='1rem' width='1rem' />` | Icon rendered before the label                                  |
+| `isButtonRight`       | `boolean`                                                             | —                                         | Whether the action button sits to the right of the message      |
+| `label`               | `React.ReactNode`                                                     | —                                         | Primary message text                                            |
+| `labels`              | `Partial<InlineMessageLabels>`                                        | —                                         | Override internal UI labels for internationalization support    |
+| `onActionClick`       | `() => void`                                                          | —                                         | Called when the action button is clicked                        |
+| `size`                | `InlineMessageSize`                                                   | `'large'`                                 | Message size and width                                          |
+| `variant`             | `'info-white' \| 'info-grey' \| 'success' \| 'warning' \| 'error'`    | —                                         | Color scheme of the message                                     |
+
+### Supporting types
+
 ```ts
 type InlineMessageLabels = {
   /** aria-roledescription on the root element. Default: "Note" */
@@ -30,27 +47,6 @@ type InlineMessageLabels = {
 }
 
 type InlineMessageSize = 'small' | 'large' | 'full-width' | 'small-full-width'
-
-type InlineMessageProps = {
-  label: string | React.ReactNode
-  caption?: string | React.ReactNode
-  variant: 'info-white' | 'info-grey' | 'success' | 'warning' | 'error'
-  size?: InlineMessageSize
-  icon?: React.ReactNode
-  onActionClick?: VoidFunction
-  actionLabel?: string
-  actionButtonVariant?:
-    | 'primary'
-    | 'secondary'
-    | 'borderless'
-    | 'outline'
-    | 'negative'
-  isButtonRight?: boolean
-  buttonLeftIcon?: React.ReactNode
-  buttonRightIcon?: React.ReactNode
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<InlineMessageLabels>
-}
 ```
 
 ## Info White

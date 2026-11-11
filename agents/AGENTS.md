@@ -39,6 +39,10 @@ Key rules (full details in the instructions file):
 5. **No Chakra v2 API** — v3 has breaking changes. Verify props via Chakra MCP.
 6. **Accessibility first** — always provide `aria-*` props (like `aria-label` or `aria-describedby`), explicit `role` attributes, and ensure keyboard focus navigation context when consuming components.
 
+## Component README & types.ts Standard
+
+Every component documents props in `types.ts` (JSDoc on every prop, source of truth for wording) and in its `README.md` (`## Props` as backticked markdown tables — one table per exported component type). Both must match verbatim. Full spec: `docs/readme-standard.md`.
+
 ## Internationalization (i18n) — Optional
 
 All WRI DS components ship with English defaults. No i18n setup is needed for English-only apps.

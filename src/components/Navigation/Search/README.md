@@ -49,35 +49,37 @@ query highlighting.
 
 ## Props
 
+| Prop               | Type                                               | Default                    | Description                                                                                                         |
+| ------------------ | -------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `displayResults`   | `'none' \| 'text' \| 'list' \| 'custom'`           | `'text'`                   | How results are rendered, one of 'none', 'text', 'list', or 'custom'                                                |
+| `disabled`         | `boolean`                                          | —                          | Disables the search input                                                                                           |
+| `isLoading`        | `boolean`                                          | `false`                    | Shows a spinner in the results popover when true                                                                    |
+| `labels`           | `Partial<SearchLabels>`                            | —                          | Override internal UI labels for internationalization support                                                        |
+| `onClear`          | `() => void`                                       | —                          | Called when the clear button is pressed                                                                             |
+| `onQueryChange`    | `(query: string) => void`                          | —                          | Called with the current query whenever it changes                                                                   |
+| `onSelect`         | `(selectedOption: ListItemProps) => void`          | —                          | Called with the selected option when a result is selected                                                           |
+| `options`          | `ListItemProps[]`                                  | `[]`                       | Options to filter and display as results                                                                            |
+| `placeholder`      | `string`                                           | `labels.filterPlaceholder` | Placeholder and aria-label for the search input                                                                     |
+| `renderResults`    | `(params: RenderResultsParams) => React.ReactNode` | —                          | Custom results renderer used when displayResults is 'custom', receives items, highlightedIndex, query, and onSelect |
+| `resultsMaxHeight` | `number \| string`                                 | `50`                       | Maximum height of the results popover, numbers resolve to spacing-scale rem values                                  |
+| `size`             | `'small' \| 'default'`                             | `'default'`                | Size of the search input and icon                                                                                   |
+
+### Supporting types
+
 ```ts
+type RenderResultsParams = {
+  items: any[]
+  highlightedIndex: number
+  query: string
+  onSelect: (id: string) => void
+}
+
 type SearchLabels = {
   /** placeholder attribute on the filter input. Default: "Filter" */
   filterPlaceholder: string
   /** aria-label on the filter input. Default: "Search filter" */
   filterAriaLabel: string
 }
-
-type SearchProps = Omit<
-  ChakraInputProps,
-  'variant' | 'colorPalette' | 'defaultChecked'
-> & {
-  placeholder?: string
-  disabled?: boolean
-  size?: 'small' | 'default'
-  options: ListItemProps[]
-  resultsMaxHeight?: SizeValue
-  isLoading?: boolean
-  displayResults?: 'none' | 'text' | 'list' | 'custom'
-  onSelect?: (selectedOption: ListItemProps) => void
-  onQueryChange?: (query: string) => void
-  onClear?: () => void
-  renderResults?: (params: {
-    items: any[]
-    highlightedIndex: number
-    query: string
-    onSelect: (id: string) => void
-  }) => React.ReactNode
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<SearchLabels>
-}
 ```
+
+- `ListItemProps` — item shape from `DataDisplay/List`: `{ id?, label, searchLabel?, caption?, icon?, value?, ... }`

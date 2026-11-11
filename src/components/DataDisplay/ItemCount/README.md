@@ -22,6 +22,17 @@ import { ItemCount } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop                | Type                         | Default | Description                                                   |
+| ------------------- | ---------------------------- | ------- | ------------------------------------------------------------- |
+| `currentPage`       | `number`                     | —       | Current 1-based page number used to compute the visible range |
+| `labels`            | `Partial<ItemCountLabels>`   | —       | Override internal UI labels for internationalization support  |
+| `onPageSizeChange`  | `(pageSize: number) => void` | —       | Called when a new page size is selected                       |
+| `pageSize`          | `number`                     | —       | Number of items per page, shown as the selected page size     |
+| `showItemCountText` | `boolean`                    | —       | Whether to show the "Showing X-Y of Z" text                   |
+| `totalItems`        | `number`                     | —       | Total number of items across all pages                        |
+
+### Supporting types
+
 ```ts
 type ReactNodeLabel = ReactNode
 
@@ -38,15 +49,5 @@ type ItemCountLabels = {
    * Default fn provided.
    */
   showingLabel: (start: number, end: number, total: number) => ReactNode
-}
-
-type ItemCountProps = {
-  pageSize: number
-  currentPage: number
-  totalItems: number
-  onPageSizeChange?: (pageSize: number) => void
-  showItemCountText?: boolean
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<ItemCountLabels>
 }
 ```

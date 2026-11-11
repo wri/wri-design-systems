@@ -18,19 +18,22 @@ import { Pagination } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop           | Type                                               | Default     | Description                                                          |
+| -------------- | -------------------------------------------------- | ----------- | -------------------------------------------------------------------- |
+| `currentPage`  | `number`                                           | —           | Currently active page, applied as the initial page of the pagination |
+| `labels`       | `Partial<PaginationLabels>`                        | —           | Override internal UI labels for internationalization support         |
+| `onPageChange` | `(page: number) => void`                           | —           | Called with the selected page when it changes                        |
+| `pageSize`     | `number`                                           | —           | Number of items per page                                             |
+| `totalItems`   | `number`                                           | —           | Total number of items across all pages                               |
+| `variant`      | `'default' \| 'compact' \| 'compact-with-buttons'` | `'default'` | Layout variant, compact variants show only the current page text     |
+
+### Supporting types
+
 ```ts
 type PaginationLabels = {
-  /**
-   * Visible "Previous" button text.
-   * Passed directly to Button.label (string).
-   * Default: "Previous"
-   */
+  /** Visible "Previous" button text. Default: "Previous" */
   previousLabel: string
-  /**
-   * Visible "Next" button text.
-   * Passed directly to Button.label (string).
-   * Default: "Next"
-   */
+  /** Visible "Next" button text. Default: "Next" */
   nextLabel: string
   /** aria-label on the previous icon button. Default: "Previous page" */
   previousPageLabel: string
@@ -40,16 +43,6 @@ type PaginationLabels = {
   paginationLabel: string
   /** aria-label per page button, e.g. "Page 3". Default fn provided. */
   pageLabel: (page: number) => string
-}
-
-type PaginationProps = {
-  currentPage: number
-  totalItems: number
-  pageSize: number
-  variant?: 'default' | 'compact' | 'compact-with-buttons'
-  onPageChange?: (page: number) => void
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<PaginationLabels>
 }
 ```
 

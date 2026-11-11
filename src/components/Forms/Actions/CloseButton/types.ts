@@ -7,7 +7,8 @@ export type CloseButtonProps = Omit<
   ChakraButtonProps,
   'size' | 'variant' | 'colorPalette' | 'children' | '_loading'
 > & {
+  /** Disables the button */
   disabled?: boolean
-  /** Override internal UI labels for internationalization support. */
+  /** Override internal UI labels for internationalization support */
   labels?: Partial<CloseButtonLabels>
 }

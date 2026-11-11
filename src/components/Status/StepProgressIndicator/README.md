@@ -27,6 +27,14 @@ import { StepProgressIndicator } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop          | Type                                         | Default | Description                                                  |
+| ------------- | -------------------------------------------- | ------- | ------------------------------------------------------------ |
+| `currentStep` | `number`                                     | —       | 1-based index of the active step                             |
+| `labels`      | `Partial<StepProgressIndicatorLabels>`       | —       | Override internal UI labels for internationalization support |
+| `steps`       | `{ label?: string; onClick?: () => void }[]` | —       | Step definitions rendered as numbered indicators             |
+
+### Supporting types
+
 ```ts
 type StepProgressIndicatorLabels = {
   /** Builds the aria-label per step. Default fn provided. */
@@ -35,15 +43,5 @@ type StepProgressIndicatorLabels = {
     label: string,
     isCompleted: boolean,
   ) => string
-}
-
-type StepProgressIndicatorProps = {
-  steps: {
-    label?: string
-    onClick?: () => void
-  }[]
-  currentStep: number
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<StepProgressIndicatorLabels>
 }
 ```

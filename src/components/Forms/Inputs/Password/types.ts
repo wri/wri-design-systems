@@ -14,10 +14,15 @@ export type StrengthLevel =
   | 'very-strong'
 
 export type PasswordProps = {
+  /** Field label rendered above the input */
   label: string
+  /** Helper text rendered below the label */
   caption?: string
+  /** Marks the field as required and shows the required indicator */
   required?: boolean
+  /** Shows the "(optional)" suffix for non-required fields Defaults to `false` */
   showOptionalLabel?: boolean
+  /** Called with the current password and its rule results whenever the value changes */
   onChange?: ({
     strength,
     length,
@@ -35,14 +40,17 @@ export type PasswordProps = {
     specialCharacters: boolean
     password: string
   }) => void
+  /** Disables individual strength rules; each key set to `true` hides its rule row */
   disabledRules?: {
     uppercase?: boolean
     lowercase?: boolean
     numbers?: boolean
     specialCharacters?: boolean
   }
+  /** Minimum character length required and shown in the length rule Defaults to `8` */
   minLength?: number
+  /** Hides the strength bar and rule checklist while typing */
   hideValidations?: boolean
-  /** Override internal UI labels for internationalization support. */
+  /** Override internal UI labels for internationalization support */
   labels?: Partial<PasswordLabels>
 }

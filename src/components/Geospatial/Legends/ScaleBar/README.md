@@ -22,14 +22,12 @@ import { ScaleBar } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type ScaleBarProps = {
-  colors: string[]
-  values: string[]
-  subLabels?: string[]
-  isGradient?: boolean
-}
-```
+| Prop         | Type       | Default | Description                                                              |
+| ------------ | ---------- | ------- | ------------------------------------------------------------------------ |
+| `colors`     | `string[]` | `—`     | Color stops of the scale bar, one per segment or gradient stop           |
+| `isGradient` | `boolean`  | `—`     | Renders the colors as a continuous gradient instead of discrete segments |
+| `subLabels`  | `string[]` | `—`     | Optional secondary labels rendered under the value labels                |
+| `values`     | `string[]` | `—`     | Value labels rendered under the scale bar                                |
 
 ## Gradient
 

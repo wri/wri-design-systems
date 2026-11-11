@@ -41,6 +41,32 @@ import { MobileTabBar } from '@worldresources/wri-design-systems'
 
 ## Props
 
+### MobileTabBar
+
+| Prop             | Type                          | Default         | Description                                                  |
+| ---------------- | ----------------------------- | --------------- | ------------------------------------------------------------ |
+| `activationMode` | `'automatic' \| 'manual'`     | `'manual'`      | Tab activation mode                                          |
+| `defaultValue`   | `string`                      | `tabs[0].value` | Initially selected tab value                                 |
+| `hideLabels`     | `boolean`                     | —               | Hides the tab labels, rendering icons only, when true        |
+| `labels`         | `Partial<MobileTabBarLabels>` | —               | Override internal UI labels for internationalization support |
+| `onTabClick`     | `(tabValue: string) => void`  | —               | Called with the selected tab value when a tab is clicked     |
+| `tabs`           | `MobileTabBarItemProps[]`     | —               | Tab items to render                                          |
+
+### MobileTabBarItem
+
+| Prop               | Type                     | Default | Description                                                  |
+| ------------------ | ------------------------ | ------- | ------------------------------------------------------------ |
+| `aria-describedby` | `string`                 | —       | Extra describedby text, joined with the tab status region id |
+| `aria-label`       | `string`                 | `label` | Accessible name for the tab                                  |
+| `bagdeCount`       | `number`                 | —       | Optional count rendered as a badge on the icon               |
+| `disabled`         | `boolean`                | —       | Disables the tab when true                                   |
+| `icon`             | `React.ReactNode`        | —       | Icon node rendered above the label                           |
+| `label`            | `string`                 | —       | Visible label text shown under the icon                      |
+| `ref`              | `Ref<HTMLButtonElement>` | —       | Ref forwarded to the tab trigger button                      |
+| `value`            | `string`                 | —       | Unique value identifying the tab                             |
+
+### Supporting types
+
 ```ts
 type MobileTabBarLabels = {
   tabPositionStatus: (index: number, total: number) => string
@@ -48,22 +74,6 @@ type MobileTabBarLabels = {
   notSelectedStatus: string
   disabledStatus: string
 }
-
-type MobileTabBarItemProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
-  label: string
-  value: string
-  icon: React.ReactNode
-  bagdeCount?: number
-  disabled?: boolean
-  ref?: Ref<HTMLButtonElement>
-}
-
-type MobileTabBarProps = {
-  defaultValue?: string
-  tabs: MobileTabBarItemProps[]
-  onTabClick?: (tabValue: string) => void
-  hideLabels?: boolean
-  activationMode?: 'automatic' | 'manual' // default: 'manual'
-  labels?: Partial<MobileTabBarLabels>
-}
 ```
+
+- `MobileTabBarItemProps` also inherits `ChakraTabs.TriggerProps` (except `asChild`)

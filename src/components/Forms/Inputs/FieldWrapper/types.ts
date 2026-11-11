@@ -14,38 +14,45 @@ export type FieldWrapperLabels = {
 }
 
 export type FieldWrapperProps = {
+  /** Field label rendered above the control */
   label?: ReactNode
+  /** Helper text rendered below the label */
   caption?: string
+  /** Error message rendered below the control; also shows the error bar */
   errorMessage?: string
   /**
    * Forces the error-bar / invalid state even when `errorMessage` is empty
    * (e.g. Textarea min/max validation shown in the footer).
    */
   invalid?: boolean
+  /** Marks the field as required and shows the required indicator */
   required?: boolean
+  /** Applies disabled styling to the label and caption */
   disabled?: boolean
+  /** Controls the spacing and text size of the label, caption and content Defaults to `'default'` */
   size?: FieldWrapperSize
-  /**
-   * Whether to show the "(optional)" suffix after the label for non-required fields.
-   * Default: false
-   */
+  /** Shows the "(optional)" suffix for non-required fields Defaults to `false` */
   showOptionalLabel?: boolean
+  /** Removes the bottom margin below the field Defaults to `false` */
   noMarginBottom?: boolean
-  /** Override strings used by field-semantics labels. */
+  /** Override strings used by field-semantics labels */
   labels?: FieldWrapperLabels
-  /** Optional slot rendered after the control (e.g. Textarea char-count / min-max errors). */
+  /** Optional slot rendered after the control (e.g. Textarea char-count / min-max errors) */
   footer?: ReactNode
   /**
    * `field` — Chakra Field primitives (TextInput, Textarea, Combobox).
    * `group` — plain markup for composite / list inputs (Select, RadioList, etc.).
+   * Defaults to `'field'`
    */
   semantics?: 'field' | 'group'
+  /** Additional className applied to the root container */
   className?: string
+  /** Control content rendered inside the field */
   children: ReactNode
-  /** Optional id on the caption element (for aria-describedby). */
+  /** Optional id on the caption element (for aria-describedby) */
   captionId?: string
-  /** Optional id on the error element (for aria-describedby). */
+  /** Optional id on the error element (for aria-describedby) */
   errorId?: string
-  /** Extra props applied to the outer container element. */
+  /** Extra props applied to the outer container element */
   containerProps?: HTMLAttributes<HTMLDivElement>
 }

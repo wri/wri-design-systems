@@ -41,10 +41,8 @@ const cardFooter = (
 
 ## Props
 
-```ts
-interface ExtendableCardProps {
-  children: React.ReactNode
-  header: React.ReactNode
-  footer?: React.ReactNode
-}
-```
+| Prop       | Type              | Default | Description                                          |
+| ---------- | ----------------- | ------- | ---------------------------------------------------- |
+| `children` | `React.ReactNode` | —       | Card content shown when the card is expanded         |
+| `footer`   | `React.ReactNode` | —       | Optional footer content rendered below the card body |
+| `header`   | `React.ReactNode` | —       | Clickable header rendered as the card trigger        |

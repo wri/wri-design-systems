@@ -113,32 +113,31 @@ const triggerPlantRef = useRef<HTMLButtonElement>(null)
 
 ## Props
 
+| Prop                  | Type                                         | Default     | Description                                                                                                                                                |
+| --------------------- | -------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `anchorRef`           | `React.RefObject<HTMLButtonElement \| null>` | `—`         | The element that the modal/connector should point to                                                                                                       |
+| `closeOnEscape`       | `boolean`                                    | `true`      | Closes the popup when the escape key is pressed                                                                                                            |
+| `closeOnOutsideClick` | `boolean`                                    | `false`     | Closes the popup when clicking outside of it                                                                                                               |
+| `content`             | `React.ReactNode`                            | `—`         | Main content rendered in the popup body                                                                                                                    |
+| `footer`              | `React.ReactNode`                            | `—`         | Optional content rendered in the popup footer                                                                                                              |
+| `header`              | `React.ReactNode`                            | `—`         | Content rendered in the popup header, next to the close button                                                                                             |
+| `labels`              | `Partial<MapPopUpLabels>`                    | `—`         | Override internal UI labels for internationalization support                                                                                               |
+| `offset`              | `number`                                     | `30`        | Gap between anchor and modal. Also affects connector length                                                                                                |
+| `onOpenChange`        | `(open: boolean) => void`                    | `—`         | Called with the next open state when the popup opens or closes                                                                                             |
+| `open`                | `boolean`                                    | `—`         | Controls whether the popup is rendered                                                                                                                     |
+| `placement`           | `Placement`                                  | `'bottom'`  | Preferred placement of the popup relative to the anchor, flipped when there is not enough space                                                            |
+| `variant`             | `'default' \| 'dark'`                        | `'default'` | Surface style of the popup. `dark` uses neutral/800 as background, neutral/100 as text color and neutral/900 for the connector (arrow). Default: "default" |
+
+### Supporting types
+
+- `Placement` — placement string from `@floating-ui/react` (for example `'bottom'`, `'right'`, `'top-start'`)
+- `MapPopUpLabels` — full shape documented below
+
 ```ts
 type MapPopUpLabels = {
   /** aria-label on the popup dialog container. Default: "Map popup dialog" */
   dialogAriaLabel: string
   /** aria-label on the close button. Default: "Close" */
   closeLabel: string
-}
-
-type MapPopUpProps = {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  /** The element that the modal/connector should point to */
-  anchorRef: React.RefObject<HTMLButtonElement | null>
-  header: React.ReactNode
-  content: React.ReactNode
-  footer?: React.ReactNode
-  placement?: Placement
-  /** Surface style of the popup. `dark` uses neutral/800 as background,
-   * neutral/100 as text color and neutral/900 for the connector (arrow).
-   * Default: "default" */
-  variant?: 'default' | 'dark'
-  /** Gap between anchor and modal. Also affects connector length */
-  offset?: number // default: 30
-  closeOnEscape?: boolean // default: true
-  closeOnOutsideClick?: boolean // default: false
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<MapPopUpLabels>
 }
 ```

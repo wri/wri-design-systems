@@ -25,7 +25,23 @@ import { QualitativeAttribute } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop               | Type                                  | Default           | Description                                                                      |
+| ------------------ | ------------------------------------- | ----------------- | -------------------------------------------------------------------------------- |
+| `ariaLabelType`    | `string`                              | `''`              | Extra type text passed to the aria-label template                                |
+| `caption`          | `string`                              | `—`               | Optional description shown under the label                                       |
+| `color`            | `string`                              | `—`               | Color applied to the visual indicator                                            |
+| `label`            | `string \| React.ReactNode`           | `—`               | Attribute name shown next to the indicator                                       |
+| `labels`           | `Partial<QualitativeAttributeLabels>` | `—`               | Override internal UI labels for internationalization support                     |
+| `onActionClick`    | `() => void`                          | `—`               | Called when the show/hide action button toggles visibility                       |
+| `pointIcon`        | `React.ReactNode`                     | `PlaceholderIcon` | Custom icon rendered inside the point indicator                                  |
+| `showActionButton` | `boolean`                             | `—`               | Shows the show/hide action button; requires onActionClick                        |
+| `type`             | `'raster' \| 'line' \| 'point'`       | `—`               | Visual indicator style; raster shows a square, line a bar, point a circular icon |
+
+### Supporting types
+
 ```ts
+type ReactNodeLabel = ReactNode
+
 type QualitativeAttributeLabels = {
   /**
    * Visible "Hide" button text.
@@ -52,19 +68,6 @@ type QualitativeAttributeLabels = {
     typeText: string,
     visibilityText: string,
   ) => string
-}
-
-type QualitativeAttributeProps = {
-  type: 'raster' | 'line' | 'point'
-  label: string | React.ReactNode
-  caption?: string
-  color: string
-  showActionButton?: boolean
-  onActionClick?: () => void
-  pointIcon?: React.ReactNode
-  ariaLabelType?: string
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<QualitativeAttributeLabels>
 }
 ```
 

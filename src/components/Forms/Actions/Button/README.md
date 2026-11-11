@@ -18,26 +18,25 @@ import { Button } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop         | Type                                                                  | Default     | Description                                                                               |
+| ------------ | --------------------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------- |
+| `aria-label` | `string`                                                              | —           | Accessible name for the button; takes precedence over the text label except while loading |
+| `children`   | `React.ReactNode`                                                     | —           | Button content; use instead of `label`                                                    |
+| `disabled`   | `boolean`                                                             | —           | Disables the button                                                                       |
+| `label`      | `string \| React.ReactNode`                                           | —           | Button content; may be any React node, but only plain text is used as the accessible name |
+| `labels`     | `Partial<ButtonLabels>`                                               | —           | Override internal UI labels for internationalization support                              |
+| `leftIcon`   | `React.ReactNode`                                                     | —           | Icon rendered before the button content                                                   |
+| `loading`    | `boolean`                                                             | —           | Shows a spinner in place of the icons and disables the button                             |
+| `rightIcon`  | `React.ReactNode`                                                     | —           | Icon rendered after the button content                                                    |
+| `size`       | `'default' \| 'small'`                                                | `'default'` | Size of the button                                                                        |
+| `variant`    | `'primary' \| 'secondary' \| 'borderless' \| 'outline' \| 'negative'` | `'primary'` | Visual style of the button                                                                |
+
+### Supporting types
+
 ```ts
 type ButtonLabels = {
   /** aria-label applied to the button during loading state. Default: "Loading" */
   loadingLabel: string
-}
-
-type ButtonProps = Omit<
-  ChakraButtonProps,
-  'size' | 'variant' | 'colorPalette' | 'children'
-> & {
-  label?: string | React.ReactNode
-  loading?: boolean
-  variant?: 'primary' | 'secondary' | 'borderless' | 'outline' | 'negative'
-  size?: 'default' | 'small'
-  disabled?: boolean
-  leftIcon?: React.ReactNode
-  rightIcon?: React.ReactNode
-  children?: React.ReactNode // use instead of label
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<ButtonLabels>
 }
 ```
 

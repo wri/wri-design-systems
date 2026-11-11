@@ -27,39 +27,43 @@ import { Combobox } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type ComboboxLabels = {
-  requiredSymbolLabel: string
-  optionalSuffix: ReactNodeLabel
-  defaultInputAriaLabel: string
-  clearSelectionLabel: string
-  toggleOptionsLabel: string
-  noItemsFoundLabel: ReactNodeLabel
-  createOptionLabel: (inputValue: string) => ReactNodeLabel
-  loadingLabel: ReactNodeLabel
-}
+| Prop                | Type                         | Default     | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------- | ---------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `caption`           | `string`                     | —           | Helper text rendered below the label                                                                                                                                                                                                                                                                                                                                                                                        |
+| `creatable`         | `boolean`                    | `false`     | Whether the user can create options that do not exist in the item list. When `true`, typing a non-matching value shows a "Create …" row that adds the entry to the list on selection                                                                                                                                                                                                                                        |
+| `defaultValue`      | `string[]`                   | `[]`        | Initial selected values for uncontrolled usage                                                                                                                                                                                                                                                                                                                                                                              |
+| `disabled`          | `boolean`                    | —           | Disables the input and the dropdown                                                                                                                                                                                                                                                                                                                                                                                         |
+| `errorMessage`      | `string`                     | —           | Error message rendered below the input                                                                                                                                                                                                                                                                                                                                                                                      |
+| `initialItems`      | `ComboboxItem[]`             | `[]`        | Legacy dropdown options, read only on mount when `items` is omitted. Pass the options through `items` instead                                                                                                                                                                                                                                                                                                               |
+| `isLoading`         | `boolean`                    | `false`     | Shows a loading spinner inside the dropdown and hides the "No items found" empty state. Intended for server-side filtering mode while a request triggered by `onQueryChange` is in flight                                                                                                                                                                                                                                   |
+| `items`             | `ComboboxItem[]`             | `[]`        | Dropdown options for both static lists and dynamically updated results. Changes to the list contents replace the dropdown options                                                                                                                                                                                                                                                                                           |
+| `label`             | `string`                     | —           | Field label rendered above the input                                                                                                                                                                                                                                                                                                                                                                                        |
+| `labels`            | `Partial<ComboboxLabels>`    | —           | Override internal UI labels for internationalization support                                                                                                                                                                                                                                                                                                                                                                |
+| `multiple`          | `boolean`                    | `false`     | Allows selecting multiple options; pair with `showSelectedItems` to show them as removable tags                                                                                                                                                                                                                                                                                                                             |
+| `noMarginBottom`    | `boolean`                    | —           | Removes the bottom margin below the field                                                                                                                                                                                                                                                                                                                                                                                   |
+| `onChange`          | `(values: string[]) => void` | —           | Called with the selected values whenever the selection changes                                                                                                                                                                                                                                                                                                                                                              |
+| `onQueryChange`     | `(query: string) => void`    | —           | Called with the current input text on every change, including the empty string when the input resets after a selection or clear (use it to restore the full list). Providing this callback enables server-side filtering mode: the built-in client-side filtering is skipped and the rendered list is whatever `items` currently contains, so the consumer can fetch matching items and pass them back via the `items` prop |
+| `placeholder`       | `string`                     | —           | Placeholder text shown when no option is selected                                                                                                                                                                                                                                                                                                                                                                           |
+| `required`          | `boolean`                    | —           | Marks the field as required and shows the required indicator                                                                                                                                                                                                                                                                                                                                                                |
+| `showOptionalLabel` | `boolean`                    | `false`     | Shows the "(optional)" suffix for non-required fields                                                                                                                                                                                                                                                                                                                                                                       |
+| `showSelectedItems` | `boolean`                    | `false`     | Shows the selected values as removable tags under the input                                                                                                                                                                                                                                                                                                                                                                 |
+| `size`              | `'small' \| 'default'`       | `'default'` | Controls the input size                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `value`             | `string[]`                   | —           | Controlled selected values. When provided, the component is fully controlled — pair with `onChange`                                                                                                                                                                                                                                                                                                                         |
 
-type ComboboxProps = {
-  items?: { label: string; value: string }[]
-  label?: string
-  required?: boolean
-  caption?: string
-  errorMessage?: string
-  size?: 'small' | 'default'
-  disabled?: boolean
-  /** Shows the "(optional)" suffix for non-required fields. Default: false */
-  showOptionalLabel?: boolean
-  placeholder?: string
-  labels?: Partial<ComboboxLabels>
-  noMarginBottom?: boolean
-  multiple?: boolean
-  showSelectedItems?: boolean
-  value?: string[]
-  defaultValue?: string[]
-  onChange?: (values: string[]) => void
-  creatable?: boolean
-  onQueryChange?: (query: string) => void
-  isLoading?: boolean
+### Supporting types
+
+```ts
+type ComboboxItem = { label: string; value: string }
+
+type ComboboxLabels = {
+  requiredSymbolLabel: string // Default: "required"
+  optionalSuffix: ReactNodeLabel // Default: "(optional)"
+  defaultInputAriaLabel: string // Default: "Combobox input"
+  clearSelectionLabel: string // Default: "Clear selection"
+  toggleOptionsLabel: string // Default: "Toggle options"
+  noItemsFoundLabel: ReactNodeLabel // Default: "No items found"
+  createOptionLabel: (inputValue: string) => ReactNodeLabel // Default: (inputValue) => `Create “${inputValue}”`
+  loadingLabel: ReactNodeLabel // Default: "Loading"
 }
 ```
 

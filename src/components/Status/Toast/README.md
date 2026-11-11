@@ -40,39 +40,35 @@ showToast({
 
 ## Props
 
+### Toast
+
+| Prop     | Type                   | Default | Description                                                  |
+| -------- | ---------------------- | ------- | ------------------------------------------------------------ |
+| `labels` | `Partial<ToastLabels>` | —       | Override internal UI labels for internationalization support |
+
+### showToast
+
+| Prop            | Type                                                                              | Default | Description                                                       |
+| --------------- | --------------------------------------------------------------------------------- | ------- | ----------------------------------------------------------------- |
+| `action`        | `{ label: string; onClick: () => void }`                                          | —       | Optional action button shown in the toast                         |
+| `caption`       | `React.ReactNode`                                                                 | —       | Secondary toast text rendered under the label                     |
+| `closable`      | `boolean`                                                                         | —       | Whether to show the dismiss button                                |
+| `closableLabel` | `string`                                                                          | —       | Label on the dismiss button                                       |
+| `duration`      | `number`                                                                          | `5000`  | How long the toast stays visible in milliseconds                  |
+| `icon`          | `React.ReactNode`                                                                 | —       | Custom icon replacing the default type icon                       |
+| `id`            | `string`                                                                          | —       | Optional ID for the toast, useful for programmatically closing it |
+| `label`         | `string`                                                                          | —       | Primary toast text                                                |
+| `maxWidth`      | `string`                                                                          | —       | Custom max width of the toast                                     |
+| `onClose`       | `() => void`                                                                      | —       | Called when the dismiss button is clicked                         |
+| `placement`     | `'top-start' \| 'top' \| 'top-end' \| 'bottom-start' \| 'bottom' \| 'bottom-end'` | —       | Screen position where the toast appears                           |
+| `type`          | `'success' \| 'warning' \| 'error' \| 'info' \| 'loading'`                        | —       | Toast type controlling the icon and color scheme                  |
+
+### Supporting types
+
 ```ts
 type ToastLabels = {
   /** aria-label on the dismiss button. Default: "Dismiss" */
   dismissLabel: string
-}
-
-type ToastProps = {
-  id?: string // Optional ID for the toast, useful for programmatically closing it
-  label: string
-  caption?: React.ReactNode
-  type: 'success' | 'warning' | 'error' | 'info' | 'loading'
-  placement:
-    | 'top-start'
-    | 'top'
-    | 'top-end'
-    | 'bottom-start'
-    | 'bottom'
-    | 'bottom-end'
-  duration?: number
-  icon?: React.ReactNode
-  action?: {
-    label: string
-    onClick: () => void
-  }
-  closable?: boolean
-  closableLabel?: string
-  onClose?: () => void
-  maxWidth?: string
-}
-
-type ToastComponentProps = {
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<ToastLabels>
 }
 ```
 

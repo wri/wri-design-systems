@@ -18,27 +18,32 @@ import { Avatar } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop                    | Type                             | Default    | Description                                                       |
+| ----------------------- | -------------------------------- | ---------- | ----------------------------------------------------------------- |
+| `ariaLabel`             | `string`                         | —          | Accessible name for the avatar; defaults to the name              |
+| `badgeSize`             | `BadgeSize`                      | `'large'`  | Size of the notification Badge                                    |
+| `customBackgroundColor` | `string`                         | `''`       | Custom background color of the avatar circle                      |
+| `customSize`            | `SizeValue`                      | —          | Custom size overriding the size preset                            |
+| `disabled`              | `boolean`                        | `false`    | Whether the avatar is disabled                                    |
+| `labels`                | `Partial<AvatarLabels>`          | —          | Override internal UI labels for internationalization support      |
+| `name`                  | `string`                         | —          | Name used for the initials fallback and the default aria-label    |
+| `notificationCount`     | `number`                         | —          | Notification count rendered as a Badge overlay                    |
+| `onClick`               | `() => void`                     | —          | Called when the avatar is clicked; also gives it button semantics |
+| `size`                  | `'small' \| 'medium' \| 'large'` | `'medium'` | Avatar size preset                                                |
+| `src`                   | `string`                         | —          | Image source of the avatar                                        |
+| `srcSet`                | `string`                         | —          | Image source set of the avatar                                    |
+
+### Supporting types
+
 ```ts
 type AvatarLabels = {
   /** Builds aria-label text for the notification count. Default: (count) => `${count} unread ${count === 1 ? 'message' : 'messages'}` */
   unreadMessagesLabel: (count: number) => string
 }
 
-type AvatarProps = {
-  name: string
-  ariaLabel?: string
-  size?: 'small' | 'medium' | 'large'
-  customSize?: SizeValue
-  src?: string
-  srcSet?: string
-  onClick?: () => void
-  notificationCount?: number
-  badgeSize?: 'small' | 'large'
-  disabled?: boolean
-  customBackgroundColor?: string
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<AvatarLabels>
-}
+type BadgeSize = 'small' | 'large'
+
+type SizeValue = number | string
 ```
 
 ## Avatar

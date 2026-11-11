@@ -33,45 +33,41 @@ import { NavigationRail } from '@worldresources/wri-design-systems'
 
 ## Props
 
+### NavigationRail
+
+| Prop           | Type                              | Default         | Description                                                                       |
+| -------------- | --------------------------------- | --------------- | --------------------------------------------------------------------------------- |
+| `children`     | `React.ReactNode`                 | —               | Sidebar content rendered next to the rail, collapsible via the show/hide toggle   |
+| `defaultValue` | `string`                          | `tabs[0].value` | Initially selected tab value                                                      |
+| `labels`       | `Partial<NavigationRailLabels>`   | —               | Override internal UI labels for internationalization support                      |
+| `onOpenChange` | `(open: boolean) => void`         | —               | Called when the sidebar visibility changes, with true when the sidebar is visible |
+| `onTabClick`   | `(selectedValue: string) => void` | —               | Called with the selected tab value when a tab is clicked                          |
+| `tabs`         | `NavigationRailTabProps[]`        | `[]`            | Tab items rendered in the rail                                                    |
+
+### NavigationRailTab
+
+| Prop         | Type              | Default | Description                                 |
+| ------------ | ----------------- | ------- | ------------------------------------------- |
+| `aria-label` | `string`          | `label` | Accessible name for the tab                 |
+| `disabled`   | `boolean`         | —       | Disables the tab when true                  |
+| `icon`       | `React.ReactNode` | —       | Optional icon node rendered above the label |
+| `label`      | `string`          | —       | Visible label text shown under the icon     |
+| `value`      | `string`          | —       | Unique value identifying the tab            |
+
+### Supporting types
+
 ```ts
 type NavigationRailLabels = {
-  /**
-   * Visible toggle button text when sidebar is hidden.
-   * Rendered as JSX child — accepts ReactNode.
-   * Default: "Show"
-   */
+  /** Visible toggle button text when sidebar is hidden. Default: "Show" */
   showLabel: ReactNodeLabel
-  /**
-   * Visible toggle button text when sidebar is visible.
-   * Rendered as JSX child — accepts ReactNode.
-   * Default: "Hide"
-   */
+  /** Visible toggle button text when sidebar is visible. Default: "Hide" */
   hideLabel: ReactNodeLabel
-  /**
-   * Visible sidebar text label.
-   * Rendered as JSX child — accepts ReactNode.
-   * Default: "Sidebar"
-   */
+  /** Visible sidebar text label. Default: "Sidebar" */
   sidebarLabel: ReactNodeLabel
 }
-
-type NavigationRailTabProps = Omit<ChakraTabs.TriggerProps, 'asChild'> & {
-  label: string
-  value: string
-  icon?: React.ReactNode
-  disabled?: boolean
-}
-
-type NavigationRailProps = {
-  tabs: NavigationRailTabProps[]
-  defaultValue?: string
-  onTabClick?: (selectedValue: string) => void
-  children?: React.ReactNode
-  onOpenChange?: (open: boolean) => void
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<NavigationRailLabels>
-}
 ```
+
+- `NavigationRailTabProps` also inherits `ChakraTabs.TriggerProps` (except `asChild`)
 
 ## Default Tab Selected
 

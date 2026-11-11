@@ -18,33 +18,29 @@ import { Tag } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type TagLabels = {
-  closeButtonAriaLabel: (label: string) => string
-}
+| Prop              | Type                                                               | Default     | Description                                                                                                                                                                                         |
+| ----------------- | ------------------------------------------------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ariaLabel`       | `string`                                                           | —           | Optional accessible name used when the label is not plain text                                                                                                                                      |
+| `backgroundColor` | `string`                                                           | —           | Optional custom background color, overriding the variant background. Only valid CSS colors are applied (hex, named colors, color functions); any other value is ignored to prevent CSS injection    |
+| `borderColor`     | `string`                                                           | —           | Optional custom border color; when set, the border renders on any size. Only valid CSS colors are applied (hex, named colors, color functions); any other value is ignored to prevent CSS injection |
+| `closable`        | `boolean`                                                          | —           | Renders a close button. Hidden when disabled or size small                                                                                                                                          |
+| `closeIconColor`  | `string`                                                           | —           | Optional custom color for the close icon, overriding the default. Only valid CSS colors are applied (hex, named colors, color functions); any other value is ignored to prevent CSS injection       |
+| `disabled`        | `boolean`                                                          | —           | Disables the tag and applies disabled styles. Also hides the close button                                                                                                                           |
+| `icon`            | `React.ReactNode`                                                  | —           | Icon rendered inside the tag                                                                                                                                                                        |
+| `iconPosition`    | `'start' \| 'end'`                                                 | `'start'`   | Whether the icon renders before (start) or after (end) the label                                                                                                                                    |
+| `label`           | `React.ReactNode`                                                  | —           | Label content of the tag. Can be plain text or a React node                                                                                                                                         |
+| `labels`          | `Partial<TagLabels>`                                               | —           | Override internal UI labels for internationalization support                                                                                                                                        |
+| `onClose`         | `() => void`                                                       | —           | Called when the close trigger is activated                                                                                                                                                          |
+| `size`            | `'small' \| 'default' \| 'large'`                                  | `'default'` | Size of the tag                                                                                                                                                                                     |
+| `variant`         | `'info-white' \| 'info-grey' \| 'success' \| 'warning' \| 'error'` | —           | Visual style of the tag                                                                                                                                                                             |
 
-type TagProps = Omit<
-  ChakraTag.RootProps,
-  'size' | 'variant' | 'colorPalette' | 'children' | 'border' | 'color'
-> & {
-  label: React.ReactNode
-  /** Optional accessible name when `label` is not plain text. */
-  ariaLabel?: string
-  variant: 'info-white' | 'info-grey' | 'success' | 'warning' | 'error'
-  size?: 'small' | 'default' | 'large'
-  disabled?: boolean
-  icon?: React.ReactNode
-  /** Whether the icon renders before (start) or after (end) the label. */
-  iconPosition?: 'start' | 'end'
-  /** Optional custom background color, overriding the variant background. */
-  backgroundColor?: string
-  /** Optional custom border color, overriding the variant border. */
-  borderColor?: string
-  /** Optional custom color for the close icon, overriding the default. */
-  closeIconColor?: string
-  onClose?: VoidFunction
-  closable?: boolean
-  labels?: Partial<TagLabels>
+### Supporting types
+
+```ts
+/** Labels for Tag internal UI strings. Override any key to provide translations */
+type TagLabels = {
+  /** aria-label builder for the close trigger. Default: (label) => `${label} tag close button` */
+  closeButtonAriaLabel: (label: string) => string
 }
 ```
 

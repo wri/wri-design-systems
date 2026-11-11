@@ -18,27 +18,22 @@ import { AlertBanner } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop         | Type                                                                                      | Default           | Description                                                  |
+| ------------ | ----------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------ |
+| `children`   | `React.ReactNode`                                                                         | —                 | Alert content                                                |
+| `icon`       | `React.ReactElement`                                                                      | —                 | Custom icon; defaults to an icon matching the variant        |
+| `isCentered` | `boolean`                                                                                 | `false`           | Whether to center the alert content                          |
+| `labels`     | `Partial<AlertBannerLabels>`                                                              | —                 | Override internal UI labels for internationalization support |
+| `onClose`    | `() => void`                                                                              | —                 | Called when the banner is closed; the banner hides itself    |
+| `variant`    | `'general-white' \| 'general-grey' \| 'information' \| 'success' \| 'warning' \| 'error'` | `'general-white'` | Color scheme of the banner                                   |
+| `width`      | `'full-width' \| 'inline'`                                                                | `'full-width'`    | Whether the banner spans the full width or fits its content  |
+
+### Supporting types
+
 ```ts
 type AlertBannerLabels = {
   /** aria-label on the close action button. Default: "Close alert" */
   closeAlertLabel: string
-}
-
-interface AlertProps
-  extends Omit<ChakraAlert.RootProps, 'title' | 'variant' | 'width'> {
-  icon?: React.ReactElement
-  onClose?: () => void
-  isCentered?: boolean
-  width?: 'full-width' | 'inline'
-  variant?:
-    | 'general-white'
-    | 'general-grey'
-    | 'information'
-    | 'success'
-    | 'warning'
-    | 'error'
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<AlertBannerLabels>
 }
 ```
 

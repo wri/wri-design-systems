@@ -41,48 +41,31 @@ import { Select } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop                | Type                        | Default     | Description                                                                        |
+| ------------------- | --------------------------- | ----------- | ---------------------------------------------------------------------------------- |
+| `caption`           | `string`                    | —           | Helper text rendered below the label                                               |
+| `defaultValue`      | `string[]`                  | `[]`        | Initially selected item values for uncontrolled usage                              |
+| `disabled`          | `boolean`                   | —           | Disables the trigger and dropdown                                                  |
+| `errorMessage`      | `string`                    | —           | Error message rendered below the trigger                                           |
+| `items`             | `SelectItemProps[]`         | —           | Options shown in the dropdown, each with a `label`, optional `caption` and `value` |
+| `label`             | `string`                    | —           | Field label rendered above the trigger                                             |
+| `labels`            | `Partial<SelectLabels>`     | —           | Override internal UI labels for internationalization support                       |
+| `multiple`          | `boolean`                   | —           | Allows selecting multiple options, shown as removable tags in the trigger          |
+| `onChange`          | `(value: string[]) => void` | —           | Called with the selected item values whenever the selection changes                |
+| `placeholder`       | `string`                    | `''`        | Text shown in the trigger when no value is selected                                |
+| `required`          | `boolean`                   | —           | Marks the field as required and shows the required indicator                       |
+| `showOptionalLabel` | `boolean`                   | `false`     | Shows the "(optional)" suffix for non-required fields                              |
+| `size`              | `'default' \| 'small'`      | `'default'` | Controls the trigger and dropdown size                                             |
+
+### Supporting types
+
 ```ts
+type SelectItemProps = { label: string; caption?: string; value: string }
+
 type SelectLabels = {
-  /** Fallback aria-label when no label prop is provided. Default: "Select input" */
-  defaultAriaLabel: string
-  /** " required." appended to aria-label when required. Default: " required." */
-  requiredSuffix: string
-  /** " Disabled." appended to aria-label when disabled. Default: " Disabled." */
-  disabledSuffix: string
-}
-
-type SelectItemProps = {
-  label: string
-  caption?: string
-  value: string
-}
-
-type SelectProps = Omit<
-  ChakraSelectRootProps,
-  | 'collection'
-  | 'size'
-  | 'colorPalette'
-  | 'variant'
-  | 'onValueChange'
-  | 'onChange'
-  | 'defaultChecked'
-  | 'invalid'
-> & {
-  label?: string
-  caption?: string
-  placeholder?: string
-  defaultValue?: string[]
-  items: SelectItemProps[]
-  size?: 'default' | 'small'
-  required?: boolean
-  disabled?: boolean
-  /** Shows the "(optional)" suffix for non-required fields. Default: false */
-  showOptionalLabel?: boolean
-  onChange?: (value: string[]) => void
-  errorMessage?: string
-  multiple?: boolean
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<SelectLabels>
+  defaultAriaLabel: string // Default: "Select input"
+  requiredSuffix: string // Default: " required."
+  disabledSuffix: string // Default: " Disabled."
 }
 ```
 

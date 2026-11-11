@@ -10,36 +10,48 @@
 import { OptionCard } from '@worldresources/wri-design-systems'
 ```
 
+## Usage
+
+```tsx
+<OptionCard
+  items={[
+    { label: 'Label', caption: 'Caption', value: 'value-1' },
+    { label: 'Label', caption: 'Caption', value: 'value-2' },
+  ]}
+/>
+```
+
 ## Props
+
+| Prop            | Type                                     | Default      | Description                                               |
+| --------------- | ---------------------------------------- | ------------ | --------------------------------------------------------- |
+| `defaultValue`  | `string`                                 | —            | Value of the item initially selected                      |
+| `hideControl`   | `boolean`                                | `false`      | Hides the radio indicator on each card                    |
+| `itemWidth`     | `string`                                 | `15.0625rem` | Custom width for each card                                |
+| `items`         | `OptionCardItemProps[]`                  | —            | List of option card items to render                       |
+| `onValueChange` | `({ value }: { value: string }) => void` | —            | Called with the selected value when the selection changes |
+| `variant`       | `'default' \| 'centered' \| 'expanded'`  | `'default'`  | Visual layout of the cards                                |
+
+### Supporting types
 
 ```ts
 type OptionCardItemProps = {
+  /** Visible label text of the card */
   label?: string
+  /** Secondary caption text under the label */
   caption?: string
+  /** Icon rendered at the start of the card header */
   icon?: React.ReactNode
+  /** Disables the card and applies disabled styles */
   disabled?: boolean
+  /** Extra content rendered in the addon area. Only rendered with variant expanded */
   children?: React.ReactNode
+  /** Unique value submitted for the item when selected */
   value: string
+  /** Custom border and icon color applied when the card is selected. Defaults to `getThemedColor('primary', 700)` */
   selectedColor?: string
+  /** Custom background color applied when the card is selected. Defaults to `getThemedColor('primary', 100)` */
   selectedBackgroundColor?: string
-}
-
-type OptionCardProps = Omit<
-  RadioCardRootProps,
-  | 'colorPalette'
-  | 'size'
-  | 'variant'
-  | 'as'
-  | 'asChild'
-  | 'unstyled'
-  | 'defaultChecked'
-> & {
-  defaultValue?: string
-  items: OptionCardItemProps[]
-  onValueChange?: ({ value }: { value: string }) => void
-  variant?: 'default' | 'centered' | 'expanded'
-  itemWidth?: string
-  hideControl?: boolean
 }
 ```
 

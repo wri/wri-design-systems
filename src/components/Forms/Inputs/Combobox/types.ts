@@ -7,42 +7,52 @@ export type ComboboxItem = { label: string; value: string }
 export type ComboboxProps = {
   /**
    * Dropdown options for both static lists and dynamically updated results.
-   * Changes to the list contents replace the dropdown options.
-   * @default []
+   * Changes to the list contents replace the dropdown options. Defaults to `[]`
    */
   items?: ComboboxItem[]
   /**
    * Legacy dropdown options, read only on mount when `items` is omitted.
-   * @deprecated Pass the options through `items` instead.
-   * @default []
+   * Pass the options through `items` instead. Defaults to `[]`
+   * @deprecated
    */
   initialItems?: ComboboxItem[]
+  /** Field label rendered above the input */
   label?: string
+  /** Marks the field as required and shows the required indicator */
   required?: boolean
+  /** Helper text rendered below the label */
   caption?: string
+  /** Error message rendered below the input */
   errorMessage?: string
+  /** Controls the input size Defaults to `'default'` */
   size?: 'small' | 'default'
+  /** Disables the input and the dropdown */
   disabled?: boolean
+  /** Shows the "(optional)" suffix for non-required fields */
   showOptionalLabel?: boolean
+  /** Placeholder text shown when no option is selected */
   placeholder?: string
+  /** Override internal UI labels for internationalization support */
   labels?: Partial<ComboboxLabels>
+  /** Removes the bottom margin below the field */
   noMarginBottom?: boolean
+  /** Allows selecting multiple options; pair with `showSelectedItems` to show them as removable tags */
   multiple?: boolean
+  /** Shows the selected values as removable tags under the input */
   showSelectedItems?: boolean
   /**
    * Controlled selected values. When provided, the component is fully
    * controlled — pair with `onChange`.
    */
   value?: string[]
-  /** Initial selected values for uncontrolled usage. */
+  /** Initial selected values for uncontrolled usage. Defaults to `[]` */
   defaultValue?: string[]
   /** Called with the selected values whenever the selection changes. */
   onChange?: (values: string[]) => void
   /**
    * Whether the user can create options that do not exist in the item list.
    * When `true`, typing a non-matching value shows a "Create …" row that adds
-   * the entry to the list on selection.
-   * @default false
+   * the entry to the list on selection. Defaults to `false`
    */
   creatable?: boolean
   /**
@@ -58,8 +68,7 @@ export type ComboboxProps = {
   /**
    * Shows a loading spinner inside the dropdown and hides the "No items
    * found" empty state. Intended for server-side filtering mode while a
-   * request triggered by `onQueryChange` is in flight.
-   * @default false
+   * request triggered by `onQueryChange` is in flight. Defaults to `false`
    */
   isLoading?: boolean
 }

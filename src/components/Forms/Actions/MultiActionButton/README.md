@@ -34,21 +34,26 @@ import { MultiActionButton } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop                  | Type                                                                                   | Default     | Description                                                  |
+| --------------------- | -------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------ |
+| `disabled`            | `boolean`                                                                              | —           | Disables both the main action and the trigger                |
+| `labels`              | `Partial<MultiActionButtonLabels>`                                                     | —           | Override internal UI labels for internationalization support |
+| `mainActionLabel`     | `string`                                                                               | —           | Label of the main action segment                             |
+| `mainActionLeftIcon`  | `React.ReactNode`                                                                      | —           | Icon rendered before the main action label                   |
+| `mainActionOnClick`   | `() => void`                                                                           | `() => {}`  | Called when the main action segment is clicked               |
+| `mainActionRightIcon` | `React.ReactNode`                                                                      | —           | Icon rendered after the main action label                    |
+| `otherActions`        | `{ label: React.ReactNode; value: string; onClick: () => void; disabled?: boolean }[]` | `[]`        | Actions shown in the dropdown menu                           |
+| `size`                | `'default' \| 'small'`                                                                 | `'default'` | Size of the button                                           |
+| `variant`             | `'primary' \| 'secondary' \| 'borderless' \| 'outline' \| 'negative'`                  | `'primary'` | Visual style of the button                                   |
+
+### Supporting types
+
 ```ts
-type MultiActionButtonProps = Omit<
-  ButtonProps,
-  'label' | 'leftIcon' | 'rightIcon' | 'onClick' | 'children' | 'css'
-> & {
-  mainActionLeftIcon?: React.ReactNode
-  mainActionRightIcon?: React.ReactNode
-  mainActionLabel: string
-  mainActionOnClick: VoidFunction
-  otherActions: {
-    label: React.ReactNode
-    value: string
-    onClick: VoidFunction
-    disabled?: boolean
-  }[]
+type MultiActionButtonLabels = {
+  /** aria-label on the dropdown trigger. Default: (label) => `Open ${label} options` */
+  openOptionsLabel: (label: string) => string
+  /** aria-label on the whole control when disabled. Default: (label) => `${label} action button with menu, disabled` */
+  disabledAriaLabel: (label: string) => string
 }
 ```
 

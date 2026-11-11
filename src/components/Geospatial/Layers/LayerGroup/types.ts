@@ -8,14 +8,20 @@ export type LayerGroupContainerProps = Omit<
   Accordion.RootProps,
   'onChange' | 'colorPalette' | 'variant' | 'size' | 'multiple' | 'collapsible'
 > & {
+  /** Accordion values opened initially */
   defaultValue?: string[]
 }
 
 export type LayerGroupProps = {
+  /** Group title shown in the accordion trigger */
   label: string
+  /** Caption shown under the group title */
   caption: string
+  /** Accordion item value used to identify and control the group's open state */
   value: string
+  /** Layer items rendered inside the group */
   layerItems: LayerItemProps[]
+  /** Called when a radio-variant layer item changes selection */
   onChangeForRadioVariant?: (
     name: string,
     checked: boolean,

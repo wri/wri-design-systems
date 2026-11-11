@@ -10,59 +10,7 @@
 import { Menu } from '@worldresources/wri-design-systems'
 ```
 
-## Props
-
-```ts
-type MenuLabels = {
-  /** Fallback aria-label for the menu content when no trigger label is provided. Default: "Menu" */
-  menuAriaLabel: string
-  /** Builds aria-label for submenu content. Default: (label) => `${label} submenu` */
-  submenuAriaLabel: (label: string) => string
-  /** Prefix used for command aria-label text. Default: "Shortcut" */
-  shortcutPrefix: string
-}
-
-type MenuItemProps = {
-  label?: string
-  caption?: string
-  startIcon?: React.ReactNode
-  endIcon?: React.ReactNode
-  command?: string
-  children?: React.ReactNode
-  value?: string
-  disabled?: boolean
-  submenu?: MenuItemProps[]
-  onClick?: () => void
-  link?: string
-  menuWidth?: string | 'content'
-}
-
-type MenuProps = {
-  theme?: 'light' | 'dark'
-  label: string
-  /** Hides the decorative arrow on the menu content. Default: false. */
-  hideArrow?: boolean
-  fontSize?: string
-  items?: MenuItemProps[]
-  groups?: {
-    title: string
-    items: MenuItemProps[]
-  }[]
-  onSelect?: (value: string) => void
-  customTrigger?: React.ReactNode
-  /** When set, enables checkable items. 'multiple' allows many items checked at once; 'radio' allows only one. Omit (default) for a non-selectable menu. */
-  selectionMode?: 'multiple' | 'radio'
-  /** Values that are checked by default on first render. */
-  defaultSelectedValues?: string[]
-  menuWidth?: string | 'content'
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<MenuLabels>
-}
-```
-
 ## Usage
-
-### Menu
 
 ```tsx
 <Menu
@@ -82,7 +30,56 @@ type MenuProps = {
 />
 ```
 
-### Commands
+## Props
+
+### Menu
+
+| Prop                    | Type                                          | Default   | Description                                                                                                                              |
+| ----------------------- | --------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `customTrigger`         | `React.ReactNode`                             | —         | Custom trigger element that replaces the default button trigger                                                                          |
+| `defaultSelectedValues` | `string[]`                                    | `[]`      | Values that are checked by default on first render                                                                                       |
+| `fontSize`              | `string`                                      | `'1rem'`  | Font size of the trigger label                                                                                                           |
+| `groups`                | `{ title: string; items: MenuItemProps[] }[]` | —         | Items rendered as titled groups, separated by dividers                                                                                   |
+| `hideArrow`             | `boolean`                                     | `false`   | Hides the decorative arrow on the menu content                                                                                           |
+| `items`                 | `MenuItemProps[]`                             | —         | Flat list of menu items rendered before any groups                                                                                       |
+| `label`                 | `string`                                      | —         | Text of the default trigger button; also the fallback aria-label of the menu content                                                     |
+| `labels`                | `Partial<MenuLabels>`                         | —         | Override internal UI labels for internationalization support                                                                             |
+| `menuWidth`             | `string \| 'content'`                         | `'14rem'` | Width of the menu content                                                                                                                |
+| `onSelect`              | `(value: string) => void`                     | —         | Called with the value of the selected item                                                                                               |
+| `selectionMode`         | `'multiple' \| 'radio'`                       | —         | When set, enables checkable items. 'multiple' allows many items checked at once; 'radio' allows only one. Omit for a non-selectable menu |
+| `theme`                 | `'light' \| 'dark'`                           | `'light'` | Color theme of the trigger button                                                                                                        |
+
+### MenuItem
+
+| Prop        | Type                  | Default   | Description                                                                             |
+| ----------- | --------------------- | --------- | --------------------------------------------------------------------------------------- |
+| `caption`   | `string`              | —         | Secondary text shown under the label                                                    |
+| `children`  | `React.ReactNode`     | —         | Custom item content; replaces the default label, caption, and icons layout              |
+| `command`   | `string`              | —         | Keyboard shortcut shown next to the label                                               |
+| `disabled`  | `boolean`             | —         | Disables the item                                                                       |
+| `endIcon`   | `React.ReactNode`     | —         | Icon rendered at the end of the item; replaced by a check icon when the item is checked |
+| `label`     | `string`              | —         | Primary text of the item                                                                |
+| `link`      | `string`              | —         | URL that turns the item into a link                                                     |
+| `menuWidth` | `string \| 'content'` | `'14rem'` | Width of the submenu opened from this item                                              |
+| `onClick`   | `() => void`          | —         | Called when the item is selected                                                        |
+| `startIcon` | `React.ReactNode`     | —         | Icon rendered before the item label                                                     |
+| `submenu`   | `MenuItemProps[]`     | —         | Nested items rendered in a submenu                                                      |
+| `value`     | `string`              | `label`   | Value passed to `onSelect` when the item is selected                                    |
+
+### Supporting types
+
+```ts
+type MenuLabels = {
+  /** Fallback aria-label for the menu content when no trigger label is provided. Default: "Menu" */
+  menuAriaLabel: string
+  /** Builds aria-label for submenu content. Default: (label) => `${label} submenu` */
+  submenuAriaLabel: (label: string) => string
+  /** Prefix used for command aria-label text. Default: "Shortcut" */
+  shortcutPrefix: string
+}
+```
+
+## Commands
 
 ```tsx
 <Menu
@@ -103,7 +100,7 @@ type MenuProps = {
 />
 ```
 
-### WithIcons
+## WithIcons
 
 ```tsx
 <Menu
@@ -130,7 +127,7 @@ type MenuProps = {
 />
 ```
 
-### WithGroups
+## WithGroups
 
 ```tsx
 <Menu
@@ -170,7 +167,7 @@ type MenuProps = {
 />
 ```
 
-### WithSubmenu
+## WithSubmenu
 
 ```tsx
 <Menu
@@ -199,7 +196,7 @@ type MenuProps = {
 />
 ```
 
-### Custom Trigger
+## Custom Trigger
 
 ```tsx
 <Menu
@@ -233,7 +230,7 @@ type MenuProps = {
 />
 ```
 
-### Hide Arrow
+## Hide Arrow
 
 ```tsx
 <Menu

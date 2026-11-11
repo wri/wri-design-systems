@@ -18,15 +18,11 @@ import { IconButton } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type IconButtonProps = Omit<
-  ChakraButtonProps,
-  'size' | 'variant' | 'colorPalette' | 'children' | '_loading'
-> & {
-  icon: React.ReactNode
-  disabled?: boolean
-}
-```
+| Prop         | Type              | Default | Description                     |
+| ------------ | ----------------- | ------- | ------------------------------- |
+| `aria-label` | `string`          | —       | Accessible name for the button  |
+| `disabled`   | `boolean`         | —       | Disables the button             |
+| `icon`       | `React.ReactNode` | —       | Icon rendered inside the button |
 
 ## Default
 
