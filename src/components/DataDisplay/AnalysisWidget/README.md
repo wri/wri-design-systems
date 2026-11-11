@@ -46,27 +46,31 @@ const widgetFooter = (
 
 ## Props
 
+| Prop                    | Type                            | Default | Description                                                    |
+| ----------------------- | ------------------------------- | ------- | -------------------------------------------------------------- |
+| `actions`               | `AnalysisWidgetActionsProps[]`  | —       | Action buttons rendered in the header                          |
+| `children`              | `React.ReactNode`               | —       | Widget content shown when the section is expanded              |
+| `collapsible`           | `boolean`                       | `true`  | Whether the header can toggle the widget open and closed       |
+| `expanded`              | `boolean`                       | `true`  | Whether the widget starts expanded                             |
+| `footer`                | `React.ReactNode`               | —       | Footer content rendered below the widget body                  |
+| `header`                | `React.ReactNode`               | —       | Clickable header rendered as the accordion trigger             |
+| `labels`                | `Partial<AnalysisWidgetLabels>` | —       | Override internal UI labels for internationalization support   |
+| `showFooterOnCollapsed` | `boolean`                       | `false` | Whether the footer stays visible while the widget is collapsed |
+
+### Supporting types
+
 ```ts
+type AnalysisWidgetActionsProps = {
+  /** Label of the action button */
+  label: string
+  /** Called when the action button is clicked */
+  onClick: () => void
+  /** Optional icon rendered before the label */
+  icon?: React.ReactNode
+}
+
 type AnalysisWidgetLabels = {
   /** aria-label on the collapsible section trigger. Default: "Toggle section" */
   toggleSectionLabel: string
-}
-
-interface AnalysisWidgetProps {
-  children: React.ReactNode
-  header?: React.ReactNode
-  footer?: React.ReactNode
-  expanded?: boolean
-  collapsible?: boolean
-  actions?: AnalysisWidgetActionsProps[]
-  showFooterOnCollapsed?: boolean
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<AnalysisWidgetLabels>
-}
-
-interface AnalysisWidgetActionsProps {
-  label: string
-  onClick: () => void
-  icon?: React.ReactNode
 }
 ```

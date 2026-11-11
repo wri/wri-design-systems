@@ -20,43 +20,24 @@ import { RadioGroup, Radio } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type RadioProps = Omit<
-  ChakraRadioGroup.ItemProps,
-  'size' | 'variant' | 'colorPalette' | 'name' | 'defaultChecked' | 'onChange'
-> & {
-  value: string
-  disabled?: boolean
-}
+### Radio
 
-type RadioGroupProps = Omit<
-  ChakraRadioGroup.ItemProps,
-  | 'size'
-  | 'variant'
-  | 'colorPalette'
-  | 'value'
-  | 'onChange'
-  | 'children'
-  | 'defaultValue'
-> & {
-  name: string
-  value?: ChakraRadioGroup.ItemProps['value']
-  horizontal?: boolean
-  onChange?: (name: string, selectedValue: string) => void
-  customGap?: string
-  children?: React.ReactNode
-}
-```
+| Prop       | Type              | Default | Description                                    |
+| ---------- | ----------------- | ------- | ---------------------------------------------- |
+| `children` | `React.ReactNode` | —       | Label text rendered next to the radio          |
+| `disabled` | `boolean`         | —       | Disables the radio and applies disabled styles |
+| `value`    | `string`          | —       | Value submitted for the radio when selected    |
 
-```ts
-type RadioProps = Omit<
-  ChakraRadioGroup.ItemProps,
-  'size' | 'variant' | 'colorPalette' | 'name' | 'defaultChecked' | 'onChange'
-> & {
-  value: string
-  disabled?: boolean
-}
-```
+### RadioGroup
+
+| Prop         | Type                                            | Default                                           | Description                                                                        |
+| ------------ | ----------------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `children`   | `React.ReactNode`                               | —                                                 | Radio items to render inside the group                                             |
+| `customGap`  | `string`                                        | `1.25rem` when horizontal, `0.5rem` when vertical | Custom gap between items                                                           |
+| `horizontal` | `boolean`                                       | `false`                                           | Lays the radios out in a row instead of a column                                   |
+| `name`       | `string`                                        | —                                                 | Name of the radio group, also passed to the onChange callback                      |
+| `onChange`   | `(name: string, selectedValue: string) => void` | —                                                 | Called with the group name and the newly selected value when the selection changes |
+| `value`      | `string`                                        | `''`                                              | Currently selected value (controlled)                                              |
 
 ## Default Checked
 

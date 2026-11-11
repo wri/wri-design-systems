@@ -22,14 +22,16 @@ import { Panel } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop      | Type                    | Default   | Description                                                                                                |
+| --------- | ----------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| `content` | `React.ReactNode`       | `—`       | Main content rendered in the panel body                                                                    |
+| `footer`  | `React.ReactNode`       | `—`       | Optional content rendered in the panel footer                                                              |
+| `header`  | `React.ReactNode`       | `—`       | Optional content rendered in the panel header; used as the accessible name for the region                  |
+| `variant` | `'fixed' \| 'floating'` | `'fixed'` | Visual treatment of the panel; fixed adds a right border, floating adds a full border with rounded corners |
+| `width`   | `SizeValue`             | `'20rem'` | Panel width, recommended between 15rem and 35rem. Defaults to 20rem                                        |
+
+### Supporting types
+
 ```ts
 type SizeValue = number | string
-
-type PanelProps = {
-  header?: React.ReactNode
-  content: React.ReactNode
-  footer?: React.ReactNode
-  width?: SizeValue // 15rem - 35rem, default 20rem
-  variant?: 'fixed' | 'floating'
-}
 ```

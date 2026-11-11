@@ -39,55 +39,39 @@ import { CheckboxList } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type CheckboxListLabels = {
-  /**
-   * Text on the toggle button when the list is collapsed.
-   * Rendered as JSX child — accepts ReactNode.
-   * Default: "Expand"
-   */
-  expandLabel: ReactNodeLabel
-  /**
-   * Text on the toggle button when the list is expanded.
-   * Rendered as JSX child — accepts ReactNode.
-   * Default: "Hide"
-   */
-  hideLabel: ReactNodeLabel
-  /** Appended to the group aria-label when the field is required. Must be string (aria-label). Default: "Required." */
-  requiredLabel: string
-  /** Appended to the group aria-label when the field is optional. Must be string (aria-label). Default: "optional" */
-  optionalLabel: string
-  /** Prefix prepended to error messages in the group aria-label. Must be string (aria-label). Default: "Error:" */
-  errorPrefix: string
-  /** Accessible label for the required (*) symbol. Must be string (aria-label). Default: "required" */
-  requiredSymbolLabel: string
-}
+| Prop                 | Type                                                   | Default | Description                                                                                                                                |
+| -------------------- | ------------------------------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `caption`            | `string`                                               | —       | Helper text rendered below the label                                                                                                       |
+| `checkboxes`         | `CheckboxProps[]`                                      | —       | Checkbox items rendered in the list, each following the `Checkbox` component props                                                         |
+| `defaultValues`      | `string[]`                                             | `[]`    | Names of checkboxes initially checked when the item has no explicit `checked` prop                                                         |
+| `errorMessage`       | `string`                                               | —       | Error message rendered below the list and included in the group aria-label                                                                 |
+| `hideCheckedCounter` | `boolean`                                              | `false` | Hides the "checked / total" counter next to the parent checkbox label                                                                      |
+| `hideExpandToggle`   | `boolean`                                              | `false` | Hides the expand/collapse toggle shown next to the parent checkbox label                                                                   |
+| `horizontal`         | `boolean`                                              | —       | Lays out the checkboxes in a horizontal row instead of a vertical column                                                                   |
+| `label`              | `CheckboxListLabel`                                    | —       | Group label; pass an object with `type: 'checkbox'` to render a parent select-all checkbox with expand/collapse toggle and checked counter |
+| `labels`             | `Partial<CheckboxListLabels>`                          | —       | Override internal UI labels for internationalization support                                                                               |
+| `onCheckedChange`    | `(checkedValues: { [name: string]: boolean }) => void` | —       | Called with a map of checkbox names to checked state whenever the selection changes                                                        |
+| `required`           | `boolean`                                              | —       | Marks the field as required and shows the required indicator                                                                               |
+| `showOptionalLabel`  | `boolean`                                              | `false` | Shows the "(optional)" suffix for non-required fields                                                                                      |
 
+### Supporting types
+
+```ts
 type CheckboxListLabel =
   | string
-  | {
-      type: 'checkbox'
-      label: string
-      name: string
-    }
+  | { type: 'checkbox'; label: string; name: string }
 
-type CheckboxListProps = {
-  label: CheckboxListLabel
-  caption?: string
-  checkboxes: CheckboxProps[]
-  defaultValues?: string[]
-  onCheckedChange?: (checkedValues: { [name: string]: boolean }) => void
-  errorMessage?: string
-  horizontal?: boolean
-  required?: boolean
-  /** Shows the "(optional)" suffix for non-required fields. Default: false */
-  showOptionalLabel?: boolean
-  hideCheckedCounter?: boolean
-  hideExpandToggle?: boolean
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<CheckboxListLabels>
+type CheckboxListLabels = {
+  expandLabel: ReactNodeLabel // Default: "Expand"
+  hideLabel: ReactNodeLabel // Default: "Hide"
+  requiredLabel: string // Default: "Required."
+  optionalLabel: string // Default: "Optional"
+  errorPrefix: string // Default: "Error:"
+  requiredSymbolLabel: string // Default: "required"
 }
 ```
+
+- `CheckboxProps` — item props from `Forms/Controls/Checkbox`: `name`, `value`, `checked`, `defaultChecked`, `disabled`, `indeterminate`, `onCheckedChange`, plus the checkbox content children
 
 ## With Default Value
 

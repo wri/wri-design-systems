@@ -38,23 +38,29 @@ const recentItems = [
 
 ## Props
 
-```ts
-type MobileSearchProps = Omit<
-  ChakraInputProps,
-  'size' | 'variant' | 'colorPalette' | 'defaultChecked'
-> & {
-  value?: string
-  placeholder?: string
-  showInfoMessage?: boolean
-  items?: ListItemProps[]
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onQueryChange?: (query: string) => void
-  onCancel?: () => void
-  onItemClick?: (item: ListItemProps) => void
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<MobileSearchLabels>
-}
-```
+| Prop              | Type                                               | Default                 | Description                                                              |
+| ----------------- | -------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------ |
+| `autoFocus`       | `boolean`                                          | `true`                  | Focuses the search input on mount                                        |
+| `autoComplete`    | `string`                                           | —                       | HTML autocomplete attribute for the input                                |
+| `disabled`        | `boolean`                                          | —                       | Disables the search input                                                |
+| `id`              | `string`                                           | —                       | HTML id attribute for the input                                          |
+| `items`           | `ListItemProps[]`                                  | `[]`                    | List items shown as results, filtered by the current query               |
+| `labels`          | `Partial<MobileSearchLabels>`                      | —                       | Override internal UI labels for internationalization support             |
+| `name`            | `string`                                           | —                       | HTML name attribute for the input                                        |
+| `onBlur`          | `(e: React.FocusEvent<HTMLInputElement>) => void`  | —                       | Called when the input loses focus                                        |
+| `onChange`        | `(e: React.ChangeEvent<HTMLInputElement>) => void` | —                       | Called on each input change event                                        |
+| `onFocus`         | `(e: React.FocusEvent<HTMLInputElement>) => void`  | —                       | Called when the input gains focus and reopens the results                |
+| `onItemClick`     | `(item: ListItemProps) => void`                    | —                       | Called with the clicked item when a result item is clicked               |
+| `onQueryChange`   | `(query: string) => void`                          | —                       | Called with the current query string whenever it changes                 |
+| `placeholder`     | `string`                                           | `labels.inputAriaLabel` | Placeholder and aria-label for the search input                          |
+| `readOnly`        | `boolean`                                          | —                       | Makes the search input read-only                                         |
+| `showInfoMessage` | `boolean`                                          | `true`                  | Shows the info InlineMessage above the results list                      |
+| `value`           | `string`                                           | —                       | Controlled input value, uncontrolled internal state is used when omitted |
+
+### Supporting types
+
+- `ListItemProps` — item shape from `DataDisplay/List`: `{ id?, label, searchLabel?, caption?, icon?, value?, ... }`
+- `MobileSearchLabels` — full shape documented in the Labels (i18n) section below
 
 ## Labels (i18n)
 

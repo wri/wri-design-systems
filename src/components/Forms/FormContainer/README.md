@@ -21,13 +21,11 @@ import { FormContainer } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type FormContainerProps = {
-  label?: ReactNode
-  error?: string
-  children: ReactNode
-}
-```
+| Prop       | Type              | Default | Description                                                             |
+| ---------- | ----------------- | ------- | ----------------------------------------------------------------------- |
+| `children` | `React.ReactNode` | —       | Form controls rendered inside the container                             |
+| `error`    | `string`          | —       | Error message rendered above the children with an error bar on the left |
+| `label`    | `React.ReactNode` | —       | Label text rendered above the children                                  |
 
 ## With multiple checkbox groups
 

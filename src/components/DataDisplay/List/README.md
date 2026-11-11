@@ -68,27 +68,33 @@ Items can be highlighted two ways, which combine:
 
 ## Props
 
+### List
+
+| Prop               | Type              | Default | Description                                                 |
+| ------------------ | ----------------- | ------- | ----------------------------------------------------------- |
+| `highlightedIndex` | `number`          | —       | Index of the item to highlight, used by keyboard navigation |
+| `items`            | `ListItemProps[]` | —       | Item definitions rendered as list rows                      |
+| `noBorder`         | `boolean`         | —       | Whether to remove the border around the list container      |
+
+### ListItem
+
+| Prop            | Type                 | Default  | Description                                                           |
+| --------------- | -------------------- | -------- | --------------------------------------------------------------------- |
+| `ariaLabel`     | `string`             | —        | Accessible name for the item row, derived from the label when omitted |
+| `caption`       | `string`             | —        | Secondary text rendered under the label                               |
+| `disabled`      | `boolean`            | `false`  | Whether the item row is disabled                                      |
+| `icon`          | `React.ReactElement` | —        | Optional icon rendered before the label                               |
+| `id`            | `string`             | —        | Unique element id for the item row                                    |
+| `isExpanded`    | `boolean`            | `false`  | Whether a clickable item is announced as expanded                     |
+| `isHighlighted` | `boolean`            | `false`  | Whether the item row is highlighted                                   |
+| `label`         | `React.ReactNode`    | —        | Primary content of the item row                                       |
+| `onItemClick`   | `() => void`         | —        | Called when a navigation or select item is clicked                    |
+| `searchLabel`   | `string`             | —        | Plain-text copy of the label used for search filtering                |
+| `value`         | `React.ReactNode`    | —        | Right-aligned value shown in the data variant                         |
+| `variant`       | `ListItemVariant`    | `'data'` | Visual and behavioral variant of the item row                         |
+
+### Supporting types
+
 ```ts
 type ListItemVariant = 'data' | 'navigation' | 'select'
-
-interface ListItemProps {
-  id?: string
-  label: React.ReactNode
-  searchLabel?: string
-  caption?: string
-  icon?: ReactElement
-  value?: React.ReactNode
-  variant?: ListItemVariant
-  isExpanded?: boolean
-  onItemClick?: () => void
-  ariaLabel?: string
-  disabled?: boolean
-  isHighlighted?: boolean
-}
-
-interface ListProps {
-  items: ListItemProps[]
-  noBorder?: boolean
-  highlightedIndex?: number
-}
 ```

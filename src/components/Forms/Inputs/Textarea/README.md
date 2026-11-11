@@ -18,51 +18,35 @@ import { Textarea } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop                | Type                                                  | Default     | Description                                                                 |
+| ------------------- | ----------------------------------------------------- | ----------- | --------------------------------------------------------------------------- |
+| `caption`           | `string`                                              | —           | Helper text rendered below the label                                        |
+| `defaultValue`      | `string`                                              | `''`        | Initial value for uncontrolled usage                                        |
+| `disabled`          | `boolean`                                             | —           | Disables the textarea                                                       |
+| `errorMessage`      | `string`                                              | —           | Error message rendered below the textarea                                   |
+| `label`             | `string`                                              | —           | Field label rendered above the textarea                                     |
+| `labels`            | `Partial<TextareaLabels>`                             | —           | Override internal UI labels for internationalization support                |
+| `maxLength`         | `number`                                              | —           | Maximum character count; shows a helper or error message under the textarea |
+| `minLength`         | `number`                                              | —           | Minimum character count; shows a helper or error message under the textarea |
+| `onChange`          | `(e: React.ChangeEvent<HTMLTextAreaElement>) => void` | —           | Called on each textarea change event                                        |
+| `placeholder`       | `string`                                              | —           | Placeholder text shown when the field is empty                              |
+| `required`          | `boolean`                                             | —           | Marks the field as required and shows the required indicator                |
+| `showOptionalLabel` | `boolean`                                             | `false`     | Shows the "(optional)" suffix for non-required fields                       |
+| `size`              | `'small' \| 'default'`                                | `'default'` | Controls the textarea size                                                  |
+
+### Supporting types
+
 ```ts
 type TextareaLabels = {
-  /** aria-label on the required (*) indicator. Default: "required" */
-  requiredSymbolLabel: string
-  /**
-   * Visible "(optional)" suffix appended to the label.
-   * Rendered as JSX child — accepts ReactNode.
-   * Default: "(optional)"
-   */
-  optionalSuffix: ReactNodeLabel
-  /** "Error:" prefix in aria-label of error text. Default: "Error:" */
-  errorPrefix: string
-  /** Helper text: "Enter at least {n} characters". Default fn provided. */
-  enterAtLeastChars: (n: number) => string
-  /** Helper text: "{n} characters minimum". Default fn provided. */
-  minChars: (n: number) => string
-  /** Helper text: "{n} characters remaining". Default fn provided. */
-  charsRemaining: (n: number) => string
-  /** Helper text: "Max {n} characters". Default fn provided. */
-  maxChars: (n: number) => string
-  /** Error text when too few chars: "Need {n} more characters". Default fn provided. */
-  needMoreChars: (n: number) => string
-  /** Error text when too many chars: "{n} characters too many". Default fn provided. */
-  tooManyChars: (n: number) => string
-}
-
-type TextareaProps = Omit<
-  ChakraTextareaProps,
-  'size' | 'variant' | 'colorPalette' | 'defaultChecked'
-> & {
-  label?: string
-  caption?: string
-  placeholder?: string
-  errorMessage?: string
-  required?: boolean
-  disabled?: boolean
-  size?: 'small' | 'default'
-  /** Shows the "(optional)" suffix for non-required fields. Default: false */
-  showOptionalLabel?: boolean
-  defaultValue?: string
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
-  minLength?: number
-  maxLength?: number
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<TextareaLabels>
+  requiredSymbolLabel: string // Default: "required"
+  optionalSuffix: ReactNodeLabel // Default: "(optional)"
+  errorPrefix: string // Default: "Error:"
+  enterAtLeastChars: (n: number) => string // Default: (n) => `Enter at least ${n} characters`
+  minChars: (n: number) => string // Default: (n) => `Min ${n} characters`
+  charsRemaining: (n: number) => string // Default: (n) => `You have ${n} characters remaining`
+  maxChars: (n: number) => string // Default: (n) => `Max ${n} characters`
+  needMoreChars: (n: number) => string // Default: (n) => `You need ${n} more characters`
+  tooManyChars: (n: number) => string // Default: (n) => `You have ${n} characters too many`
 }
 ```
 

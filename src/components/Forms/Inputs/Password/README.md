@@ -18,90 +18,41 @@ import { Password } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type PasswordLabels = {
-  /** Button label when password is hidden. Must be string (passed to Button.label: string). Default: "Show" */
-  showLabel: string
-  /** Button label when password is visible. Must be string (passed to Button.label: string). Default: "Hide" */
-  hideLabel: string
-  /** Aria-label for the reveal button when password is hidden. Must be string (aria-label). Default: "Show password" */
-  showPasswordLabel: string
-  /** Aria-label for the reveal button when password is visible. Must be string (aria-label). Default: "Hide password" */
-  hidePasswordLabel: string
-  /**
-   * Text prefix before the strength value.
-   * Rendered as JSX child — accepts ReactNode.
-   * Default: "Password Strength:"
-   */
-  strengthPrefix: ReactNodeLabel
-  /**
-   * Displayed label for each strength level — rendered as JSX children.
-   * All five accept ReactNode.
-   */
-  strengthVeryWeak: ReactNodeLabel
-  strengthWeak: ReactNodeLabel
-  strengthMedium: ReactNodeLabel
-  strengthStrong: ReactNodeLabel
-  strengthVeryStrong: ReactNodeLabel
-  /** Appended to a rule's aria-label when satisfied. Must be string (aria-label template). Default: "Requirement met." */
-  requirementMet: string
-  /** Appended to a rule's aria-label when not satisfied. Must be string (aria-label template). Default: "Requirement not met." */
-  requirementNotMet: string
-  /**
-   * Dual-use: rendered as `<p>` text AND inside an aria-label template.
-   * Must be string to satisfy the aria-label constraint.
-   * Default: (min) => `Use a minimum of ${min} characters`
-   */
-  minLengthRule: (min: number) => string
-  /** Dual-use (p + aria-label). Must be string. Default: "Use an uppercase letter" */
-  uppercaseRule: string
-  /** Dual-use (p + aria-label). Must be string. Default: "Use a lowercase letter" */
-  lowercaseRule: string
-  /** Dual-use (p + aria-label). Must be string. Default: "Use a number" */
-  numberRule: string
-  /** Dual-use (p + aria-label). Must be string. Default: "Use a special character" */
-  specialCharRule: string
-}
+| Prop                | Type                                                                                                                                                              | Default | Description                                                                      |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------- |
+| `caption`           | `string`                                                                                                                                                          | —       | Helper text rendered below the label                                             |
+| `disabledRules`     | `{ uppercase?: boolean; lowercase?: boolean; numbers?: boolean; specialCharacters?: boolean }`                                                                    | —       | Disables individual strength rules; each key set to `true` hides its rule row    |
+| `hideValidations`   | `boolean`                                                                                                                                                         | —       | Hides the strength bar and rule checklist while typing                           |
+| `label`             | `string`                                                                                                                                                          | —       | Field label rendered above the input                                             |
+| `labels`            | `Partial<PasswordLabels>`                                                                                                                                         | —       | Override internal UI labels for internationalization support                     |
+| `minLength`         | `number`                                                                                                                                                          | `8`     | Minimum character length required and shown in the length rule                   |
+| `onChange`          | `(status: { strength: string; length: boolean; uppercase: boolean; lowercase: boolean; numbers: boolean; specialCharacters: boolean; password: string }) => void` | —       | Called with the current password and its rule results whenever the value changes |
+| `required`          | `boolean`                                                                                                                                                         | —       | Marks the field as required and shows the required indicator                     |
+| `showOptionalLabel` | `boolean`                                                                                                                                                         | `false` | Shows the "(optional)" suffix for non-required fields                            |
 
-/**
- * Internal strength key — used for styling logic.
- * Decoupled from display labels so that translations do not break styles.
- */
+### Supporting types
+
+```ts
 type StrengthLevel = 'very-weak' | 'weak' | 'medium' | 'strong' | 'very-strong'
 
-type PasswordProps = {
-  label: string
-  caption?: string
-  required?: boolean
-  /** Shows the "(optional)" suffix for non-required fields. Default: false */
-  showOptionalLabel?: boolean
-  onChange?: ({
-    strength,
-    length,
-    uppercase,
-    lowercase,
-    numbers,
-    specialCharacters,
-    password,
-  }: {
-    strength: string
-    length: boolean
-    uppercase: boolean
-    lowercase: boolean
-    numbers: boolean
-    specialCharacters: boolean
-    password: string
-  }) => void
-  disabledRules?: {
-    uppercase?: boolean
-    lowercase?: boolean
-    numbers?: boolean
-    specialCharacters?: boolean
-  }
-  minLength?: number
-  hideValidations?: boolean
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<PasswordLabels>
+type PasswordLabels = {
+  showLabel: string // Default: "Show"
+  hideLabel: string // Default: "Hide"
+  showPasswordLabel: string // Default: "Show password"
+  hidePasswordLabel: string // Default: "Hide password"
+  strengthPrefix: ReactNodeLabel // Default: "Password Strength:"
+  strengthVeryWeak: ReactNodeLabel // Default: "Very Weak"
+  strengthWeak: ReactNodeLabel // Default: "Weak"
+  strengthMedium: ReactNodeLabel // Default: "Medium"
+  strengthStrong: ReactNodeLabel // Default: "Strong"
+  strengthVeryStrong: ReactNodeLabel // Default: "Very Strong"
+  requirementMet: string // Default: "Requirement met."
+  requirementNotMet: string // Default: "Requirement not met."
+  minLengthRule: (min: number) => string // Default: (min) => `Use a minimum of ${min} characters`
+  uppercaseRule: string // Default: "Use an uppercase letter"
+  lowercaseRule: string // Default: "Use a lowercase letter"
+  numberRule: string // Default: "Use a number"
+  specialCharRule: string // Default: "Use a special character"
 }
 ```
 

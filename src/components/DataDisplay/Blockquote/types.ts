@@ -4,15 +4,16 @@ export type BlockquoteProps = Omit<
   ChakraBlockquote.RootProps,
   'colorPalette' | 'variant'
 > & {
-  /** Quote content. */
+  /** Quote content */
   children: React.ReactNode
-  /** Optional citation source rendered below the quote. */
+  /** Optional citation source rendered below the quote */
   cite?: React.ReactNode
-  /** Optional className to apply to the blockquote element. */
+  /** Additional className applied to the blockquote root */
   className?: string
-  /** Optional to change the quote bar color */
+  /** Quote bar color */
   color?: string
-  /** Optional to render an icon instead of the quote bar */
+  /** Icon rendered instead of the quote bar */
   icon?: React.ReactNode
+  /** Aligns the blockquote content */
   justify?: 'start' | 'center' | 'end'
 }

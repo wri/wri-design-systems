@@ -19,7 +19,17 @@ import { OpacityControl } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop               | Type                            | Default | Description                                                             |
+| ------------------ | ------------------------------- | ------- | ----------------------------------------------------------------------- |
+| `defaultValue`     | `number`                        | `—`     | Initial opacity value, from 0 (fully transparent) to 100 (fully opaque) |
+| `labels`           | `Partial<OpacityControlLabels>` | `—`     | Override internal UI labels for internationalization support            |
+| `onOpacityChanged` | `(value: number) => void`       | `—`     | Called with the new opacity value when the slider or input changes      |
+
+### Supporting types
+
 ```ts
+type ReactNodeLabel = ReactNode
+
 type OpacityControlLabels = {
   /** Button.label prop — must be string. Default: "Opacity" */
   opacityButtonLabel: string
@@ -37,13 +47,6 @@ type OpacityControlLabels = {
    * Default: "%"
    */
   percentSuffix: ReactNodeLabel
-}
-
-type OpacityControlProps = {
-  defaultValue: number
-  onOpacityChanged: (value: number) => void
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<OpacityControlLabels>
 }
 ```
 

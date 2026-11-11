@@ -132,7 +132,44 @@ import { BaseMap } from '@worldresources/wri-design-systems'
 
 ## Props
 
+### BaseMap
+
+| Prop                 | Type                                   | Default      | Description                                                    |
+| -------------------- | -------------------------------------- | ------------ | -------------------------------------------------------------- |
+| `additionalSettings` | `AdditionalSettingsProps[]`            | `—`          | Optional checkbox settings rendered above the base map options |
+| `caption`            | `string`                               | `—`          | Optional subheading shown under the title                      |
+| `labels`             | `Partial<BaseMapLabels>`               | `—`          | Override internal UI labels for internationalization support   |
+| `maxHeight`          | `string`                               | `'25rem'`    | Maximum height of the panel                                    |
+| `maxWidth`           | `string`                               | `'16.25rem'` | Maximum width of the panel                                     |
+| `onOptionSelected`   | `(option: BaseMapOptionProps) => void` | `—`          | Called with the selected option when an option is clicked      |
+| `options`            | `BaseMapOptionProps[]`                 | `—`          | Base map options available for selection                       |
+| `title`              | `string`                               | `—`          | Heading shown at the top of the base map panel                 |
+
+### BaseMapOption
+
+| Prop       | Type              | Default | Description                                                               |
+| ---------- | ----------------- | ------- | ------------------------------------------------------------------------- |
+| `active`   | `boolean`         | `—`     | Marks the option as the currently active base map, showing the Active tag |
+| `caption`  | `string`          | `—`     | Short description shown under the option label                            |
+| `children` | `React.ReactNode` | `—`     | Optional content rendered inside the option when it is active             |
+| `id`       | `string`          | `—`     | Unique identifier of the base map option                                  |
+| `imageUrl` | `string`          | `—`     | Preview image URL shown for the option                                    |
+| `label`    | `string`          | `—`     | Display name of the base map option                                       |
+
+### Supporting types
+
 ```ts
+type AdditionalSettingsProps = {
+  /** Checkbox label for the setting */
+  label: string
+  /** Whether the setting checkbox is checked */
+  checked?: boolean
+  /** Called with the new checked state when the checkbox toggles */
+  onCheckedChange: ({ checked }: { checked: boolean }) => void
+  /** Optional content rendered under the checkbox while it is checked */
+  children?: React.ReactNode
+}
+
 type BaseMapLabels = {
   /**
    * Visible label text inside the active Tag badge.
@@ -140,33 +177,5 @@ type BaseMapLabels = {
    * Default: "Active"
    */
   activeLabel: string
-}
-
-type AdditionalSettingsProps = {
-  label: string
-  checked?: boolean
-  onCheckedChange: ({ checked }: { checked: boolean }) => void
-  children?: React.ReactNode
-}
-
-type BaseMapOptionProps = {
-  id: string
-  label: string
-  caption: string
-  imageUrl: string
-  children?: React.ReactNode
-  active?: boolean
-}
-
-type BaseMapProps = {
-  title: string
-  caption?: string
-  additionalSettings?: AdditionalSettingsProps[]
-  options: BaseMapOptionProps[]
-  onOptionSelected?: (option: BaseMapOptionProps) => void
-  maxHeight?: string
-  maxWidth?: string
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<BaseMapLabels>
 }
 ```

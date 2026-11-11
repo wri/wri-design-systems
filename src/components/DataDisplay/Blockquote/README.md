@@ -20,14 +20,14 @@ import { Blockquote } from '@worldresources/wri-design-systems'
 
 ## Props
 
-| Prop      | Type                           | Default         | Description                                         |
-| --------- | ------------------------------ | --------------- | --------------------------------------------------- |
-| children  | React.ReactNode                | —               | Quote content                                       |
-| cite      | React.ReactNode                | —               | Optional citation source rendered below the quote   |
-| className | string                         | —               | Additional className applied to the blockquote root |
-| color     | string                         | `secondary/300` | Quote bar color                                     |
-| icon      | React.ReactNode                | —               | Icon rendered instead of the quote bar              |
-| justify   | `'start' \| 'center' \| 'end'` | `'start'`       | Aligns the blockquote content                       |
+| Prop        | Type                           | Default         | Description                                         |
+| ----------- | ------------------------------ | --------------- | --------------------------------------------------- |
+| `children`  | `React.ReactNode`              | —               | Quote content                                       |
+| `cite`      | `React.ReactNode`              | —               | Optional citation source rendered below the quote   |
+| `className` | `string`                       | —               | Additional className applied to the blockquote root |
+| `color`     | `string`                       | `secondary/300` | Quote bar color                                     |
+| `icon`      | `React.ReactNode`              | —               | Icon rendered instead of the quote bar              |
+| `justify`   | `'start' \| 'center' \| 'end'` | `'start'`       | Aligns the blockquote content                       |
 
 ## With citation
 

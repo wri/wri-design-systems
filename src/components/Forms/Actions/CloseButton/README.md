@@ -18,19 +18,18 @@ import { CloseButton } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop         | Type                         | Default | Description                                                                |
+| ------------ | ---------------------------- | ------- | -------------------------------------------------------------------------- |
+| `aria-label` | `string`                     | —       | Accessible name for the button; falls back to the close label when omitted |
+| `disabled`   | `boolean`                    | —       | Disables the button                                                        |
+| `labels`     | `Partial<CloseButtonLabels>` | —       | Override internal UI labels for internationalization support               |
+
+### Supporting types
+
 ```ts
 type CloseButtonLabels = {
   /** Fallback aria-label when none is provided via props. Default: "Close" */
   closeLabel: string
-}
-
-export type CloseButtonProps = Omit<
-  ChakraButtonProps,
-  'size' | 'variant' | 'colorPalette' | 'children' | '_loading'
-> & {
-  disabled?: boolean
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<CloseButtonLabels>
 }
 ```
 

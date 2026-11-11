@@ -42,6 +42,29 @@ Add as many LayerGroups as you need, read the [LayerItem](https://github.com/wri
 
 ## Props
 
+### LayerGroup
+
+| Prop                      | Type                                                               | Default | Description                                                              |
+| ------------------------- | ------------------------------------------------------------------ | ------- | ------------------------------------------------------------------------ |
+| `caption`                 | `string`                                                           | `—`     | Caption shown under the group title                                      |
+| `label`                   | `string`                                                           | `—`     | Group title shown in the accordion trigger                               |
+| `layerItems`              | `LayerItemProps[]`                                                 | `—`     | Layer items rendered inside the group                                    |
+| `labels`                  | `Partial<LayerGroupLabels>`                                        | `—`     | Override internal UI labels for internationalization support             |
+| `onChangeForRadioVariant` | `(name: string, checked: boolean, selectedValue?: string) => void` | `—`     | Called when a radio-variant layer item changes selection                 |
+| `value`                   | `string`                                                           | `—`     | Accordion item value used to identify and control the group's open state |
+
+### LayerGroupContainer
+
+| Prop           | Type              | Default | Description                                                                |
+| -------------- | ----------------- | ------- | -------------------------------------------------------------------------- |
+| `children`     | `React.ReactNode` | `—`     | Accordion content, typically one or more LayerGroup components (inherited) |
+| `defaultValue` | `string[]`        | `—`     | Accordion values opened initially                                          |
+
+### Supporting types
+
+- `LayerItemProps` — layer item shape from `Geospatial/Layers/LayerItem`, see the LayerItem documentation
+- `LayerGroupLabels` — full shape documented below
+
 ```ts
 type LayerGroupLabels = {
   /**
@@ -57,42 +80,9 @@ type LayerGroupLabels = {
     caption?: string,
   ) => string
 }
-
-type LayerGroupContainerProps = Omit<
-  Accordion.RootProps,
-  'onChange' | 'colorPalette' | 'variant' | 'size' | 'multiple' | 'collapsible'
-> & {
-  defaultValue?: string[]
-}
-
-type LayerGroupProps = {
-  label: string
-  caption: string
-  value: string
-  layerItems: LayerItemProps[]
-  onChangeForRadioVariant?: (
-    name: string,
-    checked: boolean,
-    selectedValue?: string,
-  ) => void
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<LayerGroupLabels>
-}
 ```
 
-```ts
-type LayerGroupProps = {
-  label: string
-  caption: string
-  value: string
-  layerItems: LayerItemProps[]
-  onChangeForRadioVariant?: (
-    name: string,
-    checked: boolean,
-    selectedValue?: string,
-  ) => void
-}
-```
+Other props from Chakra's `Accordion.RootProps` are also accepted (excluding `onChange`, `colorPalette`, `variant`, `size`, `multiple`, `collapsible`).
 
 ## Default index open
 

@@ -20,27 +20,17 @@ import { Checkbox } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type CheckboxProps = Omit<
-  ChakraCheckbox.RootProps,
-  | 'size'
-  | 'variant'
-  | 'colorPalette'
-  | 'icon'
-  | 'iconColor'
-  | 'iconSize'
-  | 'spacing'
-  | 'invalid'
-> & {
-  name?: string
-  value?: string
-  defaultChecked?: boolean
-  checked?: boolean
-  disabled?: boolean
-  indeterminate?: boolean
-  onCheckedChange?: ({ checked }: { checked: boolean }) => void
-}
-```
+| Prop              | Type                                          | Default | Description                                                              |
+| ----------------- | --------------------------------------------- | ------- | ------------------------------------------------------------------------ |
+| `checked`         | `boolean`                                     | —       | Controlled checked state                                                 |
+| `children`        | `React.ReactNode`                             | —       | Label text rendered next to the checkbox                                 |
+| `defaultChecked`  | `boolean`                                     | —       | Checked state on first render (uncontrolled)                             |
+| `disabled`        | `boolean`                                     | —       | Disables the checkbox and applies disabled styles                        |
+| `indeterminate`   | `boolean`                                     | —       | Renders the indeterminate (dash) state and overrides the checked display |
+| `name`            | `string`                                      | —       | Name of the form field                                                   |
+| `onCheckedChange` | `({ checked }: { checked: boolean }) => void` | —       | Called with the new checked state when the checkbox is toggled           |
+| `tabIndex`        | `number`                                      | —       | Tab index applied to the hidden native input                             |
+| `value`           | `string`                                      | —       | Value submitted with the form when checked                               |
 
 ## Default Checked
 

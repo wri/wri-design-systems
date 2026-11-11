@@ -65,7 +65,24 @@ import {
 
 ## Props
 
+| Prop               | Type                        | Default | Description                                                         |
+| ------------------ | --------------------------- | ------- | ------------------------------------------------------------------- |
+| `children`         | `React.ReactNode`           | `—`     | Legend content, such as ScaleBar or QualitativeAttribute components |
+| `dataUnit`         | `string`                    | `—`     | Unit of the layer data shown under the layer name                   |
+| `labels`           | `Partial<LegendItemLabels>` | `—`     | Override internal UI labels for internationalization support        |
+| `layerName`        | `string`                    | `—`     | Name of the layer shown as the legend item title                    |
+| `onDownClick`      | `VoidFunction`              | `—`     | Called when the move-down button is clicked                         |
+| `onDrag`           | `VoidFunction`              | `—`     | Reserved for drag-and-drop reordering of the legend item            |
+| `onInfoClick`      | `VoidFunction`              | `—`     | Called when the about-data button is clicked                        |
+| `onOpacityChanged` | `(value: number) => void`   | `—`     | Called with the new opacity value when the opacity control changes  |
+| `onRemoveClick`    | `VoidFunction`              | `—`     | Called when the remove button is clicked                            |
+| `onUpClick`        | `VoidFunction`              | `—`     | Called when the move-up button is clicked                           |
+
+### Supporting types
+
 ```ts
+type VoidFunction = () => void
+
 type LegendItemLabels = {
   /** aria-label on the drag handle icon button. Default: "Drag and drop" */
   dragAndDropLabel: string
@@ -85,19 +102,5 @@ type LegendItemLabels = {
    * Default: "About data"
    */
   aboutDataLabel: string
-}
-
-type LegendItemProps = {
-  layerName: string
-  dataUnit: string
-  onDrag?: VoidFunction
-  onUpClick: VoidFunction
-  onDownClick: VoidFunction
-  onRemoveClick: VoidFunction
-  children: React.ReactNode
-  onInfoClick: VoidFunction
-  onOpacityChanged: (value: number) => void
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<LegendItemLabels>
 }
 ```

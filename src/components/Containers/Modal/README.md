@@ -10,42 +10,7 @@
 import { Modal } from '@worldresources/wri-design-systems'
 ```
 
-## Props
-
-```ts
-type SizeValue = number | string
-
-type ModalLabels = {
-  /** aria-label on the dialog content. Default: "Modal dialog" */
-  dialogAriaLabel: string
-}
-
-type ModalProps = {
-  header: React.ReactNode
-  content: React.ReactNode
-  footer?: React.ReactNode
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'full-width'
-  draggable?: boolean
-  blocking?: boolean
-  open: boolean
-  onClose?: () => void
-  width?: SizeValue
-  height?: SizeValue
-  maxHeight?: SizeValue
-  labels?: Partial<ModalLabels>
-  lazyMount?: boolean
-  unmountOnExit?: boolean
-  restoreFocus?: boolean
-  modal?: boolean
-  initialFocusEl?: () => MaybeElement
-  finalFocusEl?: () => MaybeElement
-  trapFocus?: boolean
-}
-```
-
 ## Usage
-
-### Menu
 
 ```tsx
 <Modal
@@ -69,7 +34,42 @@ type ModalProps = {
 />
 ```
 
-### Small
+## Props
+
+| Prop             | Type                                                                     | Default    | Description                                                                                      |
+| ---------------- | ------------------------------------------------------------------------ | ---------- | ------------------------------------------------------------------------------------------------ |
+| `blocking`       | `boolean`                                                                | `—`        | Hides the close button and disables closing via escape key or outside interaction                |
+| `content`        | `React.ReactNode`                                                        | `—`        | Main content rendered in the modal body                                                          |
+| `draggable`      | `boolean`                                                                | `—`        | Makes the modal draggable and removes the backdrop, allowing interaction with the page behind it |
+| `finalFocusEl`   | `() => MaybeElement`                                                     | `—`        | Returns the element that receives focus when the modal closes                                    |
+| `footer`         | `React.ReactNode`                                                        | `—`        | Optional content rendered in the modal footer, below the body                                    |
+| `header`         | `React.ReactNode`                                                        | `—`        | Content rendered in the modal header                                                             |
+| `height`         | `SizeValue`                                                              | `—`        | Explicit modal height; defaults to auto, or 90% for the full-width size                          |
+| `initialFocusEl` | `() => MaybeElement`                                                     | `—`        | Returns the element that receives focus when the modal opens                                     |
+| `labels`         | `Partial<ModalLabels>`                                                   | `—`        | Overrides built-in labels such as the dialog aria-label for localization                         |
+| `lazyMount`      | `boolean`                                                                | `—`        | Delays mounting the modal content until the first time it opens                                  |
+| `maxHeight`      | `SizeValue`                                                              | `—`        | Overrides the preset maximum height for the selected size, capped at 80vh                        |
+| `modal`          | `boolean`                                                                | `—`        | Passed to the underlying Chakra dialog to control its mode, such as outside-interaction behavior |
+| `onClose`        | `() => void`                                                             | `—`        | Called when the modal is closed via the close button, escape key or outside interaction          |
+| `open`           | `boolean`                                                                | `—`        | Controls whether the modal is rendered                                                           |
+| `restoreFocus`   | `boolean`                                                                | `—`        | Returns focus to the previously focused element when the modal closes                            |
+| `size`           | `'xsmall' \| 'small' \| 'medium' \| 'large' \| 'xlarge' \| 'full-width'` | `'medium'` | Preset controlling the modal width and maximum height, overridden by explicit width or maxHeight |
+| `trapFocus`      | `boolean`                                                                | `—`        | Keeps keyboard focus inside the modal while it is open                                           |
+| `unmountOnExit`  | `boolean`                                                                | `—`        | Unmounts the modal content from the DOM when it closes                                           |
+| `width`          | `SizeValue`                                                              | `—`        | Overrides the preset width for the selected size                                                 |
+
+### Supporting types
+
+```ts
+type SizeValue = number | string
+
+type ModalLabels = {
+  /** aria-label on the dialog content. Default: "Modal dialog" */
+  dialogAriaLabel: string
+}
+```
+
+## Small
 
 ```tsx
 <Modal
@@ -94,7 +94,7 @@ type ModalProps = {
 />
 ```
 
-### Large
+## Large
 
 ```tsx
 <Modal
@@ -119,7 +119,7 @@ type ModalProps = {
 />
 ```
 
-### Extra Large
+## Extra Large
 
 ```tsx
 <Modal
@@ -144,7 +144,7 @@ type ModalProps = {
 />
 ```
 
-### With Actions
+## With Actions
 
 ```tsx
 <Modal
@@ -185,7 +185,7 @@ type ModalProps = {
 />
 ```
 
-### Draggable
+## Draggable
 
 ```tsx
 <Modal
@@ -210,7 +210,7 @@ type ModalProps = {
 />
 ```
 
-### Blocking
+## Blocking
 
 ```tsx
 <Modal

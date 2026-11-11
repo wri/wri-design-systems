@@ -28,18 +28,19 @@ import { SliderInput } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type SliderInputProps = {
-  label: string
-  caption?: string
-  size?: 'default' | 'small'
-  sliderItem: SliderProps
-  required?: boolean
-  /** Shows the "(optional)" suffix for non-required fields. Default: false */
-  showOptionalLabel?: boolean
-  onChange?: (value: number[]) => void
-}
-```
+| Prop                | Type                        | Default     | Description                                                                                                                                    |
+| ------------------- | --------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `caption`           | `string`                    | —           | Helper text rendered below the label                                                                                                           |
+| `label`             | `string`                    | —           | Field label rendered above the slider                                                                                                          |
+| `onChange`          | `(value: number[]) => void` | —           | Called with the current slider values whenever the slider or an input commits a change                                                         |
+| `required`          | `boolean`                   | —           | Marks the field as required and shows the required indicator                                                                                   |
+| `showOptionalLabel` | `boolean`                   | `false`     | Shows the "(optional)" suffix for non-required fields                                                                                          |
+| `size`              | `'default' \| 'small'`      | `'default'` | Controls the field text size and spacing                                                                                                       |
+| `sliderItem`        | `SliderProps`               | —           | Slider configuration props from the `Slider` component; when `step` and `marks` are set the numeric input is replaced by a select of the marks |
+
+### Supporting types
+
+- `SliderProps` — configuration props from `Forms/Controls/Slider`: `min`, `max`, `value`, `step`, `marks`, `isCentred`, `disabled`, `colors`, plus slider change callbacks
 
 ## Continuous
 

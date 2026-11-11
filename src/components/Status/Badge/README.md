@@ -18,19 +18,24 @@ import { Badge } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop                | Type                   | Default   | Description                                                  |
+| ------------------- | ---------------------- | --------- | ------------------------------------------------------------ |
+| `children`          | `React.ReactNode`      | —         | Custom content rendered instead of the default bell icon     |
+| `hasNotification`   | `boolean`              | —         | Whether to show the notification dot when there is no count  |
+| `label`             | `string`               | —         | Text label rendered next to the notification                 |
+| `labels`            | `Partial<BadgeLabels>` | —         | Override internal UI labels for internationalization support |
+| `notificationCount` | `number`               | —         | Number to display; counts above 99 render as 99+             |
+| `size`              | `BadgeSize`            | `'large'` | Size of the notification indicator                           |
+
+### Supporting types
+
 ```ts
 type BadgeLabels = {
+  /** Builds aria-label text for the notification count. Default: (count) => `${count} unread ${count === 1 ? 'message' : 'messages'}` */
   unreadMessagesLabel: (count: number) => string
 }
 
-type BadgeProps = {
-  hasNotification?: boolean
-  notificationCount?: number
-  label?: string
-  size?: 'small' | 'large'
-  labels?: Partial<BadgeLabels>
-  children?: React.ReactNode
-}
+type BadgeSize = 'small' | 'large'
 ```
 
 ## Notification Bell

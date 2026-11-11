@@ -54,6 +54,24 @@ const [isOpen, setIsOpen] = useState(false)
 
 ## Props
 
+| Prop              | Type                                         | Default       | Description                                                                                   |
+| ----------------- | -------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------- |
+| `blocking`        | `boolean`                                    | `—`           | Prevents interaction with the page behind the sheet                                           |
+| `className`       | `string`                                     | `—`           | Class name applied to the sheet container                                                     |
+| `content`         | `React.ReactNode`                            | `—`           | Main content rendered in the sheet body                                                       |
+| `defaultSnap`     | `'closed' \| 'minimized' \| 'mid' \| 'full'` | `'minimized'` | Snap point the sheet opens at; one of closed, minimized, mid or full. Defaults to `minimized` |
+| `footer`          | `React.ReactNode`                            | `—`           | Optional content rendered in the sheet footer                                                 |
+| `header`          | `React.ReactNode`                            | `—`           | Optional content rendered in the sheet header, next to the grabber                            |
+| `labels`          | `Partial<SheetLabels>`                       | `—`           | Overrides the grabber aria-labels for localization                                            |
+| `maxFullHeight`   | `number`                                     | `—`           | Fully expanded snap height in pixels; falls back to five sixths of the available height       |
+| `midHeight`       | `number`                                     | `200`         | Intermediate snap height in pixels. Defaults to `200`                                         |
+| `minimizedHeight` | `number`                                     | `—`           | Minimized snap height in pixels; falls back to the header height when omitted                 |
+| `onClose`         | `() => void`                                 | `—`           | Called when the sheet is dismissed                                                            |
+| `open`            | `boolean`                                    | `—`           | Controls whether the sheet is open. Defaults to `false`                                       |
+| `zIndex`          | `number`                                     | `1000`        | z-index applied to the sheet overlay. Defaults to `1000`                                      |
+
+### Supporting types
+
 ```ts
 type SheetLabels = {
   /** aria-label for the grabber button when collapsed/minimized. Default: "Expand sheet" */
@@ -62,21 +80,5 @@ type SheetLabels = {
   makeFullScreenLabel: string
   /** aria-label for the grabber button when fully expanded. Default: "Expanded sheet" */
   expandedSheetLabel: string
-}
-
-type SheetProps = {
-  header?: React.ReactNode
-  content: React.ReactNode
-  footer?: React.ReactNode
-  open: boolean
-  onClose?: () => void
-  minimizedHeight?: number // default 50px
-  midHeight?: number // default 200px
-  maxFullHeight?: number // default 1000px
-  defaultSnap?: 'closed' | 'minimized' | 'mid' | 'full'
-  className?: string
-  blocking?: boolean
-  zIndex?: number // default 1000
-  labels?: Partial<SheetLabels>
 }
 ```

@@ -20,20 +20,18 @@ import { Tooltip } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type TooltipProps = {
-  children: React.ReactNode
-  content: React.ReactNode
-  showArrow?: boolean // default: true
-  disabled?: boolean
-  position?: 'top' | 'right' | 'bottom' | 'left' // default: 'bottom'
-  variant?: 'pill' | 'text' // default: 'pill'
-  portalRef?: React.RefObject<HTMLElement | null>
-  openDelay?: number
-  closeDelay?: number
-  preserveFocusOnChild?: boolean
-}
-```
+| Prop                   | Type                                     | Default    | Description                                                              |
+| ---------------------- | ---------------------------------------- | ---------- | ------------------------------------------------------------------------ |
+| `children`             | `React.ReactNode`                        | —          | Element that triggers the tooltip                                        |
+| `closeDelay`           | `number`                                 | `0`        | Delay in milliseconds before the tooltip closes                          |
+| `content`              | `React.ReactNode`                        | —          | Content shown inside the tooltip                                         |
+| `disabled`             | `boolean`                                | —          | Prevents the tooltip from opening                                        |
+| `openDelay`            | `number`                                 | `0`        | Delay in milliseconds before the tooltip opens                           |
+| `portalRef`            | `React.RefObject<HTMLElement \| null>`   | —          | Container element for the tooltip portal                                 |
+| `position`             | `'top' \| 'right' \| 'bottom' \| 'left'` | `'bottom'` | Placement of the tooltip relative to the trigger                         |
+| `preserveFocusOnChild` | `boolean`                                | `false`    | Uses the child as the trigger without adding tab focus or trigger styles |
+| `showArrow`            | `boolean`                                | `true`     | Shows the tooltip arrow; only applies to the `pill` variant              |
+| `variant`              | `'pill' \| 'text'`                       | `'pill'`   | Visual style of the tooltip                                              |
 
 ## Text Variant
 

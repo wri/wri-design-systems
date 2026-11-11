@@ -18,17 +18,23 @@ export type RichTextEditorControlKey =
 export type RichTextEditorSize = string
 
 export type RichTextEditorProps = {
+  /** Initial HTML content */
   defaultValue?: string
+  /** Disables editor interactions and toolbar controls */
   disabled?: boolean
+  /** Accessible label for the editable content area */
   ariaLabel?: string
+  /** Placeholder text shown when content is empty */
   placeholder?: string
   /**
-   * Custom minimum height for the editor content area.
-   * If omitted, the component size is defined by its container.
+   * Custom CSS `min-height` for the editor content area (for example,
+   * `getThemedSpacing(1600)`). If not provided, size is defined by the container.
    */
   minHeight?: string
+  /** Controls to display in the toolbar */
   visibleControls?: RichTextEditorControlKey[]
+  /** Called on each editor update with current HTML value */
   onChange?: (value: string) => void
-  /** Override internal labels for i18n. */
+  /** Override tooltip/UI labels for localization */
   labels?: Partial<RichTextEditorLabels>
 }

@@ -33,18 +33,14 @@ import { Footer } from '@worldresources/wri-design-systems'
 
 ## Props
 
-```ts
-type SizeValue = number | string
-
-type FooterProps = {
-  children: React.ReactNode
-  label?: string
-  fixed?: boolean
-  filled?: boolean
-  maxWidth?: SizeValue
-  additionalLogos?: React.ReactNode[]
-}
-```
+| Prop              | Type                | Default                          | Description                                                                                                                |
+| ----------------- | ------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `children`        | `React.ReactNode`   | —                                | Footer content, typically legal links rendered in the center of the footer                                                 |
+| `label`           | `string`            | `'© World Resources Institute'` | Copyright label text rendered with the current year appended                                                               |
+| `fixed`           | `boolean`           | —                                | Sticks the footer to the bottom of the viewport when true, otherwise it is absolutely positioned at the bottom of the page |
+| `filled`          | `boolean`           | —                                | Applies a neutral background color to the footer when true                                                                 |
+| `maxWidth`        | `number \| string`  | `'100%'`                         | Maximum width of the footer content container, numbers resolve to spacing-scale rem values                                 |
+| `additionalLogos` | `React.ReactNode[]` | —                                | Additional logo nodes displayed next to the WRI logo                                                                       |
 
 ## Footer
 

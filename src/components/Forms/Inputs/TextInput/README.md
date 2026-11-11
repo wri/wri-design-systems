@@ -18,36 +18,27 @@ import { TextInput } from '@worldresources/wri-design-systems'
 
 ## Props
 
+| Prop                | Type                                               | Default     | Description                                                  |
+| ------------------- | -------------------------------------------------- | ----------- | ------------------------------------------------------------ |
+| `caption`           | `string`                                           | —           | Helper text rendered below the label                         |
+| `defaultValue`      | `string`                                           | `''`        | Initial value for uncontrolled usage                         |
+| `disabled`          | `boolean`                                          | —           | Disables the input                                           |
+| `errorMessage`      | `string`                                           | —           | Error message rendered below the input                       |
+| `label`             | `string`                                           | —           | Field label rendered above the input                         |
+| `labels`            | `Partial<TextInputLabels>`                         | —           | Override internal UI labels for internationalization support |
+| `noMarginBottom`    | `boolean`                                          | `false`     | Removes the bottom margin below the field                    |
+| `onChange`          | `(e: React.ChangeEvent<HTMLInputElement>) => void` | —           | Called on each input change event                            |
+| `placeholder`       | `string`                                           | —           | Placeholder text shown when the field is empty               |
+| `required`          | `boolean`                                          | —           | Marks the field as required and shows the required indicator |
+| `showOptionalLabel` | `boolean`                                          | `false`     | Shows the "(optional)" suffix for non-required fields        |
+| `size`              | `'small' \| 'default'`                             | `'default'` | Controls the input size                                      |
+
+### Supporting types
+
 ```ts
 type TextInputLabels = {
-  /** Accessible label for the required (*) indicator. Must be string (aria-label). Default: "required" */
-  requiredSymbolLabel: string
-  /**
-   * Suffix appended after the field label when the field is optional.
-   * Rendered as JSX child inside a <span> — accepts ReactNode.
-   * Default: "(optional)"
-   */
-  optionalSuffix: ReactNodeLabel
-}
-
-type TextInputProps = Omit<
-  ChakraInputProps,
-  'size' | 'variant' | 'colorPalette' | 'defaultChecked'
-> & {
-  label?: string
-  caption?: string
-  placeholder?: string
-  errorMessage?: string
-  required?: boolean
-  disabled?: boolean
-  size?: 'small' | 'default'
-  /** Shows the "(optional)" suffix for non-required fields. Default: false */
-  showOptionalLabel?: boolean
-  noMarginBottom?: boolean
-  defaultValue?: string
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<TextInputLabels>
+  requiredSymbolLabel: string // Default: "required"
+  optionalSuffix: ReactNodeLabel // Default: "(optional)"
 }
 ```
 

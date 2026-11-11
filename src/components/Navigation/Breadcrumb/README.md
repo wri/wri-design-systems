@@ -50,15 +50,13 @@ const breadcrumbs = paths.map((p, index) => ({
 
 ## Props
 
-```ts
-type BreadcrumbProps = {
-  links: { label: string; link: string; icon?: React.ReactNode }[]
-  separator?: React.ReactNode
-  maxItems?: number
-  linkRouter: any // Link from react router or next.js
-  size?: 'small' | 'default'
-}
-```
+| Prop         | Type                                                        | Default           | Description                                                                          |
+| ------------ | ----------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------ |
+| `links`      | `{ label: string; link: string; icon?: React.ReactNode }[]` | —                 | Array of breadcrumb links, each with a label, target link, and optional leading icon |
+| `separator`  | `React.ReactNode`                                           | `ChevronDownIcon` | Custom separator node between breadcrumb items                                       |
+| `maxItems`   | `number`                                                    | `99`              | Maximum number of links shown before collapsing into first, ellipsis, and last       |
+| `linkRouter` | `any`                                                       | —                 | Link component from react router or next.js used to render navigable links           |
+| `size`       | `'small' \| 'default'`                                      | `'default'`       | Size of the breadcrumb text and spacing                                              |
 
 ## Custom Separator
 
