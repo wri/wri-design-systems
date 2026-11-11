@@ -67,7 +67,7 @@ const [isOpen, setIsOpen] = useState(false)
 | `midHeight`       | `number`                                     | `200`         | Intermediate snap height in pixels. Defaults to `200`                                         |
 | `minimizedHeight` | `number`                                     | `—`           | Minimized snap height in pixels; falls back to the header height when omitted                 |
 | `onClose`         | `() => void`                                 | `—`           | Called when the sheet is dismissed                                                            |
-| `open`            | `boolean`                                    | `false`       | Controls whether the sheet is open. Defaults to `false`                                       |
+| `open`            | `boolean`                                    | `—`           | Controls whether the sheet is open. Defaults to `false`                                       |
 | `zIndex`          | `number`                                     | `1000`        | z-index applied to the sheet overlay. Defaults to `1000`                                      |
 
 ### Supporting types

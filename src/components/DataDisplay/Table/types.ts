@@ -30,7 +30,7 @@ export type TableProps = {
   columns: TableColumn[]
   /** Row data rendered in the table body. Defaults to `[]` */
   data?: any
-  /** Custom row renderer for full control of the row markup. Defaults to `Default row renderer` */
+  /** Custom row renderer for full control of the row markup */
   renderRow?: (row: any, context?: TableRenderRowContext) => ReactNode
   /** Whether to render rows with striped backgrounds */
   striped?: boolean

@@ -9,7 +9,7 @@ export type SheetProps = {
   content: React.ReactNode
   /** Optional content rendered in the sheet footer */
   footer?: React.ReactNode
-  /** Controls whether the sheet is open. Defaults to `false` */
+  /** Controls whether the sheet is open. */
   open: boolean
   /** Called when the sheet is dismissed */
   onClose?: () => void
