@@ -40,17 +40,21 @@ export const defaultInlineMessageStyles = (
     flex-direction: ${isContentRight ? 'row' : 'column'};
     gap: ${getThemedSpacing(200)};
 
-    button {
+    button.inline-message-action {
       margin-left: ${isContentRight || !hasIcon ? 0 : getThemedSpacing(600)};
     }
   `
 }
 
-export const inlineMessageChildrenStyles = (isContentRight?: boolean) => css`
+export const inlineMessageChildrenStyles = (
+  isContentRight?: boolean,
+  hasIcon?: boolean,
+) => css`
   display: flex;
   align-items: center;
   justify-content: ${isContentRight ? 'flex-end' : 'flex-start'};
   gap: ${getThemedSpacing(200)};
+  margin-left: ${isContentRight || !hasIcon ? 0 : getThemedSpacing(600)};
 `
 
 export const inlineMessageHeaderStyles = css`

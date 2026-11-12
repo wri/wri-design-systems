@@ -27,7 +27,7 @@ const InlineMessage = ({
   size = 'large',
   icon = <InfoIcon height='1rem' width='1rem' />,
   children,
-  isContentRight = false,
+  isContentRight,
   labels,
   onActionClick,
   actionLabel,
@@ -37,7 +37,7 @@ const InlineMessage = ({
   buttonRightIcon,
 }: InlineMessageProps) => {
   const l = useLabels('InlineMessage', labels)
-  const contentRight = isContentRight || isButtonRight
+  const contentRight = isContentRight ?? isButtonRight ?? false
 
   let variantInlineMessageStyles = infoWhiteInlineMessageStyles
   if (variant === 'info-grey') {
@@ -81,7 +81,9 @@ const InlineMessage = ({
         ) : null}
       </div>
       {children ? (
-        <div css={inlineMessageChildrenStyles(contentRight)}>{children}</div>
+        <div css={inlineMessageChildrenStyles(contentRight, !!icon)}>
+          {children}
+        </div>
       ) : null}
       {!children && actionLabel ? (
         <Button
@@ -91,6 +93,7 @@ const InlineMessage = ({
           onClick={onActionClick}
           leftIcon={buttonLeftIcon}
           rightIcon={buttonRightIcon}
+          className='inline-message-action'
         />
       ) : null}
     </div>

@@ -26,7 +26,6 @@ export type InlineMessageProps = {
   children?: React.ReactNode
   /**
    * Whether the message content is aligned to the right of the message.
-   * Defaults to `false`.
    */
   isContentRight?: boolean
   /** Override internal UI labels for internationalization support. */
