@@ -11,6 +11,7 @@ import {
   infoWhiteInlineMessageStyles,
   inlineMessageCaptionContainerStyles,
   inlineMessageCaptionStyles,
+  inlineMessageChildrenStyles,
   inlineMessageHeaderStyles,
   inlineMessageTitleStyles,
   successInlineMessageStyles,
@@ -25,15 +26,19 @@ const InlineMessage = ({
   variant,
   size = 'large',
   icon = <InfoIcon height='1rem' width='1rem' />,
+  children,
+  isContentRight,
+  labels,
   onActionClick,
   actionLabel,
   actionButtonVariant = 'secondary',
   isButtonRight,
   buttonLeftIcon,
   buttonRightIcon,
-  labels,
 }: InlineMessageProps) => {
   const l = useLabels('InlineMessage', labels)
+  const contentRight = isContentRight ?? isButtonRight ?? false
+
   let variantInlineMessageStyles = infoWhiteInlineMessageStyles
   if (variant === 'info-grey') {
     variantInlineMessageStyles = infoGreyInlineMessageStyles
@@ -51,7 +56,7 @@ const InlineMessage = ({
   return (
     <div
       css={[
-        defaultInlineMessageStyles(size, isButtonRight),
+        defaultInlineMessageStyles(size, contentRight, !!icon),
         variantInlineMessageStyles,
       ]}
       role={liveRole}
@@ -75,7 +80,12 @@ const InlineMessage = ({
           </div>
         ) : null}
       </div>
-      {actionLabel ? (
+      {children ? (
+        <div css={inlineMessageChildrenStyles(contentRight, !!icon)}>
+          {children}
+        </div>
+      ) : null}
+      {!children && actionLabel ? (
         <Button
           label={actionLabel}
           variant={actionButtonVariant}
@@ -83,6 +93,7 @@ const InlineMessage = ({
           onClick={onActionClick}
           leftIcon={buttonLeftIcon}
           rightIcon={buttonRightIcon}
+          className='inline-message-action'
         />
       ) : null}
     </div>

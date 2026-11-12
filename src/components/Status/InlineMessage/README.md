@@ -13,30 +13,29 @@ import { InlineMessage } from '@worldresources/wri-design-systems'
 ## Usage
 
 ```tsx
-<InlineMessage
-  label='Label'
-  caption='caption'
-  variant='info-white'
-  actionLabel='Label'
-/>
+<InlineMessage label='Label' caption='caption' variant='info-white'>
+  <Button label='Label' />
+</InlineMessage>
 ```
 
 ## Props
 
-| Prop                  | Type                                                                  | Default                                   | Description                                                     |
-| --------------------- | --------------------------------------------------------------------- | ----------------------------------------- | --------------------------------------------------------------- |
-| `actionButtonVariant` | `'primary' \| 'secondary' \| 'borderless' \| 'outline' \| 'negative'` | `'secondary'`                             | Variant of the action button                                    |
-| `actionLabel`         | `string`                                                              | —                                         | Text of the optional action button; renders the button when set |
-| `buttonLeftIcon`      | `React.ReactNode`                                                     | —                                         | Icon rendered before the action button label                    |
-| `buttonRightIcon`     | `React.ReactNode`                                                     | —                                         | Icon rendered after the action button label                     |
-| `caption`             | `React.ReactNode`                                                     | —                                         | Secondary message text rendered under the label                 |
-| `icon`                | `React.ReactNode`                                                     | `<InfoIcon height='1rem' width='1rem' />` | Icon rendered before the label                                  |
-| `isButtonRight`       | `boolean`                                                             | —                                         | Whether the action button sits to the right of the message      |
-| `label`               | `React.ReactNode`                                                     | —                                         | Primary message text                                            |
-| `labels`              | `Partial<InlineMessageLabels>`                                        | —                                         | Override internal UI labels for internationalization support    |
-| `onActionClick`       | `() => void`                                                          | —                                         | Called when the action button is clicked                        |
-| `size`                | `InlineMessageSize`                                                   | `'large'`                                 | Message size and width                                          |
-| `variant`             | `'info-white' \| 'info-grey' \| 'success' \| 'warning' \| 'error'`    | —                                         | Color scheme of the message                                     |
+| Prop                  | Type                                                                  | Default                                   | Description                                                                                          |
+| --------------------- | --------------------------------------------------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `caption`             | `React.ReactNode`                                                     | —                                         | Secondary message text rendered under the label                                                      |
+| `children`            | `React.ReactNode`                                                     | —                                         | Arbitrary content rendered inside the message (e.g. actions, links, custom markup)                   |
+| `icon`                | `React.ReactNode`                                                     | `<InfoIcon height='1rem' width='1rem' />` | Icon rendered before the label                                                                       |
+| `isContentRight`      | `boolean`                                                             | —                                         | Whether the message content is aligned to the right of the message.                                  |
+| `label`               | `React.ReactNode`                                                     | —                                         | Primary message text                                                                                 |
+| `labels`              | `Partial<InlineMessageLabels>`                                        | —                                         | Override internal UI labels for internationalization support                                         |
+| `size`                | `InlineMessageSize`                                                   | `'large'`                                 | Message size and width                                                                               |
+| `variant`             | `'info-white' \| 'info-grey' \| 'success' \| 'warning' \| 'error'`    | —                                         | Color scheme of the message                                                                          |
+| `actionButtonVariant` | `'primary' \| 'secondary' \| 'borderless' \| 'outline' \| 'negative'` | `'secondary'`                             | @deprecated Use `children` with a `<Button />` instead. Ignored when `children` is set               |
+| `actionLabel`         | `string`                                                              | —                                         | @deprecated Use `children` with a `<Button />` instead. Ignored when `children` is set               |
+| `buttonLeftIcon`      | `React.ReactNode`                                                     | —                                         | @deprecated Use `children` with a `<Button leftIcon={…} />` instead. Ignored when `children` is set  |
+| `buttonRightIcon`     | `React.ReactNode`                                                     | —                                         | @deprecated Use `children` with a `<Button rightIcon={…} />` instead. Ignored when `children` is set |
+| `isButtonRight`       | `boolean`                                                             | —                                         | @deprecated Use `isContentRight` instead. Ignored when `isContentRight` is set                       |
+| `onActionClick`       | `() => void`                                                          | —                                         | @deprecated Use `children` with a `<Button />` instead. Ignored when `children` is set               |
 
 ### Supporting types
 
@@ -52,68 +51,55 @@ type InlineMessageSize = 'small' | 'large' | 'full-width' | 'small-full-width'
 ## Info White
 
 ```tsx
-<InlineMessage
-  label='Label'
-  caption='caption'
-  variant='info-white'
-  actionLabel='Label'
-/>
+<InlineMessage label='Label' caption='caption' variant='info-white' />
 ```
 
 ## Info Grey
 
 ```tsx
-<InlineMessage
-  label='Label'
-  caption='caption'
-  variant='info-grey'
-  actionLabel='Label'
-/>
+<InlineMessage label='Label' caption='caption' variant='info-grey' />
 ```
 
 ## Success
 
 ```tsx
-<InlineMessage
-  label='Label'
-  caption='caption'
-  variant='success'
-  actionLabel='Label'
-/>
+<InlineMessage label='Label' caption='caption' variant='success' />
 ```
 
 ## Warning
 
 ```tsx
-<InlineMessage
-  label='Label'
-  caption='caption'
-  variant='warning'
-  actionLabel='Label'
-/>
+<InlineMessage label='Label' caption='caption' variant='warning' />
 ```
 
 ## Error
 
 ```tsx
-<InlineMessage
-  label='Label'
-  caption='caption'
-  variant='error'
-  actionLabel='Label'
-/>
+<InlineMessage label='Label' caption='caption' variant='error' />
 ```
 
-## Button Right
+## With Children
+
+Any content can be rendered inside the message — compose a `Button` for actions:
+
+```tsx
+import { Button, InlineMessage } from '@worldresources/wri-design-systems'
+;<InlineMessage label='Label' caption='caption' variant='info-white'>
+  <Button label='Label' onClick={() => {}} />
+</InlineMessage>
+```
+
+## Content Right
 
 ```tsx
 <InlineMessage
   label='Label'
   caption='caption'
   variant='info-white'
-  actionLabel='Label'
-  isButtonRight
-/>
+  isContentRight
+>
+  <Button label='Label' onClick={() => {}} />
+</InlineMessage>
 ```
 
 ## Small
@@ -123,7 +109,6 @@ type InlineMessageSize = 'small' | 'large' | 'full-width' | 'small-full-width'
   label='Label'
   caption='caption'
   variant='info-white'
-  actionLabel='Label'
   size='small'
 />
 ```
@@ -135,20 +120,20 @@ type InlineMessageSize = 'small' | 'large' | 'full-width' | 'small-full-width'
   label='Label'
   caption='caption'
   variant='info-white'
-  actionLabel='Label'
   size='small-full-width'
 />
 ```
 
-## Small Button Right
+## Small Content Right
 
 ```tsx
 <InlineMessage
   label='Label'
   caption='caption'
   variant='info-white'
-  actionLabel='Label'
-  isButtonRight
   size='small'
-/>
+  isContentRight
+>
+  <Button label='Label' size='small' onClick={() => {}} />
+</InlineMessage>
 ```

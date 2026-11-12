@@ -3,6 +3,7 @@ import React from 'react'
 
 /* eslint-disable no-console */
 import {
+  Button,
   InlineMessage,
   LayerParameters,
   LegendItem,
@@ -52,9 +53,10 @@ export const LegendItemDemo = ({
         label='Label'
         caption='caption'
         variant='info-grey'
-        actionLabel='Label'
         size='small'
-      />
+      >
+        <Button label='Label' size='small' />
+      </InlineMessage>
       <LayerParameters label='Adjust layer parameters'>
         <div>Component Placeholder</div>
         <div>Component Placeholder</div>
@@ -106,9 +108,10 @@ export const LegendItemDemo2 = ({
         label='Label'
         caption='caption'
         variant='info-grey'
-        actionLabel='Label'
         size='small'
-      />
+      >
+        <Button label='Label' size='small' />
+      </InlineMessage>
       <LayerParameters label='Adjust layer parameters'>
         <div>Component Placeholder</div>
         <div>Component Placeholder</div>
@@ -159,9 +162,10 @@ export const LegendItemDemo3 = ({
         label='Label'
         caption='caption'
         variant='info-grey'
-        actionLabel='Label'
         size='small'
-      />
+      >
+        <Button label='Label' size='small' />
+      </InlineMessage>
       <LayerParameters label='Adjust layer parameters'>
         <div>Component Placeholder</div>
         <div>Component Placeholder</div>

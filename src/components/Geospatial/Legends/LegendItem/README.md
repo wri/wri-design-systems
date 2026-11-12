@@ -8,6 +8,7 @@
 
 ```tsx
 import {
+  Button,
   LegendItem,
   InlineMessage,
   LayerParameters,
@@ -52,9 +53,10 @@ import {
     label='Label'
     caption='caption'
     variant='info-grey'
-    actionLabel='Label'
     size='small'
-  />
+  >
+    <Button label='Label' size='small' />
+  </InlineMessage>
   <LayerParameters label='Adjust layer parameters'>
     <div>Component Placeholder</div>
     <div>Component Placeholder</div>

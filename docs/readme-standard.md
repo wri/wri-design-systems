@@ -62,6 +62,7 @@ Rules:
 - Escape pipes inside table cells with `\|`, even inside backticks: `` `'start' \| 'center'` ``.
 - Simplify inherited types to their **effective public shape** (e.g. write `string`, not `Omit<ChakraXProps, …>['size']`).
 - Descriptions: sentence-case, no trailing period, **verbatim match to the JSDoc comment in `types.ts`**.
+- Deprecated props go **after** the active props (each group alphabetical by prop name), and their Description starts with the literal `@deprecated` tag from the JSDoc, e.g. `@deprecated Use `children` instead`.
 
 ### Multi-type components
 
