@@ -88,7 +88,7 @@ describe('InlineMessage', () => {
         <Button label='Retry' />
       </InlineMessage>,
     )
-    expect(getByRole('button', { name: 'Retry' })).toHaveStyle({
+    expect(getByRole('button', { name: 'Retry' }).parentElement).toHaveStyle({
       marginLeft: '0px',
     })
   })
@@ -99,7 +99,7 @@ describe('InlineMessage', () => {
         <Button label='Retry' />
       </InlineMessage>,
     )
-    expect(getByRole('button', { name: 'Retry' })).toHaveStyle({
+    expect(getByRole('button', { name: 'Retry' }).parentElement).toHaveStyle({
       marginLeft: '1.5rem',
     })
   })
