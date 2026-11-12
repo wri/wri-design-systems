@@ -4,6 +4,7 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import LegendItemStory from '.'
+import Button from '../../../Forms/Actions/Button'
 import ScaleBar from '../ScaleBar'
 import QualitativeAttribute from '../QualitativeAttribute'
 import InlineMessage from '../../../Status/InlineMessage'
@@ -86,9 +87,10 @@ export const LegendItem: Story = {
           label='Label'
           caption='caption'
           variant='info-grey'
-          actionLabel='Label'
           size='small'
-        />
+        >
+          <Button label='Label' size='small' />
+        </InlineMessage>
         <LayerParameters label='Adjust layer parameters'>
           <div>Component Placeholder</div>
           <div>Component Placeholder</div>

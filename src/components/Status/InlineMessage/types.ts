@@ -19,23 +19,33 @@ export type InlineMessageProps = {
   size?: InlineMessageSize
   /** Icon rendered before the label. Defaults to `<InfoIcon height='1rem' width='1rem' />` */
   icon?: React.ReactNode
-  /** Called when the action button is clicked */
+  /**
+   * Arbitrary content rendered inside the message (e.g. actions, links, custom markup).
+   * Takes precedence over the deprecated action button props
+   */
+  children?: React.ReactNode
+  /**
+   * Whether the message content is aligned to the right of the message.
+   * Defaults to `false`.
+   */
+  isContentRight?: boolean
+  /** Override internal UI labels for internationalization support. */
+  labels?: Partial<InlineMessageLabels>
+  /** @deprecated Use `children` with a `<Button />` instead. Ignored when `children` is set */
   onActionClick?: VoidFunction
-  /** Text of the optional action button; renders the button when set */
+  /** @deprecated Use `children` with a `<Button />` instead. Ignored when `children` is set */
   actionLabel?: string
-  /** Variant of the action button. Defaults to `'secondary'` */
+  /** @deprecated Use `children` with a `<Button />` instead. Ignored when `children` is set */
   actionButtonVariant?:
     | 'primary'
     | 'secondary'
     | 'borderless'
     | 'outline'
     | 'negative'
-  /** Whether the action button sits to the right of the message */
+  /** @deprecated Use `isContentRight` instead. Ignored when `isContentRight` is set */
   isButtonRight?: boolean
-  /** Icon rendered before the action button label */
+  /** @deprecated Use `children` with a `<Button leftIcon={…} />` instead. Ignored when `children` is set */
   buttonLeftIcon?: React.ReactNode
-  /** Icon rendered after the action button label */
+  /** @deprecated Use `children` with a `<Button rightIcon={…} />` instead. Ignored when `children` is set */
   buttonRightIcon?: React.ReactNode
-  /** Override internal UI labels for internationalization support. */
-  labels?: Partial<InlineMessageLabels>
 }

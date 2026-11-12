@@ -7,6 +7,7 @@ import { fn } from '@storybook/test'
 import type { Meta, StoryObj } from '@storybook/react'
 import Panel from '..'
 import AnalysisWidget from '../../../DataDisplay/AnalysisWidget'
+import Button from '../../../Forms/Actions/Button'
 import { legendPanelContainerStyles } from '../../../Geospatial/Legends/LegendPanel/styled'
 import TabBar from '../../../Navigation/TabBar'
 import {
@@ -177,9 +178,10 @@ export const Floating: Story = {
                       label='Label'
                       caption='caption'
                       variant='info-grey'
-                      actionLabel='Label'
                       size='small'
-                    />
+                    >
+                      <Button label='Label' size='small' />
+                    </InlineMessage>
                   </div>
                 </AnalysisWidget>
               </div>

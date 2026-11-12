@@ -17,7 +17,8 @@ const isFullWidthSize = (size: InlineMessageSize) =>
 
 export const defaultInlineMessageStyles = (
   size: InlineMessageSize,
-  isButtonRight?: boolean,
+  isContentRight?: boolean,
+  hasIcon?: boolean,
 ) => {
   let maxWidth = '14.875rem'
   if (isFullWidthSize(size)) {
@@ -34,16 +35,23 @@ export const defaultInlineMessageStyles = (
       ? `${getThemedSpacing(200)} ${getThemedSpacing(200)} ${getThemedSpacing(300)} ${getThemedSpacing(200)}`
       : `${getThemedSpacing(200)} ${getThemedSpacing(300)} ${getThemedSpacing(300)} ${getThemedSpacing(300)}`};
     display: flex;
-    align-items: ${isButtonRight ? 'center' : 'flex-start'};
-    justify-content: ${isButtonRight ? 'space-between' : 'flex-start'};
-    flex-direction: ${isButtonRight ? 'row' : 'column'};
+    align-items: ${isContentRight ? 'center' : 'flex-start'};
+    justify-content: ${isContentRight ? 'space-between' : 'flex-start'};
+    flex-direction: ${isContentRight ? 'row' : 'column'};
     gap: ${getThemedSpacing(200)};
 
     button {
-      margin-left: ${isButtonRight ? 0 : getThemedSpacing(600)};
+      margin-left: ${isContentRight || !hasIcon ? 0 : getThemedSpacing(600)};
     }
   `
 }
+
+export const inlineMessageChildrenStyles = (isContentRight?: boolean) => css`
+  display: flex;
+  align-items: center;
+  justify-content: ${isContentRight ? 'flex-end' : 'flex-start'};
+  gap: ${getThemedSpacing(200)};
+`
 
 export const inlineMessageHeaderStyles = css`
   display: flex;

@@ -3,6 +3,7 @@ import React from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
+import Button from '../../Forms/Actions/Button'
 import InlineMessage from '.'
 import { CheckIcon } from '../../icons'
 
@@ -15,12 +16,11 @@ const meta = {
     docs: {
       description: {
         component:
-          'Inline feedback message for form fields or section-level feedback. Use `type` to set severity.',
+          'Inline feedback message for form fields or section-level feedback. Use `variant` to set severity.',
       },
     },
   },
   tags: ['autodocs'],
-  args: { onActionClick: fn() },
   decorators: [
     (Story: any) => (
       <div style={{ width: '31.25rem' }}>
@@ -42,13 +42,10 @@ const meta = {
       options: ['small', 'large', 'full-width', 'small-full-width'],
     },
     icon: { description: '`icon` content', control: false },
-    onActionClick: { description: '`onActionClick` handler', control: false },
-    actionLabel: { description: '`actionLabel` text', control: 'text' },
-    isButtonRight: { description: '`isButtonRight` flag', control: 'boolean' },
-    buttonLeftIcon: { description: '`buttonLeftIcon` content', control: false },
-    buttonRightIcon: {
-      description: '`buttonRightIcon` content',
-      control: false,
+    children: { description: '`children` content', control: false },
+    isContentRight: {
+      description: '`isContentRight` flag',
+      control: 'boolean',
     },
     labels: { description: '`labels` value', control: false },
   },
@@ -62,7 +59,6 @@ export const InfoWhite: Story = {
     label: 'Info White',
     caption: 'caption',
     variant: 'info-white',
-    actionLabel: 'Label',
   },
 }
 
@@ -71,7 +67,6 @@ export const InfoGrey: Story = {
     label: 'Info Grey',
     caption: 'caption',
     variant: 'info-grey',
-    actionLabel: 'Label',
   },
 }
 
@@ -81,7 +76,6 @@ export const FullWidth: Story = {
     caption:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices, nisi vel congue imperdiet, risus felis iaculis metus, sit amet accumsan justo nibh eu odio. Fusce velit augue, bibendum vestibulum elit vel, placerat iaculis dolor. Aliquam tincidunt nunc blandit, consequat magna ut, mollis mi. Morbi ac dictum nisi. Quisque leo neque, vehicula eu lorem ac, convallis pellentesque sem. Proin commodo libero quis nulla tristique, a vehicula sem consectetur. Donec id luctus orci.',
     variant: 'info-grey',
-    actionLabel: 'Label',
     size: 'full-width',
   },
 }
@@ -91,7 +85,6 @@ export const Success: Story = {
     label: 'Success',
     caption: 'caption',
     variant: 'success',
-    actionLabel: 'Label',
   },
 }
 
@@ -100,7 +93,6 @@ export const Warning: Story = {
     label: 'Warning',
     caption: 'caption',
     variant: 'warning',
-    actionLabel: 'Label',
   },
 }
 
@@ -109,17 +101,25 @@ export const Error: Story = {
     label: 'Error',
     caption: 'caption',
     variant: 'error',
-    actionLabel: 'Label',
   },
 }
 
-export const ButtonRight: Story = {
+export const WithChildrenAction: Story = {
   args: {
     label: 'Info White',
     caption: 'caption',
     variant: 'info-white',
-    actionLabel: 'Label',
-    isButtonRight: true,
+    children: <Button label='Label' onClick={fn()} />,
+  },
+}
+
+export const ContentRight: Story = {
+  args: {
+    label: 'Info White',
+    caption: 'caption',
+    variant: 'info-white',
+    isContentRight: true,
+    children: <Button label='Label' onClick={fn()} />,
   },
 }
 
@@ -128,9 +128,7 @@ export const Small: Story = {
     label: 'Info White',
     caption: 'caption',
     variant: 'info-white',
-    actionLabel: 'Label',
     size: 'small',
-    isButtonRight: true,
   },
 }
 
@@ -140,23 +138,22 @@ export const SmallFullWidth: Story = {
     caption:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices, nisi vel congue imperdiet, risus felis iaculis metus, sit amet accumsan justo nibh eu odio.',
     variant: 'info-white',
-    actionLabel: 'Label',
     size: 'small-full-width',
   },
 }
 
-export const SmallButtonRight: Story = {
+export const SmallContentRight: Story = {
   args: {
     label: 'Info White',
     caption: 'caption',
     variant: 'info-white',
-    actionLabel: 'Label',
     size: 'small',
-    isButtonRight: true,
+    isContentRight: true,
+    children: <Button label='Label' size='small' onClick={fn()} />,
   },
 }
 
-export const NoIconWithButtonIcon: Story = {
+export const NoIconWithChildrenAction: Story = {
   args: {
     label: 'Ready to finish this factor?',
     caption:
@@ -164,8 +161,12 @@ export const NoIconWithButtonIcon: Story = {
     variant: 'info-grey',
     size: 'full-width',
     icon: null,
-    actionLabel: 'Mark complete',
-    isButtonRight: true,
-    buttonLeftIcon: <CheckIcon height='1rem' width='1rem' />,
+    children: (
+      <Button
+        label='Mark complete'
+        leftIcon={<CheckIcon height='1rem' width='1rem' />}
+        onClick={fn()}
+      />
+    ),
   },
 }
