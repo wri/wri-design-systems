@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import { axe } from 'jest-axe'
+import React from 'react'
 
 import Toast from '.'
-import { showToast } from './utils'
+import { closeToast, showToast, toasters } from './utils'
+import { CheckCircleIcon } from '../../icons'
 
 jest.mock('@chakra-ui/react', () =>
   jest.requireActual('../../testUtils').createChakraMock(),
@@ -10,7 +12,13 @@ jest.mock('@chakra-ui/react', () =>
 
 const getToasterCount = () => screen.queryAllByTestId('chakra-toaster').length
 
+const containerQuery = (selector: string) => document.querySelector(selector)
+
 describe('Toast', () => {
+  afterEach(() => {
+    act(() => closeToast())
+  })
+
   it('renders without crashing', () => {
     expect(() => render(<Toast />)).not.toThrow()
   })
@@ -47,12 +55,315 @@ describe('Toast', () => {
   it('showToast creates a single toast per call', () => {
     render(<Toast />)
     expect(() =>
+      act(() => {
+        showToast({
+          label: 'Label',
+          caption: 'Caption',
+          type: 'general',
+          placement: 'bottom-end',
+        })
+      }),
+    ).not.toThrow()
+    expect(screen.getByText('Label')).toBeInTheDocument()
+  })
+
+  it('maps the deprecated info type to general', () => {
+    render(<Toast />)
+    const createSpy = jest.spyOn(toasters['bottom-end'], 'create')
+
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'info',
+        placement: 'bottom-end',
+      })
+    })
+
+    expect(createSpy).toHaveBeenCalledWith(
+      expect.objectContaining({ type: 'general' }),
+    )
+    expect(screen.getByText('Label')).toBeInTheDocument()
+
+    // The global Jest config uses `resetMocks: true`, which does not restore
+    // spied methods between tests — restore explicitly so later tests keep
+    // the real store behaviour.
+    createSpy.mockRestore()
+  })
+
+  it('renders an information toast', () => {
+    render(<Toast />)
+    act(() => {
       showToast({
         label: 'Label',
         caption: 'Caption',
-        type: 'info',
+        type: 'information',
         placement: 'bottom-end',
+      })
+    })
+
+    expect(screen.getByText('Label')).toBeInTheDocument()
+    expect(screen.getByText('Caption')).toBeInTheDocument()
+  })
+
+  it('renders the default type icon by default', () => {
+    render(<Toast />)
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'general',
+        placement: 'bottom-end',
+      })
+    })
+
+    expect(containerQuery('.ds-toast-icon-container svg')).toBeInTheDocument()
+  })
+
+  it('hideIcon hides the default type icon', () => {
+    render(<Toast />)
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'success',
+        placement: 'bottom-end',
+        hideIcon: true,
+      })
+    })
+
+    expect(containerQuery('.ds-toast-icon-container svg')).toBeNull()
+    expect(screen.getByText('Label')).toBeInTheDocument()
+  })
+
+  it('hideIcon also hides a custom icon', () => {
+    render(<Toast />)
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'success',
+        placement: 'bottom-end',
+        icon: <CheckCircleIcon />,
+        hideIcon: true,
+      })
+    })
+
+    expect(containerQuery('.ds-toast-icon-container svg')).toBeNull()
+  })
+
+  it('hideIcon hides the loading spinner', () => {
+    render(<Toast />)
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'loading',
+        placement: 'bottom-end',
+        hideIcon: true,
+      })
+    })
+
+    expect(
+      containerQuery('.ds-toast-icon-container [role="status"]'),
+    ).toBeNull()
+    expect(screen.getByText('Label')).toBeInTheDocument()
+  })
+
+  it('passes width through to the toast meta', () => {
+    render(<Toast />)
+    const createSpy = jest.spyOn(toasters['bottom-end'], 'create')
+
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'general',
+        placement: 'bottom-end',
+        width: '15.625rem',
+      })
+    })
+
+    expect(createSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        meta: expect.objectContaining({ width: '15.625rem' }),
       }),
-    ).not.toThrow()
+    )
+
+    // The global Jest config uses `resetMocks: true`, which does not restore
+    // spied methods between tests — restore explicitly so later tests keep
+    // the real store behaviour.
+    createSpy.mockRestore()
+  })
+
+  it('still honours the deprecated maxWidth as width', () => {
+    render(<Toast />)
+    const createSpy = jest.spyOn(toasters['bottom-end'], 'create')
+
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'general',
+        placement: 'bottom-end',
+        maxWidth: '15.625rem',
+      })
+    })
+
+    expect(createSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        meta: expect.objectContaining({ width: '15.625rem' }),
+      }),
+    )
+
+    createSpy.mockRestore()
+  })
+
+  it('prefers width over the deprecated maxWidth when both are given', () => {
+    render(<Toast />)
+    const createSpy = jest.spyOn(toasters['bottom-end'], 'create')
+
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'general',
+        placement: 'bottom-end',
+        width: '20rem',
+        maxWidth: '15.625rem',
+      })
+    })
+
+    expect(createSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        meta: expect.objectContaining({ width: '20rem' }),
+      }),
+    )
+
+    createSpy.mockRestore()
+  })
+
+  it('renders the icon-only close button when closable without an action', () => {
+    render(<Toast />)
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'general',
+        placement: 'bottom-end',
+        closable: true,
+      })
+    })
+
+    const closeButton = screen.getByRole('button', { name: 'Dismiss' })
+    expect(closeButton).toBeInTheDocument()
+    // Icon-only: no visible text content.
+    expect(closeButton.textContent).toBe('')
+  })
+
+  it('renders the borderless dismiss button instead of the close button when closable with an action', () => {
+    render(<Toast />)
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'general',
+        placement: 'bottom-end',
+        closable: true,
+        action: {
+          label: 'Action',
+          onClick: jest.fn(),
+        },
+      })
+    })
+
+    expect(screen.getByRole('button', { name: 'Action' })).toBeInTheDocument()
+
+    const dismissButton = screen.getByRole('button', { name: 'Dismiss' })
+    expect(dismissButton.textContent).toBe('Dismiss')
+  })
+
+  it('calls onClose and dismisses the toast when the close button is clicked', () => {
+    render(<Toast />)
+    const onClose = jest.fn()
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'general',
+        placement: 'bottom-end',
+        closable: true,
+        onClose,
+      })
+    })
+
+    fireEvent.click(screen.getByRole('button', { name: 'Dismiss' }))
+
+    expect(onClose).toHaveBeenCalledTimes(1)
+    expect(screen.queryByText('Label')).not.toBeInTheDocument()
+  })
+
+  it('calls onClose when the dismiss button next to an action is clicked', () => {
+    render(<Toast />)
+    const onClose = jest.fn()
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'success',
+        placement: 'bottom-end',
+        closable: true,
+        onClose,
+        action: {
+          label: 'Action',
+          onClick: jest.fn(),
+        },
+      })
+    })
+
+    fireEvent.click(screen.getByRole('button', { name: 'Dismiss' }))
+
+    expect(onClose).toHaveBeenCalledTimes(1)
+    expect(screen.queryByText('Label')).not.toBeInTheDocument()
+  })
+
+  it('supports an ariaLabel for non-text labels', () => {
+    render(<Toast />)
+    act(() => {
+      showToast({
+        label: <strong>Label</strong>,
+        ariaLabel: 'Accessible name',
+        type: 'general',
+        placement: 'bottom-end',
+      })
+    })
+
+    // The accessible name belongs on the live region (`role='status'`), which
+    // supports naming from author — not on the generic title element.
+    const region = screen.getByRole('status', { name: 'Accessible name' })
+    expect(region).toHaveAttribute('aria-label', 'Accessible name')
+  })
+
+  it('does not name the live region when the label is plain text without ariaLabel', () => {
+    render(<Toast />)
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'general',
+        placement: 'bottom-end',
+      })
+    })
+
+    // The title content is announced by the live region itself; naming it
+    // would only duplicate the announcement.
+    const region = screen.getByRole('status')
+    expect(region).not.toHaveAttribute('aria-label')
+  })
+
+  it('allows action, dismiss and close on a loading toast', () => {
+    render(<Toast />)
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'loading',
+        placement: 'bottom-end',
+        closable: true,
+        action: {
+          label: 'Action',
+          onClick: jest.fn(),
+        },
+      })
+    })
+
+    expect(screen.getByRole('button', { name: 'Action' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Dismiss' })).toBeInTheDocument()
   })
 })

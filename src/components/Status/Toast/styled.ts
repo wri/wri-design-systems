@@ -8,29 +8,33 @@ import {
   getThemedSpacing,
 } from '../../../lib/theme'
 
-export const toastContainerStyles = (maxWidth?: string) => css`
+export const toastContainerStyles = (
+  width?: string,
+  hasAction?: boolean,
+) => css`
   justify-content: space-between;
-  align-items: center;
+  align-items: ${hasAction ? 'center' : 'flex-start'};
   gap: ${getThemedSpacing(200)};
   border-radius: ${getThemedRadius(500)};
-  padding: ${getThemedSpacing(200)} ${getThemedSpacing(300)};
+  padding: ${getThemedSpacing(300)};
   background-color: ${getThemedColor('neutral', 100)};
-  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+  border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
   box-shadow: 0rem 0.25rem 0.375rem -0.25rem #0000001a;
   box-shadow: 0rem 0.625rem 0.9375rem -0.1875rem #0000001a;
-  width: ${maxWidth ? `${maxWidth} !important` : '100%'};
+  width: ${width ? `${width} !important` : '100%'};
 
   .ds-toast-icon-container svg {
     width: ${getThemedSpacing(500)};
     height: ${getThemedSpacing(500)};
-    margin-top: 0.1875rem;
+    margin-top: ${getThemedSpacing(50)};
   }
 
   &[data-type='success'] {
     background-color: ${getThemedColor('success', 100)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('success', 500)};
 
-    .chakra-toast__title {
+    .chakra-toast__title,
+    .chakra-toast__description {
       color: ${getThemedColor('success', 900)};
     }
   }
@@ -39,7 +43,8 @@ export const toastContainerStyles = (maxWidth?: string) => css`
     background-color: ${getThemedColor('warning', 100)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('warning', 500)};
 
-    .chakra-toast__title {
+    .chakra-toast__title,
+    .chakra-toast__description {
       color: ${getThemedColor('warning', 900)};
     }
   }
@@ -48,8 +53,20 @@ export const toastContainerStyles = (maxWidth?: string) => css`
     background-color: ${getThemedColor('error', 100)};
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('error', 500)};
 
-    .chakra-toast__title {
+    .chakra-toast__title,
+    .chakra-toast__description {
       color: ${getThemedColor('error', 900)};
+    }
+  }
+
+  &[data-type='information'] {
+    background-color: ${getThemedColor('information', 100)};
+    border: ${getThemedBorderWidth(100)} solid
+      ${getThemedColor('information', 500)};
+
+    .chakra-toast__title,
+    .chakra-toast__description {
+      color: ${getThemedColor('information', 900)};
     }
   }
 `
@@ -66,12 +83,4 @@ export const toastCaptionStyles = css`
   line-height: ${getThemedLineHeight(600)};
   font-weight: 400;
   color: ${getThemedColor('neutral', 700)};
-`
-
-export const toastActionTriggerStyles = css`
-  padding: 0.375rem;
-`
-
-export const toastCloseTriggerStyles = css`
-  padding: 0.375rem;
 `

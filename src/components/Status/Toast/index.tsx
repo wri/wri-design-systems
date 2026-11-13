@@ -10,9 +10,7 @@ import {
   Spinner,
 } from '@chakra-ui/react'
 import {
-  toastActionTriggerStyles,
   toastCaptionStyles,
-  toastCloseTriggerStyles,
   toastContainerStyles,
   toastTitleStyles,
 } from './styled'
@@ -27,6 +25,61 @@ import { claimToastRenderer, toasters } from './utils'
 import Button from '../../Forms/Actions/Button'
 import { useLabels } from '../../../lib/i18n/useLabels'
 import type { ToastComponentProps } from './types'
+import CloseButton from '../../Forms/Actions/CloseButton'
+import { getThemedSpacing } from '../../../lib/theme'
+
+type ToastIconProps = {
+  type?: string
+  meta?: {
+    icon?: React.ReactNode
+    hideIcon?: boolean
+  }
+}
+
+const getToastIcon = (toast: ToastIconProps) => {
+  if (toast.meta?.hideIcon) return null
+
+  switch (toast.type) {
+    case 'general':
+      return (
+        toast.meta?.icon ?? (
+          <InfoIcon color='var(--chakra-colors-neutral-700)' />
+        )
+      )
+    case 'information':
+      return (
+        toast.meta?.icon ?? (
+          <InfoIcon color='var(--chakra-colors-information-500)' />
+        )
+      )
+    case 'loading':
+      return (
+        <Spinner
+          size='lg'
+          borderWidth='0.1875rem'
+          color='var(--chakra-colors-primary-700)'
+        />
+      )
+    case 'success':
+      return (
+        toast.meta?.icon ?? (
+          <CheckCircleIcon color='var(--chakra-colors-success-500)' />
+        )
+      )
+    case 'warning':
+      return (
+        toast.meta?.icon ?? (
+          <WarningIcon color='var(--chakra-colors-warning-500)' />
+        )
+      )
+    case 'error':
+      return (
+        toast.meta?.icon ?? <ErrorIcon color='var(--chakra-colors-error-500)' />
+      )
+    default:
+      return null
+  }
+}
 
 const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
   const l = useLabels('Toast', labels)
@@ -55,74 +108,48 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
       <ChakraToaster toaster={toasters[toaster]} insetInline={{ mdDown: '4' }}>
         {(toast) => (
           <ChakraToast.Root
-            css={toastContainerStyles(toast.meta?.maxWidth)}
-            width={{ md: 'sm' }}
+            css={toastContainerStyles(toast.meta?.width, !!toast.action)}
+            width={{ md: 'xs' }}
+            /**
+             * `role='status'` supports naming from author, so the accessible
+             * name belongs here — not on the generic title element. Only the
+             * explicit `ariaLabel` is used: when the title is plain text the
+             * live region already announces its content, and a name would
+             * only duplicate it.
+             */
+            aria-label={toast.meta?.ariaLabel}
           >
             <Stack
               flexDirection='row'
               className='ds-toast-icon-container'
-              alignItems={toast.description ? 'flex-start' : 'center'}
+              alignItems='flex-start'
             >
-              {toast.type === 'info' ? (
-                toast.meta?.icon ? (
-                  toast.meta.icon
-                ) : (
-                  <InfoIcon color='var(--chakra-colors-neutral-700)' />
-                )
-              ) : null}
-              {toast.type === 'loading' ? (
-                <Spinner
-                  size='lg'
-                  borderWidth='0.1875rem'
-                  color='var(--chakra-colors-primary-700)'
-                />
-              ) : null}
-              {toast.type === 'success' ? (
-                toast.meta?.icon ? (
-                  toast.meta.icon
-                ) : (
-                  <CheckCircleIcon color='var(--chakra-colors-success-500)' />
-                )
-              ) : null}
-              {toast.type === 'warning' ? (
-                toast.meta?.icon ? (
-                  toast.meta.icon
-                ) : (
-                  <WarningIcon color='var(--chakra-colors-warning-500)' />
-                )
-              ) : null}
-              {toast.type === 'error' ? (
-                toast.meta?.icon ? (
-                  toast.meta.icon
-                ) : (
-                  <ErrorIcon color='var(--chakra-colors-error-500)' />
-                )
-              ) : null}
+              {getToastIcon(toast)}
               <Stack gap='1' flex='1' maxWidth='100%'>
-                <ChakraToast.Title
-                  css={toastTitleStyles}
-                  aria-label={`${toast.title}`}
-                >
+                <ChakraToast.Title css={toastTitleStyles}>
                   {toast.title}
                 </ChakraToast.Title>
                 {toast.description ? (
-                  <ChakraToast.Title
+                  <ChakraToast.Description
                     css={toastCaptionStyles}
                     aria-label={`${toast.description}`}
                   >
                     {toast.description}
-                  </ChakraToast.Title>
+                  </ChakraToast.Description>
                 ) : null}
               </Stack>
             </Stack>
             {toast.action || toast.meta?.closable ? (
-              <Stack flexDirection='row'>
+              <Stack
+                flexDirection='row'
+                gap={getThemedSpacing(200)}
+                alignItems='center'
+              >
                 {toast.action ? (
                   <Button
-                    css={toastActionTriggerStyles}
                     label={toast.action.label}
                     size='small'
-                    variant={toast.type === 'info' ? 'primary' : 'secondary'}
+                    variant={toast.type === 'general' ? 'primary' : 'secondary'}
                     onClick={() => {
                       if (toast?.action?.onClick) {
                         toast.action.onClick()
@@ -133,23 +160,36 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
                   />
                 ) : null}
                 {toast.meta?.closable ? (
-                  <Button
-                    css={toastCloseTriggerStyles}
-                    label={toast.meta.closableLabel}
-                    aria-label={toast.meta?.closableLabel || l.dismissLabel}
-                    leftIcon={
-                      <CloseIcon height='0.625rem!' width='0.625rem!' />
-                    }
-                    size='small'
-                    variant='secondary'
-                    onClick={() => {
-                      if (toast.meta?.onClose) {
-                        toast.meta.onClose()
-                      }
+                  toast.action ? (
+                    /**
+                     * The action button and the close (X) button must not be
+                     * used together: when an action is present, the dismiss
+                     * affordance is this labelled borderless button instead.
+                     */
+                    <Button
+                      label={l.dismissLabel}
+                      size='small'
+                      variant='borderless'
+                      onClick={() => {
+                        if (toast.meta?.onClose) {
+                          toast.meta.onClose()
+                        }
 
-                      toasters[toaster].dismiss(toast.id)
-                    }}
-                  />
+                        toasters[toaster].dismiss(toast.id)
+                      }}
+                    />
+                  ) : (
+                    <CloseButton
+                      aria-label={l.dismissLabel}
+                      onClick={() => {
+                        if (toast.meta?.onClose) {
+                          toast.meta.onClose()
+                        }
+
+                        toasters[toaster].dismiss(toast.id)
+                      }}
+                    />
+                  )
                 ) : null}
               </Stack>
             ) : null}

@@ -24,7 +24,7 @@ Then, create a toast by calling the showToast function.
 showToast({
   label: 'Label',
   caption: 'Caption',
-  type: 'info',
+  type: 'general',
   placement: 'bottom-end',
   duration: 10000,
   icon: <CheckIcon />,
@@ -33,7 +33,6 @@ showToast({
     onClick: () => console.log('Action'),
   },
   closable: true,
-  closableLabel: 'Dismiss',
   onClose: () => console.log('Closed'),
 })
 ```
@@ -48,37 +47,52 @@ showToast({
 
 ### showToast
 
-| Prop            | Type                                                                              | Default | Description                                                       |
-| --------------- | --------------------------------------------------------------------------------- | ------- | ----------------------------------------------------------------- |
-| `action`        | `{ label: string; onClick: () => void }`                                          | —       | Optional action button shown in the toast                         |
-| `caption`       | `React.ReactNode`                                                                 | —       | Secondary toast text rendered under the label                     |
-| `closable`      | `boolean`                                                                         | —       | Whether to show the dismiss button                                |
-| `closableLabel` | `string`                                                                          | —       | Label on the dismiss button                                       |
-| `duration`      | `number`                                                                          | `5000`  | How long the toast stays visible in milliseconds                  |
-| `icon`          | `React.ReactNode`                                                                 | —       | Custom icon replacing the default type icon                       |
-| `id`            | `string`                                                                          | —       | Optional ID for the toast, useful for programmatically closing it |
-| `label`         | `string`                                                                          | —       | Primary toast text                                                |
-| `maxWidth`      | `string`                                                                          | —       | Custom max width of the toast                                     |
-| `onClose`       | `() => void`                                                                      | —       | Called when the dismiss button is clicked                         |
-| `placement`     | `'top-start' \| 'top' \| 'top-end' \| 'bottom-start' \| 'bottom' \| 'bottom-end'` | —       | Screen position where the toast appears                           |
-| `type`          | `'success' \| 'warning' \| 'error' \| 'info' \| 'loading'`                        | —       | Toast type controlling the icon and color scheme                  |
+| Prop            | Type                                                                              | Default | Description                                                                                                                                  |
+| --------------- | --------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`        | `{ label: string; onClick: () => void }`                                          | —       | Optional action button shown in the toast. When combined with `closable`, the dismiss button is rendered instead of the close button         |
+| `ariaLabel`     | `string`                                                                          | —       | Accessible name of the toast. Provide it when `label` is not plain text                                                                      |
+| `caption`       | `React.ReactNode`                                                                 | —       | Secondary toast text rendered under the label                                                                                                |
+| `closable`      | `boolean`                                                                         | —       | Whether the toast can be dismissed. Renders the close (X) button, or the labelled borderless dismiss button when an `action` is also present |
+| `closableLabel` | `string`                                                                          | —       | **Deprecated.** Overrides the dismiss button label and the close button accessible name                                                      |
+| `duration`      | `number`                                                                          | `5000`  | How long the toast stays visible in milliseconds                                                                                             |
+| `hideIcon`      | `boolean`                                                                         | `false` | Hides the icon entirely, including the default type icon                                                                                     |
+| `icon`          | `React.ReactNode`                                                                 | —       | Custom icon replacing the default type icon                                                                                                  |
+| `id`            | `string`                                                                          | —       | Optional ID for the toast, useful for programmatically closing it                                                                            |
+| `label`         | `React.ReactNode`                                                                 | —       | Primary toast content. Set `ariaLabel` when it is not plain text                                                                             |
+| `onClose`       | `() => void`                                                                      | —       | Called when the close or dismiss button is clicked                                                                                           |
+| `placement`     | `'top-start' \| 'top' \| 'top-end' \| 'bottom-start' \| 'bottom' \| 'bottom-end'` | —       | Screen position where the toast appears                                                                                                      |
+| `type`          | `'success' \| 'warning' \| 'error' \| 'general' \| 'information' \| 'loading'`    | —       | Toast type controlling the icon and color scheme. The legacy `info` type is deprecated and maps to `general`                                 |
+| `width`         | `string`                                                                          | —       | Custom width of the toast                                                                                                                    |
+
+**Deprecated:** `maxWidth` — use `width` instead. `maxWidth` is still honoured for backwards compatibility.
 
 ### Supporting types
 
 ```ts
 type ToastLabels = {
-  /** aria-label on the dismiss button. Default: "Dismiss" */
+  /** aria-label on the close button and label of the dismiss button. Default: "Dismiss" */
   dismissLabel: string
 }
 ```
 
-## Info
+## General
 
 ```tsx
 showToast({
   label: 'Label',
   caption: 'Caption',
-  type: 'info',
+  type: 'general',
+  placement: 'bottom-end',
+})
+```
+
+## Information
+
+```tsx
+showToast({
+  label: 'Label',
+  caption: 'Caption',
+  type: 'information',
   placement: 'bottom-end',
 })
 ```
@@ -151,7 +165,9 @@ showToast({
 })
 ```
 
-## Closable
+## Hidden Icon
+
+Hides the icon entirely, including the default type icon and any custom icon.
 
 ```tsx
 showToast({
@@ -159,11 +175,13 @@ showToast({
   caption: 'Caption',
   type: 'success',
   placement: 'bottom-end',
-  closable: true,
+  hideIcon: true,
 })
 ```
 
-## Closable Label
+## Closable
+
+Shows the close (X) button.
 
 ```tsx
 showToast({
@@ -172,11 +190,13 @@ showToast({
   type: 'success',
   placement: 'bottom-end',
   closable: true,
-  closableLabel: 'Dismiss',
 })
 ```
 
 ## With Action
+
+When an action and `closable` are combined, the action button is rendered
+together with the borderless dismiss button instead of the close (X) button.
 
 ```tsx
 showToast({
@@ -188,6 +208,20 @@ showToast({
     label: 'Action',
     onClick: () => console.log('Action'),
   },
+  closable: true,
+})
+```
+
+## Accessible Name
+
+Use `ariaLabel` when the label is not plain text.
+
+```tsx
+showToast({
+  label: <strong>Label</strong>,
+  ariaLabel: 'Label',
+  type: 'general',
+  placement: 'bottom-end',
 })
 ```
 
@@ -277,9 +311,9 @@ showToast({
 ```tsx
 showToast({
   label: 'Label',
-  type: 'info',
+  type: 'general',
   placement: 'bottom',
-  maxWidth: '15.625rem', // 250px
+  width: '15.625rem', // 250px
 })
 ```
 
