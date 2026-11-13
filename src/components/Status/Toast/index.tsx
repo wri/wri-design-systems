@@ -110,6 +110,14 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
           <ChakraToast.Root
             css={toastContainerStyles(toast.meta?.width, !!toast.action)}
             width={{ md: 'xs' }}
+            /**
+             * `role='status'` supports naming from author, so the accessible
+             * name belongs here — not on the generic title element. Only the
+             * explicit `ariaLabel` is used: when the title is plain text the
+             * live region already announces its content, and a name would
+             * only duplicate it.
+             */
+            aria-label={toast.meta?.ariaLabel}
           >
             <Stack
               flexDirection='row'
@@ -118,13 +126,7 @@ const Toast: React.FC<ToastComponentProps> = ({ labels }) => {
             >
               {getToastIcon(toast)}
               <Stack gap='1' flex='1' maxWidth='100%'>
-                <ChakraToast.Title
-                  css={toastTitleStyles}
-                  aria-label={
-                    toast.meta?.ariaLabel ??
-                    (typeof toast.title === 'string' ? toast.title : undefined)
-                  }
-                >
+                <ChakraToast.Title css={toastTitleStyles}>
                   {toast.title}
                 </ChakraToast.Title>
                 {toast.description ? (

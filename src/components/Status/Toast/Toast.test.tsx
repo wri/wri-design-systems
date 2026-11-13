@@ -326,7 +326,26 @@ describe('Toast', () => {
       })
     })
 
-    expect(screen.getByLabelText('Accessible name')).toBeInTheDocument()
+    // The accessible name belongs on the live region (`role='status'`), which
+    // supports naming from author — not on the generic title element.
+    const region = screen.getByRole('status', { name: 'Accessible name' })
+    expect(region).toHaveAttribute('aria-label', 'Accessible name')
+  })
+
+  it('does not name the live region when the label is plain text without ariaLabel', () => {
+    render(<Toast />)
+    act(() => {
+      showToast({
+        label: 'Label',
+        type: 'general',
+        placement: 'bottom-end',
+      })
+    })
+
+    // The title content is announced by the live region itself; naming it
+    // would only duplicate the announcement.
+    const region = screen.getByRole('status')
+    expect(region).not.toHaveAttribute('aria-label')
   })
 
   it('allows action, dismiss and close on a loading toast', () => {
