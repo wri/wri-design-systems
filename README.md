@@ -434,6 +434,7 @@ line-height: ${getThemedLineHeight(600)};
 ## Overlays
 
 - [Modal](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Modal)
+- [Dialog](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Dialog)
 - [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Menu)
 - [Tooltip](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Tooltip)
 - [Map Pop Up](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/MapPopUp)

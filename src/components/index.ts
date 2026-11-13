@@ -40,6 +40,7 @@ export type {
   TagLabels,
   MenuLabels,
   ModalLabels,
+  DialogLabels,
   SheetLabels,
   RadioListLabels,
   SelectLabels,
@@ -161,6 +162,8 @@ export type { TagProps } from './Forms/Tag/types'
 
 export { default as Modal } from './Overlays/Modal'
 export type { ModalProps } from './Overlays/Modal/types'
+export { default as Dialog } from './Overlays/Dialog'
+export type { DialogProps } from './Overlays/Dialog/types'
 export { default as Menu } from './Overlays/Menu'
 export type { MenuItemProps, MenuProps } from './Overlays/Menu/types'
 export { default as Tooltip } from './Overlays/Tooltip'

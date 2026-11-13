@@ -7,6 +7,7 @@ import MultiActionButtonDemo from './components/Forms/Actions/MultiActionButton/
 import MenuDemo from './components/Overlays/Menu/MenuDemo'
 import TooltipDemo from './components/Overlays/Tooltip/TooltipDemo'
 import ModalDemo from './components/Overlays/Modal/ModalDemo'
+import DialogDemo from './components/Overlays/Dialog/DialogDemo'
 import MapPopUpDemo from './components/Overlays/MapPopUp/MapPopUpDemo'
 import GuidedTourDemo from './components/Overlays/MapPopUp/presets/GuidedTour/GuidedTourDemo'
 
@@ -187,6 +188,7 @@ const App = () => (
 
           <MenuDemo />
           <ModalDemo />
+          <DialogDemo />
 
           <AvatarDemo />
           <BadgeDemo />

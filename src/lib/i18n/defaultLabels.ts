@@ -25,6 +25,7 @@ import type {
   TagLabels,
   MenuLabels,
   ModalLabels,
+  DialogLabels,
   SheetLabels,
   RadioListLabels,
   SelectLabels,
@@ -71,6 +72,7 @@ type DefaultLabels = {
   Tag: Required<TagLabels>
   Menu: Required<MenuLabels>
   Modal: Required<ModalLabels>
+  Dialog: Required<DialogLabels>
   Sheet: Required<SheetLabels>
   RadioList: Required<RadioListLabels>
   Select: Required<SelectLabels>
@@ -231,6 +233,10 @@ export const defaultLabels: DefaultLabels = {
   },
   Modal: {
     dialogAriaLabel: 'Modal dialog',
+  },
+  Dialog: {
+    dialogAriaLabel: 'Dialog',
+    closeLabel: 'Close',
   },
   Sheet: {
     expandSheetLabel: 'Expand sheet',

@@ -158,6 +158,7 @@ export const createChakraMock = () => {
       Positioner: React.forwardRef(el('div')),
       Content: el('div', { role: 'dialog', 'aria-modal': true }),
       Header: el('div'),
+      Title: el('h2'),
       Body: el('div'),
       Footer: el('div'),
       CloseTrigger: React.forwardRef(
