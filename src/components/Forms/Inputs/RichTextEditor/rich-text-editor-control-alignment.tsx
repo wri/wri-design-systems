@@ -9,7 +9,7 @@ import { Box } from '@chakra-ui/react'
 import type { IconButtonProps } from '../../Actions/IconButton/types'
 import type { ButtonProps } from '../../Actions/Button/types'
 import Button from '../../Actions/Button'
-import Menu from '../../Actions/Menu'
+import Menu from '../../../Overlays/Menu'
 import {
   ChevronDownIcon,
   RteAlignCenterIcon,

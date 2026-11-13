@@ -40,6 +40,7 @@ const VALID_CATEGORIES = [
   'Geospatial',
   'DataDisplay',
   'Containers',
+  'Overlays',
   'Navigation',
   'Status',
 ]
@@ -48,6 +49,7 @@ const VALID_CATEGORIES = [
 // the new component entry should be appended.
 const README_SECTION_MAP: Record<string, string> = {
   Containers: '## Containers',
+  Overlays: '## Overlays',
   DataDisplay: '## Data Display',
   'Forms/Actions': '### Actions',
   'Forms/Controls': '### Controls',

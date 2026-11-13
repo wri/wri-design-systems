@@ -1,5 +1,5 @@
 import { ButtonProps } from '../../Forms/Actions/Button/types'
-import { MenuItemProps } from '../../Forms/Actions/Menu/types'
+import { MenuItemProps } from '../../Overlays/Menu/types'
 import type { NavbarLabels } from '../../../lib/i18n/types'
 import type { SizeValue } from '../../../lib/sizing'
 

@@ -428,9 +428,16 @@ line-height: ${getThemedLineHeight(600)};
 
 ## Containers
 
-- [Modal](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Modal)
 - [Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Panel)
 - [Sheet](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Sheet)
+
+## Overlays
+
+- [Modal](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Modal)
+- [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Menu)
+- [Tooltip](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Tooltip)
+- [Map Pop Up](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/MapPopUp)
+- [Guided Tour](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/MapPopUp/presets/GuidedTour)
 
 ## Data Display
 
@@ -451,9 +458,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/CloseButton)
 - [Icon Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/IconButton)
 - [Toolbar](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Toolbar)
-- [Menu](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Menu)
 - [Multi Action Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MultiActionButton)
-- [Tooltip](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Tooltip)
 
 ### Controls
 
@@ -489,8 +494,6 @@ line-height: ${getThemedLineHeight(600)};
 
 - [Base Map](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/BaseMap)
 - [Map Marker](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/MapMarker)
-- [Map Pop Up](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/MapPopUp)
-- [Guided Tour](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/MapPopUp/presets/GuidedTour)
 
 ### Layers
 

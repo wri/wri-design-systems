@@ -4,10 +4,10 @@ import React from 'react'
 /* eslint-disable no-console */
 import type { Meta, StoryObj } from '@storybook/react'
 import TooltipStory from '.'
-import { InfoIcon } from '../../../icons'
+import { InfoIcon } from '../../icons'
 
 const meta = {
-  title: 'Forms/Actions/Tooltip',
+  title: 'Overlays/Tooltip',
   component: TooltipStory,
   parameters: {
     layout: 'centered',

@@ -1,8 +1,8 @@
 # Tooltip
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/forms-actions-tooltip--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/overlays-tooltip--docs)
 
-[TooltipDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Tooltip/TooltipDemo.tsx)
+[TooltipDemo](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Tooltip/TooltipDemo.tsx)
 
 ## Import
 

@@ -4,7 +4,7 @@ import {
   getThemedFontSize,
   getThemedLineHeight,
   getThemedSpacing,
-} from '../../../../lib/theme'
+} from '../../../lib/theme'
 
 export const menuItemContainerStyles = css`
   display: flex;

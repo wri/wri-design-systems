@@ -6,7 +6,7 @@ import {
   getThemedLineHeight,
   getThemedRadius,
   getThemedSpacing,
-} from '../../../../lib/theme'
+} from '../../../lib/theme'
 import { TooltipProps } from './types'
 
 export const tooltipTriggerStyles = css`

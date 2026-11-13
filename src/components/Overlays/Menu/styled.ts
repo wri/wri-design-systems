@@ -5,7 +5,7 @@ import {
   getThemedFontSize,
   getThemedLineHeight,
   getThemedSpacing,
-} from '../../../../lib/theme'
+} from '../../../lib/theme'
 
 export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
   display: flex;

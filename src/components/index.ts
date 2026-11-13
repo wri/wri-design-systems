@@ -87,12 +87,8 @@ export type {
 } from './Forms/Actions/Toolbar/types'
 export { default as MapControlsToolbar } from './Forms/Actions/Toolbar/presets/MapControl'
 export type { MapControlsToolbarProps } from './Forms/Actions/Toolbar/presets/MapControl'
-export { default as Menu } from './Forms/Actions/Menu'
-export type { MenuItemProps, MenuProps } from './Forms/Actions/Menu/types'
 export { default as MultiActionButton } from './Forms/Actions/MultiActionButton'
 export type { MultiActionButtonProps } from './Forms/Actions/MultiActionButton/types'
-export { default as Tooltip } from './Forms/Actions/Tooltip'
-export type { TooltipProps } from './Forms/Actions/Tooltip/types'
 
 // FormContainer
 export { default as FormContainer } from './Forms/FormContainer'
@@ -161,11 +157,23 @@ export type { TagProps } from './Forms/Tag/types'
 
 // -- Forms -- //
 
-export { default as GuidedTour } from './Geospatial/MapPopUp/presets/GuidedTour'
+// -- Overlays -- //
+
+export { default as Modal } from './Overlays/Modal'
+export type { ModalProps } from './Overlays/Modal/types'
+export { default as Menu } from './Overlays/Menu'
+export type { MenuItemProps, MenuProps } from './Overlays/Menu/types'
+export { default as Tooltip } from './Overlays/Tooltip'
+export type { TooltipProps } from './Overlays/Tooltip/types'
+export { default as MapPopUp } from './Overlays/MapPopUp'
+export type { MapPopUpProps } from './Overlays/MapPopUp/types'
+export { default as GuidedTour } from './Overlays/MapPopUp/presets/GuidedTour'
 export type {
   GuidedTourProps,
   GuidedTourStep,
-} from './Geospatial/MapPopUp/presets/GuidedTour/types'
+} from './Overlays/MapPopUp/presets/GuidedTour/types'
+
+// -- Overlays -- //
 
 // -- Geospatial -- //
 
@@ -178,9 +186,6 @@ export { default as MapMarker } from './Geospatial/MapMarker'
 export type { MapMarkerProps } from './Geospatial/MapMarker/types'
 export { SimpleMapPin, ClusterPoint } from './Geospatial/MapMarker/MapMarkers'
 export { MapMarkers } from './Geospatial/MapMarker/Presets'
-
-export { default as MapPopUp } from './Geospatial/MapPopUp'
-export type { MapPopUpProps } from './Geospatial/MapPopUp/types'
 
 // Layers
 export { default as LayerGroup } from './Geospatial/Layers/LayerGroup'
@@ -230,8 +235,6 @@ export type { BlockquoteProps } from './DataDisplay/Blockquote/types'
 
 // -- Containers -- //
 
-export { default as Modal } from './Containers/Modal'
-export type { ModalProps } from './Containers/Modal/types'
 export { default as Panel } from './Containers/Panel'
 export type { PanelProps } from './Containers/Panel/types'
 export { default as Sheet } from './Containers/Sheet'

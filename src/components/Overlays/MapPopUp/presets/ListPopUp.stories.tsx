@@ -4,13 +4,13 @@ import React, { useRef, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import MapPopUpStory from '..'
 import { NotificationIcon, PlaceholderIcon, UserIcon } from '../../../icons'
-import { MapMarkers } from '../../MapMarker/Presets'
+import { MapMarkers } from '../../../Geospatial/MapMarker/Presets'
 import { getThemedColor } from '../../../../lib/theme'
 import List from '../../../DataDisplay/List'
 import Button from '../../../Forms/Actions/Button'
 
 const meta = {
-  title: 'Geospatial/Map Pop Up/Preset/List Pop Up',
+  title: 'Overlays/Map Pop Up/Preset/List Pop Up',
   component: MapPopUpStory,
   parameters: {
     layout: 'centered',

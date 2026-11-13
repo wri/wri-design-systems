@@ -3,9 +3,9 @@
 
 import React from 'react'
 import { Menu as ChakraMenu } from '@chakra-ui/react'
-import { CheckIcon } from '../../../icons'
+import { CheckIcon } from '../../icons'
 import { MenuItemProps } from './types'
-import type { MenuLabels } from '../../../../lib/i18n/types'
+import type { MenuLabels } from '../../../lib/i18n/types'
 import {
   menuItemContainerStyles,
   menuItemLabelAndCaptionStyles,

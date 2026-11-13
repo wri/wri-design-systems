@@ -9,12 +9,12 @@ import {
   getThemedFontSize,
   getThemedLineHeight,
 } from '../../../../../lib/theme'
-import { MapMarkers } from '../../../MapMarker/Presets'
+import { MapMarkers } from '../../../../Geospatial/MapMarker/Presets'
 import Button from '../../../../Forms/Actions/Button'
 import type { GuidedTourStep } from './types'
 
 const meta = {
-  title: 'Geospatial/Map Pop Up/Preset/Guided Tour',
+  title: 'Overlays/Map Pop Up/Preset/Guided Tour',
   component: GuidedTour,
   parameters: {
     layout: 'centered',

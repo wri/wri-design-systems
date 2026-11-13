@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 
-import { Button, Menu } from '../../..'
-import { PlaceholderIcon } from '../../../icons'
-import DemoWrapper from '../../../UI/DemoWrapper'
+import { Button, Menu } from '../..'
+import { PlaceholderIcon } from '../../icons'
+import DemoWrapper from '../../UI/DemoWrapper'
 
 const MenuDemo = () => (
   <DemoWrapper title='Menu'>
