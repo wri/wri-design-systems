@@ -116,6 +116,10 @@ export const toasters: { [key: string]: CreateToasterReturn } = {
 export const showToast = (props: ToastProps) => {
   const toaster = toasters[props.placement]
 
+  // `info` is the deprecated alias of `general` (DS-411): map it so legacy
+  // consumers get the renamed variant styling.
+  const type = props.type === 'info' ? 'general' : props.type
+
   toaster.create({
     title: props.label,
     description: props.caption,
@@ -123,11 +127,15 @@ export const showToast = (props: ToastProps) => {
     meta: {
       closable: props.closable,
       icon: props.icon,
-      closableLabel: props.closableLabel,
+      hideIcon: props.hideIcon,
       onClose: props.onClose,
-      maxWidth: props.maxWidth,
+      // `maxWidth` is deprecated in favour of `width`; keep honouring it so
+      // legacy consumers keep working.
+      width: props.width ?? props.maxWidth,
+      ariaLabel: props.ariaLabel,
     },
     ...props,
+    type,
   })
 }
 

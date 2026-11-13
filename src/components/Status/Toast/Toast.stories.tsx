@@ -17,7 +17,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Transient notification message. Use `showToast()` utility to trigger it programmatically. Choose `type` to convey intent: success, warning, error, info, or loading.',
+          'Transient notification message. Use `showToast()` utility to trigger it programmatically. Choose `type` to convey intent: success, warning, error, general, information, or loading. The legacy `info` type is deprecated and maps to `general`.',
       },
     },
   },
@@ -44,7 +44,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Info: Story = {
+export const General: Story = {
   decorators: [
     () => (
       <Button
@@ -54,7 +54,26 @@ export const Info: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'info',
+            type: 'general',
+            placement: 'bottom-end',
+          })
+        }
+      />
+    ),
+  ],
+}
+
+export const Information: Story = {
+  decorators: [
+    () => (
+      <Button
+        label='Show Toast'
+        variant='primary'
+        onClick={() =>
+          showToast({
+            label: 'Label',
+            caption: 'Caption',
+            type: 'information',
             placement: 'bottom-end',
           })
         }
@@ -149,7 +168,7 @@ export const CustomDuration10Seconds: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'bottom-end',
             duration: 10000,
           })
@@ -169,9 +188,29 @@ export const CustomIcon: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'bottom-end',
             icon: <CheckIcon color='red' />,
+          })
+        }
+      />
+    ),
+  ],
+}
+
+export const NoIcon: Story = {
+  decorators: [
+    () => (
+      <Button
+        label='Show Toast'
+        variant='primary'
+        onClick={() =>
+          showToast({
+            label: 'Label',
+            caption: 'Caption',
+            type: 'general',
+            placement: 'bottom-end',
+            hideIcon: true,
           })
         }
       />
@@ -189,30 +228,9 @@ export const Closable: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'bottom-end',
             closable: true,
-          })
-        }
-      />
-    ),
-  ],
-}
-
-export const ClosableLabel: Story = {
-  decorators: [
-    () => (
-      <Button
-        label='Show Toast'
-        variant='primary'
-        onClick={() =>
-          showToast({
-            label: 'Label',
-            caption: 'Caption',
-            type: 'success',
-            placement: 'bottom-end',
-            closable: true,
-            closableLabel: 'Dismiss',
           })
         }
       />
@@ -230,7 +248,7 @@ export const WithAction: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'bottom-end',
             action: {
               label: 'Action',
@@ -254,7 +272,7 @@ export const TopLeft: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'top-start',
           })
         }
@@ -273,7 +291,7 @@ export const TopCenter: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'top',
           })
         }
@@ -292,7 +310,7 @@ export const TopRight: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'top-end',
           })
         }
@@ -311,7 +329,7 @@ export const BottomLeft: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'bottom-start',
           })
         }
@@ -330,7 +348,7 @@ export const BottomCenter: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'bottom',
           })
         }
@@ -349,7 +367,7 @@ export const BottomRight: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'bottom-end',
           })
         }
@@ -368,7 +386,7 @@ export const OnClose: Story = {
           showToast({
             label: 'Label',
             caption: 'Caption',
-            type: 'success',
+            type: 'general',
             placement: 'bottom-end',
             closable: true,
             // eslint-disable-next-line no-alert
@@ -415,10 +433,10 @@ export const CustomWidth: Story = {
         variant='primary'
         onClick={() =>
           showToast({
-            label: 'Validating Polygons...',
-            type: 'info',
+            label: 'Label',
+            type: 'general',
             placement: 'bottom',
-            maxWidth: '15.625rem', // 250px
+            width: '15.625rem', // 250px
           })
         }
       />

@@ -481,18 +481,72 @@ export const createChakraMock = () => {
         (each || []).map((item: any, index: number) => children(item, index)),
       ),
     createListCollection: ({ items }: any) => ({ items }),
-    createToaster: () => ({
-      create: jest.fn(),
-      dismiss: jest.fn(),
-      subscribe: jest.fn(() => () => {}),
-    }),
-    // Renders a marker div per toaster so tests can count how many toaster
-    // instances are mounted (e.g. Toast dedup tests).
-    Toaster: ({ toaster }: any) =>
-      React.createElement('div', {
-        'data-testid': 'chakra-toaster',
-        'data-toaster': toaster?.attrs?.placement ?? 'unknown',
-      }),
+    /**
+     * Stateful mock of Chakra's toaster store: `create` stores the toast,
+     * `dismiss` removes it, and `subscribe` notifies listeners with a
+     * snapshot. Only the Toast component consumes this API.
+     */
+    createToaster: () => {
+      const toasts: any[] = []
+      const listeners = new Set<(current: any[]) => void>()
+      let nextAutoId = 1
+      const notify = () => {
+        const snapshot = [...toasts]
+        listeners.forEach((listener) => listener(snapshot))
+      }
+      return {
+        create: (toast: any) => {
+          const created = {
+            ...toast,
+            id: toast?.id ?? `toast-${(nextAutoId += 1)}`,
+          }
+          toasts.push(created)
+          notify()
+          return created.id
+        },
+        dismiss: (id?: string) => {
+          if (id === undefined) {
+            toasts.length = 0
+          } else {
+            const index = toasts.findIndex((item) => item.id === id)
+            if (index !== -1) toasts.splice(index, 1)
+          }
+          notify()
+        },
+        subscribe: (listener: (current: any[]) => void) => {
+          listeners.add(listener)
+          listener([...toasts])
+          return () => {
+            listeners.delete(listener)
+          }
+        },
+      }
+    },
+    // Subscribes to the stateful toaster store, renders a marker div so tests
+    // can count how many toaster instances are mounted (e.g. Toast dedup
+    // tests), and renders the render-prop children for every toast so toast
+    // content is testable.
+    Toaster: ({ toaster, children }: any) => {
+      const [toasts, setToasts] = React.useState<any[]>([])
+      React.useEffect(() => {
+        if (!toaster?.subscribe) return undefined
+        return toaster.subscribe((current: any[]) => setToasts(current))
+      }, [toaster])
+      return React.createElement(
+        'div',
+        {
+          'data-testid': 'chakra-toaster',
+          'data-toaster': toaster?.attrs?.placement ?? 'unknown',
+        },
+        toasts.map((toast, index) =>
+          React.createElement(
+            React.Fragment,
+            { key: toast?.id ?? index },
+            typeof children === 'function' ? children(toast) : children,
+          ),
+        ),
+      )
+    },
     Toast: {
       Root: el('div', { role: 'status', 'aria-live': 'polite' }),
       Title: el('span'),
