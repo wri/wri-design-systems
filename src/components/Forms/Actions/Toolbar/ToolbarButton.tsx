@@ -13,7 +13,7 @@ import {
 import { ToolbarButtonProps } from './types'
 import { useTabFocus } from '../../Inputs/FieldWrapper/useTabFocus'
 
-import Tooltip from '../Tooltip'
+import Tooltip from '../../../Overlays/Tooltip'
 
 const getTooltipPosition = (
   expandSide: NonNullable<ToolbarButtonProps['expandSide']>,

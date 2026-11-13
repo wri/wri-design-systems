@@ -2,16 +2,14 @@
 import React, { useRef, useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
-import MapPopUpStory from '..'
-import { NotificationIcon, UserIcon } from '../../../icons'
-import { MapMarkers } from '../../MapMarker/Presets'
-import { getThemedColor } from '../../../../lib/theme'
-import List from '../../../DataDisplay/List'
-import Button from '../../../Forms/Actions/Button'
+import MapPopUpStory from '.'
+import { NotificationIcon } from '../../icons'
+import { MapMarkers } from '../../Geospatial/MapMarker/Presets'
+import { getThemedColor } from '../../../lib/theme'
+import Button from '../../Forms/Actions/Button'
 
 const meta = {
-  title: 'Geospatial/Map Pop Up/Preset/Paginated Pop Up',
+  title: 'Overlays/Map Pop Up',
   component: MapPopUpStory,
   parameters: {
     layout: 'centered',
@@ -47,6 +45,11 @@ const meta = {
     content: { description: '`content` content', control: false },
     footer: { description: '`footer` content', control: false },
     placement: { description: '`placement` value', control: false },
+    variant: {
+      description: '`variant` value',
+      options: ['default', 'dark'],
+      control: { type: 'inline-radio' },
+    },
     offset: { description: '`offset` value', control: false },
     closeOnEscape: { description: '`closeOnEscape` value', control: false },
     closeOnOutsideClick: {
@@ -69,8 +72,9 @@ const footer = (
 export const MapPopUp: Story = {
   args: {
     open: false,
-    onOpenChange: fn(),
+    onOpenChange: () => {},
     anchorRef: null as any,
+    variant: 'default',
     header: (
       <div>
         <div
@@ -87,7 +91,6 @@ export const MapPopUp: Story = {
               fontSize: '1rem',
               lineHeight: '1.5rem',
               fontWeight: 'bold',
-              marginBottom: '0.25rem',
               color: getThemedColor('neutral', 800),
             }}
           >
@@ -106,43 +109,15 @@ export const MapPopUp: Story = {
       </div>
     ),
     content: (
-      <List
-        items={[
-          {
-            id: 'nav-1',
-            label: 'Section 1',
-            caption: 'Additional information',
-            variant: 'navigation',
-            icon: <UserIcon />,
-            onItemClick: fn(),
-          },
-          {
-            id: 'nav-2',
-            label: 'Section 2',
-            caption: 'More details here',
-            variant: 'navigation',
-            icon: <UserIcon />,
-            onItemClick: fn(),
-          },
-          {
-            id: 'nav-3',
-            label: 'Section 3',
-            caption: 'Extra context',
-            variant: 'navigation',
-            icon: <UserIcon />,
-            onItemClick: fn(),
-          },
-          {
-            id: 'nav-4',
-            label: 'Section 4',
-            caption: 'Additional information',
-            variant: 'navigation',
-            icon: <UserIcon />,
-            onItemClick: fn(),
-          },
-        ]}
-        noBorder
-      />
+      <div style={{ padding: '0.75rem' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+        Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies
+        sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius
+        a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy
+        molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.
+        Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium
+        a, enim. Pellentesque congue.
+      </div>
     ),
     footer,
   },
@@ -152,8 +127,8 @@ export const MapPopUp: Story = {
 
     return (
       <div>
-        <MapMarkers.Point
-          ariaLabel='point icon'
+        <MapMarkers.Plant
+          ariaLabel='plant icon'
           onClick={() => setOpen(true)}
           triggerRef={triggerRef}
           showFocusState={open}
@@ -163,7 +138,7 @@ export const MapPopUp: Story = {
           open={open}
           onOpenChange={setOpen}
           anchorRef={triggerRef}
-          placement='left'
+          placement='right'
         />
       </div>
     )

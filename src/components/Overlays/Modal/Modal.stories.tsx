@@ -53,7 +53,7 @@ const configSummary = (config: {
 )
 
 const meta = {
-  title: 'Containers/Modal',
+  title: 'Overlays/Modal',
   component: ModalStory,
   parameters: {
     layout: 'centered',

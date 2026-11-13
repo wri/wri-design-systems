@@ -20,7 +20,7 @@ import { NavbarProps } from './types'
 import NavbarMobile from './NavbarMobile'
 import { CloseIcon, MenuIcon } from '../../icons'
 import Button from '../../Forms/Actions/Button'
-import Menu from '../../Forms/Actions/Menu'
+import Menu from '../../Overlays/Menu'
 import { useLabels } from '../../../lib/i18n/useLabels'
 
 const MIN_INNER_WIDTH = 1023 // 1080 // 1180

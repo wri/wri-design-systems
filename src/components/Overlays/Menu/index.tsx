@@ -13,8 +13,8 @@ import {
   menuItemGroupLabelStyles,
   menuSubmenuTriggerStyles,
 } from './styled'
-import { ChevronDownIcon } from '../../../icons'
-import { useLabels } from '../../../../lib/i18n/useLabels'
+import { ChevronDownIcon } from '../../icons'
+import { useLabels } from '../../../lib/i18n/useLabels'
 
 const Menu = ({
   theme = 'light',

@@ -1,6 +1,6 @@
-import { Checkbox, Tooltip } from '../../..'
-import { InfoIcon } from '../../../icons'
-import DemoWrapper from '../../../UI/DemoWrapper'
+import { Checkbox, Tooltip } from '../..'
+import { InfoIcon } from '../../icons'
+import DemoWrapper from '../../UI/DemoWrapper'
 
 const TooltipDemo = () => (
   <DemoWrapper title='Tooltip'>

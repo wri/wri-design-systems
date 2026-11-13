@@ -4,7 +4,7 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import AvatarStory from '.'
-import Tooltip from '../../Forms/Actions/Tooltip'
+import Tooltip from '../../Overlays/Tooltip'
 
 const meta = {
   title: 'Status/Avatar',

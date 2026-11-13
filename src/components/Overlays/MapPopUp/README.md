@@ -1,8 +1,8 @@
 # Map Pop Up
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-map-pop-up--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/overlays-map-pop-up--docs)
 
-[MapPopUpDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/MapPopUp/MapPopUpDemo.tsx)
+[MapPopUpDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Overlays/MapPopUp/MapPopUpDemo.tsx)
 
 ## Import
 

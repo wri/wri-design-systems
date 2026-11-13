@@ -1,4 +1,4 @@
-import type { MenuLabels } from '../../../../lib/i18n/types'
+import type { MenuLabels } from '../../../lib/i18n/types'
 
 export type { MenuLabels }
 

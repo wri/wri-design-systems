@@ -1,8 +1,8 @@
 # Guided Tour
 
-[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/geospatial-map-pop-up-preset-guided-tour--docs)
+[Storybook Ref](https://wri.github.io/wri-design-systems/?path=/docs/overlays-map-pop-up-preset-guided-tour--docs)
 
-[GuidedTourDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Geospatial/MapPopUp/presets/GuidedTour/GuidedTourDemo.tsx)
+[GuidedTourDemo](https://github.com/wri/wri-design-systems/blob/main/src/components/Overlays/MapPopUp/presets/GuidedTour/GuidedTourDemo.tsx)
 
 Step-by-step product tour built on top of [MapPopUp](../..). It renders a single popup at a
 time, anchored to the element of the active step, and composes a footer with:
