@@ -307,6 +307,14 @@ export type ModalLabels = {
   dialogAriaLabel: string
 }
 
+/** Labels for Dialog internal UI strings. */
+export type DialogLabels = {
+  /** Fallback aria-label on the dialog content. Default: "Dialog" */
+  dialogAriaLabel: string
+  /** aria-label on the close button. Default: "Close" */
+  closeLabel: string
+}
+
 /** Labels for Sheet internal UI strings. */
 export type SheetLabels = {
   /** aria-label for the grabber button when collapsed/minimized. Default: "Expand sheet" */
@@ -704,6 +712,7 @@ export type DesignSystemLabels = {
   Tag?: Partial<TagLabels>
   Menu?: Partial<MenuLabels>
   Modal?: Partial<ModalLabels>
+  Dialog?: Partial<DialogLabels>
   Sheet?: Partial<SheetLabels>
   // Tier B
   RadioList?: Partial<RadioListLabels>

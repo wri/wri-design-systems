@@ -4,10 +4,11 @@
 /* eslint-disable react/no-unknown-property */
 
 import * as React from 'react'
-import { Box, Popover as ChakraPopover, Text } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import type { IconButtonProps } from '../../Actions/IconButton/types'
 import Button from '../../Actions/Button'
 import IconButton from '../../Actions/IconButton'
+import Popover from '../../../Overlays/Popover'
 import Tooltip from '../../../Overlays/Tooltip'
 import TextInput from '../TextInput'
 import { RteLinkIcon } from '../../../icons'
@@ -123,130 +124,112 @@ export const Link = (
   }
 
   return (
-    <ChakraPopover.Root
+    <Popover
       open={open}
-      onOpenChange={({ open: isOpen }) => {
-        if (disabled) {
-          setOpen(false)
-          return
-        }
-
-        setOpen(isOpen)
-        if (isOpen) {
-          syncFromEditorState()
-        }
-      }}
-      positioning={{ placement: 'bottom-start' }}
-    >
-      <ChakraPopover.Trigger asChild>
-        <Box>
-          <Tooltip content={label} preserveFocusOnChild>
-            <IconButton
-              icon={
-                <span data-rte-icon='true'>
-                  <RteLinkIcon />
-                </span>
-              }
-              aria-label={label}
-              aria-pressed={active || open}
-              disabled={disabled}
-              onMouseDown={(event) => {
-                // Keep editor selection while opening the popover.
-                event.preventDefault()
-              }}
-              onClick={() => {
-                if (!disabled) {
-                  setOpen((currentOpen) => !currentOpen)
-                }
-              }}
-              {...rest}
-            />
-          </Tooltip>
-        </Box>
-      </ChakraPopover.Trigger>
-
-      <ChakraPopover.Positioner>
-        <ChakraPopover.Content
+      onClose={() => setOpen(false)}
+      disabled={disabled}
+      placement='bottom'
+      arrowAlignment='center'
+      width={`calc(( ${getThemedSpacing(2800)} + ${getThemedSpacing(2000)} ) * 2)`}
+      content={
+        <Box
           css={{
-            padding: getThemedSpacing(300),
-            borderColor: getThemedColor('neutral', 300),
-            width: `calc(( ${getThemedSpacing(2800)} + ${getThemedSpacing(2000)} ) * 2)`,
-            maxWidth: '90vw',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: getThemedSpacing(300),
           }}
         >
-          <ChakraPopover.Body>
-            <Box
+          <TextInput
+            aria-label={label}
+            placeholder={urlPlaceholder}
+            disabled={disabled}
+            noMarginBottom
+            value={urlValue}
+            onChange={(event) => {
+              setUrlValue(event.target.value)
+              if (errorMessage) {
+                setErrorMessage('')
+              }
+            }}
+          />
+
+          <TextInput
+            aria-label={labelInputAriaLabel}
+            placeholder={labelPlaceholder}
+            disabled={disabled}
+            noMarginBottom
+            value={linkLabelValue}
+            onChange={(event) => {
+              setLinkLabelValue(event.target.value)
+            }}
+          />
+
+          {errorMessage ? (
+            <Text
               css={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: getThemedSpacing(300),
+                color: getThemedColor('error', 700),
               }}
             >
-              <TextInput
-                aria-label={label}
-                placeholder={urlPlaceholder}
+              {errorMessage}
+            </Text>
+          ) : null}
+
+          <Box
+            css={{
+              display: 'flex',
+              gap: getThemedSpacing(200),
+              justifyContent: 'flex-end',
+            }}
+          >
+            {active ? (
+              <Button
+                variant='borderless'
+                size='small'
+                label={removeLabel}
                 disabled={disabled}
-                noMarginBottom
-                value={urlValue}
-                onChange={(event) => {
-                  setUrlValue(event.target.value)
-                  if (errorMessage) {
-                    setErrorMessage('')
-                  }
-                }}
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={removeLink}
               />
-
-              <TextInput
-                aria-label={labelInputAriaLabel}
-                placeholder={labelPlaceholder}
-                disabled={disabled}
-                noMarginBottom
-                value={linkLabelValue}
-                onChange={(event) => {
-                  setLinkLabelValue(event.target.value)
-                }}
-              />
-
-              {errorMessage ? (
-                <Text
-                  css={{
-                    color: getThemedColor('error', 700),
-                  }}
-                >
-                  {errorMessage}
-                </Text>
-              ) : null}
-
-              <Box
-                css={{
-                  display: 'flex',
-                  gap: getThemedSpacing(200),
-                  justifyContent: 'flex-end',
-                }}
-              >
-                {active ? (
-                  <Button
-                    variant='borderless'
-                    size='small'
-                    label={removeLabel}
-                    disabled={disabled}
-                    onMouseDown={(event) => event.preventDefault()}
-                    onClick={removeLink}
-                  />
-                ) : null}
-                <Button
-                  variant='secondary'
-                  size='small'
-                  label={applyLabel}
-                  disabled={disabled}
-                  onMouseDown={(event) => event.preventDefault()}
-                  onClick={applyLink}
-                />
-              </Box>
-            </Box>
-          </ChakraPopover.Body>
-        </ChakraPopover.Content>
-      </ChakraPopover.Positioner>
-    </ChakraPopover.Root>
+            ) : null}
+            <Button
+              variant='secondary'
+              size='small'
+              label={applyLabel}
+              disabled={disabled}
+              onMouseDown={(event) => event.preventDefault()}
+              onClick={applyLink}
+            />
+          </Box>
+        </Box>
+      }
+    >
+      <Box>
+        <Tooltip content={label} preserveFocusOnChild>
+          <IconButton
+            icon={
+              <span data-rte-icon='true'>
+                <RteLinkIcon />
+              </span>
+            }
+            aria-label={label}
+            aria-pressed={active || open}
+            disabled={disabled}
+            onMouseDown={(event) => {
+              // Keep editor selection while opening the popover.
+              event.preventDefault()
+            }}
+            onClick={() => {
+              if (!disabled) {
+                if (!open) {
+                  syncFromEditorState()
+                }
+                setOpen((currentOpen) => !currentOpen)
+              }
+            }}
+            {...rest}
+          />
+        </Tooltip>
+      </Box>
+    </Popover>
   )
 }

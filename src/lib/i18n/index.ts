@@ -28,6 +28,7 @@ export type {
   TagLabels,
   MenuLabels,
   ModalLabels,
+  DialogLabels,
   SheetLabels,
   RadioListLabels,
   SelectLabels,
