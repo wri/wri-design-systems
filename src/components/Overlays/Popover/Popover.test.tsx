@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import { Popover as ChakraPopover, Portal } from '@chakra-ui/react'
 import * as React from 'react'
@@ -200,6 +200,29 @@ describe('Popover — props forwarded to Popover.Root', () => {
 
     expect(lastRootCall().open).toBe(false)
   })
+
+  it('permanently closes an uncontrolled popover after being disabled', () => {
+    const { rerender } = renderPopover()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Open popover' }))
+    expect(lastRootCall().open).toBe(true)
+
+    rerender(
+      <Popover content='Popover content' disabled>
+        <button type='button'>Open popover</button>
+      </Popover>,
+    )
+    expect(lastRootCall().open).toBe(false)
+
+    rerender(
+      <Popover content='Popover content'>
+        <button type='button'>Open popover</button>
+      </Popover>,
+    )
+    // The internal open state was reset while disabled — the popover must not
+    // spontaneously reopen once it is enabled again.
+    expect(lastRootCall().open).toBe(false)
+  })
 })
 
 describe('Popover — arrow', () => {
@@ -225,7 +248,8 @@ describe('Popover — portal', () => {
   })
 
   it('forwards portalRef as the portal container', () => {
-    const portalRef = React.createRef<HTMLElement>() as React.RefObject<HTMLElement>
+    const portalRef =
+      React.createRef<HTMLElement>() as React.RefObject<HTMLElement>
 
     renderPopover({ portalRef })
 
@@ -235,11 +259,7 @@ describe('Popover — portal', () => {
 
 describe('Popover — styles', () => {
   it('applies the 366px Figma default width', () => {
-    const { styles } = popoverContentStyles(
-      '22.875rem',
-      'left',
-      'bottom-start',
-    )
+    const { styles } = popoverContentStyles('22.875rem', 'left', 'bottom-start')
 
     expect(styles).toContain('--popover-size: 22.875rem')
   })
@@ -251,21 +271,13 @@ describe('Popover — styles', () => {
   })
 
   it('sizes the rotated-square tip to produce the 18×9 Figma arrow', () => {
-    const { styles } = popoverContentStyles(
-      '22.875rem',
-      'left',
-      'bottom-start',
-    )
+    const { styles } = popoverContentStyles('22.875rem', 'left', 'bottom-start')
 
     expect(styles).toContain('--arrow-size: calc(1.125rem / 1.4142)')
   })
 
   it('aligns the arrow left by default without overriding the end side', () => {
-    const { styles } = popoverContentStyles(
-      '22.875rem',
-      'left',
-      'bottom-start',
-    )
+    const { styles } = popoverContentStyles('22.875rem', 'left', 'bottom-start')
 
     expect(styles).toContain('left: 1.25rem !important')
     expect(styles).not.toContain('left: auto')
@@ -301,11 +313,7 @@ describe('Popover — styles', () => {
   })
 
   it('rounds the tip apex and softens the base junctions', () => {
-    const { styles } = popoverContentStyles(
-      '22.875rem',
-      'left',
-      'bottom-start',
-    )
+    const { styles } = popoverContentStyles('22.875rem', 'left', 'bottom-start')
 
     expect(styles).toContain('border-color: #A1A1A1')
     expect(styles).toContain('border-top-left-radius: 0.125rem')
@@ -314,11 +322,7 @@ describe('Popover — styles', () => {
   })
 
   it('compensates the tip offset against the popover edge', () => {
-    const { styles } = popoverContentStyles(
-      '22.875rem',
-      'left',
-      'bottom-start',
-    )
+    const { styles } = popoverContentStyles('22.875rem', 'left', 'bottom-start')
 
     expect(styles).toContain('top: -0.0313rem !important')
   })

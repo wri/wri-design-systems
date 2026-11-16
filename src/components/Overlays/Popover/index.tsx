@@ -2,7 +2,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { Popover as ChakraPopover, Portal } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { PopoverProps } from './types'
 import { POPOVER_ARROW_GUTTER, popoverContentStyles } from './styled'
 import { pxToRem } from '../../../lib/sizing'
@@ -26,6 +26,14 @@ const Popover = ({
 }: PopoverProps) => {
   const [openState, setOpenState] = useState(false)
   const isControlled = open !== undefined
+
+  // Disabling force-closes the popover and resets the internal state so an
+  // uncontrolled popover stays closed once it is enabled again.
+  useEffect(() => {
+    if (disabled) {
+      setOpenState(false)
+    }
+  }, [disabled])
 
   let currentOpen = openState
   if (disabled) {

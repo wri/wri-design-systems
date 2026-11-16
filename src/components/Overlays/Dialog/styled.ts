@@ -20,8 +20,9 @@ export const dialogContainerStyles = (width?: SizeValue) => css`
   background-color: ${getThemedColor('neutral', 100)};
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   border-radius: ${getThemedRadius(400)};
-  box-shadow: 0 0.25rem 0.375rem -0.25rem #0000001a;
-  box-shadow: 0 0.625rem 0.9375rem -0.1875rem #0000001a;
+  box-shadow:
+    0 0.25rem 0.375rem -0.25rem #0000001a,
+    0 0.625rem 0.9375rem -0.1875rem #0000001a;
   padding: ${getThemedSpacing(400)};
 `
 

@@ -99,6 +99,17 @@ const ComboboxInputContext = React.createContext<{
   }) => void
 }>({})
 
+/**
+ * Bridges the mocked Popover.Root's open state to the mocked
+ * Popover.Trigger: the real Chakra Root owns the open state machine and the
+ * Trigger merges its handlers onto the child, so tests can open/close
+ * uncontrolled popovers by clicking the trigger.
+ */
+const PopoverRootContext = React.createContext<{
+  open: boolean
+  setOpen: (open: boolean) => void
+} | null>(null)
+
 export const createChakraMock = () => {
   const { Fragment } = React
 
@@ -361,7 +372,29 @@ export const createChakraMock = () => {
       ArrowTip: () => null,
     },
     Popover: {
-      Root: el('div'),
+      Root: ({
+        children,
+        open: controlledOpen,
+        onOpenChange,
+        ...rest
+      }: any) => {
+        const [internalOpen, setInternalOpen] = React.useState(false)
+        const isControlled = controlledOpen !== undefined
+        const open = isControlled ? controlledOpen : internalOpen
+        const setOpen = React.useCallback(
+          (nextOpen: boolean) => {
+            if (!isControlled) setInternalOpen(nextOpen)
+            onOpenChange?.({ open: nextOpen })
+          },
+          [isControlled, onOpenChange],
+        )
+
+        return React.createElement(
+          PopoverRootContext.Provider,
+          { value: { open, setOpen } },
+          React.createElement('div', cleanProps(rest), children),
+        )
+      },
       Anchor: React.forwardRef(
         ({ children, asChild, ...rest }: any, ref: any) =>
           asChild
@@ -373,14 +406,40 @@ export const createChakraMock = () => {
               ),
       ),
       Trigger: React.forwardRef(
-        ({ children, asChild, ...rest }: any, ref: any) =>
-          asChild
-            ? React.createElement(React.Fragment, {}, children)
-            : React.createElement(
-                'button',
-                { ref, type: 'button', ...cleanProps(rest) },
-                children,
-              ),
+        ({ children, asChild, ...rest }: any, ref: any) => {
+          const context = React.useContext(PopoverRootContext)
+          const triggerProps = {
+            'aria-expanded': context?.open,
+            'aria-haspopup': 'dialog',
+          }
+
+          if (asChild) {
+            // Merges the trigger handlers onto the child like the real Chakra
+            // Trigger, composing with the child's own onClick. ARIA state attrs
+            // only apply to native buttons — axe rejects aria-expanded on
+            // generic wrapper elements (e.g. the RTE's trigger Box).
+            const childOnClick = children.props.onClick
+            const isButtonChild = children.type === 'button'
+            return React.cloneElement(children, {
+              onClick: (...args: any[]) => {
+                childOnClick?.(...args)
+                context?.setOpen(!context?.open)
+              },
+              ...(isButtonChild ? triggerProps : {}),
+            })
+          }
+
+          return React.createElement('button', {
+            ref,
+            type: 'button',
+            ...triggerProps,
+            ...cleanProps(rest),
+            onClick: (event: any) => {
+              rest.onClick?.(event)
+              context?.setOpen(!context?.open)
+            },
+          })
+        },
       ),
       Positioner: el('div'),
       Content: el('div'),
