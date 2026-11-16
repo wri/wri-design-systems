@@ -175,6 +175,8 @@ export type {
   GuidedTourProps,
   GuidedTourStep,
 } from './Overlays/MapPopUp/presets/GuidedTour/types'
+export { default as Popover } from './Overlays/Popover'
+export type { PopoverProps } from './Overlays/Popover/types'
 
 // -- Overlays -- //
 

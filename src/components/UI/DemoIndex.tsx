@@ -107,6 +107,7 @@ const components = [
   'Menu',
   'Modal',
   'Dialog',
+  'Popover',
   'Badge',
   'Inline Message',
   'Alert Banner',

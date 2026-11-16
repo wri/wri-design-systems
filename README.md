@@ -439,6 +439,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Tooltip](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Tooltip)
 - [Map Pop Up](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/MapPopUp)
 - [Guided Tour](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/MapPopUp/presets/GuidedTour)
+- [Popover](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Popover)
 
 ## Data Display
 
