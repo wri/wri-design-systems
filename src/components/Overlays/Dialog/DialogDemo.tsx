@@ -28,6 +28,14 @@ const destructiveFooter = (onClose: () => void) => (
   </>
 )
 
+const longDialogContent = Array.from({ length: 20 }, (_, i) => (
+  <p key={i} style={{ margin: 0 }}>
+    Paragraph {i + 1}. Lorem ipsum dolor sit amet consectetur. Sollicitudin
+    aliquet in libero nunc scelerisque cras magna hendrerit. Vel neque convallis
+    ac velit sed. Semper diam metus.
+  </p>
+))
+
 const sectionTitleStyles: CSSProperties = {
   fontSize: getThemedFontSize(500),
   fontWeight: 'bold',
@@ -50,6 +58,8 @@ const DialogDemo = () => {
   const [placement, setPlacement] = useState<'top' | 'center' | 'bottom'>('top')
   const [nestedFirstOpen, setNestedFirstOpen] = useState(false)
   const [nestedSecondOpen, setNestedSecondOpen] = useState(false)
+  const [scrollInsideOpen, setScrollInsideOpen] = useState(false)
+  const [scrollOutsideOpen, setScrollOutsideOpen] = useState(false)
 
   return (
     <DemoWrapper title='Dialog'>
@@ -195,14 +205,6 @@ const DialogDemo = () => {
           >
             Dialog placement: {placement}
           </Dialog>
-        </div>
-
-        <div>
-          <p style={sectionTitleStyles}>Nested dialogs</p>
-          <p style={sectionDescriptionStyles}>
-            Open the first dialog, then open a second one on top of it and close
-            it again.
-          </p>
 
           <Dialog
             title='First dialog'
@@ -251,6 +253,62 @@ const DialogDemo = () => {
             }
           >
             Second dialog, opened on top of the first one.
+          </Dialog>
+        </div>
+
+        <div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: getThemedSpacing(500),
+              maxWidth: '15rem',
+            }}
+          >
+            <Button
+              label='Scroll Inside Dialog'
+              onClick={() => setScrollInsideOpen(true)}
+            />
+            <Button
+              label='Scroll Outside Dialog'
+              onClick={() => setScrollOutsideOpen(true)}
+            />
+          </div>
+
+          <Dialog
+            title='Scroll inside'
+            scrollBehavior='inside'
+            open={scrollInsideOpen}
+            onClose={() => setScrollInsideOpen(false)}
+            footer={actionFooter(() => setScrollInsideOpen(false))}
+          >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: getThemedSpacing(300),
+              }}
+            >
+              {longDialogContent}
+            </div>
+          </Dialog>
+
+          <Dialog
+            title='Scroll outside'
+            scrollBehavior='outside'
+            open={scrollOutsideOpen}
+            onClose={() => setScrollOutsideOpen(false)}
+            footer={actionFooter(() => setScrollOutsideOpen(false))}
+          >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: getThemedSpacing(300),
+              }}
+            >
+              {longDialogContent}
+            </div>
           </Dialog>
         </div>
       </div>

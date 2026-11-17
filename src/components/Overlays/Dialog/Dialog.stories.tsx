@@ -29,6 +29,14 @@ const destructiveFooter = (onClose: () => void) => (
   </>
 )
 
+const longDialogContent = Array.from({ length: 20 }, (_, i) => (
+  <p key={i} style={{ margin: 0 }}>
+    Paragraph {i + 1}. Lorem ipsum dolor sit amet consectetur. Sollicitudin
+    aliquet in libero nunc scelerisque cras magna hendrerit. Vel neque convallis
+    ac velit sed. Semper diam metus.
+  </p>
+))
+
 const meta = {
   title: 'Overlays/Dialog',
   component: DialogStory,
@@ -303,6 +311,70 @@ export const Placement: Story = {
           onClose={() => setShowDialog(false)}
           footer={actionFooter(() => setShowDialog(false))}
         />
+      </>
+    )
+  },
+}
+
+export const ScrollBehavior: Story = {
+  args: {
+    title: 'Title',
+    open: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'How a dialog with overflowing content handles scroll: `inside` (default) scrolls the dialog body while the dialog stays in place, `outside` grows the dialog and scrolls the page behind it.',
+      },
+    },
+  },
+  render: (args) => {
+    const [showDialog, setShowDialog] = useState(false)
+    const [scrollBehavior, setScrollBehavior] = useState<'inside' | 'outside'>(
+      'inside',
+    )
+
+    return (
+      <>
+        <div
+          style={{
+            display: 'flex',
+            gap: getThemedSpacing(300),
+          }}
+        >
+          <Button
+            label='Inside'
+            onClick={() => {
+              setScrollBehavior('inside')
+              setShowDialog(true)
+            }}
+          />
+          <Button
+            label='Outside'
+            onClick={() => {
+              setScrollBehavior('outside')
+              setShowDialog(true)
+            }}
+          />
+        </div>
+        <DialogStory
+          {...args}
+          scrollBehavior={scrollBehavior}
+          open={showDialog}
+          onClose={() => setShowDialog(false)}
+          footer={actionFooter(() => setShowDialog(false))}
+        >
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: getThemedSpacing(300),
+            }}
+          >
+            {longDialogContent}
+          </div>
+        </DialogStory>
       </>
     )
   },
