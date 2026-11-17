@@ -97,11 +97,11 @@ describe('Dialog — width and responsive margins', () => {
     )
   })
 
-  it('keeps a 20px margin for the overlay on narrow viewports', () => {
+  it('applies the default max-width and max-height constraints', () => {
     const { styles } = dialogContainerStyles()
 
     expect(styles).toContain('max-width: calc(100% - 2.5rem)')
-    expect(styles).toContain('max-height: calc(100vh - 8.5rem)')
+    expect(styles).toContain('max-height: calc(100dvh - 8.5rem)')
   })
 })
 
@@ -109,7 +109,7 @@ describe('Dialog — scroll behavior container styles', () => {
   it('constrains the dialog height when scrolling inside', () => {
     const { styles } = dialogContainerStyles(undefined, false)
 
-    expect(styles).toContain('max-height: calc(100vh - 8.5rem)')
+    expect(styles).toContain('max-height: calc(100dvh - 8.5rem)')
   })
 
   it('removes the height constraint when scrolling outside', () => {

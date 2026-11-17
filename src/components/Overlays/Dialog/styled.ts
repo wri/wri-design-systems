@@ -19,7 +19,7 @@ export const dialogContainerStyles = (
 ) => css`
   width: ${width ? resolveSizeValue(width) : '27.5rem'};
   max-width: calc(100% - 2.5rem);
-  max-height: ${isScrollOutside ? 'initial' : 'calc(100vh - 8.5rem)'};
+  max-height: ${isScrollOutside ? 'initial' : 'calc(100dvh - 8.5rem)'};
   background-color: ${getThemedColor('neutral', 100)};
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   border-radius: ${getThemedRadius(400)};
