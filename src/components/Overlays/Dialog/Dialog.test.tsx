@@ -101,7 +101,21 @@ describe('Dialog — width and responsive margins', () => {
     const { styles } = dialogContainerStyles()
 
     expect(styles).toContain('max-width: calc(100% - 2.5rem)')
-    expect(styles).toContain('max-height: calc(100vh - 2.5rem)')
+    expect(styles).toContain('max-height: calc(100vh - 8.5rem)')
+  })
+})
+
+describe('Dialog — scroll behavior container styles', () => {
+  it('constrains the dialog height when scrolling inside', () => {
+    const { styles } = dialogContainerStyles(undefined, false)
+
+    expect(styles).toContain('max-height: calc(100vh - 8.5rem)')
+  })
+
+  it('removes the height constraint when scrolling outside', () => {
+    const { styles } = dialogContainerStyles(undefined, true)
+
+    expect(styles).toContain('max-height: initial')
   })
 })
 
@@ -190,6 +204,13 @@ describe('Dialog — dismissal props forwarded to Dialog.Root', () => {
       closeOnEscape: false,
       closeOnInteractOutside: false,
     })
+  })
+
+  it('forwards the default inside scrollBehavior', () => {
+    renderDialog()
+
+    const lastCall = dialogRootCalls[dialogRootCalls.length - 1]
+    expect(lastCall).toMatchObject({ scrollBehavior: 'inside' })
   })
 
   it('forwards scrollBehavior and initialFocusEl to Dialog.Root', () => {

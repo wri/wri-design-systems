@@ -13,10 +13,13 @@ export const dialogBackdropStyles = css`
   background: rgba(0, 0, 0, 0.64);
 `
 
-export const dialogContainerStyles = (width?: SizeValue) => css`
+export const dialogContainerStyles = (
+  width?: SizeValue,
+  isScrollOutside?: boolean,
+) => css`
   width: ${width ? resolveSizeValue(width) : '27.5rem'};
   max-width: calc(100% - 2.5rem);
-  max-height: calc(100vh - 2.5rem);
+  max-height: ${isScrollOutside ? 'initial' : 'calc(100vh - 8.5rem)'};
   background-color: ${getThemedColor('neutral', 100)};
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
   border-radius: ${getThemedRadius(400)};

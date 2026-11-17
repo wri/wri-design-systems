@@ -49,7 +49,7 @@ const Dialog = ({
         <ChakraDialog.Positioner>
           <ChakraDialog.Content
             aria-label={l.dialogAriaLabel}
-            css={dialogContainerStyles(width)}
+            css={dialogContainerStyles(width, scrollBehavior === 'outside')}
           >
             <ChakraDialog.Header css={dialogHeaderStyles}>
               <ChakraDialog.Title css={dialogTitleStyles}>
