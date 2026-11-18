@@ -167,12 +167,12 @@ describe('Button — DS-404 style contract', () => {
     )
   })
 
-  it('secondary pressed state matches the hover fill and adds a darker border (neutral-400)', () => {
+  it('secondary pressed state matches the hover fill and adds a darker border (neutral-500)', () => {
     expect(secondaryButtonStyles.styles).toMatch(
       /&:active:not\(:disabled\):not\(\[data-disabled\]\)\s*\{[\s\S]*?background-color:\s*#F6F6F6\s*!important/,
     )
     expect(secondaryButtonStyles.styles).toMatch(
-      /&:active:not\(:disabled\):not\(\[data-disabled\]\)\s*\{[\s\S]*?border:\s*0\.0625rem\s+solid\s+#C9C9C9\s*!important/, // neutral-400
+      /&:active:not\(:disabled\):not\(\[data-disabled\]\)\s*\{[\s\S]*?border:\s*0\.0625rem\s+solid\s+#B0B0B0\s*!important/, // neutral-500
     )
   })
 

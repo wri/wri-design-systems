@@ -72,7 +72,7 @@ const MultiActionButton = ({
         disabled={isDisabledProp || leftActionDisabled}
         leftIcon={mainActionLeftIcon}
         rightIcon={mainActionRightIcon}
-        style={getTriggerMenuButtonStyle(size)}
+        style={{ ...rest.style, ...getTriggerMenuButtonStyle(size) }}
         css={menuTriggerStyles(variant)}
       />
 
@@ -93,7 +93,7 @@ const MultiActionButton = ({
           asChild
         >
           <Button
-            style={getTriggerMenuButtonStyle(size)}
+            style={{ ...rest.style, ...getTriggerMenuButtonStyle(size) }}
             aria-label={l.openOptionsLabel(mainActionLabel)}
             aria-haspopup='menu'
             aria-expanded={isOpen}
