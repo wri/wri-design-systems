@@ -51,9 +51,8 @@ export const primaryButtonStyles = css`
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
 
   &:hover:not(:disabled):not([data-disabled]) {
-    background-color: ${getThemedColor('primary', 500)};
+    background-color: ${getThemedColor('primary', 600)};
     box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
-    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
   &:active:not(:disabled):not([data-disabled]) {
@@ -61,7 +60,6 @@ export const primaryButtonStyles = css`
     background-color: ${getThemedColor('primary', 600)} !important;
     border: ${getThemedBorderWidth(100)} solid ${getThemedColor('primary', 700)} !important;
     box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
-    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
   &:focus-visible {
@@ -90,17 +88,15 @@ export const secondaryButtonStyles = css`
   box-shadow: 0 0.0625rem 0.125rem 0 #0000000d;
 
   &:hover:not(:disabled):not([data-disabled]) {
-    background-color: ${getThemedColor('neutral', 100)};
+    background-color: ${getThemedColor('neutral', 200)};
     box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
-    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
   &:active:not(:disabled):not([data-disabled]) {
     outline: none;
     background-color: ${getThemedColor('neutral', 200)} !important;
-    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)} !important;
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 500)} !important;
     box-shadow: 0 0.125rem 0.25rem -0.125rem #0000001a;
-    box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
   }
 
   &:focus-visible {
@@ -109,14 +105,14 @@ export const secondaryButtonStyles = css`
 
   &:disabled,
   &[data-disabled] {
-    background-color: ${getThemedColor('neutral', 200)};
-    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 300)};
+    background-color: ${getThemedColor('neutral', 300)};
+    border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 400)};
     color: ${getThemedColor('neutral', 500)};
     cursor: not-allowed;
     opacity: 1;
 
     &:hover {
-      background-color: ${getThemedColor('neutral', 200)};
+      background-color: ${getThemedColor('neutral', 300)};
     }
   }
 `

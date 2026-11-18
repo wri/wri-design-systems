@@ -52,6 +52,14 @@ const meta = {
       control: false,
     },
     disabled: { description: 'Disables the button', control: 'boolean' },
+    leftActionDisabled: {
+      description: 'Disables only the main (left) action segment',
+      control: 'boolean',
+    },
+    rightActionDisabled: {
+      description: 'Disables only the dropdown trigger (right) segment',
+      control: 'boolean',
+    },
   },
 } satisfies Meta<typeof MultiActionButton>
 
@@ -281,6 +289,48 @@ export const Disabled: Story = {
       },
     ],
     disabled: true,
+  },
+}
+
+export const LeftActionDisabled: Story = {
+  args: {
+    variant: 'primary',
+    mainActionLabel: 'First Action',
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+      },
+    ],
+    leftActionDisabled: true,
+  },
+}
+
+export const RightActionDisabled: Story = {
+  args: {
+    variant: 'primary',
+    mainActionLabel: 'First Action',
+    mainActionOnClick: () => console.log('first action'),
+    otherActions: [
+      {
+        label: 'Second Action',
+        value: 'second-action',
+        onClick: () => console.log('second action'),
+      },
+      {
+        label: 'Third Action',
+        value: 'third-action',
+        onClick: () => console.log('third action'),
+      },
+    ],
+    rightActionDisabled: true,
   },
 }
 
