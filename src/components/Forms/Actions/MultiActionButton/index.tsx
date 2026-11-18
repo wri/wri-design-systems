@@ -43,6 +43,8 @@ const MultiActionButton = ({
   disabled: isDisabledProp,
   mainActionLeftIcon,
   mainActionRightIcon,
+  leftActionDisabled,
+  rightActionDisabled,
   labels,
   ...rest
 }: MultiActionButtonProps) => {
@@ -57,7 +59,6 @@ const MultiActionButton = ({
     <Group
       css={disabledGroupStyles}
       attached
-      tabIndex={isDisabledProp ? 0 : undefined}
       aria-disabled={isDisabledProp}
       aria-label={totalAriaLabel}
       role='group'
@@ -68,9 +69,11 @@ const MultiActionButton = ({
         variant={variant}
         size={size}
         onClick={mainActionOnClick}
-        disabled={isDisabledProp}
+        disabled={isDisabledProp || leftActionDisabled}
         leftIcon={mainActionLeftIcon}
         rightIcon={mainActionRightIcon}
+        style={{ ...rest.style, ...getTriggerMenuButtonStyle(size) }}
+        css={menuTriggerStyles(variant)}
       />
 
       <ChakraMenu.Root
@@ -90,7 +93,7 @@ const MultiActionButton = ({
           asChild
         >
           <Button
-            style={getTriggerMenuButtonStyle(size)}
+            style={{ ...rest.style, ...getTriggerMenuButtonStyle(size) }}
             aria-label={l.openOptionsLabel(mainActionLabel)}
             aria-haspopup='menu'
             aria-expanded={isOpen}
@@ -100,10 +103,13 @@ const MultiActionButton = ({
               <ChevronDownIcon
                 aria-hidden='true'
                 rotate={isOpen ? '180' : '0'}
-                color={getMenuTriggerIconColor(variant, isDisabledProp)}
+                color={getMenuTriggerIconColor(
+                  variant,
+                  isDisabledProp || rightActionDisabled,
+                )}
               />
             }
-            disabled={isDisabledProp}
+            disabled={isDisabledProp || rightActionDisabled}
           />
         </ChakraMenu.Trigger>
         <MenuContent>

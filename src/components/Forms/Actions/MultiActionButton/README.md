@@ -38,11 +38,13 @@ import { MultiActionButton } from '@worldresources/wri-design-systems'
 | --------------------- | -------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------ |
 | `disabled`            | `boolean`                                                                              | —           | Disables both the main action and the trigger                |
 | `labels`              | `Partial<MultiActionButtonLabels>`                                                     | —           | Override internal UI labels for internationalization support |
+| `leftActionDisabled`  | `boolean`                                                                              | —           | Disables only the main (left) action segment                 |
 | `mainActionLabel`     | `string`                                                                               | —           | Label of the main action segment                             |
 | `mainActionLeftIcon`  | `React.ReactNode`                                                                      | —           | Icon rendered before the main action label                   |
 | `mainActionOnClick`   | `() => void`                                                                           | `() => {}`  | Called when the main action segment is clicked               |
 | `mainActionRightIcon` | `React.ReactNode`                                                                      | —           | Icon rendered after the main action label                    |
 | `otherActions`        | `{ label: React.ReactNode; value: string; onClick: () => void; disabled?: boolean }[]` | `[]`        | Actions shown in the dropdown menu                           |
+| `rightActionDisabled` | `boolean`                                                                              | —           | Disables only the dropdown trigger (right) segment           |
 | `size`                | `'default' \| 'small'`                                                                 | `'default'` | Size of the button                                           |
 | `variant`             | `'primary' \| 'secondary' \| 'borderless' \| 'outline' \| 'negative'`                  | `'primary'` | Visual style of the button                                   |
 
@@ -106,7 +108,7 @@ type MultiActionButtonLabels = {
 ```tsx
 <MultiActionButton
   variant='primary'
-  size='small
+  size='small'
   mainActionLabel='First Action'
   mainActionOnClick={() => console.log('first action')}
   otherActions={[
@@ -144,6 +146,32 @@ type MultiActionButtonLabels = {
     },
   ]}
   disabled
+/>
+```
+
+### Partially disabled
+
+Each segment can be disabled independently — `disabled` overrides both:
+
+```tsx
+<MultiActionButton
+  variant='primary'
+  mainActionLabel='First Action'
+  mainActionOnClick={() => console.log('first action')}
+  otherActions={[
+    {
+      label: 'Second Action',
+      value: 'second-action',
+      onClick: () => console.log('second action'),
+    },
+    {
+      label: 'Third Action',
+      value: 'third-action',
+      onClick: () => console.log('third action'),
+    },
+  ]}
+  leftActionDisabled
+  rightActionDisabled
 />
 ```
 

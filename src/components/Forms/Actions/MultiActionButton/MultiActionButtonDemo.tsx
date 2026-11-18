@@ -75,6 +75,32 @@ const MultiActionButtonDemo = () => (
         />
         <MultiActionButton
           variant='secondary'
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+          leftActionDisabled
+        />
+        <MultiActionButton
+          variant='secondary'
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+          rightActionDisabled
+        />
+        <MultiActionButton
+          variant='secondary'
           size='small'
           mainActionLabel='First Action'
           mainActionOnClick={() => console.log('first action')}
@@ -209,6 +235,32 @@ const MultiActionButtonDemo = () => (
             },
           ]}
           disabled
+        />
+        <MultiActionButton
+          variant='primary'
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+          leftActionDisabled
+        />
+        <MultiActionButton
+          variant='primary'
+          mainActionLabel='First Action'
+          mainActionOnClick={() => console.log('first action')}
+          otherActions={[
+            {
+              label: 'Second Action',
+              value: 'second-action',
+              onClick: () => console.log('second action'),
+            },
+          ]}
+          rightActionDisabled
         />
       </div>
       <div

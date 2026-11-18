@@ -4,7 +4,14 @@ import type { MultiActionButtonLabels } from '../../../../lib/i18n/types'
 
 export type MultiActionButtonProps = Omit<
   ButtonProps,
-  'label' | 'leftIcon' | 'rightIcon' | 'onClick' | 'children' | 'css'
+  | 'label'
+  | 'leftIcon'
+  | 'rightIcon'
+  | 'onClick'
+  | 'children'
+  | 'css'
+  | 'size'
+  | 'variant'
 > & {
   /** Icon rendered before the main action label */
   mainActionLeftIcon?: React.ReactNode
@@ -25,6 +32,16 @@ export type MultiActionButtonProps = Omit<
     /** Disables the action */
     disabled?: boolean
   }[]
+  /** Disables the entire component */
+  disabled?: boolean
+  /** Disables the left action */
+  leftActionDisabled?: boolean
+  /** Disables the right action */
+  rightActionDisabled?: boolean
+  /** Size of the button. Defaults to `default` */
+  size?: 'default' | 'small'
+  /** Variant of the button. Defaults to `primary` */
+  variant?: 'primary' | 'secondary' | 'borderless' | 'outline' | 'negative'
   /** Override internal UI labels for internationalization support */
   labels?: Partial<MultiActionButtonLabels>
 }

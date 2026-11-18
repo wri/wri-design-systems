@@ -15,9 +15,8 @@ export const menuContentStyles = css`
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
   border-radius: ${getThemedRadius(300)};
   padding: ${getThemedSpacing(200)};
-  /* Elevation matches the shadow used across the button family
-     (Button/styled.ts). No shadow token exists in the theme yet. */
   box-shadow: 0 0.25rem 0.375rem -0.0625rem #0000001a;
+  margin-top: -0.25rem;
 `
 
 /**
@@ -25,9 +24,12 @@ export const menuContentStyles = css`
  */
 const getMenuTriggerOpenBackgroundColor = (
   variant: MultiActionButtonProps['variant'],
+  isOpen?: boolean,
 ) => {
   switch (variant) {
     case 'secondary':
+      if (isOpen) return getThemedColor('neutral', 200)
+
       return getThemedColor('neutral', 100)
     case 'borderless':
       // Borderless has no border to emphasize, so the open state keeps the
@@ -38,6 +40,9 @@ const getMenuTriggerOpenBackgroundColor = (
     case 'negative':
       return getThemedColor('error', 100)
     case 'primary':
+      if (isOpen) return getThemedColor('primary', 600)
+
+      return getThemedColor('primary', 500)
     default:
       return getThemedColor('primary', 500)
   }
@@ -45,10 +50,13 @@ const getMenuTriggerOpenBackgroundColor = (
 
 const getMenuTriggerEmphasizedBorderColor = (
   variant: MultiActionButtonProps['variant'],
+  isOpen?: boolean,
 ) => {
   switch (variant) {
     case 'secondary':
-      return getThemedColor('neutral', 400)
+      if (isOpen) return getThemedColor('neutral', 500)
+
+      return getThemedColor('neutral', 300)
     case 'borderless':
       return 'transparent'
     case 'outline':
@@ -56,6 +64,9 @@ const getMenuTriggerEmphasizedBorderColor = (
     case 'negative':
       return getThemedColor('error', 500)
     case 'primary':
+      if (isOpen) return getThemedColor('primary', 700)
+
+      return getThemedColor('primary', 600)
     default:
       return getThemedColor('primary', 800)
   }
@@ -92,17 +103,39 @@ export const menuTriggerStyles = (
   variant: MultiActionButtonProps['variant'],
 ) => css`
   /* Hover on the closed trigger: keep the Button hover background and
-     elevation, only emphasize the border. */
+     elevation, only emphasize the border. z-index raises the hovered
+     segment above its neighbour so the emphasized border is visible at the
+     shared 1px seam (the attached Group overlaps segments by 1px). */
   &:hover:not(:disabled):not([data-disabled]):not([data-state='open']) {
     border-color: ${getMenuTriggerEmphasizedBorderColor(variant)};
+    z-index: 1;
+
+    ${variant === 'secondary'
+      ? `
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10) !important;
+    `
+      : ''}
+  }
+
+  /* Pressed: raise the segment above its neighbour so the full pressed
+     border is visible at the shared 1px seam. */
+  &:active:not(:disabled):not([data-disabled]) {
+    z-index: 1;
   }
 
   /* Open (menu expanded): default background + emphasized border, no
      elevation. The doubled ampersand doubles the class specificity so this
      rule also wins over the Button hover styles while the menu is open. */
   &&[data-state='open']:not(:disabled):not([data-disabled]) {
-    background-color: ${getMenuTriggerOpenBackgroundColor(variant)};
-    border-color: ${getMenuTriggerEmphasizedBorderColor(variant)};
+    background-color: ${getMenuTriggerOpenBackgroundColor(variant, true)};
+    border-color: ${getMenuTriggerEmphasizedBorderColor(variant, true)};
+    box-shadow: none;
+  }
+
+  &&[data-disabled] {
+    background-color: ${getThemedColor('neutral', 300)};
+    border-color: ${getThemedColor('neutral', 400)};
+    color: ${getThemedColor('neutral', 500)};
     box-shadow: none;
   }
 `
@@ -143,6 +176,6 @@ export const getTriggerMenuButtonStyle = (
 ) => ({
   padding:
     size === 'small'
-      ? `0 ${getThemedSpacing(200)}`
-      : `0 ${getThemedSpacing(300)}`,
+      ? `0.375rem ${getThemedSpacing(200)}`
+      : `${getThemedSpacing(200)} ${getThemedSpacing(300)}`,
 })

@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { axe } from 'jest-axe'
 
 import Button from '.'
+import { primaryButtonStyles, secondaryButtonStyles } from './styled'
 
 jest.mock('@chakra-ui/react', () =>
   jest.requireActual('../../../testUtils').createChakraMock(),
@@ -129,4 +130,70 @@ describe('Button — disabled interaction styles', () => {
       expect(await axe(container)).toHaveNoViolations()
     },
   )
+})
+
+describe('Button — DS-404 style contract', () => {
+  const shadows200 = '0 0.125rem 0.25rem -0.125rem #0000001a'
+  const shadows300 = '0 0.25rem 0.375rem -0.0625rem #0000001a'
+
+  it('primary hover uses a darker fill (primary-600) and the Shadows/200 shadow', () => {
+    expect(primaryButtonStyles.styles).toMatch(
+      /&:hover:not\(:disabled\):not\(\[data-disabled\]\)\s*\{[\s\S]*?background-color:\s*#DE9E00/, // primary-600
+    )
+    expect(primaryButtonStyles.styles).toMatch(
+      new RegExp(
+        `&:hover:not\\(:disabled\\):not\\(\\[data-disabled\\]\\)\\s*\\{[\\s\\S]*?box-shadow:\\s*${shadows200.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`,
+      ),
+    )
+  })
+
+  it('primary pressed state matches the hover fill and adds a darker border (primary-700)', () => {
+    expect(primaryButtonStyles.styles).toMatch(
+      /&:active:not\(:disabled\):not\(\[data-disabled\]\)\s*\{[\s\S]*?background-color:\s*#DE9E00\s*!important/,
+    )
+    expect(primaryButtonStyles.styles).toMatch(
+      /&:active:not\(:disabled\):not\(\[data-disabled\]\)\s*\{[\s\S]*?border:\s*0\.0625rem\s+solid\s+#855B00\s*!important/, // primary-700
+    )
+  })
+
+  it('secondary hover uses a darker fill (neutral-200) and the Shadows/200 shadow', () => {
+    expect(secondaryButtonStyles.styles).toMatch(
+      /&:hover:not\(:disabled\):not\(\[data-disabled\]\)\s*\{[\s\S]*?background-color:\s*#F6F6F6/, // neutral-200
+    )
+    expect(secondaryButtonStyles.styles).toMatch(
+      new RegExp(
+        `&:hover:not\\(:disabled\\):not\\(\\[data-disabled\\]\\)\\s*\\{[\\s\\S]*?box-shadow:\\s*${shadows200.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`,
+      ),
+    )
+  })
+
+  it('secondary pressed state matches the hover fill and adds a darker border (neutral-500)', () => {
+    expect(secondaryButtonStyles.styles).toMatch(
+      /&:active:not\(:disabled\):not\(\[data-disabled\]\)\s*\{[\s\S]*?background-color:\s*#F6F6F6\s*!important/,
+    )
+    expect(secondaryButtonStyles.styles).toMatch(
+      /&:active:not\(:disabled\):not\(\[data-disabled\]\)\s*\{[\s\S]*?border:\s*0\.0625rem\s+solid\s+#B0B0B0\s*!important/, // neutral-500
+    )
+  })
+
+  it('secondary disabled state matches the unified disabled spec (neutral-300/400/500)', () => {
+    expect(secondaryButtonStyles.styles).toMatch(
+      /&:disabled,\s*&\[data-disabled\]\s*\{[\s\S]*?background-color:\s*#E7E6E6/, // neutral-300
+    )
+    expect(secondaryButtonStyles.styles).toMatch(
+      /&:disabled,\s*&\[data-disabled\]\s*\{[\s\S]*?border:\s*0\.0625rem\s+solid\s+#C9C9C9/, // neutral-400
+    )
+    expect(secondaryButtonStyles.styles).toMatch(
+      /&:disabled,\s*&\[data-disabled\]\s*\{[\s\S]*?color:\s*#B0B0B0/, // neutral-500
+    )
+  })
+
+  it('drops the Shadows/300 elevation from primary and secondary hover/pressed states', () => {
+    expect(primaryButtonStyles.styles).not.toMatch(
+      new RegExp(shadows300.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
+    )
+    expect(secondaryButtonStyles.styles).not.toMatch(
+      new RegExp(shadows300.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
+    )
+  })
 })

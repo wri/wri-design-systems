@@ -115,6 +115,82 @@ describe('MultiActionButton — disabled state', () => {
   })
 })
 
+describe('MultiActionButton — per-segment disabled', () => {
+  it('leftActionDisabled disables only the main segment', () => {
+    render(
+      <MultiActionButton
+        variant='primary'
+        mainActionLabel='Download'
+        mainActionOnClick={() => {}}
+        otherActions={extraActions}
+        leftActionDisabled
+      />,
+    )
+
+    const buttons = screen.getAllByRole('button')
+    const disabledButtons = buttons.filter(
+      (button) => (button as HTMLButtonElement).disabled,
+    )
+    expect(disabledButtons).toHaveLength(1)
+    expect(disabledButtons[0]).not.toHaveAttribute('aria-haspopup')
+    expect(
+      screen.getByRole('button', { name: 'Open Download options' }),
+    ).not.toBeDisabled()
+  })
+
+  it('rightActionDisabled disables only the dropdown trigger', () => {
+    render(
+      <MultiActionButton
+        variant='primary'
+        mainActionLabel='Download'
+        mainActionOnClick={() => {}}
+        otherActions={extraActions}
+        rightActionDisabled
+      />,
+    )
+
+    const buttons = screen.getAllByRole('button')
+    const disabledButtons = buttons.filter(
+      (button) => (button as HTMLButtonElement).disabled,
+    )
+    expect(disabledButtons).toHaveLength(1)
+    expect(disabledButtons[0]).toHaveAttribute('aria-haspopup', 'menu')
+    expect(screen.getByRole('button', { name: 'Download' })).not.toBeDisabled()
+  })
+
+  it('leftActionDisabled and rightActionDisabled together disable both segments', () => {
+    render(
+      <MultiActionButton
+        variant='primary'
+        mainActionLabel='Download'
+        mainActionOnClick={() => {}}
+        otherActions={extraActions}
+        leftActionDisabled
+        rightActionDisabled
+      />,
+    )
+
+    const buttons = screen.getAllByRole('button')
+    const disabledButtons = buttons.filter(
+      (button) => (button as HTMLButtonElement).disabled,
+    )
+    expect(disabledButtons).toHaveLength(2)
+  })
+
+  it('renders partially disabled with no a11y violations', async () => {
+    const { container } = render(
+      <MultiActionButton
+        variant='primary'
+        mainActionLabel='Download'
+        mainActionOnClick={() => {}}
+        otherActions={extraActions}
+        rightActionDisabled
+      />,
+    )
+    expect(await axe(container)).toHaveNoViolations()
+  })
+})
+
 describe('MultiActionButton — open state', () => {
   it('exposes aria-expanded=false on the trigger while closed', () => {
     render(
