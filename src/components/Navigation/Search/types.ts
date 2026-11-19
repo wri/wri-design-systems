@@ -7,7 +7,12 @@ export type { SearchLabels }
 
 export type SearchProps = Omit<
   ChakraInputProps,
-  'variant' | 'colorPalette' | 'defaultChecked'
+  | 'variant'
+  | 'colorPalette'
+  | 'defaultChecked'
+  | 'value'
+  | 'defaultValue'
+  | 'onChange'
 > & {
   /** Placeholder and aria-label for the search input. Defaults to `labels.filterPlaceholder` */
   placeholder?: string
@@ -25,10 +30,24 @@ export type SearchProps = Omit<
   displayResults?: 'none' | 'text' | 'list' | 'custom'
   /** Called with the selected option when a result is selected */
   onSelect?: (selectedOption: ListItemProps) => void
-  /** Called with the current query whenever it changes */
+  /**
+   * Called with the current query whenever it changes.
+   * @deprecated Use `onChange` instead — it fires on typing, selection, and
+   * clear, and is required to drive the controlled `value` prop.
+   */
   onQueryChange?: (query: string) => void
   /** Called when the clear button is pressed */
   onClear?: () => void
+  /**
+   * Controlled input value: the query text while typing, or the selected
+   * option's label after selection. When provided, the component is fully
+   * controlled — pair with `onChange`.
+   */
+  value?: string
+  /** Initial value for uncontrolled usage. Defaults to `''` */
+  defaultValue?: string
+  /** Called with the current input value whenever it changes (typing, selection, clear) */
+  onChange?: (value: string) => void
   /** Custom results renderer used when displayResults is 'custom', receives items, highlightedIndex, query, and onSelect */
   renderResults?: (params: {
     items: any[]

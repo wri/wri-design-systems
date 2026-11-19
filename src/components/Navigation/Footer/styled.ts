@@ -59,7 +59,6 @@ export const footerContentStyles = css`
 `
 
 export const footerLabelStyles = css`
-  width: 15rem;
   font-size: ${getThemedFontSize(300)};
   line-height: ${getThemedLineHeight(500)};
   font-weight: 400;

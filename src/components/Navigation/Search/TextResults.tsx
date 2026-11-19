@@ -12,15 +12,22 @@ const HighlightedText = ({ text, query }: { text: string; query: string }) => {
   const regex = new RegExp(`(${query})`, 'ig')
   const parts = text.split(regex)
 
+  // Keys pair each part with its start offset in the original string:
+  // content alone repeats (e.g. "foo" split by "o" yields two "o" parts) and
+  // the array index is disallowed by react/no-array-index-key.
+  let offset = 0
   return (
     <>
-      {parts.map((part) =>
-        regex.test(part) ? (
-          <strong key={part}>{part}</strong>
+      {parts.map((part) => {
+        const key = `${offset}-${part}`
+        offset += part.length
+        regex.lastIndex = 0
+        return regex.test(part) ? (
+          <strong key={key}>{part}</strong>
         ) : (
-          <span key={part}>{part}</span>
-        ),
-      )}
+          <span key={key}>{part}</span>
+        )
+      })}
     </>
   )
 }

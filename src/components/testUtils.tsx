@@ -124,11 +124,26 @@ export const createChakraMock = () => {
     HStack: React.forwardRef(el('div')),
     VisuallyHidden: el('span'),
     Portal: ({ children }: any) => React.createElement(Fragment, {}, children),
-    InputGroup: el('div'),
+    // Mirrors real Chakra's InputGroup: renders the startElement slot, the
+    // single child input, then the endElement slot (e.g. a clear button).
+    // The previous plain-div mock dropped both slots, so components relying
+    // on endElement affordances never rendered them in tests.
+    InputGroup: ({ children, startElement, endElement, ...rest }: any) =>
+      React.createElement(
+        'div',
+        cleanProps(rest),
+        startElement,
+        children,
+        endElement,
+      ),
     ButtonGroup: el('div'),
     Spinner: el('span', { role: 'status' }),
     Button: React.forwardRef(el('button', { type: 'button' })),
-    CloseButton: React.forwardRef(el('button', { type: 'button' })),
+    // Real Chakra's CloseButton defaults to aria-label "Close" (its icon-only
+    // X affordance), so the mock carries the same accessible name.
+    CloseButton: React.forwardRef(
+      el('button', { type: 'button', 'aria-label': 'Close' }),
+    ),
     Icon: React.forwardRef(el('span', { 'aria-hidden': true })),
     Blockquote: {
       Root: React.forwardRef(el('figure')),
@@ -620,11 +635,20 @@ export const createChakraMock = () => {
     },
     useFilter: () => ({ contains: () => true }),
     useMediaQuery: () => [false],
-    useDisclosure: () => ({
-      open: false,
-      onOpen: jest.fn(),
-      onClose: jest.fn(),
-    }),
+    /**
+     * Stateful useDisclosure: `open` tracks real state so components gating
+     * content on it (e.g. Search's resultsVisible) behave like the real
+     * Chakra hook, and onOpen/onClose actually flip the state.
+     */
+    useDisclosure: (defaults: any = {}) => {
+      const [open, setOpen] = React.useState<boolean>(defaults.open ?? false)
+      return {
+        open,
+        onOpen: React.useCallback(() => setOpen(true), []),
+        onClose: React.useCallback(() => setOpen(false), []),
+        onToggle: React.useCallback(() => setOpen((prev) => !prev), []),
+      }
+    },
     /**
      * Stateful mock of ark-ui's `useListCollection`: `filter` narrows the
      * items by label (like the real hook + `useFilter.contains`), `set`
