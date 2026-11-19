@@ -106,3 +106,113 @@ describe('Search — ReactNode labels with searchLabel (DS-332)', () => {
     expect(screen.getByText('Amazon biome').tagName).toBe('STRONG')
   })
 })
+
+describe('Search — selection persistence and controlled value', () => {
+  const options = [
+    { id: 'forest', label: 'Forest monitor' },
+    { id: 'water', label: 'Water risk layer' },
+  ]
+
+  const type = (value: string) => {
+    fireEvent.change(screen.getByRole('combobox'), {
+      target: { value },
+    })
+  }
+
+  // String labels are split across highlight spans, so find rows by their
+  // full text content instead of a single text node.
+  const getRow = (container: HTMLElement, text: string) => {
+    const rows = Array.from(
+      container.querySelectorAll('[data-nav-source] > div > div'),
+    )
+    const row = rows.find((candidate) => candidate.textContent === text)
+    if (!row) throw new Error(`No result row with text: ${text}`)
+    return row
+  }
+
+  it('keeps the selected label in the input after selection', () => {
+    const { container } = render(<Search options={options} />)
+
+    type('forest')
+    fireEvent.click(getRow(container, 'Forest monitor'))
+
+    expect(screen.getByRole('combobox')).toHaveValue('Forest monitor')
+  })
+
+  it('keeps the X available after selection and clears it via onClear', () => {
+    const onClear = jest.fn()
+    const onChange = jest.fn()
+    const { container } = render(
+      <Search options={options} onClear={onClear} onChange={onChange} />,
+    )
+
+    type('forest')
+    fireEvent.click(getRow(container, 'Forest monitor'))
+
+    const clearButton = screen.getByRole('button', { name: 'Close' })
+    fireEvent.click(clearButton)
+
+    expect(screen.getByRole('combobox')).toHaveValue('')
+    expect(onClear).toHaveBeenCalledTimes(1)
+    expect(onChange).toHaveBeenLastCalledWith('')
+  })
+
+  it('fires onChange with the selected label in controlled mode', () => {
+    const onChange = jest.fn()
+    const onSelect = jest.fn()
+    const { container } = render(
+      <Search
+        options={options}
+        value=''
+        onChange={onChange}
+        onSelect={onSelect}
+      />,
+    )
+
+    type('forest')
+    fireEvent.click(getRow(container, 'Forest monitor'))
+
+    expect(onSelect).toHaveBeenCalledTimes(1)
+    expect(onSelect.mock.calls[0][0]).toMatchObject({ id: 'forest' })
+    expect(onChange).toHaveBeenLastCalledWith('Forest monitor')
+  })
+
+  it('fires onChange on every keystroke in controlled mode', () => {
+    const onChange = jest.fn()
+    render(<Search options={options} value='' onChange={onChange} />)
+
+    type('f')
+    expect(onChange).toHaveBeenLastCalledWith('f')
+
+    type('fo')
+    expect(onChange).toHaveBeenLastCalledWith('fo')
+  })
+
+  it('does not reset the input when re-rendered with the same value', () => {
+    const onChange = jest.fn()
+    const view = render(
+      <Search options={options} value='Forest monitor' onChange={onChange} />,
+    )
+
+    view.rerender(
+      <Search options={options} value='Forest monitor' onChange={onChange} />,
+    )
+
+    expect(screen.getByRole('combobox')).toHaveValue('Forest monitor')
+  })
+
+  it('seeds the input from defaultValue (uncontrolled)', () => {
+    render(<Search options={options} defaultValue='forest' />)
+
+    expect(screen.getByRole('combobox')).toHaveValue('forest')
+  })
+
+  it('still fires the deprecated onQueryChange for backwards compatibility', () => {
+    const onQueryChange = jest.fn()
+    render(<Search options={options} onQueryChange={onQueryChange} />)
+
+    type('forest')
+
+    expect(onQueryChange).toHaveBeenLastCalledWith('forest')
+  })
+})

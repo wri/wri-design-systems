@@ -49,20 +49,23 @@ query highlighting.
 
 ## Props
 
-| Prop               | Type                                               | Default                    | Description                                                                                                         |
-| ------------------ | -------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `displayResults`   | `'none' \| 'text' \| 'list' \| 'custom'`           | `'text'`                   | How results are rendered, one of 'none', 'text', 'list', or 'custom'                                                |
-| `disabled`         | `boolean`                                          | —                          | Disables the search input                                                                                           |
-| `isLoading`        | `boolean`                                          | `false`                    | Shows a spinner in the results popover when true                                                                    |
-| `labels`           | `Partial<SearchLabels>`                            | —                          | Override internal UI labels for internationalization support                                                        |
-| `onClear`          | `() => void`                                       | —                          | Called when the clear button is pressed                                                                             |
-| `onQueryChange`    | `(query: string) => void`                          | —                          | Called with the current query whenever it changes                                                                   |
-| `onSelect`         | `(selectedOption: ListItemProps) => void`          | —                          | Called with the selected option when a result is selected                                                           |
-| `options`          | `ListItemProps[]`                                  | `[]`                       | Options to filter and display as results                                                                            |
-| `placeholder`      | `string`                                           | `labels.filterPlaceholder` | Placeholder and aria-label for the search input                                                                     |
-| `renderResults`    | `(params: RenderResultsParams) => React.ReactNode` | —                          | Custom results renderer used when displayResults is 'custom', receives items, highlightedIndex, query, and onSelect |
-| `resultsMaxHeight` | `number \| string`                                 | `50`                       | Maximum height of the results popover, numbers resolve to spacing-scale rem values                                  |
-| `size`             | `'small' \| 'default'`                             | `'default'`                | Size of the search input and icon                                                                                   |
+| Prop               | Type                                               | Default                    | Description                                                                                                                                                  |
+| ------------------ | -------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `defaultValue`     | `string`                                           | `''`                       | Initial value for uncontrolled usage                                                                                                                         |
+| `displayResults`   | `'none' \| 'text' \| 'list' \| 'custom'`           | `'text'`                   | How results are rendered, one of 'none', 'text', 'list', or 'custom'                                                                                         |
+| `disabled`         | `boolean`                                          | —                          | Disables the search input                                                                                                                                    |
+| `isLoading`        | `boolean`                                          | `false`                    | Shows a spinner in the results popover when true                                                                                                             |
+| `labels`           | `Partial<SearchLabels>`                            | —                          | Override internal UI labels for internationalization support                                                                                                 |
+| `onChange`         | `(value: string) => void`                          | —                          | Called with the current input value whenever it changes (typing, selection, clear)                                                                           |
+| `onClear`          | `() => void`                                       | —                          | Called when the clear button is pressed                                                                                                                      |
+| `onQueryChange`    | `(query: string) => void`                          | —                          | **Deprecated** — use `onChange` instead (fires on typing, selection, and clear)                                                                              |
+| `onSelect`         | `(selectedOption: ListItemProps) => void`          | —                          | Called with the selected option when a result is selected                                                                                                    |
+| `options`          | `ListItemProps[]`                                  | `[]`                       | Options to filter and display as results                                                                                                                     |
+| `placeholder`      | `string`                                           | `labels.filterPlaceholder` | Placeholder and aria-label for the search input                                                                                                              |
+| `renderResults`    | `(params: RenderResultsParams) => React.ReactNode` | —                          | Custom results renderer used when displayResults is 'custom', receives items, highlightedIndex, query, and onSelect                                          |
+| `resultsMaxHeight` | `number \| string`                                 | `50`                       | Maximum height of the results popover, numbers resolve to spacing-scale rem values                                                                           |
+| `size`             | `'small' \| 'default'`                             | `'default'`                | Size of the search input and icon                                                                                                                            |
+| `value`            | `string`                                           | —                          | Controlled input value (query text, or the selected option's label after selection). When provided, the component is fully controlled — pair with `onChange` |
 
 ### Supporting types
 
@@ -83,3 +86,21 @@ type SearchLabels = {
 ```
 
 - `ListItemProps` — item shape from `DataDisplay/List`: `{ id?, label, searchLabel?, caption?, icon?, value?, ... }`
+
+## Controlled value
+
+After selecting a result, the input keeps the selected option's label (or
+`searchLabel`) instead of resetting, and the X stays available to clear it
+(firing `onClear` and `onChange('')`). Pass `value` + `onChange` to own the
+state, or `defaultValue` for uncontrolled usage.
+
+```tsx
+const [value, setValue] = useState('')
+
+<Search
+  options={sampleOptions}
+  value={value}
+  onChange={setValue}
+  onSelect={(option) => console.log({ selected: option })}
+/>
+```

@@ -44,9 +44,15 @@ const Search = ({
   onClear,
   renderResults,
   labels,
+  value: controlledValue,
+  defaultValue = '',
+  onChange,
 }: SearchProps) => {
   const l = useLabels('Search', labels)
-  const [filterText, setFilterText] = useState('')
+  const isControlled = controlledValue !== undefined
+  const [uncontrolledValue, setUncontrolledValue] =
+    useState<string>(defaultValue)
+  const currentValue = isControlled ? controlledValue : uncontrolledValue
   const { open, onOpen, onClose } = useDisclosure()
   const [filteredResults, setFilteredResults] = useState(options)
   const [highlightedIndex, setHighlightedIndex] = useState(-1)
@@ -56,12 +62,19 @@ const Search = ({
   const containerRef = useRef<HTMLDivElement>(null)
   const { contentRef, placement } = usePlacementSync()
   const handleOnSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
+    const { value: newValue } = e.target
 
-    setFilterText(value)
+    if (!isControlled) {
+      setUncontrolledValue(newValue)
+    }
+    onChange?.(newValue)
+    if (newValue) onOpen()
   }
   const handleOnClear = () => {
-    setFilterText('')
+    if (!isControlled) {
+      setUncontrolledValue('')
+    }
+    onChange?.('')
     onClear?.()
   }
 
@@ -75,20 +88,28 @@ const Search = ({
 
     if (selected) {
       onSelect?.(selected)
-      setFilterText('')
+      // Keep the selected option in the field instead of resetting the query,
+      // so the selection stays visible until the consumer clears it.
+      const selectedLabel = getSearchLabel(selected)
+      if (!isControlled) {
+        setUncontrolledValue(selectedLabel)
+      }
+      onChange?.(selectedLabel)
       onClose()
     }
   }
 
   useEffect(() => {
-    onQueryChange?.(filterText)
-    if (!filterText) {
+    // Deprecated observation hook, kept for backwards compatibility — fires
+    // at the same times as `onChange` (typing, selection, clear).
+    onQueryChange?.(currentValue)
+    if (!currentValue) {
       setFilteredResults(options)
       return
     }
 
     const filtered = options.filter((result) => {
-      const normalizedFilter = filterText.toLowerCase()
+      const normalizedFilter = currentValue.toLowerCase()
 
       return (
         result.id?.toLowerCase().includes(normalizedFilter) ||
@@ -106,21 +127,22 @@ const Search = ({
       onItemClick: () => handleSelect(item.id || getSearchLabel(item)),
     }))
     setFilteredResults(listItems)
-    onOpen()
-  }, [filterText])
+    // The results popover opens on typing (handleOnSearch) rather than here,
+    // so selection and programmatic value changes do not re-open it.
+  }, [currentValue])
 
-  const endElement = filterText.length ? (
+  const endElement = currentValue.length ? (
     <CloseButton onClick={handleOnClear} />
   ) : null
 
   const resultsVisible =
     displayResults !== 'none' &&
-    !!filterText.length &&
+    !!currentValue.length &&
     filteredResults.length > 0 &&
     open
 
   const showPortalMenu =
-    (resultsVisible || (isLoading && !!filterText.length)) &&
+    (resultsVisible || (isLoading && !!currentValue.length)) &&
     displayResults !== 'custom'
 
   let iconFillColor = getThemedColor('neutral', 500)
@@ -164,7 +186,7 @@ const Search = ({
               onChange={handleOnSearch}
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
-              value={filterText}
+              value={currentValue}
               label=''
               style={{
                 paddingLeft: '2.5rem',
@@ -214,14 +236,14 @@ const Search = ({
             />
           </InputGroup>
         </ChakraPopover.Anchor>
-        {(resultsVisible || (isLoading && !!filterText.length)) &&
+        {(resultsVisible || (isLoading && !!currentValue.length)) &&
           displayResults === 'custom' &&
           renderResults &&
           !isLoading &&
           renderResults({
             items: filteredResults,
             highlightedIndex,
-            query: filterText,
+            query: currentValue,
             onSelect: handleSelect,
           })}
       </div>
@@ -244,7 +266,7 @@ const Search = ({
               <TextResults
                 highlightedIndex={highlightedIndex}
                 items={filteredResults}
-                query={filterText}
+                query={currentValue}
                 onSelect={handleSelect}
               />
             )}

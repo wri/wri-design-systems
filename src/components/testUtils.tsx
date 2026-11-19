@@ -124,7 +124,18 @@ export const createChakraMock = () => {
     HStack: React.forwardRef(el('div')),
     VisuallyHidden: el('span'),
     Portal: ({ children }: any) => React.createElement(Fragment, {}, children),
-    InputGroup: el('div'),
+    // Mirrors real Chakra's InputGroup: renders the startElement slot, the
+    // single child input, then the endElement slot (e.g. a clear button).
+    // The previous plain-div mock dropped both slots, so components relying
+    // on endElement affordances never rendered them in tests.
+    InputGroup: ({ children, startElement, endElement, ...rest }: any) =>
+      React.createElement(
+        'div',
+        cleanProps(rest),
+        startElement,
+        children,
+        endElement,
+      ),
     ButtonGroup: el('div'),
     Spinner: el('span', { role: 'status' }),
     Button: React.forwardRef(el('button', { type: 'button' })),

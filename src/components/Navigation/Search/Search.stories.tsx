@@ -51,15 +51,30 @@ const meta = {
       control: false,
     },
     onQueryChange: {
-      description: 'Handler called when the query string changes',
+      description:
+        '@deprecated — use `onChange` instead (fires on typing, selection, and clear)',
       control: false,
     },
     onClear: {
       description: 'Handler called when the input is cleared',
       control: false,
     },
+    value: {
+      description:
+        '`value` (controlled) — string; pair with `onChange`. When provided, the component is fully controlled',
+      control: false,
+    },
+    defaultValue: {
+      description: '`defaultValue` (uncontrolled initial value)',
+      control: false,
+    },
+    onChange: {
+      description:
+        '`onChange` callback — (value: string) => void; fires on typing, selection, and clear',
+      control: false,
+    },
     renderResults: {
-      description: 'Custom render function for results',
+      description: 'Custom results renderer used when displayResults is custom',
       control: false,
     },
     labels: {
@@ -140,6 +155,32 @@ export const Default: Story = {
     options: sampleOptions,
     placeholder: 'Search',
     onSelect: () => {},
+  },
+}
+
+/**
+ * Controlled value: the consumer owns the selection through `value` +
+ * `onChange`. Picking a result keeps its label in the field (no reset) and the
+ * X clears it — every change flows through the consumer's state.
+ */
+export const Controlled: Story = {
+  args: {
+    options: sampleOptions,
+  },
+  render: (args) => {
+    const [value, setValue] = React.useState('')
+    return (
+      <div style={{ width: '18.125rem' }}>
+        <Search
+          {...args}
+          placeholder='Search'
+          value={value}
+          onChange={setValue}
+          onSelect={() => {}}
+        />
+        <p style={{ marginTop: '0.5rem' }}>Value: {value || '(empty)'}</p>
+      </div>
+    )
   },
 }
 

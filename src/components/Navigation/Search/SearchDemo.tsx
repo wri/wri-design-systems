@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { useState } from 'react'
 import { Box } from '@chakra-ui/react'
 import Search from '.'
 import TextResults from './TextResults'
@@ -37,6 +38,26 @@ const sampleOptions = [
     icon: <MapIcon />,
   },
 ]
+
+const ControlledSearchDemo = () => {
+  const [value, setValue] = useState('')
+
+  return (
+    <div>
+      <Search
+        options={sampleOptions}
+        placeholder='10. Controlled (selection stays, X clears)'
+        value={value}
+        onChange={setValue}
+        onSelect={(option) => console.log({ selected: option })}
+      />
+
+      <p style={{ marginTop: '0.5rem' }}>
+        Current value: <strong>{value}</strong>
+      </p>
+    </div>
+  )
+}
 
 const SearchDemo = () => (
   <DemoWrapper title='Search'>
@@ -136,6 +157,8 @@ const SearchDemo = () => (
         placeholder='9. ReactNode labels (try "monitor")'
         onSelect={(option) => console.log({ selected: option })}
       />
+
+      <ControlledSearchDemo />
     </Box>
   </DemoWrapper>
 )

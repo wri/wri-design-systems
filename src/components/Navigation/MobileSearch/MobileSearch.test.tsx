@@ -47,7 +47,7 @@ describe('MobileSearch', () => {
     expect(screen.queryByRole('button', { name: /Forest loss/ })).toBeNull()
   })
 
-  it('renders no clear affordance through the mocked InputGroup', () => {
+  it('renders the clear affordance through the InputGroup endElement', () => {
     renderSearch()
 
     const input = screen.getByRole('searchbox', { name: 'Search' })
@@ -55,11 +55,9 @@ describe('MobileSearch', () => {
     fireEvent.change(input, { target: { value: 'land' } })
 
     // The clear affordance is passed as `endElement` to Chakra's InputGroup;
-    // the shared mock renders InputGroup as a plain div and drops
-    // startElement/endElement slots, so only Cancel is present. Clearing is
-    // therefore covered by the cancel test below.
-    expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument()
-    expect(screen.queryByRole('button', { name: 'Close' })).toBeNull()
+    // the shared mock renders the startElement/child/endElement slots like
+    // real Chakra, so the X is present while a query is held.
+    expect(screen.getByRole('button', { name: 'Close' })).toBeInTheDocument()
   })
 
   it('reports the clicked item through onItemClick', () => {
