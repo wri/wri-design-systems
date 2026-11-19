@@ -49,7 +49,9 @@ const Search = ({
   onChange,
 }: SearchProps) => {
   const l = useLabels('Search', labels)
-  const isControlled = controlledValue !== undefined
+  // `!= null` also treats a JS consumer's `value={null}` as uncontrolled (like
+  // React does for inputs) — otherwise `currentValue.length` would throw.
+  const isControlled = controlledValue != null
   const [uncontrolledValue, setUncontrolledValue] =
     useState<string>(defaultValue)
   const currentValue = isControlled ? controlledValue : uncontrolledValue
@@ -68,7 +70,13 @@ const Search = ({
       setUncontrolledValue(newValue)
     }
     onChange?.(newValue)
-    if (newValue) onOpen()
+    if (newValue) {
+      onOpen()
+    } else {
+      // Emptying the field closes the disclosure, so a later programmatic
+      // value change cannot reopen the results without a keystroke.
+      onClose()
+    }
   }
   const handleOnClear = () => {
     if (!isControlled) {
@@ -76,6 +84,7 @@ const Search = ({
     }
     onChange?.('')
     onClear?.()
+    onClose()
   }
 
   const inputId = useId()
@@ -103,6 +112,10 @@ const Search = ({
     // Deprecated observation hook, kept for backwards compatibility — fires
     // at the same times as `onChange` (typing, selection, clear).
     onQueryChange?.(currentValue)
+    // Reset the highlight whenever the query or options change: a stale index
+    // could point at a different row (or out of bounds) after the result
+    // list is rebuilt.
+    setHighlightedIndex(-1)
     if (!currentValue) {
       setFilteredResults(options)
       return
@@ -129,7 +142,7 @@ const Search = ({
     setFilteredResults(listItems)
     // The results popover opens on typing (handleOnSearch) rather than here,
     // so selection and programmatic value changes do not re-open it.
-  }, [currentValue])
+  }, [currentValue, options])
 
   const endElement = currentValue.length ? (
     <CloseButton onClick={handleOnClear} />

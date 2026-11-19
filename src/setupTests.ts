@@ -19,3 +19,7 @@ console.error = (...args: unknown[]) => {
   }
   originalError(...args)
 }
+
+// jsdom does not implement scrollIntoView; components with scroll-on-focus
+// effects (e.g. Search's TextResults highlight sync) need it in tests.
+Element.prototype.scrollIntoView = jest.fn()
