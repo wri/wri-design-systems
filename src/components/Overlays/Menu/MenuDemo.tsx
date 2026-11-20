@@ -1,17 +1,25 @@
 /* eslint-disable no-console */
+/* eslint-disable react/no-unknown-property */
+/** @jsxImportSource @emotion/react */
 
-import { Button, Menu } from '../..'
+import { css } from '@emotion/react'
+import { Menu } from '../..'
 import { PlaceholderIcon } from '../../icons'
 import DemoWrapper from '../../UI/DemoWrapper'
+import {
+  getThemedColor,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 const MenuDemo = () => (
   <DemoWrapper title='Menu'>
     <div
       style={{
         display: 'flex',
-        flexDirection: 'column',
         gap: '1.25rem',
-        maxWidth: '11.25rem',
+        maxWidth: '15rem',
+        flexWrap: 'wrap',
       }}
     >
       <Menu
@@ -151,6 +159,79 @@ const MenuDemo = () => (
       />
 
       <Menu
+        label='View mode (radio)'
+        selectionMode='radio'
+        defaultSelectedValues={['label-6-1']}
+        items={[
+          { label: 'Map', value: 'label-6-1' },
+          { label: 'Table', value: 'label-6-2' },
+          { label: 'Chart', value: 'label-6-3' },
+        ]}
+        onSelect={(value) => console.log('onSelect', value)}
+        size='small'
+      />
+
+      <Menu
+        label='Navbar Item'
+        triggerVariant='navbarItem'
+        items={[
+          {
+            label: 'Label',
+            value: 'label-7-1',
+          },
+          {
+            label: 'Label',
+            value: 'label-7-2',
+          },
+        ]}
+        onSelect={(value) => console.log('onSelect', value)}
+      />
+
+      <Menu
+        label='Navbar Item (active)'
+        triggerVariant='navbarItem'
+        active
+        items={[
+          {
+            label: 'Label',
+            value: 'label-9-1',
+          },
+          {
+            label: 'Label',
+            value: 'label-9-2',
+          },
+        ]}
+        onSelect={(value) => console.log('onSelect', value)}
+      />
+
+      <div
+        css={css`
+          display: flex;
+          justify-content: center;
+          padding: ${getThemedSpacing(500)};
+          background-color: ${getThemedColor('neutral', 900)};
+          border-radius: ${getThemedRadius(300)};
+        `}
+      >
+        <Menu
+          label='Navbar Item (dark)'
+          triggerVariant='navbarItem'
+          theme='dark'
+          items={[
+            {
+              label: 'Label',
+              value: 'label-8-1',
+            },
+            {
+              label: 'Label',
+              value: 'label-8-2',
+            },
+          ]}
+          onSelect={(value) => console.log('onSelect', value)}
+        />
+      </div>
+
+      <Menu
         label='With Custom Trigger'
         items={[
           {
@@ -177,12 +258,35 @@ const MenuDemo = () => (
           },
         ]}
         onSelect={(value) => console.log('onSelect', value)}
+        // Fully custom trigger: any element can open the menu. The legacy
+        // navigation trigger is built in as `triggerVariant='navbarItem'`.
         customTrigger={
-          <Button
-            label='Open Menu'
+          <button
+            type='button'
             aria-label='Open custom trigger menu'
-            variant='secondary'
-          />
+            css={css`
+              display: inline-flex;
+              align-items: center;
+              gap: ${getThemedSpacing(100)};
+              padding: ${getThemedSpacing(50)} ${getThemedSpacing(300)};
+              cursor: pointer;
+              font-size: 1rem;
+              color: ${getThemedColor('neutral', 800)};
+              background-color: ${getThemedColor('neutral', 100)};
+              border: 1px solid ${getThemedColor('neutral', 300)};
+              border-radius: 9999px;
+              &:hover {
+                background-color: ${getThemedColor('neutral', 200)};
+              }
+              &:focus-visible {
+                outline: 2px solid ${getThemedColor('primary', 700)};
+                outline-offset: ${getThemedSpacing(50)};
+              }
+            `}
+          >
+            <PlaceholderIcon />
+            Open Menu
+          </button>
         }
       />
     </div>

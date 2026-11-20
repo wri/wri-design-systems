@@ -60,14 +60,20 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const hasContent = label || children
 
+    const { css: externalCss, ...restWithoutCss } = rest
+
     return (
       <ChakraButton
         aria-label={getAriaLabel()}
-        css={[baseButtonStyles(size), variantButtonStyles]}
+        css={[
+          baseButtonStyles(size),
+          variantButtonStyles,
+          ...(externalCss ? [externalCss].flat() : []),
+        ]}
         disabled={disabled || loading}
         aria-disabled={disabled || loading}
         ref={ref}
-        {...rest}
+        {...restWithoutCss}
       >
         {leftIcon && !loading ? (
           <Box

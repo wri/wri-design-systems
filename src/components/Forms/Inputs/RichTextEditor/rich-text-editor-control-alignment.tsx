@@ -5,19 +5,14 @@
 
 import { Editor } from '@tiptap/react'
 import * as React from 'react'
-import { Box } from '@chakra-ui/react'
 import type { IconButtonProps } from '../../Actions/IconButton/types'
-import type { ButtonProps } from '../../Actions/Button/types'
-import Button from '../../Actions/Button'
 import Menu from '../../../Overlays/Menu'
 import {
-  ChevronDownIcon,
   RteAlignCenterIcon,
   RteAlignJustifyIcon,
   RteAlignLeftIcon,
   RteAlignRightIcon,
 } from '../../../icons'
-import { getThemedColor, getThemedSpacing } from '../../../../lib/theme'
 import { useRichTextEditorContext } from './rich-text-editor-context'
 
 const getCurrentAlignment = (editor: Editor) => {
@@ -52,7 +47,6 @@ export const Alignment = (
     alignCenterLabel = 'Align center',
     alignRightLabel = 'Align right',
     alignJustifyLabel = 'Justify',
-    ...rest
   } = props
 
   const currentAlignment = getCurrentAlignment(editor)
@@ -85,40 +79,18 @@ export const Alignment = (
 
   return (
     <Menu
-      label={label}
-      hideArrow
+      label=''
+      triggerAriaLabel={`${label}: ${currentOption?.label || label}`}
+      size='small'
+      triggerLeftIcon={
+        <CurrentAlignmentIcon width='0.875rem' height='0.875rem' />
+      }
       items={options.map((option) => ({ ...option, disabled }))}
       onSelect={(value) => {
         if (!disabled) {
           editor.chain().focus().setTextAlign(value).run()
         }
       }}
-      customTrigger={
-        <Box
-          css={{
-            '& button': { fontWeight: 'normal' },
-            '&[data-part="trigger"]': { padding: 0 },
-          }}
-        >
-          <Button
-            variant='secondary'
-            size='small'
-            disabled={disabled}
-            label=''
-            aria-label={`${label}: ${currentOption?.label || label}`}
-            leftIcon={
-              <Box display='inline-flex' marginRight={getThemedSpacing(200)}>
-                <CurrentAlignmentIcon width='0.875rem' height='0.875rem' />
-              </Box>
-            }
-            rightIcon={<ChevronDownIcon width='0.875rem' height='0.875rem' />}
-            {...({
-              borderColor: getThemedColor('neutral', 400),
-            } as Partial<ButtonProps>)}
-            {...rest}
-          />
-        </Box>
-      }
     />
   )
 }
