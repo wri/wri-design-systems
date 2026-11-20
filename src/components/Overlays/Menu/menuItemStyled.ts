@@ -3,20 +3,22 @@ import {
   getThemedColor,
   getThemedFontSize,
   getThemedLineHeight,
+  getThemedRadius,
   getThemedSpacing,
 } from '../../../lib/theme'
 
 export const menuItemContainerStyles = css`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0;
+  padding: ${getThemedSpacing(200)};
+  border-radius: ${getThemedRadius(300)};
   cursor: pointer;
 
   svg {
     height: 1rem;
     width: 1rem;
     color: ${getThemedColor('neutral', 700)};
-    margin-top: ${getThemedSpacing(100)};
   }
 
   &:hover {
@@ -70,8 +72,8 @@ export const menuItemLabelAndCaptionStyles = (
   hasEndIcon: boolean,
 ) => css`
   width: 100%;
-  margin-left: ${hasStartIcon ? getThemedSpacing(200) : '0'};
-  margin-right: ${hasEndIcon ? getThemedSpacing(200) : '0'};
+  margin-left: ${hasStartIcon ? getThemedSpacing(300) : '0'};
+  margin-right: ${hasEndIcon ? getThemedSpacing(300) : '0'};
 `
 
 export const menuItemLabelContentStyles = (isChecked = false) => css`
@@ -85,7 +87,7 @@ export const menuItemLabelContentStyles = (isChecked = false) => css`
     font-size: ${getThemedFontSize(400)};
     line-height: ${getThemedLineHeight(600)};
     font-weight: ${isChecked ? 700 : 400};
-    color: ${getThemedColor('neutral', 900)};
+    color: ${getThemedColor('neutral', 800)};
   }
 
   .ds-menu-item-caption {

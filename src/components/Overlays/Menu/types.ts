@@ -30,14 +30,34 @@ export type MenuItemProps = {
 }
 
 export type MenuProps = {
-  /** Color theme of the trigger button. Defaults to `'light'` */
+  /**
+   * Visual style of the default trigger button. 'primary', 'secondary', and
+   * 'borderless' delegate to the existing Button variants; 'navbarItem'
+   * renders the legacy navigation trigger (transparent button with a
+   * hover background and a chevron). Defaults to `'secondary'`
+   */
+  triggerVariant?: 'primary' | 'secondary' | 'borderless' | 'navbarItem'
+  /** Size of the default trigger button; also controls its font size. Defaults to `'default'` */
+  size?: 'default' | 'small'
+  /** Icon rendered before the default trigger label; the right chevron is fixed */
+  triggerLeftIcon?: React.ReactNode
+  /** Accessible name of the default trigger button; overrides the label text for screen readers */
+  triggerAriaLabel?: string
+  /**
+   * Highlights the trigger as the current section (e.g. when the current route
+   * matches one of the menu items), with the same treatment as the active
+   * Navbar link. Applies to the `'navbarItem'` trigger and sets
+   * `aria-current='true'` on it. Defaults to `false`
+   */
+  active?: boolean
+  /**
+   * Color theme of the trigger button; use `'dark'` when the Menu sits on a
+   * dark background (e.g. a dark Navbar). Applies to the `'navbarItem'`
+   * trigger. Defaults to `'light'`
+   */
   theme?: 'light' | 'dark'
   /** Text of the default trigger button; also the fallback aria-label of the menu content */
   label: string
-  /** Hides the decorative arrow on the menu content. Defaults to `false` */
-  hideArrow?: boolean
-  /** Font size of the trigger label. Defaults to `'1rem'` */
-  fontSize?: string
   /** Flat list of menu items rendered before any groups */
   items?: MenuItemProps[]
   /** Items rendered as titled groups, separated by dividers */

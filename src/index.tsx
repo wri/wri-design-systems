@@ -25,6 +25,14 @@ root.render(
             path='/page1/page2/page3/page4/page5/page6'
             element={<App />}
           />
+          <Route
+            path='/page1/page2/page3/page4/page5/page6/page7'
+            element={<App />}
+          />
+          <Route
+            path='/page1/page2/page3/page4/page5/page6/page7/page8'
+            element={<App />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

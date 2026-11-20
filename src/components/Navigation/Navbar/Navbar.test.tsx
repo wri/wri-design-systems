@@ -94,6 +94,43 @@ describe('Navbar — desktop', () => {
 
     expect(getByRole('link', { name: 'About' })).toBeInTheDocument()
   })
+
+  it('marks a menu trigger active when a menu item link matches the pathname', () => {
+    const { getByRole } = renderNavbar({
+      pathname: '/tools/geo',
+      navigationSection: [
+        { label: 'Home', link: '/' },
+        {
+          label: 'Tools',
+          items: [
+            { label: 'Geo', link: '/tools/geo' },
+            { label: 'Charts', link: '/tools/charts' },
+          ],
+        },
+      ],
+    })
+
+    expect(getByRole('button', { name: 'Tools' })).toHaveAttribute(
+      'aria-current',
+      'true',
+    )
+  })
+
+  it('does not mark a menu trigger active when no item link matches', () => {
+    const { getByRole } = renderNavbar({
+      pathname: '/elsewhere',
+      navigationSection: [
+        {
+          label: 'Tools',
+          items: [{ label: 'Geo', link: '/tools/geo' }],
+        },
+      ],
+    })
+
+    expect(getByRole('button', { name: 'Tools' })).not.toHaveAttribute(
+      'aria-current',
+    )
+  })
 })
 
 describe('Navbar — mobile', () => {

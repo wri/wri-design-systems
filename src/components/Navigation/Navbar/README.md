@@ -130,7 +130,7 @@ import { Navbar } from '@worldresources/wri-design-systems'
 | `maxWidth`             | `number \| string`             | `'100%'`    | Maximum width of the navbar content container, numbers resolve to spacing-scale rem values                                     |
 | `navigationSection`    | `NavbarNavigationItemsProps[]` | —           | Navigation items rendered after the logo, items with a link render as links and items with menu items render as dropdown menus |
 | `onNavbarHeightChange` | `(height: number) => void`     | —           | Called with the navbar height whenever it changes between single and double bar layouts                                        |
-| `pathname`             | `string`                       | —           | Current pathname from react router or next.js used to highlight the active link                                                |
+| `pathname`             | `string`                       | —           | Current pathname from react router or next.js used to highlight the active link and menu triggers when a route matches one of their items |
 | `theme`                | `'light' \| 'dark'`            | `'light'`   | Color theme of the navbar                                                                                                      |
 | `utilitySection`       | `React.ReactNode[]`            | —           | Custom nodes rendered in the right side of the navbar, hidden on mobile                                                        |
 | `variant`              | `'default' \| 'condensed'`     | `'default'` | Navbar height variant, 'condensed' renders a shorter bar                                                                       |

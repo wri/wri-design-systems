@@ -1,10 +1,18 @@
+/** @jsxImportSource @emotion/react */
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react'
+import { css } from '@emotion/react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import MenuStory from '.'
 import { PlaceholderIcon } from '../../icons'
-import Button from '../../Forms/Actions/Button'
+import {
+  getThemedColor,
+  getThemedFontSize,
+  getThemedRadius,
+  getThemedSpacing,
+} from '../../../lib/theme'
 
 const meta = {
   title: 'Overlays/Menu',
@@ -15,19 +23,39 @@ const meta = {
     docs: {
       description: {
         component:
-          'Dropdown menu with selectable items. Use `items` to define the menu options.',
+          'Dropdown menu with selectable items. Use `items` to define the menu options. The built-in trigger supports `triggerVariant` (primary, secondary, borderless, navbarItem) and `size` (default, small); a `customTrigger` replaces it entirely.',
       },
     },
   },
   tags: ['autodocs'],
   argTypes: {
+    triggerVariant: {
+      description:
+        "Visual style of the trigger button — 'navbarItem' renders the legacy navigation trigger",
+      control: { type: 'select' },
+      options: ['primary', 'secondary', 'borderless', 'navbarItem'],
+    },
+    size: {
+      description: "Size of the trigger button — 'small' for compact layouts",
+      control: { type: 'select' },
+      options: ['default', 'small'],
+    },
     theme: {
-      description: 'Visual theme',
+      description:
+        "Color theme of the trigger button — use 'dark' when the Menu sits on a dark background (applies to the 'navbarItem' trigger)",
       control: { type: 'select' },
       options: ['light', 'dark'],
     },
+    active: {
+      description:
+        "Highlights the trigger as the current section, like the active Navbar link (applies to the 'navbarItem' trigger)",
+      control: 'boolean',
+    },
     label: { description: 'Trigger button label', control: 'text' },
-    fontSize: { description: 'Font size for menu items', control: 'text' },
+    triggerLeftIcon: {
+      description: 'Icon rendered before the trigger label',
+      control: false,
+    },
     items: { description: 'Flat list of menu items', control: false },
     groups: {
       description: 'Grouped menu items with section titles',
@@ -57,6 +85,11 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+const triggerItems = [
+  { label: 'Label', value: 'trigger-1' },
+  { label: 'Label', caption: 'Caption', value: 'trigger-2' },
+]
+
 export const Menu: Story = {
   args: {
     label: 'Open Menu',
@@ -71,6 +104,86 @@ export const Menu: Story = {
         value: 'value-1-2',
       },
     ],
+  },
+}
+
+export const Primary: Story = {
+  args: {
+    label: 'Open Menu',
+    triggerVariant: 'primary',
+    items: triggerItems,
+  },
+}
+
+export const Secondary: Story = {
+  args: {
+    label: 'Open Menu',
+    triggerVariant: 'secondary',
+    items: triggerItems,
+  },
+}
+
+export const Borderless: Story = {
+  args: {
+    label: 'Open Menu',
+    triggerVariant: 'borderless',
+    items: triggerItems,
+  },
+}
+
+export const NavbarItem: Story = {
+  args: {
+    label: 'Open Menu',
+    triggerVariant: 'navbarItem',
+    items: triggerItems,
+  },
+}
+
+export const NavbarItemActive: Story = {
+  args: {
+    label: 'Open Menu',
+    triggerVariant: 'navbarItem',
+    active: true,
+    items: triggerItems,
+  },
+}
+
+export const NavbarItemDark: Story = {
+  args: {
+    label: 'Open Menu',
+    triggerVariant: 'navbarItem',
+    theme: 'dark',
+    items: triggerItems,
+  },
+  render: (args) => (
+    <div
+      // eslint-disable-next-line react/no-unknown-property
+      css={css`
+        display: flex;
+        justify-content: center;
+        padding: ${getThemedSpacing(500)};
+        background-color: ${getThemedColor('neutral', 900)};
+        border-radius: ${getThemedRadius(300)};
+      `}
+    >
+      <MenuStory {...args} />
+    </div>
+  ),
+}
+
+export const Small: Story = {
+  args: {
+    label: 'Open Menu',
+    size: 'small',
+    items: triggerItems,
+  },
+}
+
+export const WithLeftIcon: Story = {
+  args: {
+    label: 'Open Menu',
+    triggerLeftIcon: <PlaceholderIcon />,
+    items: triggerItems,
   },
 }
 
@@ -223,7 +336,38 @@ export const CustomTrigger: Story = {
         value: 'value-6-2',
       },
     ],
-    customTrigger: <Button label='Open Menu' variant='secondary' />,
+    // Fully custom trigger: any element can open the menu. The legacy
+    // navigation trigger is built in as `triggerVariant='navbarItem'`.
+    customTrigger: (
+      <button
+        type='button'
+        // eslint-disable-next-line react/no-unknown-property
+        css={css`
+          display: inline-flex;
+          align-items: center;
+          gap: ${getThemedSpacing(100)};
+          padding: ${getThemedSpacing(50)} ${getThemedSpacing(300)};
+          cursor: pointer;
+          font-size: ${getThemedFontSize(400)};
+          color: ${getThemedColor('neutral', 800)};
+          background-color: ${getThemedColor('neutral', 100)};
+          border: 1px solid ${getThemedColor('neutral', 300)};
+          border-radius: 9999px;
+
+          &:hover {
+            background-color: ${getThemedColor('neutral', 200)};
+          }
+
+          &:focus-visible {
+            outline: 2px solid ${getThemedColor('primary', 700)};
+            outline-offset: ${getThemedSpacing(50)};
+          }
+        `}
+      >
+        <PlaceholderIcon />
+        Open Menu
+      </button>
+    ),
   },
 }
 

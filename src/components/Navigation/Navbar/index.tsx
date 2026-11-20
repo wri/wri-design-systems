@@ -167,8 +167,12 @@ const Navbar = ({
                   theme={theme}
                   key={item.label}
                   label={item.label}
-                  fontSize={isCondensed ? '0.875rem' : '1rem'}
+                  size={isCondensed ? 'small' : 'default'}
                   items={item.items || []}
+                  triggerVariant='navbarItem'
+                  active={
+                    !!item.items?.some((subItem) => subItem.link === pathname)
+                  }
                 />
               )
             })}
@@ -243,8 +247,12 @@ const Navbar = ({
                 theme={theme}
                 key={item.label}
                 label={item.label}
-                fontSize={isCondensed ? '0.875rem' : '1rem'}
+                size={isCondensed ? 'small' : 'default'}
                 items={item.items || []}
+                triggerVariant='navbarItem'
+                active={
+                  !!item.items?.some((subItem) => subItem.link === pathname)
+                }
               />
             )
           })}
