@@ -50,11 +50,11 @@ const NavbarDemo = () => {
           items: [
             {
               label: 'Data 1',
-              link: '/page1/page2/page3',
+              link: '/page1/page2/page3/page4',
             },
             {
               label: 'Data 2',
-              link: '/page1/page2/page3/page4',
+              link: '/page1/page2/page3/page4/page5',
             },
           ],
         },
@@ -64,11 +64,11 @@ const NavbarDemo = () => {
           items: [
             {
               label: 'Use Case 1',
-              link: '/page1/page2/page3/page4',
+              link: '/page1/page2/page3/page4/page5',
             },
             {
               label: 'Use Case 2',
-              link: '/page1/page2/page3/page4/page5',
+              link: '/page1/page2/page3/page4/page5/page6',
             },
           ],
         },
@@ -77,13 +77,13 @@ const NavbarDemo = () => {
           items: [
             {
               label: 'News 1',
-              link: '/page1/page2/page3/page4/page5/page6',
+              link: '/page1/page2/page3/page4/page5/page6/page7',
             },
           ],
         },
         {
           label: 'Help',
-          link: '/page1/page2/page3/page4/page5/page6',
+          link: '/page1/page2/page3/page4/page5/page6/page7/page8',
         },
       ]}
       utilitySection={[

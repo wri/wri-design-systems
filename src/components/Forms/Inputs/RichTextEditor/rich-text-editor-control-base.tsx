@@ -5,15 +5,10 @@
 
 import { Editor } from '@tiptap/react'
 import * as React from 'react'
-import { Box } from '@chakra-ui/react'
 import type { IconButtonProps } from '../../Actions/IconButton/types'
-import type { ButtonProps } from '../../Actions/Button/types'
-import Button from '../../Actions/Button'
 import IconButton from '../../Actions/IconButton'
 import Menu from '../../../Overlays/Menu'
 import Tooltip from '../../../Overlays/Tooltip'
-import { ChevronDownIcon } from '../../../icons'
-import { getThemedColor } from '../../../../lib/theme'
 import { useRichTextEditorContext } from './rich-text-editor-context'
 
 export interface BaseControlConfig {
@@ -115,8 +110,10 @@ export function createOptionControl(config: OptionControlConfig) {
 
     return (
       <Menu
-        label={resolvedLabel}
-        hideArrow
+        label={currentOption?.label || resolvedLabel}
+        triggerAriaLabel={`${resolvedLabel}: ${currentOption?.label || resolvedLabel}`}
+        size='small'
+        disabled={disabled}
         items={options.map((option) => ({
           label: option.label,
           value: option.value,
@@ -127,26 +124,6 @@ export function createOptionControl(config: OptionControlConfig) {
             command(editor, selectedValue)
           }
         }}
-        customTrigger={
-          <Box
-            css={{
-              '& button': { fontWeight: 'normal' },
-              '&[data-part="trigger"]': { padding: 0 },
-            }}
-          >
-            <Button
-              variant='secondary'
-              size='small'
-              disabled={disabled}
-              label={currentOption?.label || resolvedLabel}
-              aria-label={`${resolvedLabel}: ${currentOption?.label || resolvedLabel}`}
-              rightIcon={<ChevronDownIcon width='0.875rem' height='0.875rem' />}
-              {...({
-                borderColor: getThemedColor('neutral', 400),
-              } as Partial<ButtonProps>)}
-            />
-          </Box>
-        }
       />
     )
   }

@@ -7,20 +7,25 @@ import { Menu as ChakraMenu, Portal } from '@chakra-ui/react'
 import MenuItem from './MenuItem'
 import { MenuProps } from './types'
 import {
-  menuStyles,
+  menuTriggerChevronStyles,
+  menuNavbarItemStyles,
   menuContentStyles,
-  menuArrowStyles,
   menuItemGroupLabelStyles,
   menuSubmenuTriggerStyles,
 } from './styled'
+import Button from '../../Forms/Actions/Button'
 import { ChevronDownIcon } from '../../icons'
 import { useLabels } from '../../../lib/i18n/useLabels'
 
 const Menu = ({
+  triggerVariant = 'secondary',
+  size = 'default',
+  triggerLeftIcon,
+  triggerAriaLabel,
+  active = false,
   theme = 'light',
+  disabled = false,
   label,
-  hideArrow = false,
-  fontSize,
   items,
   groups,
   onSelect,
@@ -74,18 +79,47 @@ const Menu = ({
       onOpenChange={({ open }) => setIsOpen(open)}
       open={isOpen}
     >
-      <ChakraMenu.Trigger css={menuStyles(theme, fontSize)} asChild>
-        {customTrigger || (
-          <button type='button' ref={triggerRef}>
-            {label}
-            <ChevronDownIcon
-              marginLeft='0.375rem'
-              rotate={isOpen ? '180' : '0'}
-              height='0.875rem'
-              width='0.875rem'
+      <ChakraMenu.Trigger asChild>
+        {customTrigger ||
+          (triggerVariant === 'navbarItem' ? (
+            <button
+              type='button'
+              ref={triggerRef}
+              css={[
+                menuNavbarItemStyles(size, theme, active),
+                menuTriggerChevronStyles,
+              ]}
+              aria-label={triggerAriaLabel}
+              aria-current={active ? 'true' : undefined}
+              disabled={disabled}
+            >
+              {triggerLeftIcon}
+              {label}
+              <ChevronDownIcon
+                rotate={isOpen ? '180' : '0'}
+                height='0.875rem'
+                width='0.875rem'
+              />
+            </button>
+          ) : (
+            <Button
+              ref={triggerRef}
+              variant={triggerVariant}
+              size={size}
+              label={label}
+              aria-label={triggerAriaLabel}
+              leftIcon={triggerLeftIcon}
+              rightIcon={
+                <ChevronDownIcon
+                  rotate={isOpen ? '180' : '0'}
+                  height='0.875rem'
+                  width='0.875rem'
+                />
+              }
+              css={menuTriggerChevronStyles}
+              disabled={disabled}
             />
-          </button>
-        )}
+          ))}
       </ChakraMenu.Trigger>
       <Portal>
         <ChakraMenu.Positioner>
@@ -94,7 +128,6 @@ const Menu = ({
             role='menu'
             aria-label={label || l.menuAriaLabel}
           >
-            {hideArrow ? null : <div css={menuArrowStyles} />}
             {items?.map((item, idx) => {
               if (item.submenu) {
                 const [submenuOpen, setSubmenuOpen] = useState(false)

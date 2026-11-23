@@ -4,22 +4,50 @@ import {
   getThemedColor,
   getThemedFontSize,
   getThemedLineHeight,
+  getThemedRadius,
   getThemedSpacing,
 } from '../../../lib/theme'
 
-export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
+export const menuTriggerChevronStyles = css`
+  & > :last-child {
+    margin-left: 0.375rem !important;
+  }
+
+  & > svg:last-child,
+  & > :last-child > svg {
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+`
+
+/**
+ * Legacy navigation trigger: the plain button that used to be the Menu's
+ * built-in trigger, kept as the `navbarItem` variant.
+ */
+export const menuNavbarItemStyles = (
+  size?: 'default' | 'small',
+  theme?: 'light' | 'dark',
+  active?: boolean,
+) => css`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: ${getThemedSpacing(100)};
   padding: ${getThemedSpacing(50)} ${getThemedSpacing(300)};
   cursor: pointer;
-  font-size: ${fontSize ?? '1rem'};
-  color: ${theme === 'dark' ? getThemedColor('neutral', 100) : 'default'};
-  background-color: ${theme === 'dark' ? 'default' : 'transparent'};
+  font-size: ${size === 'small'
+    ? getThemedFontSize(200)
+    : getThemedFontSize(400)};
+  font-weight: ${active ? 700 : 400};
+  color: ${theme === 'dark'
+    ? getThemedColor('neutral', 100)
+    : getThemedColor('neutral', 900)};
+  background-color: transparent;
+  border: none;
+
   &:hover {
     background-color: ${theme === 'dark'
-      ? 'default'
+      ? 'transparent'
       : getThemedColor('neutral', 200)};
   }
 
@@ -33,36 +61,19 @@ export const menuStyles = (theme?: 'light' | 'dark', fontSize?: string) => css`
     outline-style: solid;
     outline-width: ${getThemedBorderWidth(200)};
   }
-`
 
-export const menuArrowStyles = css`
-  position: absolute;
-  left: 1rem;
-  width: 1rem;
-  height: 1rem;
-  background: white;
-  transform: rotate(45deg);
-  z-index: 2;
+  &:disabled {
+    cursor: not-allowed;
+    color: ${getThemedColor('neutral', 500)};
 
-  border-left: ${getThemedBorderWidth(100)} solid
-    ${getThemedColor('neutral', 600)};
-  border-top: ${getThemedBorderWidth(100)} solid
-    ${getThemedColor('neutral', 600)};
-
-  top: -0.5rem;
-
-  [data-placement*='top'] & {
-    top: auto;
-    bottom: -0.5rem;
-
-    border-top: none;
-    border-left: none;
-
-    border-right: ${getThemedBorderWidth(100)} solid
-      ${getThemedColor('neutral', 600)};
-    border-bottom: ${getThemedBorderWidth(100)} solid
-      ${getThemedColor('neutral', 600)};
+    &:hover {
+      background-color: transparent;
+    }
   }
+
+  ${active && theme !== 'dark'
+    ? `color: ${getThemedColor('accessible', 'controls-on-neutral-lights')};`
+    : ''}
 `
 
 export const menuContentStyles = (width: string | 'content' = '14rem') => css`
@@ -70,10 +81,11 @@ export const menuContentStyles = (width: string | 'content' = '14rem') => css`
   border: ${getThemedBorderWidth(100)} solid ${getThemedColor('neutral', 600)};
   box-shadow: 0 0.25rem 0.375rem -0.25rem #0000001a;
   box-shadow: 0 0.625rem 0.9375rem -0.1875rem #0000001a;
-  padding: ${getThemedSpacing(300)};
+  border-radius: ${getThemedRadius(300)};
+  padding: ${getThemedSpacing(100)} ${getThemedSpacing(200)};
   display: flex;
   flex-direction: column;
-  gap: ${getThemedSpacing(200)};
+  gap: 0;
 `
 
 export const menuSubmenuTriggerStyles = css`
