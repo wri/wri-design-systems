@@ -13,7 +13,8 @@ export const menuTriggerChevronStyles = css`
     margin-left: 0.375rem !important;
   }
 
-  svg {
+  & > svg:last-child,
+  & > :last-child > svg {
     width: 0.625rem;
     height: 0.625rem;
   }
@@ -59,6 +60,15 @@ export const menuNavbarItemStyles = (
     outline-offset: ${getThemedSpacing(50)};
     outline-style: solid;
     outline-width: ${getThemedBorderWidth(200)};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: ${getThemedColor('neutral', 500)};
+
+    &:hover {
+      background-color: transparent;
+    }
   }
 
   ${active && theme !== 'dark'

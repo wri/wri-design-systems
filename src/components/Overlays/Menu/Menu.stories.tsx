@@ -51,6 +51,11 @@ const meta = {
         "Highlights the trigger as the current section, like the active Navbar link (applies to the 'navbarItem' trigger)",
       control: 'boolean',
     },
+    disabled: {
+      description:
+        'Disables the built-in trigger button so it cannot open the menu',
+      control: 'boolean',
+    },
     label: { description: 'Trigger button label', control: 'text' },
     triggerLeftIcon: {
       description: 'Icon rendered before the trigger label',
@@ -144,6 +149,14 @@ export const NavbarItemActive: Story = {
     label: 'Open Menu',
     triggerVariant: 'navbarItem',
     active: true,
+    items: triggerItems,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    label: 'Open Menu',
+    disabled: true,
     items: triggerItems,
   },
 }

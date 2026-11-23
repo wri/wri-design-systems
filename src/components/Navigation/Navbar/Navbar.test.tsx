@@ -131,6 +131,22 @@ describe('Navbar — desktop', () => {
       'aria-current',
     )
   })
+
+  it('does not mark a menu trigger active when the pathname is missing', () => {
+    const { getByRole } = renderNavbar({
+      pathname: '',
+      navigationSection: [
+        {
+          label: 'Tools',
+          items: [{ label: 'Geo', link: '/tools/geo' }],
+        },
+      ],
+    })
+
+    expect(getByRole('button', { name: 'Tools' })).not.toHaveAttribute(
+      'aria-current',
+    )
+  })
 })
 
 describe('Navbar — mobile', () => {

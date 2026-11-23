@@ -205,6 +205,34 @@ describe('Menu — DS-406 trigger style contract', () => {
       /margin-left:\s*0\.375rem\s*!important/,
     )
   })
+
+  it('sizes only the trailing chevron, not every icon in the trigger', () => {
+    const { styles } = menuTriggerChevronStyles
+
+    expect(styles).not.toMatch(/(^|[},])\s*svg\s*\{/)
+    expect(styles).toMatch(/:last-child[^{]*svg\s*\{[^}]*0\.625rem/s)
+  })
+})
+
+describe('Menu — disabled trigger', () => {
+  it('disables the built-in Button trigger', () => {
+    render(<Menu label='Open Menu' disabled items={items} />)
+
+    expect(screen.getByRole('button', { name: 'Open Menu' })).toBeDisabled()
+  })
+
+  it('disables the navbarItem trigger', () => {
+    render(
+      <Menu
+        label='Open Menu'
+        triggerVariant='navbarItem'
+        disabled
+        items={items}
+      />,
+    )
+
+    expect(screen.getByRole('button', { name: 'Open Menu' })).toBeDisabled()
+  })
 })
 
 describe('Menu — navbarItem theme style contract', () => {
@@ -289,7 +317,7 @@ describe('Menu — navbarItem active state', () => {
     ).styles
 
     expect(activeDarkStyles).toMatch(/font-weight:\s*700/)
-    const textColor = activeDarkStyles.match(/color:\s*([^;]+);/)?.[1]
+    const [, textColor] = activeDarkStyles.match(/color:\s*([^;]+);/) ?? []
     expect(textColor).toBe(getThemedColor('neutral', 100))
     expect(textColor).not.toBe(
       getThemedColor('accessible', 'controls-on-neutral-lights'),

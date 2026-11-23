@@ -24,6 +24,7 @@ const Menu = ({
   triggerAriaLabel,
   active = false,
   theme = 'light',
+  disabled = false,
   label,
   items,
   groups,
@@ -90,6 +91,7 @@ const Menu = ({
               ]}
               aria-label={triggerAriaLabel}
               aria-current={active ? 'true' : undefined}
+              disabled={disabled}
             >
               {triggerLeftIcon}
               {label}
@@ -115,6 +117,7 @@ const Menu = ({
                 />
               }
               css={menuTriggerChevronStyles}
+              disabled={disabled}
             />
           ))}
       </ChakraMenu.Trigger>

@@ -70,6 +70,11 @@ export type MenuProps = {
   /** Custom trigger element that replaces the default button trigger */
   customTrigger?: React.ReactNode
   /**
+   * Disables the built-in trigger button so it cannot open the menu. Custom
+   * triggers must handle their own disabled state. Defaults to `false`
+   */
+  disabled?: boolean
+  /**
    * When set, enables checkable items. 'multiple' allows many items checked
    * at once; 'radio' allows only one. Omit for a non-selectable menu
    */

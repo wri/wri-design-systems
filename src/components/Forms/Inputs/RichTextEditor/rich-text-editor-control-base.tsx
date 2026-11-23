@@ -113,6 +113,7 @@ export function createOptionControl(config: OptionControlConfig) {
         label={currentOption?.label || resolvedLabel}
         triggerAriaLabel={`${resolvedLabel}: ${currentOption?.label || resolvedLabel}`}
         size='small'
+        disabled={disabled}
         items={options.map((option) => ({
           label: option.label,
           value: option.value,

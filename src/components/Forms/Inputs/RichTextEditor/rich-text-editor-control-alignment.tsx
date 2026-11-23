@@ -82,6 +82,7 @@ export const Alignment = (
       label=''
       triggerAriaLabel={`${label}: ${currentOption?.label || label}`}
       size='small'
+      disabled={disabled}
       triggerLeftIcon={
         <CurrentAlignmentIcon width='0.875rem' height='0.875rem' />
       }

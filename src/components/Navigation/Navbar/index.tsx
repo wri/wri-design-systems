@@ -171,7 +171,10 @@ const Navbar = ({
                   items={item.items || []}
                   triggerVariant='navbarItem'
                   active={
-                    !!item.items?.some((subItem) => subItem.link === pathname)
+                    !!pathname &&
+                    !!item.items?.some(
+                      (subItem) => subItem.link && subItem.link === pathname,
+                    )
                   }
                 />
               )
@@ -251,7 +254,10 @@ const Navbar = ({
                 items={item.items || []}
                 triggerVariant='navbarItem'
                 active={
-                  !!item.items?.some((subItem) => subItem.link === pathname)
+                  !!pathname &&
+                  !!item.items?.some(
+                    (subItem) => subItem.link && subItem.link === pathname,
+                  )
                 }
               />
             )

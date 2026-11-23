@@ -39,8 +39,8 @@ import { Menu } from '@worldresources/wri-design-systems'
 | `active`                | `boolean`                                     | `false` | Highlights the trigger as the current section (e.g. when the current route matches one of the menu items), like the active Navbar link. Applies to the `'navbarItem'` trigger and sets `aria-current='true'` |
 | `customTrigger`         | `React.ReactNode`                             | —       | Custom trigger element that replaces the default button trigger                                                                                                                                              |
 | `defaultSelectedValues` | `string[]`                                    | `[]`    | Values that are checked by default on first render                                                                                                                                                           |
-| `groups`                | `{ title: string; items: MenuItemProps[] }[]` | —       | Items rendered as titled groups, separated by dividers                                                                                                                                                       |
-
+| `disabled`              | `boolean`                                     | `false` | Disables the built-in trigger button so it cannot open the menu. Custom triggers must handle their own disabled state                                                                                        |
+| `groups` | `{ title: string; items: MenuItemProps[] }[]` | — | Items rendered as titled groups, separated by dividers |
 | `items` | `MenuItemProps[]` | — | Flat list of menu items rendered before any groups |
 | `label` | `string` | — | Text of the default trigger button; also the fallback aria-label of the menu content |
 | `labels` | `Partial<MenuLabels>` | — | Override internal UI labels for internationalization support |

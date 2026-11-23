@@ -204,6 +204,21 @@ const MenuDemo = () => (
         onSelect={(value) => console.log('onSelect', value)}
       />
 
+      <Menu
+        label='Disabled Menu'
+        disabled
+        items={[
+          {
+            label: 'Label',
+            value: 'label-10-1',
+          },
+          {
+            label: 'Label',
+            value: 'label-10-2',
+          },
+        ]}
+      />
+
       <div
         css={css`
           display: flex;
