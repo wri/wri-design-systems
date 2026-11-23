@@ -2,11 +2,30 @@
 
 WRI UI Library
 
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [AI tooling](#set-up-ai-tooling)
+  - [Available Skills](#available-skills)
+  - [Project Theme](#create-the-project-theme)
+- [Components](#components)
+- [Templates](#templates)
+- [Building the lib](#building-the-lib)
+- [Publish new version (manual)](#publish-new-version-manual)
+- [PR Label Rules](#pr-label-rules)
+- [PR Description With AI Skill](#pr-description-with-ai-skill)
+
+---
+
 ## Requirements
 
 Node: `22.14.0`
 
 React: `19.0.1`
+
+---
 
 ## Installation
 
@@ -20,7 +39,7 @@ or
 npm i @worldresources/wri-design-systems
 ```
 
-## Other dependecies
+### Other dependencies
 
 ```
 yarn add @chakra-ui/react @emotion/react
@@ -31,6 +50,8 @@ or
 ```
 npm i @chakra-ui/react @emotion/react
 ```
+
+---
 
 ## Usage
 
@@ -424,14 +445,16 @@ font-size: ${getThemedFontSize(500)};
 line-height: ${getThemedLineHeight(600)};
 ```
 
+---
+
 ## Components
 
-## Containers
+### Containers
 
 - [Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Panel)
 - [Sheet](https://github.com/wri/wri-design-systems/tree/main/src/components/Containers/Sheet)
 
-## Overlays
+### Overlays
 
 - [Modal](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Modal)
 - [Dialog](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Dialog)
@@ -441,7 +464,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Guided Tour](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/MapPopUp/presets/GuidedTour)
 - [Popover](https://github.com/wri/wri-design-systems/tree/main/src/components/Overlays/Popover)
 
-## Data Display
+### Data Display
 
 - [Item Count](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/ItemCount)
 - [List](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/List)
@@ -450,11 +473,9 @@ line-height: ${getThemedLineHeight(600)};
 - [Analysis Widget](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/AnalysisWidget)
 - [Blockquote](https://github.com/wri/wri-design-systems/tree/main/src/components/DataDisplay/Blockquote)
 
-## Forms
+### Forms
 
-- [Form Container](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/FormContainer)
-
-### Actions
+#### Actions
 
 - [Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Button)
 - [Close Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/CloseButton)
@@ -462,7 +483,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Toolbar](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/Toolbar)
 - [Multi Action Button](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Actions/MultiActionButton)
 
-### Controls
+#### Controls
 
 - [Checkbox](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Checkbox)
 - [Checkbox Option Card](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/CheckboxOptionCard)
@@ -471,7 +492,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Slider](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Slider)
 - [Switch](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Controls/Switch)
 
-### Inputs
+#### Inputs
 
 - [Checkbox List](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/CheckboxList)
 - [Combobox](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/Combobox)
@@ -484,26 +505,26 @@ line-height: ${getThemedLineHeight(600)};
 - [Text Input](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/TextInput)
 - [Rich Text Editor](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Inputs/RichTextEditor)
 
-### Tags
+#### Tags
 
 - [Tag](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/Tag)
 
-### Form Container
+#### Form Container
 
 - [Form Container](https://github.com/wri/wri-design-systems/tree/main/src/components/Forms/FormContainer)
 
-## Geospatial
+### Geospatial
 
 - [Base Map](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/BaseMap)
 - [Map Marker](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/MapMarker)
 
-### Layers
+#### Layers
 
 - [Layer Group](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerGroup)
 - [Layer Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerItem)
 - [Layer Panel](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Layers/LayerPanel)
 
-### Legends
+#### Legends
 
 - [Layer Parameters](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/LayerParameters)
 - [Legend Item](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/LegendItem)
@@ -512,7 +533,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Qualitative Attribute](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/QualitativeAttribute)
 - [Scale Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Geospatial/Legends/ScaleBar)
 
-## Navigation
+### Navigation
 
 - [Breadcrumb](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Breadcrumb)
 - [Footer](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/Footer)
@@ -524,7 +545,7 @@ line-height: ${getThemedLineHeight(600)};
 - [Tab Bar](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/TabBar)
 - [Mobile Search](https://github.com/wri/wri-design-systems/tree/main/src/components/Navigation/MobileSearch)
 
-## Status
+### Status
 
 - [Alert Banner](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/AlertBanner)
 - [Avatar](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Avatar)
@@ -534,9 +555,13 @@ line-height: ${getThemedLineHeight(600)};
 - [Step Progress Indicator](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/StepProgressIndicator)
 - [Toast](https://github.com/wri/wri-design-systems/tree/main/src/components/Status/Toast)
 
+---
+
 ## Templates
 
 - [Next.js](https://github.com/wri/next-js-design-system-template)
+
+---
 
 ## Building the lib
 
@@ -548,6 +573,8 @@ yarn lint:fix
 yarn build
 ```
 
+---
+
 ## Publish new version (manual)
 
 ```
@@ -558,30 +585,88 @@ npm login
 npm publish
 ```
 
+---
+
 ## PR Label Rules
 
-Use exactly one versioning label on every contributor PR. The label drives the npm version bump workflow when the PR is merged into `main`.
+We follow [Semantic Versioning](https://semver.org/) to manage releases and communicate changes to consumers.
 
-**How it works**
+Each contributor PR must have **exactly one versioning label**. The label determines the npm version bump when the PR is merged into `main`.
 
-- Open a PR and add **one** of the labels below.
-- The PR Label Guard workflow enforces that exactly one label is present.
-- On merge, the Release & Publish workflow opens an automated release PR with labels:
-  - `auto-release`
-  - the same bump label from the merged PR (`major`, `minor`, or `patch`)
-- Merge that release PR to trigger tag creation, npm publish, and GitHub release notes.
-- `no-bump` skips all versioning and publishing.
-- PR checks (`test`, `lint`, `pr-label-check`) are skipped for PRs labeled `auto-release`.
+### How It Works
 
-**Label guide**
+1. Open a PR and assign one versioning label.
+2. The **PR Label Guard** workflow ensures exactly one versioning label is present.
+3. When merged, the **Release & Publish** workflow creates an automated release PR with:
+   - `auto-release`
+   - The versioning label from the merged PR (`major`, `minor`, or `patch`).
+4. Merging the release PR triggers tag creation, npm publishing, and GitHub release notes.
+5. `no-bump` skips versioning and publishing.
+6. PR checks (`test`, `lint`, `pr-label-check`) are skipped for `auto-release` PRs.
 
-- `patch`: non-breaking fixes (styles, internal refactors, Storybook-only tweaks that do not change usage)
-- `minor`: backwards-compatible feature or API additions (new component/prop), or behavior changes that may affect usage but are not breaking
-- `major`: breaking changes (removed/renamed props, changed required behavior, incompatible defaults)
-- `no-bump`: documentation-only or internal changes that should not publish
-- `auto-release`: internal automation label for generated release PRs (do not use manually on regular PRs)
+### Versioning Labels
 
-If you are unsure, choose `minor` and leave a note in the PR for review.
+| Label          | Description                                                                                                                  | Examples                                                                                                |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `patch`        | Backward-compatible bug fixes, visual adjustments, and internal improvements that do not introduce new public functionality. | Fixing component styles, adjusting padding, correcting alignment, fixing existing behavior.             |
+| `minor`        | Backward-compatible features, API additions, enhancements, and deprecations.                                                 | New components, optional props, styling variants, deprecated props with backward compatibility.         |
+| `major`        | Backward-incompatible changes that require consumers to update their code or rely on a different documented contract.        | Removing props, incompatible type changes, removing deprecated APIs, incompatible behavior or defaults. |
+| `no-bump`      | Changes that do not require publishing a new package version.                                                                | Documentation-only changes, CI configuration, non-distributed Storybook updates.                        |
+| `auto-release` | Reserved for automatically generated release PRs.                                                                            | Do not apply manually.                                                                                  |
+
+### API Changes & Deprecation Policy
+
+**Prefer backward-compatible API evolution over immediate breaking changes.**
+
+Changing or renaming a prop does not automatically require a `major` release. Whenever possible, introduce the replacement while keeping the existing API functional.
+
+When replacing an existing public API:
+
+1. Introduce the new API without removing the existing one.
+2. Mark the old API as `@deprecated`, including guidance on its replacement.
+3. Maintain backward compatibility and add appropriate tests.
+4. Update documentation and Storybook examples to use the new API.
+5. Document the deprecation in the release notes.
+6. Remove the deprecated API only in a future `major` release.
+
+Deprecated APIs should remain supported for at least two minor releases and until the next major version. This period may be extended depending on consumer adoption.
+
+**Example:**
+
+Renaming `isLoading` to `loading`:
+
+- `minor`: Introduce `loading` while keeping `isLoading` functional and deprecated.
+- `patch`: Fix issues in either prop while preserving compatibility.
+- `major`: Remove `isLoading` after the deprecation period.
+
+### Visual Changes
+
+Visual changes do not automatically require a `major` release.
+
+Changes to spacing, padding, colors, typography, borders, and alignment are generally considered `patch` releases when they improve consistency, fix visual issues, or align components with existing design specifications.
+
+Use the following guidelines:
+
+- **`patch`**: Visual fixes or adjustments that preserve the component's intended behavior and documented contract.
+- **`minor`**: New backward-compatible styling options, variants, sizes, or customization capabilities.
+- **`major`**: Changes that intentionally break documented visual contracts or require consumer migration.
+
+Visual impact alone does not determine the version bump. Consider whether the change breaks documented behavior, guarantees, or existing consumer expectations.
+
+For example, adjusting a button's padding is typically a `patch`, while removing a supported size variant or changing a guaranteed layout contract may require a `major`.
+
+### General Guidelines
+
+- Versioning is based on **consumer compatibility, not the size of the code change**.
+- Public APIs include component props, exported functions, hooks, types, design tokens, and documented behavior.
+- Prefer `minor` releases with deprecation over immediate breaking changes whenever backward compatibility can reasonably be maintained.
+- Changes to default behavior should be evaluated for compatibility, even when TypeScript interfaces remain unchanged.
+- When multiple changes are included in a release, the highest required version bump takes precedence: `major > minor > patch`.
+- If the correct label is unclear, explain the expected consumer impact in the PR and request a review before merging.
+
+The goal is to keep the Design System evolving without introducing unnecessary breaking changes while ensuring version numbers accurately communicate upgrade risk.
+
+---
 
 ## PR Description With AI Skill
 
