@@ -255,7 +255,12 @@ describe('Menu — navbarItem theme style contract', () => {
 describe('Menu — navbarItem active state', () => {
   it('only marks the navbarItem trigger with aria-current', () => {
     render(
-      <Menu label='Open Menu' triggerVariant='secondary' active items={items} />,
+      <Menu
+        label='Open Menu'
+        triggerVariant='secondary'
+        active
+        items={items}
+      />,
     )
     expect(
       screen.getByRole('button', { name: 'Open Menu' }),

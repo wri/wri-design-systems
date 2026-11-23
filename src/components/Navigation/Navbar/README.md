@@ -119,21 +119,21 @@ import { Navbar } from '@worldresources/wri-design-systems'
 
 ### Navbar
 
-| Prop                   | Type                           | Default     | Description                                                                                                                    |
-| ---------------------- | ------------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `actionsSection`       | `NavbarAction[]`               | —           | Action buttons rendered at the far right of the navbar, each rendered as a Button                                              |
-| `backgroundColor`      | `string`                       | —           | Custom background color of the navbar, overrides the theme default                                                             |
-| `fixed`                | `boolean`                      | —           | Sticks the navbar to the top of the viewport when true, otherwise it is absolutely positioned at the top of the page           |
-| `labels`               | `Partial<NavbarLabels>`        | —           | Override internal UI labels for internationalization support                                                                   |
-| `linkRouter`           | `any`                          | —           | Link component from react router or next.js used to render navigation links                                                    |
-| `logo`                 | `React.ReactNode`              | —           | Logo node rendered at the left of the navbar                                                                                   |
-| `maxWidth`             | `number \| string`             | `'100%'`    | Maximum width of the navbar content container, numbers resolve to spacing-scale rem values                                     |
-| `navigationSection`    | `NavbarNavigationItemsProps[]` | —           | Navigation items rendered after the logo, items with a link render as links and items with menu items render as dropdown menus |
-| `onNavbarHeightChange` | `(height: number) => void`     | —           | Called with the navbar height whenever it changes between single and double bar layouts                                        |
+| Prop                   | Type                           | Default     | Description                                                                                                                               |
+| ---------------------- | ------------------------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `actionsSection`       | `NavbarAction[]`               | —           | Action buttons rendered at the far right of the navbar, each rendered as a Button                                                         |
+| `backgroundColor`      | `string`                       | —           | Custom background color of the navbar, overrides the theme default                                                                        |
+| `fixed`                | `boolean`                      | —           | Sticks the navbar to the top of the viewport when true, otherwise it is absolutely positioned at the top of the page                      |
+| `labels`               | `Partial<NavbarLabels>`        | —           | Override internal UI labels for internationalization support                                                                              |
+| `linkRouter`           | `any`                          | —           | Link component from react router or next.js used to render navigation links                                                               |
+| `logo`                 | `React.ReactNode`              | —           | Logo node rendered at the left of the navbar                                                                                              |
+| `maxWidth`             | `number \| string`             | `'100%'`    | Maximum width of the navbar content container, numbers resolve to spacing-scale rem values                                                |
+| `navigationSection`    | `NavbarNavigationItemsProps[]` | —           | Navigation items rendered after the logo, items with a link render as links and items with menu items render as dropdown menus            |
+| `onNavbarHeightChange` | `(height: number) => void`     | —           | Called with the navbar height whenever it changes between single and double bar layouts                                                   |
 | `pathname`             | `string`                       | —           | Current pathname from react router or next.js used to highlight the active link and menu triggers when a route matches one of their items |
-| `theme`                | `'light' \| 'dark'`            | `'light'`   | Color theme of the navbar                                                                                                      |
-| `utilitySection`       | `React.ReactNode[]`            | —           | Custom nodes rendered in the right side of the navbar, hidden on mobile                                                        |
-| `variant`              | `'default' \| 'condensed'`     | `'default'` | Navbar height variant, 'condensed' renders a shorter bar                                                                       |
+| `theme`                | `'light' \| 'dark'`            | `'light'`   | Color theme of the navbar                                                                                                                 |
+| `utilitySection`       | `React.ReactNode[]`            | —           | Custom nodes rendered in the right side of the navbar, hidden on mobile                                                                   |
+| `variant`              | `'default' \| 'condensed'`     | `'default'` | Navbar height variant, 'condensed' renders a shorter bar                                                                                  |
 
 ### NavbarNavigationItems
 
